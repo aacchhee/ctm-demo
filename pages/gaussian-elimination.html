@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Your experiments here – CTM demo</title>
+<title>Gaussian elimination – CTM demo</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -725,7 +725,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/experiments.html">Your experiments here</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/gaussian-elimination.html">Gaussian elimination</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -758,13 +758,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pages/experiments.html" class="sidebar-item-text sidebar-link active">
+  <a href="../pages/experiments.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Your experiments here</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pages/gaussian-elimination.html" class="sidebar-item-text sidebar-link">
+  <a href="../pages/gaussian-elimination.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Gaussian elimination</span></a>
   </div>
 </li>
@@ -784,11 +784,22 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#fourier-coefficients-a-ramp-with-a-jump" id="toc-fourier-coefficients-a-ramp-with-a-jump" class="nav-link active" data-scroll-target="#fourier-coefficients-a-ramp-with-a-jump">Fourier coefficients: a ramp with a jump</a>
+  <li><a href="#a-22-system" id="toc-a-22-system" class="nav-link active" data-scroll-target="#a-22-system">1. A 2×2 system</a>
   <ul class="collapse">
-  <li><a href="#part-a-warm-up-the-average-and-one-sine-coefficient" id="toc-part-a-warm-up-the-average-and-one-sine-coefficient" class="nav-link" data-scroll-target="#part-a-warm-up-the-average-and-one-sine-coefficient">Part A — warm-up: the average and one sine coefficient</a></li>
-  <li><a href="#part-b-general-coefficients-keep-track-of-parity" id="toc-part-b-general-coefficients-keep-track-of-parity" class="nav-link" data-scroll-target="#part-b-general-coefficients-keep-track-of-parity">Part B — general coefficients: keep track of parity</a></li>
-  <li><a href="#part-c-a-shift-and-a-discontinuity" id="toc-part-c-a-shift-and-a-discontinuity" class="nav-link" data-scroll-target="#part-c-a-shift-and-a-discontinuity">Part C — a shift and a discontinuity</a></li>
+  <li><a href="#a.-eliminate-below-the-first-pivot" id="toc-a.-eliminate-below-the-first-pivot" class="nav-link" data-scroll-target="#a.-eliminate-below-the-first-pivot">A. Eliminate below the first pivot</a></li>
+  <li><a href="#b.-back-substitute" id="toc-b.-back-substitute" class="nav-link" data-scroll-target="#b.-back-substitute">B. Back substitute</a></li>
+  </ul></li>
+  <li><a href="#a-33-system" id="toc-a-33-system" class="nav-link" data-scroll-target="#a-33-system">2. A 3×3 system</a>
+  <ul class="collapse">
+  <li><a href="#a.-clear-the-first-column" id="toc-a.-clear-the-first-column" class="nav-link" data-scroll-target="#a.-clear-the-first-column">A. Clear the first column</a></li>
+  <li><a href="#b.-clear-the-second-column" id="toc-b.-clear-the-second-column" class="nav-link" data-scroll-target="#b.-clear-the-second-column">B. Clear the second column</a></li>
+  <li><a href="#c.-back-substitute" id="toc-c.-back-substitute" class="nav-link" data-scroll-target="#c.-back-substitute">C. Back substitute</a></li>
+  </ul></li>
+  <li><a href="#a-33-system-that-needs-pivoting" id="toc-a-33-system-that-needs-pivoting" class="nav-link" data-scroll-target="#a-33-system-that-needs-pivoting">3. A 3×3 system that needs pivoting</a>
+  <ul class="collapse">
+  <li><a href="#a.-choose-and-swap-the-pivot-row" id="toc-a.-choose-and-swap-the-pivot-row" class="nav-link" data-scroll-target="#a.-choose-and-swap-the-pivot-row">A. Choose and swap the pivot row</a></li>
+  <li><a href="#b.-eliminate-below-the-pivots" id="toc-b.-eliminate-below-the-pivots" class="nav-link" data-scroll-target="#b.-eliminate-below-the-pivots">B. Eliminate below the pivots</a></li>
+  <li><a href="#c.-back-substitute-1" id="toc-c.-back-substitute-1" class="nav-link" data-scroll-target="#c.-back-substitute-1">C. Back substitute</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -799,7 +810,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Your experiments here</h1>
+<h1 class="title">Gaussian elimination</h1>
 </div>
 
 
@@ -816,40 +827,51 @@ window.Quarto = {
 </header>
 
 
-<section id="fourier-coefficients-a-ramp-with-a-jump" class="level2">
-<h2 class="anchored" data-anchor-id="fourier-coefficients-a-ramp-with-a-jump">Fourier coefficients: a ramp with a jump</h2>
-<p>Let <span class="math inline">\(f\)</span> be the <span class="math inline">\(2\pi\)</span>-periodic extension of</p>
+<p>Solve these three systems by <strong>forward elimination</strong>, followed by <strong>back substitution</strong>. The last system needs a row swap before elimination can begin.</p>
+<p>For an augmented matrix <span class="math inline">\([A\mid b]\)</span>, the last column contains the right-hand side. Apply every row operation to that column too. A <strong>pivot</strong> is the nonzero entry used to eliminate entries below it. If the proposed pivot is zero, look for a nonzero entry below it and swap rows.</p>
+<p>Work on paper first, then check your entries. Use exact numbers such as <code>1/2</code>. The matrix fields below include the right-hand side as their last column. Follow the specified row operations without further row scaling: other valid elimination routes can produce different intermediate matrices.</p>
+<section id="a-22-system" class="level2">
+<h2 class="anchored" data-anchor-id="a-22-system">1. A 2×2 system</h2>
 <p><span class="math display">\[
-f(x)=\begin{cases}
-0,&amp;-\pi\le x&lt;0,\\
-x,&amp;0\le x&lt;\pi.
-\end{cases}
+\begin{aligned}
+x+y&amp;=5,\\
+2x-y&amp;=1.
+\end{aligned}
+\qquad
+[A\mid b]=\begin{bmatrix}1&amp;1&amp;5\\2&amp;-1&amp;1\end{bmatrix}.
 \]</span></p>
-<p>Thus <span class="math inline">\(f(x+2\pi)=f(x)\)</span>; in particular, <span class="math inline">\(f(\pi)=f(-\pi)=0\)</span>. On each period the function is zero for half the interval, then rises linearly before jumping back to zero.</p>
-<p>Use the real Fourier-series convention</p>
-<p><span class="math display">\[
-f(x)\sim\frac{a_0}{2}+\sum_{n=1}^{\infty}
-\bigl(a_n\cos(nx)+b_n\sin(nx)\bigr),
-\]</span></p>
-<p>with</p>
-<p><span class="math display">\[
-a_0=\frac1\pi\int_{-\pi}^{\pi}f(x)\,dx,\qquad
-a_n=\frac1\pi\int_{-\pi}^{\pi}f(x)\cos(nx)\,dx,\qquad
-b_n=\frac1\pi\int_{-\pi}^{\pi}f(x)\sin(nx)\,dx.
-\]</span></p>
-<p>Work out the integrals before checking your answers. Enter exact expressions: use <code>pi</code>, <code>n</code>, <code>sin(...)</code>, <code>cos(...)</code>, and <code>(-1)^n</code>. In parts B and C, <span class="math inline">\(n\)</span> is any positive integer. A formula must work for <strong>all</strong> such <span class="math inline">\(n\)</span>, not just the first few. The checkers compare symbolic identities; if an unusual equivalent form cannot be verified, rewrite it using these functions.</p>
-<section id="part-a-warm-up-the-average-and-one-sine-coefficient" class="level3">
-<h3 class="anchored" data-anchor-id="part-a-warm-up-the-average-and-one-sine-coefficient">Part A — warm-up: the average and one sine coefficient</h3>
-<p>Compute <span class="math inline">\(a_0\)</span>, the mean value of <span class="math inline">\(f\)</span> over a full period, and <span class="math inline">\(b_1\)</span>. Keep the constant coefficient <span class="math inline">\(a_0\)</span> distinct from the constant term <span class="math inline">\(a_0/2\)</span>.</p>
-<div class="math-exercise-cell" id="math-exercise-1" data-label="fourier-a" data-mode="custom" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;def check(response, symbols):\n    values = response[\&quot;expressions\&quot;]\n    if any(not isinstance(z, Expr) or z.has(nan, zoo, oo, -oo) for z in values):\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Enter finite scalar expressions, not equations or lists.\&quot;}\n    targets = [pi/2, pi/4, S.One]\n    hints = [\&quot;For a₀, integrate x from 0 to π and divide by π.\&quot;, \&quot;The mean is the integral over a period divided by 2π, so it is a₀/2.\&quot;, \&quot;For b₁, integrate x sin(x) from 0 to π by parts, then divide by π.\&quot;]\n    if len(values) != 3:\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Complete all three fields.\&quot;}\n    checks, messages = [], []\n    for value, target, hint in zip(values, targets, hints):\n        ok = not value.free_symbols and value.is_real is True and value.is_finite is True and simplify(value-target) == 0\n        checks.append(bool(ok))\n        if not ok:\n            messages.append(hint)\n    return {\&quot;score\&quot;: sum(checks)/3, \&quot;show_score\&quot;: False, \&quot;feedback\&quot;: \&quot;All three are correct: the mean is half of a₀.\&quot; if all(checks) else \&quot; \&quot;.join(messages)}&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;a₀&quot;,&quot;mean value&quot;,&quot;b₁&quot;]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;Part A — warm-up: the average and one sine coefficient Compute a_0, the mean value of f over a full period, and b_1. Keep the constant coefficient a_0 distinct from the constant term a_0/2.&quot;" data-fields="[&quot;math-exercise-1-f1&quot;,&quot;math-exercise-1-f2&quot;,&quot;math-exercise-1-f3&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;,&quot;&quot;]">
-<div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>Part A — average and first sine coefficient</div>
+<section id="a.-eliminate-below-the-first-pivot" class="level3">
+<h3 class="anchored" data-anchor-id="a.-eliminate-below-the-first-pivot">A. Eliminate below the first pivot</h3>
+<p>Apply <span class="math inline">\(R_2\leftarrow R_2-2R_1\)</span>, keeping <span class="math inline">\(R_1\)</span> unchanged. Enter the resulting augmented matrix.</p>
+<div class="math-exercise-cell" id="math-exercise-1" data-label="gauss-2x2-elimination" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;A. Eliminate below the first pivot Apply R_2\\leftarrow R_2-2R_1, keeping R_1 unchanged. Enter the resulting augmented matrix.&quot;" data-fields="[&quot;math-exercise-1-f1&quot;,&quot;math-exercise-1-f2&quot;,&quot;math-exercise-1-f3&quot;,&quot;math-exercise-1-f4&quot;,&quot;math-exercise-1-f5&quot;,&quot;math-exercise-1-f6&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>1A — one elimination step</div>
 
 <div class="math-exercise-body" aria-hidden="true">
-<div class="math-exercise-question">\(a_0=\) <input type="text" id="math-exercise-1-f1" data-answer="" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"><br>
+<div class="math-exercise-question">\([U\mid c]=\) <span class="math-mat" style="--cols:3"><input type="text" id="math-exercise-1-f1" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-1-f2" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-1-f3" data-answer="5" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-1-f4" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-1-f5" data-answer="-3" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-1-f6" data-answer="-9" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"></span></div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Check</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Input help</button>
+  <div class="btn-group">
+    <button type="button" class="btn btn-light math-feedback-btn">💬&nbsp;Feedback</button>
+    <button type="button" class="btn btn-light math-reconfig-btn" title="Change AI configuration">⚙</button>
+  </div>
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+</section>
+<section id="b.-back-substitute" class="level3">
+<h3 class="anchored" data-anchor-id="b.-back-substitute">B. Back substitute</h3>
+<p>Use the second row to find <span class="math inline">\(y\)</span>, then use the first row to find <span class="math inline">\(x\)</span>.</p>
+<div class="math-exercise-cell" id="math-exercise-2" data-label="gauss-2x2-solution" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[&quot;x&quot;,&quot;y&quot;]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;B. Back substitute Use the second row to find y, then use the first row to find x.&quot;" data-fields="[&quot;math-exercise-2-f1&quot;,&quot;math-exercise-2-f2&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>1B — solve the triangular system</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div class="math-exercise-question">\(x=\) <input type="text" id="math-exercise-2-f1" data-answer="2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"><br>
 <br>
-Mean value \(=\) <input type="text" id="math-exercise-1-f2" data-answer="" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"><br>
-<br>
-\(b_1=\) <input type="text" id="math-exercise-1-f3" data-answer="" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"></div>
+\(y=\) <input type="text" id="math-exercise-2-f2" data-answer="3" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"></div>
 
 <div class="math-exercise-controls">
   <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Check</button>
@@ -865,21 +887,80 @@ Mean value \(=\) <input type="text" id="math-exercise-1-f2" data-answer="" data-
 </div>
 <details class="learning-hint">
 <summary>
-Hint for A
+Hint for problem 1
 </summary>
-<p>The negative half-period contributes zero to every integral. For <span class="math inline">\(b_1\)</span>, choose <span class="math inline">\(u=x\)</span> and <span class="math inline">\(dv=\sin x\,dx\)</span> in integration by parts.</p>
+<p>In the second row, the coefficient of <span class="math inline">\(y\)</span> becomes <span class="math inline">\(-1-2\cdot1\)</span>. The right-hand side becomes <span class="math inline">\(1-2\cdot5\)</span>. A row operation changes the whole row. Check your final solution in both original equations.</p>
 </details>
 </section>
-<section id="part-b-general-coefficients-keep-track-of-parity" class="level3">
-<h3 class="anchored" data-anchor-id="part-b-general-coefficients-keep-track-of-parity">Part B — general coefficients: keep track of parity</h3>
-<p>Find formulas for <span class="math inline">\(a_n\)</span> and <span class="math inline">\(b_n\)</span> for every positive integer <span class="math inline">\(n\)</span>. Neither an even-function shortcut nor an odd-function shortcut applies to <span class="math inline">\(f\)</span>. Use integration by parts and simplify the endpoint values.</p>
-<div class="math-exercise-cell" id="math-exercise-2" data-label="fourier-b" data-mode="custom" data-reject="" data-vars="n" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;def check(response, symbols):\n    values = response[\&quot;expressions\&quot;]\n    if any(not isinstance(z, Expr) or z.has(nan, zoo, oo, -oo) for z in values):\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Enter finite scalar expressions, not equations or lists.\&quot;}\n    if len(values) != 2:\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Enter both coefficient formulas.\&quot;}\n    original = symbols[\&quot;n\&quot;]\n    n = Symbol(\&quot;fourier_index\&quot;, integer=True, positive=True)\n    targets = [((-1)**n-1)/(pi*n**2), (-1)**(n+1)/n]\n    checks, messages = [], []\n    for value, target, name in zip(values, targets, (\&quot;aₙ\&quot;, \&quot;bₙ\&quot;)):\n        ok = False\n        try:\n            if not value.free_symbols - {original}:\n                expr = value.subs(original, n)\n                ok = simplify(trigsimp(expr-target)) == 0\n        except Exception:\n            pass\n        checks.append(bool(ok))\n        if not ok:\n            messages.append(f\&quot;{name}: the identity was not verified. Check the boundary term, the factor 1/π, and cos(nπ) = (−1)ⁿ; give one formula in n.\&quot;)\n    return {\&quot;score\&quot;: sum(checks)/2, \&quot;show_score\&quot;: False, \&quot;feedback\&quot;: \&quot;Correct for all positive integers n. Notice that aₙ vanishes for even n, while bₙ alternates sign.\&quot; if all(checks) else \&quot; \&quot;.join(messages)}&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;aₙ&quot;,&quot;bₙ&quot;]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;Part B — general coefficients: keep track of parity Find formulas for a_n and b_n for every positive integer n. Neither an even-function shortcut nor an odd-function shortcut applies to f. Use integration by parts and simplify the endpoint values.&quot;" data-fields="[&quot;math-exercise-2-f1&quot;,&quot;math-exercise-2-f2&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;]">
-<div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>Part B — coefficients for every positive integer n</div>
+</section>
+<section id="a-33-system" class="level2">
+<h2 class="anchored" data-anchor-id="a-33-system">2. A 3×3 system</h2>
+<p><span class="math display">\[
+\begin{aligned}
+x+y+z&amp;=6,\\
+2x+3y+z&amp;=11,\\
+x-y+2z&amp;=5.
+\end{aligned}
+\qquad
+[A\mid b]=\begin{bmatrix}1&amp;1&amp;1&amp;6\\2&amp;3&amp;1&amp;11\\1&amp;-1&amp;2&amp;5\end{bmatrix}.
+\]</span></p>
+<section id="a.-clear-the-first-column" class="level3">
+<h3 class="anchored" data-anchor-id="a.-clear-the-first-column">A. Clear the first column</h3>
+<p>Use the unchanged first row in both operations:</p>
+<p><span class="math display">\[R_2\leftarrow R_2-2R_1,\qquad R_3\leftarrow R_3-R_1.\]</span></p>
+<div class="math-exercise-cell" id="math-exercise-3" data-label="gauss-3x3-first-column" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;A. Clear the first column Use the unchanged first row in both operations: R_2\\leftarrow R_2-2R_1,\\qquad R_3\\leftarrow R_3-R_1.&quot;" data-fields="[&quot;math-exercise-3-f1&quot;,&quot;math-exercise-3-f2&quot;,&quot;math-exercise-3-f3&quot;,&quot;math-exercise-3-f4&quot;,&quot;math-exercise-3-f5&quot;,&quot;math-exercise-3-f6&quot;,&quot;math-exercise-3-f7&quot;,&quot;math-exercise-3-f8&quot;,&quot;math-exercise-3-f9&quot;,&quot;math-exercise-3-f10&quot;,&quot;math-exercise-3-f11&quot;,&quot;math-exercise-3-f12&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>2A — eliminate x from rows 2 and 3</div>
 
 <div class="math-exercise-body" aria-hidden="true">
-<div class="math-exercise-question">\(a_n=\) <textarea id="math-exercise-2-f1" data-answer="" data-vars="n" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-large" rows="2"></textarea><br>
+<div class="math-exercise-question">Resulting augmented matrix \(=\) <span class="math-mat" style="--cols:4"><input type="text" id="math-exercise-3-f1" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-3-f2" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-3-f3" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-3-f4" data-answer="6" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-3-f5" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-3-f6" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-3-f7" data-answer="-1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-3-f8" data-answer="-1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-3-f9" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-3-f10" data-answer="-2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-3-f11" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-3-f12" data-answer="-1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"></span></div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Check</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Input help</button>
+  <div class="btn-group">
+    <button type="button" class="btn btn-light math-feedback-btn">💬&nbsp;Feedback</button>
+    <button type="button" class="btn btn-light math-reconfig-btn" title="Change AI configuration">⚙</button>
+  </div>
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+</section>
+<section id="b.-clear-the-second-column" class="level3">
+<h3 class="anchored" data-anchor-id="b.-clear-the-second-column">B. Clear the second column</h3>
+<p>Using the <strong>updated</strong> rows from part A, apply <span class="math inline">\(R_3\leftarrow R_3+2R_2\)</span>. Keep the other rows unchanged.</p>
+<div class="math-exercise-cell" id="math-exercise-4" data-label="gauss-3x3-triangular" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;B. Clear the second column Using the updated rows from part A, apply R_3\\leftarrow R_3+2R_2. Keep the other rows unchanged.&quot;" data-fields="[&quot;math-exercise-4-f1&quot;,&quot;math-exercise-4-f2&quot;,&quot;math-exercise-4-f3&quot;,&quot;math-exercise-4-f4&quot;,&quot;math-exercise-4-f5&quot;,&quot;math-exercise-4-f6&quot;,&quot;math-exercise-4-f7&quot;,&quot;math-exercise-4-f8&quot;,&quot;math-exercise-4-f9&quot;,&quot;math-exercise-4-f10&quot;,&quot;math-exercise-4-f11&quot;,&quot;math-exercise-4-f12&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>2B — complete forward elimination</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div class="math-exercise-question">\([U\mid c]=\) <span class="math-mat" style="--cols:4"><input type="text" id="math-exercise-4-f1" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-4-f2" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-4-f3" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-4-f4" data-answer="6" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-4-f5" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-4-f6" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-4-f7" data-answer="-1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-4-f8" data-answer="-1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-4-f9" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-4-f10" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-4-f11" data-answer="-1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-4-f12" data-answer="-3" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"></span></div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Check</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Input help</button>
+  <div class="btn-group">
+    <button type="button" class="btn btn-light math-feedback-btn">💬&nbsp;Feedback</button>
+    <button type="button" class="btn btn-light math-reconfig-btn" title="Change AI configuration">⚙</button>
+  </div>
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+</section>
+<section id="c.-back-substitute" class="level3">
+<h3 class="anchored" data-anchor-id="c.-back-substitute">C. Back substitute</h3>
+<p>Solve from the bottom row upward: first <span class="math inline">\(z\)</span>, then <span class="math inline">\(y\)</span>, then <span class="math inline">\(x\)</span>.</p>
+<div class="math-exercise-cell" id="math-exercise-5" data-label="gauss-3x3-solution" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[&quot;x&quot;,&quot;y&quot;,&quot;z&quot;]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;C. Back substitute Solve from the bottom row upward: first z, then y, then x.&quot;" data-fields="[&quot;math-exercise-5-f1&quot;,&quot;math-exercise-5-f2&quot;,&quot;math-exercise-5-f3&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;,&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>2C — back substitution</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div class="math-exercise-question">\(x=\) <input type="text" id="math-exercise-5-f1" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"><br>
 <br>
-\(b_n=\) <textarea id="math-exercise-2-f2" data-answer="" data-vars="n" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-large" rows="2"></textarea></div>
+\(y=\) <input type="text" id="math-exercise-5-f2" data-answer="2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"><br>
+<br>
+\(z=\) <input type="text" id="math-exercise-5-f3" data-answer="3" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"></div>
 
 <div class="math-exercise-controls">
   <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Check</button>
@@ -895,26 +976,101 @@ Hint for A
 </div>
 <details class="learning-hint">
 <summary>
-Hint for B
+Hint for problem 2
 </summary>
-<p>On the nonzero half-period, integrate <span class="math inline">\(x\cos(nx)\)</span> and <span class="math inline">\(x\sin(nx)\)</span>. For integer <span class="math inline">\(n\)</span>, <span class="math inline">\(\sin(n\pi)=0\)</span> and <span class="math inline">\(\cos(n\pi)=(-1)^n\)</span>. For the cosine coefficient, retain the contribution at <strong>both</strong> endpoints. Check your formulas at <span class="math inline">\(n=1\)</span> and <span class="math inline">\(n=2\)</span>, but remember that these checks alone are not a proof of a general formula.</p>
+<p>After part A, the first column below the pivot should contain only zeros. The second pivot is 1. Adding twice the new second row to the new third row eliminates its <span class="math inline">\(y\)</span> coefficient. The last row then contains only <span class="math inline">\(z\)</span> and the right-hand side. Substitute your solution into all three original equations.</p>
 </details>
 </section>
-<section id="part-c-a-shift-and-a-discontinuity" class="level3">
-<h3 class="anchored" data-anchor-id="part-c-a-shift-and-a-discontinuity">Part C — a shift and a discontinuity</h3>
-<p>Now let <span class="math inline">\(g(x)=f(x-\pi/3)\)</span>, a shift to the <strong>right</strong> by <span class="math inline">\(\pi/3\)</span>. Write its Fourier series in the same convention:</p>
-<p><span class="math display">\[g(x)\sim\frac{\alpha_0}{2}+\sum_{n=1}^{\infty}
-\bigl(\alpha_n\cos(nx)+\beta_n\sin(nx)\bigr).\]</span></p>
-<p>Find <span class="math inline">\(\alpha_n\)</span> and <span class="math inline">\(\beta_n\)</span> for every positive integer <span class="math inline">\(n\)</span>, as explicit expressions in <span class="math inline">\(n\)</span> (do not use undefined symbols <span class="math inline">\(a_n\)</span> or <span class="math inline">\(b_n\)</span>). Then find the value to which this Fourier series converges at <span class="math inline">\(x=-2\pi/3\)</span>. Use the one-sided limits there; the assigned value of <span class="math inline">\(g\)</span> at a single point does not determine the Fourier-series sum.</p>
-<div class="math-exercise-cell" id="math-exercise-3" data-label="fourier-c" data-mode="custom" data-reject="" data-vars="n" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;def check(response, symbols):\n    values = response[\&quot;expressions\&quot;]\n    if any(not isinstance(z, Expr) or z.has(nan, zoo, oo, -oo) for z in values):\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Enter finite scalar expressions, not equations or lists.\&quot;}\n    if len(values) != 3:\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Complete both coefficient formulas and the series value.\&quot;}\n    original = symbols[\&quot;n\&quot;]\n    n = Symbol(\&quot;fourier_index\&quot;, integer=True, positive=True)\n    a = ((-1)**n-1)/(pi*n**2)\n    b = (-1)**(n+1)/n\n    theta = n*pi/3\n    targets = [a*cos(theta)-b*sin(theta), a*sin(theta)+b*cos(theta)]\n    checks, messages = [], []\n    for value, target, name in zip(values[:2], targets, (\&quot;αₙ\&quot;, \&quot;βₙ\&quot;)):\n        ok = False\n        try:\n            if not value.free_symbols - {original}:\n                expr = value.subs(original, n)\n                ok = simplify(trigsimp(expand_trig(expr-target))) == 0\n        except Exception:\n            pass\n        checks.append(bool(ok))\n        if not ok:\n            messages.append(f\&quot;{name}: the identity was not verified. Expand cos(nx − nπ/3) and sin(nx − nπ/3), collect the correct term, and substitute your part B formulas.\&quot;)\n    value = values[2]\n    jump_ok = not value.free_symbols and value.is_real is True and value.is_finite is True and simplify(value-pi/2) == 0\n    checks.append(bool(jump_ok))\n    if not jump_ok:\n        messages.append(\&quot;At x = −2π/3 the argument of f is −π. Use periodicity to find the left-hand limit and average it with the right-hand limit.\&quot;)\n    return {\&quot;score\&quot;: sum(checks)/3, \&quot;show_score\&quot;: False, \&quot;feedback\&quot;: \&quot;Correct: translation mixes the cosine and sine coefficients. At the jump the series converges to π/2, although g(−2π/3) = 0.\&quot; if all(checks) else \&quot; \&quot;.join(messages)}&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;αₙ&quot;,&quot;βₙ&quot;,&quot;Fourier-series sum at −2π/3&quot;]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;Part C — a shift and a discontinuity Now let g(x)=f(x-\\pi/3), a shift to the right by \\pi/3. Write its Fourier series in the same convention: g(x)\\sim\\frac{\\alpha_0}{2}+\\sum_{n=1}^{\\infty} \\bigl(\\alpha_n\\cos(nx)+\\beta_n\\sin(nx)\\bigr). Find \\alpha_n and \\beta_n for every positive integer n, as explicit expressions in n (do not use undefined symbols a_n or b_n). Then find the value to which this Fourier series converges at x=-2\\pi/3. Use the one-sided limits there; the assigned value of g at a single point does not determine the Fourier-series sum.&quot;" data-fields="[&quot;math-exercise-3-f1&quot;,&quot;math-exercise-3-f2&quot;,&quot;math-exercise-3-f3&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;,&quot;&quot;]">
-<div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>Part C — shifted coefficients and the sum at the jump</div>
+</section>
+<section id="a-33-system-that-needs-pivoting" class="level2">
+<h2 class="anchored" data-anchor-id="a-33-system-that-needs-pivoting">3. A 3×3 system that needs pivoting</h2>
+<p><span class="math display">\[
+\begin{aligned}
+2y+z&amp;=1,\\
+2x+y-z&amp;=0,\\
+x-y+2z&amp;=9.
+\end{aligned}
+\qquad
+[A\mid b]=\begin{bmatrix}0&amp;2&amp;1&amp;1\\2&amp;1&amp;-1&amp;0\\1&amp;-1&amp;2&amp;9\end{bmatrix}.
+\]</span></p>
+<p>The first proposed pivot is zero, so division by it is impossible. This does <strong>not</strong> mean the system has no unique solution. Use <strong>partial pivoting</strong>: in the current column, choose the available entry with the largest absolute value and move its row into the pivot position. Here, compare the entries <span class="math inline">\(0\)</span>, <span class="math inline">\(2\)</span>, and <span class="math inline">\(1\)</span> in the first column.</p>
+<section id="a.-choose-and-swap-the-pivot-row" class="level3">
+<h3 class="anchored" data-anchor-id="a.-choose-and-swap-the-pivot-row">A. Choose and swap the pivot row</h3>
+<p>Enter the original row number to swap with row 1, then the augmented matrix immediately after that swap. Do not eliminate or scale any rows yet.</p>
+<div class="math-exercise-cell" id="math-exercise-6" data-label="gauss-pivot-swap" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;A. Choose and swap the pivot row Enter the original row number to swap with row 1, then the augmented matrix immediately after that swap. Do not eliminate or scale any rows yet.&quot;" data-fields="[&quot;math-exercise-6-f1&quot;,&quot;math-exercise-6-f2&quot;,&quot;math-exercise-6-f3&quot;,&quot;math-exercise-6-f4&quot;,&quot;math-exercise-6-f5&quot;,&quot;math-exercise-6-f6&quot;,&quot;math-exercise-6-f7&quot;,&quot;math-exercise-6-f8&quot;,&quot;math-exercise-6-f9&quot;,&quot;math-exercise-6-f10&quot;,&quot;math-exercise-6-f11&quot;,&quot;math-exercise-6-f12&quot;,&quot;math-exercise-6-f13&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>3A — choose the first pivot</div>
 
 <div class="math-exercise-body" aria-hidden="true">
-<div class="math-exercise-question">\(\alpha_n=\) <textarea id="math-exercise-3-f1" data-answer="" data-vars="n" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-large" rows="2"></textarea><br>
+<div class="math-exercise-question">Swap row 1 with row <input type="text" id="math-exercise-6-f1" data-answer="2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium">.<br>
 <br>
-\(\beta_n=\) <textarea id="math-exercise-3-f2" data-answer="" data-vars="n" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-large" rows="2"></textarea><br>
+Matrix after the swap \(=\) <span class="math-mat" style="--cols:4"><input type="text" id="math-exercise-6-f2" data-answer="2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-6-f3" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-6-f4" data-answer="-1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-6-f5" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-6-f6" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-6-f7" data-answer="2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-6-f8" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-6-f9" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-6-f10" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-6-f11" data-answer="-1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-6-f12" data-answer="2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-6-f13" data-answer="9" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"></span></div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Check</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Input help</button>
+  <div class="btn-group">
+    <button type="button" class="btn btn-light math-feedback-btn">💬&nbsp;Feedback</button>
+    <button type="button" class="btn btn-light math-reconfig-btn" title="Change AI configuration">⚙</button>
+  </div>
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+</section>
+<section id="b.-eliminate-below-the-pivots" class="level3">
+<h3 class="anchored" data-anchor-id="b.-eliminate-below-the-pivots">B. Eliminate below the pivots</h3>
+<p>After the swap, the second row already has a zero in the first column. Apply <span class="math inline">\(R_3\leftarrow R_3-\tfrac12R_1\)</span>.</p>
+<div class="math-exercise-cell" id="math-exercise-7" data-label="gauss-pivot-first-column" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;B. Eliminate below the pivots After the swap, the second row already has a zero in the first column. Apply R_3\\leftarrow R_3-\\tfrac12R_1.&quot;" data-fields="[&quot;math-exercise-7-f1&quot;,&quot;math-exercise-7-f2&quot;,&quot;math-exercise-7-f3&quot;,&quot;math-exercise-7-f4&quot;,&quot;math-exercise-7-f5&quot;,&quot;math-exercise-7-f6&quot;,&quot;math-exercise-7-f7&quot;,&quot;math-exercise-7-f8&quot;,&quot;math-exercise-7-f9&quot;,&quot;math-exercise-7-f10&quot;,&quot;math-exercise-7-f11&quot;,&quot;math-exercise-7-f12&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>3B — eliminate below the new first pivot</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div class="math-exercise-question">Resulting augmented matrix \(=\) <span class="math-mat" style="--cols:4"><input type="text" id="math-exercise-7-f1" data-answer="2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f2" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f3" data-answer="-1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f4" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f5" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f6" data-answer="2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f7" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f8" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f9" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f10" data-answer="-3/2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f11" data-answer="5/2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f12" data-answer="9" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"></span></div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Check</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Input help</button>
+  <div class="btn-group">
+    <button type="button" class="btn btn-light math-feedback-btn">💬&nbsp;Feedback</button>
+    <button type="button" class="btn btn-light math-reconfig-btn" title="Change AI configuration">⚙</button>
+  </div>
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<p>The second pivot is 2; the remaining entry below it is <span class="math inline">\(-3/2\)</span>. Since <span class="math inline">\(|2|&gt;|-3/2|\)</span>, partial pivoting requires no further swap. Apply <span class="math inline">\(R_3\leftarrow R_3+\tfrac34R_2\)</span> to the updated matrix.</p>
+<div class="math-exercise-cell" id="math-exercise-8" data-label="gauss-pivot-triangular" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;B. Eliminate below the pivots After the swap, the second row already has a zero in the first column. Apply R_3\\leftarrow R_3-\\tfrac12R_1. The second pivot is 2; the remaining entry below it is -3/2. Since |2|>|-3/2|, partial pivoting requires no further swap. Apply R_3\\leftarrow R_3+\\tfrac34R_2 to the updated matrix.&quot;" data-fields="[&quot;math-exercise-8-f1&quot;,&quot;math-exercise-8-f2&quot;,&quot;math-exercise-8-f3&quot;,&quot;math-exercise-8-f4&quot;,&quot;math-exercise-8-f5&quot;,&quot;math-exercise-8-f6&quot;,&quot;math-exercise-8-f7&quot;,&quot;math-exercise-8-f8&quot;,&quot;math-exercise-8-f9&quot;,&quot;math-exercise-8-f10&quot;,&quot;math-exercise-8-f11&quot;,&quot;math-exercise-8-f12&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>3B — complete forward elimination</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div class="math-exercise-question">\([U\mid c]=\) <span class="math-mat" style="--cols:4"><input type="text" id="math-exercise-8-f1" data-answer="2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f2" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f3" data-answer="-1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f4" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f5" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f6" data-answer="2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f7" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f8" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f9" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f10" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f11" data-answer="13/4" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f12" data-answer="39/4" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"></span></div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Check</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Input help</button>
+  <div class="btn-group">
+    <button type="button" class="btn btn-light math-feedback-btn">💬&nbsp;Feedback</button>
+    <button type="button" class="btn btn-light math-reconfig-btn" title="Change AI configuration">⚙</button>
+  </div>
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+</section>
+<section id="c.-back-substitute-1" class="level3">
+<h3 class="anchored" data-anchor-id="c.-back-substitute-1">C. Back substitute</h3>
+<p>Solve for <span class="math inline">\(z\)</span>, then <span class="math inline">\(y\)</span>, then <span class="math inline">\(x\)</span>. Row swaps change the order of the equations, <strong>not</strong> the order of the unknowns: the columns still represent <span class="math inline">\(x,y,z\)</span>.</p>
+<div class="math-exercise-cell" id="math-exercise-9" data-label="gauss-pivot-solution" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[&quot;x&quot;,&quot;y&quot;,&quot;z&quot;]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;C. Back substitute Solve for z, then y, then x. Row swaps change the order of the equations, not the order of the unknowns: the columns still represent x,y,z.&quot;" data-fields="[&quot;math-exercise-9-f1&quot;,&quot;math-exercise-9-f2&quot;,&quot;math-exercise-9-f3&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;,&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>3C — solve after pivoting</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div class="math-exercise-question">\(x=\) <input type="text" id="math-exercise-9-f1" data-answer="2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"><br>
 <br>
-Fourier-series sum at \(x=-2\pi/3\): <input type="text" id="math-exercise-3-f3" data-answer="" data-vars="n" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"></div>
+\(y=\) <input type="text" id="math-exercise-9-f2" data-answer="-1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"><br>
+<br>
+\(z=\) <input type="text" id="math-exercise-9-f3" data-answer="3" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"></div>
 
 <div class="math-exercise-controls">
   <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Check</button>
@@ -930,9 +1086,9 @@ Fourier-series sum at \(x=-2\pi/3\): <input type="text" id="math-exercise-3-f3" 
 </div>
 <details class="learning-hint">
 <summary>
-Hint for C
+Hint for problem 3
 </summary>
-<p>Substitute <span class="math inline">\(x-\pi/3\)</span> into the original Fourier series and use the angle-subtraction identities. Translation preserves the mean. The function is piecewise smooth, so its Fourier series converges at each point to the average of the left-hand and right-hand limits. At the chosen point, approach <span class="math inline">\(-\pi\)</span> from either side using the periodic extension of <span class="math inline">\(f\)</span>.</p>
+<p>Swap the <strong>entire</strong> rows, including their right-hand sides. After the swap, the first pivot is 2, so subtract half of row 1 from row 3. For the next step, check that <span class="math inline">\(-3/2+(3/4)\cdot2=0\)</span>. Fractions during elimination are normal. Check your final answer in the original system, before any row swaps.</p>
 </details>
 
 
