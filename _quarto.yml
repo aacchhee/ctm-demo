@@ -1,0 +1,38 @@
+project:
+  type: website
+  render:
+    - index.qmd
+    - pages/experiments.qmd
+    - pages/help.qmd
+
+lang: en
+
+filters:
+  - pyodide-interaktiv
+  - jsxgraph
+  - math-exercise
+  - py-exercise
+
+website:
+  title: "CTM demo"
+  site-url: https://aacchhee.github.io/ctm-demo/
+  sidebar:
+    style: docked
+    contents:
+      - text: "Interactive mathematics"
+        file: index.qmd
+      - text: "Your experiments here"
+        file: pages/experiments.qmd
+      - text: "Help"
+        file: pages/help.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    include-after-body:
+      - _includes/site/tab-links.html
+      - _includes/site/learning-mode.html
+
+pyodide:
+  lang: en

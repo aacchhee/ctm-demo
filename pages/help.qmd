@@ -1,0 +1,191 @@
+---
+title: "Help: ingredients and workflow"
+toc: true
+---
+
+This is a small, static Quarto website with interactive mathematics running in
+the reader's browser. You can edit it locally in VS Code or work on the source
+through a GitHub-connected assistant. Both routes use the same source files and
+build process.
+
+## What is included?
+
+| Ingredient | What it does here | Where it comes from |
+|---|---|---|
+| Quarto | Converts Markdown, YAML configuration, mathematics, and code blocks into a website; provides navigation and tabs. | [Quarto](https://quarto.org/) |
+| `jsxgraph` filter + JSXGraph | Turns a JavaScript block into the draggable vector applet. JSXGraph draws the board in a sandboxed iframe. | [Erasmus-CTM bridge](https://github.com/Erasmus-CTM/math-exercise/tree/main/_extensions/jsxgraph), based on [jsxgraph-quarto](https://github.com/jsxgraph/jsxgraph-quarto); [JSXGraph](https://jsxgraph.org/) supplies the graphics library. |
+| `pyodide-interaktiv` | Editable Python cells, plots, and optional feedback; Python runs in a Web Worker through Pyodide. | [Erasmus-CTM/pyodide-interaktiv](https://github.com/Erasmus-CTM/pyodide-interaktiv), branch `issue-1-webagg` |
+| `math-exercise` | Checks exact mathematical answers, including the custom eigenvector checker that accepts different scalings. | [Erasmus-CTM/math-exercise](https://github.com/Erasmus-CTM/math-exercise) |
+| `py-exercise` | Checks Python coding exercises against tests. Installed and enabled for new experiments; the two retained problems use `math-exercise`. | [Erasmus-CTM/py-exercise](https://github.com/Erasmus-CTM/py-exercise) |
+| NumPy and Matplotlib | Vector/matrix calculations and plots inside the Python examples. | Loaded by [Pyodide](https://pyodide.org/) in the browser. |
+| GitHub Actions and Pages | Build the source and serve the generated static website. | [Repository workflow](https://github.com/aacchhee/ctm-demo/blob/main/.github/workflows/quarto.yml) |
+
+The **Explore / Go deeper** buttons open or close the longer explanations.
+Hints remain individually expandable. The small shared tab-navigation script
+supports links into tabs and browser Back/Forward navigation.
+
+## Who does what, and when?
+
+Here, **GH-adapter** means the GitHub connection used by an assistant to read
+repository files and submit changes. It is an authoring connection, not a
+component loaded by this website. The website also works without an assistant.
+
+```{mermaid}
+flowchart TD
+  H["Human: request or edit"] --> A["Assistant + GH-adapter"]
+  H --> V["VS Code + local Git"]
+  A --> R["Branch and pull request"]
+  V --> R
+  R --> C["Actions: check build"]
+  C --> M["Human: review and merge"]
+  M --> B["Actions: setup and render main"]
+  B --> P["Publish gh-pages"]
+  P --> U["Browser: applets and Python"]
+```
+
+| Stage | Responsibility |
+|---|---|
+| Request | The human specifies the content, expected behavior, and scope. |
+| Edit | A human in VS Code or an assistant through the adapter updates `.qmd`, `.md`, `.yml`, or supporting files. The adapter transfers repository changes; it does not run the website. |
+| Check | A pull request triggers a render check. Local preview and browser testing check layout, interactions, and mathematical behavior. A successful render alone does not prove the applets work. |
+| Review | The human reviews the diff and merges the pull request. This is the recommended workflow for subsequent changes. |
+| Publish | A push to `main` runs `scripts/setup.py`, renders the website, and writes the output to `gh-pages`. |
+| Read | GitHub Pages serves static files. The browser loads the interactive libraries and executes the examples. No Python application server is needed. |
+
+## Set up locally in VS Code
+
+Install [Git](https://git-scm.com/), [Python 3.12](https://www.python.org/downloads/),
+[Quarto CLI](https://quarto.org/docs/get-started/), and
+[VS Code](https://code.visualstudio.com/). The Quarto VS Code extension is useful,
+but does not replace the Quarto CLI. Open the **repository folder**, not just a file.
+
+```bash
+git clone https://github.com/aacchhee/ctm-demo.git
+cd ctm-demo
+python -m venv .venv
+```
+
+Activate the environment:
+
+::: {.panel-tabset}
+
+### macOS / Linux
+
+```bash
+source .venv/bin/activate
+```
+
+If your system uses `python3`, use it instead of `python` when creating the environment.
+
+### Windows PowerShell
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+If script activation is unavailable, call `.venv\Scripts\python.exe` directly
+in the Python commands below. You can use `py -3.12` to create the environment.
+
+:::
+
+Then install the build dependencies and extensions:
+
+```bash
+python -m pip install -r requirements.txt
+python scripts/setup.py
+quarto preview
+```
+
+Open the localhost URL printed by Quarto. Do not open generated HTML directly
+with `file://`: the browser runtime uses workers and network requests.
+In VS Code, accept the recommended Quarto and Python extensions, and select
+`.venv` as the Python interpreter. **Terminal → Run Task → Preview website**
+starts the preview; **Build website** renders to `_site/`.
+
+The Python setup script installs Quarto extensions listed in
+`quarto-extensions.yml`. It requires Git and Quarto on `PATH`. The same command
+runs locally and in GitHub Actions; it does not install Python or Quarto itself.
+Re-running it updates extensions to their configured refs. Those refs currently
+follow upstream branches, so later setup runs can obtain newer extension code.
+
+## Publish with GitHub Pages
+
+After the first successful build has created `gh-pages`, the repository owner
+sets **Settings → Pages → Build and deployment → Source: Deploy from a branch**,
+then selects **`gh-pages` / `(root)`** and saves. This is a one-time repository
+setting; committing the workflow does not configure it automatically.
+
+Subsequent pushes to `main` build and publish automatically. Pull requests
+build without publishing. The workflow can also be started from **Actions →
+Build and publish → Run workflow**. GitHub Actions must be enabled, and repository
+policy must permit the workflow's `contents: write` permission.
+
+The intended website address is
+[https://aacchhee.github.io/ctm-demo/](https://aacchhee.github.io/ctm-demo/).
+When copying this repository, change `website.site-url` in `_quarto.yml` and
+these repository links to match the new owner and name.
+
+## Which files do I edit?
+
+| File | Purpose |
+|---|---|
+| `index.qmd` | Front matter and entry point for the demo. |
+| `_includes/demo.md` | Explanations, Python cells, and both mathematics problems. |
+| `_includes/direction-applet.md` | JSXGraph applet and its controls. |
+| `pages/experiments.qmd` | The clean “Your experiments here” page. Start writing below its YAML header. |
+| `pages/help.qmd` | This help page. |
+| `_quarto.yml` | Site title, sidebar, rendered pages, filters, and English language. |
+| `quarto-extensions.yml` | Extension repositories, refs, and installation paths. |
+| `scripts/setup.py` | Shared extension installer for local development and CI. |
+| `styles.css`, `_includes/site/` | Small presentation and navigation helpers. |
+
+For an additional page, create a `.qmd` file and add it to both `project.render`
+and `website.sidebar.contents` in `_quarto.yml`. Use relative page links so
+navigation works both on localhost and under the GitHub Pages repository path.
+Do not edit `_site/`, `_extensions/`, or `.private-extensions/`: they are generated
+or downloaded, ignored by Git, and may be replaced.
+
+### A tiny Python exercise to reuse
+
+This is a source example, not an extra exercise on the demo page. Paste it into
+`pages/experiments.qmd` to try the installed Python exercise extension:
+
+````markdown
+```{py-exercise}
+#| label: add-two-numbers
+#| caption: Implement addition
+def add(a, b):
+    pass
+
+## TESTS ##
+assert add(1, 2) == 3, "Check addition of positive numbers."
+assert add(-1, 1) == 0, "Check addition with a negative number."
+```
+````
+
+Use unique labels when copying cells. Tests are hidden from the normal exercise
+view, but remain downloadable in a static site; these exercises provide practice
+feedback rather than secure examination grading.
+
+## Using and troubleshooting the demo
+
+- **Python is still loading:** the first visit downloads the browser runtime
+  and packages. Wait for the ready indicator. Internet access to the upstream
+  CDNs is needed; this is not a self-contained offline bundle.
+- **A name such as `np` or `power_iteration` is missing:** let the automatic setup
+  cells finish, or rerun the relevant definition before running the dependent cell.
+  Cells on the demo page share Python state; a reload starts a new session.
+- **Quarto cannot find a filter:** run `python scripts/setup.py` from your checkout
+  and read the first error. Confirm that Git and Quarto are installed and that
+  the configured extension repositories and refs are reachable.
+- **The local build succeeds but the public page is old:** check the latest
+  Actions run and the Pages branch setting. Browser refresh may also be needed.
+- **Feedback asks for provider settings:** deterministic calculations and answer
+  checking do not need an AI API key. Where the extension offers AI feedback,
+  its copy-prompt mode lets you use an external assistant manually. Direct API
+  feedback uses your configured provider and may incur that provider's charges.
+  Keep keys out of source files and commits.
+
+Before publishing an edit, try the applet's presets and reset, run the Python
+cells, and submit both correct and incorrect mathematical answers. Check a
+narrow browser window as well as a desktop layout.

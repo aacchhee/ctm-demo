@@ -1,0 +1,5 @@
+---
+title: "Interactive mathematics"
+---
+
+{{< include _includes/demo.md >}}
