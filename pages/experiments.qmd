@@ -1,3 +1,204 @@
 ---
 title: "Your experiments here"
+toc: true
 ---
+
+## Fourier coefficients: a ramp with a jump
+
+Let $f$ be the $2\pi$-periodic extension of
+
+$$
+f(x)=\begin{cases}
+0,&-\pi\le x<0,\\
+x,&0\le x<\pi.
+\end{cases}
+$$
+
+Thus $f(x+2\pi)=f(x)$; in particular, $f(\pi)=f(-\pi)=0$.
+On each period the function is zero for half the interval, then rises linearly
+before jumping back to zero.
+
+Use the real Fourier-series convention
+
+$$
+f(x)\sim\frac{a_0}{2}+\sum_{n=1}^{\infty}
+\bigl(a_n\cos(nx)+b_n\sin(nx)\bigr),
+$$
+
+with
+
+$$
+a_0=\frac1\pi\int_{-\pi}^{\pi}f(x)\,dx,\qquad
+a_n=\frac1\pi\int_{-\pi}^{\pi}f(x)\cos(nx)\,dx,\qquad
+b_n=\frac1\pi\int_{-\pi}^{\pi}f(x)\sin(nx)\,dx.
+$$
+
+Work out the integrals before checking your answers. Enter exact expressions:
+use `pi`, `n`, `sin(...)`, `cos(...)`, and `(-1)^n`.
+In parts B and C, $n$ is any positive integer. A formula must work for **all**
+such $n$, not just the first few. The checkers compare symbolic identities;
+if an unusual equivalent form cannot be verified, rewrite it using these functions.
+
+### Part A — warm-up: the average and one sine coefficient
+
+Compute $a_0$, the mean value of $f$ over a full period, and $b_1$.
+Keep the constant coefficient $a_0$ distinct from the constant term $a_0/2$.
+
+```{math-exercise}
+#| label: fourier-a
+#| caption: Part A — average and first sine coefficient
+#| mode: custom
+#| field-labels: a₀, mean value, b₁
+#| checker: |
+#|   def check(response, symbols):
+#|       values = response["expressions"]
+#|       if any(not isinstance(z, Expr) or z.has(nan, zoo, oo, -oo) for z in values):
+#|           return {"score": 0, "feedback": "Enter finite scalar expressions, not equations or lists."}
+#|       targets = [pi/2, pi/4, S.One]
+#|       hints = ["For a₀, integrate x from 0 to π and divide by π.", "The mean is the integral over a period divided by 2π, so it is a₀/2.", "For b₁, integrate x sin(x) from 0 to π by parts, then divide by π."]
+#|       if len(values) != 3:
+#|           return {"score": 0, "feedback": "Complete all three fields."}
+#|       checks, messages = [], []
+#|       for value, target, hint in zip(values, targets, hints):
+#|           ok = not value.free_symbols and value.is_real is True and value.is_finite is True and simplify(value-target) == 0
+#|           checks.append(bool(ok))
+#|           if not ok:
+#|               messages.append(hint)
+#|       return {"score": sum(checks)/3, "show_score": False, "feedback": "All three are correct: the mean is half of a₀." if all(checks) else " ".join(messages)}
+
+$a_0=$ __[]
+
+Mean value $=$ __[]
+
+$b_1=$ __[]
+```
+
+<details class="learning-hint">
+<summary>Hint for A</summary>
+
+The negative half-period contributes zero to every integral.
+For $b_1$, choose $u=x$ and $dv=\sin x\,dx$ in integration by parts.
+
+</details>
+
+### Part B — general coefficients: keep track of parity
+
+Find formulas for $a_n$ and $b_n$ for every positive integer $n$.
+Neither an even-function shortcut nor an odd-function shortcut applies to $f$.
+Use integration by parts and simplify the endpoint values.
+
+```{math-exercise}
+#| label: fourier-b
+#| caption: Part B — coefficients for every positive integer n
+#| vars: n
+#| mode: custom
+#| field-labels: aₙ, bₙ
+#| checker: |
+#|   def check(response, symbols):
+#|       values = response["expressions"]
+#|       if any(not isinstance(z, Expr) or z.has(nan, zoo, oo, -oo) for z in values):
+#|           return {"score": 0, "feedback": "Enter finite scalar expressions, not equations or lists."}
+#|       if len(values) != 2:
+#|           return {"score": 0, "feedback": "Enter both coefficient formulas."}
+#|       original = symbols["n"]
+#|       n = Symbol("fourier_index", integer=True, positive=True)
+#|       targets = [((-1)**n-1)/(pi*n**2), (-1)**(n+1)/n]
+#|       checks, messages = [], []
+#|       for value, target, name in zip(values, targets, ("aₙ", "bₙ")):
+#|           ok = False
+#|           try:
+#|               if not value.free_symbols - {original}:
+#|                   expr = value.subs(original, n)
+#|                   ok = simplify(trigsimp(expr-target)) == 0
+#|           except Exception:
+#|               pass
+#|           checks.append(bool(ok))
+#|           if not ok:
+#|               messages.append(f"{name}: the identity was not verified. Check the boundary term, the factor 1/π, and cos(nπ) = (−1)ⁿ; give one formula in n.")
+#|       return {"score": sum(checks)/2, "show_score": False, "feedback": "Correct for all positive integers n. Notice that aₙ vanishes for even n, while bₙ alternates sign." if all(checks) else " ".join(messages)}
+
+$a_n=$ ___[]
+
+$b_n=$ ___[]
+```
+
+<details class="learning-hint">
+<summary>Hint for B</summary>
+
+On the nonzero half-period, integrate $x\cos(nx)$ and $x\sin(nx)$.
+For integer $n$, $\sin(n\pi)=0$ and $\cos(n\pi)=(-1)^n$.
+For the cosine coefficient, retain the contribution at **both** endpoints.
+Check your formulas at $n=1$ and $n=2$, but remember that these checks alone
+are not a proof of a general formula.
+
+</details>
+
+### Part C — a shift and a discontinuity
+
+Now let $g(x)=f(x-\pi/3)$, a shift to the **right** by $\pi/3$.
+Write its Fourier series in the same convention:
+
+$$g(x)\sim\frac{\alpha_0}{2}+\sum_{n=1}^{\infty}
+\bigl(\alpha_n\cos(nx)+\beta_n\sin(nx)\bigr).$$
+
+Find $\alpha_n$ and $\beta_n$ for every positive integer $n$, as explicit
+expressions in $n$ (do not use undefined symbols $a_n$ or $b_n$).
+Then find the value to which this Fourier series converges at
+$x=-2\pi/3$. Use the one-sided limits there; the assigned value of $g$ at a
+single point does not determine the Fourier-series sum.
+
+```{math-exercise}
+#| label: fourier-c
+#| caption: Part C — shifted coefficients and the sum at the jump
+#| vars: n
+#| mode: custom
+#| field-labels: αₙ, βₙ, Fourier-series sum at −2π/3
+#| checker: |
+#|   def check(response, symbols):
+#|       values = response["expressions"]
+#|       if any(not isinstance(z, Expr) or z.has(nan, zoo, oo, -oo) for z in values):
+#|           return {"score": 0, "feedback": "Enter finite scalar expressions, not equations or lists."}
+#|       if len(values) != 3:
+#|           return {"score": 0, "feedback": "Complete both coefficient formulas and the series value."}
+#|       original = symbols["n"]
+#|       n = Symbol("fourier_index", integer=True, positive=True)
+#|       a = ((-1)**n-1)/(pi*n**2)
+#|       b = (-1)**(n+1)/n
+#|       theta = n*pi/3
+#|       targets = [a*cos(theta)-b*sin(theta), a*sin(theta)+b*cos(theta)]
+#|       checks, messages = [], []
+#|       for value, target, name in zip(values[:2], targets, ("αₙ", "βₙ")):
+#|           ok = False
+#|           try:
+#|               if not value.free_symbols - {original}:
+#|                   expr = value.subs(original, n)
+#|                   ok = simplify(trigsimp(expand_trig(expr-target))) == 0
+#|           except Exception:
+#|               pass
+#|           checks.append(bool(ok))
+#|           if not ok:
+#|               messages.append(f"{name}: the identity was not verified. Expand cos(nx − nπ/3) and sin(nx − nπ/3), collect the correct term, and substitute your part B formulas.")
+#|       value = values[2]
+#|       jump_ok = not value.free_symbols and value.is_real is True and value.is_finite is True and simplify(value-pi/2) == 0
+#|       checks.append(bool(jump_ok))
+#|       if not jump_ok:
+#|           messages.append("At x = −2π/3 the argument of f is −π. Use periodicity to find the left-hand limit and average it with the right-hand limit.")
+#|       return {"score": sum(checks)/3, "show_score": False, "feedback": "Correct: translation mixes the cosine and sine coefficients. At the jump the series converges to π/2, although g(−2π/3) = 0." if all(checks) else " ".join(messages)}
+
+$\alpha_n=$ ____[]
+
+$\beta_n=$ ____[]
+
+Fourier-series sum at $x=-2\pi/3$: __[]
+```
+
+<details class="learning-hint">
+<summary>Hint for C</summary>
+
+Substitute $x-\pi/3$ into the original Fourier series and use the
+angle-subtraction identities. Translation preserves the mean.
+The function is piecewise smooth, so its Fourier series converges at each
+point to the average of the left-hand and right-hand limits. At the chosen
+point, approach $-\pi$ from either side using the periodic extension of $f$.
+
+</details>
