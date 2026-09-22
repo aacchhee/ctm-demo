@@ -5,6 +5,8 @@ toc: true
 
 ## Fourier coefficients: a ramp with a jump
 
+::: {#fourier-definition-context .math-exercise-context}
+
 Let $f$ be the $2\pi$-periodic extension of
 
 $$
@@ -39,13 +41,20 @@ In parts B and C, $n$ is any positive integer. A formula must work for **all**
 such $n$, not just the first few. The checkers compare symbolic identities;
 if an unusual equivalent form cannot be verified, rewrite it using these functions.
 
+:::
+
 ### Part A — warm-up: the average and one sine coefficient
+
+::: {#fourier-a-context .math-exercise-context}
 
 Compute $a_0$, the mean value of $f$ over a full period, and $b_1$.
 Keep the constant coefficient $a_0$ distinct from the constant term $a_0/2$.
 
+:::
+
 ```{math-exercise}
 #| label: fourier-a
+#| context: fourier-definition-context, fourier-a-context
 #| caption: Part A — average and first sine coefficient
 #| mode: custom
 #| field-labels: a₀, mean value, b₁
@@ -83,12 +92,17 @@ For $b_1$, choose $u=x$ and $dv=\sin x\,dx$ in integration by parts.
 
 ### Part B — general coefficients: keep track of parity
 
+::: {#fourier-b-context .math-exercise-context}
+
 Find formulas for $a_n$ and $b_n$ for every positive integer $n$.
 Neither an even-function shortcut nor an odd-function shortcut applies to $f$.
 Use integration by parts and simplify the endpoint values.
 
+:::
+
 ```{math-exercise}
 #| label: fourier-b
+#| context: fourier-definition-context, fourier-b-context
 #| caption: Part B — coefficients for every positive integer n
 #| vars: n
 #| mode: custom
@@ -135,6 +149,8 @@ are not a proof of a general formula.
 
 ### Part C — a shift and a discontinuity
 
+::: {#fourier-c-context .math-exercise-context}
+
 Now let $g(x)=f(x-\pi/3)$, a shift to the **right** by $\pi/3$.
 Write its Fourier series in the same convention:
 
@@ -147,8 +163,11 @@ Then find the value to which this Fourier series converges at
 $x=-2\pi/3$. Use the one-sided limits there; the assigned value of $g$ at a
 single point does not determine the Fourier-series sum.
 
+:::
+
 ```{math-exercise}
 #| label: fourier-c
+#| context: fourier-definition-context, fourier-c-context
 #| caption: Part C — shifted coefficients and the sum at the jump
 #| vars: n
 #| mode: custom
@@ -202,3 +221,4 @@ point to the average of the left-hand and right-hand limits. At the chosen
 point, approach $-\pi$ from either side using the periodic extension of $f$.
 
 </details>
+
