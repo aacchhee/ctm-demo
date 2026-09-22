@@ -3,6 +3,7 @@ project:
   render:
     - index.qmd
     - pages/experiments.qmd
+    - pages/gaussian-elimination.qmd
     - pages/help.qmd
 
 lang: en
@@ -23,6 +24,8 @@ website:
         file: index.qmd
       - text: "Your experiments here"
         file: pages/experiments.qmd
+      - text: "Gaussian elimination"
+        file: pages/gaussian-elimination.qmd
       - text: "Help"
         file: pages/help.qmd
 
