@@ -827,11 +827,14 @@ window.Quarto = {
 </header>
 
 
+<div id="gauss-method-context" class="math-exercise-context">
 <p>Solve these three systems by <strong>forward elimination</strong>, followed by <strong>back substitution</strong>. The last system needs a row swap before elimination can begin.</p>
 <p>For an augmented matrix <span class="math inline">\([A\mid b]\)</span>, the last column contains the right-hand side. Apply every row operation to that column too. A <strong>pivot</strong> is the nonzero entry used to eliminate entries below it. If the proposed pivot is zero, look for a nonzero entry below it and swap rows.</p>
 <p>Work on paper first, then check your entries. Use exact numbers such as <code>1/2</code>. The matrix fields below include the right-hand side as their last column. Follow the specified row operations without further row scaling: other valid elimination routes can produce different intermediate matrices.</p>
+</div>
 <section id="a-22-system" class="level2">
 <h2 class="anchored" data-anchor-id="a-22-system">1. A 2×2 system</h2>
+<div id="gauss-system-1-context" class="math-exercise-context">
 <p><span class="math display">\[
 \begin{aligned}
 x+y&amp;=5,\\
@@ -840,10 +843,13 @@ x+y&amp;=5,\\
 \qquad
 [A\mid b]=\begin{bmatrix}1&amp;1&amp;5\\2&amp;-1&amp;1\end{bmatrix}.
 \]</span></p>
+</div>
 <section id="a.-eliminate-below-the-first-pivot" class="level3">
 <h3 class="anchored" data-anchor-id="a.-eliminate-below-the-first-pivot">A. Eliminate below the first pivot</h3>
+<div id="gauss-2x2-elimination-context" class="math-exercise-context">
 <p>Apply <span class="math inline">\(R_2\leftarrow R_2-2R_1\)</span>, keeping <span class="math inline">\(R_1\)</span> unchanged. Enter the resulting augmented matrix.</p>
-<div class="math-exercise-cell" id="math-exercise-1" data-label="gauss-2x2-elimination" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;A. Eliminate below the first pivot Apply R_2\\leftarrow R_2-2R_1, keeping R_1 unchanged. Enter the resulting augmented matrix.&quot;" data-fields="[&quot;math-exercise-1-f1&quot;,&quot;math-exercise-1-f2&quot;,&quot;math-exercise-1-f3&quot;,&quot;math-exercise-1-f4&quot;,&quot;math-exercise-1-f5&quot;,&quot;math-exercise-1-f6&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;]">
+</div>
+<div class="math-exercise-cell" id="math-exercise-1" data-label="gauss-2x2-elimination" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="explicit" data-context-refs="gauss-method-context, gauss-system-1-context, gauss-2x2-elimination-context" data-context="&quot;A. Eliminate below the first pivot Apply R_2\\leftarrow R_2-2R_1, keeping R_1 unchanged. Enter the resulting augmented matrix.&quot;" data-fields="[&quot;math-exercise-1-f1&quot;,&quot;math-exercise-1-f2&quot;,&quot;math-exercise-1-f3&quot;,&quot;math-exercise-1-f4&quot;,&quot;math-exercise-1-f5&quot;,&quot;math-exercise-1-f6&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;]">
 <div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>1A — one elimination step</div>
 
 <div class="math-exercise-body" aria-hidden="true">
@@ -864,8 +870,10 @@ x+y&amp;=5,\\
 </section>
 <section id="b.-back-substitute" class="level3">
 <h3 class="anchored" data-anchor-id="b.-back-substitute">B. Back substitute</h3>
+<div id="gauss-2x2-solution-context" class="math-exercise-context">
 <p>Use the second row to find <span class="math inline">\(y\)</span>, then use the first row to find <span class="math inline">\(x\)</span>.</p>
-<div class="math-exercise-cell" id="math-exercise-2" data-label="gauss-2x2-solution" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[&quot;x&quot;,&quot;y&quot;]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;B. Back substitute Use the second row to find y, then use the first row to find x.&quot;" data-fields="[&quot;math-exercise-2-f1&quot;,&quot;math-exercise-2-f2&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;]">
+</div>
+<div class="math-exercise-cell" id="math-exercise-2" data-label="gauss-2x2-solution" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[&quot;x&quot;,&quot;y&quot;]" data-vecdir="col" data-context-mode="explicit" data-context-refs="gauss-method-context, gauss-system-1-context, gauss-2x2-solution-context" data-context="&quot;B. Back substitute Use the second row to find y, then use the first row to find x.&quot;" data-fields="[&quot;math-exercise-2-f1&quot;,&quot;math-exercise-2-f2&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;]">
 <div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>1B — solve the triangular system</div>
 
 <div class="math-exercise-body" aria-hidden="true">
@@ -895,6 +903,7 @@ Hint for problem 1
 </section>
 <section id="a-33-system" class="level2">
 <h2 class="anchored" data-anchor-id="a-33-system">2. A 3×3 system</h2>
+<div id="gauss-system-2-context" class="math-exercise-context">
 <p><span class="math display">\[
 \begin{aligned}
 x+y+z&amp;=6,\\
@@ -904,11 +913,14 @@ x-y+2z&amp;=5.
 \qquad
 [A\mid b]=\begin{bmatrix}1&amp;1&amp;1&amp;6\\2&amp;3&amp;1&amp;11\\1&amp;-1&amp;2&amp;5\end{bmatrix}.
 \]</span></p>
+</div>
 <section id="a.-clear-the-first-column" class="level3">
 <h3 class="anchored" data-anchor-id="a.-clear-the-first-column">A. Clear the first column</h3>
+<div id="gauss-3x3-first-column-context" class="math-exercise-context">
 <p>Use the unchanged first row in both operations:</p>
 <p><span class="math display">\[R_2\leftarrow R_2-2R_1,\qquad R_3\leftarrow R_3-R_1.\]</span></p>
-<div class="math-exercise-cell" id="math-exercise-3" data-label="gauss-3x3-first-column" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;A. Clear the first column Use the unchanged first row in both operations: R_2\\leftarrow R_2-2R_1,\\qquad R_3\\leftarrow R_3-R_1.&quot;" data-fields="[&quot;math-exercise-3-f1&quot;,&quot;math-exercise-3-f2&quot;,&quot;math-exercise-3-f3&quot;,&quot;math-exercise-3-f4&quot;,&quot;math-exercise-3-f5&quot;,&quot;math-exercise-3-f6&quot;,&quot;math-exercise-3-f7&quot;,&quot;math-exercise-3-f8&quot;,&quot;math-exercise-3-f9&quot;,&quot;math-exercise-3-f10&quot;,&quot;math-exercise-3-f11&quot;,&quot;math-exercise-3-f12&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
+</div>
+<div class="math-exercise-cell" id="math-exercise-3" data-label="gauss-3x3-first-column" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="explicit" data-context-refs="gauss-method-context, gauss-system-2-context, gauss-3x3-first-column-context" data-context="&quot;A. Clear the first column Use the unchanged first row in both operations:R_2\\leftarrow R_2-2R_1,\\qquad R_3\\leftarrow R_3-R_1.&quot;" data-fields="[&quot;math-exercise-3-f1&quot;,&quot;math-exercise-3-f2&quot;,&quot;math-exercise-3-f3&quot;,&quot;math-exercise-3-f4&quot;,&quot;math-exercise-3-f5&quot;,&quot;math-exercise-3-f6&quot;,&quot;math-exercise-3-f7&quot;,&quot;math-exercise-3-f8&quot;,&quot;math-exercise-3-f9&quot;,&quot;math-exercise-3-f10&quot;,&quot;math-exercise-3-f11&quot;,&quot;math-exercise-3-f12&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
 <div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>2A — eliminate x from rows 2 and 3</div>
 
 <div class="math-exercise-body" aria-hidden="true">
@@ -929,8 +941,10 @@ x-y+2z&amp;=5.
 </section>
 <section id="b.-clear-the-second-column" class="level3">
 <h3 class="anchored" data-anchor-id="b.-clear-the-second-column">B. Clear the second column</h3>
+<div id="gauss-3x3-triangular-context" class="math-exercise-context">
 <p>Using the <strong>updated</strong> rows from part A, apply <span class="math inline">\(R_3\leftarrow R_3+2R_2\)</span>. Keep the other rows unchanged.</p>
-<div class="math-exercise-cell" id="math-exercise-4" data-label="gauss-3x3-triangular" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;B. Clear the second column Using the updated rows from part A, apply R_3\\leftarrow R_3+2R_2. Keep the other rows unchanged.&quot;" data-fields="[&quot;math-exercise-4-f1&quot;,&quot;math-exercise-4-f2&quot;,&quot;math-exercise-4-f3&quot;,&quot;math-exercise-4-f4&quot;,&quot;math-exercise-4-f5&quot;,&quot;math-exercise-4-f6&quot;,&quot;math-exercise-4-f7&quot;,&quot;math-exercise-4-f8&quot;,&quot;math-exercise-4-f9&quot;,&quot;math-exercise-4-f10&quot;,&quot;math-exercise-4-f11&quot;,&quot;math-exercise-4-f12&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
+</div>
+<div class="math-exercise-cell" id="math-exercise-4" data-label="gauss-3x3-triangular" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="explicit" data-context-refs="gauss-method-context, gauss-system-2-context, gauss-3x3-triangular-context" data-context="&quot;B. Clear the second column Using the updated rows from part A, apply R_3\\leftarrow R_3+2R_2. Keep the other rows unchanged.&quot;" data-fields="[&quot;math-exercise-4-f1&quot;,&quot;math-exercise-4-f2&quot;,&quot;math-exercise-4-f3&quot;,&quot;math-exercise-4-f4&quot;,&quot;math-exercise-4-f5&quot;,&quot;math-exercise-4-f6&quot;,&quot;math-exercise-4-f7&quot;,&quot;math-exercise-4-f8&quot;,&quot;math-exercise-4-f9&quot;,&quot;math-exercise-4-f10&quot;,&quot;math-exercise-4-f11&quot;,&quot;math-exercise-4-f12&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
 <div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>2B — complete forward elimination</div>
 
 <div class="math-exercise-body" aria-hidden="true">
@@ -951,8 +965,10 @@ x-y+2z&amp;=5.
 </section>
 <section id="c.-back-substitute" class="level3">
 <h3 class="anchored" data-anchor-id="c.-back-substitute">C. Back substitute</h3>
+<div id="gauss-3x3-solution-context" class="math-exercise-context">
 <p>Solve from the bottom row upward: first <span class="math inline">\(z\)</span>, then <span class="math inline">\(y\)</span>, then <span class="math inline">\(x\)</span>.</p>
-<div class="math-exercise-cell" id="math-exercise-5" data-label="gauss-3x3-solution" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[&quot;x&quot;,&quot;y&quot;,&quot;z&quot;]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;C. Back substitute Solve from the bottom row upward: first z, then y, then x.&quot;" data-fields="[&quot;math-exercise-5-f1&quot;,&quot;math-exercise-5-f2&quot;,&quot;math-exercise-5-f3&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;,&quot;&quot;]">
+</div>
+<div class="math-exercise-cell" id="math-exercise-5" data-label="gauss-3x3-solution" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[&quot;x&quot;,&quot;y&quot;,&quot;z&quot;]" data-vecdir="col" data-context-mode="explicit" data-context-refs="gauss-method-context, gauss-system-2-context, gauss-3x3-solution-context" data-context="&quot;C. Back substitute Solve from the bottom row upward: first z, then y, then x.&quot;" data-fields="[&quot;math-exercise-5-f1&quot;,&quot;math-exercise-5-f2&quot;,&quot;math-exercise-5-f3&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;,&quot;&quot;]">
 <div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>2C — back substitution</div>
 
 <div class="math-exercise-body" aria-hidden="true">
@@ -984,6 +1000,7 @@ Hint for problem 2
 </section>
 <section id="a-33-system-that-needs-pivoting" class="level2">
 <h2 class="anchored" data-anchor-id="a-33-system-that-needs-pivoting">3. A 3×3 system that needs pivoting</h2>
+<div id="gauss-system-3-context" class="math-exercise-context">
 <p><span class="math display">\[
 \begin{aligned}
 2y+z&amp;=1,\\
@@ -994,10 +1011,13 @@ x-y+2z&amp;=9.
 [A\mid b]=\begin{bmatrix}0&amp;2&amp;1&amp;1\\2&amp;1&amp;-1&amp;0\\1&amp;-1&amp;2&amp;9\end{bmatrix}.
 \]</span></p>
 <p>The first proposed pivot is zero, so division by it is impossible. This does <strong>not</strong> mean the system has no unique solution. Use <strong>partial pivoting</strong>: in the current column, choose the available entry with the largest absolute value and move its row into the pivot position. Here, compare the entries <span class="math inline">\(0\)</span>, <span class="math inline">\(2\)</span>, and <span class="math inline">\(1\)</span> in the first column.</p>
+</div>
 <section id="a.-choose-and-swap-the-pivot-row" class="level3">
 <h3 class="anchored" data-anchor-id="a.-choose-and-swap-the-pivot-row">A. Choose and swap the pivot row</h3>
+<div id="gauss-pivot-swap-context" class="math-exercise-context">
 <p>Enter the original row number to swap with row 1, then the augmented matrix immediately after that swap. Do not eliminate or scale any rows yet.</p>
-<div class="math-exercise-cell" id="math-exercise-6" data-label="gauss-pivot-swap" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;A. Choose and swap the pivot row Enter the original row number to swap with row 1, then the augmented matrix immediately after that swap. Do not eliminate or scale any rows yet.&quot;" data-fields="[&quot;math-exercise-6-f1&quot;,&quot;math-exercise-6-f2&quot;,&quot;math-exercise-6-f3&quot;,&quot;math-exercise-6-f4&quot;,&quot;math-exercise-6-f5&quot;,&quot;math-exercise-6-f6&quot;,&quot;math-exercise-6-f7&quot;,&quot;math-exercise-6-f8&quot;,&quot;math-exercise-6-f9&quot;,&quot;math-exercise-6-f10&quot;,&quot;math-exercise-6-f11&quot;,&quot;math-exercise-6-f12&quot;,&quot;math-exercise-6-f13&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
+</div>
+<div class="math-exercise-cell" id="math-exercise-6" data-label="gauss-pivot-swap" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="explicit" data-context-refs="gauss-method-context, gauss-system-3-context, gauss-pivot-swap-context" data-context="&quot;A. Choose and swap the pivot row Enter the original row number to swap with row 1, then the augmented matrix immediately after that swap. Do not eliminate or scale any rows yet.&quot;" data-fields="[&quot;math-exercise-6-f1&quot;,&quot;math-exercise-6-f2&quot;,&quot;math-exercise-6-f3&quot;,&quot;math-exercise-6-f4&quot;,&quot;math-exercise-6-f5&quot;,&quot;math-exercise-6-f6&quot;,&quot;math-exercise-6-f7&quot;,&quot;math-exercise-6-f8&quot;,&quot;math-exercise-6-f9&quot;,&quot;math-exercise-6-f10&quot;,&quot;math-exercise-6-f11&quot;,&quot;math-exercise-6-f12&quot;,&quot;math-exercise-6-f13&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
 <div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>3A — choose the first pivot</div>
 
 <div class="math-exercise-body" aria-hidden="true">
@@ -1020,8 +1040,10 @@ Matrix after the swap \(=\) <span class="math-mat" style="--cols:4"><input type=
 </section>
 <section id="b.-eliminate-below-the-pivots" class="level3">
 <h3 class="anchored" data-anchor-id="b.-eliminate-below-the-pivots">B. Eliminate below the pivots</h3>
+<div id="gauss-pivot-first-column-context" class="math-exercise-context">
 <p>After the swap, the second row already has a zero in the first column. Apply <span class="math inline">\(R_3\leftarrow R_3-\tfrac12R_1\)</span>.</p>
-<div class="math-exercise-cell" id="math-exercise-7" data-label="gauss-pivot-first-column" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;B. Eliminate below the pivots After the swap, the second row already has a zero in the first column. Apply R_3\\leftarrow R_3-\\tfrac12R_1.&quot;" data-fields="[&quot;math-exercise-7-f1&quot;,&quot;math-exercise-7-f2&quot;,&quot;math-exercise-7-f3&quot;,&quot;math-exercise-7-f4&quot;,&quot;math-exercise-7-f5&quot;,&quot;math-exercise-7-f6&quot;,&quot;math-exercise-7-f7&quot;,&quot;math-exercise-7-f8&quot;,&quot;math-exercise-7-f9&quot;,&quot;math-exercise-7-f10&quot;,&quot;math-exercise-7-f11&quot;,&quot;math-exercise-7-f12&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
+</div>
+<div class="math-exercise-cell" id="math-exercise-7" data-label="gauss-pivot-first-column" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="explicit" data-context-refs="gauss-method-context, gauss-system-3-context, gauss-pivot-first-column-context" data-context="&quot;B. Eliminate below the pivots After the swap, the second row already has a zero in the first column. Apply R_3\\leftarrow R_3-\\tfrac12R_1.&quot;" data-fields="[&quot;math-exercise-7-f1&quot;,&quot;math-exercise-7-f2&quot;,&quot;math-exercise-7-f3&quot;,&quot;math-exercise-7-f4&quot;,&quot;math-exercise-7-f5&quot;,&quot;math-exercise-7-f6&quot;,&quot;math-exercise-7-f7&quot;,&quot;math-exercise-7-f8&quot;,&quot;math-exercise-7-f9&quot;,&quot;math-exercise-7-f10&quot;,&quot;math-exercise-7-f11&quot;,&quot;math-exercise-7-f12&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
 <div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>3B — eliminate below the new first pivot</div>
 
 <div class="math-exercise-body" aria-hidden="true">
@@ -1039,8 +1061,10 @@ Matrix after the swap \(=\) <span class="math-mat" style="--cols:4"><input type=
 <div class="math-feedback-area"></div>
 </div>
 </div>
+<div id="gauss-pivot-triangular-context" class="math-exercise-context">
 <p>The second pivot is 2; the remaining entry below it is <span class="math inline">\(-3/2\)</span>. Since <span class="math inline">\(|2|&gt;|-3/2|\)</span>, partial pivoting requires no further swap. Apply <span class="math inline">\(R_3\leftarrow R_3+\tfrac34R_2\)</span> to the updated matrix.</p>
-<div class="math-exercise-cell" id="math-exercise-8" data-label="gauss-pivot-triangular" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;B. Eliminate below the pivots After the swap, the second row already has a zero in the first column. Apply R_3\\leftarrow R_3-\\tfrac12R_1. The second pivot is 2; the remaining entry below it is -3/2. Since |2|>|-3/2|, partial pivoting requires no further swap. Apply R_3\\leftarrow R_3+\\tfrac34R_2 to the updated matrix.&quot;" data-fields="[&quot;math-exercise-8-f1&quot;,&quot;math-exercise-8-f2&quot;,&quot;math-exercise-8-f3&quot;,&quot;math-exercise-8-f4&quot;,&quot;math-exercise-8-f5&quot;,&quot;math-exercise-8-f6&quot;,&quot;math-exercise-8-f7&quot;,&quot;math-exercise-8-f8&quot;,&quot;math-exercise-8-f9&quot;,&quot;math-exercise-8-f10&quot;,&quot;math-exercise-8-f11&quot;,&quot;math-exercise-8-f12&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
+</div>
+<div class="math-exercise-cell" id="math-exercise-8" data-label="gauss-pivot-triangular" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-context-mode="explicit" data-context-refs="gauss-method-context, gauss-system-3-context, gauss-pivot-triangular-context" data-context="&quot;B. Eliminate below the pivots After the swap, the second row already has a zero in the first column. Apply R_3\\leftarrow R_3-\\tfrac12R_1. The second pivot is 2; the remaining entry below it is -3/2. Since |2|>|-3/2|, partial pivoting requires no further swap. Apply R_3\\leftarrow R_3+\\tfrac34R_2 to the updated matrix.&quot;" data-fields="[&quot;math-exercise-8-f1&quot;,&quot;math-exercise-8-f2&quot;,&quot;math-exercise-8-f3&quot;,&quot;math-exercise-8-f4&quot;,&quot;math-exercise-8-f5&quot;,&quot;math-exercise-8-f6&quot;,&quot;math-exercise-8-f7&quot;,&quot;math-exercise-8-f8&quot;,&quot;math-exercise-8-f9&quot;,&quot;math-exercise-8-f10&quot;,&quot;math-exercise-8-f11&quot;,&quot;math-exercise-8-f12&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
 <div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>3B — complete forward elimination</div>
 
 <div class="math-exercise-body" aria-hidden="true">
@@ -1061,8 +1085,10 @@ Matrix after the swap \(=\) <span class="math-mat" style="--cols:4"><input type=
 </section>
 <section id="c.-back-substitute-1" class="level3">
 <h3 class="anchored" data-anchor-id="c.-back-substitute-1">C. Back substitute</h3>
+<div id="gauss-pivot-solution-context" class="math-exercise-context">
 <p>Solve for <span class="math inline">\(z\)</span>, then <span class="math inline">\(y\)</span>, then <span class="math inline">\(x\)</span>. Row swaps change the order of the equations, <strong>not</strong> the order of the unknowns: the columns still represent <span class="math inline">\(x,y,z\)</span>.</p>
-<div class="math-exercise-cell" id="math-exercise-9" data-label="gauss-pivot-solution" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[&quot;x&quot;,&quot;y&quot;,&quot;z&quot;]" data-vecdir="col" data-context-mode="auto" data-context-refs="" data-context="&quot;C. Back substitute Solve for z, then y, then x. Row swaps change the order of the equations, not the order of the unknowns: the columns still represent x,y,z.&quot;" data-fields="[&quot;math-exercise-9-f1&quot;,&quot;math-exercise-9-f2&quot;,&quot;math-exercise-9-f3&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;,&quot;&quot;]">
+</div>
+<div class="math-exercise-cell" id="math-exercise-9" data-label="gauss-pivot-solution" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[&quot;x&quot;,&quot;y&quot;,&quot;z&quot;]" data-vecdir="col" data-context-mode="explicit" data-context-refs="gauss-method-context, gauss-system-3-context, gauss-pivot-solution-context" data-context="&quot;C. Back substitute Solve for z, then y, then x. Row swaps change the order of the equations, not the order of the unknowns: the columns still represent x,y,z.&quot;" data-fields="[&quot;math-exercise-9-f1&quot;,&quot;math-exercise-9-f2&quot;,&quot;math-exercise-9-f3&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;,&quot;&quot;]">
 <div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>3C — solve after pivoting</div>
 
 <div class="math-exercise-body" aria-hidden="true">
