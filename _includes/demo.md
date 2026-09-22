@@ -383,8 +383,45 @@ $c_1=$ __[3/2]
 $c_2=$ __[1/2]
 ```
 
-**c. Check and interpret.** Calculate $c_1v_1+c_2v_2$. Explain why $c_1,c_2$
-are different from the standard coordinates $2,1$.
+**c. Check and interpret.** Reconstruct the vector and identify the change of
+coordinates. The matrix $B$ converts coordinates in the ordered basis
+$(v_1,v_2)$ to standard coordinates: $x=B[c_1,c_2]^T$.
+
+```{math-exercise}
+#| label: demo-coordinate-interpretation
+#| caption: Reconstruct the vector and identify its basis
+#| mode: custom
+#| field-labels: reconstructed first coordinate, reconstructed second coordinate, B row 1 column 1, B row 1 column 2, B row 2 column 1, B row 2 column 2
+#| checker: |
+#|   def check(response, symbols):
+#|       values = response["expressions"]
+#|       if len(values) != 6 or any(z.free_symbols or z.is_real is not True or z.is_finite is not True for z in values):
+#|           return {"score": 0, "feedback": "Enter six finite real numbers; fractions and equivalent exact expressions are welcome."}
+#|       x = Matrix(values[:2])
+#|       B = Matrix(2, 2, values[2:])
+#|       c = Matrix([Rational(3, 2), Rational(1, 2)])
+#|       vector_ok = all(simplify(z) == 0 for z in x - Matrix([2, 1]))
+#|       basis_ok = all(simplify(z) == 0 for z in B - Matrix([[1, 1], [1, -1]]))
+#|       relation_ok = all(simplify(z) == 0 for z in B*c - x)
+#|       messages = []
+#|       if not vector_ok:
+#|           messages.append("Recalculate c₁v₁ + c₂v₂ coordinate by coordinate.")
+#|       if not basis_ok:
+#|           messages.append("The columns of B must be v₁ and v₂, in that order.")
+#|       if not relation_ok:
+#|           messages.append("Your entries must satisfy B(3/2, 1/2)ᵀ = x.")
+#|       if vector_ok and basis_ok and relation_ok:
+#|           messages.append("Correct: (3/2, 1/2) are coefficients of v₁,v₂; (2,1) are coefficients of the standard basis. B converts between them.")
+#|       return {"score": (int(vector_ok) + int(basis_ok) + int(relation_ok))/3, "show_score": False, "feedback": " ".join(messages)}
+
+Using your coefficients from part b, enter the reconstructed vector:
+
+$c_1v_1+c_2v_2=$ vec[,]
+
+Complete the matrix in $x=B[c_1,c_2]^T$:
+
+$B=$ mat[,;,]
+```
 
 <details class="learning-hint">
 <summary>Hint for problem 1</summary>
@@ -452,10 +489,65 @@ Smaller eigenvalue: $\lambda_2=$ __[1]
 A corresponding eigenvector: $v_2=$ vec[1,-1]
 ```
 
-**c. Describe all choices.** Use your vectors to describe all eigenvectors
-and both eigenspaces. Give two parameter families $t v_i$, specifying exactly
-which $t\in\mathbb R$ are allowed for eigenvectors and for eigenspaces.
-Explain why the zero vector is treated differently.
+**c. Describe all choices.** Enter a parameter family for each eigenspace in
+the form $w_i(t)=t v_i$. You may reuse your eigenvectors from part b or choose
+any other nonzero real scaling. Enter expressions such as `2*t` in the vector
+fields. The checker verifies the whole family, not just selected values of $t$.
+
+```{math-exercise}
+#| label: demo-eigenvector-families
+#| caption: Eigenvector families and the zero vector
+#| vars: t
+#| mode: custom
+#| field-labels: first coordinate of w₁(t), second coordinate of w₁(t), first coordinate of w₂(t), second coordinate of w₂(t), excluded parameter for eigenvectors, zero belongs to eigenspaces (1=yes 0=no), zero is an eigenvector (1=yes 0=no)
+#| checker: |
+#|   def check(response, symbols):
+#|       values = response["expressions"]
+#|       if len(values) != 7:
+#|           return {"score": 0, "feedback": "Complete both vector families and the three remaining fields."}
+#|       t = symbols["t"]
+#|       A = Matrix([[2, 1], [1, 2]])
+#|       checks, messages = [], []
+#|       for i, lam in enumerate((3, 1)):
+#|           entries = values[2*i:2*i+2]
+#|           valid = False
+#|           try:
+#|               coefficients = [simplify(diff(z, t)) for z in entries]
+#|               linear = all(not z.free_symbols - {t} and simplify(z - c*t) == 0 for z, c in zip(entries, coefficients))
+#|               real_constants = all(not c.free_symbols and c.is_real is True and c.is_finite is True for c in coefficients)
+#|               v = Matrix(coefficients)
+#|               nonzero = any(simplify(c) != 0 for c in coefficients)
+#|               valid = linear and real_constants and nonzero and all(simplify(z) == 0 for z in A*v-lam*v)
+#|           except Exception:
+#|               valid = False
+#|           checks.append(bool(valid))
+#|           messages.append(f"Family {i+1}: correct." if valid else f"Family {i+1}: use t times a nonzero real eigenvector for λ = {lam}; check both coordinates.")
+#|       scalar_answers = values[4:]
+#|       for value, target, hint in zip(scalar_answers, (0, 1, 0), (
+#|           "Which parameter makes t times a nonzero vector equal to zero?",
+#|           "An eigenspace is the nullspace of A − λI and contains zero.",
+#|           "By definition, an eigenvector must be nonzero.")):
+#|           ok = not value.free_symbols and value.is_real is True and value.is_finite is True and simplify(value-target) == 0
+#|           checks.append(bool(ok))
+#|           if not ok:
+#|               messages.append(hint)
+#|       if all(checks):
+#|           messages.append("Both eigenspaces use all real t. Their eigenvectors use t ≠ 0: zero solves the homogeneous equation but has no direction.")
+#|       return {"score": sum(checks)/5, "show_score": False, "feedback": " ".join(messages)}
+
+For eigenvalue $3$, enter $w_1(t)=$ vec[,]
+
+For eigenvalue $1$, enter $w_2(t)=$ vec[,]
+
+Each eigenspace consists of the corresponding family for all $t\in\mathbb R$.
+To describe only its **eigenvectors**, exclude $t=$ _[].
+
+Enter **1 for yes**, **0 for no**:
+
+Does the zero vector belong to each eigenspace? _[]
+
+Is the zero vector an eigenvector? _[]
+```
 
 <details class="learning-hint">
 <summary>Hint for problem 2</summary>
@@ -467,3 +559,4 @@ do not try to invert it.
 </details>
 
 :::
+
