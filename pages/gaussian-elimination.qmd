@@ -3,6 +3,8 @@ title: "Gaussian elimination"
 toc: true
 ---
 
+::: {#gauss-method-context .math-exercise-context}
+
 Solve these three systems by **forward elimination**, followed by **back
 substitution**. The last system needs a row swap before elimination can begin.
 
@@ -16,7 +18,11 @@ The matrix fields below include the right-hand side as their last column.
 Follow the specified row operations without further row scaling: other valid
 elimination routes can produce different intermediate matrices.
 
+:::
+
 ## 1. A 2×2 system
+
+::: {#gauss-system-1-context .math-exercise-context}
 
 $$
 \begin{aligned}
@@ -27,13 +33,20 @@ x+y&=5,\\
 [A\mid b]=\begin{bmatrix}1&1&5\\2&-1&1\end{bmatrix}.
 $$
 
+:::
+
 ### A. Eliminate below the first pivot
+
+::: {#gauss-2x2-elimination-context .math-exercise-context}
 
 Apply $R_2\leftarrow R_2-2R_1$, keeping $R_1$ unchanged.
 Enter the resulting augmented matrix.
 
+:::
+
 ```{math-exercise}
 #| label: gauss-2x2-elimination
+#| context: gauss-method-context, gauss-system-1-context, gauss-2x2-elimination-context
 #| caption: 1A — one elimination step
 #| mode: equivalent
 #| partial-credit: true
@@ -43,10 +56,15 @@ $[U\mid c]=$ mat[1,1,5;0,-3,-9]
 
 ### B. Back substitute
 
+::: {#gauss-2x2-solution-context .math-exercise-context}
+
 Use the second row to find $y$, then use the first row to find $x$.
+
+:::
 
 ```{math-exercise}
 #| label: gauss-2x2-solution
+#| context: gauss-method-context, gauss-system-1-context, gauss-2x2-solution-context
 #| caption: 1B — solve the triangular system
 #| mode: equivalent
 #| partial-credit: true
@@ -68,6 +86,8 @@ Check your final solution in both original equations.
 
 ## 2. A 3×3 system
 
+::: {#gauss-system-2-context .math-exercise-context}
+
 $$
 \begin{aligned}
 x+y+z&=6,\\
@@ -78,14 +98,21 @@ x-y+2z&=5.
 [A\mid b]=\begin{bmatrix}1&1&1&6\\2&3&1&11\\1&-1&2&5\end{bmatrix}.
 $$
 
+:::
+
 ### A. Clear the first column
+
+::: {#gauss-3x3-first-column-context .math-exercise-context}
 
 Use the unchanged first row in both operations:
 
 $$R_2\leftarrow R_2-2R_1,\qquad R_3\leftarrow R_3-R_1.$$
 
+:::
+
 ```{math-exercise}
 #| label: gauss-3x3-first-column
+#| context: gauss-method-context, gauss-system-2-context, gauss-3x3-first-column-context
 #| caption: 2A — eliminate x from rows 2 and 3
 #| mode: equivalent
 #| partial-credit: true
@@ -95,11 +122,16 @@ Resulting augmented matrix $=$ mat[1,1,1,6;0,1,-1,-1;0,-2,1,-1]
 
 ### B. Clear the second column
 
+::: {#gauss-3x3-triangular-context .math-exercise-context}
+
 Using the **updated** rows from part A, apply
 $R_3\leftarrow R_3+2R_2$. Keep the other rows unchanged.
 
+:::
+
 ```{math-exercise}
 #| label: gauss-3x3-triangular
+#| context: gauss-method-context, gauss-system-2-context, gauss-3x3-triangular-context
 #| caption: 2B — complete forward elimination
 #| mode: equivalent
 #| partial-credit: true
@@ -109,10 +141,15 @@ $[U\mid c]=$ mat[1,1,1,6;0,1,-1,-1;0,0,-1,-3]
 
 ### C. Back substitute
 
+::: {#gauss-3x3-solution-context .math-exercise-context}
+
 Solve from the bottom row upward: first $z$, then $y$, then $x$.
+
+:::
 
 ```{math-exercise}
 #| label: gauss-3x3-solution
+#| context: gauss-method-context, gauss-system-2-context, gauss-3x3-solution-context
 #| caption: 2C — back substitution
 #| mode: equivalent
 #| partial-credit: true
@@ -137,6 +174,8 @@ right-hand side. Substitute your solution into all three original equations.
 
 ## 3. A 3×3 system that needs pivoting
 
+::: {#gauss-system-3-context .math-exercise-context}
+
 $$
 \begin{aligned}
 2y+z&=1,\\
@@ -153,13 +192,20 @@ Use **partial pivoting**: in the current column, choose the available entry
 with the largest absolute value and move its row into the pivot position.
 Here, compare the entries $0$, $2$, and $1$ in the first column.
 
+:::
+
 ### A. Choose and swap the pivot row
+
+::: {#gauss-pivot-swap-context .math-exercise-context}
 
 Enter the original row number to swap with row 1, then the augmented matrix
 immediately after that swap. Do not eliminate or scale any rows yet.
 
+:::
+
 ```{math-exercise}
 #| label: gauss-pivot-swap
+#| context: gauss-method-context, gauss-system-3-context, gauss-pivot-swap-context
 #| caption: 3A — choose the first pivot
 #| mode: equivalent
 #| partial-credit: true
@@ -171,11 +217,16 @@ Matrix after the swap $=$ mat[2,1,-1,0;0,2,1,1;1,-1,2,9]
 
 ### B. Eliminate below the pivots
 
+::: {#gauss-pivot-first-column-context .math-exercise-context}
+
 After the swap, the second row already has a zero in the first column.
 Apply $R_3\leftarrow R_3-\tfrac12R_1$.
 
+:::
+
 ```{math-exercise}
 #| label: gauss-pivot-first-column
+#| context: gauss-method-context, gauss-system-3-context, gauss-pivot-first-column-context
 #| caption: 3B — eliminate below the new first pivot
 #| mode: equivalent
 #| partial-credit: true
@@ -183,12 +234,17 @@ Apply $R_3\leftarrow R_3-\tfrac12R_1$.
 Resulting augmented matrix $=$ mat[2,1,-1,0;0,2,1,1;0,-3/2,5/2,9]
 ```
 
+::: {#gauss-pivot-triangular-context .math-exercise-context}
+
 The second pivot is 2; the remaining entry below it is $-3/2$.
 Since $|2|>|-3/2|$, partial pivoting requires no further swap.
 Apply $R_3\leftarrow R_3+\tfrac34R_2$ to the updated matrix.
 
+:::
+
 ```{math-exercise}
 #| label: gauss-pivot-triangular
+#| context: gauss-method-context, gauss-system-3-context, gauss-pivot-triangular-context
 #| caption: 3B — complete forward elimination
 #| mode: equivalent
 #| partial-credit: true
@@ -198,11 +254,16 @@ $[U\mid c]=$ mat[2,1,-1,0;0,2,1,1;0,0,13/4,39/4]
 
 ### C. Back substitute
 
+::: {#gauss-pivot-solution-context .math-exercise-context}
+
 Solve for $z$, then $y$, then $x$. Row swaps change the order of the equations,
 **not** the order of the unknowns: the columns still represent $x,y,z$.
 
+:::
+
 ```{math-exercise}
 #| label: gauss-pivot-solution
+#| context: gauss-method-context, gauss-system-3-context, gauss-pivot-solution-context
 #| caption: 3C — solve after pivoting
 #| mode: equivalent
 #| partial-credit: true
@@ -225,3 +286,4 @@ Fractions during elimination are normal. Check your final answer in the
 original system, before any row swaps.
 
 </details>
+
