@@ -3,7 +3,8 @@
 .learning-mode button { padding: .4rem .8rem; margin-right: .4rem; border: 1px solid #245b79; border-radius: .3rem; background: white; color: #183e53; }
 .learning-mode button[aria-pressed="true"] { background: #245b79; color: white; }
 .learning-mode [role="status"] { display: block; margin-top: .4rem; font-size: .9rem; }
-details.reading-step, details.learning-hint { margin: 1rem 0; padding: .7rem 1rem; border-left: 3px solid #7899ac; background: #f6f8fa; }
+details.reading-step, details.learning-hint, details.solution-block { margin: 1rem 0; padding: .7rem 1rem; border-left: 3px solid #7899ac; background: #f6f8fa; }
+details.solution-block { border-left-color: #4f7d57; background: #f4f8f4; }
 details > summary { cursor: pointer; font-weight: 600; }
 details[open] > summary { margin-bottom: .8rem; }
 button:focus-visible, summary:focus-visible { outline: 3px solid #ad6600; outline-offset: 3px; }
