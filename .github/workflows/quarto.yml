@@ -32,9 +32,8 @@ jobs:
         run: quarto render
       - name: Publish to gh-pages
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-        uses: quarto-dev/quarto-actions/publish@v2
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          target: gh-pages
-          render: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages
