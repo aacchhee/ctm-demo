@@ -44,7 +44,7 @@ whole vector by its length. We do not normalize individual coordinates.
 The formula beside the blue endpoint identifies the iterate. You can drag the
 orange ring even when it surrounds the blue endpoint.
 
-{{< include direction-applet.md >}}
+{{< include _includes/direction-applet.md >}}
 
 ### What did you notice?
 
