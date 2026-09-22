@@ -1,0 +1,227 @@
+---
+title: "Gaussian elimination"
+toc: true
+---
+
+Solve these three systems by **forward elimination**, followed by **back
+substitution**. The last system needs a row swap before elimination can begin.
+
+For an augmented matrix $[A\mid b]$, the last column contains the right-hand
+side. Apply every row operation to that column too. A **pivot** is the nonzero
+entry used to eliminate entries below it. If the proposed pivot is zero,
+look for a nonzero entry below it and swap rows.
+
+Work on paper first, then check your entries. Use exact numbers such as `1/2`.
+The matrix fields below include the right-hand side as their last column.
+Follow the specified row operations without further row scaling: other valid
+elimination routes can produce different intermediate matrices.
+
+## 1. A 2×2 system
+
+$$
+\begin{aligned}
+x+y&=5,\\
+2x-y&=1.
+\end{aligned}
+\qquad
+[A\mid b]=\begin{bmatrix}1&1&5\\2&-1&1\end{bmatrix}.
+$$
+
+### A. Eliminate below the first pivot
+
+Apply $R_2\leftarrow R_2-2R_1$, keeping $R_1$ unchanged.
+Enter the resulting augmented matrix.
+
+```{math-exercise}
+#| label: gauss-2x2-elimination
+#| caption: 1A — one elimination step
+#| mode: equivalent
+#| partial-credit: true
+
+$[U\mid c]=$ mat[1,1,5;0,-3,-9]
+```
+
+### B. Back substitute
+
+Use the second row to find $y$, then use the first row to find $x$.
+
+```{math-exercise}
+#| label: gauss-2x2-solution
+#| caption: 1B — solve the triangular system
+#| mode: equivalent
+#| partial-credit: true
+#| field-labels: x, y
+
+$x=$ __[2]
+
+$y=$ __[3]
+```
+
+<details class="learning-hint">
+<summary>Hint for problem 1</summary>
+
+In the second row, the coefficient of $y$ becomes $-1-2\cdot1$.
+The right-hand side becomes $1-2\cdot5$. A row operation changes the whole row.
+Check your final solution in both original equations.
+
+</details>
+
+## 2. A 3×3 system
+
+$$
+\begin{aligned}
+x+y+z&=6,\\
+2x+3y+z&=11,\\
+x-y+2z&=5.
+\end{aligned}
+\qquad
+[A\mid b]=\begin{bmatrix}1&1&1&6\\2&3&1&11\\1&-1&2&5\end{bmatrix}.
+$$
+
+### A. Clear the first column
+
+Use the unchanged first row in both operations:
+
+$$R_2\leftarrow R_2-2R_1,\qquad R_3\leftarrow R_3-R_1.$$
+
+```{math-exercise}
+#| label: gauss-3x3-first-column
+#| caption: 2A — eliminate x from rows 2 and 3
+#| mode: equivalent
+#| partial-credit: true
+
+Resulting augmented matrix $=$ mat[1,1,1,6;0,1,-1,-1;0,-2,1,-1]
+```
+
+### B. Clear the second column
+
+Using the **updated** rows from part A, apply
+$R_3\leftarrow R_3+2R_2$. Keep the other rows unchanged.
+
+```{math-exercise}
+#| label: gauss-3x3-triangular
+#| caption: 2B — complete forward elimination
+#| mode: equivalent
+#| partial-credit: true
+
+$[U\mid c]=$ mat[1,1,1,6;0,1,-1,-1;0,0,-1,-3]
+```
+
+### C. Back substitute
+
+Solve from the bottom row upward: first $z$, then $y$, then $x$.
+
+```{math-exercise}
+#| label: gauss-3x3-solution
+#| caption: 2C — back substitution
+#| mode: equivalent
+#| partial-credit: true
+#| field-labels: x, y, z
+
+$x=$ __[1]
+
+$y=$ __[2]
+
+$z=$ __[3]
+```
+
+<details class="learning-hint">
+<summary>Hint for problem 2</summary>
+
+After part A, the first column below the pivot should contain only zeros.
+The second pivot is 1. Adding twice the new second row to the new third row
+eliminates its $y$ coefficient. The last row then contains only $z$ and the
+right-hand side. Substitute your solution into all three original equations.
+
+</details>
+
+## 3. A 3×3 system that needs pivoting
+
+$$
+\begin{aligned}
+2y+z&=1,\\
+2x+y-z&=0,\\
+x-y+2z&=9.
+\end{aligned}
+\qquad
+[A\mid b]=\begin{bmatrix}0&2&1&1\\2&1&-1&0\\1&-1&2&9\end{bmatrix}.
+$$
+
+The first proposed pivot is zero, so division by it is impossible.
+This does **not** mean the system has no unique solution.
+Use **partial pivoting**: in the current column, choose the available entry
+with the largest absolute value and move its row into the pivot position.
+Here, compare the entries $0$, $2$, and $1$ in the first column.
+
+### A. Choose and swap the pivot row
+
+Enter the original row number to swap with row 1, then the augmented matrix
+immediately after that swap. Do not eliminate or scale any rows yet.
+
+```{math-exercise}
+#| label: gauss-pivot-swap
+#| caption: 3A — choose the first pivot
+#| mode: equivalent
+#| partial-credit: true
+
+Swap row 1 with row __[2].
+
+Matrix after the swap $=$ mat[2,1,-1,0;0,2,1,1;1,-1,2,9]
+```
+
+### B. Eliminate below the pivots
+
+After the swap, the second row already has a zero in the first column.
+Apply $R_3\leftarrow R_3-\tfrac12R_1$.
+
+```{math-exercise}
+#| label: gauss-pivot-first-column
+#| caption: 3B — eliminate below the new first pivot
+#| mode: equivalent
+#| partial-credit: true
+
+Resulting augmented matrix $=$ mat[2,1,-1,0;0,2,1,1;0,-3/2,5/2,9]
+```
+
+The second pivot is 2; the remaining entry below it is $-3/2$.
+Since $|2|>|-3/2|$, partial pivoting requires no further swap.
+Apply $R_3\leftarrow R_3+\tfrac34R_2$ to the updated matrix.
+
+```{math-exercise}
+#| label: gauss-pivot-triangular
+#| caption: 3B — complete forward elimination
+#| mode: equivalent
+#| partial-credit: true
+
+$[U\mid c]=$ mat[2,1,-1,0;0,2,1,1;0,0,13/4,39/4]
+```
+
+### C. Back substitute
+
+Solve for $z$, then $y$, then $x$. Row swaps change the order of the equations,
+**not** the order of the unknowns: the columns still represent $x,y,z$.
+
+```{math-exercise}
+#| label: gauss-pivot-solution
+#| caption: 3C — solve after pivoting
+#| mode: equivalent
+#| partial-credit: true
+#| field-labels: x, y, z
+
+$x=$ __[2]
+
+$y=$ __[-1]
+
+$z=$ __[3]
+```
+
+<details class="learning-hint">
+<summary>Hint for problem 3</summary>
+
+Swap the **entire** rows, including their right-hand sides. After the swap,
+the first pivot is 2, so subtract half of row 1 from row 3.
+For the next step, check that $-3/2+(3/4)\cdot2=0$.
+Fractions during elimination are normal. Check your final answer in the
+original system, before any row swaps.
+
+</details>
