@@ -32,19 +32,19 @@ $m_p=1.67\cdot10^{-27}\,\mathrm{kg}$. Fet skrift og hake betyr vektorer.
 
 ### Prøve 1
 
-{{< include _includes/physics/prove1-2024.md >}}
+{{< include ../_includes/physics/prove1-2024.md >}}
 
 ### Prøve 2
 
-{{< include _includes/physics/prove2-2024.md >}}
+{{< include ../_includes/physics/prove2-2024.md >}}
 
 ### Prøve 3
 
-{{< include _includes/physics/prove3-2024.md >}}
+{{< include ../_includes/physics/prove3-2024.md >}}
 
 ### Prøve 4
 
-{{< include _includes/physics/prove4-2024.md >}}
+{{< include ../_includes/physics/prove4-2024.md >}}
 
 :::
 
@@ -54,19 +54,19 @@ $m_p=1.67\cdot10^{-27}\,\mathrm{kg}$. Fet skrift og hake betyr vektorer.
 
 ### Prøve 1
 
-{{< include _includes/physics/prove1-2025.md >}}
+{{< include ../_includes/physics/prove1-2025.md >}}
 
 ### Prøve 2
 
-{{< include _includes/physics/prove2-2025.md >}}
+{{< include ../_includes/physics/prove2-2025.md >}}
 
 ### Prøve 3
 
-{{< include _includes/physics/prove3-2025.md >}}
+{{< include ../_includes/physics/prove3-2025.md >}}
 
 ### Prøve 4
 
-{{< include _includes/physics/prove4-2025.md >}}
+{{< include ../_includes/physics/prove4-2025.md >}}
 
 :::
 
@@ -76,19 +76,19 @@ $m_p=1.67\cdot10^{-27}\,\mathrm{kg}$. Fet skrift og hake betyr vektorer.
 
 ### Prøve 1
 
-{{< include _includes/physics/prove1-2026.md >}}
+{{< include ../_includes/physics/prove1-2026.md >}}
 
 ### Prøve 2
 
-{{< include _includes/physics/prove2-2026.md >}}
+{{< include ../_includes/physics/prove2-2026.md >}}
 
 ### Prøve 3
 
-{{< include _includes/physics/prove3-2026.md >}}
+{{< include ../_includes/physics/prove3-2026.md >}}
 
 ### Prøve 4
 
-{{< include _includes/physics/prove4-2026.md >}}
+{{< include ../_includes/physics/prove4-2026.md >}}
 
 :::
 
