@@ -4,6 +4,7 @@ project:
     - index.qmd
     - pages/experiments.qmd
     - pages/gaussian-elimination.qmd
+    - pages/physics.qmd
     - pages/help.qmd
 
 lang: en
@@ -26,6 +27,8 @@ website:
         file: pages/experiments.qmd
       - text: "Gaussian elimination"
         file: pages/gaussian-elimination.qmd
+      - text: "Fysikk"
+        file: pages/physics.qmd
       - text: "Help"
         file: pages/help.qmd
 
