@@ -5,6 +5,7 @@ project:
     - pages/experiments.qmd
     - pages/gaussian-elimination.qmd
     - pages/physics.qmd
+    - pages/fysikk-forkurs.qmd
     - pages/help.qmd
 
 lang: en
@@ -29,6 +30,8 @@ website:
         file: pages/gaussian-elimination.qmd
       - text: "Fysikk"
         file: pages/physics.qmd
+      - text: "Fysikk-forkurs"
+        file: pages/fysikk-forkurs.qmd
       - text: "Help"
         file: pages/help.qmd
 

@@ -1,0 +1,28 @@
+---
+title: "Fysikk-forkurs"
+lang: nb
+toc: true
+toc-depth: 3
+math-exercise:
+  lang: nb
+---
+
+{{< include ../_includes/fysikk-forkurs/intro.md >}}
+
+::: {.panel-tabset}
+
+## F5 H21
+
+{{< include ../_includes/fysikk-forkurs/f5-h21.md >}}
+
+## F9 april 2024
+
+{{< include ../_includes/fysikk-forkurs/f9-2024.md >}}
+
+## Prøveeksamen F9 V23
+
+{{< include ../_includes/fysikk-forkurs/f9-v23.md >}}
+
+:::
+
+{{< include ../_includes/fysikk-forkurs/accessibility.html >}}
