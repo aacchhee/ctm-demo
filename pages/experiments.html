@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-24c09a13944ec7e1f31d2917b1251fc2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-56a7063a21dd4c20fbc96590a1db8d87.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -825,37 +825,53 @@ window.Quarto = {
 <section id="fourier-coefficients-a-ramp-with-a-jump" class="level2">
 <h2 class="anchored" data-anchor-id="fourier-coefficients-a-ramp-with-a-jump">Fourier coefficients: a ramp with a jump</h2>
 <div id="fourier-definition-context" class="math-exercise-context">
-<p>Let <span class="math inline">\(f\)</span> be the <span class="math inline">\(2\pi\)</span>-periodic extension of</p>
-<p><span class="math display">\[
+<p>Let <span data-math-exercise-display="false" data-math-exercise-tex="f"><span class="math inline">\(f\)</span></span> be the <span data-math-exercise-display="false" data-math-exercise-tex="2\pi"><span class="math inline">\(2\pi\)</span></span>-periodic extension of</p>
+<p><span data-math-exercise-display="true" data-math-exercise-tex="
+f(x)=\begin{cases}
+0,&amp;-\pi\le x<0,\\
+x,&amp;0\le x<\pi.
+\end{cases}
+"><span class="math display">\[
 f(x)=\begin{cases}
 0,&amp;-\pi\le x&lt;0,\\
 x,&amp;0\le x&lt;\pi.
 \end{cases}
-\]</span></p>
-<p>Thus <span class="math inline">\(f(x+2\pi)=f(x)\)</span>; in particular, <span class="math inline">\(f(\pi)=f(-\pi)=0\)</span>. On each period the function is zero for half the interval, then rises linearly before jumping back to zero.</p>
+\]</span></span></p>
+<p>Thus <span data-math-exercise-display="false" data-math-exercise-tex="f(x+2\pi)=f(x)"><span class="math inline">\(f(x+2\pi)=f(x)\)</span></span>; in particular, <span data-math-exercise-display="false" data-math-exercise-tex="f(\pi)=f(-\pi)=0"><span class="math inline">\(f(\pi)=f(-\pi)=0\)</span></span>. On each period the function is zero for half the interval, then rises linearly before jumping back to zero.</p>
 <p>Use the real Fourier-series convention</p>
-<p><span class="math display">\[
+<p><span data-math-exercise-display="true" data-math-exercise-tex="
 f(x)\sim\frac{a_0}{2}+\sum_{n=1}^{\infty}
 \bigl(a_n\cos(nx)+b_n\sin(nx)\bigr),
-\]</span></p>
+"><span class="math display">\[
+f(x)\sim\frac{a_0}{2}+\sum_{n=1}^{\infty}
+\bigl(a_n\cos(nx)+b_n\sin(nx)\bigr),
+\]</span></span></p>
 <p>with</p>
-<p><span class="math display">\[
+<p><span data-math-exercise-display="true" data-math-exercise-tex="
 a_0=\frac1\pi\int_{-\pi}^{\pi}f(x)\,dx,\qquad
 a_n=\frac1\pi\int_{-\pi}^{\pi}f(x)\cos(nx)\,dx,\qquad
 b_n=\frac1\pi\int_{-\pi}^{\pi}f(x)\sin(nx)\,dx.
-\]</span></p>
-<p>Work out the integrals before checking your answers. Enter exact expressions: use <code>pi</code>, <code>n</code>, <code>sin(...)</code>, <code>cos(...)</code>, and <code>(-1)^n</code>. In parts B and C, <span class="math inline">\(n\)</span> is any positive integer. A formula must work for <strong>all</strong> such <span class="math inline">\(n\)</span>, not just the first few. The checkers compare symbolic identities; if an unusual equivalent form cannot be verified, rewrite it using these functions.</p>
+"><span class="math display">\[
+a_0=\frac1\pi\int_{-\pi}^{\pi}f(x)\,dx,\qquad
+a_n=\frac1\pi\int_{-\pi}^{\pi}f(x)\cos(nx)\,dx,\qquad
+b_n=\frac1\pi\int_{-\pi}^{\pi}f(x)\sin(nx)\,dx.
+\]</span></span></p>
+<p>Work out the integrals before checking your answers. Enter exact expressions: use <code>pi</code>, <code>n</code>, <code>sin(...)</code>, <code>cos(...)</code>, and <code>(-1)^n</code>. In parts B and C, <span data-math-exercise-display="false" data-math-exercise-tex="n"><span class="math inline">\(n\)</span></span> is any positive integer. A formula must work for <strong>all</strong> such <span data-math-exercise-display="false" data-math-exercise-tex="n"><span class="math inline">\(n\)</span></span>, not just the first few. The checkers compare symbolic identities; if an unusual equivalent form cannot be verified, rewrite it using these functions.</p>
 </div>
 <section id="part-a-warm-up-the-average-and-one-sine-coefficient" class="level3">
 <h3 class="anchored" data-anchor-id="part-a-warm-up-the-average-and-one-sine-coefficient">Part A — warm-up: the average and one sine coefficient</h3>
 <div id="fourier-a-context" class="math-exercise-context">
-<p>Compute <span class="math inline">\(a_0\)</span>, the mean value of <span class="math inline">\(f\)</span> over a full period, and <span class="math inline">\(b_1\)</span>. Keep the constant coefficient <span class="math inline">\(a_0\)</span> distinct from the constant term <span class="math inline">\(a_0/2\)</span>.</p>
+<p>Compute <span data-math-exercise-display="false" data-math-exercise-tex="a_0"><span class="math inline">\(a_0\)</span></span>, the mean value of <span data-math-exercise-display="false" data-math-exercise-tex="f"><span class="math inline">\(f\)</span></span> over a full period, and <span data-math-exercise-display="false" data-math-exercise-tex="b_1"><span class="math inline">\(b_1\)</span></span>. Keep the constant coefficient <span data-math-exercise-display="false" data-math-exercise-tex="a_0"><span class="math inline">\(a_0\)</span></span> distinct from the constant term <span data-math-exercise-display="false" data-math-exercise-tex="a_0/2"><span class="math inline">\(a_0/2\)</span></span>.</p>
 </div>
-<div class="math-exercise-cell" id="math-exercise-1" data-label="fourier-a" data-mode="custom" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;def check(response, symbols):\n    values = response[\&quot;expressions\&quot;]\n    if any(not isinstance(z, Expr) or z.has(nan, zoo, oo, -oo) for z in values):\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Enter finite scalar expressions, not equations or lists.\&quot;}\n    targets = [pi/2, pi/4, S.One]\n    hints = [\&quot;For a₀, integrate x from 0 to π and divide by π.\&quot;, \&quot;The mean is the integral over a period divided by 2π, so it is a₀/2.\&quot;, \&quot;For b₁, integrate x sin(x) from 0 to π by parts, then divide by π.\&quot;]\n    if len(values) != 3:\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Complete all three fields.\&quot;}\n    checks, messages = [], []\n    for value, target, hint in zip(values, targets, hints):\n        ok = not value.free_symbols and value.is_real is True and value.is_finite is True and simplify(value-target) == 0\n        checks.append(bool(ok))\n        if not ok:\n            messages.append(hint)\n    return {\&quot;score\&quot;: sum(checks)/3, \&quot;show_score\&quot;: False, \&quot;feedback\&quot;: \&quot;All three are correct: the mean is half of a₀.\&quot; if all(checks) else \&quot; \&quot;.join(messages)}&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;a₀&quot;,&quot;mean value&quot;,&quot;b₁&quot;]" data-vecdir="col" data-context-mode="explicit" data-context-refs="fourier-definition-context, fourier-a-context" data-context="&quot;Part A — warm-up: the average and one sine coefficient Compute a_0, the mean value of f over a full period, and b_1. Keep the constant coefficient a_0 distinct from the constant term a_0/2.&quot;" data-fields="[&quot;math-exercise-1-f1&quot;,&quot;math-exercise-1-f2&quot;,&quot;math-exercise-1-f3&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;,&quot;&quot;]">
-<div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>Part A — average and first sine coefficient</div>
+<div class="math-exercise-cell" id="math-exercise-1" data-label="fourier-a" data-mode="custom" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;def check(response, symbols):\n    values = response[\&quot;expressions\&quot;]\n    if any(not isinstance(z, Expr) or z.has(nan, zoo, oo, -oo) for z in values):\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Enter finite scalar expressions, not equations or lists.\&quot;}\n    targets = [pi/2, pi/4, S.One]\n    hints = [\&quot;For a₀, integrate x from 0 to π and divide by π.\&quot;, \&quot;The mean is the integral over a period divided by 2π, so it is a₀/2.\&quot;, \&quot;For b₁, integrate x sin(x) from 0 to π by parts, then divide by π.\&quot;]\n    if len(values) != 3:\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Complete all three fields.\&quot;}\n    checks, messages = [], []\n    for value, target, hint in zip(values, targets, hints):\n        ok = not value.free_symbols and value.is_real is True and value.is_finite is True and simplify(value-target) == 0\n        checks.append(bool(ok))\n        if not ok:\n            messages.append(hint)\n    return {\&quot;score\&quot;: sum(checks)/3, \&quot;show_score\&quot;: False, \&quot;feedback\&quot;: \&quot;All three are correct: the mean is half of a₀.\&quot; if all(checks) else \&quot; \&quot;.join(messages)}&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;a₀&quot;,&quot;mean value&quot;,&quot;b₁&quot;]" data-vecdir="col" data-context-mode="explicit" data-context-refs="fourier-definition-context, fourier-a-context" data-context="&quot;Part A — warm-up: the average and one sine coefficient\nCompute \\(a_0\\), the mean value of \\(f\\) over a full period, and \\(b_1\\). Keep the constant coefficient \\(a_0\\) distinct from the constant term \\(a_0/2\\).&quot;" data-fields="[&quot;math-exercise-1-f1&quot;,&quot;math-exercise-1-f2&quot;,&quot;math-exercise-1-f3&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;,&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="Part A — average and first sine coefficient" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>Part A — average and first sine coefficient</div>
 
 <div class="math-exercise-body" aria-hidden="true">
-<div class="math-exercise-question">\(a_0=\) <input type="text" id="math-exercise-1-f1" data-answer="" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"><br>
+<div class="math-exercise-question" data-math-exercise-source="\(a_0=\) <input type=&quot;text&quot; id=&quot;math-exercise-1-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;><br>
+<br>
+Mean value \(=\) <input type=&quot;text&quot; id=&quot;math-exercise-1-f2&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;><br>
+<br>
+\(b_1=\) <input type=&quot;text&quot; id=&quot;math-exercise-1-f3&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;>">\(a_0=\) <input type="text" id="math-exercise-1-f1" data-answer="" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"><br>
 <br>
 Mean value \(=\) <input type="text" id="math-exercise-1-f2" data-answer="" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"><br>
 <br>
@@ -883,13 +899,15 @@ Hint for A
 <section id="part-b-general-coefficients-keep-track-of-parity" class="level3">
 <h3 class="anchored" data-anchor-id="part-b-general-coefficients-keep-track-of-parity">Part B — general coefficients: keep track of parity</h3>
 <div id="fourier-b-context" class="math-exercise-context">
-<p>Find formulas for <span class="math inline">\(a_n\)</span> and <span class="math inline">\(b_n\)</span> for every positive integer <span class="math inline">\(n\)</span>. Neither an even-function shortcut nor an odd-function shortcut applies to <span class="math inline">\(f\)</span>. Use integration by parts and simplify the endpoint values.</p>
+<p>Find formulas for <span data-math-exercise-display="false" data-math-exercise-tex="a_n"><span class="math inline">\(a_n\)</span></span> and <span data-math-exercise-display="false" data-math-exercise-tex="b_n"><span class="math inline">\(b_n\)</span></span> for every positive integer <span data-math-exercise-display="false" data-math-exercise-tex="n"><span class="math inline">\(n\)</span></span>. Neither an even-function shortcut nor an odd-function shortcut applies to <span data-math-exercise-display="false" data-math-exercise-tex="f"><span class="math inline">\(f\)</span></span>. Use integration by parts and simplify the endpoint values.</p>
 </div>
-<div class="math-exercise-cell" id="math-exercise-2" data-label="fourier-b" data-mode="custom" data-reject="" data-vars="n" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;def check(response, symbols):\n    values = response[\&quot;expressions\&quot;]\n    if any(not isinstance(z, Expr) or z.has(nan, zoo, oo, -oo) for z in values):\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Enter finite scalar expressions, not equations or lists.\&quot;}\n    if len(values) != 2:\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Enter both coefficient formulas.\&quot;}\n    original = symbols[\&quot;n\&quot;]\n    n = Symbol(\&quot;fourier_index\&quot;, integer=True, positive=True)\n    targets = [((-1)**n-1)/(pi*n**2), (-1)**(n+1)/n]\n    checks, messages = [], []\n    for value, target, name in zip(values, targets, (\&quot;aₙ\&quot;, \&quot;bₙ\&quot;)):\n        ok = False\n        try:\n            if not value.free_symbols - {original}:\n                expr = value.subs(original, n)\n                ok = simplify(trigsimp(expr-target)) == 0\n        except Exception:\n            pass\n        checks.append(bool(ok))\n        if not ok:\n            messages.append(f\&quot;{name}: the identity was not verified. Check the boundary term, the factor 1/π, and cos(nπ) = (−1)ⁿ; give one formula in n.\&quot;)\n    return {\&quot;score\&quot;: sum(checks)/2, \&quot;show_score\&quot;: False, \&quot;feedback\&quot;: \&quot;Correct for all positive integers n. Notice that aₙ vanishes for even n, while bₙ alternates sign.\&quot; if all(checks) else \&quot; \&quot;.join(messages)}&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;aₙ&quot;,&quot;bₙ&quot;]" data-vecdir="col" data-context-mode="explicit" data-context-refs="fourier-definition-context, fourier-b-context" data-context="&quot;Part B — general coefficients: keep track of parity Find formulas for a_n and b_n for every positive integer n. Neither an even-function shortcut nor an odd-function shortcut applies to f. Use integration by parts and simplify the endpoint values.&quot;" data-fields="[&quot;math-exercise-2-f1&quot;,&quot;math-exercise-2-f2&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;]">
-<div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>Part B — coefficients for every positive integer n</div>
+<div class="math-exercise-cell" id="math-exercise-2" data-label="fourier-b" data-mode="custom" data-reject="" data-vars="n" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;def check(response, symbols):\n    values = response[\&quot;expressions\&quot;]\n    if any(not isinstance(z, Expr) or z.has(nan, zoo, oo, -oo) for z in values):\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Enter finite scalar expressions, not equations or lists.\&quot;}\n    if len(values) != 2:\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Enter both coefficient formulas.\&quot;}\n    original = symbols[\&quot;n\&quot;]\n    n = Symbol(\&quot;fourier_index\&quot;, integer=True, positive=True)\n    targets = [((-1)**n-1)/(pi*n**2), (-1)**(n+1)/n]\n    checks, messages = [], []\n    for value, target, name in zip(values, targets, (\&quot;aₙ\&quot;, \&quot;bₙ\&quot;)):\n        ok = False\n        try:\n            if not value.free_symbols - {original}:\n                expr = value.subs(original, n)\n                ok = simplify(trigsimp(expr-target)) == 0\n        except Exception:\n            pass\n        checks.append(bool(ok))\n        if not ok:\n            messages.append(f\&quot;{name}: the identity was not verified. Check the boundary term, the factor 1/π, and cos(nπ) = (−1)ⁿ; give one formula in n.\&quot;)\n    return {\&quot;score\&quot;: sum(checks)/2, \&quot;show_score\&quot;: False, \&quot;feedback\&quot;: \&quot;Correct for all positive integers n. Notice that aₙ vanishes for even n, while bₙ alternates sign.\&quot; if all(checks) else \&quot; \&quot;.join(messages)}&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;aₙ&quot;,&quot;bₙ&quot;]" data-vecdir="col" data-context-mode="explicit" data-context-refs="fourier-definition-context, fourier-b-context" data-context="&quot;Part B — general coefficients: keep track of parity\nFind formulas for \\(a_n\\) and \\(b_n\\) for every positive integer \\(n\\). Neither an even-function shortcut nor an odd-function shortcut applies to \\(f\\). Use integration by parts and simplify the endpoint values.&quot;" data-fields="[&quot;math-exercise-2-f1&quot;,&quot;math-exercise-2-f2&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="Part B — coefficients for every positive integer n" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>Part B — coefficients for every positive integer n</div>
 
 <div class="math-exercise-body" aria-hidden="true">
-<div class="math-exercise-question">\(a_n=\) <textarea id="math-exercise-2-f1" data-answer="" data-vars="n" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-large" rows="2"></textarea><br>
+<div class="math-exercise-question" data-math-exercise-source="\(a_n=\) <textarea id=&quot;math-exercise-2-f1&quot; data-vars=&quot;n&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-large&quot; rows=&quot;2&quot;></textarea><br>
+<br>
+\(b_n=\) <textarea id=&quot;math-exercise-2-f2&quot; data-vars=&quot;n&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-large&quot; rows=&quot;2&quot;></textarea>">\(a_n=\) <textarea id="math-exercise-2-f1" data-answer="" data-vars="n" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-large" rows="2"></textarea><br>
 <br>
 \(b_n=\) <textarea id="math-exercise-2-f2" data-answer="" data-vars="n" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-large" rows="2"></textarea></div>
 
@@ -915,16 +933,21 @@ Hint for B
 <section id="part-c-a-shift-and-a-discontinuity" class="level3">
 <h3 class="anchored" data-anchor-id="part-c-a-shift-and-a-discontinuity">Part C — a shift and a discontinuity</h3>
 <div id="fourier-c-context" class="math-exercise-context">
-<p>Now let <span class="math inline">\(g(x)=f(x-\pi/3)\)</span>, a shift to the <strong>right</strong> by <span class="math inline">\(\pi/3\)</span>. Write its Fourier series in the same convention:</p>
-<p><span class="math display">\[g(x)\sim\frac{\alpha_0}{2}+\sum_{n=1}^{\infty}
-\bigl(\alpha_n\cos(nx)+\beta_n\sin(nx)\bigr).\]</span></p>
-<p>Find <span class="math inline">\(\alpha_n\)</span> and <span class="math inline">\(\beta_n\)</span> for every positive integer <span class="math inline">\(n\)</span>, as explicit expressions in <span class="math inline">\(n\)</span> (do not use undefined symbols <span class="math inline">\(a_n\)</span> or <span class="math inline">\(b_n\)</span>). Then find the value to which this Fourier series converges at <span class="math inline">\(x=-2\pi/3\)</span>. Use the one-sided limits there; the assigned value of <span class="math inline">\(g\)</span> at a single point does not determine the Fourier-series sum.</p>
+<p>Now let <span data-math-exercise-display="false" data-math-exercise-tex="g(x)=f(x-\pi/3)"><span class="math inline">\(g(x)=f(x-\pi/3)\)</span></span>, a shift to the <strong>right</strong> by <span data-math-exercise-display="false" data-math-exercise-tex="\pi/3"><span class="math inline">\(\pi/3\)</span></span>. Write its Fourier series in the same convention:</p>
+<p><span data-math-exercise-display="true" data-math-exercise-tex="g(x)\sim\frac{\alpha_0}{2}+\sum_{n=1}^{\infty}
+\bigl(\alpha_n\cos(nx)+\beta_n\sin(nx)\bigr)."><span class="math display">\[g(x)\sim\frac{\alpha_0}{2}+\sum_{n=1}^{\infty}
+\bigl(\alpha_n\cos(nx)+\beta_n\sin(nx)\bigr).\]</span></span></p>
+<p>Find <span data-math-exercise-display="false" data-math-exercise-tex="\alpha_n"><span class="math inline">\(\alpha_n\)</span></span> and <span data-math-exercise-display="false" data-math-exercise-tex="\beta_n"><span class="math inline">\(\beta_n\)</span></span> for every positive integer <span data-math-exercise-display="false" data-math-exercise-tex="n"><span class="math inline">\(n\)</span></span>, as explicit expressions in <span data-math-exercise-display="false" data-math-exercise-tex="n"><span class="math inline">\(n\)</span></span> (do not use undefined symbols <span data-math-exercise-display="false" data-math-exercise-tex="a_n"><span class="math inline">\(a_n\)</span></span> or <span data-math-exercise-display="false" data-math-exercise-tex="b_n"><span class="math inline">\(b_n\)</span></span>). Then find the value to which this Fourier series converges at <span data-math-exercise-display="false" data-math-exercise-tex="x=-2\pi/3"><span class="math inline">\(x=-2\pi/3\)</span></span>. Use the one-sided limits there; the assigned value of <span data-math-exercise-display="false" data-math-exercise-tex="g"><span class="math inline">\(g\)</span></span> at a single point does not determine the Fourier-series sum.</p>
 </div>
-<div class="math-exercise-cell" id="math-exercise-3" data-label="fourier-c" data-mode="custom" data-reject="" data-vars="n" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;def check(response, symbols):\n    values = response[\&quot;expressions\&quot;]\n    if any(not isinstance(z, Expr) or z.has(nan, zoo, oo, -oo) for z in values):\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Enter finite scalar expressions, not equations or lists.\&quot;}\n    if len(values) != 3:\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Complete both coefficient formulas and the series value.\&quot;}\n    original = symbols[\&quot;n\&quot;]\n    n = Symbol(\&quot;fourier_index\&quot;, integer=True, positive=True)\n    a = ((-1)**n-1)/(pi*n**2)\n    b = (-1)**(n+1)/n\n    theta = n*pi/3\n    targets = [a*cos(theta)-b*sin(theta), a*sin(theta)+b*cos(theta)]\n    checks, messages = [], []\n    for value, target, name in zip(values[:2], targets, (\&quot;αₙ\&quot;, \&quot;βₙ\&quot;)):\n        ok = False\n        try:\n            if not value.free_symbols - {original}:\n                expr = value.subs(original, n)\n                ok = simplify(trigsimp(expand_trig(expr-target))) == 0\n        except Exception:\n            pass\n        checks.append(bool(ok))\n        if not ok:\n            messages.append(f\&quot;{name}: the identity was not verified. Expand cos(nx − nπ/3) and sin(nx − nπ/3), collect the correct term, and substitute your part B formulas.\&quot;)\n    value = values[2]\n    jump_ok = not value.free_symbols and value.is_real is True and value.is_finite is True and simplify(value-pi/2) == 0\n    checks.append(bool(jump_ok))\n    if not jump_ok:\n        messages.append(\&quot;At x = −2π/3 the argument of f is −π. Use periodicity to find the left-hand limit and average it with the right-hand limit.\&quot;)\n    return {\&quot;score\&quot;: sum(checks)/3, \&quot;show_score\&quot;: False, \&quot;feedback\&quot;: \&quot;Correct: translation mixes the cosine and sine coefficients. At the jump the series converges to π/2, although g(−2π/3) = 0.\&quot; if all(checks) else \&quot; \&quot;.join(messages)}&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;αₙ&quot;,&quot;βₙ&quot;,&quot;Fourier-series sum at −2π/3&quot;]" data-vecdir="col" data-context-mode="explicit" data-context-refs="fourier-definition-context, fourier-c-context" data-context="&quot;Part C — a shift and a discontinuity Now let g(x)=f(x-\\pi/3), a shift to the right by \\pi/3. Write its Fourier series in the same convention:g(x)\\sim\\frac{\\alpha_0}{2}+\\sum_{n=1}^{\\infty} \\bigl(\\alpha_n\\cos(nx)+\\beta_n\\sin(nx)\\bigr).Find \\alpha_n and \\beta_n for every positive integer n, as explicit expressions in n (do not use undefined symbols a_n or b_n). Then find the value to which this Fourier series converges at x=-2\\pi/3. Use the one-sided limits there; the assigned value of g at a single point does not determine the Fourier-series sum.&quot;" data-fields="[&quot;math-exercise-3-f1&quot;,&quot;math-exercise-3-f2&quot;,&quot;math-exercise-3-f3&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;,&quot;&quot;]">
-<div class="math-exercise-caption math-exercise-toggle" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>Part C — shifted coefficients and the sum at the jump</div>
+<div class="math-exercise-cell" id="math-exercise-3" data-label="fourier-c" data-mode="custom" data-reject="" data-vars="n" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;def check(response, symbols):\n    values = response[\&quot;expressions\&quot;]\n    if any(not isinstance(z, Expr) or z.has(nan, zoo, oo, -oo) for z in values):\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Enter finite scalar expressions, not equations or lists.\&quot;}\n    if len(values) != 3:\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Complete both coefficient formulas and the series value.\&quot;}\n    original = symbols[\&quot;n\&quot;]\n    n = Symbol(\&quot;fourier_index\&quot;, integer=True, positive=True)\n    a = ((-1)**n-1)/(pi*n**2)\n    b = (-1)**(n+1)/n\n    theta = n*pi/3\n    targets = [a*cos(theta)-b*sin(theta), a*sin(theta)+b*cos(theta)]\n    checks, messages = [], []\n    for value, target, name in zip(values[:2], targets, (\&quot;αₙ\&quot;, \&quot;βₙ\&quot;)):\n        ok = False\n        try:\n            if not value.free_symbols - {original}:\n                expr = value.subs(original, n)\n                ok = simplify(trigsimp(expand_trig(expr-target))) == 0\n        except Exception:\n            pass\n        checks.append(bool(ok))\n        if not ok:\n            messages.append(f\&quot;{name}: the identity was not verified. Expand cos(nx − nπ/3) and sin(nx − nπ/3), collect the correct term, and substitute your part B formulas.\&quot;)\n    value = values[2]\n    jump_ok = not value.free_symbols and value.is_real is True and value.is_finite is True and simplify(value-pi/2) == 0\n    checks.append(bool(jump_ok))\n    if not jump_ok:\n        messages.append(\&quot;At x = −2π/3 the argument of f is −π. Use periodicity to find the left-hand limit and average it with the right-hand limit.\&quot;)\n    return {\&quot;score\&quot;: sum(checks)/3, \&quot;show_score\&quot;: False, \&quot;feedback\&quot;: \&quot;Correct: translation mixes the cosine and sine coefficients. At the jump the series converges to π/2, although g(−2π/3) = 0.\&quot; if all(checks) else \&quot; \&quot;.join(messages)}&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;αₙ&quot;,&quot;βₙ&quot;,&quot;Fourier-series sum at −2π/3&quot;]" data-vecdir="col" data-context-mode="explicit" data-context-refs="fourier-definition-context, fourier-c-context" data-context="&quot;Part C — a shift and a discontinuity\nNow let \\(g(x)=f(x-\\pi/3)\\), a shift to the right by \\(\\pi/3\\). Write its Fourier series in the same convention:\\[g(x)\\sim\\frac{\\alpha_0}{2}+\\sum_{n=1}^{\\infty}\n\\bigl(\\alpha_n\\cos(nx)+\\beta_n\\sin(nx)\\bigr).\\]Find \\(\\alpha_n\\) and \\(\\beta_n\\) for every positive integer \\(n\\), as explicit expressions in \\(n\\) (do not use undefined symbols \\(a_n\\) or \\(b_n\\)). Then find the value to which this Fourier series converges at \\(x=-2\\pi/3\\). Use the one-sided limits there; the assigned value of \\(g\\) at a single point does not determine the Fourier-series sum.&quot;" data-fields="[&quot;math-exercise-3-f1&quot;,&quot;math-exercise-3-f2&quot;,&quot;math-exercise-3-f3&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;,&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="Part C — shifted coefficients and the sum at the jump" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>Part C — shifted coefficients and the sum at the jump</div>
 
 <div class="math-exercise-body" aria-hidden="true">
-<div class="math-exercise-question">\(\alpha_n=\) <textarea id="math-exercise-3-f1" data-answer="" data-vars="n" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-large" rows="2"></textarea><br>
+<div class="math-exercise-question" data-math-exercise-source="\(\alpha_n=\) <textarea id=&quot;math-exercise-3-f1&quot; data-vars=&quot;n&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-large&quot; rows=&quot;2&quot;></textarea><br>
+<br>
+\(\beta_n=\) <textarea id=&quot;math-exercise-3-f2&quot; data-vars=&quot;n&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-large&quot; rows=&quot;2&quot;></textarea><br>
+<br>
+Fourier-series sum at \(x=-2\pi/3\): <input type=&quot;text&quot; id=&quot;math-exercise-3-f3&quot; data-vars=&quot;n&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;>">\(\alpha_n=\) <textarea id="math-exercise-3-f1" data-answer="" data-vars="n" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-large" rows="2"></textarea><br>
 <br>
 \(\beta_n=\) <textarea id="math-exercise-3-f2" data-answer="" data-vars="n" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-large" rows="2"></textarea><br>
 <br>
@@ -2937,6 +2960,13 @@ Hint for C
     };
   }
 
+  // Pool questions are replaced on every draw. Save this draw's source before
+  // typesetting, without answer keys; input ids remain for current field labels.
+  function setQuestionContent(el, rendered) {
+    el.dataset.mathExerciseSource = rendered.html.replace(/ data-answer="[^"]*"/g, '');
+    el.innerHTML = rendered.html;
+  }
+
   function localizeStructuralLabel(token) {
     if (!token) return '';
     if (/^v\d+$/.test(token)) return L.vecComponent(token.slice(1));
@@ -3766,20 +3796,26 @@ Hint for C
   //                referenced by id via #| context: id1, id2. Resolved here,
   //                lazily, from the live rendered DOM: elements may appear
   //                anywhere on the page and in any order, and this also
-  //                captures KaTeX-rendered math cleanly (as LaTeX source)
-  //                instead of a build-time plain-text stringify.
+  //                preserves source math saved by the filter and recovers
+  //                MathJax/KaTeX source for dynamically generated content.
   //   "none"     – #| context: none; no context is sent.
   // ---------------------------------------------------------------------------
 
   var MAX_FEEDBACK_CONTEXT_CHARS = 6000;
 
-  // Extracts a clean text/LaTeX rendering of a context element's *current*
-  // visible content: skips hidden/UI-chrome nodes, turns KaTeX spans back
-  // into their original $...$ source (rather than KaTeX's generated markup),
-  // and normalizes block-level tags to newlines so paragraphs/list items
-  // don't run together.
-  function contextText(root) {
+  // One serializer for context, captions and questions. Never infer mathematics
+  // from rendered glyphs: fraction bars, powers and SVG text are not plain text.
+  // fieldLabels is supplied only for the question, not for surrounding context.
+  function contextText(root, fieldLabels) {
+    if (!root) return '';
     var parts = [];
+    var mathItems = new Map();
+    var mathDocument = window.MathJax && window.MathJax.startup && window.MathJax.startup.document;
+    if (mathDocument && typeof mathDocument.getMathItemsWithin === 'function') {
+      mathDocument.getMathItemsWithin([root]).forEach(function (item) {
+        if (item.typesetRoot) mathItems.set(item.typesetRoot, item);
+      });
+    }
     var blockTags = {
       ADDRESS: true, ARTICLE: true, ASIDE: true, BLOCKQUOTE: true,
       DIV: true, FIGCAPTION: true, FIGURE: true, FOOTER: true,
@@ -3792,26 +3828,70 @@ Hint for C
       if (parts.length && parts[parts.length - 1] !== '\n') parts.push('\n');
     }
 
+    function math(tex, display) {
+      parts.push({ math: (display ? '\\[' : '\\(') + tex + (display ? '\\]' : '\\)') });
+    }
+
+    function missingMath() {
+      console.warn('math-exercise: mathematical source unavailable; rendered glyphs were not sent to AI.');
+      parts.push('[Mathematical source unavailable]');
+    }
+
     function walk(node) {
       if (node.nodeType === Node.TEXT_NODE) {
         parts.push(node.nodeValue || '');
+        return;
+      }
+      if (node.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
+        Array.prototype.forEach.call(node.childNodes, walk);
         return;
       }
       if (node.nodeType !== Node.ELEMENT_NODE) return;
 
       var el = node;
       if (el.matches(
-        'script, style, noscript, template, button, input, textarea, select, ' +
+        'script, style, noscript, template, button, select, ' +
         '.math-exercise-cell, .math-exercise-controls, .math-feedback-area, ' +
-        '.math-legend-panel, [hidden], [aria-hidden="true"]'
+        '.math-legend-panel, .math-dynamic-matrix-controls, [hidden], [aria-hidden="true"]'
       )) return;
 
       var style = window.getComputedStyle(el);
       if (style.display === 'none' || style.visibility === 'hidden') return;
 
-      if (el.classList.contains('katex')) {
+      if (el.matches('input, textarea')) {
+        if (fieldLabels && Object.prototype.hasOwnProperty.call(fieldLabels, el.id)) {
+          parts.push('[' + fieldLabels[el.id] + ']');
+        }
+        return;
+      }
+      if (fieldLabels && el.classList.contains('math-dynamic-matrix-wrap')) {
+        parts.push('[Matrix ' + (el.dataset.matrixName || '') + ']');
+        return;
+      }
+
+      // Authored context math survives either renderer and asynchronous loading.
+      if (el.hasAttribute('data-math-exercise-tex')) {
+        math(el.dataset.mathExerciseTex, el.dataset.mathExerciseDisplay === 'true');
+        return;
+      }
+
+      if (el.matches('.katex, .katex-display')) {
         var annotation = el.querySelector('annotation[encoding="application/x-tex"]');
-        parts.push(annotation ? '$' + annotation.textContent.trim() + '$' : el.textContent);
+        if (annotation) math(annotation.textContent, el.classList.contains('katex-display'));
+        else missingMath();
+        return;
+      }
+
+      if (el.matches('mjx-container') || mathItems.has(el)) {
+        var item = mathItems.get(el);
+        var latex = el.querySelector('mjx-math[data-latex], [data-mml-node="math"][data-latex]');
+        var texAnnotation = el.querySelector('annotation[encoding="application/x-tex"]');
+        if (item && typeof item.math === 'string') math(item.math, item.display);
+        // MathJax 4 exposes source on the root math node. Use the outermost
+        // expression only; never concatenate the source of individual glyphs.
+        else if (latex) math(latex.getAttribute('data-latex'), el.getAttribute('display') === 'true');
+        else if (texAnnotation) math(texAnnotation.textContent, el.getAttribute('display') === 'true');
+        else missingMath();
         return;
       }
 
@@ -3823,6 +3903,7 @@ Hint for C
       var isBlock = !!blockTags[el.tagName];
       if (isBlock) newline();
       if (el.tagName === 'LI') parts.push('- ');
+      if (el.tagName === 'TD' || el.tagName === 'TH') parts.push(' | ');
 
       Array.prototype.forEach.call(el.childNodes, walk);
 
@@ -3830,12 +3911,35 @@ Hint for C
     }
 
     walk(root);
-    return parts.join('')
-      .replace(/\u00a0/g, ' ')
-      .replace(/[ \t]+/g, ' ')
-      .replace(/ *\n */g, '\n')
-      .replace(/\n{3,}/g, '\n\n')
-      .trim();
+    var text = '', prose = '';
+    function flush() {
+      text += prose.replace(/\u00a0/g, ' ').replace(/[ \t]+/g, ' ')
+        .replace(/ *\n */g, '\n').replace(/\n{3,}/g, '\n\n');
+      prose = '';
+    }
+    parts.forEach(function (part) {
+      if (typeof part === 'string') prose += part;
+      else { flush(); text += part.math; }
+    });
+    flush();
+    return text.trim();
+  }
+
+  function sourceText(el, fieldLabels) {
+    if (!el) return '';
+    if (!el.hasAttribute('data-math-exercise-source')) return contextText(el, fieldLabels);
+    // Inert HTML: no scripts, image requests or custom element constructors.
+    var template = document.createElement('template');
+    template.innerHTML = el.dataset.mathExerciseSource;
+    return contextText(template.content, fieldLabels);
+  }
+
+  function questionText(cell, fieldIds, fieldLabel) {
+    var labels = Object.create(null);
+    fieldIds.forEach(function (id, index) { labels[id] = fieldLabel(index); });
+    var caption = sourceText(cell.querySelector('.math-exercise-caption'));
+    var question = sourceText(cell.querySelector('.math-exercise-question'), labels);
+    return (caption ? caption + '\n' : '') + question;
   }
 
   // Resolves #| context: id1, id2, ... against the live DOM. Duplicate,
@@ -4118,7 +4222,7 @@ Hint for C
       }
       var r = renderTaskText(poolTasks[idx], cell.id, vars, vecdir, mode);
       var qDiv = cell.querySelector('.math-exercise-question');
-      qDiv.innerHTML = r.html;
+      setQuestionContent(qDiv, r);
       cell.dataset.fields = JSON.stringify(r.fieldIds);
       cell.dataset.structuralFieldLabels = JSON.stringify(r.structuralLabels);
       structuralFieldLabels = r.structuralLabels;
@@ -4312,7 +4416,7 @@ Hint for C
 
         var r = renderTaskText(poolTasks[next], cell.id, vars, vecdir, mode);
         var qDivR = cell.querySelector('.math-exercise-question');
-        qDivR.innerHTML = r.html;
+        setQuestionContent(qDivR, r);
         cell.dataset.fields = JSON.stringify(r.fieldIds);
         cell.dataset.structuralFieldLabels = JSON.stringify(r.structuralLabels);
         fieldIds = r.fieldIds;
@@ -4345,23 +4449,7 @@ Hint for C
           fbDiv.innerHTML = '<div class="math-fb-empty">' + L.needAnswerFirst + '</div>';
           return;
         }
-        var qDiv   = cell.querySelector('.math-exercise-question');
-        var capEl  = cell.querySelector('.math-exercise-caption');
-        var clone  = qDiv.cloneNode(true);
-        clone.querySelectorAll('.math-dynamic-matrix-wrap').forEach(function (wrap) {
-          var marker = document.createElement('span');
-          marker.textContent = '[Matrix ' + (wrap.dataset.matrixName || '') + ']';
-          wrap.parentNode.replaceChild(marker, wrap);
-        });
-        clone.querySelectorAll('.math-dynamic-matrix-controls').forEach(function (controls) { controls.remove(); });
-        var clonedFields = clone.querySelectorAll('input, textarea');
-        clonedFields.forEach(function (el) {
-          var s = document.createElement('span');
-          var originalIndex = fieldIds.indexOf(el.id);
-          s.textContent = '[' + fieldLabel(originalIndex >= 0 ? originalIndex : 0) + ']';
-          el.parentNode.replaceChild(s, el);
-        });
-        var question = (capEl ? capEl.textContent + '\n' : '') + clone.textContent.replace(/\s+/g, ' ').trim();
+        var question = questionText(cell, fieldIds, fieldLabel);
         var contexts = resolveContexts(cell);
 
         async function doFeedback(cfg) {
@@ -4486,6 +4574,11 @@ Hint for C
       dynamicSpecFromElement: dynamicSpecFromElement,
       resizedDynamicMatrixShape: resizedDynamicMatrixShape,
       renderTaskText: renderTaskText,
+      setQuestionContent: setQuestionContent,
+      contextText: contextText,
+      questionText: questionText,
+      resolveContexts: resolveContexts,
+      setupCell: setupCell,
       normalizeTaskMathDelimiters: normalizeTaskMathDelimiters,
       localizeStructuralLabel: localizeStructuralLabel,
       expressionAnswersXml: expressionAnswersXml,
