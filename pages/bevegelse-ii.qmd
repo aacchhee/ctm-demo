@@ -9,16 +9,43 @@ math-exercise:
 
 {{< include ../_includes/bevegelse-ii/intro.md >}}
 
+Velg et tema fra oversikten i notatene. Inne i hvert tema finner du egne
+faner for teori og oppgaver.
+
+::::: {.panel-tabset}
+
+## 12.2 Vektorer
+
 {{< include ../_includes/bevegelse-ii/vektorer.md >}}
 
-{{< include ../_includes/bevegelse-ii/kast.md >}}
+## 12.3 Horisontalt kast
+
+{{< include ../_includes/bevegelse-ii/horisontalt-kast.md >}}
+
+## 12.3 Skrått kast
+
+{{< include ../_includes/bevegelse-ii/skraatt-kast.md >}}
+
+## Lab
 
 {{< include ../_includes/bevegelse-ii/lab.md >}}
 
-{{< include ../_includes/bevegelse-ii/grafer.md >}}
+## 12.1 Bevegelsesgrafer
+
+{{< include ../_includes/bevegelse-ii/bevegelsesgrafer.md >}}
+
+## Areal under graf
+
+{{< include ../_includes/bevegelse-ii/areal-under-graf.md >}}
+
+## 12.4 Sirkelbevegelse
 
 {{< include ../_includes/bevegelse-ii/sirkel.md >}}
 
+## Oppsummering
+
 {{< include ../_includes/bevegelse-ii/oppsummering.md >}}
+
+:::::
 
 {{< include ../_includes/bevegelse-ii/accessibility.html >}}

@@ -1,4 +1,6 @@
-## Sirkelbevegelse
+:::: {.panel-tabset}
+
+### Kort teori
 
 Ved sirkelbevegelse med konstant banefart endres retningen til
 hastighetsvektoren hele tiden. Hastigheten er tangent til banen, mens
@@ -92,8 +94,9 @@ fitBoard();
 
 Flytt punktet rundt sirkelen. Blå pil er tangentretningen og rød pil peker inn mot sentrum. Pilene er skalert hver for seg; de har ulike enheter.
 
+### Oppgave 15
 
-### Oppgave 15 — sleggekaster
+#### sleggekaster
 
 ::: {#b2-15-context .math-exercise-context}
 
@@ -126,7 +129,9 @@ Vi velger positiv rot fordi banefart er en størrelse uten fortegn.
 
 </details>
 
-### Oppgave 16 — månen rundt jorda
+### Oppgave 16
+
+#### månen rundt jorda
 
 ::: {#b2-16-context .math-exercise-context}
 
@@ -184,3 +189,5 @@ Den avrundede verdien $1.99\cdot10^{20}\,\mathrm N$ i originalen følger
 ikke av de oppgitte tallene uten ytterligere avrunding.
 
 </details>
+
+::::

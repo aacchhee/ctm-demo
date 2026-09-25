@@ -1,4 +1,6 @@
-## Oppsummering og sammensatte oppgaver
+:::: {.panel-tabset}
+
+### Kort teori
 
 Du skal kunne bytte mellom tekst, tabell, graf og likning for samme
 bevegelse. Kontroller at de beskriver de samme startverdiene, enhetene og
@@ -14,7 +16,9 @@ En oppgitt «fart» er en positiv størrelse. En hastighetskomponent kan være
 negativ. Forflytning, rett avstand mellom endepunkter og tilbakelagt
 strekning er forskjellige størrelser.
 
-### Oppgave 17 — ball fra et vindu
+### Oppgave 17
+
+#### ball fra et vindu
 
 ::: {#b2-17-context .math-exercise-context}
 
@@ -85,7 +89,9 @@ Det er $v_{0y}$, ikke hele startfarten, som skal stå foran $t$ i høydefunksjon
 
 </details>
 
-### Oppgave 18 — snøklump fra et tak
+### Oppgave 18
+
+#### snøklump fra et tak
 
 ::: {#b2-18-context .math-exercise-context}
 
@@ -227,3 +233,5 @@ Startretningen ligger under horisontalen. Fordi klumpen forlater taket
 langs takflaten, er dette også takets helningsvinkel.
 
 </details>
+
+::::

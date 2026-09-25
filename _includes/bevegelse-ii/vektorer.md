@@ -1,4 +1,6 @@
-## Vektorer og bevegelse
+:::: {.panel-tabset}
+
+### Kort teori
 
 En vektor har både størrelse og retning. Posisjon, forflytning, hastighet,
 akselerasjon og kraft er vektorstørrelser. Vi skriver for eksempel
@@ -25,7 +27,9 @@ $$\bar{\vec a}=\frac{\vec v_2-\vec v_1}{t_2-t_1},\qquad
 \vec a(t)=\vec v\,'(t).$$
 Retningen kan endres selv om banefarten er konstant.
 
-### Oppgave 1 — lengde og retning
+### Oppgave 1
+
+#### lengde og retning
 
 ::: {#b2-1-context .math-exercise-context}
 
@@ -136,7 +140,9 @@ Vi kan også bruke $\theta=\arccos(4/5)$.
 
 </details>
 
-### Oppgave 2 — posisjon, forflytning og tangent
+### Oppgave 2
+
+#### posisjon, forflytning og tangent
 
 ::: {#b2-2-context .math-exercise-context}
 
@@ -320,7 +326,9 @@ Akselerasjonen til denne modellen er $\vec a=(0,-9.81)\,\mathrm{m/s^2}$.
 
 </details>
 
-### Oppgave 3 — bil i en sving
+### Oppgave 3
+
+#### bil i en sving
 
 ::: {#b2-3-context .math-exercise-context}
 
@@ -429,3 +437,5 @@ nedover mot venstre. Selv om start- og sluttfarten begge er
 $12\,\mathrm{m/s}$, har hastighetsvektoren endret seg.
 
 </details>
+
+::::

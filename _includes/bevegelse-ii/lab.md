@@ -1,4 +1,6 @@
-## Lab: fjærkanon
+:::: {.panel-tabset}
+
+### Før du starter
 
 Ved en vertikal avfyring kan vi anslå utgangsfarten på to uavhengige
 måter. Noter hvilket hakk fjæra presses inn til, og mål utskytingshøyden
@@ -10,7 +12,9 @@ sammenligner kast.
 kan kontrolleres. Etterpå kan du gjenta beregningene med egne målinger og
 en selvvalgt vinkel. Modellen ser bort fra luftmotstand.
 
-### Oppgave 8 — to måter å måle utgangsfarten på
+### Oppgave 8
+
+#### to måter å måle utgangsfarten på
 
 ::: {#b2-8-context .math-exercise-context}
 
@@ -88,7 +92,9 @@ Denne snarveien i originalnotatene er ikke gyldig for forsøksoppsettet.
 
 </details>
 
-### Oppgave 9 — skrått kast med en valgt vinkel
+### Oppgave 9
+
+#### skrått kast med en valgt vinkel
 
 ::: {#b2-9-context .math-exercise-context}
 
@@ -209,7 +215,9 @@ kan ikke settes lik null når vinkelen er forskjellig fra null.
 
 </details>
 
-### Oppgave 10 — velg vinkel for å treffe målet
+### Oppgave 10
+
+#### velg vinkel for å treffe målet
 
 ::: {#b2-10-context .math-exercise-context}
 
@@ -252,3 +260,5 @@ banen gir lengre flygetid. Generelt er målet bare mulig dersom
 $R\le v_0^2/g$ i denne modellen.
 
 </details>
+
+::::
