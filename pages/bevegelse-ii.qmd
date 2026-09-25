@@ -1,0 +1,24 @@
+---
+title: "Bevegelse II"
+lang: nb
+toc: true
+toc-depth: 3
+math-exercise:
+  lang: nb
+---
+
+{{< include ../_includes/bevegelse-ii/intro.md >}}
+
+{{< include ../_includes/bevegelse-ii/vektorer.md >}}
+
+{{< include ../_includes/bevegelse-ii/kast.md >}}
+
+{{< include ../_includes/bevegelse-ii/lab.md >}}
+
+{{< include ../_includes/bevegelse-ii/grafer.md >}}
+
+{{< include ../_includes/bevegelse-ii/sirkel.md >}}
+
+{{< include ../_includes/bevegelse-ii/oppsummering.md >}}
+
+{{< include ../_includes/bevegelse-ii/accessibility.html >}}
