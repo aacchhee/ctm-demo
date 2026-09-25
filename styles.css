@@ -1,4 +1,10 @@
 .jxgbox { max-width: 100%; }
+/* Compact answers throughout the demo; formulas retain a little more room. */
+.math-exercise-cell .math-input-small { width: 12ch; max-width: 100%; }
+.math-exercise-cell .math-input-medium { width: 18ch; max-width: 100%; }
+.math-exercise-cell[data-mode="numeric"] input.math-input:not(.math-mat-cell),
+.math-exercise-cell[data-mode="string_ci"] input.math-input:not(.math-mat-cell) { width: 12ch; }
+.math-exercise-cell textarea.math-input-large { width: 28ch; max-width: 100%; }
 .learning-mode { margin: 1rem 0; padding: .8rem; background: #f4f8fa; border: 1px solid #9aaebc; border-radius: .4rem; }
 .learning-mode button { padding: .4rem .8rem; margin-right: .4rem; border: 1px solid #245b79; border-radius: .3rem; background: white; color: #183e53; }
 .learning-mode button[aria-pressed="true"] { background: #245b79; color: white; }
