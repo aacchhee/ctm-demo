@@ -30,6 +30,10 @@ jobs:
         run: python scripts/setup.py
       - name: Render website
         run: quarto render
+      - name: Render optional STACK review
+        run: quarto render --profile review
+      - name: Verify generated STACK variants
+        run: python scripts/check-stack-variants.py
       - name: Publish to gh-pages
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4

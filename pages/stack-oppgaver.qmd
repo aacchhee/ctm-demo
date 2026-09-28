@@ -40,7 +40,7 @@ DEF, og vinklene bevares.
 
 Endre størrelsen på den grønne trekanten. Hvilke forhold holder seg like?
 
-{{< include ../_includes/stack/triangles-pool.md >}}
+{{< include ../_includes/stack/triangles.qmd >}}
 
 ::::: {.ai-feedback #stack-triangles-explanation profile="mathematics" context="stack-conventions, stack-triangles-context, stack-triangles-question-context" ui-language="nb" feedback-language="nb" response-language="nb"}
 
@@ -82,7 +82,7 @@ Pass på forskjellen mellom grader og radianer og fortegn i hver kvadrant.
 Dra A langs sirkelen, eller finjuster med knappene. Vinkel og koordinater
 vises under figuren, også på små skjermer.
 
-{{< include ../_includes/stack/values-pool.md >}}
+{{< include ../_includes/stack/values.qmd >}}
 
 ::::: {.ai-feedback #stack-values-explanation profile="mathematics" context="stack-conventions, stack-values-context, stack-values-question-context" ui-language="nb" feedback-language="nb" response-language="nb"}
 
@@ -124,7 +124,7 @@ desimaler; relativt avvik inntil én prosent godtas.
 Dra A og finjuster med knappene til begge koordinatene stemmer med
 oppgaven. Les vinkelen i radianer.
 
-{{< include ../_includes/stack/angle-pool.md >}}
+{{< include ../_includes/stack/angle.qmd >}}
 
 ::::: {.ai-feedback #stack-angle-explanation profile="mathematics" context="stack-conventions, stack-angle-context, stack-angle-question-context" ui-language="nb" feedback-language="nb" response-language="nb"}
 
@@ -161,7 +161,7 @@ uttrykk. Algebraisk likeverdige former godtas.
 
 :::
 
-{{< include ../_includes/stack/tangent-pool.md >}}
+{{< include ../_includes/stack/tangent.qmd >}}
 
 ::::: {.ai-feedback #stack-tangent-explanation profile="mathematics" context="stack-conventions, stack-tangent-context, stack-tangent-question-context" ui-language="nb" feedback-language="nb" response-language="nb"}
 

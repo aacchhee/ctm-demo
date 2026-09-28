@@ -1,0 +1,47 @@
+```{math-exercise}
+#| label: stack-triangles
+#| context: stack-conventions, stack-triangles-context
+#| mode: numeric
+#| decplaces: '3'
+#| field-labels: Lengdeforholdet EF/DF
+#| parameters:
+#|   ab:
+#|   - 3
+#|   - 4
+#|   - 5
+#|   - 6
+#|   - 7
+#|   - 8
+#|   offset:
+#|   - 1
+#|   - 2
+#|   - 3
+#|   - 4
+#| derived:
+#|   bc: ab+offset
+#|   ratio: bc/sqrt(ab^2+bc^2)
+#| solution-target: stack-triangles-solution
+#| variant-context: AB={{ab}}, BC={{bc}}. Rettvinklede, formlike trekanter.
+#| solution: |
+#|   Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.
+#|   
+#|   $$\frac{EF}{DF}=\frac{BC}{AC}=\frac{{{bc}}}{\sqrt{{{ab}}^2+{{bc}}^2}}\approx {{ratio:.3f}}.$$
+#|   En endring av størrelsen på trekant $DEF$ endrer ikke forholdet.
+#| tests:
+#| - name: model answers
+#|   answers:
+#|   - '{{bc}}/sqrt({{ab}}^2+{{bc}}^2)'
+#|   expected:
+#|   - correct
+#| - name: unit offset error
+#|   answers:
+#|   - ({{bc}}/sqrt({{ab}}^2+{{bc}}^2))+1
+#|   expected:
+#|   - wrong
+
+I trekantene $ABC$ og $DEF$ er $\angle B=\angle E=90^\circ$ og $\angle C=\angle F$.
+$AB={{ab}}$ og $BC={{bc}}$. Finn forholdet $EF/DF$.
+Svar med **3 desimaler**. Et eksakt uttrykk eller flere riktige desimaler godtas også.
+
+$\displaystyle\frac{EF}{DF}=$ _[{{bc}}/sqrt({{ab}}^2+{{bc}}^2)]
+```

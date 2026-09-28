@@ -1,0 +1,41 @@
+```{math-exercise}
+#| label: stack-angle
+#| context: stack-conventions, stack-angle-context
+#| mode: numeric
+#| tolerance: 1%
+#| field-labels: Vinkel v i radianer
+#| parameters:
+#|   k:
+#|     start: 1
+#|     stop: 71
+#| derived:
+#|   angle: k*pi/36
+#|   degrees: 5*k
+#|   sine: round(sin(angle),2)
+#|   cosine: round(cos(angle),2)
+#| solution-target: stack-angle-solution
+#| variant-context: Sinus {{sine:.2f}}, cosinus {{cosine:.2f}}. Finn v i [0,2*pi).
+#| solution: |
+#|   Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $({{cosine:.2f}},{{sine:.2f}})$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.
+#|   
+#|   For denne varianten er vinkelen $v=\frac{{{k}}}{36}\pi\approx {{angle:.3f}}$ rad, eller ${{degrees}}^\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.
+#| tests:
+#| - name: model answers
+#|   answers:
+#|   - '{{k}}*pi/36'
+#|   expected:
+#|   - correct
+#| - name: unit offset error
+#|   answers:
+#|   - ({{k}}*pi/36)+1
+#|   expected:
+#|   - wrong
+
+Vinkelen $v$ ligger i første omløp: $0\leq v<2\pi$.
+Vi har $\sin v\approx {{sine:.2f}}$ og $\cos v\approx {{cosine:.2f}}$ (avrundede verdier).
+Flytt A slik at koordinatene stemmer så godt som mulig, og les av vinkelen.
+
+Svar i **radianer med 3 desimaler**. Relativt avvik inntil 1 % godtas.
+
+$v\approx$ _[{{k}}*pi/36] rad.
+```
