@@ -14,11 +14,7 @@ lang: en
 
 filters:
   - _filters/stack-content.lua
-  - ai-feedback
-  - pyodide-interaktiv
-  - jsxgraph
-  - math-exercise
-  - py-exercise
+  - ctm-assessment
 
 website:
   title: "CTM demo"

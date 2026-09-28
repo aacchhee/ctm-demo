@@ -1,9 +1,6 @@
+# Install the full CTM Assessment suite from the selected upstream branches.
+# JSXGraph shares the math-exercise checkout and therefore its exact revision.
 plugins:
-  - name: pyodide-interaktiv
-    repo: https://github.com/Erasmus-CTM/pyodide-interaktiv.git
-    ref: issue-1-webagg
-    path: _extensions/pyodide-interaktiv
-
   - name: ai-feedback
     repo: https://github.com/Erasmus-CTM/ai-feedback.git
     ref: main
@@ -16,10 +13,21 @@ plugins:
 
   - name: jsxgraph
     repo: https://github.com/Erasmus-CTM/math-exercise.git
-    ref: main
+    ref: feature/shared-feedback-integration
     path: _extensions/jsxgraph
 
   - name: py-exercise
     repo: https://github.com/Erasmus-CTM/py-exercise.git
+    ref: feature/shared-feedback-integration
     path: _extensions/py-exercise
+
+  - name: pyodide-interaktiv
+    repo: https://github.com/Erasmus-CTM/pyodide-interaktiv.git
+    ref: feature/shared-feedback-integration
+    path: _extensions/pyodide-interaktiv
+
+  - name: ctm-assessment
+    repo: https://github.com/Erasmus-CTM/ctm-assessment.git
+    ref: main
+    path: _extensions/ctm-assessment
 

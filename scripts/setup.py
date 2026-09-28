@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import shutil
 import subprocess
 import sys
@@ -269,17 +270,31 @@ def main() -> None:
             f"({plugin['path']}, ref: {plugin['ref']})"
         )
 
+    sources: dict[tuple[str, str], Path] = {}
+    revisions = {}
     for plugin in plugins:
-        plugin_repo = clone_or_update_plugin(
-            plugin,
-            private_root,
-        )
+        key = (plugin["repo"], plugin["ref"])
+        if key not in sources:
+            sources[key] = clone_or_update_plugin(plugin, private_root)
+        plugin_repo = sources[key]
+        sha = subprocess.check_output(
+            ["git", "-C", str(plugin_repo), "rev-parse", "HEAD"], text=True
+        ).strip()
+        revisions[plugin["name"]] = {
+            "repository": plugin["repo"], "ref": plugin["ref"], "commit": sha,
+            "path": plugin["path"],
+        }
+        print(f"Resolved {plugin['name']}: {plugin['ref']} @ {sha}")
 
         install_plugin(
             plugin,
             plugin_repo,
             project_root,
         )
+
+    (private_root / "resolved-repos.json").write_text(
+        json.dumps(revisions, indent=2) + "\n", encoding="utf-8"
+    )
 
     print("\nInstalled Quarto extensions:")
     run(
