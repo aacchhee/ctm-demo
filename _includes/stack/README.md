@@ -37,3 +37,10 @@ quarto render pages/stack-oppgaver.qmd
 ```
 
 Commit both the generator/source changes and the generated includes/assets.
+
+Dynamic solution HTML uses MathJax's explicit `\\(...\\)` / `\\[...\\]` delimiters,
+not Pandoc-only dollar syntax. Typesetting is queued until MathJax is ready.
+Each topic also has an ungraded prose-feedback box. It uses the same saved
+AI endpoint/model settings as math-exercise, sends the active question and
+explicit topic context, and never sends answer keys or worked solutions.
+Changing the variant or editing the explanation cancels stale feedback requests.

@@ -8,6 +8,7 @@ The trig pool samples 71 valid combinations instead of enumerating every product
 from pathlib import Path
 import json
 import math
+import re
 from fractions import Fraction
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,6 +34,10 @@ def make_pool(kind, opts, tasks):
     bodies = []
     for i, (params, body, solution) in enumerate(tasks):
         key = f'{kind}-{i}'
+        # Dynamic HTML bypasses Pandoc: use MathJax's standard delimiters.
+        solution = re.sub(r'\$\$(.*?)\$\$|\$([^$]+)\$',
+                          lambda m: r'\['+m[1]+r'\]' if m[1] is not None else r'\('+m[2]+r'\)',
+                          solution, flags=re.S)
         variants[key] = {'kind': kind, 'params': params, 'solution': solution}
         bodies.append(f'<span hidden data-stack-variant="{key}"></span>\n'+body)
     (OUT / f'{kind}-pool.md').write_text('\n'.join(header)+'\n\n'+'\n\n---\n\n'.join(bodies)+'\n```\n')

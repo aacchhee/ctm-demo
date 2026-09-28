@@ -9,6 +9,8 @@ include-after-body:
 resources:
   - ../assets/stack/variants.js
   - ../assets/stack/page.js
+  - ../assets/stack/reflection.js
+  - ../assets/stack/reflection.css
 ---
 
 Fire oppgaver om formlikhet, enhetssirkelen og derivasjon, omarbeidet fra
@@ -46,6 +48,15 @@ Endre størrelsen på den grønne trekanten. Hvilke forhold holder seg like?
 
 {{< include ../_includes/stack/triangles-pool.md >}}
 
+<div class="stack-reflection" data-stack-reflection="triangles">
+<label for="stack-triangles-explanation">Forklar med egne ord</label>
+<p class="stack-reflection-prompt">Forklar hvorfor trekantene er formlike, og hvilke sider som svarer til hverandre. Hva skjer med forholdet EF/DF når du endrer størrelsen på den grønne trekanten?</p>
+<textarea id="stack-triangles-explanation" rows="4" placeholder="Skriv forklaringen din her …"></textarea>
+<button type="button" class="btn btn-light stack-reflection-feedback">Tilbakemelding på forklaringen</button>
+<button type="button" class="btn btn-light stack-reflection-settings" aria-label="Endre AI-oppsett">⚙</button>
+<div class="stack-reflection-output" role="status" aria-live="polite"></div>
+</div>
+
 <details class="solution-block">
 <summary>Løsningsforslag</summary>
 <div id="stack-triangles-solution"></div>
@@ -71,6 +82,15 @@ Dra A langs sirkelen, eller finjuster med knappene. Vinkel og koordinater
 vises under figuren, også på små skjermer.
 
 {{< include ../_includes/stack/values-pool.md >}}
+
+<div class="stack-reflection" data-stack-reflection="values">
+<label for="stack-values-explanation">Forklar med egne ord</label>
+<p class="stack-reflection-prompt">Velg én av vinklene i oppgaven. Forklar hvordan du leser av sinus og cosinus i figuren, og hvordan kvadranten bestemmer fortegnene.</p>
+<textarea id="stack-values-explanation" rows="4" placeholder="Skriv forklaringen din her …"></textarea>
+<button type="button" class="btn btn-light stack-reflection-feedback">Tilbakemelding på forklaringen</button>
+<button type="button" class="btn btn-light stack-reflection-settings" aria-label="Endre AI-oppsett">⚙</button>
+<div class="stack-reflection-output" role="status" aria-live="polite"></div>
+</div>
 
 <details class="solution-block">
 <summary>Løsningsforslag</summary>
@@ -98,6 +118,15 @@ oppgaven. Les vinkelen i radianer.
 
 {{< include ../_includes/stack/angle-pool.md >}}
 
+<div class="stack-reflection" data-stack-reflection="angle">
+<label for="stack-angle-explanation">Forklar med egne ord</label>
+<p class="stack-reflection-prompt">Forklar hvordan du bruker begge de oppgitte verdiene til å velge riktig kvadrant. Hvorfor er sinusverdien alene vanligvis ikke nok til å bestemme vinkelen?</p>
+<textarea id="stack-angle-explanation" rows="4" placeholder="Skriv forklaringen din her …"></textarea>
+<button type="button" class="btn btn-light stack-reflection-feedback">Tilbakemelding på forklaringen</button>
+<button type="button" class="btn btn-light stack-reflection-settings" aria-label="Endre AI-oppsett">⚙</button>
+<div class="stack-reflection-output" role="status" aria-live="polite"></div>
+</div>
+
 <details class="solution-block">
 <summary>Løsningsforslag</summary>
 <div id="stack-angle-solution"></div>
@@ -118,6 +147,15 @@ uttrykk. Algebraisk likeverdige former godtas.
 :::
 
 {{< include ../_includes/stack/tangent-pool.md >}}
+
+<div class="stack-reflection" data-stack-reflection="tangent">
+<label for="stack-tangent-explanation">Forklar med egne ord</label>
+<p class="stack-reflection-prompt">Forklar forskjellen mellom f(x₀) og f′(x₀). Hvordan bruker du begge til å finne tangentens likning?</p>
+<textarea id="stack-tangent-explanation" rows="4" placeholder="Skriv forklaringen din her …"></textarea>
+<button type="button" class="btn btn-light stack-reflection-feedback">Tilbakemelding på forklaringen</button>
+<button type="button" class="btn btn-light stack-reflection-settings" aria-label="Endre AI-oppsett">⚙</button>
+<div class="stack-reflection-output" role="status" aria-live="polite"></div>
+</div>
 
 <details class="solution-block">
 <summary>Løsningsforslag</summary>

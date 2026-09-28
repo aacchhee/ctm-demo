@@ -1,5 +1,20 @@
 /* Keep each native math-exercise pool, solution and JSXGraph figure in sync. */
 (function () {
+  var pendingMath=new Set(), mathQueue=Promise.resolve();
+  function flushMath(){
+    var mj=window.MathJax;
+    if(!mj?.typesetPromise)return;
+    var elements=Array.from(pendingMath);pendingMath.clear();
+    if(!elements.length)return;
+    mathQueue=mathQueue.then(function(){return mj.startup?.promise;})
+      .then(function(){return mj.typesetPromise(elements.filter(function(el){return el.isConnected;}));})
+      .catch(function(error){console.warn('STACK typesetting failed',error);});
+  }
+  window.stackTypeset=function(element){pendingMath.add(element);flushMath();};
+  window.addEventListener('load',flushMath);
+  document.addEventListener('load',function(event){
+    if(event.target.tagName==='SCRIPT' && /mathjax/i.test(event.target.src||''))flushMath();
+  },true);
   function start() {
     var kinds=['triangles','values','angle','tangent'];
     var active={};
@@ -23,13 +38,14 @@
         details.open=false;
         if(window.MathJax?.typesetClear)window.MathJax.typesetClear([solution]);
         solution.innerHTML=data.solution;
-        if(window.MathJax?.typesetPromise)window.MathJax.typesetPromise([solution]).catch(function(error){console.warn('Solution typesetting failed',error);});
+        window.stackTypeset(solution);
+        document.dispatchEvent(new CustomEvent('stack:variant-changed',{detail:{kind:kind,key:key}}));
         var labels=JSON.parse(cell.dataset.fieldLabels||'[]');
         question.querySelectorAll('.math-input').forEach(function(input,i){if(labels[i])input.setAttribute('aria-label',labels[i]);});
         send(kind);
       }
       new MutationObserver(sync).observe(question,{childList:true,subtree:true});
-      details.addEventListener('toggle',function(){send(kind);send(kind,'layout');});
+      details.addEventListener('toggle',function(){if(details.open)window.stackTypeset(solution);send(kind);send(kind,'layout');});
       var f=frame(kind);if(f){f.title={triangles:'Formlike trekanter med justerbar størrelse',values:'Enhetssirkel for avlesning av sinus og cosinus',angle:'Enhetssirkel for å finne vinkelen',tangent:'Rasjonal funksjon med bevegelig tangent'}[kind];f.addEventListener('load',function(){send(kind);});}
       sync();
     });
