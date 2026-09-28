@@ -48,5 +48,5 @@ No external course checkout or course-site link is required.
 See [pages/help.qmd](pages/help.qmd) for the ingredient list and authoring workflow.
 
 The four STACK definitions live in `_includes/stack/*.qmd`. Optional review:
-`quarto render pages/stack-review.qmd --output-dir _review-site`. See
+`quarto render --profile review`. See
 [_includes/stack/README.md](_includes/stack/README.md) for the selection workflow.

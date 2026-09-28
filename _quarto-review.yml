@@ -1,0 +1,6 @@
+project:
+  output-dir: _review-site
+  render:
+    - pages/stack-oppgaver.qmd
+
+math-exercise-review: true

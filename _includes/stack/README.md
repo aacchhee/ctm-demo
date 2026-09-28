@@ -35,8 +35,8 @@ Each contains one parameter definition, question and Markdown solution. Quarto
 expands these at build time; no pool-generation command or variant catalogue is
 needed. Run `quarto render pages/stack-oppgaver.qmd` as usual.
 
-For optional review run `quarto render pages/stack-review.qmd`. This author page
-is intentionally outside the site's normal render list. Inspect candidates in
+For optional review run `quarto render --profile review`. The review profile writes to `_review-site` and does not change the normal
+student build. Inspect candidates in
 the same interactive figures and use **Copy selection**. Replace the selection
 options in the corresponding QMD file, then render the student page normally.
 There is no separate selection file or student-side parameter generation.

@@ -31,7 +31,7 @@ jobs:
       - name: Render website
         run: quarto render
       - name: Render optional STACK review
-        run: quarto render pages/stack-review.qmd --output-dir _review-site
+        run: quarto render --profile review
       - name: Publish to gh-pages
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
