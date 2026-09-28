@@ -269,12 +269,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td><code>jsxgraph</code> filter + JSXGraph</td>
 <td>Turns a JavaScript block into the draggable vector applet. JSXGraph draws the board in a sandboxed iframe.</td>
-<td><a href="https://github.com/Erasmus-CTM/math-exercise/tree/main/_extensions/jsxgraph">Erasmus-CTM bridge</a>, based on <a href="https://github.com/jsxgraph/jsxgraph-quarto">jsxgraph-quarto</a>; <a href="https://jsxgraph.org/">JSXGraph</a> supplies the graphics library.</td>
+<td><a href="https://github.com/Erasmus-CTM/math-exercise/tree/feature/shared-feedback-integration/_extensions/jsxgraph">Erasmus-CTM bridge</a>, based on <a href="https://github.com/jsxgraph/jsxgraph-quarto">jsxgraph-quarto</a>; <a href="https://jsxgraph.org/">JSXGraph</a> supplies the graphics library.</td>
 </tr>
 <tr class="odd">
 <td><code>pyodide-interaktiv</code></td>
 <td>Editable Python cells, plots, and optional feedback; Python runs in a Web Worker through Pyodide.</td>
-<td><a href="https://github.com/Erasmus-CTM/pyodide-interaktiv">Erasmus-CTM/pyodide-interaktiv</a>, branch <code>issue-1-webagg</code></td>
+<td><a href="https://github.com/Erasmus-CTM/pyodide-interaktiv">Erasmus-CTM/pyodide-interaktiv</a>, branch <code>feature/shared-feedback-integration</code></td>
 </tr>
 <tr class="even">
 <td><code>math-exercise</code></td>
@@ -402,7 +402,7 @@ Then install the build dependencies and extensions:"><pre class="sourceCode bash
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/setup.py</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Open the localhost URL printed by Quarto. Do not open generated HTML directly with <code>file://</code>: the browser runtime uses workers and network requests. In VS Code, accept the recommended Quarto and Python extensions, and select <code>.venv</code> as the Python interpreter. <strong>Terminal → Run Task → Preview website</strong> starts the preview; <strong>Build website</strong> renders to <code>_site/</code>.</p>
-<p>The Python setup script installs Quarto extensions listed in <code>quarto-extensions.yml</code>. It requires Git and Quarto on <code>PATH</code>. The same command runs locally and in GitHub Actions; it does not install Python or Quarto itself. Re-running it updates extensions to their configured refs. Those refs currently follow upstream branches, so later setup runs can obtain newer extension code.</p>
+<p>The Python setup script installs Quarto extensions listed in <code>quarto-extensions.yml</code>. It requires Git and Quarto on <code>PATH</code>. The same command runs locally and in GitHub Actions; it does not install Python or Quarto itself. The full suite is activated by the <code>ctm-assessment</code> filter. Re-running setup updates ai-feedback and the ctm-assessment wrapper from <code>main</code>, and the three exercise consumers from <code>feature/shared-feedback-integration</code>. JSXGraph uses the same math-exercise checkout. Exact revisions appear in the setup log and <code>.private-extensions/resolved-repos.json</code>.</p>
 </section>
 <section id="publish-with-github-pages" class="level2">
 <h2 class="anchored" data-anchor-id="publish-with-github-pages">Publish with GitHub Pages</h2>
