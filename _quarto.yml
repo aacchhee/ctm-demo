@@ -7,6 +7,7 @@ project:
     - pages/physics.qmd
     - pages/fysikk-forkurs.qmd
     - pages/bevegelse-ii.qmd
+    - pages/stack-oppgaver.qmd
     - pages/help.qmd
 
 lang: en
@@ -35,6 +36,8 @@ website:
         file: pages/fysikk-forkurs.qmd
       - text: "Bevegelse II"
         file: pages/bevegelse-ii.qmd
+      - text: "STACK-oppgaver"
+        file: pages/stack-oppgaver.qmd
       - text: "Help"
         file: pages/help.qmd
 
