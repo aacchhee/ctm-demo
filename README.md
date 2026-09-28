@@ -37,7 +37,12 @@ Expected URL: <https://aacchhee.github.io/ctm-demo/>.
 Content lives in `.qmd` wrappers and `_includes/*.md`; `_quarto.yml` configures
 the site. `quarto-extensions.yml` lists the Erasmus-CTM extension sources.
 `scripts/setup.py` is shared by local development and GitHub Actions.
-Extension refs follow upstream branches and can change between setup runs.
+The full CTM Assessment suite is enabled through the `ctm-assessment` filter.
+Setup follows `main` for ai-feedback and the ctm-assessment wrapper, and
+`feature/shared-feedback-integration` for math-exercise, py-exercise and
+pyodide-interaktiv. JSXGraph uses the same checkout and exact revision as
+math-exercise. Resolved commits are logged during setup and recorded in
+`.private-extensions/resolved-repos.json`. Re-running setup updates these refs.
 No external course checkout or course-site link is required.
 
 See [pages/help.qmd](pages/help.qmd) for the ingredient list and authoring workflow.

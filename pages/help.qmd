@@ -13,8 +13,8 @@ build process.
 | Ingredient | What it does here | Where it comes from |
 |---|---|---|
 | Quarto | Converts Markdown, YAML configuration, mathematics, and code blocks into a website; provides navigation and tabs. | [Quarto](https://quarto.org/) |
-| `jsxgraph` filter + JSXGraph | Turns a JavaScript block into the draggable vector applet. JSXGraph draws the board in a sandboxed iframe. | [Erasmus-CTM bridge](https://github.com/Erasmus-CTM/math-exercise/tree/main/_extensions/jsxgraph), based on [jsxgraph-quarto](https://github.com/jsxgraph/jsxgraph-quarto); [JSXGraph](https://jsxgraph.org/) supplies the graphics library. |
-| `pyodide-interaktiv` | Editable Python cells, plots, and optional feedback; Python runs in a Web Worker through Pyodide. | [Erasmus-CTM/pyodide-interaktiv](https://github.com/Erasmus-CTM/pyodide-interaktiv), branch `issue-1-webagg` |
+| `jsxgraph` filter + JSXGraph | Turns a JavaScript block into the draggable vector applet. JSXGraph draws the board in a sandboxed iframe. | [Erasmus-CTM bridge](https://github.com/Erasmus-CTM/math-exercise/tree/feature/shared-feedback-integration/_extensions/jsxgraph), based on [jsxgraph-quarto](https://github.com/jsxgraph/jsxgraph-quarto); [JSXGraph](https://jsxgraph.org/) supplies the graphics library. |
+| `pyodide-interaktiv` | Editable Python cells, plots, and optional feedback; Python runs in a Web Worker through Pyodide. | [Erasmus-CTM/pyodide-interaktiv](https://github.com/Erasmus-CTM/pyodide-interaktiv), branch `feature/shared-feedback-integration` |
 | `math-exercise` | Checks exact mathematical answers, including the custom eigenvector checker that accepts different scalings. | [Erasmus-CTM/math-exercise](https://github.com/Erasmus-CTM/math-exercise) |
 | `py-exercise` | Checks Python coding exercises against tests. Installed and enabled for new experiments; the two retained problems use `math-exercise`. | [Erasmus-CTM/py-exercise](https://github.com/Erasmus-CTM/py-exercise) |
 | NumPy and Matplotlib | Vector/matrix calculations and plots inside the Python examples. | Loaded by [Pyodide](https://pyodide.org/) in the browser. |
@@ -105,8 +105,11 @@ starts the preview; **Build website** renders to `_site/`.
 The Python setup script installs Quarto extensions listed in
 `quarto-extensions.yml`. It requires Git and Quarto on `PATH`. The same command
 runs locally and in GitHub Actions; it does not install Python or Quarto itself.
-Re-running it updates extensions to their configured refs. Those refs currently
-follow upstream branches, so later setup runs can obtain newer extension code.
+The full suite is activated by the `ctm-assessment` filter. Re-running setup
+updates ai-feedback and the ctm-assessment wrapper from `main`, and the three
+exercise consumers from `feature/shared-feedback-integration`. JSXGraph uses
+the same math-exercise checkout. Exact revisions appear in the setup log and
+`.private-extensions/resolved-repos.json`.
 
 ## Publish with GitHub Pages
 
