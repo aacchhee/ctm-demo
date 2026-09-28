@@ -41,11 +41,11 @@
       var proseInput=explanation.querySelector('textarea');
       if(proseInput)proseInput.rows=4;
       function sync(){
-        var marker=question.querySelector('[data-stack-variant]');
-        if(!marker)return;
-        var key=marker.dataset.stackVariant,data=window.stackVariants[key];
-        if(!data || data.kind!==kind || active[kind]?.key===key)return;
-        active[kind]={key:key,params:data.params};
+        var variant=cell.mathExercise?.getVariant();
+        if(!variant || active[kind]?.key===variant.id)return;
+        var key=variant.id,params=Object.assign({},variant.parameters,variant.derived);
+        if(kind==='values')params={radians:[params.r1,params.r2],degrees:[params.d1,params.d2]};
+        active[kind]={key:key,params:params};
         // A new question must not leave the previous worked solution open.
         if(collapse && window.bootstrap?.Collapse){
           var controller=window.bootstrap.Collapse.getOrCreateInstance(collapse,{toggle:false});
@@ -54,15 +54,13 @@
         var response=explanation.querySelector('textarea');
         if(response)response.value='';
         clearFeedback();
-        if(window.MathJax?.typesetClear)window.MathJax.typesetClear([solution]);
-        solution.innerHTML=data.solution;
         window.stackTypeset(solution);
         document.dispatchEvent(new CustomEvent('stack:variant-changed',{detail:{kind:kind,key:key}}));
         var labels=JSON.parse(cell.dataset.fieldLabels||'[]');
         question.querySelectorAll('.math-input').forEach(function(input,i){if(labels[i])input.setAttribute('aria-label',labels[i]);});
         send(kind);
       }
-      new MutationObserver(sync).observe(question,{childList:true,subtree:true});
+      cell.addEventListener('math-exercise:variant-change',sync);
       if(collapse)collapse.addEventListener('shown.bs.collapse',function(){window.stackTypeset(solution);send(kind);send(kind,'layout');});
       var f=frame(kind);if(f){f.title={triangles:'Formlike trekanter med justerbar størrelse',values:'Enhetssirkel for avlesning av sinus og cosinus',angle:'Enhetssirkel for å finne vinkelen',tangent:'Rasjonal funksjon med bevegelig tangent'}[kind];f.addEventListener('load',function(){send(kind);});}
       sync();
