@@ -4,9 +4,14 @@ plugins:
     ref: issue-1-webagg
     path: _extensions/pyodide-interaktiv
 
+  - name: ai-feedback
+    repo: https://github.com/Erasmus-CTM/ai-feedback.git
+    ref: main
+    path: _extensions/ai-feedback
+
   - name: math-exercise
     repo: https://github.com/Erasmus-CTM/math-exercise.git
-    ref: main
+    ref: feature/shared-feedback-integration
     path: _extensions/math-exercise
 
   - name: jsxgraph

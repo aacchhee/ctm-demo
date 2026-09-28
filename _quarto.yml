@@ -13,6 +13,8 @@ project:
 lang: en
 
 filters:
+  - _filters/stack-content.lua
+  - ai-feedback
   - pyodide-interaktiv
   - jsxgraph
   - math-exercise
@@ -48,6 +50,9 @@ format:
     include-after-body:
       - _includes/site/tab-links.html
       - _includes/site/learning-mode.html
+
+ai-feedback:
+  mode: api
 
 pyodide:
   lang: en

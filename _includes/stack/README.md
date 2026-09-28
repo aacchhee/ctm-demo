@@ -38,9 +38,27 @@ quarto render pages/stack-oppgaver.qmd
 
 Commit both the generator/source changes and the generated includes/assets.
 
-Dynamic solution HTML uses MathJax's explicit `\\(...\\)` / `\\[...\\]` delimiters,
-not Pandoc-only dollar syntax. Typesetting is queued until MathJax is ready.
-Each topic also has an ungraded prose-feedback box. It uses the same saved
-AI endpoint/model settings as math-exercise, sends the active question and
-explicit topic context, and never sends answer keys or worked solutions.
-Changing the variant or editing the explanation cancels stale feedback requests.
+Solutions are authored as Markdown in `scripts/generate-stack-pools.py` and
+stored in `assets/stack/variants.json`. `_filters/stack-content.lua` renders them
+with Pandoc during the Quarto build, including tables and MathJax notation.
+The same filter compiles the pool Markdown before math-exercise consumes it,
+protecting answer markers and preserving mathematical source for AI context.
+The page uses native collapsed Quarto callouts, and queues dynamic typesetting
+until MathJax is ready. No authored HTML forms or solution containers are needed.
+
+Each topic uses a native `.ai-feedback` fenced Div for an ungraded explanation,
+with Markdown prompts and hidden `.feedback-criteria`. The math-exercise shared
+feedback integration and ai-feedback use one settings dialog. Existing legacy
+math-exercise settings can be imported explicitly in that dialog.
+
+The page assigns an explicit context ID to the active question element. The
+shared extractor reads its visible prose and mathematical notation, excluding
+input values, hidden variant markers, answer keys and worked solutions. Topic
+context and conventions are explicitly referenced as well. Changing variants
+clears the explanation and feedback and closes the solution. Editing clears old
+feedback; the shared client's snapshot check rejects replies for changed input
+or context. API calls and prompt-copy mode are provided by the shared extension.
+
+The extension manifest currently uses math-exercise's
+`feature/shared-feedback-integration` branch, which requires ai-feedback 0.6.0+.
+Once that integration is merged, its manifest entry can return to `main`.

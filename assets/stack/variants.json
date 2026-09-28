@@ -1,0 +1,3187 @@
+{
+  "triangles-0": {
+    "kind": "triangles",
+    "params": {
+      "ab": 3,
+      "bc": 4
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{4}{\\sqrt{3^2+4^2}}\\approx 0.800.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-1": {
+    "kind": "triangles",
+    "params": {
+      "ab": 3,
+      "bc": 5
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{5}{\\sqrt{3^2+5^2}}\\approx 0.857.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-2": {
+    "kind": "triangles",
+    "params": {
+      "ab": 3,
+      "bc": 6
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{6}{\\sqrt{3^2+6^2}}\\approx 0.894.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-3": {
+    "kind": "triangles",
+    "params": {
+      "ab": 3,
+      "bc": 7
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{7}{\\sqrt{3^2+7^2}}\\approx 0.919.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-4": {
+    "kind": "triangles",
+    "params": {
+      "ab": 4,
+      "bc": 5
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{5}{\\sqrt{4^2+5^2}}\\approx 0.781.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-5": {
+    "kind": "triangles",
+    "params": {
+      "ab": 4,
+      "bc": 6
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{6}{\\sqrt{4^2+6^2}}\\approx 0.832.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-6": {
+    "kind": "triangles",
+    "params": {
+      "ab": 4,
+      "bc": 7
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{7}{\\sqrt{4^2+7^2}}\\approx 0.868.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-7": {
+    "kind": "triangles",
+    "params": {
+      "ab": 4,
+      "bc": 8
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{8}{\\sqrt{4^2+8^2}}\\approx 0.894.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-8": {
+    "kind": "triangles",
+    "params": {
+      "ab": 5,
+      "bc": 6
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{6}{\\sqrt{5^2+6^2}}\\approx 0.768.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-9": {
+    "kind": "triangles",
+    "params": {
+      "ab": 5,
+      "bc": 7
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{7}{\\sqrt{5^2+7^2}}\\approx 0.814.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-10": {
+    "kind": "triangles",
+    "params": {
+      "ab": 5,
+      "bc": 8
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{8}{\\sqrt{5^2+8^2}}\\approx 0.848.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-11": {
+    "kind": "triangles",
+    "params": {
+      "ab": 5,
+      "bc": 9
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{9}{\\sqrt{5^2+9^2}}\\approx 0.874.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-12": {
+    "kind": "triangles",
+    "params": {
+      "ab": 6,
+      "bc": 7
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{7}{\\sqrt{6^2+7^2}}\\approx 0.759.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-13": {
+    "kind": "triangles",
+    "params": {
+      "ab": 6,
+      "bc": 8
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{8}{\\sqrt{6^2+8^2}}\\approx 0.800.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-14": {
+    "kind": "triangles",
+    "params": {
+      "ab": 6,
+      "bc": 9
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{9}{\\sqrt{6^2+9^2}}\\approx 0.832.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-15": {
+    "kind": "triangles",
+    "params": {
+      "ab": 6,
+      "bc": 10
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{10}{\\sqrt{6^2+10^2}}\\approx 0.857.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-16": {
+    "kind": "triangles",
+    "params": {
+      "ab": 7,
+      "bc": 8
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{8}{\\sqrt{7^2+8^2}}\\approx 0.753.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-17": {
+    "kind": "triangles",
+    "params": {
+      "ab": 7,
+      "bc": 9
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{9}{\\sqrt{7^2+9^2}}\\approx 0.789.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-18": {
+    "kind": "triangles",
+    "params": {
+      "ab": 7,
+      "bc": 10
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{10}{\\sqrt{7^2+10^2}}\\approx 0.819.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-19": {
+    "kind": "triangles",
+    "params": {
+      "ab": 7,
+      "bc": 11
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{11}{\\sqrt{7^2+11^2}}\\approx 0.844.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-20": {
+    "kind": "triangles",
+    "params": {
+      "ab": 8,
+      "bc": 9
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{9}{\\sqrt{8^2+9^2}}\\approx 0.747.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-21": {
+    "kind": "triangles",
+    "params": {
+      "ab": 8,
+      "bc": 10
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{10}{\\sqrt{8^2+10^2}}\\approx 0.781.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-22": {
+    "kind": "triangles",
+    "params": {
+      "ab": 8,
+      "bc": 11
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{11}{\\sqrt{8^2+11^2}}\\approx 0.809.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "triangles-23": {
+    "kind": "triangles",
+    "params": {
+      "ab": 8,
+      "bc": 12
+    },
+    "solution": "Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.\n\n$$\\frac{EF}{DF}=\\frac{BC}{AC}=\\frac{12}{\\sqrt{8^2+12^2}}\\approx 0.832.$$\nEn endring av størrelsen på trekant $DEF$ endrer ikke forholdet.\n"
+  },
+  "values-0": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        0.96,
+        3.8
+      ],
+      "degrees": [
+        5,
+        125
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $0.96$ | $0.82$ | $0.57$ |\n| $3.8$ | $-0.61$ | $-0.79$ |\n| $5^\\circ$ | $0.09$ | $1.00$ |\n| $125^\\circ$ | $0.82$ | $-0.57$ |"
+  },
+  "values-1": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        1.0,
+        3.9
+      ],
+      "degrees": [
+        10,
+        130
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $1$ | $0.84$ | $0.54$ |\n| $3.9$ | $-0.69$ | $-0.73$ |\n| $10^\\circ$ | $0.17$ | $0.98$ |\n| $130^\\circ$ | $0.77$ | $-0.64$ |"
+  },
+  "values-2": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        1.1,
+        4.0
+      ],
+      "degrees": [
+        15,
+        135
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $1.1$ | $0.89$ | $0.45$ |\n| $4$ | $-0.76$ | $-0.65$ |\n| $15^\\circ$ | $0.26$ | $0.97$ |\n| $135^\\circ$ | $0.71$ | $-0.71$ |"
+  },
+  "values-3": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        1.2,
+        4.1
+      ],
+      "degrees": [
+        20,
+        140
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $1.2$ | $0.93$ | $0.36$ |\n| $4.1$ | $-0.82$ | $-0.57$ |\n| $20^\\circ$ | $0.34$ | $0.94$ |\n| $140^\\circ$ | $0.64$ | $-0.77$ |"
+  },
+  "values-4": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        1.3,
+        4.2
+      ],
+      "degrees": [
+        25,
+        145
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $1.3$ | $0.96$ | $0.27$ |\n| $4.2$ | $-0.87$ | $-0.49$ |\n| $25^\\circ$ | $0.42$ | $0.91$ |\n| $145^\\circ$ | $0.57$ | $-0.82$ |"
+  },
+  "values-5": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        1.4,
+        4.3
+      ],
+      "degrees": [
+        30,
+        150
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $1.4$ | $0.99$ | $0.17$ |\n| $4.3$ | $-0.92$ | $-0.40$ |\n| $30^\\circ$ | $0.50$ | $0.87$ |\n| $150^\\circ$ | $0.50$ | $-0.87$ |"
+  },
+  "values-6": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        1.5,
+        4.4
+      ],
+      "degrees": [
+        35,
+        155
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $1.5$ | $1.00$ | $0.07$ |\n| $4.4$ | $-0.95$ | $-0.31$ |\n| $35^\\circ$ | $0.57$ | $0.82$ |\n| $155^\\circ$ | $0.42$ | $-0.91$ |"
+  },
+  "values-7": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        1.6,
+        4.5
+      ],
+      "degrees": [
+        40,
+        160
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $1.6$ | $1.00$ | $-0.03$ |\n| $4.5$ | $-0.98$ | $-0.21$ |\n| $40^\\circ$ | $0.64$ | $0.77$ |\n| $160^\\circ$ | $0.34$ | $-0.94$ |"
+  },
+  "values-8": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        1.7,
+        4.5
+      ],
+      "degrees": [
+        45,
+        165
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $1.7$ | $0.99$ | $-0.13$ |\n| $4.5$ | $-0.98$ | $-0.21$ |\n| $45^\\circ$ | $0.71$ | $0.71$ |\n| $165^\\circ$ | $0.26$ | $-0.97$ |"
+  },
+  "values-9": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        1.7,
+        4.6
+      ],
+      "degrees": [
+        50,
+        170
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $1.7$ | $0.99$ | $-0.13$ |\n| $4.6$ | $-0.99$ | $-0.11$ |\n| $50^\\circ$ | $0.77$ | $0.64$ |\n| $170^\\circ$ | $0.17$ | $-0.98$ |"
+  },
+  "values-10": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        1.8,
+        4.7
+      ],
+      "degrees": [
+        55,
+        175
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $1.8$ | $0.97$ | $-0.23$ |\n| $4.7$ | $-1.00$ | $-0.01$ |\n| $55^\\circ$ | $0.82$ | $0.57$ |\n| $175^\\circ$ | $0.09$ | $-1.00$ |"
+  },
+  "values-11": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        1.9,
+        4.8
+      ],
+      "degrees": [
+        60,
+        180
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $1.9$ | $0.95$ | $-0.32$ |\n| $4.8$ | $-1.00$ | $0.09$ |\n| $60^\\circ$ | $0.87$ | $0.50$ |\n| $180^\\circ$ | $0.00$ | $-1.00$ |"
+  },
+  "values-12": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        2.0,
+        4.9
+      ],
+      "degrees": [
+        65,
+        185
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $2$ | $0.91$ | $-0.42$ |\n| $4.9$ | $-0.98$ | $0.19$ |\n| $65^\\circ$ | $0.91$ | $0.42$ |\n| $185^\\circ$ | $-0.09$ | $-1.00$ |"
+  },
+  "values-13": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        2.1,
+        5.0
+      ],
+      "degrees": [
+        70,
+        190
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $2.1$ | $0.86$ | $-0.50$ |\n| $5$ | $-0.96$ | $0.28$ |\n| $70^\\circ$ | $0.94$ | $0.34$ |\n| $190^\\circ$ | $-0.17$ | $-0.98$ |"
+  },
+  "values-14": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        2.2,
+        5.1
+      ],
+      "degrees": [
+        75,
+        195
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $2.2$ | $0.81$ | $-0.59$ |\n| $5.1$ | $-0.93$ | $0.38$ |\n| $75^\\circ$ | $0.97$ | $0.26$ |\n| $195^\\circ$ | $-0.26$ | $-0.97$ |"
+  },
+  "values-15": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        2.3,
+        5.1
+      ],
+      "degrees": [
+        80,
+        200
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $2.3$ | $0.75$ | $-0.67$ |\n| $5.1$ | $-0.93$ | $0.38$ |\n| $80^\\circ$ | $0.98$ | $0.17$ |\n| $200^\\circ$ | $-0.34$ | $-0.94$ |"
+  },
+  "values-16": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        2.4,
+        5.2
+      ],
+      "degrees": [
+        85,
+        205
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $2.4$ | $0.68$ | $-0.74$ |\n| $5.2$ | $-0.88$ | $0.47$ |\n| $85^\\circ$ | $1.00$ | $0.09$ |\n| $205^\\circ$ | $-0.42$ | $-0.91$ |"
+  },
+  "values-17": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        2.4,
+        5.3
+      ],
+      "degrees": [
+        90,
+        210
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $2.4$ | $0.68$ | $-0.74$ |\n| $5.3$ | $-0.83$ | $0.55$ |\n| $90^\\circ$ | $1.00$ | $0.00$ |\n| $210^\\circ$ | $-0.50$ | $-0.87$ |"
+  },
+  "values-18": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        2.5,
+        5.4
+      ],
+      "degrees": [
+        95,
+        215
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $2.5$ | $0.60$ | $-0.80$ |\n| $5.4$ | $-0.77$ | $0.63$ |\n| $95^\\circ$ | $1.00$ | $-0.09$ |\n| $215^\\circ$ | $-0.57$ | $-0.82$ |"
+  },
+  "values-19": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        2.6,
+        5.5
+      ],
+      "degrees": [
+        100,
+        220
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $2.6$ | $0.52$ | $-0.86$ |\n| $5.5$ | $-0.71$ | $0.71$ |\n| $100^\\circ$ | $0.98$ | $-0.17$ |\n| $220^\\circ$ | $-0.64$ | $-0.77$ |"
+  },
+  "values-20": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        2.7,
+        5.6
+      ],
+      "degrees": [
+        105,
+        225
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $2.7$ | $0.43$ | $-0.90$ |\n| $5.6$ | $-0.63$ | $0.78$ |\n| $105^\\circ$ | $0.97$ | $-0.26$ |\n| $225^\\circ$ | $-0.71$ | $-0.71$ |"
+  },
+  "values-21": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        2.8,
+        5.7
+      ],
+      "degrees": [
+        110,
+        230
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $2.8$ | $0.33$ | $-0.94$ |\n| $5.7$ | $-0.55$ | $0.83$ |\n| $110^\\circ$ | $0.94$ | $-0.34$ |\n| $230^\\circ$ | $-0.77$ | $-0.64$ |"
+  },
+  "values-22": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        2.9,
+        5.8
+      ],
+      "degrees": [
+        115,
+        235
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $2.9$ | $0.24$ | $-0.97$ |\n| $5.8$ | $-0.46$ | $0.89$ |\n| $115^\\circ$ | $0.91$ | $-0.42$ |\n| $235^\\circ$ | $-0.82$ | $-0.57$ |"
+  },
+  "values-23": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        3.0,
+        5.8
+      ],
+      "degrees": [
+        120,
+        240
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $3$ | $0.14$ | $-0.99$ |\n| $5.8$ | $-0.46$ | $0.89$ |\n| $120^\\circ$ | $0.87$ | $-0.50$ |\n| $240^\\circ$ | $-0.87$ | $-0.50$ |"
+  },
+  "values-24": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        3.1,
+        5.9
+      ],
+      "degrees": [
+        125,
+        245
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $3.1$ | $0.04$ | $-1.00$ |\n| $5.9$ | $-0.37$ | $0.93$ |\n| $125^\\circ$ | $0.82$ | $-0.57$ |\n| $245^\\circ$ | $-0.91$ | $-0.42$ |"
+  },
+  "values-25": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        3.1,
+        6.0
+      ],
+      "degrees": [
+        130,
+        250
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $3.1$ | $0.04$ | $-1.00$ |\n| $6$ | $-0.28$ | $0.96$ |\n| $130^\\circ$ | $0.77$ | $-0.64$ |\n| $250^\\circ$ | $-0.94$ | $-0.34$ |"
+  },
+  "values-26": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        3.2,
+        6.1
+      ],
+      "degrees": [
+        135,
+        255
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $3.2$ | $-0.06$ | $-1.00$ |\n| $6.1$ | $-0.18$ | $0.98$ |\n| $135^\\circ$ | $0.71$ | $-0.71$ |\n| $255^\\circ$ | $-0.97$ | $-0.26$ |"
+  },
+  "values-27": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        3.3,
+        6.2
+      ],
+      "degrees": [
+        140,
+        260
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $3.3$ | $-0.16$ | $-0.99$ |\n| $6.2$ | $-0.08$ | $1.00$ |\n| $140^\\circ$ | $0.64$ | $-0.77$ |\n| $260^\\circ$ | $-0.98$ | $-0.17$ |"
+  },
+  "values-28": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        3.4,
+        0.087
+      ],
+      "degrees": [
+        145,
+        265
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $3.4$ | $-0.26$ | $-0.97$ |\n| $0.087$ | $0.09$ | $1.00$ |\n| $145^\\circ$ | $0.57$ | $-0.82$ |\n| $265^\\circ$ | $-1.00$ | $-0.09$ |"
+  },
+  "values-29": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        3.5,
+        0.17
+      ],
+      "degrees": [
+        150,
+        270
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $3.5$ | $-0.35$ | $-0.94$ |\n| $0.17$ | $0.17$ | $0.99$ |\n| $150^\\circ$ | $0.50$ | $-0.87$ |\n| $270^\\circ$ | $-1.00$ | $-0.00$ |"
+  },
+  "values-30": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        3.6,
+        0.26
+      ],
+      "degrees": [
+        155,
+        275
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $3.6$ | $-0.44$ | $-0.90$ |\n| $0.26$ | $0.26$ | $0.97$ |\n| $155^\\circ$ | $0.42$ | $-0.91$ |\n| $275^\\circ$ | $-1.00$ | $0.09$ |"
+  },
+  "values-31": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        3.7,
+        0.35
+      ],
+      "degrees": [
+        160,
+        280
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $3.7$ | $-0.53$ | $-0.85$ |\n| $0.35$ | $0.34$ | $0.94$ |\n| $160^\\circ$ | $0.34$ | $-0.94$ |\n| $280^\\circ$ | $-0.98$ | $0.17$ |"
+  },
+  "values-32": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        3.8,
+        0.44
+      ],
+      "degrees": [
+        165,
+        285
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $3.8$ | $-0.61$ | $-0.79$ |\n| $0.44$ | $0.43$ | $0.90$ |\n| $165^\\circ$ | $0.26$ | $-0.97$ |\n| $285^\\circ$ | $-0.97$ | $0.26$ |"
+  },
+  "values-33": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        3.8,
+        0.52
+      ],
+      "degrees": [
+        170,
+        290
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $3.8$ | $-0.61$ | $-0.79$ |\n| $0.52$ | $0.50$ | $0.87$ |\n| $170^\\circ$ | $0.17$ | $-0.98$ |\n| $290^\\circ$ | $-0.94$ | $0.34$ |"
+  },
+  "values-34": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        3.9,
+        0.61
+      ],
+      "degrees": [
+        175,
+        295
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $3.9$ | $-0.69$ | $-0.73$ |\n| $0.61$ | $0.57$ | $0.82$ |\n| $175^\\circ$ | $0.09$ | $-1.00$ |\n| $295^\\circ$ | $-0.91$ | $0.42$ |"
+  },
+  "values-35": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        4.0,
+        0.7
+      ],
+      "degrees": [
+        180,
+        300
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $4$ | $-0.76$ | $-0.65$ |\n| $0.7$ | $0.64$ | $0.76$ |\n| $180^\\circ$ | $0.00$ | $-1.00$ |\n| $300^\\circ$ | $-0.87$ | $0.50$ |"
+  },
+  "values-36": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        4.1,
+        0.79
+      ],
+      "degrees": [
+        185,
+        305
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $4.1$ | $-0.82$ | $-0.57$ |\n| $0.79$ | $0.71$ | $0.70$ |\n| $185^\\circ$ | $-0.09$ | $-1.00$ |\n| $305^\\circ$ | $-0.82$ | $0.57$ |"
+  },
+  "values-37": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        4.2,
+        0.87
+      ],
+      "degrees": [
+        190,
+        310
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $4.2$ | $-0.87$ | $-0.49$ |\n| $0.87$ | $0.76$ | $0.64$ |\n| $190^\\circ$ | $-0.17$ | $-0.98$ |\n| $310^\\circ$ | $-0.77$ | $0.64$ |"
+  },
+  "values-38": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        4.3,
+        0.96
+      ],
+      "degrees": [
+        195,
+        315
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $4.3$ | $-0.92$ | $-0.40$ |\n| $0.96$ | $0.82$ | $0.57$ |\n| $195^\\circ$ | $-0.26$ | $-0.97$ |\n| $315^\\circ$ | $-0.71$ | $0.71$ |"
+  },
+  "values-39": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        4.4,
+        1.0
+      ],
+      "degrees": [
+        200,
+        320
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $4.4$ | $-0.95$ | $-0.31$ |\n| $1$ | $0.84$ | $0.54$ |\n| $200^\\circ$ | $-0.34$ | $-0.94$ |\n| $320^\\circ$ | $-0.64$ | $0.77$ |"
+  },
+  "values-40": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        4.5,
+        1.1
+      ],
+      "degrees": [
+        205,
+        325
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $4.5$ | $-0.98$ | $-0.21$ |\n| $1.1$ | $0.89$ | $0.45$ |\n| $205^\\circ$ | $-0.42$ | $-0.91$ |\n| $325^\\circ$ | $-0.57$ | $0.82$ |"
+  },
+  "values-41": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        4.5,
+        1.2
+      ],
+      "degrees": [
+        210,
+        330
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $4.5$ | $-0.98$ | $-0.21$ |\n| $1.2$ | $0.93$ | $0.36$ |\n| $210^\\circ$ | $-0.50$ | $-0.87$ |\n| $330^\\circ$ | $-0.50$ | $0.87$ |"
+  },
+  "values-42": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        4.6,
+        1.3
+      ],
+      "degrees": [
+        215,
+        335
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $4.6$ | $-0.99$ | $-0.11$ |\n| $1.3$ | $0.96$ | $0.27$ |\n| $215^\\circ$ | $-0.57$ | $-0.82$ |\n| $335^\\circ$ | $-0.42$ | $0.91$ |"
+  },
+  "values-43": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        4.7,
+        1.4
+      ],
+      "degrees": [
+        220,
+        340
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $4.7$ | $-1.00$ | $-0.01$ |\n| $1.4$ | $0.99$ | $0.17$ |\n| $220^\\circ$ | $-0.64$ | $-0.77$ |\n| $340^\\circ$ | $-0.34$ | $0.94$ |"
+  },
+  "values-44": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        4.8,
+        1.5
+      ],
+      "degrees": [
+        225,
+        345
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $4.8$ | $-1.00$ | $0.09$ |\n| $1.5$ | $1.00$ | $0.07$ |\n| $225^\\circ$ | $-0.71$ | $-0.71$ |\n| $345^\\circ$ | $-0.26$ | $0.97$ |"
+  },
+  "values-45": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        4.9,
+        1.6
+      ],
+      "degrees": [
+        230,
+        350
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $4.9$ | $-0.98$ | $0.19$ |\n| $1.6$ | $1.00$ | $-0.03$ |\n| $230^\\circ$ | $-0.77$ | $-0.64$ |\n| $350^\\circ$ | $-0.17$ | $0.98$ |"
+  },
+  "values-46": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        5.0,
+        1.7
+      ],
+      "degrees": [
+        235,
+        355
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $5$ | $-0.96$ | $0.28$ |\n| $1.7$ | $0.99$ | $-0.13$ |\n| $235^\\circ$ | $-0.82$ | $-0.57$ |\n| $355^\\circ$ | $-0.09$ | $1.00$ |"
+  },
+  "values-47": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        5.1,
+        1.7
+      ],
+      "degrees": [
+        240,
+        5
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $5.1$ | $-0.93$ | $0.38$ |\n| $1.7$ | $0.99$ | $-0.13$ |\n| $240^\\circ$ | $-0.87$ | $-0.50$ |\n| $5^\\circ$ | $0.09$ | $1.00$ |"
+  },
+  "values-48": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        5.1,
+        1.8
+      ],
+      "degrees": [
+        245,
+        10
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $5.1$ | $-0.93$ | $0.38$ |\n| $1.8$ | $0.97$ | $-0.23$ |\n| $245^\\circ$ | $-0.91$ | $-0.42$ |\n| $10^\\circ$ | $0.17$ | $0.98$ |"
+  },
+  "values-49": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        5.2,
+        1.9
+      ],
+      "degrees": [
+        250,
+        15
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $5.2$ | $-0.88$ | $0.47$ |\n| $1.9$ | $0.95$ | $-0.32$ |\n| $250^\\circ$ | $-0.94$ | $-0.34$ |\n| $15^\\circ$ | $0.26$ | $0.97$ |"
+  },
+  "values-50": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        5.3,
+        2.0
+      ],
+      "degrees": [
+        255,
+        20
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $5.3$ | $-0.83$ | $0.55$ |\n| $2$ | $0.91$ | $-0.42$ |\n| $255^\\circ$ | $-0.97$ | $-0.26$ |\n| $20^\\circ$ | $0.34$ | $0.94$ |"
+  },
+  "values-51": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        5.4,
+        2.1
+      ],
+      "degrees": [
+        260,
+        25
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $5.4$ | $-0.77$ | $0.63$ |\n| $2.1$ | $0.86$ | $-0.50$ |\n| $260^\\circ$ | $-0.98$ | $-0.17$ |\n| $25^\\circ$ | $0.42$ | $0.91$ |"
+  },
+  "values-52": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        5.5,
+        2.2
+      ],
+      "degrees": [
+        265,
+        30
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $5.5$ | $-0.71$ | $0.71$ |\n| $2.2$ | $0.81$ | $-0.59$ |\n| $265^\\circ$ | $-1.00$ | $-0.09$ |\n| $30^\\circ$ | $0.50$ | $0.87$ |"
+  },
+  "values-53": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        5.6,
+        2.3
+      ],
+      "degrees": [
+        270,
+        35
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $5.6$ | $-0.63$ | $0.78$ |\n| $2.3$ | $0.75$ | $-0.67$ |\n| $270^\\circ$ | $-1.00$ | $-0.00$ |\n| $35^\\circ$ | $0.57$ | $0.82$ |"
+  },
+  "values-54": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        5.7,
+        2.4
+      ],
+      "degrees": [
+        275,
+        40
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $5.7$ | $-0.55$ | $0.83$ |\n| $2.4$ | $0.68$ | $-0.74$ |\n| $275^\\circ$ | $-1.00$ | $0.09$ |\n| $40^\\circ$ | $0.64$ | $0.77$ |"
+  },
+  "values-55": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        5.8,
+        2.4
+      ],
+      "degrees": [
+        280,
+        45
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $5.8$ | $-0.46$ | $0.89$ |\n| $2.4$ | $0.68$ | $-0.74$ |\n| $280^\\circ$ | $-0.98$ | $0.17$ |\n| $45^\\circ$ | $0.71$ | $0.71$ |"
+  },
+  "values-56": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        5.8,
+        2.5
+      ],
+      "degrees": [
+        285,
+        50
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $5.8$ | $-0.46$ | $0.89$ |\n| $2.5$ | $0.60$ | $-0.80$ |\n| $285^\\circ$ | $-0.97$ | $0.26$ |\n| $50^\\circ$ | $0.77$ | $0.64$ |"
+  },
+  "values-57": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        5.9,
+        2.6
+      ],
+      "degrees": [
+        290,
+        55
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $5.9$ | $-0.37$ | $0.93$ |\n| $2.6$ | $0.52$ | $-0.86$ |\n| $290^\\circ$ | $-0.94$ | $0.34$ |\n| $55^\\circ$ | $0.82$ | $0.57$ |"
+  },
+  "values-58": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        6.0,
+        2.7
+      ],
+      "degrees": [
+        295,
+        60
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $6$ | $-0.28$ | $0.96$ |\n| $2.7$ | $0.43$ | $-0.90$ |\n| $295^\\circ$ | $-0.91$ | $0.42$ |\n| $60^\\circ$ | $0.87$ | $0.50$ |"
+  },
+  "values-59": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        6.1,
+        2.8
+      ],
+      "degrees": [
+        300,
+        65
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $6.1$ | $-0.18$ | $0.98$ |\n| $2.8$ | $0.33$ | $-0.94$ |\n| $300^\\circ$ | $-0.87$ | $0.50$ |\n| $65^\\circ$ | $0.91$ | $0.42$ |"
+  },
+  "values-60": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        6.2,
+        2.9
+      ],
+      "degrees": [
+        305,
+        70
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $6.2$ | $-0.08$ | $1.00$ |\n| $2.9$ | $0.24$ | $-0.97$ |\n| $305^\\circ$ | $-0.82$ | $0.57$ |\n| $70^\\circ$ | $0.94$ | $0.34$ |"
+  },
+  "values-61": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        0.087,
+        3.0
+      ],
+      "degrees": [
+        310,
+        75
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $0.087$ | $0.09$ | $1.00$ |\n| $3$ | $0.14$ | $-0.99$ |\n| $310^\\circ$ | $-0.77$ | $0.64$ |\n| $75^\\circ$ | $0.97$ | $0.26$ |"
+  },
+  "values-62": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        0.17,
+        3.1
+      ],
+      "degrees": [
+        315,
+        80
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $0.17$ | $0.17$ | $0.99$ |\n| $3.1$ | $0.04$ | $-1.00$ |\n| $315^\\circ$ | $-0.71$ | $0.71$ |\n| $80^\\circ$ | $0.98$ | $0.17$ |"
+  },
+  "values-63": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        0.26,
+        3.1
+      ],
+      "degrees": [
+        320,
+        85
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $0.26$ | $0.26$ | $0.97$ |\n| $3.1$ | $0.04$ | $-1.00$ |\n| $320^\\circ$ | $-0.64$ | $0.77$ |\n| $85^\\circ$ | $1.00$ | $0.09$ |"
+  },
+  "values-64": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        0.35,
+        3.2
+      ],
+      "degrees": [
+        325,
+        90
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $0.35$ | $0.34$ | $0.94$ |\n| $3.2$ | $-0.06$ | $-1.00$ |\n| $325^\\circ$ | $-0.57$ | $0.82$ |\n| $90^\\circ$ | $1.00$ | $0.00$ |"
+  },
+  "values-65": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        0.44,
+        3.3
+      ],
+      "degrees": [
+        330,
+        95
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $0.44$ | $0.43$ | $0.90$ |\n| $3.3$ | $-0.16$ | $-0.99$ |\n| $330^\\circ$ | $-0.50$ | $0.87$ |\n| $95^\\circ$ | $1.00$ | $-0.09$ |"
+  },
+  "values-66": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        0.52,
+        3.4
+      ],
+      "degrees": [
+        335,
+        100
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $0.52$ | $0.50$ | $0.87$ |\n| $3.4$ | $-0.26$ | $-0.97$ |\n| $335^\\circ$ | $-0.42$ | $0.91$ |\n| $100^\\circ$ | $0.98$ | $-0.17$ |"
+  },
+  "values-67": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        0.61,
+        3.5
+      ],
+      "degrees": [
+        340,
+        105
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $0.61$ | $0.57$ | $0.82$ |\n| $3.5$ | $-0.35$ | $-0.94$ |\n| $340^\\circ$ | $-0.34$ | $0.94$ |\n| $105^\\circ$ | $0.97$ | $-0.26$ |"
+  },
+  "values-68": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        0.7,
+        3.6
+      ],
+      "degrees": [
+        345,
+        110
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $0.7$ | $0.64$ | $0.76$ |\n| $3.6$ | $-0.44$ | $-0.90$ |\n| $345^\\circ$ | $-0.26$ | $0.97$ |\n| $110^\\circ$ | $0.94$ | $-0.34$ |"
+  },
+  "values-69": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        0.79,
+        3.7
+      ],
+      "degrees": [
+        350,
+        115
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $0.79$ | $0.71$ | $0.70$ |\n| $3.7$ | $-0.53$ | $-0.85$ |\n| $350^\\circ$ | $-0.17$ | $0.98$ |\n| $115^\\circ$ | $0.91$ | $-0.42$ |"
+  },
+  "values-70": {
+    "kind": "values",
+    "params": {
+      "radians": [
+        0.87,
+        3.8
+      ],
+      "degrees": [
+        355,
+        120
+      ]
+    },
+    "solution": "På enhetssirkelen er $A=(\\cos v,\\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.\n\n| Vinkel | Sinus | Cosinus |\n| --- | --- | --- |\n| $0.87$ | $0.76$ | $0.64$ |\n| $3.8$ | $-0.61$ | $-0.79$ |\n| $355^\\circ$ | $-0.09$ | $1.00$ |\n| $120^\\circ$ | $0.87$ | $-0.50$ |"
+  },
+  "angle-0": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.09,
+      "cosine": 1.0
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(1.00,0.09)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{1}{36}\\pi\\approx 0.087$ rad, eller $5^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-1": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.17,
+      "cosine": 0.98
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.98,0.17)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{1}{18}\\pi\\approx 0.175$ rad, eller $10^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-2": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.26,
+      "cosine": 0.97
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.97,0.26)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{1}{12}\\pi\\approx 0.262$ rad, eller $15^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-3": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.34,
+      "cosine": 0.94
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.94,0.34)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{1}{9}\\pi\\approx 0.349$ rad, eller $20^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-4": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.42,
+      "cosine": 0.91
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.91,0.42)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{5}{36}\\pi\\approx 0.436$ rad, eller $25^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-5": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.5,
+      "cosine": 0.87
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.87,0.50)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{1}{6}\\pi\\approx 0.524$ rad, eller $30^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-6": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.57,
+      "cosine": 0.82
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.82,0.57)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{7}{36}\\pi\\approx 0.611$ rad, eller $35^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-7": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.64,
+      "cosine": 0.77
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.77,0.64)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{2}{9}\\pi\\approx 0.698$ rad, eller $40^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-8": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.71,
+      "cosine": 0.71
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.71,0.71)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{1}{4}\\pi\\approx 0.785$ rad, eller $45^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-9": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.77,
+      "cosine": 0.64
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.64,0.77)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{5}{18}\\pi\\approx 0.873$ rad, eller $50^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-10": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.82,
+      "cosine": 0.57
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.57,0.82)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{11}{36}\\pi\\approx 0.960$ rad, eller $55^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-11": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.87,
+      "cosine": 0.5
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.50,0.87)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{1}{3}\\pi\\approx 1.047$ rad, eller $60^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-12": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.91,
+      "cosine": 0.42
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.42,0.91)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{13}{36}\\pi\\approx 1.134$ rad, eller $65^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-13": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.94,
+      "cosine": 0.34
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.34,0.94)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{7}{18}\\pi\\approx 1.222$ rad, eller $70^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-14": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.97,
+      "cosine": 0.26
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.26,0.97)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{5}{12}\\pi\\approx 1.309$ rad, eller $75^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-15": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.98,
+      "cosine": 0.17
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.17,0.98)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{4}{9}\\pi\\approx 1.396$ rad, eller $80^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-16": {
+    "kind": "angle",
+    "params": {
+      "sine": 1.0,
+      "cosine": 0.09
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.09,1.00)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{17}{36}\\pi\\approx 1.484$ rad, eller $85^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-17": {
+    "kind": "angle",
+    "params": {
+      "sine": 1.0,
+      "cosine": 0.0
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.00,1.00)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{1}{2}\\pi\\approx 1.571$ rad, eller $90^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-18": {
+    "kind": "angle",
+    "params": {
+      "sine": 1.0,
+      "cosine": -0.09
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.09,1.00)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{19}{36}\\pi\\approx 1.658$ rad, eller $95^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-19": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.98,
+      "cosine": -0.17
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.17,0.98)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{5}{9}\\pi\\approx 1.745$ rad, eller $100^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-20": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.97,
+      "cosine": -0.26
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.26,0.97)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{7}{12}\\pi\\approx 1.833$ rad, eller $105^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-21": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.94,
+      "cosine": -0.34
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.34,0.94)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{11}{18}\\pi\\approx 1.920$ rad, eller $110^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-22": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.91,
+      "cosine": -0.42
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.42,0.91)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{23}{36}\\pi\\approx 2.007$ rad, eller $115^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-23": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.87,
+      "cosine": -0.5
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.50,0.87)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{2}{3}\\pi\\approx 2.094$ rad, eller $120^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-24": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.82,
+      "cosine": -0.57
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.57,0.82)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{25}{36}\\pi\\approx 2.182$ rad, eller $125^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-25": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.77,
+      "cosine": -0.64
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.64,0.77)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{13}{18}\\pi\\approx 2.269$ rad, eller $130^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-26": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.71,
+      "cosine": -0.71
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.71,0.71)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{3}{4}\\pi\\approx 2.356$ rad, eller $135^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-27": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.64,
+      "cosine": -0.77
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.77,0.64)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{7}{9}\\pi\\approx 2.443$ rad, eller $140^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-28": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.57,
+      "cosine": -0.82
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.82,0.57)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{29}{36}\\pi\\approx 2.531$ rad, eller $145^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-29": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.5,
+      "cosine": -0.87
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.87,0.50)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{5}{6}\\pi\\approx 2.618$ rad, eller $150^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-30": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.42,
+      "cosine": -0.91
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.91,0.42)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{31}{36}\\pi\\approx 2.705$ rad, eller $155^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-31": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.34,
+      "cosine": -0.94
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.94,0.34)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{8}{9}\\pi\\approx 2.793$ rad, eller $160^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-32": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.26,
+      "cosine": -0.97
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.97,0.26)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{11}{12}\\pi\\approx 2.880$ rad, eller $165^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-33": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.17,
+      "cosine": -0.98
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.98,0.17)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{17}{18}\\pi\\approx 2.967$ rad, eller $170^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-34": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.09,
+      "cosine": -1.0
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-1.00,0.09)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{35}{36}\\pi\\approx 3.054$ rad, eller $175^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-35": {
+    "kind": "angle",
+    "params": {
+      "sine": 0.0,
+      "cosine": -1.0
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-1.00,0.00)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=1\\pi\\approx 3.142$ rad, eller $180^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-36": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.09,
+      "cosine": -1.0
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-1.00,-0.09)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{37}{36}\\pi\\approx 3.229$ rad, eller $185^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-37": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.17,
+      "cosine": -0.98
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.98,-0.17)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{19}{18}\\pi\\approx 3.316$ rad, eller $190^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-38": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.26,
+      "cosine": -0.97
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.97,-0.26)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{13}{12}\\pi\\approx 3.403$ rad, eller $195^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-39": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.34,
+      "cosine": -0.94
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.94,-0.34)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{10}{9}\\pi\\approx 3.491$ rad, eller $200^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-40": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.42,
+      "cosine": -0.91
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.91,-0.42)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{41}{36}\\pi\\approx 3.578$ rad, eller $205^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-41": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.5,
+      "cosine": -0.87
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.87,-0.50)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{7}{6}\\pi\\approx 3.665$ rad, eller $210^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-42": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.57,
+      "cosine": -0.82
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.82,-0.57)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{43}{36}\\pi\\approx 3.752$ rad, eller $215^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-43": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.64,
+      "cosine": -0.77
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.77,-0.64)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{11}{9}\\pi\\approx 3.840$ rad, eller $220^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-44": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.71,
+      "cosine": -0.71
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.71,-0.71)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{5}{4}\\pi\\approx 3.927$ rad, eller $225^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-45": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.77,
+      "cosine": -0.64
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.64,-0.77)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{23}{18}\\pi\\approx 4.014$ rad, eller $230^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-46": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.82,
+      "cosine": -0.57
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.57,-0.82)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{47}{36}\\pi\\approx 4.102$ rad, eller $235^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-47": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.87,
+      "cosine": -0.5
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.50,-0.87)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{4}{3}\\pi\\approx 4.189$ rad, eller $240^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-48": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.91,
+      "cosine": -0.42
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.42,-0.91)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{49}{36}\\pi\\approx 4.276$ rad, eller $245^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-49": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.94,
+      "cosine": -0.34
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.34,-0.94)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{25}{18}\\pi\\approx 4.363$ rad, eller $250^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-50": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.97,
+      "cosine": -0.26
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.26,-0.97)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{17}{12}\\pi\\approx 4.451$ rad, eller $255^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-51": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.98,
+      "cosine": -0.17
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.17,-0.98)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{13}{9}\\pi\\approx 4.538$ rad, eller $260^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-52": {
+    "kind": "angle",
+    "params": {
+      "sine": -1.0,
+      "cosine": -0.09
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.09,-1.00)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{53}{36}\\pi\\approx 4.625$ rad, eller $265^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-53": {
+    "kind": "angle",
+    "params": {
+      "sine": -1.0,
+      "cosine": -0.0
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(-0.00,-1.00)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{3}{2}\\pi\\approx 4.712$ rad, eller $270^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-54": {
+    "kind": "angle",
+    "params": {
+      "sine": -1.0,
+      "cosine": 0.09
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.09,-1.00)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{55}{36}\\pi\\approx 4.800$ rad, eller $275^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-55": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.98,
+      "cosine": 0.17
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.17,-0.98)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{14}{9}\\pi\\approx 4.887$ rad, eller $280^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-56": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.97,
+      "cosine": 0.26
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.26,-0.97)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{19}{12}\\pi\\approx 4.974$ rad, eller $285^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-57": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.94,
+      "cosine": 0.34
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.34,-0.94)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{29}{18}\\pi\\approx 5.061$ rad, eller $290^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-58": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.91,
+      "cosine": 0.42
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.42,-0.91)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{59}{36}\\pi\\approx 5.149$ rad, eller $295^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-59": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.87,
+      "cosine": 0.5
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.50,-0.87)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{5}{3}\\pi\\approx 5.236$ rad, eller $300^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-60": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.82,
+      "cosine": 0.57
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.57,-0.82)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{61}{36}\\pi\\approx 5.323$ rad, eller $305^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-61": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.77,
+      "cosine": 0.64
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.64,-0.77)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{31}{18}\\pi\\approx 5.411$ rad, eller $310^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-62": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.71,
+      "cosine": 0.71
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.71,-0.71)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{7}{4}\\pi\\approx 5.498$ rad, eller $315^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-63": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.64,
+      "cosine": 0.77
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.77,-0.64)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{16}{9}\\pi\\approx 5.585$ rad, eller $320^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-64": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.57,
+      "cosine": 0.82
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.82,-0.57)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{65}{36}\\pi\\approx 5.672$ rad, eller $325^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-65": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.5,
+      "cosine": 0.87
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.87,-0.50)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{11}{6}\\pi\\approx 5.760$ rad, eller $330^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-66": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.42,
+      "cosine": 0.91
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.91,-0.42)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{67}{36}\\pi\\approx 5.847$ rad, eller $335^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-67": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.34,
+      "cosine": 0.94
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.94,-0.34)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{17}{9}\\pi\\approx 5.934$ rad, eller $340^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-68": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.26,
+      "cosine": 0.97
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.97,-0.26)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{23}{12}\\pi\\approx 6.021$ rad, eller $345^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-69": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.17,
+      "cosine": 0.98
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(0.98,-0.17)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{35}{18}\\pi\\approx 6.109$ rad, eller $350^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "angle-70": {
+    "kind": "angle",
+    "params": {
+      "sine": -0.09,
+      "cosine": 1.0
+    },
+    "solution": "Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $(1.00,-0.09)$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.\n\nFor denne varianten er vinkelen $v=\\frac{71}{36}\\pi\\approx 6.196$ rad, eller $355^\\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.\n"
+  },
+  "tangent-0": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": -2,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x+3)\\cdot1}{(x+2)^2}=\\frac{-1}{(x+2)^2}.$$\nTangentpunktet er $(-1,2)$, og stigningstallet er $a=f'(-1)=-1$.\n\n$$y=2+\\left(-1\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(-1\\right)x+\\left(1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-1": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": -2,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x+3)\\cdot1}{(x+2)^2}=\\frac{-1}{(x+2)^2}.$$\nTangentpunktet er $(0,\\frac{3}{2})$, og stigningstallet er $a=f'(0)=\\frac{-1}{4}$.\n\n$$y=\\frac{3}{2}+\\left(\\frac{-1}{4}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{-1}{4}\\right)x+\\left(\\frac{3}{2}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-2": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": -2,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x+3)\\cdot1}{(x+2)^2}=\\frac{-1}{(x+2)^2}.$$\nTangentpunktet er $(1,\\frac{4}{3})$, og stigningstallet er $a=f'(1)=\\frac{-1}{9}$.\n\n$$y=\\frac{4}{3}+\\left(\\frac{-1}{9}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{-1}{9}\\right)x+\\left(\\frac{13}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-3": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": -2,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x+3)\\cdot1}{(x+2)^2}=\\frac{-1}{(x+2)^2}.$$\nTangentpunktet er $(2,\\frac{5}{4})$, og stigningstallet er $a=f'(2)=\\frac{-1}{16}$.\n\n$$y=\\frac{5}{4}+\\left(\\frac{-1}{16}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{-1}{16}\\right)x+\\left(\\frac{11}{8}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-4": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": -1,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x+3)\\cdot1}{(x+1)^2}=\\frac{-2}{(x+1)^2}.$$\nTangentpunktet er $(-2,-1)$, og stigningstallet er $a=f'(-2)=-2$.\n\n$$y=-1+\\left(-2\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(-2\\right)x+\\left(-5\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-5": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": -1,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x+3)\\cdot1}{(x+1)^2}=\\frac{-2}{(x+1)^2}.$$\nTangentpunktet er $(0,3)$, og stigningstallet er $a=f'(0)=-2$.\n\n$$y=3+\\left(-2\\right)(x-(0)).$$\nUtvidet form er $y=\\left(-2\\right)x+\\left(3\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-6": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": -1,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x+3)\\cdot1}{(x+1)^2}=\\frac{-2}{(x+1)^2}.$$\nTangentpunktet er $(1,2)$, og stigningstallet er $a=f'(1)=\\frac{-1}{2}$.\n\n$$y=2+\\left(\\frac{-1}{2}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{-1}{2}\\right)x+\\left(\\frac{5}{2}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-7": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": -1,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x+3)\\cdot1}{(x+1)^2}=\\frac{-2}{(x+1)^2}.$$\nTangentpunktet er $(2,\\frac{5}{3})$, og stigningstallet er $a=f'(2)=\\frac{-2}{9}$.\n\n$$y=\\frac{5}{3}+\\left(\\frac{-2}{9}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{-2}{9}\\right)x+\\left(\\frac{19}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-8": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 1,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x+3)\\cdot1}{(x-1)^2}=\\frac{-4}{(x-1)^2}.$$\nTangentpunktet er $(-2,\\frac{-1}{3})$, og stigningstallet er $a=f'(-2)=\\frac{-4}{9}$.\n\n$$y=\\frac{-1}{3}+\\left(\\frac{-4}{9}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{-4}{9}\\right)x+\\left(\\frac{-11}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-9": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 1,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x+3)\\cdot1}{(x-1)^2}=\\frac{-4}{(x-1)^2}.$$\nTangentpunktet er $(-1,-1)$, og stigningstallet er $a=f'(-1)=-1$.\n\n$$y=-1+\\left(-1\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(-1\\right)x+\\left(-2\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-10": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 1,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x+3)\\cdot1}{(x-1)^2}=\\frac{-4}{(x-1)^2}.$$\nTangentpunktet er $(0,-3)$, og stigningstallet er $a=f'(0)=-4$.\n\n$$y=-3+\\left(-4\\right)(x-(0)).$$\nUtvidet form er $y=\\left(-4\\right)x+\\left(-3\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-11": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 1,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x+3)\\cdot1}{(x-1)^2}=\\frac{-4}{(x-1)^2}.$$\nTangentpunktet er $(2,5)$, og stigningstallet er $a=f'(2)=-4$.\n\n$$y=5+\\left(-4\\right)(x-(2)).$$\nUtvidet form er $y=\\left(-4\\right)x+\\left(13\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-12": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 2,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x+3)\\cdot1}{(x-2)^2}=\\frac{-5}{(x-2)^2}.$$\nTangentpunktet er $(-2,\\frac{-1}{4})$, og stigningstallet er $a=f'(-2)=\\frac{-5}{16}$.\n\n$$y=\\frac{-1}{4}+\\left(\\frac{-5}{16}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{-5}{16}\\right)x+\\left(\\frac{-7}{8}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-13": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 2,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x+3)\\cdot1}{(x-2)^2}=\\frac{-5}{(x-2)^2}.$$\nTangentpunktet er $(-1,\\frac{-2}{3})$, og stigningstallet er $a=f'(-1)=\\frac{-5}{9}$.\n\n$$y=\\frac{-2}{3}+\\left(\\frac{-5}{9}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{-5}{9}\\right)x+\\left(\\frac{-11}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-14": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 2,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x+3)\\cdot1}{(x-2)^2}=\\frac{-5}{(x-2)^2}.$$\nTangentpunktet er $(0,\\frac{-3}{2})$, og stigningstallet er $a=f'(0)=\\frac{-5}{4}$.\n\n$$y=\\frac{-3}{2}+\\left(\\frac{-5}{4}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{-5}{4}\\right)x+\\left(\\frac{-3}{2}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-15": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 2,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x+3)\\cdot1}{(x-2)^2}=\\frac{-5}{(x-2)^2}.$$\nTangentpunktet er $(1,-4)$, og stigningstallet er $a=f'(1)=-5$.\n\n$$y=-4+\\left(-5\\right)(x-(1)).$$\nUtvidet form er $y=\\left(-5\\right)x+\\left(1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-16": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 3,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x+3)\\cdot1}{(x-3)^2}=\\frac{-6}{(x-3)^2}.$$\nTangentpunktet er $(-2,\\frac{-1}{5})$, og stigningstallet er $a=f'(-2)=\\frac{-6}{25}$.\n\n$$y=\\frac{-1}{5}+\\left(\\frac{-6}{25}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{-6}{25}\\right)x+\\left(\\frac{-17}{25}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-17": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 3,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x+3)\\cdot1}{(x-3)^2}=\\frac{-6}{(x-3)^2}.$$\nTangentpunktet er $(-1,\\frac{-1}{2})$, og stigningstallet er $a=f'(-1)=\\frac{-3}{8}$.\n\n$$y=\\frac{-1}{2}+\\left(\\frac{-3}{8}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{-3}{8}\\right)x+\\left(\\frac{-7}{8}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-18": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 3,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x+3)\\cdot1}{(x-3)^2}=\\frac{-6}{(x-3)^2}.$$\nTangentpunktet er $(0,-1)$, og stigningstallet er $a=f'(0)=\\frac{-2}{3}$.\n\n$$y=-1+\\left(\\frac{-2}{3}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{-2}{3}\\right)x+\\left(-1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-19": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 3,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x+3)\\cdot1}{(x-3)^2}=\\frac{-6}{(x-3)^2}.$$\nTangentpunktet er $(1,-2)$, og stigningstallet er $a=f'(1)=\\frac{-3}{2}$.\n\n$$y=-2+\\left(\\frac{-3}{2}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{-3}{2}\\right)x+\\left(\\frac{-1}{2}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-20": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 3,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x+3)\\cdot1}{(x-3)^2}=\\frac{-6}{(x-3)^2}.$$\nTangentpunktet er $(2,-5)$, og stigningstallet er $a=f'(2)=-6$.\n\n$$y=-5+\\left(-6\\right)(x-(2)).$$\nUtvidet form er $y=\\left(-6\\right)x+\\left(7\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-21": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 4,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x+3)\\cdot1}{(x-4)^2}=\\frac{-7}{(x-4)^2}.$$\nTangentpunktet er $(-2,\\frac{-1}{6})$, og stigningstallet er $a=f'(-2)=\\frac{-7}{36}$.\n\n$$y=\\frac{-1}{6}+\\left(\\frac{-7}{36}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{-7}{36}\\right)x+\\left(\\frac{-5}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-22": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 4,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x+3)\\cdot1}{(x-4)^2}=\\frac{-7}{(x-4)^2}.$$\nTangentpunktet er $(-1,\\frac{-2}{5})$, og stigningstallet er $a=f'(-1)=\\frac{-7}{25}$.\n\n$$y=\\frac{-2}{5}+\\left(\\frac{-7}{25}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{-7}{25}\\right)x+\\left(\\frac{-17}{25}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-23": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 4,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x+3)\\cdot1}{(x-4)^2}=\\frac{-7}{(x-4)^2}.$$\nTangentpunktet er $(0,\\frac{-3}{4})$, og stigningstallet er $a=f'(0)=\\frac{-7}{16}$.\n\n$$y=\\frac{-3}{4}+\\left(\\frac{-7}{16}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{-7}{16}\\right)x+\\left(\\frac{-3}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-24": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 4,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x+3)\\cdot1}{(x-4)^2}=\\frac{-7}{(x-4)^2}.$$\nTangentpunktet er $(1,\\frac{-4}{3})$, og stigningstallet er $a=f'(1)=\\frac{-7}{9}$.\n\n$$y=\\frac{-4}{3}+\\left(\\frac{-7}{9}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{-7}{9}\\right)x+\\left(\\frac{-5}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-25": {
+    "kind": "tangent",
+    "params": {
+      "p1": -3,
+      "p2": 4,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x+3)\\cdot1}{(x-4)^2}=\\frac{-7}{(x-4)^2}.$$\nTangentpunktet er $(2,\\frac{-5}{2})$, og stigningstallet er $a=f'(2)=\\frac{-7}{4}$.\n\n$$y=\\frac{-5}{2}+\\left(\\frac{-7}{4}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{-7}{4}\\right)x+\\left(1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-26": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": -3,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x+2)\\cdot1}{(x+3)^2}=\\frac{1}{(x+3)^2}.$$\nTangentpunktet er $(-2,0)$, og stigningstallet er $a=f'(-2)=1$.\n\n$$y=0+\\left(1\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(1\\right)x+\\left(2\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-27": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": -3,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x+2)\\cdot1}{(x+3)^2}=\\frac{1}{(x+3)^2}.$$\nTangentpunktet er $(-1,\\frac{1}{2})$, og stigningstallet er $a=f'(-1)=\\frac{1}{4}$.\n\n$$y=\\frac{1}{2}+\\left(\\frac{1}{4}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{1}{4}\\right)x+\\left(\\frac{3}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-28": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": -3,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x+2)\\cdot1}{(x+3)^2}=\\frac{1}{(x+3)^2}.$$\nTangentpunktet er $(0,\\frac{2}{3})$, og stigningstallet er $a=f'(0)=\\frac{1}{9}$.\n\n$$y=\\frac{2}{3}+\\left(\\frac{1}{9}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{1}{9}\\right)x+\\left(\\frac{2}{3}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-29": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": -3,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x+2)\\cdot1}{(x+3)^2}=\\frac{1}{(x+3)^2}.$$\nTangentpunktet er $(1,\\frac{3}{4})$, og stigningstallet er $a=f'(1)=\\frac{1}{16}$.\n\n$$y=\\frac{3}{4}+\\left(\\frac{1}{16}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{1}{16}\\right)x+\\left(\\frac{11}{16}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-30": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": -3,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x+2)\\cdot1}{(x+3)^2}=\\frac{1}{(x+3)^2}.$$\nTangentpunktet er $(2,\\frac{4}{5})$, og stigningstallet er $a=f'(2)=\\frac{1}{25}$.\n\n$$y=\\frac{4}{5}+\\left(\\frac{1}{25}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{1}{25}\\right)x+\\left(\\frac{18}{25}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-31": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": -1,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x+2)\\cdot1}{(x+1)^2}=\\frac{-1}{(x+1)^2}.$$\nTangentpunktet er $(-2,0)$, og stigningstallet er $a=f'(-2)=-1$.\n\n$$y=0+\\left(-1\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(-1\\right)x+\\left(-2\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-32": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": -1,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x+2)\\cdot1}{(x+1)^2}=\\frac{-1}{(x+1)^2}.$$\nTangentpunktet er $(0,2)$, og stigningstallet er $a=f'(0)=-1$.\n\n$$y=2+\\left(-1\\right)(x-(0)).$$\nUtvidet form er $y=\\left(-1\\right)x+\\left(2\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-33": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": -1,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x+2)\\cdot1}{(x+1)^2}=\\frac{-1}{(x+1)^2}.$$\nTangentpunktet er $(1,\\frac{3}{2})$, og stigningstallet er $a=f'(1)=\\frac{-1}{4}$.\n\n$$y=\\frac{3}{2}+\\left(\\frac{-1}{4}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{-1}{4}\\right)x+\\left(\\frac{7}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-34": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": -1,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x+2)\\cdot1}{(x+1)^2}=\\frac{-1}{(x+1)^2}.$$\nTangentpunktet er $(2,\\frac{4}{3})$, og stigningstallet er $a=f'(2)=\\frac{-1}{9}$.\n\n$$y=\\frac{4}{3}+\\left(\\frac{-1}{9}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{-1}{9}\\right)x+\\left(\\frac{14}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-35": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 1,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x+2)\\cdot1}{(x-1)^2}=\\frac{-3}{(x-1)^2}.$$\nTangentpunktet er $(-2,0)$, og stigningstallet er $a=f'(-2)=\\frac{-1}{3}$.\n\n$$y=0+\\left(\\frac{-1}{3}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{-1}{3}\\right)x+\\left(\\frac{-2}{3}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-36": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 1,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x+2)\\cdot1}{(x-1)^2}=\\frac{-3}{(x-1)^2}.$$\nTangentpunktet er $(-1,\\frac{-1}{2})$, og stigningstallet er $a=f'(-1)=\\frac{-3}{4}$.\n\n$$y=\\frac{-1}{2}+\\left(\\frac{-3}{4}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{-3}{4}\\right)x+\\left(\\frac{-5}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-37": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 1,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x+2)\\cdot1}{(x-1)^2}=\\frac{-3}{(x-1)^2}.$$\nTangentpunktet er $(0,-2)$, og stigningstallet er $a=f'(0)=-3$.\n\n$$y=-2+\\left(-3\\right)(x-(0)).$$\nUtvidet form er $y=\\left(-3\\right)x+\\left(-2\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-38": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 1,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x+2)\\cdot1}{(x-1)^2}=\\frac{-3}{(x-1)^2}.$$\nTangentpunktet er $(2,4)$, og stigningstallet er $a=f'(2)=-3$.\n\n$$y=4+\\left(-3\\right)(x-(2)).$$\nUtvidet form er $y=\\left(-3\\right)x+\\left(10\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-39": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 2,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x+2)\\cdot1}{(x-2)^2}=\\frac{-4}{(x-2)^2}.$$\nTangentpunktet er $(-2,0)$, og stigningstallet er $a=f'(-2)=\\frac{-1}{4}$.\n\n$$y=0+\\left(\\frac{-1}{4}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{-1}{4}\\right)x+\\left(\\frac{-1}{2}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-40": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 2,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x+2)\\cdot1}{(x-2)^2}=\\frac{-4}{(x-2)^2}.$$\nTangentpunktet er $(-1,\\frac{-1}{3})$, og stigningstallet er $a=f'(-1)=\\frac{-4}{9}$.\n\n$$y=\\frac{-1}{3}+\\left(\\frac{-4}{9}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{-4}{9}\\right)x+\\left(\\frac{-7}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-41": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 2,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x+2)\\cdot1}{(x-2)^2}=\\frac{-4}{(x-2)^2}.$$\nTangentpunktet er $(0,-1)$, og stigningstallet er $a=f'(0)=-1$.\n\n$$y=-1+\\left(-1\\right)(x-(0)).$$\nUtvidet form er $y=\\left(-1\\right)x+\\left(-1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-42": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 2,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x+2)\\cdot1}{(x-2)^2}=\\frac{-4}{(x-2)^2}.$$\nTangentpunktet er $(1,-3)$, og stigningstallet er $a=f'(1)=-4$.\n\n$$y=-3+\\left(-4\\right)(x-(1)).$$\nUtvidet form er $y=\\left(-4\\right)x+\\left(1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-43": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 3,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x+2)\\cdot1}{(x-3)^2}=\\frac{-5}{(x-3)^2}.$$\nTangentpunktet er $(-2,0)$, og stigningstallet er $a=f'(-2)=\\frac{-1}{5}$.\n\n$$y=0+\\left(\\frac{-1}{5}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{-1}{5}\\right)x+\\left(\\frac{-2}{5}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-44": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 3,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x+2)\\cdot1}{(x-3)^2}=\\frac{-5}{(x-3)^2}.$$\nTangentpunktet er $(-1,\\frac{-1}{4})$, og stigningstallet er $a=f'(-1)=\\frac{-5}{16}$.\n\n$$y=\\frac{-1}{4}+\\left(\\frac{-5}{16}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{-5}{16}\\right)x+\\left(\\frac{-9}{16}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-45": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 3,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x+2)\\cdot1}{(x-3)^2}=\\frac{-5}{(x-3)^2}.$$\nTangentpunktet er $(0,\\frac{-2}{3})$, og stigningstallet er $a=f'(0)=\\frac{-5}{9}$.\n\n$$y=\\frac{-2}{3}+\\left(\\frac{-5}{9}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{-5}{9}\\right)x+\\left(\\frac{-2}{3}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-46": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 3,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x+2)\\cdot1}{(x-3)^2}=\\frac{-5}{(x-3)^2}.$$\nTangentpunktet er $(1,\\frac{-3}{2})$, og stigningstallet er $a=f'(1)=\\frac{-5}{4}$.\n\n$$y=\\frac{-3}{2}+\\left(\\frac{-5}{4}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{-5}{4}\\right)x+\\left(\\frac{-1}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-47": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 3,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x+2)\\cdot1}{(x-3)^2}=\\frac{-5}{(x-3)^2}.$$\nTangentpunktet er $(2,-4)$, og stigningstallet er $a=f'(2)=-5$.\n\n$$y=-4+\\left(-5\\right)(x-(2)).$$\nUtvidet form er $y=\\left(-5\\right)x+\\left(6\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-48": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 4,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x+2)\\cdot1}{(x-4)^2}=\\frac{-6}{(x-4)^2}.$$\nTangentpunktet er $(-2,0)$, og stigningstallet er $a=f'(-2)=\\frac{-1}{6}$.\n\n$$y=0+\\left(\\frac{-1}{6}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{-1}{6}\\right)x+\\left(\\frac{-1}{3}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-49": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 4,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x+2)\\cdot1}{(x-4)^2}=\\frac{-6}{(x-4)^2}.$$\nTangentpunktet er $(-1,\\frac{-1}{5})$, og stigningstallet er $a=f'(-1)=\\frac{-6}{25}$.\n\n$$y=\\frac{-1}{5}+\\left(\\frac{-6}{25}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{-6}{25}\\right)x+\\left(\\frac{-11}{25}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-50": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 4,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x+2)\\cdot1}{(x-4)^2}=\\frac{-6}{(x-4)^2}.$$\nTangentpunktet er $(0,\\frac{-1}{2})$, og stigningstallet er $a=f'(0)=\\frac{-3}{8}$.\n\n$$y=\\frac{-1}{2}+\\left(\\frac{-3}{8}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{-3}{8}\\right)x+\\left(\\frac{-1}{2}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-51": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 4,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x+2)\\cdot1}{(x-4)^2}=\\frac{-6}{(x-4)^2}.$$\nTangentpunktet er $(1,-1)$, og stigningstallet er $a=f'(1)=\\frac{-2}{3}$.\n\n$$y=-1+\\left(\\frac{-2}{3}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{-2}{3}\\right)x+\\left(\\frac{-1}{3}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-52": {
+    "kind": "tangent",
+    "params": {
+      "p1": -2,
+      "p2": 4,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x+2)\\cdot1}{(x-4)^2}=\\frac{-6}{(x-4)^2}.$$\nTangentpunktet er $(2,-2)$, og stigningstallet er $a=f'(2)=\\frac{-3}{2}$.\n\n$$y=-2+\\left(\\frac{-3}{2}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{-3}{2}\\right)x+\\left(1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-53": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": -3,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x+1)\\cdot1}{(x+3)^2}=\\frac{2}{(x+3)^2}.$$\nTangentpunktet er $(-2,-1)$, og stigningstallet er $a=f'(-2)=2$.\n\n$$y=-1+\\left(2\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(2\\right)x+\\left(3\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-54": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": -3,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x+1)\\cdot1}{(x+3)^2}=\\frac{2}{(x+3)^2}.$$\nTangentpunktet er $(-1,0)$, og stigningstallet er $a=f'(-1)=\\frac{1}{2}$.\n\n$$y=0+\\left(\\frac{1}{2}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{1}{2}\\right)x+\\left(\\frac{1}{2}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-55": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": -3,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x+1)\\cdot1}{(x+3)^2}=\\frac{2}{(x+3)^2}.$$\nTangentpunktet er $(0,\\frac{1}{3})$, og stigningstallet er $a=f'(0)=\\frac{2}{9}$.\n\n$$y=\\frac{1}{3}+\\left(\\frac{2}{9}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{2}{9}\\right)x+\\left(\\frac{1}{3}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-56": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": -3,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x+1)\\cdot1}{(x+3)^2}=\\frac{2}{(x+3)^2}.$$\nTangentpunktet er $(1,\\frac{1}{2})$, og stigningstallet er $a=f'(1)=\\frac{1}{8}$.\n\n$$y=\\frac{1}{2}+\\left(\\frac{1}{8}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{1}{8}\\right)x+\\left(\\frac{3}{8}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-57": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": -3,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x+1)\\cdot1}{(x+3)^2}=\\frac{2}{(x+3)^2}.$$\nTangentpunktet er $(2,\\frac{3}{5})$, og stigningstallet er $a=f'(2)=\\frac{2}{25}$.\n\n$$y=\\frac{3}{5}+\\left(\\frac{2}{25}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{2}{25}\\right)x+\\left(\\frac{11}{25}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-58": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": -2,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x+1)\\cdot1}{(x+2)^2}=\\frac{1}{(x+2)^2}.$$\nTangentpunktet er $(-1,0)$, og stigningstallet er $a=f'(-1)=1$.\n\n$$y=0+\\left(1\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(1\\right)x+\\left(1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-59": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": -2,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x+1)\\cdot1}{(x+2)^2}=\\frac{1}{(x+2)^2}.$$\nTangentpunktet er $(0,\\frac{1}{2})$, og stigningstallet er $a=f'(0)=\\frac{1}{4}$.\n\n$$y=\\frac{1}{2}+\\left(\\frac{1}{4}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{1}{4}\\right)x+\\left(\\frac{1}{2}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-60": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": -2,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x+1)\\cdot1}{(x+2)^2}=\\frac{1}{(x+2)^2}.$$\nTangentpunktet er $(1,\\frac{2}{3})$, og stigningstallet er $a=f'(1)=\\frac{1}{9}$.\n\n$$y=\\frac{2}{3}+\\left(\\frac{1}{9}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{1}{9}\\right)x+\\left(\\frac{5}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-61": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": -2,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x+1)\\cdot1}{(x+2)^2}=\\frac{1}{(x+2)^2}.$$\nTangentpunktet er $(2,\\frac{3}{4})$, og stigningstallet er $a=f'(2)=\\frac{1}{16}$.\n\n$$y=\\frac{3}{4}+\\left(\\frac{1}{16}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{1}{16}\\right)x+\\left(\\frac{5}{8}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-62": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 1,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x+1)\\cdot1}{(x-1)^2}=\\frac{-2}{(x-1)^2}.$$\nTangentpunktet er $(-2,\\frac{1}{3})$, og stigningstallet er $a=f'(-2)=\\frac{-2}{9}$.\n\n$$y=\\frac{1}{3}+\\left(\\frac{-2}{9}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{-2}{9}\\right)x+\\left(\\frac{-1}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-63": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 1,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x+1)\\cdot1}{(x-1)^2}=\\frac{-2}{(x-1)^2}.$$\nTangentpunktet er $(-1,0)$, og stigningstallet er $a=f'(-1)=\\frac{-1}{2}$.\n\n$$y=0+\\left(\\frac{-1}{2}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{-1}{2}\\right)x+\\left(\\frac{-1}{2}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-64": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 1,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x+1)\\cdot1}{(x-1)^2}=\\frac{-2}{(x-1)^2}.$$\nTangentpunktet er $(0,-1)$, og stigningstallet er $a=f'(0)=-2$.\n\n$$y=-1+\\left(-2\\right)(x-(0)).$$\nUtvidet form er $y=\\left(-2\\right)x+\\left(-1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-65": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 1,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x+1)\\cdot1}{(x-1)^2}=\\frac{-2}{(x-1)^2}.$$\nTangentpunktet er $(2,3)$, og stigningstallet er $a=f'(2)=-2$.\n\n$$y=3+\\left(-2\\right)(x-(2)).$$\nUtvidet form er $y=\\left(-2\\right)x+\\left(7\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-66": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 2,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x+1)\\cdot1}{(x-2)^2}=\\frac{-3}{(x-2)^2}.$$\nTangentpunktet er $(-2,\\frac{1}{4})$, og stigningstallet er $a=f'(-2)=\\frac{-3}{16}$.\n\n$$y=\\frac{1}{4}+\\left(\\frac{-3}{16}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{-3}{16}\\right)x+\\left(\\frac{-1}{8}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-67": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 2,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x+1)\\cdot1}{(x-2)^2}=\\frac{-3}{(x-2)^2}.$$\nTangentpunktet er $(-1,0)$, og stigningstallet er $a=f'(-1)=\\frac{-1}{3}$.\n\n$$y=0+\\left(\\frac{-1}{3}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{-1}{3}\\right)x+\\left(\\frac{-1}{3}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-68": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 2,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x+1)\\cdot1}{(x-2)^2}=\\frac{-3}{(x-2)^2}.$$\nTangentpunktet er $(0,\\frac{-1}{2})$, og stigningstallet er $a=f'(0)=\\frac{-3}{4}$.\n\n$$y=\\frac{-1}{2}+\\left(\\frac{-3}{4}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{-3}{4}\\right)x+\\left(\\frac{-1}{2}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-69": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 2,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x+1)\\cdot1}{(x-2)^2}=\\frac{-3}{(x-2)^2}.$$\nTangentpunktet er $(1,-2)$, og stigningstallet er $a=f'(1)=-3$.\n\n$$y=-2+\\left(-3\\right)(x-(1)).$$\nUtvidet form er $y=\\left(-3\\right)x+\\left(1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-70": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 3,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x+1)\\cdot1}{(x-3)^2}=\\frac{-4}{(x-3)^2}.$$\nTangentpunktet er $(-2,\\frac{1}{5})$, og stigningstallet er $a=f'(-2)=\\frac{-4}{25}$.\n\n$$y=\\frac{1}{5}+\\left(\\frac{-4}{25}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{-4}{25}\\right)x+\\left(\\frac{-3}{25}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-71": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 3,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x+1)\\cdot1}{(x-3)^2}=\\frac{-4}{(x-3)^2}.$$\nTangentpunktet er $(-1,0)$, og stigningstallet er $a=f'(-1)=\\frac{-1}{4}$.\n\n$$y=0+\\left(\\frac{-1}{4}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{-1}{4}\\right)x+\\left(\\frac{-1}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-72": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 3,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x+1)\\cdot1}{(x-3)^2}=\\frac{-4}{(x-3)^2}.$$\nTangentpunktet er $(0,\\frac{-1}{3})$, og stigningstallet er $a=f'(0)=\\frac{-4}{9}$.\n\n$$y=\\frac{-1}{3}+\\left(\\frac{-4}{9}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{-4}{9}\\right)x+\\left(\\frac{-1}{3}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-73": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 3,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x+1)\\cdot1}{(x-3)^2}=\\frac{-4}{(x-3)^2}.$$\nTangentpunktet er $(1,-1)$, og stigningstallet er $a=f'(1)=-1$.\n\n$$y=-1+\\left(-1\\right)(x-(1)).$$\nUtvidet form er $y=\\left(-1\\right)x+\\left(0\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-74": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 3,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x+1)\\cdot1}{(x-3)^2}=\\frac{-4}{(x-3)^2}.$$\nTangentpunktet er $(2,-3)$, og stigningstallet er $a=f'(2)=-4$.\n\n$$y=-3+\\left(-4\\right)(x-(2)).$$\nUtvidet form er $y=\\left(-4\\right)x+\\left(5\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-75": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 4,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x+1)\\cdot1}{(x-4)^2}=\\frac{-5}{(x-4)^2}.$$\nTangentpunktet er $(-2,\\frac{1}{6})$, og stigningstallet er $a=f'(-2)=\\frac{-5}{36}$.\n\n$$y=\\frac{1}{6}+\\left(\\frac{-5}{36}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{-5}{36}\\right)x+\\left(\\frac{-1}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-76": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 4,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x+1)\\cdot1}{(x-4)^2}=\\frac{-5}{(x-4)^2}.$$\nTangentpunktet er $(-1,0)$, og stigningstallet er $a=f'(-1)=\\frac{-1}{5}$.\n\n$$y=0+\\left(\\frac{-1}{5}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{-1}{5}\\right)x+\\left(\\frac{-1}{5}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-77": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 4,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x+1)\\cdot1}{(x-4)^2}=\\frac{-5}{(x-4)^2}.$$\nTangentpunktet er $(0,\\frac{-1}{4})$, og stigningstallet er $a=f'(0)=\\frac{-5}{16}$.\n\n$$y=\\frac{-1}{4}+\\left(\\frac{-5}{16}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{-5}{16}\\right)x+\\left(\\frac{-1}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-78": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 4,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x+1)\\cdot1}{(x-4)^2}=\\frac{-5}{(x-4)^2}.$$\nTangentpunktet er $(1,\\frac{-2}{3})$, og stigningstallet er $a=f'(1)=\\frac{-5}{9}$.\n\n$$y=\\frac{-2}{3}+\\left(\\frac{-5}{9}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{-5}{9}\\right)x+\\left(\\frac{-1}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-79": {
+    "kind": "tangent",
+    "params": {
+      "p1": -1,
+      "p2": 4,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x+1)\\cdot1}{(x-4)^2}=\\frac{-5}{(x-4)^2}.$$\nTangentpunktet er $(2,\\frac{-3}{2})$, og stigningstallet er $a=f'(2)=\\frac{-5}{4}$.\n\n$$y=\\frac{-3}{2}+\\left(\\frac{-5}{4}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{-5}{4}\\right)x+\\left(1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-80": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": -3,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x-2)\\cdot1}{(x+3)^2}=\\frac{5}{(x+3)^2}.$$\nTangentpunktet er $(-2,-4)$, og stigningstallet er $a=f'(-2)=5$.\n\n$$y=-4+\\left(5\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(5\\right)x+\\left(6\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-81": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": -3,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x-2)\\cdot1}{(x+3)^2}=\\frac{5}{(x+3)^2}.$$\nTangentpunktet er $(-1,\\frac{-3}{2})$, og stigningstallet er $a=f'(-1)=\\frac{5}{4}$.\n\n$$y=\\frac{-3}{2}+\\left(\\frac{5}{4}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{5}{4}\\right)x+\\left(\\frac{-1}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-82": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": -3,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x-2)\\cdot1}{(x+3)^2}=\\frac{5}{(x+3)^2}.$$\nTangentpunktet er $(0,\\frac{-2}{3})$, og stigningstallet er $a=f'(0)=\\frac{5}{9}$.\n\n$$y=\\frac{-2}{3}+\\left(\\frac{5}{9}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{5}{9}\\right)x+\\left(\\frac{-2}{3}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-83": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": -3,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x-2)\\cdot1}{(x+3)^2}=\\frac{5}{(x+3)^2}.$$\nTangentpunktet er $(1,\\frac{-1}{4})$, og stigningstallet er $a=f'(1)=\\frac{5}{16}$.\n\n$$y=\\frac{-1}{4}+\\left(\\frac{5}{16}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{5}{16}\\right)x+\\left(\\frac{-9}{16}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-84": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": -3,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x-2)\\cdot1}{(x+3)^2}=\\frac{5}{(x+3)^2}.$$\nTangentpunktet er $(2,0)$, og stigningstallet er $a=f'(2)=\\frac{1}{5}$.\n\n$$y=0+\\left(\\frac{1}{5}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{1}{5}\\right)x+\\left(\\frac{-2}{5}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-85": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": -2,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x-2)\\cdot1}{(x+2)^2}=\\frac{4}{(x+2)^2}.$$\nTangentpunktet er $(-1,-3)$, og stigningstallet er $a=f'(-1)=4$.\n\n$$y=-3+\\left(4\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(4\\right)x+\\left(1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-86": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": -2,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x-2)\\cdot1}{(x+2)^2}=\\frac{4}{(x+2)^2}.$$\nTangentpunktet er $(0,-1)$, og stigningstallet er $a=f'(0)=1$.\n\n$$y=-1+\\left(1\\right)(x-(0)).$$\nUtvidet form er $y=\\left(1\\right)x+\\left(-1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-87": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": -2,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x-2)\\cdot1}{(x+2)^2}=\\frac{4}{(x+2)^2}.$$\nTangentpunktet er $(1,\\frac{-1}{3})$, og stigningstallet er $a=f'(1)=\\frac{4}{9}$.\n\n$$y=\\frac{-1}{3}+\\left(\\frac{4}{9}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{4}{9}\\right)x+\\left(\\frac{-7}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-88": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": -2,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x-2)\\cdot1}{(x+2)^2}=\\frac{4}{(x+2)^2}.$$\nTangentpunktet er $(2,0)$, og stigningstallet er $a=f'(2)=\\frac{1}{4}$.\n\n$$y=0+\\left(\\frac{1}{4}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{1}{4}\\right)x+\\left(\\frac{-1}{2}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-89": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": -1,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x-2)\\cdot1}{(x+1)^2}=\\frac{3}{(x+1)^2}.$$\nTangentpunktet er $(-2,4)$, og stigningstallet er $a=f'(-2)=3$.\n\n$$y=4+\\left(3\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(3\\right)x+\\left(10\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-90": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": -1,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x-2)\\cdot1}{(x+1)^2}=\\frac{3}{(x+1)^2}.$$\nTangentpunktet er $(0,-2)$, og stigningstallet er $a=f'(0)=3$.\n\n$$y=-2+\\left(3\\right)(x-(0)).$$\nUtvidet form er $y=\\left(3\\right)x+\\left(-2\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-91": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": -1,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x-2)\\cdot1}{(x+1)^2}=\\frac{3}{(x+1)^2}.$$\nTangentpunktet er $(1,\\frac{-1}{2})$, og stigningstallet er $a=f'(1)=\\frac{3}{4}$.\n\n$$y=\\frac{-1}{2}+\\left(\\frac{3}{4}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{3}{4}\\right)x+\\left(\\frac{-5}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-92": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": -1,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x-2)\\cdot1}{(x+1)^2}=\\frac{3}{(x+1)^2}.$$\nTangentpunktet er $(2,0)$, og stigningstallet er $a=f'(2)=\\frac{1}{3}$.\n\n$$y=0+\\left(\\frac{1}{3}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{1}{3}\\right)x+\\left(\\frac{-2}{3}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-93": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": 1,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x-2)\\cdot1}{(x-1)^2}=\\frac{1}{(x-1)^2}.$$\nTangentpunktet er $(-2,\\frac{4}{3})$, og stigningstallet er $a=f'(-2)=\\frac{1}{9}$.\n\n$$y=\\frac{4}{3}+\\left(\\frac{1}{9}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{1}{9}\\right)x+\\left(\\frac{14}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-94": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": 1,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x-2)\\cdot1}{(x-1)^2}=\\frac{1}{(x-1)^2}.$$\nTangentpunktet er $(-1,\\frac{3}{2})$, og stigningstallet er $a=f'(-1)=\\frac{1}{4}$.\n\n$$y=\\frac{3}{2}+\\left(\\frac{1}{4}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{1}{4}\\right)x+\\left(\\frac{7}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-95": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": 1,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x-2)\\cdot1}{(x-1)^2}=\\frac{1}{(x-1)^2}.$$\nTangentpunktet er $(0,2)$, og stigningstallet er $a=f'(0)=1$.\n\n$$y=2+\\left(1\\right)(x-(0)).$$\nUtvidet form er $y=\\left(1\\right)x+\\left(2\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-96": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": 1,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x-2)\\cdot1}{(x-1)^2}=\\frac{1}{(x-1)^2}.$$\nTangentpunktet er $(2,0)$, og stigningstallet er $a=f'(2)=1$.\n\n$$y=0+\\left(1\\right)(x-(2)).$$\nUtvidet form er $y=\\left(1\\right)x+\\left(-2\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-97": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": 3,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x-2)\\cdot1}{(x-3)^2}=\\frac{-1}{(x-3)^2}.$$\nTangentpunktet er $(-2,\\frac{4}{5})$, og stigningstallet er $a=f'(-2)=\\frac{-1}{25}$.\n\n$$y=\\frac{4}{5}+\\left(\\frac{-1}{25}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{-1}{25}\\right)x+\\left(\\frac{18}{25}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-98": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": 3,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x-2)\\cdot1}{(x-3)^2}=\\frac{-1}{(x-3)^2}.$$\nTangentpunktet er $(-1,\\frac{3}{4})$, og stigningstallet er $a=f'(-1)=\\frac{-1}{16}$.\n\n$$y=\\frac{3}{4}+\\left(\\frac{-1}{16}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{-1}{16}\\right)x+\\left(\\frac{11}{16}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-99": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": 3,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x-2)\\cdot1}{(x-3)^2}=\\frac{-1}{(x-3)^2}.$$\nTangentpunktet er $(0,\\frac{2}{3})$, og stigningstallet er $a=f'(0)=\\frac{-1}{9}$.\n\n$$y=\\frac{2}{3}+\\left(\\frac{-1}{9}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{-1}{9}\\right)x+\\left(\\frac{2}{3}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-100": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": 3,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x-2)\\cdot1}{(x-3)^2}=\\frac{-1}{(x-3)^2}.$$\nTangentpunktet er $(1,\\frac{1}{2})$, og stigningstallet er $a=f'(1)=\\frac{-1}{4}$.\n\n$$y=\\frac{1}{2}+\\left(\\frac{-1}{4}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{-1}{4}\\right)x+\\left(\\frac{3}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-101": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": 3,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x-2)\\cdot1}{(x-3)^2}=\\frac{-1}{(x-3)^2}.$$\nTangentpunktet er $(2,0)$, og stigningstallet er $a=f'(2)=-1$.\n\n$$y=0+\\left(-1\\right)(x-(2)).$$\nUtvidet form er $y=\\left(-1\\right)x+\\left(2\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-102": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": 4,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x-2)\\cdot1}{(x-4)^2}=\\frac{-2}{(x-4)^2}.$$\nTangentpunktet er $(-2,\\frac{2}{3})$, og stigningstallet er $a=f'(-2)=\\frac{-1}{18}$.\n\n$$y=\\frac{2}{3}+\\left(\\frac{-1}{18}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{-1}{18}\\right)x+\\left(\\frac{5}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-103": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": 4,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x-2)\\cdot1}{(x-4)^2}=\\frac{-2}{(x-4)^2}.$$\nTangentpunktet er $(-1,\\frac{3}{5})$, og stigningstallet er $a=f'(-1)=\\frac{-2}{25}$.\n\n$$y=\\frac{3}{5}+\\left(\\frac{-2}{25}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{-2}{25}\\right)x+\\left(\\frac{13}{25}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-104": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": 4,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x-2)\\cdot1}{(x-4)^2}=\\frac{-2}{(x-4)^2}.$$\nTangentpunktet er $(0,\\frac{1}{2})$, og stigningstallet er $a=f'(0)=\\frac{-1}{8}$.\n\n$$y=\\frac{1}{2}+\\left(\\frac{-1}{8}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{-1}{8}\\right)x+\\left(\\frac{1}{2}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-105": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": 4,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x-2)\\cdot1}{(x-4)^2}=\\frac{-2}{(x-4)^2}.$$\nTangentpunktet er $(1,\\frac{1}{3})$, og stigningstallet er $a=f'(1)=\\frac{-2}{9}$.\n\n$$y=\\frac{1}{3}+\\left(\\frac{-2}{9}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{-2}{9}\\right)x+\\left(\\frac{5}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-106": {
+    "kind": "tangent",
+    "params": {
+      "p1": 2,
+      "p2": 4,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x-2)\\cdot1}{(x-4)^2}=\\frac{-2}{(x-4)^2}.$$\nTangentpunktet er $(2,0)$, og stigningstallet er $a=f'(2)=\\frac{-1}{2}$.\n\n$$y=0+\\left(\\frac{-1}{2}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{-1}{2}\\right)x+\\left(1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-107": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": -3,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x-3)\\cdot1}{(x+3)^2}=\\frac{6}{(x+3)^2}.$$\nTangentpunktet er $(-2,-5)$, og stigningstallet er $a=f'(-2)=6$.\n\n$$y=-5+\\left(6\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(6\\right)x+\\left(7\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-108": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": -3,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x-3)\\cdot1}{(x+3)^2}=\\frac{6}{(x+3)^2}.$$\nTangentpunktet er $(-1,-2)$, og stigningstallet er $a=f'(-1)=\\frac{3}{2}$.\n\n$$y=-2+\\left(\\frac{3}{2}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{3}{2}\\right)x+\\left(\\frac{-1}{2}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-109": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": -3,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x-3)\\cdot1}{(x+3)^2}=\\frac{6}{(x+3)^2}.$$\nTangentpunktet er $(0,-1)$, og stigningstallet er $a=f'(0)=\\frac{2}{3}$.\n\n$$y=-1+\\left(\\frac{2}{3}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{2}{3}\\right)x+\\left(-1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-110": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": -3,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x-3)\\cdot1}{(x+3)^2}=\\frac{6}{(x+3)^2}.$$\nTangentpunktet er $(1,\\frac{-1}{2})$, og stigningstallet er $a=f'(1)=\\frac{3}{8}$.\n\n$$y=\\frac{-1}{2}+\\left(\\frac{3}{8}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{3}{8}\\right)x+\\left(\\frac{-7}{8}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-111": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": -3,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x-3)\\cdot1}{(x+3)^2}=\\frac{6}{(x+3)^2}.$$\nTangentpunktet er $(2,\\frac{-1}{5})$, og stigningstallet er $a=f'(2)=\\frac{6}{25}$.\n\n$$y=\\frac{-1}{5}+\\left(\\frac{6}{25}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{6}{25}\\right)x+\\left(\\frac{-17}{25}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-112": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": -2,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x-3)\\cdot1}{(x+2)^2}=\\frac{5}{(x+2)^2}.$$\nTangentpunktet er $(-1,-4)$, og stigningstallet er $a=f'(-1)=5$.\n\n$$y=-4+\\left(5\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(5\\right)x+\\left(1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-113": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": -2,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x-3)\\cdot1}{(x+2)^2}=\\frac{5}{(x+2)^2}.$$\nTangentpunktet er $(0,\\frac{-3}{2})$, og stigningstallet er $a=f'(0)=\\frac{5}{4}$.\n\n$$y=\\frac{-3}{2}+\\left(\\frac{5}{4}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{5}{4}\\right)x+\\left(\\frac{-3}{2}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-114": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": -2,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x-3)\\cdot1}{(x+2)^2}=\\frac{5}{(x+2)^2}.$$\nTangentpunktet er $(1,\\frac{-2}{3})$, og stigningstallet er $a=f'(1)=\\frac{5}{9}$.\n\n$$y=\\frac{-2}{3}+\\left(\\frac{5}{9}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{5}{9}\\right)x+\\left(\\frac{-11}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-115": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": -2,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x-3)\\cdot1}{(x+2)^2}=\\frac{5}{(x+2)^2}.$$\nTangentpunktet er $(2,\\frac{-1}{4})$, og stigningstallet er $a=f'(2)=\\frac{5}{16}$.\n\n$$y=\\frac{-1}{4}+\\left(\\frac{5}{16}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{5}{16}\\right)x+\\left(\\frac{-7}{8}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-116": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": -1,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x-3)\\cdot1}{(x+1)^2}=\\frac{4}{(x+1)^2}.$$\nTangentpunktet er $(-2,5)$, og stigningstallet er $a=f'(-2)=4$.\n\n$$y=5+\\left(4\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(4\\right)x+\\left(13\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-117": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": -1,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x-3)\\cdot1}{(x+1)^2}=\\frac{4}{(x+1)^2}.$$\nTangentpunktet er $(0,-3)$, og stigningstallet er $a=f'(0)=4$.\n\n$$y=-3+\\left(4\\right)(x-(0)).$$\nUtvidet form er $y=\\left(4\\right)x+\\left(-3\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-118": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": -1,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x-3)\\cdot1}{(x+1)^2}=\\frac{4}{(x+1)^2}.$$\nTangentpunktet er $(1,-1)$, og stigningstallet er $a=f'(1)=1$.\n\n$$y=-1+\\left(1\\right)(x-(1)).$$\nUtvidet form er $y=\\left(1\\right)x+\\left(-2\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-119": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": -1,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x-3)\\cdot1}{(x+1)^2}=\\frac{4}{(x+1)^2}.$$\nTangentpunktet er $(2,\\frac{-1}{3})$, og stigningstallet er $a=f'(2)=\\frac{4}{9}$.\n\n$$y=\\frac{-1}{3}+\\left(\\frac{4}{9}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{4}{9}\\right)x+\\left(\\frac{-11}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-120": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": 1,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x-3)\\cdot1}{(x-1)^2}=\\frac{2}{(x-1)^2}.$$\nTangentpunktet er $(-2,\\frac{5}{3})$, og stigningstallet er $a=f'(-2)=\\frac{2}{9}$.\n\n$$y=\\frac{5}{3}+\\left(\\frac{2}{9}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{2}{9}\\right)x+\\left(\\frac{19}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-121": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": 1,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x-3)\\cdot1}{(x-1)^2}=\\frac{2}{(x-1)^2}.$$\nTangentpunktet er $(-1,2)$, og stigningstallet er $a=f'(-1)=\\frac{1}{2}$.\n\n$$y=2+\\left(\\frac{1}{2}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{1}{2}\\right)x+\\left(\\frac{5}{2}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-122": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": 1,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x-3)\\cdot1}{(x-1)^2}=\\frac{2}{(x-1)^2}.$$\nTangentpunktet er $(0,3)$, og stigningstallet er $a=f'(0)=2$.\n\n$$y=3+\\left(2\\right)(x-(0)).$$\nUtvidet form er $y=\\left(2\\right)x+\\left(3\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-123": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": 1,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x-3)\\cdot1}{(x-1)^2}=\\frac{2}{(x-1)^2}.$$\nTangentpunktet er $(2,-1)$, og stigningstallet er $a=f'(2)=2$.\n\n$$y=-1+\\left(2\\right)(x-(2)).$$\nUtvidet form er $y=\\left(2\\right)x+\\left(-5\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-124": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": 2,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x-3)\\cdot1}{(x-2)^2}=\\frac{1}{(x-2)^2}.$$\nTangentpunktet er $(-2,\\frac{5}{4})$, og stigningstallet er $a=f'(-2)=\\frac{1}{16}$.\n\n$$y=\\frac{5}{4}+\\left(\\frac{1}{16}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{1}{16}\\right)x+\\left(\\frac{11}{8}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-125": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": 2,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x-3)\\cdot1}{(x-2)^2}=\\frac{1}{(x-2)^2}.$$\nTangentpunktet er $(-1,\\frac{4}{3})$, og stigningstallet er $a=f'(-1)=\\frac{1}{9}$.\n\n$$y=\\frac{4}{3}+\\left(\\frac{1}{9}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{1}{9}\\right)x+\\left(\\frac{13}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-126": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": 2,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x-3)\\cdot1}{(x-2)^2}=\\frac{1}{(x-2)^2}.$$\nTangentpunktet er $(0,\\frac{3}{2})$, og stigningstallet er $a=f'(0)=\\frac{1}{4}$.\n\n$$y=\\frac{3}{2}+\\left(\\frac{1}{4}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{1}{4}\\right)x+\\left(\\frac{3}{2}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-127": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": 2,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x-3)\\cdot1}{(x-2)^2}=\\frac{1}{(x-2)^2}.$$\nTangentpunktet er $(1,2)$, og stigningstallet er $a=f'(1)=1$.\n\n$$y=2+\\left(1\\right)(x-(1)).$$\nUtvidet form er $y=\\left(1\\right)x+\\left(1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-128": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": 4,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x-3)\\cdot1}{(x-4)^2}=\\frac{-1}{(x-4)^2}.$$\nTangentpunktet er $(-2,\\frac{5}{6})$, og stigningstallet er $a=f'(-2)=\\frac{-1}{36}$.\n\n$$y=\\frac{5}{6}+\\left(\\frac{-1}{36}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{-1}{36}\\right)x+\\left(\\frac{7}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-129": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": 4,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x-3)\\cdot1}{(x-4)^2}=\\frac{-1}{(x-4)^2}.$$\nTangentpunktet er $(-1,\\frac{4}{5})$, og stigningstallet er $a=f'(-1)=\\frac{-1}{25}$.\n\n$$y=\\frac{4}{5}+\\left(\\frac{-1}{25}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{-1}{25}\\right)x+\\left(\\frac{19}{25}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-130": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": 4,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x-3)\\cdot1}{(x-4)^2}=\\frac{-1}{(x-4)^2}.$$\nTangentpunktet er $(0,\\frac{3}{4})$, og stigningstallet er $a=f'(0)=\\frac{-1}{16}$.\n\n$$y=\\frac{3}{4}+\\left(\\frac{-1}{16}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{-1}{16}\\right)x+\\left(\\frac{3}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-131": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": 4,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x-3)\\cdot1}{(x-4)^2}=\\frac{-1}{(x-4)^2}.$$\nTangentpunktet er $(1,\\frac{2}{3})$, og stigningstallet er $a=f'(1)=\\frac{-1}{9}$.\n\n$$y=\\frac{2}{3}+\\left(\\frac{-1}{9}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{-1}{9}\\right)x+\\left(\\frac{7}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-132": {
+    "kind": "tangent",
+    "params": {
+      "p1": 3,
+      "p2": 4,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-4)-(x-3)\\cdot1}{(x-4)^2}=\\frac{-1}{(x-4)^2}.$$\nTangentpunktet er $(2,\\frac{1}{2})$, og stigningstallet er $a=f'(2)=\\frac{-1}{4}$.\n\n$$y=\\frac{1}{2}+\\left(\\frac{-1}{4}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{-1}{4}\\right)x+\\left(1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-133": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": -3,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x-4)\\cdot1}{(x+3)^2}=\\frac{7}{(x+3)^2}.$$\nTangentpunktet er $(-2,-6)$, og stigningstallet er $a=f'(-2)=7$.\n\n$$y=-6+\\left(7\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(7\\right)x+\\left(8\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-134": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": -3,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x-4)\\cdot1}{(x+3)^2}=\\frac{7}{(x+3)^2}.$$\nTangentpunktet er $(-1,\\frac{-5}{2})$, og stigningstallet er $a=f'(-1)=\\frac{7}{4}$.\n\n$$y=\\frac{-5}{2}+\\left(\\frac{7}{4}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{7}{4}\\right)x+\\left(\\frac{-3}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-135": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": -3,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x-4)\\cdot1}{(x+3)^2}=\\frac{7}{(x+3)^2}.$$\nTangentpunktet er $(0,\\frac{-4}{3})$, og stigningstallet er $a=f'(0)=\\frac{7}{9}$.\n\n$$y=\\frac{-4}{3}+\\left(\\frac{7}{9}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{7}{9}\\right)x+\\left(\\frac{-4}{3}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-136": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": -3,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x-4)\\cdot1}{(x+3)^2}=\\frac{7}{(x+3)^2}.$$\nTangentpunktet er $(1,\\frac{-3}{4})$, og stigningstallet er $a=f'(1)=\\frac{7}{16}$.\n\n$$y=\\frac{-3}{4}+\\left(\\frac{7}{16}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{7}{16}\\right)x+\\left(\\frac{-19}{16}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-137": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": -3,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+3)-(x-4)\\cdot1}{(x+3)^2}=\\frac{7}{(x+3)^2}.$$\nTangentpunktet er $(2,\\frac{-2}{5})$, og stigningstallet er $a=f'(2)=\\frac{7}{25}$.\n\n$$y=\\frac{-2}{5}+\\left(\\frac{7}{25}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{7}{25}\\right)x+\\left(\\frac{-24}{25}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-138": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": -2,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x-4)\\cdot1}{(x+2)^2}=\\frac{6}{(x+2)^2}.$$\nTangentpunktet er $(-1,-5)$, og stigningstallet er $a=f'(-1)=6$.\n\n$$y=-5+\\left(6\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(6\\right)x+\\left(1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-139": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": -2,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x-4)\\cdot1}{(x+2)^2}=\\frac{6}{(x+2)^2}.$$\nTangentpunktet er $(0,-2)$, og stigningstallet er $a=f'(0)=\\frac{3}{2}$.\n\n$$y=-2+\\left(\\frac{3}{2}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{3}{2}\\right)x+\\left(-2\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-140": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": -2,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x-4)\\cdot1}{(x+2)^2}=\\frac{6}{(x+2)^2}.$$\nTangentpunktet er $(1,-1)$, og stigningstallet er $a=f'(1)=\\frac{2}{3}$.\n\n$$y=-1+\\left(\\frac{2}{3}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{2}{3}\\right)x+\\left(\\frac{-5}{3}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-141": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": -2,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+2)-(x-4)\\cdot1}{(x+2)^2}=\\frac{6}{(x+2)^2}.$$\nTangentpunktet er $(2,\\frac{-1}{2})$, og stigningstallet er $a=f'(2)=\\frac{3}{8}$.\n\n$$y=\\frac{-1}{2}+\\left(\\frac{3}{8}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{3}{8}\\right)x+\\left(\\frac{-5}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-142": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": -1,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x-4)\\cdot1}{(x+1)^2}=\\frac{5}{(x+1)^2}.$$\nTangentpunktet er $(-2,6)$, og stigningstallet er $a=f'(-2)=5$.\n\n$$y=6+\\left(5\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(5\\right)x+\\left(16\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-143": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": -1,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x-4)\\cdot1}{(x+1)^2}=\\frac{5}{(x+1)^2}.$$\nTangentpunktet er $(0,-4)$, og stigningstallet er $a=f'(0)=5$.\n\n$$y=-4+\\left(5\\right)(x-(0)).$$\nUtvidet form er $y=\\left(5\\right)x+\\left(-4\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-144": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": -1,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x-4)\\cdot1}{(x+1)^2}=\\frac{5}{(x+1)^2}.$$\nTangentpunktet er $(1,\\frac{-3}{2})$, og stigningstallet er $a=f'(1)=\\frac{5}{4}$.\n\n$$y=\\frac{-3}{2}+\\left(\\frac{5}{4}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{5}{4}\\right)x+\\left(\\frac{-11}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-145": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": -1,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x+1)-(x-4)\\cdot1}{(x+1)^2}=\\frac{5}{(x+1)^2}.$$\nTangentpunktet er $(2,\\frac{-2}{3})$, og stigningstallet er $a=f'(2)=\\frac{5}{9}$.\n\n$$y=\\frac{-2}{3}+\\left(\\frac{5}{9}\\right)(x-(2)).$$\nUtvidet form er $y=\\left(\\frac{5}{9}\\right)x+\\left(\\frac{-16}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-146": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": 1,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x-4)\\cdot1}{(x-1)^2}=\\frac{3}{(x-1)^2}.$$\nTangentpunktet er $(-2,2)$, og stigningstallet er $a=f'(-2)=\\frac{1}{3}$.\n\n$$y=2+\\left(\\frac{1}{3}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{1}{3}\\right)x+\\left(\\frac{8}{3}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-147": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": 1,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x-4)\\cdot1}{(x-1)^2}=\\frac{3}{(x-1)^2}.$$\nTangentpunktet er $(-1,\\frac{5}{2})$, og stigningstallet er $a=f'(-1)=\\frac{3}{4}$.\n\n$$y=\\frac{5}{2}+\\left(\\frac{3}{4}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{3}{4}\\right)x+\\left(\\frac{13}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-148": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": 1,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x-4)\\cdot1}{(x-1)^2}=\\frac{3}{(x-1)^2}.$$\nTangentpunktet er $(0,4)$, og stigningstallet er $a=f'(0)=3$.\n\n$$y=4+\\left(3\\right)(x-(0)).$$\nUtvidet form er $y=\\left(3\\right)x+\\left(4\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-149": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": 1,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-1)-(x-4)\\cdot1}{(x-1)^2}=\\frac{3}{(x-1)^2}.$$\nTangentpunktet er $(2,-2)$, og stigningstallet er $a=f'(2)=3$.\n\n$$y=-2+\\left(3\\right)(x-(2)).$$\nUtvidet form er $y=\\left(3\\right)x+\\left(-8\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-150": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": 2,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x-4)\\cdot1}{(x-2)^2}=\\frac{2}{(x-2)^2}.$$\nTangentpunktet er $(-2,\\frac{3}{2})$, og stigningstallet er $a=f'(-2)=\\frac{1}{8}$.\n\n$$y=\\frac{3}{2}+\\left(\\frac{1}{8}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{1}{8}\\right)x+\\left(\\frac{7}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-151": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": 2,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x-4)\\cdot1}{(x-2)^2}=\\frac{2}{(x-2)^2}.$$\nTangentpunktet er $(-1,\\frac{5}{3})$, og stigningstallet er $a=f'(-1)=\\frac{2}{9}$.\n\n$$y=\\frac{5}{3}+\\left(\\frac{2}{9}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{2}{9}\\right)x+\\left(\\frac{17}{9}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-152": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": 2,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x-4)\\cdot1}{(x-2)^2}=\\frac{2}{(x-2)^2}.$$\nTangentpunktet er $(0,2)$, og stigningstallet er $a=f'(0)=\\frac{1}{2}$.\n\n$$y=2+\\left(\\frac{1}{2}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{1}{2}\\right)x+\\left(2\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-153": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": 2,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-2)-(x-4)\\cdot1}{(x-2)^2}=\\frac{2}{(x-2)^2}.$$\nTangentpunktet er $(1,3)$, og stigningstallet er $a=f'(1)=2$.\n\n$$y=3+\\left(2\\right)(x-(1)).$$\nUtvidet form er $y=\\left(2\\right)x+\\left(1\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-154": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": 3,
+      "x0": -2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x-4)\\cdot1}{(x-3)^2}=\\frac{1}{(x-3)^2}.$$\nTangentpunktet er $(-2,\\frac{6}{5})$, og stigningstallet er $a=f'(-2)=\\frac{1}{25}$.\n\n$$y=\\frac{6}{5}+\\left(\\frac{1}{25}\\right)(x-(-2)).$$\nUtvidet form er $y=\\left(\\frac{1}{25}\\right)x+\\left(\\frac{32}{25}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-155": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": 3,
+      "x0": -1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x-4)\\cdot1}{(x-3)^2}=\\frac{1}{(x-3)^2}.$$\nTangentpunktet er $(-1,\\frac{5}{4})$, og stigningstallet er $a=f'(-1)=\\frac{1}{16}$.\n\n$$y=\\frac{5}{4}+\\left(\\frac{1}{16}\\right)(x-(-1)).$$\nUtvidet form er $y=\\left(\\frac{1}{16}\\right)x+\\left(\\frac{21}{16}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-156": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": 3,
+      "x0": 0
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x-4)\\cdot1}{(x-3)^2}=\\frac{1}{(x-3)^2}.$$\nTangentpunktet er $(0,\\frac{4}{3})$, og stigningstallet er $a=f'(0)=\\frac{1}{9}$.\n\n$$y=\\frac{4}{3}+\\left(\\frac{1}{9}\\right)(x-(0)).$$\nUtvidet form er $y=\\left(\\frac{1}{9}\\right)x+\\left(\\frac{4}{3}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-157": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": 3,
+      "x0": 1
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x-4)\\cdot1}{(x-3)^2}=\\frac{1}{(x-3)^2}.$$\nTangentpunktet er $(1,\\frac{3}{2})$, og stigningstallet er $a=f'(1)=\\frac{1}{4}$.\n\n$$y=\\frac{3}{2}+\\left(\\frac{1}{4}\\right)(x-(1)).$$\nUtvidet form er $y=\\left(\\frac{1}{4}\\right)x+\\left(\\frac{5}{4}\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  },
+  "tangent-158": {
+    "kind": "tangent",
+    "params": {
+      "p1": 4,
+      "p2": 3,
+      "x0": 2
+    },
+    "solution": "Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir\n\n$$f'(x)=\\frac{1\\cdot(x-3)-(x-4)\\cdot1}{(x-3)^2}=\\frac{1}{(x-3)^2}.$$\nTangentpunktet er $(2,2)$, og stigningstallet er $a=f'(2)=1$.\n\n$$y=2+\\left(1\\right)(x-(2)).$$\nUtvidet form er $y=\\left(1\\right)x+\\left(0\\right)$. Begge former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.\n"
+  }
+}

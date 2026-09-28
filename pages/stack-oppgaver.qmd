@@ -4,13 +4,7 @@ lang: nb
 toc: false
 math-exercise:
   lang: nb
-include-after-body:
-  - ../_includes/stack/page-scripts.html
-resources:
-  - ../assets/stack/variants.js
-  - ../assets/stack/page.js
-  - ../assets/stack/reflection.js
-  - ../assets/stack/reflection.css
+stack-page: true
 ---
 
 Fire oppgaver om formlikhet, enhetssirkelen og derivasjon, omarbeidet fra
@@ -28,7 +22,7 @@ endring av en figurkontroll endrer ikke oppgavens gitte tall.
 
 :::
 
-:::: {.panel-tabset}
+:::::: {.panel-tabset}
 
 ## Formlike trekanter
 
@@ -48,19 +42,26 @@ Endre størrelsen på den grønne trekanten. Hvilke forhold holder seg like?
 
 {{< include ../_includes/stack/triangles-pool.md >}}
 
-<div class="stack-reflection" data-stack-reflection="triangles">
-<label for="stack-triangles-explanation">Forklar med egne ord</label>
-<p class="stack-reflection-prompt">Forklar hvorfor trekantene er formlike, og hvilke sider som svarer til hverandre. Hva skjer med forholdet EF/DF når du endrer størrelsen på den grønne trekanten?</p>
-<textarea id="stack-triangles-explanation" rows="4" placeholder="Skriv forklaringen din her …"></textarea>
-<button type="button" class="btn btn-light stack-reflection-feedback">Tilbakemelding på forklaringen</button>
-<button type="button" class="btn btn-light stack-reflection-settings" aria-label="Endre AI-oppsett">⚙</button>
-<div class="stack-reflection-output" role="status" aria-live="polite"></div>
-</div>
+::::: {.ai-feedback #stack-triangles-explanation profile="mathematics" context="stack-conventions, stack-triangles-context, stack-triangles-question-context" ui-language="nb" feedback-language="nb" response-language="nb"}
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
-<div id="stack-triangles-solution"></div>
-</details>
+**Forklar med egne ord**
+
+Forklar hvorfor trekantene er formlike, og hvilke sider som svarer til hverandre. Hva skjer med forholdet $EF/DF$ når du endrer størrelsen på den grønne trekanten?
+
+::: {.feedback-criteria}
+Gi kort, konkret tilbakemelding på elevens forklaring av den aktive varianten.
+Vurder resonnement, begreper og matematisk presisjon. Ikke gi karakter eller
+skriv et fullstendig løsningsforslag. Still gjerne ett oppfølgingsspørsmål.
+:::
+
+:::::
+
+
+::::: {.callout-tip .ai-feedback-ignore collapse="true" title="Løsningsforslag"}
+
+::: {#stack-triangles-solution .stack-solution}
+:::
+:::::
 
 ## Sinus og cosinus
 
@@ -83,19 +84,26 @@ vises under figuren, også på små skjermer.
 
 {{< include ../_includes/stack/values-pool.md >}}
 
-<div class="stack-reflection" data-stack-reflection="values">
-<label for="stack-values-explanation">Forklar med egne ord</label>
-<p class="stack-reflection-prompt">Velg én av vinklene i oppgaven. Forklar hvordan du leser av sinus og cosinus i figuren, og hvordan kvadranten bestemmer fortegnene.</p>
-<textarea id="stack-values-explanation" rows="4" placeholder="Skriv forklaringen din her …"></textarea>
-<button type="button" class="btn btn-light stack-reflection-feedback">Tilbakemelding på forklaringen</button>
-<button type="button" class="btn btn-light stack-reflection-settings" aria-label="Endre AI-oppsett">⚙</button>
-<div class="stack-reflection-output" role="status" aria-live="polite"></div>
-</div>
+::::: {.ai-feedback #stack-values-explanation profile="mathematics" context="stack-conventions, stack-values-context, stack-values-question-context" ui-language="nb" feedback-language="nb" response-language="nb"}
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
-<div id="stack-values-solution"></div>
-</details>
+**Forklar med egne ord**
+
+Velg én av vinklene i oppgaven. Forklar hvordan du leser av sinus og cosinus i figuren, og hvordan kvadranten bestemmer fortegnene.
+
+::: {.feedback-criteria}
+Gi kort, konkret tilbakemelding på elevens forklaring av den aktive varianten.
+Vurder resonnement, begreper og matematisk presisjon. Ikke gi karakter eller
+skriv et fullstendig løsningsforslag. Still gjerne ett oppfølgingsspørsmål.
+:::
+
+:::::
+
+
+::::: {.callout-tip .ai-feedback-ignore collapse="true" title="Løsningsforslag"}
+
+::: {#stack-values-solution .stack-solution}
+:::
+:::::
 
 ## Finn vinkelen
 
@@ -118,19 +126,26 @@ oppgaven. Les vinkelen i radianer.
 
 {{< include ../_includes/stack/angle-pool.md >}}
 
-<div class="stack-reflection" data-stack-reflection="angle">
-<label for="stack-angle-explanation">Forklar med egne ord</label>
-<p class="stack-reflection-prompt">Forklar hvordan du bruker begge de oppgitte verdiene til å velge riktig kvadrant. Hvorfor er sinusverdien alene vanligvis ikke nok til å bestemme vinkelen?</p>
-<textarea id="stack-angle-explanation" rows="4" placeholder="Skriv forklaringen din her …"></textarea>
-<button type="button" class="btn btn-light stack-reflection-feedback">Tilbakemelding på forklaringen</button>
-<button type="button" class="btn btn-light stack-reflection-settings" aria-label="Endre AI-oppsett">⚙</button>
-<div class="stack-reflection-output" role="status" aria-live="polite"></div>
-</div>
+::::: {.ai-feedback #stack-angle-explanation profile="mathematics" context="stack-conventions, stack-angle-context, stack-angle-question-context" ui-language="nb" feedback-language="nb" response-language="nb"}
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
-<div id="stack-angle-solution"></div>
-</details>
+**Forklar med egne ord**
+
+Forklar hvordan du bruker begge de oppgitte verdiene til å velge riktig kvadrant. Hvorfor er sinusverdien alene vanligvis ikke nok til å bestemme vinkelen?
+
+::: {.feedback-criteria}
+Gi kort, konkret tilbakemelding på elevens forklaring av den aktive varianten.
+Vurder resonnement, begreper og matematisk presisjon. Ikke gi karakter eller
+skriv et fullstendig løsningsforslag. Still gjerne ett oppfølgingsspørsmål.
+:::
+
+:::::
+
+
+::::: {.callout-tip .ai-feedback-ignore collapse="true" title="Løsningsforslag"}
+
+::: {#stack-angle-solution .stack-solution}
+:::
+:::::
 
 ## Derivasjon og tangent
 
@@ -148,18 +163,25 @@ uttrykk. Algebraisk likeverdige former godtas.
 
 {{< include ../_includes/stack/tangent-pool.md >}}
 
-<div class="stack-reflection" data-stack-reflection="tangent">
-<label for="stack-tangent-explanation">Forklar med egne ord</label>
-<p class="stack-reflection-prompt">Forklar forskjellen mellom f(x₀) og f′(x₀). Hvordan bruker du begge til å finne tangentens likning?</p>
-<textarea id="stack-tangent-explanation" rows="4" placeholder="Skriv forklaringen din her …"></textarea>
-<button type="button" class="btn btn-light stack-reflection-feedback">Tilbakemelding på forklaringen</button>
-<button type="button" class="btn btn-light stack-reflection-settings" aria-label="Endre AI-oppsett">⚙</button>
-<div class="stack-reflection-output" role="status" aria-live="polite"></div>
-</div>
+::::: {.ai-feedback #stack-tangent-explanation profile="mathematics" context="stack-conventions, stack-tangent-context, stack-tangent-question-context" ui-language="nb" feedback-language="nb" response-language="nb"}
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
-<div id="stack-tangent-solution"></div>
+**Forklar med egne ord**
+
+Forklar forskjellen mellom $f(x_0)$ og $f'(x_0)$. Hvordan bruker du begge til å finne tangentens likning?
+
+::: {.feedback-criteria}
+Gi kort, konkret tilbakemelding på elevens forklaring av den aktive varianten.
+Vurder resonnement, begreper og matematisk presisjon. Ikke gi karakter eller
+skriv et fullstendig løsningsforslag. Still gjerne ett oppfølgingsspørsmål.
+:::
+
+:::::
+
+
+::::: {.callout-tip .ai-feedback-ignore collapse="true" title="Løsningsforslag"}
+
+::: {#stack-tangent-solution .stack-solution}
+:::
 
 {{< include ../_includes/stack/tangent-figure.md >}}
 
@@ -167,6 +189,6 @@ Blå kurve er funksjonen, rød linje er tangenten. De stiplede linjene er
 asymptotene. Knappen **Til oppgavens punkt** gjenoppretter tangentpunktet
 som står i oppgaven.
 
-</details>
+:::::
 
-::::
+::::::
