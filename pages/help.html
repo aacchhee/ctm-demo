@@ -81,6 +81,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-24c09a13944ec7e1f31d2917b1251fc2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/ai-feedback-0.6.0/feedback-core.js"></script>
+<script src="../site_libs/quarto-contrib/ai-feedback-0.6.0/feedback-dom.js"></script>
+<script src="../site_libs/quarto-contrib/ai-feedback-0.6.0/ai-feedback.js"></script>
+<link href="../site_libs/quarto-contrib/ai-feedback-0.6.0/ai-feedback.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -222,6 +226,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<script>window.__aiFeedbackPolicies = {"layers":[],"pageLayers":[]};</script>
+<script>window.__aiFeedbackConfig = {"baseUrl":"","mode":"api","model":"","storage":"local"};</script>
 <script>window.__mathExerciseConfig = {"lang":"en"};</script>
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -360,7 +366,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="set-up-locally-in-vs-code" class="level2">
 <h2 class="anchored" data-anchor-id="set-up-locally-in-vs-code">Set up locally in VS Code</h2>
 <p>Install <a href="https://git-scm.com/">Git</a>, <a href="https://www.python.org/downloads/">Python 3.12</a>, <a href="https://quarto.org/docs/get-started/">Quarto CLI</a>, and <a href="https://code.visualstudio.com/">VS Code</a>. The Quarto VS Code extension is useful, but does not replace the Quarto CLI. Open the <strong>repository folder</strong>, not just a file.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/aacchhee/ctm-demo.git</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-ai-feedback-context="Set up locally in VS Code
+Install Git, Python 3.12, Quarto CLI, and VS Code. The Quarto VS Code extension is useful, but does not replace the Quarto CLI. Open the repository folder, not just a file."><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/aacchhee/ctm-demo.git</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ctm-demo</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> venv .venv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Activate the environment:</p>
@@ -368,17 +375,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">macOS / Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Windows PowerShell</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-ai-feedback-context="Set up locally in VS Code
+Install Git, Python 3.12, Quarto CLI, and VS Code. The Quarto VS Code extension is useful, but does not replace the Quarto CLI. Open the repository folder, not just a file.
+Activate the environment:"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If your system uses <code>python3</code>, use it instead of <code>python</code> when creating the environment.</p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span><span class="fu">venv</span>\Scripts\Activate<span class="op">.</span><span class="fu">ps1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-ai-feedback-context="Set up locally in VS Code
+Install Git, Python 3.12, Quarto CLI, and VS Code. The Quarto VS Code extension is useful, but does not replace the Quarto CLI. Open the repository folder, not just a file.
+Activate the environment:
+If your system uses python3, use it instead of python when creating the environment.
+macOS / Linux"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span><span class="fu">venv</span>\Scripts\Activate<span class="op">.</span><span class="fu">ps1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If script activation is unavailable, call <code>.venv\Scripts\python.exe</code> directly in the Python commands below. You can use <code>py -3.12</code> to create the environment.</p>
 </div>
 </div>
 </div>
 <p>Then install the build dependencies and extensions:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install <span class="at">-r</span> requirements.txt</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-ai-feedback-context="Set up locally in VS Code
+Install Git, Python 3.12, Quarto CLI, and VS Code. The Quarto VS Code extension is useful, but does not replace the Quarto CLI. Open the repository folder, not just a file.
+Activate the environment:
+If your system uses python3, use it instead of python when creating the environment.
+macOS / Linux
+If script activation is unavailable, call .venv\Scripts\python.exe directly in the Python commands below. You can use py -3.12 to create the environment.
+Windows PowerShell
+Then install the build dependencies and extensions:"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install <span class="at">-r</span> requirements.txt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/setup.py</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Open the localhost URL printed by Quarto. Do not open generated HTML directly with <code>file://</code>: the browser runtime uses workers and network requests. In VS Code, accept the recommended Quarto and Python extensions, and select <code>.venv</code> as the Python interpreter. <strong>Terminal → Run Task → Preview website</strong> starts the preview; <strong>Build website</strong> renders to <code>_site/</code>.</p>
@@ -446,7 +466,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a-tiny-python-exercise-to-reuse" class="level3">
 <h3 class="anchored" data-anchor-id="a-tiny-python-exercise-to-reuse">A tiny Python exercise to reuse</h3>
 <p>This is a source example, not an extra exercise on the demo page. Paste it into <code>pages/experiments.qmd</code> to try the installed Python exercise extension:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{py-exercise}</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-ai-feedback-context="A tiny Python exercise to reuse
+This is a source example, not an extra exercise on the demo page. Paste it into pages/experiments.qmd to try the installed Python exercise extension:"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{py-exercise}</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: add-two-numbers</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| caption: Implement addition</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(a, b):</span>

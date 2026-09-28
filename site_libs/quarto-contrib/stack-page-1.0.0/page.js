@@ -27,7 +27,19 @@
       var cell=document.querySelector('.math-exercise-cell[data-label="stack-'+kind+'"]');
       var question=cell.querySelector('.math-exercise-question');
       var solution=document.getElementById('stack-'+kind+'-solution');
-      var details=solution.closest('details');
+      var collapse=solution.closest('.callout').querySelector('.collapse');
+      var explanation=document.getElementById('stack-'+kind+'-explanation');
+      // Reference the live question as context: the shared extractor skips
+      // inputs and hidden markers, preserving mathematical source after typesetting.
+      question.id='stack-'+kind+'-question-context';
+      question.classList.add('ai-feedback-context');
+      function clearFeedback(){
+        var output=explanation.querySelector('.ai-feedback-output');
+        if(output)output.replaceChildren();
+      }
+      explanation.addEventListener('input',clearFeedback);
+      var proseInput=explanation.querySelector('textarea');
+      if(proseInput)proseInput.rows=4;
       function sync(){
         var marker=question.querySelector('[data-stack-variant]');
         if(!marker)return;
@@ -35,7 +47,13 @@
         if(!data || data.kind!==kind || active[kind]?.key===key)return;
         active[kind]={key:key,params:data.params};
         // A new question must not leave the previous worked solution open.
-        details.open=false;
+        if(collapse && window.bootstrap?.Collapse){
+          var controller=window.bootstrap.Collapse.getOrCreateInstance(collapse,{toggle:false});
+          controller.hide();
+        }
+        var response=explanation.querySelector('textarea');
+        if(response)response.value='';
+        clearFeedback();
         if(window.MathJax?.typesetClear)window.MathJax.typesetClear([solution]);
         solution.innerHTML=data.solution;
         window.stackTypeset(solution);
@@ -45,7 +63,7 @@
         send(kind);
       }
       new MutationObserver(sync).observe(question,{childList:true,subtree:true});
-      details.addEventListener('toggle',function(){if(details.open)window.stackTypeset(solution);send(kind);send(kind,'layout');});
+      if(collapse)collapse.addEventListener('shown.bs.collapse',function(){window.stackTypeset(solution);send(kind);send(kind,'layout');});
       var f=frame(kind);if(f){f.title={triangles:'Formlike trekanter med justerbar størrelse',values:'Enhetssirkel for avlesning av sinus og cosinus',angle:'Enhetssirkel for å finne vinkelen',tangent:'Rasjonal funksjon med bevegelig tangent'}[kind];f.addEventListener('load',function(){send(kind);});}
       sync();
     });
