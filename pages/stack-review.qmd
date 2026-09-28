@@ -1,5 +1,6 @@
 ---
-title: "STACK-oppgaver"
+title: "Review STACK variants"
+math-exercise-review: true
 lang: nb
 toc: false
 math-exercise:

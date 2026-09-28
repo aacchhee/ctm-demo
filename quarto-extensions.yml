@@ -8,12 +8,12 @@ plugins:
 
   - name: math-exercise
     repo: https://github.com/Erasmus-CTM/math-exercise.git
-    ref: feature/shared-feedback-integration
+    ref: feature/build-time-variants
     path: _extensions/math-exercise
 
   - name: jsxgraph
     repo: https://github.com/Erasmus-CTM/math-exercise.git
-    ref: feature/shared-feedback-integration
+    ref: feature/build-time-variants
     path: _extensions/jsxgraph
 
   - name: py-exercise

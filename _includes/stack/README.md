@@ -17,34 +17,32 @@ The page states the acceptance precision. The inverse-angle question asks for
 three decimal places so the original 1% tolerance also works near zero. The
 trigonometric reading keys preserve STACK's two-significant-figure rounding.
 
-The native ↻ button chooses another pool variant. `assets/stack/page.js` observes
-the selected variant marker, updates the collapsed solution, and sends the same
-parameters to the corresponding iframe. The AI gets the selected question and
-explicit mathematical context, never the worked-solution block. Pool changes
-close solutions and reset figures; ordinary resizing does not reset figures.
+The native ↻ button selects a generated stable variant ID. `assets/stack/page.js`
+uses `cell.mathExercise.getVariant()` and `math-exercise:variant-change` to send
+that record's parameters to the corresponding iframe. The extension renders the
+matching Markdown solution and context. Pool changes close solutions and reset
+figures; ordinary resizing does not reset figures.
 
 Circle points are actual gliders. Angle readouts use atan2 normalized to [0,2π).
 Figures wait for visible dimensions, preserve equal scales in geometric diagrams, and respond
 to nested tabs and collapsed solutions. The rational graph is split at its pole;
 the tangent slider stays in the connected domain containing the given point.
 
-To change the pools or figures, edit their source and regenerate:
+## Compact authoring and optional review
 
-```sh
-python scripts/generate-stack-pools.py
-python scripts/generate-stack-figures.py
-quarto render pages/stack-oppgaver.qmd
-```
+Edit `triangles.qmd`, `values.qmd`, `angle.qmd` or `tangent.qmd` in this folder.
+Each contains one parameter definition, question and Markdown solution. Quarto
+expands these at build time; no pool-generation command or variant catalogue is
+needed. Run `quarto render pages/stack-oppgaver.qmd` as usual.
 
-Commit both the generator/source changes and the generated includes/assets.
+For optional review run `quarto render pages/stack-review.qmd`. This author page
+is intentionally outside the site's normal render list. Inspect candidates in
+the same interactive figures and use **Copy selection**. Replace the selection
+options in the corresponding QMD file, then render the student page normally.
+There is no separate selection file or student-side parameter generation.
 
-Solutions are authored as Markdown in `scripts/generate-stack-pools.py` and
-stored in `assets/stack/variants.json`. `_filters/stack-content.lua` renders them
-with Pandoc during the Quarto build, including tables and MathJax notation.
-The same filter compiles the pool Markdown before math-exercise consumes it,
-protecting answer markers and preserving mathematical source for AI context.
-The page uses native collapsed Quarto callouts, and queues dynamic typesetting
-until MathJax is ready. No authored HTML forms or solution containers are needed.
+Figure source remains in `scripts/generate-stack-figures.py`; run that script
+only when editing the figures. Solutions remain native collapsed Quarto callouts.
 
 Each topic uses a native `.ai-feedback` fenced Div for an ungraded explanation,
 with Markdown prompts and hidden `.feedback-criteria`. The math-exercise shared
@@ -53,12 +51,12 @@ math-exercise settings can be imported explicitly in that dialog.
 
 The page assigns an explicit context ID to the active question element. The
 shared extractor reads its visible prose and mathematical notation, excluding
-input values, hidden variant markers, answer keys and worked solutions. Topic
+input values, answer keys and worked solutions. Topic
 context and conventions are explicitly referenced as well. Changing variants
 clears the explanation and feedback and closes the solution. Editing clears old
 feedback; the shared client's snapshot check rejects replies for changed input
 or context. API calls and prompt-copy mode are provided by the shared extension.
 
-The extension manifest currently uses math-exercise's
-`feature/shared-feedback-integration` branch, which requires ai-feedback 0.6.0+.
-Once that integration is merged, its manifest entry can return to `main`.
+The extension manifest uses math-exercise's `feature/build-time-variants` branch
+for both math-exercise and JSXGraph, and ai-feedback from `main`. Other assessment
+consumers remain on their shared-feedback integration branches.

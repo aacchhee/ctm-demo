@@ -106,8 +106,9 @@ The Python setup script installs Quarto extensions listed in
 `quarto-extensions.yml`. It requires Git and Quarto on `PATH`. The same command
 runs locally and in GitHub Actions; it does not install Python or Quarto itself.
 The full suite is activated by the `ctm-assessment` filter. Re-running setup
-updates ai-feedback and the ctm-assessment wrapper from `main`, and the three
-exercise consumers from `feature/shared-feedback-integration`. JSXGraph uses
+updates ai-feedback and the ctm-assessment wrapper from `main`, Python consumers
+from `feature/shared-feedback-integration`, and math-exercise from
+`feature/build-time-variants`. JSXGraph uses
 the same math-exercise checkout. Exact revisions appear in the setup log and
 `.private-extensions/resolved-repos.json`.
 

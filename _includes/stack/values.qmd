@@ -1,0 +1,96 @@
+```{math-exercise}
+#| label: stack-values
+#| context: stack-conventions, stack-values-context
+#| mode: numeric
+#| tolerance: '0.02'
+#| partial-credit: 'true'
+#| field-labels: Sinus til første radianvinkel, Cosinus til første radianvinkel, Sinus til andre radianvinkel, Cosinus
+#|   til andre radianvinkel, Sinus til første gradvinkel, Cosinus til første gradvinkel, Sinus til andre gradvinkel,
+#|   Cosinus til andre gradvinkel
+#| parameters:
+#|   k:
+#|     start: 1
+#|     stop: 71
+#| derived:
+#|   r1: sigfig(((k+9)%71+1)*pi/36,2)
+#|   r2: sigfig(((k+42)%71+1)*pi/36,2)
+#|   d1: 5*k
+#|   d2: 5*((k+23)%71+1)
+#|   s1: sin(r1)
+#|   c1: cos(r1)
+#|   s2: sin(r2)
+#|   c2: cos(r2)
+#|   s3: sin(d1*pi/180)
+#|   c3: cos(d1*pi/180)
+#|   s4: sin(d2*pi/180)
+#|   c4: cos(d2*pi/180)
+#|   t1: sigfig(sin(r1),2)
+#|   t2: sigfig(cos(r1),2)
+#|   t3: sigfig(sin(r2),2)
+#|   t4: sigfig(cos(r2),2)
+#|   t5: sigfig(sin(d1*pi/180),2)
+#|   t6: sigfig(cos(d1*pi/180),2)
+#|   t7: sigfig(sin(d2*pi/180),2)
+#|   t8: sigfig(cos(d2*pi/180),2)
+#| solution-target: stack-values-solution
+#| variant-context: Radianer {{r1}}, {{r2}}; grader {{d1}}, {{d2}}. Avlesningstoleranse 0.02.
+#| solution: |
+#|   På enhetssirkelen er $A=(\cos v,\sin v)$. Les cosinus på x-aksen og sinus på y-aksen. Fortegnene følger av kvadranten.
+#|   
+#|   | Vinkel | Sinus | Cosinus |
+#|   | --- | --- | --- |
+#|   | ${{r1}}$ | ${{s1:.2f}}$ | ${{c1:.2f}}$ |
+#|   | ${{r2}}$ | ${{s2:.2f}}$ | ${{c2:.2f}}$ |
+#|   | ${{d1}}^\circ$ | ${{s3:.2f}}$ | ${{c3:.2f}}$ |
+#|   | ${{d2}}^\circ$ | ${{s4:.2f}}$ | ${{c4:.2f}}$ |
+#| tests:
+#| - name: model answers
+#|   answers:
+#|   - '{{t1}}'
+#|   - '{{t2}}'
+#|   - '{{t3}}'
+#|   - '{{t4}}'
+#|   - '{{t5}}'
+#|   - '{{t6}}'
+#|   - '{{t7}}'
+#|   - '{{t8}}'
+#|   expected:
+#|   - correct
+#|   - correct
+#|   - correct
+#|   - correct
+#|   - correct
+#|   - correct
+#|   - correct
+#|   - correct
+#| - name: unit offset error
+#|   answers:
+#|   - ({{t1}})+1
+#|   - ({{t2}})+1
+#|   - ({{t3}})+1
+#|   - ({{t4}})+1
+#|   - ({{t5}})+1
+#|   - ({{t6}})+1
+#|   - ({{t7}})+1
+#|   - ({{t8}})+1
+#|   expected:
+#|   - wrong
+#|   - wrong
+#|   - wrong
+#|   - wrong
+#|   - wrong
+#|   - wrong
+#|   - wrong
+#|   - wrong
+
+Flytt punktet A i figuren og les av verdiene. Bruk **2 desimaler**, uten kalkulator.
+Avlesningsavvik inntil 0.02 godtas.
+
+Vinkler i **radianer**:
+$\sin({{r1}})\approx$ _[{{t1}}], $\cos({{r1}})\approx$ _[{{t2}}]
+$\sin({{r2}})\approx$ _[{{t3}}], $\cos({{r2}})\approx$ _[{{t4}}]
+
+Vinkler i **grader**:
+$\sin({{d1}}^\circ)\approx$ _[{{t5}}], $\cos({{d1}}^\circ)\approx$ _[{{t6}}]
+$\sin({{d2}}^\circ)\approx$ _[{{t7}}], $\cos({{d2}}^\circ)\approx$ _[{{t8}}]
+```

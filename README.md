@@ -39,10 +39,14 @@ the site. `quarto-extensions.yml` lists the Erasmus-CTM extension sources.
 `scripts/setup.py` is shared by local development and GitHub Actions.
 The full CTM Assessment suite is enabled through the `ctm-assessment` filter.
 Setup follows `main` for ai-feedback and the ctm-assessment wrapper, and
-`feature/shared-feedback-integration` for math-exercise, py-exercise and
-pyodide-interaktiv. JSXGraph uses the same checkout and exact revision as
+`feature/shared-feedback-integration` for py-exercise and pyodide-interaktiv.
+Math-exercise currently uses `feature/build-time-variants` for compact STACK templates. JSXGraph uses the same checkout and exact revision as
 math-exercise. Resolved commits are logged during setup and recorded in
 `.private-extensions/resolved-repos.json`. Re-running setup updates these refs.
 No external course checkout or course-site link is required.
 
 See [pages/help.qmd](pages/help.qmd) for the ingredient list and authoring workflow.
+
+The four STACK definitions live in `_includes/stack/*.qmd`. Optional review:
+`quarto render pages/stack-review.qmd --output-dir _review-site`. See
+[_includes/stack/README.md](_includes/stack/README.md) for the selection workflow.

@@ -1,0 +1,76 @@
+```{math-exercise}
+#| label: stack-tangent
+#| context: stack-conventions, stack-tangent-context
+#| mode: equivalent
+#| vars: x
+#| partial-credit: 'true'
+#| field-labels: u derivert, v derivert, f derivert, Tangentens høyreside
+#| parameters:
+#|   p1:
+#|   - -3
+#|   - -2
+#|   - -1
+#|   - 2
+#|   - 3
+#|   - 4
+#|   p2:
+#|   - -3
+#|   - -2
+#|   - -1
+#|   - 1
+#|   - 2
+#|   - 3
+#|   - 4
+#|   x0:
+#|   - -2
+#|   - -1
+#|   - 0
+#|   - 1
+#|   - 2
+#| constraints:
+#| - p1 != p2
+#| - x0 != p2
+#| solution-target: stack-tangent-solution
+#| variant-context: f(x)=(x-({{p1}}))/(x-({{p2}})); tangentpunkt x0={{x0}}.
+#| solution: |
+#|   Vi har $u'(x)=1$ og $v'(x)=1$. Brøkregelen gir
+#|   
+#|   $$f'(x)=\frac{(x-({{p2}}))-(x-({{p1}}))}{(x-({{p2}}))^2}=\frac{ {{p1}}-({{p2}}) }{(x-({{p2}}))^2}.$$
+#|   Tangentpunktets høyde er $f({{x0}})=\frac{ {{x0}}-({{p1}}) }{ {{x0}}-({{p2}}) }$, og stigningstallet er $f'({{x0}})=\frac{ {{p1}}-({{p2}}) }{({{x0}}-({{p2}}))^2}$.
+#|   
+#|   $$y=\frac{ {{x0}}-({{p1}}) }{ {{x0}}-({{p2}}) }+\frac{ {{p1}}-({{p2}}) }{({{x0}}-({{p2}}))^2}(x-({{x0}})).$$
+#|   Algebraisk likeverdige former godtas. I figuren under kan du flytte tangentpunktet og se hvordan stigningstallet endres.
+#| tests:
+#| - name: model answers
+#|   answers:
+#|   - '1'
+#|   - '1'
+#|   - ({{p1}}-({{p2}}))/(x-({{p2}}))^2
+#|   - ({{x0}}-({{p1}}))/({{x0}}-({{p2}}))+({{p1}}-({{p2}}))/({{x0}}-({{p2}}))^2*(x-({{x0}}))
+#|   expected:
+#|   - correct
+#|   - correct
+#|   - correct
+#|   - correct
+#| - name: unit offset error
+#|   answers:
+#|   - (1)+1
+#|   - (1)+1
+#|   - (({{p1}}-({{p2}}))/(x-({{p2}}))^2)+1
+#|   - (({{x0}}-({{p1}}))/({{x0}}-({{p2}}))+({{p1}}-({{p2}}))/({{x0}}-({{p2}}))^2*(x-({{x0}})))+1
+#|   expected:
+#|   - wrong
+#|   - wrong
+#|   - wrong
+#|   - wrong
+
+Finn den deriverte og tangenten til $f(x)=\dfrac{x-({{p1}})}{x-({{p2}})}$ i punktet $({{x0}},f({{x0}}))$. Funksjonen er ikke definert når $x={{p2}}$.
+Bruk brøkregelen $\left(\dfrac{u}{v}\right)'=\dfrac{u'v-uv'}{v^2}$, med $u(x)=x-({{p1}})$ og $v(x)=x-({{p2}})$.
+Skriv **eksakte uttrykk**; bruk brøker i stedet for avrundede desimaltall.
+
+$u'(x)=$ _[1], $v'(x)=$ _[1]
+
+$f'(x)=$ __[({{p1}}-({{p2}}))/(x-({{p2}}))^2]
+
+Tangenten har likning $y=$ __[({{x0}}-({{p1}}))/({{x0}}-({{p2}}))+({{p1}}-({{p2}}))/({{x0}}-({{p2}}))^2*(x-({{x0}}))]
+```
