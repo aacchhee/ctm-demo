@@ -106,9 +106,10 @@ The Python setup script installs Quarto extensions listed in
 `quarto-extensions.yml`. It requires Git and Quarto on `PATH`. The same command
 runs locally and in GitHub Actions; it does not install Python or Quarto itself.
 The full suite is activated by the `ctm-assessment` filter. Re-running setup
-installs the exact audited commits in `quarto-extensions.yml`. Update those IDs
-when adopting newer upstream changes, then render the site and optional review
-profile. JSXGraph uses the same math-exercise checkout. Exact revisions appear
+fetches current `main` branches from `quarto-extensions.yml`. Only
+pyodide-interaktiv remains temporarily pinned until its AI migration is merged.
+After setup, render the site and optional review profile. JSXGraph uses the same
+math-exercise checkout. Exact resolved revisions appear
 in the setup log and `.private-extensions/resolved-repos.json`.
 
 

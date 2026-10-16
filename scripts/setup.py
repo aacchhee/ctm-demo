@@ -59,7 +59,7 @@ def load_plugins(config_path: Path) -> list[dict[str, str]]:
         name = plugin.get("name")
         repo = plugin.get("repo")
         path = plugin.get("path")
-        ref = plugin.get("ref", "HEAD")
+        ref = plugin.get("ref", "main")
 
         if not name or not repo or not path:
             sys.exit(
@@ -92,7 +92,7 @@ def clone_or_update_plugin(
     plugin_repo = private_root / name
 
     # Fetch accepts both branch names and full commit IDs. Keeping the checkout
-    # detached makes pinned revisions reproducible on fresh and repeated setup.
+    # detached records the resolved branch tip without creating a local branch.
     try:
         if not plugin_repo.exists():
             print(f"\nDownloading plugin: {name}")
