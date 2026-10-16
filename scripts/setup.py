@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import shutil
@@ -108,13 +109,14 @@ def clone_or_update_plugin(
     return plugin_repo
 
 
-def install_umbrella(assessment_repo: Path, project_root: Path) -> None:
+def install_umbrella(assessment_repo: Path, project_root: Path, review_refs: dict[str,str]) -> None:
     """Use CTM Assessment's builder and manifest, then install its distribution."""
     workspace = project_root / ".private-extensions" / "ctm-assessment-build"
     run(
         sys.executable,
         str(assessment_repo / "scripts" / "setup-feedback-integration.py"),
         "--workspace", str(workspace),
+        "--review-refs", json.dumps(review_refs),
     )
     distribution = workspace / "ctm-assessment"
     record = json.loads((distribution / "resolved-repos.json").read_text())
@@ -133,6 +135,11 @@ def install_umbrella(assessment_repo: Path, project_root: Path) -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--review-refs", default="{}", help="Explicit coordinated review dependency SHAs; production defaults stay main")
+    review_refs = json.loads(parser.parse_args().review_refs)
+    if not isinstance(review_refs, dict):
+        sys.exit("ERROR: review refs must be a mapping")
     project_root = Path(__file__).resolve().parent.parent
     config_path = project_root / CONFIG_FILE
     private_root = project_root / ".private-extensions"
@@ -165,8 +172,11 @@ def main() -> None:
 
     if len(plugins) != 1 or plugins[0]["name"] != "ctm-assessment" or plugins[0]["ref"] != "main":
         sys.exit("ERROR: configure only ctm-assessment at main; its manifest owns the component sources.")
-    assessment_repo = clone_or_update_plugin(plugins[0], private_root)
-    install_umbrella(assessment_repo, project_root)
+    assessment_ref = review_refs.pop("ctm-assessment", "main")
+    if review_refs or assessment_ref != "main":
+        print("Explicit review dependencies:", assessment_ref, review_refs)
+    assessment_repo = clone_or_update_plugin({**plugins[0], "ref": assessment_ref}, private_root)
+    install_umbrella(assessment_repo, project_root, review_refs)
 
     print("\nInstalled Quarto extensions:")
     run(
