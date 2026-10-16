@@ -55,7 +55,7 @@ flowchart TD
 ## Set up locally in VS Code
 
 Install [Git](https://git-scm.com/), [Python 3.12](https://www.python.org/downloads/),
-[Quarto CLI](https://quarto.org/docs/get-started/), and
+[Quarto CLI 1.8.27](https://quarto.org/docs/get-started/), and
 [VS Code](https://code.visualstudio.com/). The Quarto VS Code extension is useful,
 but does not replace the Quarto CLI. Open the **repository folder**, not just a file.
 
@@ -102,15 +102,16 @@ In VS Code, accept the recommended Quarto and Python extensions, and select
 `.venv` as the Python interpreter. **Terminal → Run Task → Preview website**
 starts the preview; **Build website** renders to `_site/`.
 
-The Python setup script installs Quarto extensions listed in
-`quarto-extensions.yml`. It requires Git and Quarto on `PATH`. The same command
-runs locally and in GitHub Actions; it does not install Python or Quarto itself.
-The full suite is activated by the `ctm-assessment` filter. Re-running setup
-fetches current `main` branches from `quarto-extensions.yml`. Only
-pyodide-interaktiv remains temporarily pinned until its AI migration is merged.
-After setup, render the site and optional review profile. JSXGraph uses the same
-math-exercise checkout. Exact resolved revisions appear
-in the setup log and `.private-extensions/resolved-repos.json`.
+The Python setup script fetches `ctm-assessment/main`, builds its umbrella
+package and installs that distribution. `quarto-extensions.yml` contains only
+the umbrella source. The demo does not install individual extensions separately.
+It requires Git and Quarto on `PATH`; the same command runs locally and in CI.
+The full suite is activated by the `ctm-assessment` filter. The umbrella's own
+manifest selects current `main` branches and retains only its temporary Pyodide
+AI migration pin. JSXGraph comes from the same math-exercise checkout.
+Re-running setup resolves those sources again, verifies installed file hashes,
+and records revisions in `.private-extensions/resolved-repos.json`.
+After setup, render the site and optional review profile.
 
 
 ## Publish with GitHub Pages
@@ -140,7 +141,7 @@ these repository links to match the new owner and name.
 | `pages/experiments.qmd` | The clean “Your experiments here” page. Start writing below its YAML header. |
 | `pages/help.qmd` | This help page. |
 | `_quarto.yml` | Site title, sidebar, rendered pages, filters, and English language. |
-| `quarto-extensions.yml` | Extension repositories, refs, and installation paths. |
+| `quarto-extensions.yml` | The CTM Assessment umbrella source at `main`. |
 | `scripts/setup.py` | Shared extension installer for local development and CI. |
 | `styles.css`, `_includes/site/` | Small presentation and navigation helpers. |
 

@@ -1,26 +1,5 @@
-# Follow maintained branches; only the pending Pyodide AI migration is pinned.
-# JSXGraph shares the same math-exercise checkout.
+# CTM Assessment owns the component manifest and its temporary Pyodide pin.
 plugins:
-- name: ai-feedback
-  repo: https://github.com/Erasmus-CTM/ai-feedback.git
-  ref: main
-  path: _extensions/ai-feedback
-- name: math-exercise
-  repo: https://github.com/Erasmus-CTM/math-exercise.git
-  ref: main
-  path: _extensions/math-exercise
-- name: jsxgraph
-  repo: https://github.com/Erasmus-CTM/math-exercise.git
-  ref: main
-  path: _extensions/jsxgraph
-- name: py-exercise
-  repo: https://github.com/Erasmus-CTM/py-exercise.git
-  ref: main
-  path: _extensions/py-exercise
-- name: pyodide-interaktiv
-  repo: https://github.com/Erasmus-CTM/pyodide-interaktiv.git
-  ref: f68af42714609451beb304ecc74da4df125ca4cf
-  path: _extensions/pyodide-interaktiv
 - name: ctm-assessment
   repo: https://github.com/Erasmus-CTM/ctm-assessment.git
   ref: main
