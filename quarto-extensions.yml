@@ -23,5 +23,5 @@ plugins:
   path: _extensions/pyodide-interaktiv
 - name: ctm-assessment
   repo: https://github.com/Erasmus-CTM/ctm-assessment.git
-  ref: 40e8bba1b710f7248a48c2c65b0bdda1e226265b
+  ref: b9da61629045dc6d413cc098d6b964a0e6be7e90
   path: _extensions/ctm-assessment
