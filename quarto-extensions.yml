@@ -1,33 +1,27 @@
-# Install the full CTM Assessment suite from the selected upstream branches.
-# JSXGraph shares the math-exercise checkout and therefore its exact revision.
+# Audited upstream revisions. Update these full commit IDs deliberately.
+# JSXGraph shares the exact math-exercise revision.
 plugins:
-  - name: ai-feedback
-    repo: https://github.com/Erasmus-CTM/ai-feedback.git
-    ref: main
-    path: _extensions/ai-feedback
-
-  - name: math-exercise
-    repo: https://github.com/Erasmus-CTM/math-exercise.git
-    ref: feature/build-time-variants
-    path: _extensions/math-exercise
-
-  - name: jsxgraph
-    repo: https://github.com/Erasmus-CTM/math-exercise.git
-    ref: feature/build-time-variants
-    path: _extensions/jsxgraph
-
-  - name: py-exercise
-    repo: https://github.com/Erasmus-CTM/py-exercise.git
-    ref: feature/shared-feedback-integration
-    path: _extensions/py-exercise
-
-  - name: pyodide-interaktiv
-    repo: https://github.com/Erasmus-CTM/pyodide-interaktiv.git
-    ref: feature/shared-feedback-integration
-    path: _extensions/pyodide-interaktiv
-
-  - name: ctm-assessment
-    repo: https://github.com/Erasmus-CTM/ctm-assessment.git
-    ref: main
-    path: _extensions/ctm-assessment
-
+- name: ai-feedback
+  repo: https://github.com/Erasmus-CTM/ai-feedback.git
+  ref: bda67fbe515a3e5e2a2fa4b827c1bd918552fbac
+  path: _extensions/ai-feedback
+- name: math-exercise
+  repo: https://github.com/Erasmus-CTM/math-exercise.git
+  ref: c708e5e2a3a35829af229d2e28b5470bac5c31b7
+  path: _extensions/math-exercise
+- name: jsxgraph
+  repo: https://github.com/Erasmus-CTM/math-exercise.git
+  ref: c708e5e2a3a35829af229d2e28b5470bac5c31b7
+  path: _extensions/jsxgraph
+- name: py-exercise
+  repo: https://github.com/Erasmus-CTM/py-exercise.git
+  ref: db4db7705de424a0aface078204904f40f5ee22f
+  path: _extensions/py-exercise
+- name: pyodide-interaktiv
+  repo: https://github.com/Erasmus-CTM/pyodide-interaktiv.git
+  ref: f68af42714609451beb304ecc74da4df125ca4cf
+  path: _extensions/pyodide-interaktiv
+- name: ctm-assessment
+  repo: https://github.com/Erasmus-CTM/ctm-assessment.git
+  ref: 2bb996f6b259258841eda02d6d06ecb951ee1e2a
+  path: _extensions/ctm-assessment

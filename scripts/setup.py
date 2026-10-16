@@ -91,71 +91,20 @@ def clone_or_update_plugin(
 
     plugin_repo = private_root / name
 
-    if not plugin_repo.exists():
-        print(f"\nDownloading plugin: {name}")
+    # Fetch accepts both branch names and full commit IDs. Keeping the checkout
+    # detached makes pinned revisions reproducible on fresh and repeated setup.
+    try:
+        if not plugin_repo.exists():
+            print(f"\nDownloading plugin: {name}")
+            run("git", "init", str(plugin_repo))
+            run("git", "-C", str(plugin_repo), "remote", "add", "origin", repo)
+        else:
+            print(f"\nUpdating plugin: {name}")
+        run("git", "-C", str(plugin_repo), "fetch", "--depth", "1", "origin", ref)
+        run("git", "-C", str(plugin_repo), "checkout", "--detach", "--force", "FETCH_HEAD")
+    except subprocess.CalledProcessError:
+        sys.exit(f"\nERROR: could not fetch plugin '{name}' at {ref} from {repo}.\n")
 
-        try:
-            clone_args = [
-                "git",
-                "clone",
-                "--depth",
-                "1",
-            ]
-
-            if ref != "HEAD":
-                clone_args.extend(
-                    [
-                        "--branch",
-                        ref,
-                        "--single-branch",
-                    ]
-                )
-
-            clone_args.extend(
-                [
-                    repo,
-                    str(plugin_repo),
-                ]
-            )
-
-            run(*clone_args)
-        except subprocess.CalledProcessError:
-            sys.exit(
-                f"\nERROR: could not clone plugin '{name}'.\n\n"
-                f"Repository:\n"
-                f"  {repo}\n\n"
-                "Make sure your GitHub account has access and that "
-                "Git authentication is configured on this machine."
-            )
-
-    else:
-        print(f"\nUpdating plugin to newest version: {name}")
-
-        try:
-            run(
-                "git",
-                "-C",
-                str(plugin_repo),
-                "fetch",
-                "--depth",
-                "1",
-                "origin",
-                ref,
-            )
-            run(
-                "git",
-                "-C",
-                str(plugin_repo),
-                "checkout",
-                "--detach",
-                "--force",
-                "FETCH_HEAD",
-            )
-        except subprocess.CalledProcessError:
-            sys.exit(
-                f"\nERROR: could not update plugin '{name}'.\n"
-            )
-            
     return plugin_repo
 
 

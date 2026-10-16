@@ -13,7 +13,7 @@ build process.
 | Ingredient | What it does here | Where it comes from |
 |---|---|---|
 | Quarto | Converts Markdown, YAML configuration, mathematics, and code blocks into a website; provides navigation and tabs. | [Quarto](https://quarto.org/) |
-| `jsxgraph` filter + JSXGraph | Turns a JavaScript block into the draggable vector applet. JSXGraph draws the board in a sandboxed iframe. | [Erasmus-CTM bridge](https://github.com/Erasmus-CTM/math-exercise/tree/feature/shared-feedback-integration/_extensions/jsxgraph), based on [jsxgraph-quarto](https://github.com/jsxgraph/jsxgraph-quarto); [JSXGraph](https://jsxgraph.org/) supplies the graphics library. |
+| `jsxgraph` filter + JSXGraph | Turns a JavaScript block into the draggable vector applet. JSXGraph draws the board in a sandboxed iframe. | [Erasmus-CTM bridge](https://github.com/Erasmus-CTM/math-exercise/tree/main/_extensions/jsxgraph), based on [jsxgraph-quarto](https://github.com/jsxgraph/jsxgraph-quarto); [JSXGraph](https://jsxgraph.org/) supplies the graphics library. |
 | `pyodide-interaktiv` | Editable Python cells, plots, and optional feedback; Python runs in a Web Worker through Pyodide. | [Erasmus-CTM/pyodide-interaktiv](https://github.com/Erasmus-CTM/pyodide-interaktiv), branch `feature/shared-feedback-integration` |
 | `math-exercise` | Checks exact mathematical answers, including the custom eigenvector checker that accepts different scalings. | [Erasmus-CTM/math-exercise](https://github.com/Erasmus-CTM/math-exercise) |
 | `py-exercise` | Checks Python coding exercises against tests. Installed and enabled for new experiments; the two retained problems use `math-exercise`. | [Erasmus-CTM/py-exercise](https://github.com/Erasmus-CTM/py-exercise) |
@@ -106,11 +106,11 @@ The Python setup script installs Quarto extensions listed in
 `quarto-extensions.yml`. It requires Git and Quarto on `PATH`. The same command
 runs locally and in GitHub Actions; it does not install Python or Quarto itself.
 The full suite is activated by the `ctm-assessment` filter. Re-running setup
-updates ai-feedback and the ctm-assessment wrapper from `main`, Python consumers
-from `feature/shared-feedback-integration`, and math-exercise from
-`feature/build-time-variants`. JSXGraph uses
-the same math-exercise checkout. Exact revisions appear in the setup log and
-`.private-extensions/resolved-repos.json`.
+installs the exact audited commits in `quarto-extensions.yml`. Update those IDs
+when adopting newer upstream changes, then render the site and optional review
+profile. JSXGraph uses the same math-exercise checkout. Exact revisions appear
+in the setup log and `.private-extensions/resolved-repos.json`.
+
 
 ## Publish with GitHub Pages
 
