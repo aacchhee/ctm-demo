@@ -11,7 +11,7 @@ browser-based Python, and automatically checked mathematics problems.
 
 ## Run locally
 
-Install Git, Python 3.12, and the Quarto CLI. Open this folder in VS Code.
+Install Git, Python 3.12, and Quarto 1.8.27. Open this folder in VS Code.
 
 ```bash
 python -m venv .venv
@@ -35,17 +35,22 @@ Expected URL: <https://aacchhee.github.io/ctm-demo/>.
 ## Structure
 
 Content lives in `.qmd` wrappers and `_includes/*.md`; `_quarto.yml` configures
-the site. `quarto-extensions.yml` lists the Erasmus-CTM extension sources.
-`scripts/setup.py` is shared by local development and GitHub Actions.
-The full CTM Assessment suite is enabled through the `ctm-assessment` filter.
-Setup uses the audited full commit IDs in `quarto-extensions.yml`, including
-current math-exercise and py-exercise `main` revisions, the shared-feedback
-Pyodide revision, and AI Feedback 0.6.1 with Markdown heading support. JSXGraph
-uses the same checkout and exact revision as math-exercise. Resolved commits are
-logged during setup and recorded in `.private-extensions/resolved-repos.json`.
-To update, change the commit IDs deliberately, re-run setup, and render both
-student and review profiles before publishing.
+the site. `quarto-extensions.yml` names only `ctm-assessment` at `main`.
+`scripts/setup.py` is shared by local development and GitHub Actions. It fetches
+that umbrella source, runs its builder, and installs the assembled distribution.
+The full suite is enabled through the `ctm-assessment` filter. Component sources
+are selected only by CTM Assessment's manifest: current `main` for maintained
+extensions and the temporary Pyodide feedback migration pin. JSXGraph comes from
+the same math-exercise checkout. The demo has no separate component refs.
+Setup verifies installed files against the umbrella's hashes and copies its
+revision record to `.private-extensions/resolved-repos.json`.
+To update, re-run setup and render both student and review profiles before publishing.
 No external course checkout or course-site link is required.
+
+Mathematics fields start blank by default. Use `initial-values` only for an
+exceptional activity that needs a particular starting draft. Linked JSXGraph
+images and current board state can be explicitly included as feedback context
+without replacing the learner's typed answer.
 
 See [pages/help.qmd](pages/help.qmd) for the ingredient list and authoring workflow.
 

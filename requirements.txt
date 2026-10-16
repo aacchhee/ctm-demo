@@ -2,3 +2,5 @@ PyYAML>=6,<7
 jupyter>=1,<2
 nbformat>=5,<6
 beautifulsoup4>=4.12,<5  # optional rendered-page audit script
+sympy==1.14.0  # umbrella example/checker build
+networkx==3.4.2  # umbrella graph checker build

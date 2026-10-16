@@ -1,10 +1,10 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import shutil
 import subprocess
 import sys
-import tempfile
 from pathlib import Path
 
 import yaml
@@ -59,7 +59,7 @@ def load_plugins(config_path: Path) -> list[dict[str, str]]:
         name = plugin.get("name")
         repo = plugin.get("repo")
         path = plugin.get("path")
-        ref = plugin.get("ref", "HEAD")
+        ref = plugin.get("ref", "main")
 
         if not name or not repo or not path:
             sys.exit(
@@ -92,7 +92,7 @@ def clone_or_update_plugin(
     plugin_repo = private_root / name
 
     # Fetch accepts both branch names and full commit IDs. Keeping the checkout
-    # detached makes pinned revisions reproducible on fresh and repeated setup.
+    # detached records the resolved branch tip without creating a local branch.
     try:
         if not plugin_repo.exists():
             print(f"\nDownloading plugin: {name}")
@@ -108,84 +108,28 @@ def clone_or_update_plugin(
     return plugin_repo
 
 
-def install_plugin(
-    plugin: dict[str, str],
-    plugin_repo: Path,
-    project_root: Path,
-) -> None:
-    name = plugin["name"]
-
-    source_extension = plugin_repo / plugin["path"]
-    installed_extension = project_root / "_extensions" / name
-
-    if not source_extension.exists():
-        sys.exit(
-            f"\nERROR: extension path not found for '{name}':\n"
-            f"  {source_extension}\n"
-        )
-
-    extension_yml = source_extension / "_extension.yml"
-
-    if not extension_yml.exists():
-        sys.exit(
-            f"\nERROR: '{source_extension}' does not look like "
-            "a Quarto extension.\n\n"
-            "Expected:\n"
-            f"  {extension_yml}\n"
-        )
-
-    if installed_extension.exists():
-        print(f"\nRemoving previous installed extension: {name}")
-        shutil.rmtree(installed_extension)
-
-    print(f"\nInstalling Quarto extension: {name}")
-    print(f"  source: {source_extension}")
-
-    # Quarto expects an extension distribution root containing:
-    #
-    #   _extensions/
-    #       extension-name/
-    #
-    # We therefore stage only the requested extension in a temporary
-    # distribution directory. This prevents other extensions contained
-    # in the same private repository from being installed accidentally.
-    with tempfile.TemporaryDirectory(prefix="quarto-extension-") as tmp:
-        staging_root = Path(tmp)
-
-        staging_extension = (
-            staging_root
-            / "_extensions"
-            / name
-        )
-
-        staging_extension.parent.mkdir(
-            parents=True,
-            exist_ok=True,
-        )
-
-        shutil.copytree(
-            source_extension,
-            staging_extension,
-        )
-
-        try:
-            run(
-                "quarto",
-                "add",
-                str(staging_root),
-                "--no-prompt",
-                cwd=project_root,
-            )
-        except subprocess.CalledProcessError:
-            sys.exit(
-                f"\nERROR: Quarto could not install extension '{name}'.\n"
-            )
-
-    if not installed_extension.exists():
-        sys.exit(
-            f"\nERROR: '{name}' was not found after installation at:\n"
-            f"  {installed_extension}\n"
-        )
+def install_umbrella(assessment_repo: Path, project_root: Path) -> None:
+    """Use CTM Assessment's builder and manifest, then install its distribution."""
+    workspace = project_root / ".private-extensions" / "ctm-assessment-build"
+    run(
+        sys.executable,
+        str(assessment_repo / "scripts" / "setup-feedback-integration.py"),
+        "--workspace", str(workspace),
+    )
+    distribution = workspace / "ctm-assessment"
+    record = json.loads((distribution / "resolved-repos.json").read_text())
+    # Replace only extensions owned by this umbrella; preserve course extensions.
+    for name in record["extension_sha256"]:
+        installed = project_root / "_extensions" / name
+        if installed.exists():
+            shutil.rmtree(installed)
+    run("quarto", "add", str(distribution), "--no-prompt", cwd=project_root)
+    for name, files in record["extension_sha256"].items():
+        for relative, expected in files.items():
+            installed = project_root / "_extensions" / name / relative
+            if not installed.is_file() or hashlib.sha256(installed.read_bytes()).hexdigest() != expected:
+                sys.exit(f"ERROR: installed umbrella file differs: {name}/{relative}")
+    shutil.copy2(distribution / "resolved-repos.json", project_root / ".private-extensions" / "resolved-repos.json")
 
 
 def main() -> None:
@@ -219,31 +163,10 @@ def main() -> None:
             f"({plugin['path']}, ref: {plugin['ref']})"
         )
 
-    sources: dict[tuple[str, str], Path] = {}
-    revisions = {}
-    for plugin in plugins:
-        key = (plugin["repo"], plugin["ref"])
-        if key not in sources:
-            sources[key] = clone_or_update_plugin(plugin, private_root)
-        plugin_repo = sources[key]
-        sha = subprocess.check_output(
-            ["git", "-C", str(plugin_repo), "rev-parse", "HEAD"], text=True
-        ).strip()
-        revisions[plugin["name"]] = {
-            "repository": plugin["repo"], "ref": plugin["ref"], "commit": sha,
-            "path": plugin["path"],
-        }
-        print(f"Resolved {plugin['name']}: {plugin['ref']} @ {sha}")
-
-        install_plugin(
-            plugin,
-            plugin_repo,
-            project_root,
-        )
-
-    (private_root / "resolved-repos.json").write_text(
-        json.dumps(revisions, indent=2) + "\n", encoding="utf-8"
-    )
+    if len(plugins) != 1 or plugins[0]["name"] != "ctm-assessment" or plugins[0]["ref"] != "main":
+        sys.exit("ERROR: configure only ctm-assessment at main; its manifest owns the component sources.")
+    assessment_repo = clone_or_update_plugin(plugins[0], private_root)
+    install_umbrella(assessment_repo, project_root)
 
     print("\nInstalled Quarto extensions:")
     run(
