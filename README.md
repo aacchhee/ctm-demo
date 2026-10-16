@@ -57,3 +57,12 @@ See [pages/help.qmd](pages/help.qmd) for the ingredient list and authoring workf
 The four STACK definitions live in `_includes/stack/*.qmd`. Optional review:
 `quarto render --profile review`. See
 [_includes/stack/README.md](_includes/stack/README.md) for the selection workflow.
+
+## Coordinated dependency reviews
+
+Normal builds follow the maintained `main` sources and the umbrella's explicit
+Pyodide migration pin. A non-main review commit can declare exact dependency
+SHAs in a `CTM-Review-Refs: {"ai-feedback":"<40-character SHA>"}` commit trailer.
+The visibly named workflow step prints those refs; the umbrella records them in
+`resolved-repos.json`. Main ignores review trailers. Merge upstream changes
+first, then rerun consumers with default dependencies before merging them.
