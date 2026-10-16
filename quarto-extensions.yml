@@ -3,7 +3,7 @@
 plugins:
 - name: ai-feedback
   repo: https://github.com/Erasmus-CTM/ai-feedback.git
-  ref: aa1781226798340e125ce4ac38f6330116d5eb4e
+  ref: 5e9b7055dc0c66003fc8837752671b004ffbbaca
   path: _extensions/ai-feedback
 - name: math-exercise
   repo: https://github.com/Erasmus-CTM/math-exercise.git
@@ -23,5 +23,5 @@ plugins:
   path: _extensions/pyodide-interaktiv
 - name: ctm-assessment
   repo: https://github.com/Erasmus-CTM/ctm-assessment.git
-  ref: c9ece3c0ea4ff46e35b76dc9a78363682b38da06
+  ref: 40e8bba1b710f7248a48c2c65b0bdda1e226265b
   path: _extensions/ctm-assessment
