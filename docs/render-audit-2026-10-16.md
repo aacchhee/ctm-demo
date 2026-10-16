@@ -7,9 +7,15 @@ course repositories are outside this follow-up audit.
 
 ## Findings and changes
 
-- No pre-existing open PRs were returned for the seven repositories at the
-  beginning of this audit. The correction PRs listed below are new and await
-  AC's review; this report does not claim an empty PR queue after creating them.
+- The authoritative per-repository REST PR listings found one pre-existing
+  open PR: [pyodide-interaktiv #2, Issue 1 webagg](https://github.com/Erasmus-CTM/pyodide-interaktiv/pull/2).
+  GitHub search had omitted it. It migrates interactive Matplotlib plots to
+  WebAgg and Pyodide 0.28.3; GitHub reports merge conflicts, and a local
+  merge-tree check confirms conflicts against current main. The PR description
+  says animations were not tested. This migration is not part of the tested
+  shared-feedback pin and was not merged or closed by this audit. The other
+  six repositories had no pre-existing open PRs. Four correction PRs are new
+  and await AC's review; the PR queue is not empty.
 - The old demo installation requested the deleted math-exercise
   `feature/build-time-variants` branch. It now uses audited full commit IDs.
   Fresh and repeated setup both fetch those commits; JSXGraph shares the exact
@@ -40,7 +46,7 @@ source of truth. At this audit the adopted functional revisions were:
 | JSXGraph bridge | 1.1.0 | Same math-exercise revision |
 | py-exercise | 0.2.1 | `db4db7705de424a0aface078204904f40f5ee22f` |
 | pyodide-interaktiv | 1.6.0 | `f68af42714609451beb304ecc74da4df125ca4cf` |
-| CTM Assessment wrapper | 0.1.0 | `a416b2f1ca64875c1ccc6642cbe20b12fa85fcfa`; wrapper code unchanged |
+| CTM Assessment wrapper | 0.1.0 | `2bb996f6b259258841eda02d6d06ecb951ee1e2a`; wrapper code unchanged |
 | STACK SymPy (separate site) | 0.1.9 | `213ef2b66b5c2f544565ff86c44b22081488b33c` |
 
 This is an update of CTM components, not a wholesale upgrade of third-party
