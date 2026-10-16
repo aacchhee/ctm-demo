@@ -39,13 +39,18 @@ the site. `quarto-extensions.yml` lists the Erasmus-CTM extension sources.
 `scripts/setup.py` is shared by local development and GitHub Actions.
 The full CTM Assessment suite is enabled through the `ctm-assessment` filter.
 Setup uses the audited full commit IDs in `quarto-extensions.yml`, including
-current math-exercise and py-exercise `main` revisions, the shared-feedback
-Pyodide revision, and AI Feedback 0.6.1 with Markdown heading support. JSXGraph
+math-exercise 0.8.0, the shared-feedback py-exercise and Pyodide revisions,
+and AI Feedback 0.7.0 with Markdown and linked diagram context support. JSXGraph
 uses the same checkout and exact revision as math-exercise. Resolved commits are
 logged during setup and recorded in `.private-extensions/resolved-repos.json`.
 To update, change the commit IDs deliberately, re-run setup, and render both
 student and review profiles before publishing.
 No external course checkout or course-site link is required.
+
+Mathematics fields start blank by default. Use `initial-values` only for an
+exceptional activity that needs a particular starting draft. Linked JSXGraph
+images and current board state can be explicitly included as feedback context
+without replacing the learner's typed answer.
 
 See [pages/help.qmd](pages/help.qmd) for the ingredient list and authoring workflow.
 
