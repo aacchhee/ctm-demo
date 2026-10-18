@@ -13,8 +13,8 @@ build process.
 | Ingredient | What it does here | Where it comes from |
 |---|---|---|
 | Quarto | Converts Markdown, YAML configuration, mathematics, and code blocks into a website; provides navigation and tabs. | [Quarto](https://quarto.org/) |
-| `jsxgraph` filter + JSXGraph | Turns a JavaScript block into the draggable vector applet. JSXGraph draws the board in a sandboxed iframe. | [Erasmus-CTM bridge](https://github.com/Erasmus-CTM/math-exercise/tree/main/_extensions/jsxgraph), based on [jsxgraph-quarto](https://github.com/jsxgraph/jsxgraph-quarto); [JSXGraph](https://jsxgraph.org/) supplies the graphics library. |
-| `pyodide-interaktiv` | Editable Python cells, plots, and optional feedback; Python runs in a Web Worker through Pyodide. | [Erasmus-CTM/pyodide-interaktiv](https://github.com/Erasmus-CTM/pyodide-interaktiv), branch `feature/shared-feedback-integration` |
+| `jsxgraph` filter + JSXGraph | Turns a JavaScript block into the draggable vector applet. JSXGraph draws the board in a sandboxed iframe. | [jsxgraph-quarto](https://github.com/jsxgraph/jsxgraph-quarto), bundled in the CTM Assessment package; [JSXGraph](https://jsxgraph.org/) 1.x supplies the graphics library. |
+| `pyodide-interaktiv` | Editable Python cells, plots, and optional feedback; Python runs in a Web Worker through Pyodide. A long-running exercise check offers **Stop** after 20 s. | [Erasmus-CTM/pyodide-interaktiv](https://github.com/Erasmus-CTM/pyodide-interaktiv), branch `feature/shared-feedback-integration` |
 | `math-exercise` | Checks exact mathematical answers, including the custom eigenvector checker that accepts different scalings. | [Erasmus-CTM/math-exercise](https://github.com/Erasmus-CTM/math-exercise) |
 | `py-exercise` | Checks Python coding exercises against tests. Installed and enabled for new experiments; the two retained problems use `math-exercise`. | [Erasmus-CTM/py-exercise](https://github.com/Erasmus-CTM/py-exercise) |
 | NumPy and Matplotlib | Vector/matrix calculations and plots inside the Python examples. | Loaded by [Pyodide](https://pyodide.org/) in the browser. |
@@ -107,8 +107,8 @@ package and installs that distribution. `quarto-extensions.yml` contains only
 the umbrella source. The demo does not install individual extensions separately.
 It requires Git and Quarto on `PATH`; the same command runs locally and in CI.
 The full suite is activated by the `ctm-assessment` filter. The umbrella's own
-manifest selects current `main` branches and retains only its temporary Pyodide
-AI migration pin. JSXGraph comes from the same math-exercise checkout.
+manifest pins every component, including the upstream JSXGraph extension, by
+commit; the package is built from exactly those tested commits.
 Re-running setup resolves those sources again, verifies installed file hashes,
 and records revisions in `.private-extensions/resolved-repos.json`.
 After setup, render the site and optional review profile.
@@ -160,6 +160,7 @@ This is a source example, not an extra exercise on the demo page. Paste it into
 ```{py-exercise}
 #| label: add-two-numbers
 #| caption: Implement addition
+#| task: Complete add(a, b) so that it returns the sum of a and b.
 def add(a, b):
     pass
 
