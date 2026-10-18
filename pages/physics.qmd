@@ -20,7 +20,7 @@ $\mu_0=4\pi\cdot10^{-7}\,\mathrm{H/m}$,
 $k_e=8.99\cdot10^9\,\mathrm{Nm^2/C^2}$,
 $e=1.60\cdot10^{-19}\,\mathrm C$,
 $m_e=9.11\cdot10^{-31}\,\mathrm{kg}$ og
-$m_p=1.67\cdot10^{-27}\,\mathrm{kg}$. Fet skrift og hake betyr vektorer.
+$m_p=1.67\cdot10^{-27}\,\mathrm{kg}$. Fet skrift betyr vektorer, og hatt betyr enhetsvektorer.
 
 :::
 

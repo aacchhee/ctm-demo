@@ -61,6 +61,5 @@ clears the explanation and feedback and closes the solution. Editing clears old
 feedback; the shared client's snapshot check rejects replies for changed input
 or context. API calls and prompt-copy mode are provided by the shared extension.
 
-The extension manifest uses math-exercise's `feature/build-time-variants` branch
-for both math-exercise and JSXGraph, and ai-feedback from `main`. Other assessment
-consumers remain on their shared-feedback integration branches.
+The CTM Assessment manifest pins math-exercise, ai-feedback and the upstream
+JSXGraph extension by commit, like every other component.

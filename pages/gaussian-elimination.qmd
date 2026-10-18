@@ -227,7 +227,7 @@ Apply $R_3\leftarrow R_3-\tfrac12R_1$.
 ```{math-exercise}
 #| label: gauss-pivot-first-column
 #| context: gauss-method-context, gauss-system-3-context, gauss-pivot-first-column-context
-#| caption: 3B — eliminate below the new first pivot
+#| caption: 3B.1 — eliminate below the new first pivot
 #| mode: equivalent
 #| partial-credit: true
 
@@ -245,7 +245,7 @@ Apply $R_3\leftarrow R_3+\tfrac34R_2$ to the updated matrix.
 ```{math-exercise}
 #| label: gauss-pivot-triangular
 #| context: gauss-method-context, gauss-system-3-context, gauss-pivot-triangular-context
-#| caption: 3B — complete forward elimination
+#| caption: 3B.2 — complete forward elimination
 #| mode: equivalent
 #| partial-credit: true
 

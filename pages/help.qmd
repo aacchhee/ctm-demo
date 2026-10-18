@@ -14,7 +14,7 @@ build process.
 |---|---|---|
 | Quarto | Converts Markdown, YAML configuration, mathematics, and code blocks into a website; provides navigation and tabs. | [Quarto](https://quarto.org/) |
 | `jsxgraph` filter + JSXGraph | Turns a JavaScript block into the draggable vector applet. JSXGraph draws the board in a sandboxed iframe. | [jsxgraph-quarto](https://github.com/jsxgraph/jsxgraph-quarto), bundled in the CTM Assessment package; [JSXGraph](https://jsxgraph.org/) 1.x supplies the graphics library. |
-| `pyodide-interaktiv` | Editable Python cells, plots, and optional feedback; Python runs in a Web Worker through Pyodide. A long-running exercise check offers **Stop** after 20 s. | [Erasmus-CTM/pyodide-interaktiv](https://github.com/Erasmus-CTM/pyodide-interaktiv), branch `feature/shared-feedback-integration` |
+| `pyodide-interaktiv` | Editable Python cells, plots, and optional feedback; Python runs in a Web Worker through Pyodide. A long-running exercise check offers **Stop** after 20 s. | [Erasmus-CTM/pyodide-interaktiv](https://github.com/Erasmus-CTM/pyodide-interaktiv), pinned by commit in the CTM Assessment package |
 | `math-exercise` | Checks exact mathematical answers, including the custom eigenvector checker that accepts different scalings. | [Erasmus-CTM/math-exercise](https://github.com/Erasmus-CTM/math-exercise) |
 | `py-exercise` | Checks Python coding exercises against tests. Installed and enabled for new experiments; the two retained problems use `math-exercise`. | [Erasmus-CTM/py-exercise](https://github.com/Erasmus-CTM/py-exercise) |
 | NumPy and Matplotlib | Vector/matrix calculations and plots inside the Python examples. | Loaded by [Pyodide](https://pyodide.org/) in the browser. |
