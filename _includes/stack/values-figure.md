@@ -65,7 +65,9 @@ function draw(){
   button('−0.01 rad',function(){move(-.01);});button('+0.01 rad',function(){move(.01);});
   button('Nullstill',function(){A.moveTo([1,0]);board.update();});
   readout=output();
-  function update(){readout.textContent='v = '+angle().toFixed(3)+' rad = '+(angle()*180/Math.PI).toFixed(1)+'° · x = cos v = '+A.X().toFixed(2)+' · y = sin v = '+A.Y().toFixed(2);}
+  // Rounding first and adding 0 turns -0 into 0, so the readout never shows -0.00.
+  function fixed2(x){return (Math.round(x*100)/100+0).toFixed(2);}
+  function update(){readout.textContent='v = '+angle().toFixed(3)+' rad = '+(angle()*180/Math.PI).toFixed(1)+'° · x = cos v = '+fixed2(A.X())+' · y = sin v = '+fixed2(A.Y());}
   board.on('update',update);update();
 }
 
