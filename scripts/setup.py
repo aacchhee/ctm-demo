@@ -120,10 +120,16 @@ def install_umbrella(assessment_repo: Path, project_root: Path, review_refs: dic
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--review-refs", default="{}", help="Explicit coordinated review dependency SHAs; production defaults stay main")
-    review_refs = json.loads(parser.parse_args().review_refs)
+    parser.add_argument("--review-refs", default="{}", help="Coordinated review component commits (full SHAs) as JSON or NAME=SHA[,NAME=SHA]; production defaults stay main")
+    raw = parser.parse_args().review_refs.strip()
+    try:
+        # JSON, or NAME=SHA[,NAME=SHA] (PowerShell 5.1 strips JSON's inner quotes).
+        review_refs = json.loads(raw) if raw.startswith("{") else dict(pair.split("=", 1) for pair in raw.split(",") if pair.strip())
+    except (ValueError, json.JSONDecodeError):
+        sys.exit("ERROR: --review-refs must be JSON or NAME=SHA[,NAME=SHA]")
     if not isinstance(review_refs, dict):
         sys.exit("ERROR: review refs must be a mapping")
+    review_refs = {str(k).strip(): str(v).strip() for k, v in review_refs.items()}
     project_root = Path(__file__).resolve().parent.parent
     config_path = project_root / CONFIG_FILE
     private_root = project_root / ".private-extensions"
