@@ -16,14 +16,14 @@
 #|   r2: sigfig(((k+42)%71+1)*pi/36,2)
 #|   d1: 5*k
 #|   d2: 5*((k+23)%71+1)
-#|   s1: sin(r1)
-#|   c1: cos(r1)
-#|   s2: sin(r2)
-#|   c2: cos(r2)
-#|   s3: sin(d1*pi/180)
-#|   c3: cos(d1*pi/180)
-#|   s4: sin(d2*pi/180)
-#|   c4: cos(d2*pi/180)
+#|   s1: round(sin(r1),2)+0
+#|   c1: round(cos(r1),2)+0
+#|   s2: round(sin(r2),2)+0
+#|   c2: round(cos(r2),2)+0
+#|   s3: round(sin(d1*pi/180),2)+0
+#|   c3: round(cos(d1*pi/180),2)+0
+#|   s4: round(sin(d2*pi/180),2)+0
+#|   c4: round(cos(d2*pi/180),2)+0
 #|   t1: sigfig(sin(r1),2)
 #|   t2: sigfig(cos(r1),2)
 #|   t3: sigfig(sin(r2),2)
@@ -86,11 +86,11 @@
 Flytt punktet A i figuren og les av verdiene. Bruk **2 desimaler**, uten kalkulator.
 Avlesningsavvik inntil 0.02 godtas.
 
-Vinkler i **radianer**:
-$\sin({{r1}})\approx$ _[{{t1}}], $\cos({{r1}})\approx$ _[{{t2}}]
+Vinkler i **radianer**:\
+$\sin({{r1}})\approx$ _[{{t1}}], $\cos({{r1}})\approx$ _[{{t2}}]\
 $\sin({{r2}})\approx$ _[{{t3}}], $\cos({{r2}})\approx$ _[{{t4}}]
 
-Vinkler i **grader**:
-$\sin({{d1}}^\circ)\approx$ _[{{t5}}], $\cos({{d1}}^\circ)\approx$ _[{{t6}}]
+Vinkler i **grader**:\
+$\sin({{d1}}^\circ)\approx$ _[{{t5}}], $\cos({{d1}}^\circ)\approx$ _[{{t6}}]\
 $\sin({{d2}}^\circ)\approx$ _[{{t7}}], $\cos({{d2}}^\circ)\approx$ _[{{t8}}]
 ```

@@ -115,7 +115,7 @@ $\cos v$ og y-koordinat $\sin v$. De oppgitte koordinatene er avrundet til
 to desimaler og ligger derfor ikke nødvendigvis nøyaktig på sirkelen.
 Velg riktig kvadrant ut fra begge fortegnene, flytt A og les av vinkelen
 mot klokka fra positiv x-akse. Svaret skal være i radianer med tre
-desimaler; relativt avvik inntil én prosent godtas.
+desimaler; avvik inntil 0.015 rad godtas.
 
 :::
 

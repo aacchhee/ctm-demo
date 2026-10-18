@@ -5,17 +5,21 @@ into native math-exercise pools and JSXGraph figures. It needs no Moodle server.
 
 | Original question | Pool | Checking |
 |---|---:|---|
-| vinkler formlike trekanter a) | All 24 side-length pairs | Standard numeric, 3 decimal places; exact expressions accepted |
+| vinkler formlike trekanter a) | All 24 side-length pairs | Standard numeric, absolute tolerance 0.0005 (3 decimal places); exact expressions and more decimals accepted |
 | Trigonometriske verdier i enhetssirkelen | 71 valid combinations covering the original angle grid | Standard numeric, original absolute tolerance 0.02 |
-| Vinkel i enhetssirkelen | All 71 angles, 5°–355° | Standard numeric, original relative tolerance 1% |
+| Vinkel i enhetssirkelen | All 71 angles, 5°–355° | Standard numeric, absolute tolerance 0.015 rad |
 | Derivasjon og tangent rasjonal funksjon | All 159 valid parameter triples | Standard algebraic equivalence |
 
 STACK's LMS-specific partial-credit trees are replaced by ordinary field feedback
 (and averaging for multi-field exercises). In particular, the original secondary
 "approximately correct" tolerances and unequal derivative weights are not copied.
-The page states the acceptance precision. The inverse-angle question asks for
-three decimal places so the original 1% tolerance also works near zero. The
-trigonometric reading keys preserve STACK's two-significant-figure rounding.
+The page states the acceptance precision. The triangle ratio accepts an absolute
+deviation of 0.0005, so a correctly rounded three-decimal answer, an exact
+expression or more correct decimals all pass. The inverse-angle question asks
+for three decimal places and accepts a deviation of 0.015 rad: the given sine
+and cosine are rounded to two decimals, and STACK's original 1% relative
+tolerance rejected correct readings for the smallest angles. The trigonometric
+reading keys preserve STACK's two-significant-figure rounding.
 
 The native ↻ button selects a generated stable variant ID. `assets/stack/page.js`
 uses `cell.mathExercise.getVariant()` and `math-exercise:variant-change` to send
