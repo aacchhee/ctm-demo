@@ -110,12 +110,15 @@ def clone_or_update_plugin(
 
 def install_umbrella(assessment_repo: Path, project_root: Path, review_refs: dict[str,str]) -> None:
     """Build and install the package with CTM Assessment's own installer."""
-    run(
-        sys.executable,
-        str(assessment_repo / "scripts" / "install-project.py"),
-        "--project", str(project_root),
-        "--review-refs", json.dumps(review_refs),
-    )
+    try:
+        run(
+            sys.executable,
+            str(assessment_repo / "scripts" / "install-project.py"),
+            "--project", str(project_root),
+            "--review-refs", json.dumps(review_refs),
+        )
+    except subprocess.CalledProcessError:
+        sys.exit(1)  # the installer has printed the reason
 
 
 def main() -> None:
@@ -124,7 +127,14 @@ def main() -> None:
     raw = parser.parse_args().review_refs.strip()
     try:
         # JSON, or NAME=SHA[,NAME=SHA] (PowerShell 5.1 strips JSON's inner quotes).
-        review_refs = json.loads(raw) if raw.startswith("{") else dict(pair.split("=", 1) for pair in raw.split(",") if pair.strip())
+        if raw.startswith("{"):
+            review_refs = json.loads(raw)
+        else:
+            pairs = [pair.split("=", 1) for pair in raw.split(",") if pair.strip()]
+            names = [name.strip() for name, _ in pairs]
+            if len(set(names)) != len(names):
+                sys.exit("ERROR: --review-refs names a component twice")
+            review_refs = dict(pairs)
     except (ValueError, json.JSONDecodeError):
         sys.exit("ERROR: --review-refs must be JSON or NAME=SHA[,NAME=SHA]")
     if not isinstance(review_refs, dict):
