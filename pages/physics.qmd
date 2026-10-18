@@ -12,7 +12,8 @@ math-exercise:
 Denne siden samler fysikkprøvene fra 2024–2026. Hver prøve ligger i en egen
 nøstet fane. Regn først på papir og skriv deretter svarene i feltene. Bruk
 `pi`, `sqrt(...)` og eksakt brøk når oppgaven ber om et uttrykk. For numeriske
-svar er enheten skrevet ved feltet; ikke skriv enheten i selve feltet.
+svar er enheten skrevet ved feltet; ikke skriv enheten i selve feltet. Bruk
+desimalpunkt i svarfeltene.
 
 Når ikke annet er oppgitt, brukes
 $g=9.81\,\mathrm{m/s^2}$, $\varepsilon_0=8.854\cdot10^{-12}\,\mathrm{F/m}$,
