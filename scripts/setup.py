@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import shutil
 import subprocess
@@ -110,28 +109,13 @@ def clone_or_update_plugin(
 
 
 def install_umbrella(assessment_repo: Path, project_root: Path, review_refs: dict[str,str]) -> None:
-    """Use CTM Assessment's builder and manifest, then install its distribution."""
-    workspace = project_root / ".private-extensions" / "ctm-assessment-build"
+    """Build and install the package with CTM Assessment's own installer."""
     run(
         sys.executable,
-        str(assessment_repo / "scripts" / "setup-feedback-integration.py"),
-        "--workspace", str(workspace),
+        str(assessment_repo / "scripts" / "install-project.py"),
+        "--project", str(project_root),
         "--review-refs", json.dumps(review_refs),
     )
-    distribution = workspace / "ctm-assessment"
-    record = json.loads((distribution / "resolved-repos.json").read_text())
-    # Replace only extensions owned by this umbrella; preserve course extensions.
-    for name in record["extension_sha256"]:
-        installed = project_root / "_extensions" / name
-        if installed.exists():
-            shutil.rmtree(installed)
-    run("quarto", "add", str(distribution), "--no-prompt", cwd=project_root)
-    for name, files in record["extension_sha256"].items():
-        for relative, expected in files.items():
-            installed = project_root / "_extensions" / name / relative
-            if not installed.is_file() or hashlib.sha256(installed.read_bytes()).hexdigest() != expected:
-                sys.exit(f"ERROR: installed umbrella file differs: {name}/{relative}")
-    shutil.copy2(distribution / "resolved-repos.json", project_root / ".private-extensions" / "resolved-repos.json")
 
 
 def main() -> None:
