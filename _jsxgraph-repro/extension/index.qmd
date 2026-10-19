@@ -12,7 +12,10 @@ board. Each extension version has its own copy of this page:
 [overview and measurements](../index.html).
 
 To test a board in a tab: load the page in a wide window, open the tabs named
-at the board, then make the window narrow (about 390 px) and wide again.
+at the board, then make the window narrow (about 390 px) and wide again. A
+blank board after opening a tab (library problem 1) appears only if Chrome
+is not painting the window at that moment, for example while it is covered
+by another window.
 
 ## Visible at load (for comparison)
 

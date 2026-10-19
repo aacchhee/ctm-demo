@@ -22,6 +22,10 @@
 <a href="?v=1.9.1">1.9.1</a> · <a href="?v=1.13.3">1.13.3</a> ·
 <a href="?v=1.14.0">1.14.0</a> · <a href="?v=1.14.0&amp;visible">1.14.0, created visible (reference)</a> ·
 <a href="../index.html">overview</a></p>
+<p><button type="button" id="show">Show</button></p>
+<div id="wrap" style="display:none"><div id="box" class="jxgbox" style="width:100%;height:300px"></div></div>
+<p id="status"></p>
+
 <p>The board is defined by <code>unitX: 50, unitY: 50, originX: 250,
 originY: 150</code> (no bounding box) and created in a div of
 <code>width: 100%; height: 300px</code> whose parent is
@@ -36,9 +40,7 @@ screen position (300, 100), after showing and after the resize.<br>
 <strong>Seen:</strong> after showing, unitX is Infinity and P's position is
 NaN; after the next resize the board uses the default bounding box
 [−5, 5, 5, −5] instead of the given units and origin.</p>
-<p><button type="button" id="show">Show</button></p>
-<div id="wrap" style="display:none"><div id="box" class="jxgbox" style="width:100%;height:300px"></div></div>
-<p id="status"></p>
+
 <script>
   document.getElementById('version').textContent = V + (/[?&]visible/.test(location.search) ? ', created visible' : '');
   if (/[?&]visible/.test(location.search)) document.getElementById('wrap').style.display = 'block';
