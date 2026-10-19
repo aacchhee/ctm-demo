@@ -170,9 +170,10 @@ def main() -> None:
             f"({plugin['path']}, ref: {plugin['ref']})"
         )
 
-    if len(plugins) != 1 or plugins[0]["name"] != "ctm-assessment" or plugins[0]["ref"] != "main":
-        sys.exit("ERROR: configure only ctm-assessment at main; its manifest owns the component sources.")
-    assessment_ref = review_refs.pop("ctm-assessment", "main")
+    if len(plugins) != 1 or plugins[0]["name"] != "ctm-assessment":
+        sys.exit("ERROR: configure only ctm-assessment; its manifest owns the component sources.")
+    # ref: main follows the tested package; a branch or full commit pins it.
+    assessment_ref = review_refs.pop("ctm-assessment", plugins[0]["ref"])
     if review_refs or assessment_ref != "main":
         print("Explicit review dependencies:", assessment_ref, review_refs)
     assessment_repo = clone_or_update_plugin({**plugins[0], "ref": assessment_ref}, private_root)

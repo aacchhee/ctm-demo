@@ -2,5 +2,7 @@
 plugins:
 - name: ctm-assessment
   repo: https://github.com/Erasmus-CTM/ctm-assessment.git
-  ref: main
+  # Pinned during the step-4 migration of CTM Assessment; the migration PR
+  # sets it back to main after the old-vs-new browser check.
+  ref: 9ed46a449f41518d98fbd1b0964f6b3dce1ba0d7
   path: _extensions/ctm-assessment
