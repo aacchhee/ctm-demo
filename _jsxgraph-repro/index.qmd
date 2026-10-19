@@ -1,69 +1,325 @@
 ---
-title: "JSXGraph board in a tab: reproduction"
+title: "JSXGraph boards in hidden tabs: what was measured"
 ---
 
-This page is built on its own, with old commits: the JSXGraph Quarto
-extension as ctm-demo used it on 22 September 2026 (math-exercise
-`dad1ddd`; its filter is the same as jsxgraph-quarto main `59d549c`) and
-the original code of the solenoid figure (ctm-demo `60b1cb0`). The
-JSXGraph library itself is loaded from the CDN, as then.
+A temporary page about boards that misbehave in hidden Quarto tabs. Two
+separate pieces of software are involved, and they are kept apart here:
 
-To see the problem:
+- the **JSXGraph library** (jsxgraph/jsxgraph, loaded from jsDelivr);
+- the **jsxgraph-quarto extension** (jsxgraph/jsxgraph-quarto), which puts
+  each board into its own sandboxed `data:` iframe in a Quarto page.
 
-1.  Open the tab **2025**, then **Prøve 4**. The board shows correctly.
-2.  Make the window narrow, or turn a phone to portrait. The board keeps its
-    wide size and is cut off on the right; it does not follow the page.
+Everything below was measured; the method is under
+[Measurements](#measurements). The test pages are built from old commits
+fetched at build time.
 
-[Back to the course](https://aacchhee.github.io/ctm-demo/)
+## Summary
 
-::: {.panel-tabset}
+**JSXGraph library** (1.12.2, 1.13.3 and 1.14.0 behave the same):
 
-## 2024
+- A board created while hidden gets a 0×0 size and a NaN bounding box. No
+  error is thrown (none in any run, in any frame).
+- When the hidden div or hidden iframe is shown, JSXGraph's own
+  ResizeObserver resizes the board, and the board then follows the window
+  when it is narrowed and widened. This holds for a `display:none` div and for
+  a hidden sandboxed `data:` iframe. In Chromium, neither "an error stops the
+  applet" nor "the ResizeObserver misses that the iframe becomes visible"
+  happens.
+- One real problem: a board with `keepaspectratio: true` that is created in
+  a hidden **iframe** shows the wrong view once shown, zoomed out by about
+  1.8 times (pendulum: x −6.95…18.95 instead of −1.4…13.4). In a hidden div
+  the view is right. See [problem 3](#p3).
+- A visible board with `keepaspectratio: true` directly in a page (no iframe)
+  is cropped at the sides when the window is narrowed. This may be intended.
+  See [problem 4](#p4).
 
-::: {.panel-tabset}
+**jsxgraph-quarto extension** (all three with JSXGraph 1.14.0):
 
-### Prøve 1
+- **a26aea8** (before PR #1) has no sizing code of its own; JSXGraph does all
+  of it. Every board fills its frame at every step. Only the library's
+  keepaspectratio problem shows (the three keepaspectratio figures, six of
+  the twelve boards).
+- **59d549c** (current main, with PR #1) breaks resizing after the first
+  size change: a board shown from a hidden tab stays at its first width when
+  the window is narrowed (solenoid: 727 px in a 267 px frame, with a
+  scrollbar), and a visible board stays narrow when the window is widened
+  again (339 px in a 760 px frame). See [problem 1](#p1) and
+  [problem 2](#p2). The cause is in the extension, not in JSXGraph: PR #1's
+  `refreshBoards()` calls `board.resizeContainer(w, h)`, which writes fixed
+  pixel sizes into the board div's style; from then on the div no longer
+  follows the iframe, so neither JSXGraph's ResizeObserver nor the extension's
+  own code sees a new size.
+- **17de83e** (the fork's PR #2) passes every cell: all twelve boards fill
+  their frames with the intended view at load, after showing, at 390 px and
+  back at 1200 px. It turns JSXGraph's own resizing off, sizes the boards from
+  the iframe without fixing the div's pixel size, and starts hidden boards at
+  a provisional pixel size.
 
-No figure here.
+**Figure code** (the course's own code, not JSXGraph and not the extension):
 
-### Prøve 4
+- The figures' own resize code (`fitBoard`, present since the figures were
+  first committed in 3d7c60f) changes nothing that was measured: each figure
+  gives the same result with and without it, in every extension version.
+- The solenoid's own start-when-visible code (5edafe5) works with a26aea8
+  and 17de83e; with 59d549c it shrinks but does not grow back (267 px in a
+  727 px frame).
+- The pendulum figure as first committed draws its angle mark on the wrong
+  side of the string. That is a mistake in the figure, corrected later in
+  the course (7bf188c), and has nothing to do with sizing.
 
-No figure here.
+## Problems that still occur {#problems}
 
+Current versions: JSXGraph 1.14.0 and jsxgraph-quarto main 59d549c.
+
+### 1. A board shown from a hidden tab does not shrink with the window {#p1}
+
+- **Software:** jsxgraph-quarto extension, main
+  [59d549c](https://github.com/jsxgraph/jsxgraph-quarto/commit/59d549c)
+  (introduced in e9d575b, PR #1). Not the library: the same boards with the
+  same JSXGraph 1.14.0 follow the window with extension a26aea8 and with the
+  plain library pages.
+- **Test page:** [extension 59d549c](extension-59d549c/index.html)
+- **Steps:**
+  1. Open the page in a wide window (1200 px or more).
+  2. Open the tab **2025**, then **Prøve 4**. The first solenoid fills its
+     frame (727 px).
+  3. Make the window narrow, about 390 px (or use the device toolbar of the
+     developer tools).
+- **Expected:** the board shrinks with its frame (267 px) and shows all 30
+  turns.
+- **Seen:** the board stays 727 px wide inside the 267 px frame; it is cut
+  off at the right and the frame gets a horizontal scrollbar. The same
+  happens to every board in the tabs (r(t), Eₚ, pendulum, magnetic field).
+- **Compare:** the same steps on [a26aea8](extension-a26aea8/index.html) and
+  [17de83e](extension-17de83e/index.html).
+
+### 2. A visible board does not grow back when the window is widened {#p2}
+
+- **Software:** jsxgraph-quarto extension, main 59d549c (same cause as
+  problem 1).
+- **Test page:** [extension 59d549c](extension-59d549c/index.html), section
+  "Visible at load".
+- **Steps:**
+  1. Open the page in a wide window (1200 px or more). The solenoid at the
+     top fills its 760 px frame.
+  2. Make the window narrow (about 390 px). The board shrinks to 339 px.
+  3. Make the window wide again.
+- **Expected:** the board grows back to 760 px.
+- **Seen:** the board stays 339 px wide at the left of the 760 px frame.
+  The solenoid with its own start-when-visible code (2025 → Prøve 4, third
+  board) does the same: 267 px in a 727 px frame.
+
+### 3. A keepaspectratio board created in a hidden iframe shows the wrong view {#p3}
+
+- **Software:** JSXGraph library, 1.12.2, 1.13.3 and 1.14.0 alike. Seen in
+  Quarto with extensions a26aea8 and 59d549c, which leave the view to
+  JSXGraph; the fork (17de83e) sets the view itself and does not show it.
+- **Test page:** [JSXGraph 1.14.0, plain HTML](library/jsxgraph-1.14.0.html)
+  (also [1.12.2](library/jsxgraph-1.12.2.html) and
+  [1.13.3](library/jsxgraph-1.13.3.html)).
+- **Steps:**
+  1. Open the page in a wide window (1200 px or more).
+  2. Press **Show** under (c).
+  3. Compare the pendulum in (c) with the pendulum in (a).
+  4. Narrow the window to about 390 px, then widen it again.
+- **Expected:** (c) looks like (a): the cart fills most of the frame's
+  height (x −1.4…13.4, y −1…7).
+- **Seen:** in (c) the figure is much smaller, about 300 px of the 718 px
+  width (x −6.95…18.95, y −4…10). When narrowed, the view is right; when
+  widened again, it is wrong again. The pendulum in (b), a hidden div rather
+  than an iframe, is right. The solenoid (`keepaspectratio: false`) is right
+  everywhere.
+- **In Quarto:** [extension 59d549c](extension-59d549c/index.html) or
+  [a26aea8](extension-a26aea8/index.html), tab 2025 → Prøve 1 (pendulum,
+  about 1.8 times too small), 2025 → Prøve 3 (magnetic field, about
+  1.3 times too small) and 2024 → Prøve 1 (Eₚ, about 5 % too large, so its
+  edges are cut).
+
+### 4. A visible keepaspectratio board in a page div is cropped when narrowed {#p4}
+
+This one is about visible boards, not hidden ones, and may be intended
+behaviour. It is listed for completeness.
+
+- **Software:** JSXGraph library, 1.12.2, 1.13.3 and 1.14.0 alike. Not seen in
+  Quarto: in the extension's iframes the narrowed board shows the whole view.
+- **Test page:** [JSXGraph 1.14.0, plain HTML](library/jsxgraph-1.14.0.html),
+  pendulum in (a) (and in (b) after **Show**).
+- **Steps:** open the page in a wide window, then narrow it to about 390 px.
+- **Expected:** the whole cart stays visible, smaller (x −1…13).
+- **Seen:** only x 2…10 is shown; the y axis, the left end of the cart and
+  the arrow "a" are cut off. Widening restores the full view.
+
+## Library investigation {#library-investigation}
+
+Reserved for the results of a separate, closer look at the JSXGraph library
+code. Not written yet.
+
+## Measurements {#measurements}
+
+**When and how.** 19 October 2026, in Chromium 141.0.7390.37 (Playwright's
+headless shell) on Linux. The pages were the ones published here, served
+locally; jsDelivr's JSXGraph files were answered with the npm packages of the
+same versions (jsxgraph 1.12.2, 1.13.3 and 1.14.0), and other outside requests
+(MathJax) were blocked; none of the boards uses formulas. Each placement (plain
+pages) and each tab (Quarto pages) was measured on a fresh page load in a
+1200×900 window: wait 2.5 s; show the board (press
+**Show**, or open the tabs); set the window width to 390 px; set it back to
+1200 px; wait 1.5 s after each step. Before each board is measured it is
+scrolled into view, as a reader would. (Chromium does not run rendering
+updates, ResizeObserver callbacks included, for cross-origin iframes outside
+the viewport. Without scrolling, boards below the fold lagged one step behind
+until they were scrolled to.)
+
+**What.** For each board: uncaught errors and console errors (all frames);
+the board's size (`canvasWidth`, `canvasHeight`) against its frame (the
+iframe, or the page column for the plain divs); and its bounding box
+(`getBoundingBox()`). The *intended view* is the view of a board created
+visible at that size: the bounding box from the figure code, and with
+`keepaspectratio: true` that box widened in one direction to the frame's
+aspect ratio about its centre (what JSXGraph itself shows in (a) at load).
+Deviations are in bold. There were no errors in any run.
+
+**Not measured:** Firefox, Safari, real phones and rotating them, a window
+resized while the tab is still hidden, page zoom.
+
+**Repeated with JSXGraph 1.13.3.** All three extension pages were measured a
+second time with JSXGraph 1.13.3 served in place of 1.14.0: the same sizes
+and views in every cell, and no errors.
+
+**One irregular reading.** In one of the runs, a board in a tab that was never
+opened (2024 → Prøve 1, extension a26aea8) already had its full size at load.
+Chromium sometimes reports a stale window size for a hidden iframe. It did not
+happen again in two repeats and does not affect the tables.
+
+### Library only: plain HTML pages
+
+[1.12.2](library/jsxgraph-1.12.2.html) ·
+[1.13.3](library/jsxgraph-1.13.3.html) ·
+[1.14.0](library/jsxgraph-1.14.0.html). No Quarto, no extension; the same
+board code runs at page load in (a) a visible div, (b) a div whose parent
+has `display:none`, shown by a button, and (c) a sandboxed `data:` iframe whose
+parent has `display:none`, shown by a button.
+
+::: {.table-responsive}
+| JSXGraph, placement, figure | At load (1200 px) | After showing | Narrowed to 390 px | Widened to 1200 px |
+|---|---|---|---|---|
+| 1.12.2 (a) visible, solenoid | fills frame (758 px); view as intended | (visible from the start) | fills frame (356 px); view as intended | fills frame (758 px); view as intended |
+| 1.12.2 (a) visible, pendulum | fills frame (718 px); view as intended | (visible from the start) | fills frame (356 px); **view x 2…10, y −1.36…7.36** (intended x −1…13, y −4.63…10.63) | fills frame (718 px); view as intended |
+| 1.12.2 (b) hidden div, solenoid | board 0×0, view NaN, no error | fills frame (758 px); view as intended | fills frame (356 px); view as intended | fills frame (758 px); view as intended |
+| 1.12.2 (b) hidden div, pendulum | board 0×0, view NaN, no error | fills frame (718 px); view as intended | fills frame (356 px); **view x 2…10, y −1.36…7.36** (intended x −1…13, y −4.63…10.63) | fills frame (718 px); view as intended |
+| 1.12.2 (c) hidden iframe, solenoid | board 0×0, view NaN, no error | fills frame (758 px); view as intended | fills frame (356 px); view as intended | fills frame (758 px); view as intended |
+| 1.12.2 (c) hidden iframe, pendulum | board 0×0, view NaN, no error | fills frame (718 px); **view x −6.95…18.95, y −4…10** (intended x −1.4…13.4, y −1…7) | fills frame (356 px); view as intended | fills frame (718 px); **view x −6.95…18.95, y −4…10** (intended x −1.4…13.4, y −1…7) |
+| 1.13.3 (a) visible, solenoid | fills frame (758 px); view as intended | (visible from the start) | fills frame (356 px); view as intended | fills frame (758 px); view as intended |
+| 1.13.3 (a) visible, pendulum | fills frame (718 px); view as intended | (visible from the start) | fills frame (356 px); **view x 2…10, y −1.36…7.36** (intended x −1…13, y −4.63…10.63) | fills frame (718 px); view as intended |
+| 1.13.3 (b) hidden div, solenoid | board 0×0, view NaN, no error | fills frame (758 px); view as intended | fills frame (356 px); view as intended | fills frame (758 px); view as intended |
+| 1.13.3 (b) hidden div, pendulum | board 0×0, view NaN, no error | fills frame (718 px); view as intended | fills frame (356 px); **view x 2…10, y −1.36…7.36** (intended x −1…13, y −4.63…10.63) | fills frame (718 px); view as intended |
+| 1.13.3 (c) hidden iframe, solenoid | board 0×0, view NaN, no error | fills frame (758 px); view as intended | fills frame (356 px); view as intended | fills frame (758 px); view as intended |
+| 1.13.3 (c) hidden iframe, pendulum | board 0×0, view NaN, no error | fills frame (718 px); **view x −6.95…18.95, y −4…10** (intended x −1.4…13.4, y −1…7) | fills frame (356 px); view as intended | fills frame (718 px); **view x −6.95…18.95, y −4…10** (intended x −1.4…13.4, y −1…7) |
+| 1.14.0 (a) visible, solenoid | fills frame (758 px); view as intended | (visible from the start) | fills frame (356 px); view as intended | fills frame (758 px); view as intended |
+| 1.14.0 (a) visible, pendulum | fills frame (718 px); view as intended | (visible from the start) | fills frame (356 px); **view x 2…10, y −1.36…7.36** (intended x −1…13, y −4.63…10.63) | fills frame (718 px); view as intended |
+| 1.14.0 (b) hidden div, solenoid | board 0×0, view NaN, no error | fills frame (758 px); view as intended | fills frame (356 px); view as intended | fills frame (758 px); view as intended |
+| 1.14.0 (b) hidden div, pendulum | board 0×0, view NaN, no error | fills frame (718 px); view as intended | fills frame (356 px); **view x 2…10, y −1.36…7.36** (intended x −1…13, y −4.63…10.63) | fills frame (718 px); view as intended |
+| 1.14.0 (c) hidden iframe, solenoid | board 0×0, view NaN, no error | fills frame (758 px); view as intended | fills frame (356 px); view as intended | fills frame (758 px); view as intended |
+| 1.14.0 (c) hidden iframe, pendulum | board 0×0, view NaN, no error | fills frame (718 px); **view x −6.95…18.95, y −4…10** (intended x −1.4…13.4, y −1…7) | fills frame (356 px); view as intended | fills frame (718 px); **view x −6.95…18.95, y −4…10** (intended x −1.4…13.4, y −1…7) |
 :::
 
-## 2025
+### Extension a26aea8 (before PR #1)
 
-::: {.panel-tabset}
+[Test page](extension-a26aea8/index.html). Extension
+jsxgraph/jsxgraph-quarto a26aea8, JSXGraph 1.14.0 from jsDelivr (the CSS is
+the extension's bundled 1.13.3 copy, which this version always inlines).
 
-### Prøve 1
-
-No figure here.
-
-### Prøve 4
-
-```{.jsxgraph width="760" height="320" style="width:100%;max-width:760px;height:320px;border:0;"}
-var b=JXG.JSXGraph.initBoard(BOARDID,{boundingbox:[-1,3,14,-3],axis:false,keepaspectratio:false,showNavigation:false,showCopyright:false});
-var x0=1,x1=11.7,turns=30;
-for(var i=0;i<turns;i++){
-  var x=x0+i*(x1-x0)/(turns-1),outerX=[],outerY=[],innerX=[],innerY=[];
-  for(var j=0;j<=64;j++){
-    var angle=2*Math.PI*j/64,dx=.16*Math.cos(angle);
-    outerX.push(x+dx); outerY.push(1.75*Math.sin(angle));
-    innerX.push(x+dx); innerY.push(.75*Math.sin(angle));
-  }
-  b.create('curve',[outerX,outerY],{strokeColor:'#1565c0',strokeWidth:1.35,fixed:true,highlight:false});
-  b.create('curve',[innerX,innerY],{strokeColor:'#9b1c31',strokeWidth:1.35,fixed:true,highlight:false});
-}
-b.create('segment',[[.6,0],[13.3,0]],{strokeColor:'#243447',strokeWidth:1.5,fixed:true,highlight:false});
-b.create('segment',[[x0,-2.35],[x1,-2.35]],{strokeColor:'#243447',firstArrow:true,lastArrow:true,fixed:true,highlight:false});
-b.create('segment',[[x0,-2.15],[x0,-1.85]],{strokeColor:'#243447',dash:2,fixed:true,highlight:false});
-b.create('segment',[[x1,-2.15],[x1,-1.85]],{strokeColor:'#243447',dash:2,fixed:true,highlight:false});
-b.create('text',[(x0+x1)/2,-2.65,'lengde ℓ'],{fixed:true,fontSize:18,anchorX:'middle'}); b.create('text',[12.2,.65,'a'],{fixed:true,color:'#9b1c31',fontSize:17}); b.create('text',[12.2,1.65,'2a'],{fixed:true,color:'#1565c0',fontSize:17});
-var graphBox=document.querySelector('.jxgbox'); function fitBoard(){var w=graphBox.clientWidth,h=graphBox.clientHeight;if(w>0&&h>0){b.resizeContainer(w,h,true);b.fullUpdate();}}
-if(typeof ResizeObserver!=='undefined')new ResizeObserver(fitBoard).observe(graphBox); window.addEventListener('pageshow',fitBoard);
-```
-
+::: {.table-responsive}
+| Figure (tab) | At load (1200 px) | After showing | Narrowed to 390 px | Widened to 1200 px |
+|---|---|---|---|---|
+| Solenoid, visible at load (no tab) | fills frame (760 px); view as intended | (visible from the start) | fills frame (339 px); view as intended | fills frame (760 px); view as intended |
+| r(t), 3d7c60f as committed (2024 → Prøve 1) | board 0×0, view NaN, no error | fills frame (720 px); view as intended | fills frame (267 px); view as intended | fills frame (720 px); view as intended |
+| r(t), without own resize code (2024 → Prøve 1) | board 0×0, view NaN, no error | fills frame (720 px); view as intended | fills frame (267 px); view as intended | fills frame (720 px); view as intended |
+| Eₚ, 3d7c60f as committed (2024 → Prøve 1) | board 0×0, view NaN, no error | fills frame (560 px); **view x −1.61…1.61, y −1.41…1.29** (intended x −1.69…1.69, y −1.48…1.35) | fills frame (267 px); view as intended | fills frame (560 px); **view x −1.61…1.61, y −1.41…1.29** (intended x −1.69…1.69, y −1.48…1.35) |
+| Eₚ, without own resize code (2024 → Prøve 1) | board 0×0, view NaN, no error | fills frame (560 px); **view x −1.61…1.61, y −1.41…1.29** (intended x −1.69…1.69, y −1.48…1.35) | fills frame (267 px); view as intended | fills frame (560 px); **view x −1.61…1.61, y −1.41…1.29** (intended x −1.69…1.69, y −1.48…1.35) |
+| Pendulum, 3d7c60f as committed (2025 → Prøve 1) | board 0×0, view NaN, no error | fills frame (720 px); **view x −6.92…18.92, y −4…10** (intended x −1.38…13.38, y −1…7) | fills frame (267 px); view as intended | fills frame (720 px); **view x −6.92…18.92, y −4…10** (intended x −1.38…13.38, y −1…7) |
+| Pendulum, without own resize code (2025 → Prøve 1) | board 0×0, view NaN, no error | fills frame (720 px); **view x −6.92…18.92, y −4…10** (intended x −1.38…13.38, y −1…7) | fills frame (267 px); view as intended | fills frame (720 px); **view x −6.92…18.92, y −4…10** (intended x −1.38…13.38, y −1…7) |
+| Magnetic field, 3d7c60f as committed (2025 → Prøve 3) | board 0×0, view NaN, no error | fills frame (500 px); **view x −4.27…7.27, y −3…6** (intended x −3…6, y −2.01…5.01) | fills frame (267 px); view as intended | fills frame (500 px); **view x −4.27…7.27, y −3…6** (intended x −3…6, y −2.01…5.01) |
+| Magnetic field, without own resize code (2025 → Prøve 3) | board 0×0, view NaN, no error | fills frame (500 px); **view x −4.27…7.27, y −3…6** (intended x −3…6, y −2.01…5.01) | fills frame (267 px); view as intended | fills frame (500 px); **view x −4.27…7.27, y −3…6** (intended x −3…6, y −2.01…5.01) |
+| Solenoid, 60b1cb0 without own resize code (2025 → Prøve 4) | board 0×0, view NaN, no error | fills frame (727 px); view as intended | fills frame (267 px); view as intended | fills frame (727 px); view as intended |
+| Solenoid, 60b1cb0 as committed (2025 → Prøve 4) | board 0×0, view NaN, no error | fills frame (727 px); view as intended | fills frame (267 px); view as intended | fills frame (727 px); view as intended |
+| Solenoid, 5edafe5 (own start-when-visible code) (2025 → Prøve 4) | no board yet (starts when visible) | fills frame (727 px); view as intended | fills frame (267 px); view as intended | fills frame (727 px); view as intended |
 :::
 
+### Extension 59d549c (main, with PR #1)
+
+[Test page](extension-59d549c/index.html). Extension
+jsxgraph/jsxgraph-quarto 59d549c, JSXGraph 1.14.0 from jsDelivr. This is the
+extension's filter as the course used it on 22 September 2026 (then from the
+copy in Erasmus-CTM/math-exercise dad1ddd, which has the same filter).
+
+::: {.table-responsive}
+| Figure (tab) | At load (1200 px) | After showing | Narrowed to 390 px | Widened to 1200 px |
+|---|---|---|---|---|
+| Solenoid, visible at load (no tab) | fills frame (760 px); view as intended | (visible from the start) | fills frame (339 px); view as intended | **board 339 px in 760 px frame**; view as intended |
+| r(t), 3d7c60f as committed (2024 → Prøve 1) | board 0×0, view NaN, no error | fills frame (720 px); view as intended | **board 720 px in 267 px frame** (scrollbar); view as intended | fills frame (720 px); view as intended |
+| r(t), without own resize code (2024 → Prøve 1) | board 0×0, view NaN, no error | fills frame (720 px); view as intended | **board 720 px in 267 px frame** (scrollbar); view as intended | fills frame (720 px); view as intended |
+| Eₚ, 3d7c60f as committed (2024 → Prøve 1) | board 0×0, view NaN, no error | fills frame (560 px); **view x −1.61…1.61, y −1.41…1.29** (intended x −1.69…1.69, y −1.48…1.35) | **board 560 px in 267 px frame** (scrollbar); **view x −1.61…1.61, y −1.41…1.29** (intended x −1.69…1.69, y −1.48…1.35) | fills frame (560 px); **view x −1.61…1.61, y −1.41…1.29** (intended x −1.69…1.69, y −1.48…1.35) |
+| Eₚ, without own resize code (2024 → Prøve 1) | board 0×0, view NaN, no error | fills frame (560 px); **view x −1.61…1.61, y −1.41…1.29** (intended x −1.69…1.69, y −1.48…1.35) | **board 560 px in 267 px frame** (scrollbar); **view x −1.61…1.61, y −1.41…1.29** (intended x −1.69…1.69, y −1.48…1.35) | fills frame (560 px); **view x −1.61…1.61, y −1.41…1.29** (intended x −1.69…1.69, y −1.48…1.35) |
+| Pendulum, 3d7c60f as committed (2025 → Prøve 1) | board 0×0, view NaN, no error | fills frame (720 px); **view x −6.92…18.92, y −4…10** (intended x −1.38…13.38, y −1…7) | **board 720 px in 267 px frame** (scrollbar); **view x −6.92…18.92, y −4…10** (intended x −1.38…13.38, y −1…7) | fills frame (720 px); **view x −6.92…18.92, y −4…10** (intended x −1.38…13.38, y −1…7) |
+| Pendulum, without own resize code (2025 → Prøve 1) | board 0×0, view NaN, no error | fills frame (720 px); **view x −6.92…18.92, y −4…10** (intended x −1.38…13.38, y −1…7) | **board 720 px in 267 px frame** (scrollbar); **view x −6.92…18.92, y −4…10** (intended x −1.38…13.38, y −1…7) | fills frame (720 px); **view x −6.92…18.92, y −4…10** (intended x −1.38…13.38, y −1…7) |
+| Magnetic field, 3d7c60f as committed (2025 → Prøve 3) | board 0×0, view NaN, no error | fills frame (500 px); **view x −4.27…7.27, y −3…6** (intended x −3…6, y −2.01…5.01) | **board 500 px in 267 px frame** (scrollbar); **view x −4.27…7.27, y −3…6** (intended x −3…6, y −2.01…5.01) | fills frame (500 px); **view x −4.27…7.27, y −3…6** (intended x −3…6, y −2.01…5.01) |
+| Magnetic field, without own resize code (2025 → Prøve 3) | board 0×0, view NaN, no error | fills frame (500 px); **view x −4.27…7.27, y −3…6** (intended x −3…6, y −2.01…5.01) | **board 500 px in 267 px frame** (scrollbar); **view x −4.27…7.27, y −3…6** (intended x −3…6, y −2.01…5.01) | fills frame (500 px); **view x −4.27…7.27, y −3…6** (intended x −3…6, y −2.01…5.01) |
+| Solenoid, 60b1cb0 without own resize code (2025 → Prøve 4) | board 0×0, view NaN, no error | fills frame (727 px); view as intended | **board 727 px in 267 px frame** (scrollbar); view as intended | fills frame (727 px); view as intended |
+| Solenoid, 60b1cb0 as committed (2025 → Prøve 4) | board 0×0, view NaN, no error | fills frame (727 px); view as intended | **board 727 px in 267 px frame** (scrollbar); view as intended | fills frame (727 px); view as intended |
+| Solenoid, 5edafe5 (own start-when-visible code) (2025 → Prøve 4) | no board yet (starts when visible) | fills frame (727 px); view as intended | fills frame (267 px); view as intended | **board 267 px in 727 px frame**; view as intended |
 :::
+
+### Extension 17de83e (the fork's PR #2)
+
+[Test page](extension-17de83e/index.html). Extension
+aacchhee/jsxgraph-quarto 17de83e, JSXGraph 1.14.0 from jsDelivr.
+
+::: {.table-responsive}
+| Figure (tab) | At load (1200 px) | After showing | Narrowed to 390 px | Widened to 1200 px |
+|---|---|---|---|---|
+| Solenoid, visible at load (no tab) | fills frame (760 px); view as intended | (visible from the start) | fills frame (339 px); view as intended | fills frame (760 px); view as intended |
+| r(t), 3d7c60f as committed (2024 → Prøve 1) | board 720×440 while hidden, no error | fills frame (720 px); view as intended | fills frame (267 px); view as intended | fills frame (720 px); view as intended |
+| r(t), without own resize code (2024 → Prøve 1) | board 720×440 while hidden, no error | fills frame (720 px); view as intended | fills frame (267 px); view as intended | fills frame (720 px); view as intended |
+| Eₚ, 3d7c60f as committed (2024 → Prøve 1) | board 560×470 while hidden, no error | fills frame (560 px); view as intended | fills frame (267 px); view as intended | fills frame (560 px); view as intended |
+| Eₚ, without own resize code (2024 → Prøve 1) | board 560×470 while hidden, no error | fills frame (560 px); view as intended | fills frame (267 px); view as intended | fills frame (560 px); view as intended |
+| Pendulum, 3d7c60f as committed (2025 → Prøve 1) | board 720×390 while hidden, no error | fills frame (720 px); view as intended | fills frame (267 px); view as intended | fills frame (720 px); view as intended |
+| Pendulum, without own resize code (2025 → Prøve 1) | board 720×390 while hidden, no error | fills frame (720 px); view as intended | fills frame (267 px); view as intended | fills frame (720 px); view as intended |
+| Magnetic field, 3d7c60f as committed (2025 → Prøve 3) | board 500×390 while hidden, no error | fills frame (500 px); view as intended | fills frame (267 px); view as intended | fills frame (500 px); view as intended |
+| Magnetic field, without own resize code (2025 → Prøve 3) | board 500×390 while hidden, no error | fills frame (500 px); view as intended | fills frame (267 px); view as intended | fills frame (500 px); view as intended |
+| Solenoid, 60b1cb0 without own resize code (2025 → Prøve 4) | board 760×320 while hidden, no error | fills frame (727 px); view as intended | fills frame (267 px); view as intended | fills frame (727 px); view as intended |
+| Solenoid, 60b1cb0 as committed (2025 → Prøve 4) | board 760×320 while hidden, no error | fills frame (727 px); view as intended | fills frame (267 px); view as intended | fills frame (727 px); view as intended |
+| Solenoid, 5edafe5 (own start-when-visible code) (2025 → Prøve 4) | board 760×320 while hidden, no error | fills frame (727 px); view as intended | fills frame (267 px); view as intended | fills frame (727 px); view as intended |
+:::
+
+## The figures
+
+All figure code comes from the course repository aacchhee/ctm-demo, fetched by
+commit when this page is built.
+
+::: {.table-responsive}
+| Figure | File | Versions used |
+|---|---|---|
+| r(t) | `_includes/physics/prove1-2024.md`, first board | 3d7c60f as committed; the same without its resize code |
+| Eₚ(r(θ)) | `_includes/physics/prove1-2024.md`, second board | 3d7c60f as committed; the same without its resize code |
+| Pendulum | `_includes/physics/prove1-2025.md` | 3d7c60f as committed; the same without its resize code |
+| Magnetic field | `_includes/physics/prove3-2025.md` | 3d7c60f as committed; the same without its resize code |
+| Solenoid | `_includes/physics/prove4-2025.md` | 60b1cb0 as committed; the same without its resize code; 5edafe5 (starts the board only when visible) |
+:::
+
+Every figure already had its own resize code when it was first committed
+(3d7c60f): four lines that observe the board div with a ResizeObserver and
+call `resizeContainer` (`fitBoard`). There is no earlier version without it.
+The versions "without own resize code" are the committed code with exactly
+those lines removed, which is what the course did in 4ea3ac5. Only the solenoid
+had more: 50cc14e and 5edafe5 added code that starts the board only when it is
+visible.
+
+## How this page is built
+
+`scripts/build-jsxgraph-repro.sh` in ctm-demo, run by the workflow step "Build
+the temporary JSXGraph reproduction (old commits)" after the course is
+rendered. It clones the repositories above, takes the figures and the three
+extension versions by commit, renders one Quarto page per extension version,
+writes one plain HTML page per JSXGraph version and puts everything under
+`jsxgraph-repro/`. The course pages do not link here.

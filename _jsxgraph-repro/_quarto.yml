@@ -1,19 +1,14 @@
-# Temporary reproduction for the JSXGraph team; remove together with
-# scripts/build-jsxgraph-repro.sh, its workflow step and the sidebar link.
-# Built separately from the site with old commits:
-#   JSXGraph extension: Erasmus-CTM/math-exercise dad1ddd, _extensions/jsxgraph
-#   (the copy ctm-demo used on 22 September 2026)
-#   applet: aacchhee/ctm-demo 60b1cb0, _includes/physics/prove4-2025.md
+# Temporary JSXGraph reproduction: the overview page. Built on its own by
+# scripts/build-jsxgraph-repro.sh (with library/ and extension/), not part of
+# the course site.
 project:
-  type: website
+  type: default
   output-dir: _site
-
-website:
-  title: "JSXGraph reproduction"
-
-filters:
-  - jsxgraph
+  render:
+    - index.qmd
 
 format:
   html:
     theme: cosmo
+    toc: true
+    toc-depth: 2

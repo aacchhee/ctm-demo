@@ -1,0 +1,127 @@
+---
+title: "Extension {{< meta ext_commit >}}: boards in tabs"
+---
+
+Built with the jsxgraph-quarto extension at {{< meta ext_label >}}. The
+JSXGraph library is the same for every extension version: 1.14.0 from
+jsDelivr. The figure code comes from old ctm-demo commits, as noted at each
+board. Each extension version has its own copy of this page:
+[a26aea8](../extension-a26aea8/index.html) (before PR #1) ·
+[59d549c](../extension-59d549c/index.html) (upstream main, PR #1) ·
+[17de83e](../extension-17de83e/index.html) (fork, PR #2) ·
+[overview and measurements](../index.html).
+
+To test a board in a tab: load the page in a wide window, open the tabs named
+at the board, then make the window narrow (about 390 px) and wide again.
+
+## Visible at load (for comparison)
+
+::: {#visible-solenoid .applet}
+Solenoid, ctm-demo `60b1cb0` without its own resize code.
+
+{{< include _applets/solenoid-plain.md >}}
+:::
+
+## In nested tabs, hidden at load
+
+The tabs are laid out as on the course's physics page, with one extra first
+tab, so that every board below is hidden when the page loads. The boards in
+2025 → Prøve 3 and Prøve 4 sit in two hidden tabs, one inside the other.
+
+::: {.panel-tabset}
+
+## Start
+
+No figure here. Open **2024** or **2025**.
+
+## 2024
+
+::: {.panel-tabset}
+
+### Prøve 1
+
+::: {#rt-original .applet}
+#### r(t), as first committed (3d7c60f, with its own resize code)
+
+{{< include _applets/rt-original.md >}}
+:::
+
+::: {#rt-plain .applet}
+#### r(t), without its own resize code
+
+{{< include _applets/rt-plain.md >}}
+:::
+
+::: {#ep-original .applet}
+#### Eₚ(r(θ)), as first committed (3d7c60f, with its own resize code)
+
+{{< include _applets/ep-original.md >}}
+:::
+
+::: {#ep-plain .applet}
+#### Eₚ(r(θ)), without its own resize code
+
+{{< include _applets/ep-plain.md >}}
+:::
+
+### Prøve 4
+
+No figure here.
+
+:::
+
+## 2025
+
+::: {.panel-tabset}
+
+### Prøve 1
+
+::: {#pendulum-original .applet}
+#### Pendulum, as first committed (3d7c60f, with its own resize code)
+
+{{< include _applets/pendulum-original.md >}}
+:::
+
+::: {#pendulum-plain .applet}
+#### Pendulum, without its own resize code
+
+{{< include _applets/pendulum-plain.md >}}
+:::
+
+### Prøve 3
+
+::: {#bfield-original .applet}
+#### Magnetic field, as first committed (3d7c60f, with its own resize code)
+
+{{< include _applets/bfield-original.md >}}
+:::
+
+::: {#bfield-plain .applet}
+#### Magnetic field, without its own resize code
+
+{{< include _applets/bfield-plain.md >}}
+:::
+
+### Prøve 4
+
+::: {#solenoid-plain .applet}
+#### Solenoid, without its own resize code (60b1cb0)
+
+{{< include _applets/solenoid-plain.md >}}
+:::
+
+::: {#solenoid-original .applet}
+#### Solenoid, as committed in 60b1cb0 (with its own resize code)
+
+{{< include _applets/solenoid-original.md >}}
+:::
+
+::: {#solenoid-deferred .applet}
+#### Solenoid, 5edafe5 (starts the board only when visible, own resize code)
+
+{{< include _applets/solenoid-deferred.md >}}
+:::
+
+:::
+
+:::

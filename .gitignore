@@ -7,6 +7,5 @@ __pycache__/
 *.pyc
 
 /_review-site/
-/_jsxgraph-repro/_extensions/
 /_jsxgraph-repro/_site/
 /_jsxgraph-repro/.quarto/
