@@ -41,10 +41,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-b6dc9e813fb09d2bbff48e8f9eb94b8d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/ai-feedback-0.7.0/feedback-core.js"></script>
-<script src="../site_libs/quarto-contrib/ai-feedback-0.7.0/feedback-dom.js"></script>
-<script src="../site_libs/quarto-contrib/ai-feedback-0.7.0/ai-feedback.js"></script>
-<link href="../site_libs/quarto-contrib/ai-feedback-0.7.0/ai-feedback.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/ai-feedback-0.8.1/feedback-core.js"></script>
+<script src="../site_libs/quarto-contrib/ai-feedback-0.8.1/feedback-dom.js"></script>
+<script src="../site_libs/quarto-contrib/ai-feedback-0.8.1/ai-feedback.js"></script>
+<link href="../site_libs/quarto-contrib/ai-feedback-0.8.1/ai-feedback.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -73,100 +73,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style type="text/css">
-/* ---- Exercise container ---- */
-.math-exercise-cell {
-  position: relative;
-  margin: 1.5em 0;
-  padding: 1.25em 1.5em;
-  border: 1px solid var(--bs-border-color, #dee2e6);
-  border-radius: .5em;
-  background: var(--bs-body-bg, #fafafa);
-  color: var(--bs-body-color, #212529);
-}
-
-/* ---- Explicit AI-feedback context block (::: {.math-exercise-context}) ---- */
-.math-exercise-context {
-  margin: 1.5em 0;
-  padding: .85em 1.1em;
-  border-left: 3px solid var(--bs-secondary-color, #6c757d);
-  background: var(--bs-tertiary-bg, #f8f9fa);
-  border-radius: 0 .35em .35em 0;
-}
-
-/* Pool reload button – top-right corner */
-.math-pool-reload {
-  position: absolute;
-  top: .55em;
-  right: .6em;
-  background: none;
-  border: 1px solid var(--bs-border-color, #ced4da);
-  border-radius: .3em;
-  padding: .1em .4em;
-  font-size: 1.05em;
-  line-height: 1;
-  cursor: pointer;
-  color: var(--bs-secondary-color, #6c757d);
-  transition: background .12s, color .12s;
-}
-.math-pool-reload:hover { background: var(--bs-tertiary-bg, #e9ecef); color: var(--bs-body-color, #212529); }
-
-.math-exercise-caption {
-  font-weight: 600;
-  font-size: 1.05em;
-  margin-bottom: 0;
-  color: var(--bs-body-color, #1a1a2e);
-  border-bottom: 2px solid var(--bs-border-color, #dee2e6);
-  padding-bottom: .35em;
-}
-
-/* Collapsible toggle */
-.math-exercise-toggle {
-  cursor: pointer;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  gap: .45em;
-}
-.math-exercise-toggle:hover { color: var(--bs-primary, #0d6efd); border-bottom-color: var(--bs-primary, #0d6efd); }
-.math-exercise-open .math-exercise-toggle { margin-bottom: .75em; }
-
-/* Keep collapsed interactive content in layout so iframe-based tools such as
-   JSXGraph initialize with real dimensions. Clipping and visibility preserve
-   the compact, non-interactive collapsed state without display:none. */
-.math-exercise-cell:not(.math-exercise-open) > .math-exercise-body {
-  height: 0;
-  overflow: hidden;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.math-chevron {
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;
-  transition: transform .18s ease;
-  color: var(--bs-secondary-color, #6c757d);
-  font-size: .7em;
-}
-.math-chevron::before { content: '▶'; }
-.math-exercise-open .math-chevron { transform: rotate(90deg); }
-
-.math-exercise-question {
-  margin-bottom: 1em;
-  line-height: 1.8;
-  color: var(--bs-body-color, #212529);
-}
-
-.math-exercise-response-slot {
-  margin: 0 0 1em;
-}
-
-.math-exercise-response-slot iframe {
-  display: block;
-  width: 100% !important;
-  max-width: 100%;
-}
-
+/* Matrix input presentation; also retained for legacy scalar/vector inputs.
+ * SPDX-License-Identifier: AGPL-3.0-or-later */
 /* ---- Input fields ---- */
 .math-input {
   font-family: 'Fira Mono', 'Consolas', 'Courier New', monospace;
@@ -346,6 +254,101 @@ ul.task-list li input[type="checkbox"] {
   color:        #7c2d12 !important;
 }
 
+
+/* ---- Exercise container ---- */
+.math-exercise-cell {
+  position: relative;
+  margin: 1.5em 0;
+  padding: 1.25em 1.5em;
+  border: 1px solid var(--bs-border-color, #dee2e6);
+  border-radius: .5em;
+  background: var(--bs-body-bg, #fafafa);
+  color: var(--bs-body-color, #212529);
+}
+
+/* ---- Explicit AI-feedback context block (::: {.math-exercise-context}) ---- */
+.math-exercise-context {
+  margin: 1.5em 0;
+  padding: .85em 1.1em;
+  border-left: 3px solid var(--bs-secondary-color, #6c757d);
+  background: var(--bs-tertiary-bg, #f8f9fa);
+  border-radius: 0 .35em .35em 0;
+}
+
+/* Pool reload button – top-right corner */
+.math-pool-reload {
+  position: absolute;
+  top: .55em;
+  right: .6em;
+  background: none;
+  border: 1px solid var(--bs-border-color, #ced4da);
+  border-radius: .3em;
+  padding: .1em .4em;
+  font-size: 1.05em;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--bs-secondary-color, #6c757d);
+  transition: background .12s, color .12s;
+}
+.math-pool-reload:hover { background: var(--bs-tertiary-bg, #e9ecef); color: var(--bs-body-color, #212529); }
+
+.math-exercise-caption {
+  font-weight: 600;
+  font-size: 1.05em;
+  margin-bottom: 0;
+  color: var(--bs-body-color, #1a1a2e);
+  border-bottom: 2px solid var(--bs-border-color, #dee2e6);
+  padding-bottom: .35em;
+}
+
+/* Collapsible toggle */
+.math-exercise-toggle {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: .45em;
+}
+.math-exercise-toggle:hover { color: var(--bs-primary, #0d6efd); border-bottom-color: var(--bs-primary, #0d6efd); }
+.math-exercise-open .math-exercise-toggle { margin-bottom: .75em; }
+
+/* Keep collapsed interactive content in layout so iframe-based tools such as
+   JSXGraph initialize with real dimensions. Clipping and visibility preserve
+   the compact, non-interactive collapsed state without display:none. */
+.math-exercise-cell:not(.math-exercise-open) > .math-exercise-body {
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.math-chevron {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: transform .18s ease;
+  color: var(--bs-secondary-color, #6c757d);
+  font-size: .7em;
+}
+.math-chevron::before { content: '▶'; }
+.math-exercise-open .math-chevron { transform: rotate(90deg); }
+
+.math-exercise-question {
+  margin-bottom: 1em;
+  line-height: 1.8;
+  color: var(--bs-body-color, #212529);
+}
+
+.math-exercise-response-slot {
+  margin: 0 0 1em;
+}
+
+.math-exercise-response-slot iframe {
+  display: block;
+  width: 100% !important;
+  max-width: 100%;
+}
+
 /* ---- Buttons ---- */
 .math-exercise-controls {
   display: flex;
@@ -514,12 +517,18 @@ ul.task-list li input[type="checkbox"] {
   margin: 0;
 }
 
-/* Shared settings must not stretch the existing Bootstrap controls. */
+/* Common CTM button size, shared by all CTM components (math-exercise,
+   py-exercise, pyodide-interaktiv, ai-feedback). Set the --ctm-button-*
+   variables in your CSS or theme to change all of them together. */
+.math-exercise-controls button,
+.math-exercise-controls .ai-feedback-gear {
+  font-size: var(--ctm-button-font-size, .875rem);
+  padding: var(--ctm-button-padding-y, .375rem) var(--ctm-button-padding-x, .75rem);
+  line-height: var(--ctm-button-line-height, 1.5);
+  border-radius: var(--ctm-button-radius, var(--bs-border-radius, .375rem));
+}
 .math-exercise-controls .ai-feedback-gear {
   margin: 0;
-  padding: .375rem .75rem;
-  font-size: inherit;
-  line-height: 1.5;
 }
 
 </style>
@@ -672,8 +681,8 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 <script>window.__aiFeedbackPolicies = {"layers":[],"pageLayers":[]};</script>
-<script>window.__aiFeedbackConfig = {"baseUrl":"","mode":"api","model":"","storage":"local"};</script>
-<script>window.__mathExerciseConfig = {"lang":"en"};</script>
+<script>window.__aiFeedbackConfig = {"baseUrl":"","mode":"api","model":""};</script>
+<script>window.__mathExerciseConfig = {"lang":"en","stopAfter":20};</script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -696,20 +705,20 @@ window.Quarto = {
 
 <div id="gauss-method-context" class="math-exercise-context">
 <p>Solve these three systems by <strong>forward elimination</strong>, followed by <strong>back substitution</strong>. The last system needs a row swap before elimination can begin.</p>
-<p>For an augmented matrix <span data-ai-feedback-display="false" data-ai-feedback-tex="[A\mid b]"><span class="math inline">\([A\mid b]\)</span></span>, the last column contains the right-hand side. Apply every row operation to that column too. A <strong>pivot</strong> is the nonzero entry used to eliminate entries below it. If the proposed pivot is zero, look for a nonzero entry below it and swap rows.</p>
+<p>For an augmented matrix <span data-ai-feedback-tex="[A\mid b]" data-ai-feedback-display="false"><span class="math inline">\([A\mid b]\)</span></span>, the last column contains the right-hand side. Apply every row operation to that column too. A <strong>pivot</strong> is the nonzero entry used to eliminate entries below it. If the proposed pivot is zero, look for a nonzero entry below it and swap rows.</p>
 <p>Work on paper first, then check your entries. Use exact numbers such as <code>1/2</code>. The matrix fields below include the right-hand side as their last column. Follow the specified row operations without further row scaling: other valid elimination routes can produce different intermediate matrices.</p>
 </div>
 <section id="a-22-system" class="level2">
 <h2 class="anchored" data-anchor-id="a-22-system">1. A 2×2 system</h2>
 <div id="gauss-system-1-context" class="math-exercise-context">
-<p><span data-ai-feedback-display="true" data-ai-feedback-tex="
+<p><span data-ai-feedback-tex="
 \begin{aligned}
 x+y&amp;=5,\\
 2x-y&amp;=1.
 \end{aligned}
 \qquad
 [A\mid b]=\begin{bmatrix}1&amp;1&amp;5\\2&amp;-1&amp;1\end{bmatrix}.
-"><span class="math display">\[
+" data-ai-feedback-display="true"><span class="math display">\[
 \begin{aligned}
 x+y&amp;=5,\\
 2x-y&amp;=1.
@@ -721,7 +730,7 @@ x+y&amp;=5,\\
 <section id="a.-eliminate-below-the-first-pivot" class="level3">
 <h3 class="anchored" data-anchor-id="a.-eliminate-below-the-first-pivot">A. Eliminate below the first pivot</h3>
 <div id="gauss-2x2-elimination-context" class="math-exercise-context">
-<p>Apply <span data-ai-feedback-display="false" data-ai-feedback-tex="R_2\leftarrow R_2-2R_1"><span class="math inline">\(R_2\leftarrow R_2-2R_1\)</span></span>, keeping <span data-ai-feedback-display="false" data-ai-feedback-tex="R_1"><span class="math inline">\(R_1\)</span></span> unchanged. Enter the resulting augmented matrix.</p>
+<p>Apply <span data-ai-feedback-tex="R_2\leftarrow R_2-2R_1" data-ai-feedback-display="false"><span class="math inline">\(R_2\leftarrow R_2-2R_1\)</span></span>, keeping <span data-ai-feedback-tex="R_1" data-ai-feedback-display="false"><span class="math inline">\(R_1\)</span></span> unchanged. Enter the resulting augmented matrix.</p>
 </div>
 <div class="math-exercise-cell" id="math-exercise-1" data-label="gauss-2x2-elimination" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;gauss-2x2-elimination&quot;,&quot;name&quot;:&quot;&quot;}" data-context-mode="explicit" data-context-refs="gauss-method-context, gauss-system-1-context, gauss-2x2-elimination-context" data-context="&quot;A. Eliminate below the first pivot\nApply \\(R_2\\leftarrow R_2-2R_1\\), keeping \\(R_1\\) unchanged. Enter the resulting augmented matrix.&quot;" data-fields="[&quot;math-exercise-1-f1&quot;,&quot;math-exercise-1-f2&quot;,&quot;math-exercise-1-f3&quot;,&quot;math-exercise-1-f4&quot;,&quot;math-exercise-1-f5&quot;,&quot;math-exercise-1-f6&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;]">
 <div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="1A — one elimination step" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>1A — one elimination step</div>
@@ -745,7 +754,7 @@ x+y&amp;=5,\\
 <section id="b.-back-substitute" class="level3">
 <h3 class="anchored" data-anchor-id="b.-back-substitute">B. Back substitute</h3>
 <div id="gauss-2x2-solution-context" class="math-exercise-context">
-<p>Use the second row to find <span data-ai-feedback-display="false" data-ai-feedback-tex="y"><span class="math inline">\(y\)</span></span>, then use the first row to find <span data-ai-feedback-display="false" data-ai-feedback-tex="x"><span class="math inline">\(x\)</span></span>.</p>
+<p>Use the second row to find <span data-ai-feedback-tex="y" data-ai-feedback-display="false"><span class="math inline">\(y\)</span></span>, then use the first row to find <span data-ai-feedback-tex="x" data-ai-feedback-display="false"><span class="math inline">\(x\)</span></span>.</p>
 </div>
 <div class="math-exercise-cell" id="math-exercise-2" data-label="gauss-2x2-solution" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[&quot;x&quot;,&quot;y&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;gauss-2x2-solution&quot;,&quot;name&quot;:&quot;&quot;}" data-context-mode="explicit" data-context-refs="gauss-method-context, gauss-system-1-context, gauss-2x2-solution-context" data-context="&quot;B. Back substitute\nUse the second row to find \\(y\\), then use the first row to find \\(x\\).&quot;" data-fields="[&quot;math-exercise-2-f1&quot;,&quot;math-exercise-2-f2&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;]">
 <div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="1B — solve the triangular system" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>1B — solve the triangular system</div>
@@ -780,7 +789,7 @@ Hint for problem 1
 <section id="a-33-system" class="level2">
 <h2 class="anchored" data-anchor-id="a-33-system">2. A 3×3 system</h2>
 <div id="gauss-system-2-context" class="math-exercise-context">
-<p><span data-ai-feedback-display="true" data-ai-feedback-tex="
+<p><span data-ai-feedback-tex="
 \begin{aligned}
 x+y+z&amp;=6,\\
 2x+3y+z&amp;=11,\\
@@ -788,7 +797,7 @@ x-y+2z&amp;=5.
 \end{aligned}
 \qquad
 [A\mid b]=\begin{bmatrix}1&amp;1&amp;1&amp;6\\2&amp;3&amp;1&amp;11\\1&amp;-1&amp;2&amp;5\end{bmatrix}.
-"><span class="math display">\[
+" data-ai-feedback-display="true"><span class="math display">\[
 \begin{aligned}
 x+y+z&amp;=6,\\
 2x+3y+z&amp;=11,\\
@@ -802,7 +811,7 @@ x-y+2z&amp;=5.
 <h3 class="anchored" data-anchor-id="a.-clear-the-first-column">A. Clear the first column</h3>
 <div id="gauss-3x3-first-column-context" class="math-exercise-context">
 <p>Use the unchanged first row in both operations:</p>
-<p><span data-ai-feedback-display="true" data-ai-feedback-tex="R_2\leftarrow R_2-2R_1,\qquad R_3\leftarrow R_3-R_1."><span class="math display">\[R_2\leftarrow R_2-2R_1,\qquad R_3\leftarrow R_3-R_1.\]</span></span></p>
+<p><span data-ai-feedback-tex="R_2\leftarrow R_2-2R_1,\qquad R_3\leftarrow R_3-R_1." data-ai-feedback-display="true"><span class="math display">\[R_2\leftarrow R_2-2R_1,\qquad R_3\leftarrow R_3-R_1.\]</span></span></p>
 </div>
 <div class="math-exercise-cell" id="math-exercise-3" data-label="gauss-3x3-first-column" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;gauss-3x3-first-column&quot;,&quot;name&quot;:&quot;&quot;}" data-context-mode="explicit" data-context-refs="gauss-method-context, gauss-system-2-context, gauss-3x3-first-column-context" data-context="&quot;A. Clear the first column\nUse the unchanged first row in both operations:\n\\[R_2\\leftarrow R_2-2R_1,\\qquad R_3\\leftarrow R_3-R_1.\\]&quot;" data-fields="[&quot;math-exercise-3-f1&quot;,&quot;math-exercise-3-f2&quot;,&quot;math-exercise-3-f3&quot;,&quot;math-exercise-3-f4&quot;,&quot;math-exercise-3-f5&quot;,&quot;math-exercise-3-f6&quot;,&quot;math-exercise-3-f7&quot;,&quot;math-exercise-3-f8&quot;,&quot;math-exercise-3-f9&quot;,&quot;math-exercise-3-f10&quot;,&quot;math-exercise-3-f11&quot;,&quot;math-exercise-3-f12&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
 <div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="2A — eliminate x from rows 2 and 3" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>2A — eliminate x from rows 2 and 3</div>
@@ -826,7 +835,7 @@ x-y+2z&amp;=5.
 <section id="b.-clear-the-second-column" class="level3">
 <h3 class="anchored" data-anchor-id="b.-clear-the-second-column">B. Clear the second column</h3>
 <div id="gauss-3x3-triangular-context" class="math-exercise-context">
-<p>Using the <strong>updated</strong> rows from part A, apply <span data-ai-feedback-display="false" data-ai-feedback-tex="R_3\leftarrow R_3+2R_2"><span class="math inline">\(R_3\leftarrow R_3+2R_2\)</span></span>. Keep the other rows unchanged.</p>
+<p>Using the <strong>updated</strong> rows from part A, apply <span data-ai-feedback-tex="R_3\leftarrow R_3+2R_2" data-ai-feedback-display="false"><span class="math inline">\(R_3\leftarrow R_3+2R_2\)</span></span>. Keep the other rows unchanged.</p>
 </div>
 <div class="math-exercise-cell" id="math-exercise-4" data-label="gauss-3x3-triangular" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;gauss-3x3-triangular&quot;,&quot;name&quot;:&quot;&quot;}" data-context-mode="explicit" data-context-refs="gauss-method-context, gauss-system-2-context, gauss-3x3-triangular-context" data-context="&quot;B. Clear the second column\nUsing the updated rows from part A, apply \\(R_3\\leftarrow R_3+2R_2\\). Keep the other rows unchanged.&quot;" data-fields="[&quot;math-exercise-4-f1&quot;,&quot;math-exercise-4-f2&quot;,&quot;math-exercise-4-f3&quot;,&quot;math-exercise-4-f4&quot;,&quot;math-exercise-4-f5&quot;,&quot;math-exercise-4-f6&quot;,&quot;math-exercise-4-f7&quot;,&quot;math-exercise-4-f8&quot;,&quot;math-exercise-4-f9&quot;,&quot;math-exercise-4-f10&quot;,&quot;math-exercise-4-f11&quot;,&quot;math-exercise-4-f12&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
 <div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="2B — complete forward elimination" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>2B — complete forward elimination</div>
@@ -850,7 +859,7 @@ x-y+2z&amp;=5.
 <section id="c.-back-substitute" class="level3">
 <h3 class="anchored" data-anchor-id="c.-back-substitute">C. Back substitute</h3>
 <div id="gauss-3x3-solution-context" class="math-exercise-context">
-<p>Solve from the bottom row upward: first <span data-ai-feedback-display="false" data-ai-feedback-tex="z"><span class="math inline">\(z\)</span></span>, then <span data-ai-feedback-display="false" data-ai-feedback-tex="y"><span class="math inline">\(y\)</span></span>, then <span data-ai-feedback-display="false" data-ai-feedback-tex="x"><span class="math inline">\(x\)</span></span>.</p>
+<p>Solve from the bottom row upward: first <span data-ai-feedback-tex="z" data-ai-feedback-display="false"><span class="math inline">\(z\)</span></span>, then <span data-ai-feedback-tex="y" data-ai-feedback-display="false"><span class="math inline">\(y\)</span></span>, then <span data-ai-feedback-tex="x" data-ai-feedback-display="false"><span class="math inline">\(x\)</span></span>.</p>
 </div>
 <div class="math-exercise-cell" id="math-exercise-5" data-label="gauss-3x3-solution" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[&quot;x&quot;,&quot;y&quot;,&quot;z&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;gauss-3x3-solution&quot;,&quot;name&quot;:&quot;&quot;}" data-context-mode="explicit" data-context-refs="gauss-method-context, gauss-system-2-context, gauss-3x3-solution-context" data-context="&quot;C. Back substitute\nSolve from the bottom row upward: first \\(z\\), then \\(y\\), then \\(x\\).&quot;" data-fields="[&quot;math-exercise-5-f1&quot;,&quot;math-exercise-5-f2&quot;,&quot;math-exercise-5-f3&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;,&quot;&quot;]">
 <div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="2C — back substitution" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>2C — back substitution</div>
@@ -889,7 +898,7 @@ Hint for problem 2
 <section id="a-33-system-that-needs-pivoting" class="level2">
 <h2 class="anchored" data-anchor-id="a-33-system-that-needs-pivoting">3. A 3×3 system that needs pivoting</h2>
 <div id="gauss-system-3-context" class="math-exercise-context">
-<p><span data-ai-feedback-display="true" data-ai-feedback-tex="
+<p><span data-ai-feedback-tex="
 \begin{aligned}
 2y+z&amp;=1,\\
 2x+y-z&amp;=0,\\
@@ -897,7 +906,7 @@ x-y+2z&amp;=9.
 \end{aligned}
 \qquad
 [A\mid b]=\begin{bmatrix}0&amp;2&amp;1&amp;1\\2&amp;1&amp;-1&amp;0\\1&amp;-1&amp;2&amp;9\end{bmatrix}.
-"><span class="math display">\[
+" data-ai-feedback-display="true"><span class="math display">\[
 \begin{aligned}
 2y+z&amp;=1,\\
 2x+y-z&amp;=0,\\
@@ -906,7 +915,7 @@ x-y+2z&amp;=9.
 \qquad
 [A\mid b]=\begin{bmatrix}0&amp;2&amp;1&amp;1\\2&amp;1&amp;-1&amp;0\\1&amp;-1&amp;2&amp;9\end{bmatrix}.
 \]</span></span></p>
-<p>The first proposed pivot is zero, so division by it is impossible. This does <strong>not</strong> mean the system has no unique solution. Use <strong>partial pivoting</strong>: in the current column, choose the available entry with the largest absolute value and move its row into the pivot position. Here, compare the entries <span data-ai-feedback-display="false" data-ai-feedback-tex="0"><span class="math inline">\(0\)</span></span>, <span data-ai-feedback-display="false" data-ai-feedback-tex="2"><span class="math inline">\(2\)</span></span>, and <span data-ai-feedback-display="false" data-ai-feedback-tex="1"><span class="math inline">\(1\)</span></span> in the first column.</p>
+<p>The first proposed pivot is zero, so division by it is impossible. This does <strong>not</strong> mean the system has no unique solution. Use <strong>partial pivoting</strong>: in the current column, choose the available entry with the largest absolute value and move its row into the pivot position. Here, compare the entries <span data-ai-feedback-tex="0" data-ai-feedback-display="false"><span class="math inline">\(0\)</span></span>, <span data-ai-feedback-tex="2" data-ai-feedback-display="false"><span class="math inline">\(2\)</span></span>, and <span data-ai-feedback-tex="1" data-ai-feedback-display="false"><span class="math inline">\(1\)</span></span> in the first column.</p>
 </div>
 <section id="a.-choose-and-swap-the-pivot-row" class="level3">
 <h3 class="anchored" data-anchor-id="a.-choose-and-swap-the-pivot-row">A. Choose and swap the pivot row</h3>
@@ -939,10 +948,10 @@ Matrix after the swap \(=\) <span class="math-mat" style="--cols:4"><input type=
 <section id="b.-eliminate-below-the-pivots" class="level3">
 <h3 class="anchored" data-anchor-id="b.-eliminate-below-the-pivots">B. Eliminate below the pivots</h3>
 <div id="gauss-pivot-first-column-context" class="math-exercise-context">
-<p>After the swap, the second row already has a zero in the first column. Apply <span data-ai-feedback-display="false" data-ai-feedback-tex="R_3\leftarrow R_3-\tfrac12R_1"><span class="math inline">\(R_3\leftarrow R_3-\tfrac12R_1\)</span></span>.</p>
+<p>After the swap, the second row already has a zero in the first column. Apply <span data-ai-feedback-tex="R_3\leftarrow R_3-\tfrac12R_1" data-ai-feedback-display="false"><span class="math inline">\(R_3\leftarrow R_3-\tfrac12R_1\)</span></span>.</p>
 </div>
 <div class="math-exercise-cell" id="math-exercise-7" data-label="gauss-pivot-first-column" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;gauss-pivot-first-column&quot;,&quot;name&quot;:&quot;&quot;}" data-context-mode="explicit" data-context-refs="gauss-method-context, gauss-system-3-context, gauss-pivot-first-column-context" data-context="&quot;B. Eliminate below the pivots\nAfter the swap, the second row already has a zero in the first column. Apply \\(R_3\\leftarrow R_3-\\tfrac12R_1\\).&quot;" data-fields="[&quot;math-exercise-7-f1&quot;,&quot;math-exercise-7-f2&quot;,&quot;math-exercise-7-f3&quot;,&quot;math-exercise-7-f4&quot;,&quot;math-exercise-7-f5&quot;,&quot;math-exercise-7-f6&quot;,&quot;math-exercise-7-f7&quot;,&quot;math-exercise-7-f8&quot;,&quot;math-exercise-7-f9&quot;,&quot;math-exercise-7-f10&quot;,&quot;math-exercise-7-f11&quot;,&quot;math-exercise-7-f12&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
-<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="3B — eliminate below the new first pivot" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>3B — eliminate below the new first pivot</div>
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="3B.1 — eliminate below the new first pivot" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>3B.1 — eliminate below the new first pivot</div>
 
 <div class="math-exercise-body" aria-hidden="true">
 <div class="math-exercise-question" data-math-exercise-source="Resulting augmented matrix \(=\) <span class=&quot;math-mat&quot; style=&quot;--cols:4&quot;><input type=&quot;text&quot; id=&quot;math-exercise-7-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-7-f2&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-7-f3&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-7-f4&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-7-f5&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-7-f6&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-7-f7&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-7-f8&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-7-f9&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-7-f10&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-7-f11&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-7-f12&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;></span>">Resulting augmented matrix \(=\) <span class="math-mat" style="--cols:4"><input type="text" id="math-exercise-7-f1" data-answer="2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f2" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f3" data-answer="-1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f4" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f5" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f6" data-answer="2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f7" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f8" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f9" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f10" data-answer="-3/2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f11" data-answer="5/2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-7-f12" data-answer="9" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"></span></div>
@@ -960,10 +969,10 @@ Matrix after the swap \(=\) <span class="math-mat" style="--cols:4"><input type=
 </div>
 </div>
 <div id="gauss-pivot-triangular-context" class="math-exercise-context">
-<p>The second pivot is 2; the remaining entry below it is <span data-ai-feedback-display="false" data-ai-feedback-tex="-3/2"><span class="math inline">\(-3/2\)</span></span>. Since <span data-ai-feedback-display="false" data-ai-feedback-tex="|2|>|-3/2|"><span class="math inline">\(|2|&gt;|-3/2|\)</span></span>, partial pivoting requires no further swap. Apply <span data-ai-feedback-display="false" data-ai-feedback-tex="R_3\leftarrow R_3+\tfrac34R_2"><span class="math inline">\(R_3\leftarrow R_3+\tfrac34R_2\)</span></span> to the updated matrix.</p>
+<p>The second pivot is 2; the remaining entry below it is <span data-ai-feedback-tex="-3/2" data-ai-feedback-display="false"><span class="math inline">\(-3/2\)</span></span>. Since <span data-ai-feedback-tex="|2|>|-3/2|" data-ai-feedback-display="false"><span class="math inline">\(|2|&gt;|-3/2|\)</span></span>, partial pivoting requires no further swap. Apply <span data-ai-feedback-tex="R_3\leftarrow R_3+\tfrac34R_2" data-ai-feedback-display="false"><span class="math inline">\(R_3\leftarrow R_3+\tfrac34R_2\)</span></span> to the updated matrix.</p>
 </div>
 <div class="math-exercise-cell" id="math-exercise-8" data-label="gauss-pivot-triangular" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;gauss-pivot-triangular&quot;,&quot;name&quot;:&quot;&quot;}" data-context-mode="explicit" data-context-refs="gauss-method-context, gauss-system-3-context, gauss-pivot-triangular-context" data-context="&quot;B. Eliminate below the pivots\nAfter the swap, the second row already has a zero in the first column. Apply \\(R_3\\leftarrow R_3-\\tfrac12R_1\\).\nThe second pivot is 2; the remaining entry below it is \\(-3/2\\). Since \\(|2|>|-3/2|\\), partial pivoting requires no further swap. Apply \\(R_3\\leftarrow R_3+\\tfrac34R_2\\) to the updated matrix.&quot;" data-fields="[&quot;math-exercise-8-f1&quot;,&quot;math-exercise-8-f2&quot;,&quot;math-exercise-8-f3&quot;,&quot;math-exercise-8-f4&quot;,&quot;math-exercise-8-f5&quot;,&quot;math-exercise-8-f6&quot;,&quot;math-exercise-8-f7&quot;,&quot;math-exercise-8-f8&quot;,&quot;math-exercise-8-f9&quot;,&quot;math-exercise-8-f10&quot;,&quot;math-exercise-8-f11&quot;,&quot;math-exercise-8-f12&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m1,3&quot;,&quot;m1,4&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;,&quot;m2,3&quot;,&quot;m2,4&quot;,&quot;m3,1&quot;,&quot;m3,2&quot;,&quot;m3,3&quot;,&quot;m3,4&quot;]">
-<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="3B — complete forward elimination" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>3B — complete forward elimination</div>
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="3B.2 — complete forward elimination" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>3B.2 — complete forward elimination</div>
 
 <div class="math-exercise-body" aria-hidden="true">
 <div class="math-exercise-question" data-math-exercise-source="\([U\mid c]=\) <span class=&quot;math-mat&quot; style=&quot;--cols:4&quot;><input type=&quot;text&quot; id=&quot;math-exercise-8-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-8-f2&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-8-f3&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-8-f4&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-8-f5&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-8-f6&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-8-f7&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-8-f8&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-8-f9&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-8-f10&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-8-f11&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-8-f12&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;></span>">\([U\mid c]=\) <span class="math-mat" style="--cols:4"><input type="text" id="math-exercise-8-f1" data-answer="2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f2" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f3" data-answer="-1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f4" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f5" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f6" data-answer="2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f7" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f8" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f9" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f10" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f11" data-answer="13/4" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-8-f12" data-answer="39/4" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"></span></div>
@@ -984,7 +993,7 @@ Matrix after the swap \(=\) <span class="math-mat" style="--cols:4"><input type=
 <section id="c.-back-substitute-1" class="level3">
 <h3 class="anchored" data-anchor-id="c.-back-substitute-1">C. Back substitute</h3>
 <div id="gauss-pivot-solution-context" class="math-exercise-context">
-<p>Solve for <span data-ai-feedback-display="false" data-ai-feedback-tex="z"><span class="math inline">\(z\)</span></span>, then <span data-ai-feedback-display="false" data-ai-feedback-tex="y"><span class="math inline">\(y\)</span></span>, then <span data-ai-feedback-display="false" data-ai-feedback-tex="x"><span class="math inline">\(x\)</span></span>. Row swaps change the order of the equations, <strong>not</strong> the order of the unknowns: the columns still represent <span data-ai-feedback-display="false" data-ai-feedback-tex="x,y,z"><span class="math inline">\(x,y,z\)</span></span>.</p>
+<p>Solve for <span data-ai-feedback-tex="z" data-ai-feedback-display="false"><span class="math inline">\(z\)</span></span>, then <span data-ai-feedback-tex="y" data-ai-feedback-display="false"><span class="math inline">\(y\)</span></span>, then <span data-ai-feedback-tex="x" data-ai-feedback-display="false"><span class="math inline">\(x\)</span></span>. Row swaps change the order of the equations, <strong>not</strong> the order of the unknowns: the columns still represent <span data-ai-feedback-tex="x,y,z" data-ai-feedback-display="false"><span class="math inline">\(x,y,z\)</span></span>.</p>
 </div>
 <div class="math-exercise-cell" id="math-exercise-9" data-label="gauss-pivot-solution" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="true" data-form-credit="0.5" data-field-labels="[&quot;x&quot;,&quot;y&quot;,&quot;z&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;gauss-pivot-solution&quot;,&quot;name&quot;:&quot;&quot;}" data-context-mode="explicit" data-context-refs="gauss-method-context, gauss-system-3-context, gauss-pivot-solution-context" data-context="&quot;C. Back substitute\nSolve for \\(z\\), then \\(y\\), then \\(x\\). Row swaps change the order of the equations, not the order of the unknowns: the columns still represent \\(x,y,z\\).&quot;" data-fields="[&quot;math-exercise-9-f1&quot;,&quot;math-exercise-9-f2&quot;,&quot;math-exercise-9-f3&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;,&quot;&quot;]">
 <div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="3C — solve after pivoting" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>3C — solve after pivoting</div>
@@ -1580,14 +1589,18 @@ Hint for problem 3
   </script>
 </div> <!-- /content -->
 <script type="text/javascript">
-// Shared classic-script bootstrap for math-exercise and stack-sympy.
-// Keep the vendored copy in stack-sympy byte-identical to this file.
+// Shared classic-script bootstrap for math-exercise, py-exercise and stack-sympy.
+// py-exercise ships a byte-identical copy (checked in CI); stack-sympy vendors
+// a pinned revision (see its vendor/provenance.json).
 (function (root) {
   'use strict';
 
-  if (root.MathExerciseRuntime) return;
+  // An older copy (another component's release) may have loaded first; a
+  // copy with the current interface replaces it (shared state lives on root).
+  if (root.MathExerciseRuntime && typeof root.MathExerciseRuntime.whenSlow === 'function') return;
 
   var indexURL = 'https://cdn.jsdelivr.net/pyodide/v0.27.2/full/';
+  var LOAD_TIMEOUT = root.__qExercisePyodideTimeout || 180000; // override for tests
 
   function loadScript(src) {
     if (src === indexURL + 'pyodide.js' && typeof root.loadPyodide === 'function') {
@@ -1634,19 +1647,35 @@ Hint for problem 3
     });
   }
 
+  // Waits for Python at most LOAD_TIMEOUT: a load that never finishes ends
+  // with an error a later attempt can retry, instead of waiting forever.
+  function withLoadLimit(promise) {
+    if (typeof setTimeout !== 'function') return Promise.resolve(promise);
+    var timer;
+    var timeout = new Promise(function (resolve, reject) {
+      timer = setTimeout(function () {
+        var error = new Error('Python did not finish loading within ' + LOAD_TIMEOUT / 1000 + ' s');
+        error.code = 'pyodide-timeout';
+        reject(error);
+      }, LOAD_TIMEOUT);
+    });
+    return Promise.race([Promise.resolve(promise), timeout]).finally(function () { clearTimeout(timer); });
+  }
+
   async function ensurePyodide() {
     // Some Quarto integrations declare these with top-level `let`, which is
     // visible to classic scripts but is not a property of globalThis.
     var coatless = typeof qpyodideInstance !== 'undefined'
       ? qpyodideInstance : root.qpyodideInstance;
     if (typeof coatless !== 'undefined') {
-      root.mainPyodide = await coatless;
+      // pyodide-interaktiv's worker may still be starting.
+      root.mainPyodide = await withLoadLimit(coatless);
       return root.mainPyodide;
     }
     var existing = typeof mainPyodide !== 'undefined'
       ? mainPyodide : root.mainPyodide;
     if (typeof existing !== 'undefined') {
-      root.mainPyodide = await existing;
+      root.mainPyodide = await withLoadLimit(existing);
       return root.mainPyodide;
     }
 
@@ -1655,7 +1684,9 @@ Hint for problem 3
     if (!root.__qExercisePyodide) {
       root.__qExercisePyodide = (async function () {
         await loadScript(indexURL + 'pyodide.js');
-        return root.loadPyodide({ indexURL: indexURL });
+        // A failed WebAssembly download leaves loadPyodide() pending forever;
+        // give up after LOAD_TIMEOUT so that a later attempt can start again.
+        return withLoadLimit(root.loadPyodide({ indexURL: indexURL }));
       })();
     }
     var pending = root.__qExercisePyodide;
@@ -1668,12 +1699,354 @@ Hint for problem 3
     }
   }
 
+  // Interpreter state that code run by one component on the page must not
+  // change for the others (learner code in py-exercise, answers parsed by
+  // math-exercise): `snapshot()` before, `restore(state)` after.
+  var GUARD_PY = [
+    'import builtins as _builtins, os as _os, sys as _sys',
+    '_MISSING = object()',
+    '',
+    'def snapshot():',
+    '    return {',
+    '        "builtins": dict(_builtins.__dict__),',
+    '        "streams": (_sys.stdin, _sys.stdout, _sys.stderr),',
+    '        "hooks": (_sys.displayhook, _sys.excepthook),',
+    '        "recursion": _sys.getrecursionlimit(),',
+    '        "path": list(_sys.path),',
+    '        "path_list": _sys.path,',
+    '        "cwd": _os.getcwd(),',
+    '        "modules": {k: v for k, v in _sys.modules.items() if k.startswith("_ctm_")},',
+    '    }',
+    '',
+    'def restore(state):',
+    '    # Each item on its own: one that fails must not leave the others changed.',
+    '    def builtins_():',
+    '        current = _builtins.__dict__',
+    '        for key in [k for k in current if k not in state["builtins"]]:',
+    '            del current[key]',
+    '        for key, value in state["builtins"].items():',
+    '            if current.get(key, _MISSING) is not value:',
+    '                current[key] = value',
+    '    def streams():',
+    '        _sys.stdin, _sys.stdout, _sys.stderr = state["streams"]',
+    '        _sys.displayhook, _sys.excepthook = state["hooks"]',
+    '    def path():',
+    '        _sys.path = state["path_list"]',
+    '        _sys.path[:] = state["path"]',
+    '    for step in (builtins_, streams, lambda: _sys.setrecursionlimit(state["recursion"]), path,',
+    '                 lambda: _os.chdir(state["cwd"]), lambda: _sys.modules.update(state["modules"])):',
+    '        try:',
+    '            step()',
+    '        except Exception:',
+    '            pass',
+  ].join('\n');
+
+  // Installs a Python source as a private module (not in the interpreter's
+  // global namespace, which learner code shares), once per runtime. Calls for
+  // the same module share one install; each module passes its source under
+  // its own name, so concurrent installs of different modules cannot mix.
+  var installed = typeof WeakMap === 'function' ? new WeakMap() : null;
+  function installModule(py, name, source) {
+    var done = installed && installed.get(py);
+    if (done && done[name]) return done[name];
+    var variable = '_ctm_source_' + name.replace(/[^A-Za-z0-9_]/g, '_');
+    var install = (async function () {
+      await py.globals.set(variable, source);
+      await py.runPythonAsync([
+        'import sys as _ctm_sys, types as _ctm_types',
+        '_ctm_module = _ctm_types.ModuleType("' + name + '")',
+        'exec(' + variable + ', _ctm_module.__dict__)',
+        '_ctm_sys.modules["' + name + '"] = _ctm_module',
+        'del _ctm_sys, _ctm_types, _ctm_module, ' + variable,
+      ].join('\n'));
+    })();
+    if (installed) {
+      if (!done) { done = {}; installed.set(py, done); }
+      done[name] = install;
+      install.catch(function () { if (done[name] === install) delete done[name]; });
+    }
+    return install;
+  }
+  // Forget installed modules of a runtime (for example after learner code in
+  // another cell removed them); the next install runs again.
+  function forgetModules(py) { if (installed) installed.delete(py); }
+  function ensureGuard(py) { return installModule(py, '_ctm_guard', GUARD_PY); }
+
+  // A runtime that can be stopped while it runs (pyodide-interaktiv's worker):
+  // Python on the page itself cannot be interrupted, only reloaded.
+  function canStop() {
+    var py = root.mainPyodide;
+    return !!(py && typeof py.restart === 'function');
+  }
+  // Stops are page-wide: every component compares `stops` before and after a
+  // run, so a check stopped from any button is neither repeated nor shown as
+  // an unexpected error.
+  var stops = 0;
+  function stop(reason) {
+    if (!canStop()) return;
+    stops++;
+    root.mainPyodide.restart(reason || 'Stopped by the learner');
+  }
+  function stopCount() { return stops; }
+  // Calls onSlow once when a run has taken `ms` and the runtime can be
+  // stopped (a worker that is still starting becomes stoppable later).
+  // Returns a function that cancels it.
+  function whenSlow(ms, onSlow) {
+    var timer = null, cancelled = false;
+    function check() {
+      if (cancelled) return;
+      if (canStop()) { onSlow(); return; }
+      timer = setTimeout(check, 1000);
+    }
+    timer = setTimeout(check, Math.min(ms, 2147483647));  // larger delays overflow to 0
+    return function () { cancelled = true; clearTimeout(timer); };
+  }
+
   root.MathExerciseRuntime = {
     indexURL: indexURL,
+    loadTimeout: LOAD_TIMEOUT,
     loadScript: loadScript,
-    ensurePyodide: ensurePyodide
+    ensurePyodide: ensurePyodide,
+    installModule: installModule,
+    forgetModules: forgetModules,
+    ensureGuard: ensureGuard,
+    canStop: canStop,
+    stop: stop,
+    stopCount: stopCount,
+    whenSlow: whenSlow
   };
 })(globalThis);
+
+/* Reusable dynamic matrix editor extracted from math-exercise. AGPL-3.0-or-later.
+ * Editing/presentation only: consumers own parsing, grading and feedback policy. */
+(function (root) {
+  'use strict';
+  function escHtml(value) { return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
+  var defaults = { matrixAddRow: 'Add row', matrixRemoveRow: 'Remove row', matrixAddColumn: 'Add column', matrixRemoveColumn: 'Remove column', matrixRows: 'Rows', matrixColumns: 'Columns', emptyMatrix: 'Empty matrix' };
+  function factory(options) {
+    options = options || {};
+    var exerciseId = options.idPrefix || 'matrix', vars = options.vars || '';
+    var L = Object.assign({}, defaults, options.labels || {});
+    var zero = options.zeroDimensions || 'reject';
+    if (zero !== 'reject' && zero !== 'canonical') throw new Error('matrix-input: invalid zeroDimensions policy');
+    function validateSpec(spec) {
+      if (!spec || !/^[A-Za-z][A-Za-z0-9_-]*$/.test(spec.name)) throw new Error('matrix-input: invalid name');
+      ['rows', 'cols'].forEach(function (key) {
+        var axis = spec[key];
+        if (!axis || typeof axis.auto !== 'boolean') throw new Error('matrix-input: invalid axis');
+        ['min','max','initial'].forEach(function (bound) {
+          if (!Number.isInteger(axis[bound]) || axis[bound] < (zero === 'reject' ? 1 : 0) || axis[bound] > 20) throw new Error('matrix-input: invalid dimension bound');
+        });
+        if (axis.min > axis.initial || axis.initial > axis.max || (!axis.auto && (axis.min !== axis.max || axis.initial !== axis.min))) throw new Error('matrix-input: inconsistent axis bounds');
+      });
+      if (options.maxEntries !== undefined && (!Number.isInteger(options.maxEntries) || options.maxEntries < 1 || spec.rows.max * spec.cols.max > options.maxEntries)) throw new Error('matrix-input: total entry bound exceeded');
+    }
+  function dynamicMatrixCellHtml(exerciseId, spec, row, column, vars) {
+    var fid = exerciseId + '-dm-' + spec.name + '-' + row + '-' + column;
+    var label = 'dm:' + spec.name + ':' + row + ',' + column;
+    return {
+      id: fid,
+      label: label,
+      html: '<input type="text" id="' + escHtml(fid) + '" data-answer=""'
+          + ' data-vars="' + escHtml(vars) + '"'
+          + ' data-dynamic-matrix-name="' + escHtml(spec.name) + '"'
+          + ' data-matrix-row="' + row + '" data-matrix-column="' + column + '"'
+          + ' data-structural-label="' + escHtml(label) + '"'
+          + ' aria-label="' + escHtml(spec.name + ', ' + L.matrixRows + ' ' + row + ', ' + L.matrixColumns + ' ' + column) + '"'
+          + ' autocomplete="off" autocorrect="off" spellcheck="false"'
+          + ' class="math-input math-mat-cell">',
+    };
+  }
+
+  function renderHTML(spec) {
+    validateSpec(spec);
+    var configuredRows = spec.rows.initial, configuredCols = spec.cols.initial;
+    var rows = configuredRows, cols = configuredCols;
+    if (rows === 0 || cols === 0) { rows = 0; cols = 0; }
+    var ids = [], labels = [], cells = [];
+    for (var row = 1; row <= rows; row++) {
+      for (var column = 1; column <= cols; column++) {
+        var cell = dynamicMatrixCellHtml(exerciseId, spec, row, column, vars);
+        ids.push(cell.id); labels.push(cell.label); cells.push(cell.html);
+      }
+    }
+    var matrix = '<span class="math-mat math-dynamic-mat" style="--cols:' + Math.max(cols, 1) + '"'
+      + ' data-matrix-name="' + escHtml(spec.name) + '" data-rows="' + rows + '" data-cols="' + cols + '"'
+      + ' data-auto-rows="' + spec.rows.auto + '" data-auto-cols="' + spec.cols.auto + '"'
+      + ' data-min-rows="' + spec.rows.min + '" data-max-rows="' + spec.rows.max + '"'
+      + ' data-min-cols="' + spec.cols.min + '" data-max-cols="' + spec.cols.max + '"'
+      + ' data-last-rows="' + configuredRows + '" data-last-cols="' + configuredCols + '">'
+      + cells.join('') + '</span>';
+    var controls = '<span class="math-dynamic-matrix-controls" aria-label="Matrix size controls">'
+      + '<span class="math-dynamic-axis" data-dynamic-axis="row"><span class="math-dynamic-axis-label"></span>'
+      + '<button type="button" data-dynamic-action="remove-row">−</button><output></output>'
+      + '<button type="button" data-dynamic-action="add-row">+</button></span>'
+      + '<span class="math-dynamic-axis" data-dynamic-axis="col"><span class="math-dynamic-axis-label"></span>'
+      + '<button type="button" data-dynamic-action="remove-col">−</button><output></output>'
+      + '<button type="button" data-dynamic-action="add-col">+</button></span>'
+      + '</span>';
+    return {
+      html: '<span class="math-dynamic-matrix-wrap" data-matrix-name="' + escHtml(spec.name) + '">' + matrix + controls + '</span>',
+      ids: ids,
+      labels: labels,
+      count: 0,
+    };
+  }
+
+  function dynamicSpecFromElement(matrix) {
+    return {
+      name: matrix.dataset.matrixName,
+      rows: {
+        auto: matrix.dataset.autoRows === 'true',
+        initial: Number(matrix.dataset.lastRows),
+        min: Number(matrix.dataset.minRows),
+        max: Number(matrix.dataset.maxRows),
+      },
+      cols: {
+        auto: matrix.dataset.autoCols === 'true',
+        initial: Number(matrix.dataset.lastCols),
+        min: Number(matrix.dataset.minCols),
+        max: Number(matrix.dataset.maxCols),
+      },
+    };
+  }
+
+  function renderDynamicMatrixElement(matrix, exerciseId, vars, rows, cols) {
+    var oldValues = {};
+    matrix.querySelectorAll('input[data-matrix-row][data-matrix-column]').forEach(function (input) {
+      oldValues[input.dataset.matrixRow + ',' + input.dataset.matrixColumn] = input.value;
+    });
+    var spec = dynamicSpecFromElement(matrix);
+    if (rows === 0 || cols === 0) { rows = 0; cols = 0; }
+    else {
+      matrix.dataset.lastRows = String(rows);
+      matrix.dataset.lastCols = String(cols);
+    }
+    var cells = [];
+    for (var row = 1; row <= rows; row++) {
+      for (var column = 1; column <= cols; column++) {
+        var cell = dynamicMatrixCellHtml(exerciseId, spec, row, column, vars);
+        cells.push(cell.html);
+      }
+    }
+    matrix.dataset.rows = String(rows);
+    matrix.dataset.cols = String(cols);
+    matrix.style.setProperty('--cols', String(Math.max(cols, 1)));
+    matrix.innerHTML = cells.length
+      ? cells.join('')
+      : '<span class="math-dynamic-matrix-empty" aria-live="polite">' + escHtml(L.emptyMatrix) + '</span>';
+    matrix.querySelectorAll('input[data-matrix-row][data-matrix-column]').forEach(function (input) {
+      var key = input.dataset.matrixRow + ',' + input.dataset.matrixColumn;
+      if (Object.prototype.hasOwnProperty.call(oldValues, key)) input.value = oldValues[key];
+    });
+  }
+
+  function resizedDynamicMatrixShape(matrix, spec, action) {
+    var rows = Number(matrix.dataset.rows), cols = Number(matrix.dataset.cols);
+    var empty = rows === 0 || cols === 0;
+    if (empty && action === 'add-row') {
+      rows = Math.max(1, spec.rows.min);
+      cols = spec.cols.auto ? Math.max(1, Number(matrix.dataset.lastCols) || spec.cols.initial) : spec.cols.initial;
+    } else if (empty && action === 'add-col') {
+      cols = Math.max(1, spec.cols.min);
+      rows = spec.rows.auto ? Math.max(1, Number(matrix.dataset.lastRows) || spec.rows.initial) : spec.rows.initial;
+    } else if (action === 'add-row' && rows < spec.rows.max) rows++;
+    if (action === 'remove-row' && rows > spec.rows.min) rows--;
+    if (!empty && action === 'add-col' && cols < spec.cols.max) cols++;
+    if (action === 'remove-col' && cols > spec.cols.min) cols--;
+    return { rows: rows, cols: cols };
+  }
+
+
+    function mount(wrap) {
+      if (wrap.matrixInput) wrap.matrixInput.destroy();
+      var matrix = wrap.querySelector('.math-dynamic-mat');
+      if (!matrix) throw new Error('matrix-input: missing matrix element');
+      var spec = dynamicSpecFromElement(matrix);
+      validateSpec(spec);
+      var controls = wrap.querySelector('.math-dynamic-matrix-controls');
+      var destroyed = false, listeners = [];
+      var labels = {'add-row':L.matrixAddRow,'remove-row':L.matrixRemoveRow,'add-col':L.matrixAddColumn,'remove-col':L.matrixRemoveColumn};
+      function alive() { if (destroyed) throw new Error('matrix-input: editor destroyed'); }
+      function read() {
+        alive();
+        return {type:'matrix', rows:Number(matrix.dataset.rows), cols:Number(matrix.dataset.cols), raw:Array.from(matrix.querySelectorAll('input[data-matrix-row]'), function (input) { return input.value; })};
+      }
+      function setState(state) {
+        alive(); state = state || {};
+        var classes = {correct:'math-input-ok',dependent:'math-input-dependent',partial:'math-input-partial',incorrect:'math-input-wrong',invalid:'math-input-err',error:'math-input-err'};
+        function validStatus(status) {
+          if (status !== undefined && status !== '' && status !== 'empty' && !Object.prototype.hasOwnProperty.call(classes,status)) throw new Error('matrix-input: invalid presentation status');
+        }
+        function validAxis(values, limit) {
+          if (values === undefined) return;
+          if (!Array.isArray(values) || values.length > limit) throw new Error('matrix-input: invalid state coordinates');
+          values.forEach(validStatus);
+        }
+        validStatus(state.status);
+        validAxis(state.rows,Number(matrix.dataset.rows));
+        validAxis(state.columns,Number(matrix.dataset.cols));
+        if (state.cells !== undefined) {
+          if (!Array.isArray(state.cells) || state.cells.length > Number(matrix.dataset.rows)) throw new Error('matrix-input: invalid state coordinates');
+          state.cells.forEach(function (row) { validAxis(row,Number(matrix.dataset.cols)); });
+        }
+        matrix.querySelectorAll('input').forEach(function (input) {
+          Object.keys(classes).forEach(function (key) { input.classList.remove(classes[key]); });
+          input.removeAttribute('aria-invalid');
+          var row = Number(input.dataset.matrixRow)-1, col = Number(input.dataset.matrixColumn)-1;
+          var status = (state.cells && state.cells[row] && state.cells[row][col]) || (state.columns && state.columns[col]) || (state.rows && state.rows[row]) || state.status;
+          if (classes[status]) input.classList.add(classes[status]);
+          if (status === 'invalid' || status === 'error') input.setAttribute('aria-invalid','true');
+        });
+      }
+      function syncControls() {
+        var rows=Number(matrix.dataset.rows), cols=Number(matrix.dataset.cols);
+        controls.querySelectorAll('.math-dynamic-axis').forEach(function (el) {
+          var row=el.dataset.dynamicAxis==='row', axis=row?spec.rows:spec.cols;
+          el.style.display=axis.auto?'':'none';
+          el.querySelector('.math-dynamic-axis-label').textContent=row?L.matrixRows:L.matrixColumns;
+          el.querySelector('output').textContent=String(row?rows:cols);
+        });
+        controls.querySelectorAll('button').forEach(function (button) {
+          var action=button.dataset.dynamicAction, row=action.indexOf('row')!==-1, axis=row?spec.rows:spec.cols, value=row?rows:cols;
+          button.setAttribute('aria-label',labels[action]+' '+spec.name);
+          var opposite = row ? spec.cols : spec.rows;
+          button.disabled=!axis.auto || (action.indexOf('add')===0?(value>=axis.max || opposite.max===0):value<=axis.min);
+        });
+      }
+      function notify(kind) { setState(); if (options.onChange) options.onChange({kind:kind, value:read()}); }
+    function resize(rows,cols, silent) {
+        alive();
+        var canonical=zero==='canonical' && (rows===0 || cols===0);
+        ['rows','cols'].forEach(function (key) {
+          var n=key==='rows'?rows:cols, axis=spec[key];
+          if (!Number.isInteger(n) || (!canonical && (n<axis.min || n>axis.max)) || (canonical && (n<0 || n>axis.max))) throw new Error('matrix-input: dimensions outside bounds');
+        });
+        renderDynamicMatrixElement(matrix,exerciseId,vars,rows,cols); syncControls(); if (!silent) notify('resize');
+      }
+      function write(value) {
+        alive();
+        if (!value || !Array.isArray(value.raw) || value.raw.length!==value.rows*value.cols || value.raw.some(function (v) {return typeof v!=='string';})) throw new Error('matrix-input: expected rectangular raw string values');
+        resize(value.rows,value.cols,true);
+        matrix.querySelectorAll('input[data-matrix-row]').forEach(function (input,index) { input.value=value.raw[index]; });
+        notify('write');
+      }
+      function listen(el,event,fn) { el.addEventListener(event,fn); listeners.push(function () {el.removeEventListener(event,fn);}); }
+      controls.querySelectorAll('button[data-dynamic-action]').forEach(function (button) {
+        listen(button,'click',function () { if (button.disabled) return; var shape=resizedDynamicMatrixShape(matrix,spec,button.dataset.dynamicAction); resize(shape.rows,shape.cols); });
+      });
+      listen(matrix,'input',function () {notify('edit');});
+      if (Number(matrix.dataset.rows)===0 || Number(matrix.dataset.cols)===0) renderDynamicMatrixElement(matrix,exerciseId,vars,0,0);
+      syncControls();
+      var initial=read();
+      var api={read:read,write:write,resize:resize,setState:setState,reset:function () {write(initial);},destroy:function () { if (destroyed) return; listeners.forEach(function (remove) {remove();}); destroyed=true; delete wrap.matrixInput; }};
+      wrap.matrixInput=api;
+      return api;
+    }
+    return {renderHTML:renderHTML,mount:mount,resizedShape:resizedDynamicMatrixShape};
+  }
+  root.MatrixInput={version:'1.0.0',create:factory};
+})(typeof window !== 'undefined' ? window : globalThis);
 
 (function () {
   'use strict';
@@ -1693,6 +2066,7 @@ Hint for problem 3
       errDivZero: "Division by zero: the expression is undefined at this point.",
       errType: "Type error: make sure numbers and variables are combined correctly.",
       errGeneric: "The input could not be processed – use the input help for the correct spelling.",
+      errRuntime: "Python could not be loaded. Check the internet connection and press Check again.",
       vecComponent: function (n) { return 'Component ' + n; },
       matCell: function (row, column) { return 'Row ' + row + ', column ' + column; },
       dynamicMatCell: function (name, row, column) { return name + ', row ' + row + ', column ' + column; },
@@ -1719,6 +2093,10 @@ Hint for problem 3
       },
       loadingHelp: "&#9203; Loading help&hellip;",
       checking: "&#9203; Checking&hellip;",
+      slowCheck: "Still checking – the answer may be too large to evaluate.",
+      slowLoad: "Python is still loading.",
+      stop: "Stop",
+      errStopped: "Stopped. Python was restarted (interactive cells on this page lost their variables).",
       needAnswerFirst: "Please enter an answer first, then request feedback.",
       outputLanguageCode: "en",
       feedbackFieldSingle: "Answer",
@@ -1740,6 +2118,7 @@ Hint for problem 3
       errDivZero: "Division durch Null: der Ausdruck ist an dieser Stelle nicht definiert.",
       errType: "Typ-Fehler: Stelle sicher, dass Zahlen und Variablen korrekt kombiniert sind.",
       errGeneric: "Die Eingabe konnte nicht verarbeitet werden – nutze die Eingabe-Hilfe für korrekte Schreibweisen.",
+      errRuntime: "Python konnte nicht geladen werden. Prüfe die Internetverbindung und drücke erneut auf Überprüfen.",
       vecComponent: function (n) { return 'Komponente ' + n; },
       matCell: function (row, column) { return 'Zeile ' + row + ', Spalte ' + column; },
       dynamicMatCell: function (name, row, column) { return name + ', Zeile ' + row + ', Spalte ' + column; },
@@ -1766,6 +2145,10 @@ Hint for problem 3
       },
       loadingHelp: "&#9203; Lade Hilfe&hellip;",
       checking: "&#9203; Überprüfe&hellip;",
+      slowCheck: "Die Prüfung dauert noch – die Antwort ist vielleicht zu groß zum Auswerten.",
+      slowLoad: "Python wird noch geladen.",
+      stop: "Abbrechen",
+      errStopped: "Abgebrochen. Python wurde neu gestartet (interaktive Zellen auf dieser Seite haben ihre Variablen verloren).",
       needAnswerFirst: "Bitte zuerst eine Antwort eingeben, dann Feedback anfordern.",
       outputLanguageCode: "de",
       feedbackFieldSingle: "Antwort",
@@ -1787,6 +2170,7 @@ Hint for problem 3
       errDivZero: "Divisjon med null: Uttrykket er ikke definert i dette punktet.",
       errType: "Typefeil: Sjekk at tall og variabler er kombinert riktig.",
       errGeneric: "Inntastingen kunne ikke behandles – bruk inntastingshjelpen for å finne riktig skrivemåte.",
+      errRuntime: "Python kunne ikke lastes inn. Kontroller internettforbindelsen og trykk Sjekk igjen.",
       vecComponent: function (n) { return 'Komponent ' + n; },
       matCell: function (row, column) { return 'Rad ' + row + ', kolonne ' + column; },
       dynamicMatCell: function (name, row, column) { return name + ', rad ' + row + ', kolonne ' + column; },
@@ -1813,6 +2197,10 @@ Hint for problem 3
     },
       loadingHelp: "&#9203; Laster hjelp&hellip;",
       checking: "&#9203; Sjekker&hellip;",
+      slowCheck: "Sjekken pågår fortsatt – svaret er kanskje for stort til å regnes ut.",
+      slowLoad: "Python lastes fortsatt inn.",
+      stop: "Avbryt",
+      errStopped: "Avbrutt. Python ble startet på nytt (interaktive celler på denne siden mistet variablene sine).",
       needAnswerFirst: "Skriv inn et svar før du ber om tilbakemelding.",
       outputLanguageCode: "nb",
       feedbackFieldSingle: "Svar",
@@ -1860,25 +2248,6 @@ Hint for problem 3
 
   function simpleMarkdown(text) { return window.AIFeedback.renderMarkdown(text); }
 
-  function loadScript(src) {
-    return new Promise(function (resolve, reject) {
-      var existing = document.querySelector('script[src="' + src + '"]');
-      if (existing) {
-        if (existing.dataset.qLoaded === '1') { resolve(); return; }
-        existing.addEventListener('load', function () { resolve(); });
-        existing.addEventListener('error', function () {
-          reject(new Error('Failed to load: ' + src));
-        });
-        return;
-      }
-      var s = document.createElement('script');
-      s.src = src;
-      s.onload = function () { s.dataset.qLoaded = '1'; resolve(); };
-      s.onerror = function () { reject(new Error('Failed to load: ' + src)); };
-      document.head.appendChild(s);
-    });
-  }
-
   // ---------------------------------------------------------------------------
   // Pyodide bootstrap  (reuse coatless instance if present)
   // ---------------------------------------------------------------------------
@@ -1894,7 +2263,7 @@ Hint for problem 3
   var katexReady = false;
   var katexLib = null;
   var renderMathInElementFn = null;
-  var KATEX = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/';
+  var KATEX = 'https://cdn.jsdelivr.net/npm/katex@0.16/';
 
   async function ensureKatex() {
     if (katexReady) return;
@@ -1934,8 +2303,16 @@ Hint for problem 3
   // SymPy  (lazy – first Check click)
   // ---------------------------------------------------------------------------
 
-  var sympyReady = false;
-  var packageLoads = Object.create(null);
+  // A Pyodide runtime can be replaced on the page (pyodide-interaktiv's Stop or
+  // restart terminates its worker). SymPy setup and package loads therefore
+  // belong to one runtime object and are repeated for a new one.
+  var sympyRuntime = null;
+  var packageLoads = new WeakMap();
+  if (typeof window !== 'undefined' && window.addEventListener) {
+    window.addEventListener('qpyodide-runtime-restart', function () {
+      sympyRuntime = null; sympyLoading = null;
+    });
+  }
 
   function parsePackageList(value) {
     var packages = Array.isArray(value) ? value : [];
@@ -1955,28 +2332,46 @@ Hint for problem 3
 
   async function ensurePackages(packages) {
     var requested = parsePackageList(packages);
+    if (!requested.length) return;
+    var py = await ensurePyodide();
+    var loads = packageLoads.get(py);
+    if (!loads) { loads = Object.create(null); packageLoads.set(py, loads); }
     await Promise.all(requested.map(function (name) {
       var key = name.toLowerCase();
-      if (!packageLoads[key]) {
-        packageLoads[key] = mainPyodide.loadPackage(name).catch(function (error) {
-          delete packageLoads[key];
+      if (!loads[key]) {
+        loads[key] = py.loadPackage(name).catch(function (error) {
+          delete loads[key];
           throw error;
         });
       }
-      return packageLoads[key];
+      return loads[key];
     }));
   }
 
   var sympyLoading = null;
-  function ensureSympy() {
-    if (!sympyLoading) sympyLoading = initializeSympy().catch(function(error){sympyLoading=null;throw error;});
+  // Resolves to the runtime on which SymPy and the checker helpers are ready.
+  async function ensureSympy() {
+    var py = await ensurePyodide();
+    if (sympyRuntime === py) return py;
+    if (!sympyLoading || sympyLoading.runtime !== py) {
+      var loading = initializeSympy(py).then(function () { sympyRuntime = py; return py; },
+        function (error) { if (sympyLoading === loading) sympyLoading = null; throw error; });
+      loading.runtime = py;
+      sympyLoading = loading;
+    }
     return sympyLoading;
   }
-  async function initializeSympy() {
-    if (sympyReady) return;
-    await ensurePyodide();
-    await mainPyodide.loadPackage('sympy');
-    await mainPyodide.runPythonAsync([
+  // The checker runtime lives in its own module, not in the interpreter's
+  // global namespace: learner code in other cells on the page (for example
+  // pyodide-interaktiv) shares that namespace and may rebind names such as
+  // `symbols`, `Matrix` or `sqrt`.
+  var MATH_MODULE = '_ctm_math_exercise';
+  function runtimeCall(name) {
+    return '__import__("' + MATH_MODULE + '")._math_run("' + name + '", globals())';
+  }
+  async function initializeSympy(py) {
+    await py.loadPackage('sympy');
+    var source = [
       'from sympy import *',
       'from sympy.parsing.sympy_parser import (',
       '    parse_expr, standard_transformations,',
@@ -2017,10 +2412,20 @@ Hint for problem 3
       '    parts.append(cur)',
       '    return [p.strip() for p in parts if p.strip() != ""]',
       '',
+      '# Rounds the decimal value (15 significant digits, so binary noise in a',
+      '# computed key such as 1.05*1.9 does not count) half away from zero:',
+      '# round(5.395, 2) is 5.39 for the binary float, but 5.40 here.',
+      'def _round_places(x, d):',
+      '    from decimal import Decimal, ROUND_HALF_UP, InvalidOperation',
+      '    try:',
+      '        return float(Decimal(format(float(x), \'.15g\')).quantize(Decimal(1).scaleb(-d), rounding=ROUND_HALF_UP))',
+      '    except (InvalidOperation, ValueError, OverflowError):',
+      '        return round(x, d)',
+      '',
       'def _sigfigs_round(x, n):',
       '    if x == 0: return 0.0',
       '    d = n - int(floor(log10(abs(x)))) - 1',
-      '    return round(x, d)',
+      '    return _round_places(x, d)',
       '',
       'def _parse_tol(spec, ref):',
       '    spec = spec.strip()',
@@ -2038,7 +2443,7 @@ Hint for problem 3
       'def _num_equal(sv, cv):',
       '    if _math_decplaces.strip():',
       '        n = int(_math_decplaces)',
-      '        return round(sv, n) == round(cv, n)',
+      '        return _round_places(sv, n) == _round_places(cv, n)',
       '    if _math_sigfigs.strip():',
       '        n = int(_math_sigfigs)',
       '        return _sigfigs_round(sv, n) == _sigfigs_round(cv, n)',
@@ -2312,8 +2717,49 @@ Hint for problem 3
       '        return _normalize_custom_result(checker(response, checker_symbols))',
       '    except Exception as _me:',
       '        return {"status": "error", "message": str(_me)}',
-    ].join('\n'));
-    sympyReady = true;
+      '',
+      '_MATH_INPUTS = ("_math_student", "_math_correct", "_math_vars", "_math_mode", "_math_reject",',
+      '                "_math_tolerance", "_math_decplaces", "_math_sigfigs", "_math_form",',
+      '                "_math_partial_credit", "_math_form_credit", "_math_response_json", "_math_checker")',
+      '',
+      'try:',
+      '    import _ctm_guard',
+      'except ImportError:  # native test runners (question-tests.py) have no page to protect',
+      '    _ctm_guard = None',
+      '',
+      'def _learner_strings(request):',
+      '    # Only what this request brought: earlier requests leave other inputs behind.',
+      '    if "_math_student" in request and request.get("_math_mode") not in ("string", "string_ci"):',
+      '        yield request["_math_student"] or ""  # string answers are never evaluated',
+      '    try:',
+      '        response = _mj.loads(request.get("_math_response_json") or "null")',
+      '    except ValueError:',
+      '        return',
+      '    if isinstance(response, dict):',
+      '        yield from response.get("raw", []) or []',
+      '        for item in (response.get("inputs") or {}).values():',
+      '            if isinstance(item, dict):',
+      '                yield from item.get("raw", []) or []',
+      '',
+      'def _math_run(name, caller):',
+      '    # Move this request\'s inputs out of the shared namespace into the module.',
+      '    request = {key: caller.pop(key) for key in _MATH_INPUTS if key in caller}',
+      '    globals().update(request)',
+      '    # Learner answers are parsed by SymPy (which evaluates Python): no dunder',
+      '    # access. Author data (variants, checkers) is not restricted.',
+      '    if any("__" in str(text) for text in _learner_strings(request)):',
+      '        raise ValueError("SyntaxError: unsupported input")',
+      '    # Whatever the parsed answer or checker does, other components on the',
+      '    # page keep their interpreter state.',
+      '    state = _ctm_guard.snapshot() if _ctm_guard else None',
+      '    try:',
+      '        return _mj.dumps(globals()[name]())',
+      '    finally:',
+      '        if state is not None:',
+      '            _ctm_guard.restore(state)',
+    ].join('\n');
+    await globalThis.MathExerciseRuntime.ensureGuard(py);
+    await globalThis.MathExerciseRuntime.installModule(py, MATH_MODULE, source);
   }
 
   // ---------------------------------------------------------------------------
@@ -2351,6 +2797,10 @@ Hint for problem 3
 
   function friendlyError(raw) {
     var msg = String(raw || '');
+    if (/did not finish loading|Failed to load: https?:/.test(msg))
+      return L.errRuntime;
+    if (/stopped by the learner/i.test(msg))
+      return L.errStopped;
     if (/SyntaxError/i.test(msg))
       return L.errSyntax;
     var nm = msg.match(/name ['"]([\w]+)['"] is not defined/);
@@ -2488,56 +2938,13 @@ Hint for problem 3
     return { name: name, rows: axis('rows'), cols: axis('cols') };
   }
 
-  function dynamicMatrixCellHtml(exerciseId, spec, row, column, vars) {
-    var fid = exerciseId + '-dm-' + spec.name + '-' + row + '-' + column;
-    var label = 'dm:' + spec.name + ':' + row + ',' + column;
-    return {
-      id: fid,
-      label: label,
-      html: '<input type="text" id="' + fid + '" data-answer=""'
-          + ' data-vars="' + escHtml(vars) + '"'
-          + ' data-dynamic-matrix-name="' + escHtml(spec.name) + '"'
-          + ' data-matrix-row="' + row + '" data-matrix-column="' + column + '"'
-          + ' data-structural-label="' + escHtml(label) + '"'
-          + ' autocomplete="off" autocorrect="off" spellcheck="false"'
-          + ' class="math-input math-mat-cell">',
-    };
+  function matrixEditorOptions(exerciseId, vars, onChange) {
+    return {idPrefix:exerciseId, vars:vars, labels:L, zeroDimensions:'canonical', onChange:onChange};
   }
 
   function buildDynamicMatrix(exerciseId, content, vars, mode) {
     if (mode !== 'custom') throw new Error('math-exercise: mat{...} currently requires mode: custom');
-    var spec = parseDynamicMatrixSpec(content);
-    var configuredRows = spec.rows.initial, configuredCols = spec.cols.initial;
-    var rows = configuredRows, cols = configuredCols;
-    if (rows === 0 || cols === 0) { rows = 0; cols = 0; }
-    var ids = [], labels = [], cells = [];
-    for (var row = 1; row <= rows; row++) {
-      for (var column = 1; column <= cols; column++) {
-        var cell = dynamicMatrixCellHtml(exerciseId, spec, row, column, vars);
-        ids.push(cell.id); labels.push(cell.label); cells.push(cell.html);
-      }
-    }
-    var matrix = '<span class="math-mat math-dynamic-mat" style="--cols:' + Math.max(cols, 1) + '"'
-      + ' data-matrix-name="' + escHtml(spec.name) + '" data-rows="' + rows + '" data-cols="' + cols + '"'
-      + ' data-auto-rows="' + spec.rows.auto + '" data-auto-cols="' + spec.cols.auto + '"'
-      + ' data-min-rows="' + spec.rows.min + '" data-max-rows="' + spec.rows.max + '"'
-      + ' data-min-cols="' + spec.cols.min + '" data-max-cols="' + spec.cols.max + '"'
-      + ' data-last-rows="' + configuredRows + '" data-last-cols="' + configuredCols + '">'
-      + cells.join('') + '</span>';
-    var controls = '<span class="math-dynamic-matrix-controls" aria-label="Matrix size controls">'
-      + '<span class="math-dynamic-axis" data-dynamic-axis="row"><span class="math-dynamic-axis-label"></span>'
-      + '<button type="button" data-dynamic-action="remove-row">−</button><output></output>'
-      + '<button type="button" data-dynamic-action="add-row">+</button></span>'
-      + '<span class="math-dynamic-axis" data-dynamic-axis="col"><span class="math-dynamic-axis-label"></span>'
-      + '<button type="button" data-dynamic-action="remove-col">−</button><output></output>'
-      + '<button type="button" data-dynamic-action="add-col">+</button></span>'
-      + '</span>';
-    return {
-      html: '<span class="math-dynamic-matrix-wrap" data-matrix-name="' + escHtml(spec.name) + '">' + matrix + controls + '</span>',
-      ids: ids,
-      labels: labels,
-      count: 0,
-    };
+    return window.MatrixInput.create(matrixEditorOptions(exerciseId,vars)).renderHTML(parseDynamicMatrixSpec(content));
   }
 
   function matchBalanced(text, position, open, close) {
@@ -2553,6 +2960,20 @@ Hint for problem 3
   // Raw exercise bodies bypass Pandoc's Markdown math handling. Normalize
   // paired dollar delimiters before inserting HTML so a page-level MathJax
   // pass cannot claim a bare \\begin{...} environment and strand the dollars.
+  // Same placeholder as math-exercise.lua: a literal dollar becomes its own
+  // element, so neither KaTeX auto-render nor MathJax treats it as a delimiter.
+  var LITERAL_DOLLAR = '\uE024';
+  var LITERAL_DOLLAR_HTML = '<span class="math-literal-dollar">$</span>';
+  // A code span: the next backtick on the same line, with something between;
+  // \` is a literal backtick. Returns the closing index or -1.
+  function codeSpanEnd(s, i) {
+    if (i > 0 && s.charAt(i - 1) === '\\') return -1;
+    var k = s.indexOf('`', i + 1);
+    if (k < 0 || k === i + 1) return -1;
+    var newline = s.indexOf('\n', i + 1);
+    return newline >= 0 && newline < k ? -1 : k;
+  }
+
   function normalizeTaskMathDelimiters(text) {
     var output = '', position = 0;
     function unescapedAt(needle, start) {
@@ -2566,7 +2987,18 @@ Hint for problem 3
       return -1;
     }
     while (position < text.length) {
-      if (text.charAt(position) !== '$' || (position > 0 && text.charAt(position - 1) === '\\')) {
+      var codeEnd = text.charAt(position) === '`' ? codeSpanEnd(text, position) : -1;
+      if (codeEnd >= 0) {
+        // A dollar inside a code span is literal.
+        output += text.slice(position, codeEnd + 1); position = codeEnd + 1;
+        continue;
+      }
+      if (text.charAt(position) === '$' && position > 0 && text.charAt(position - 1) === '\\') {
+        // Escaped dollar: placeholder, turned into its own element after escaping.
+        output = output.slice(0, -1) + LITERAL_DOLLAR; position++;
+        continue;
+      }
+      if (text.charAt(position) !== '$') {
         output += text.charAt(position++);
         continue;
       }
@@ -2581,13 +3013,85 @@ Hint for problem 3
     return output;
   }
 
+  // Exercise text is Markdown-like plain text: HTML is shown as text (so a<b<c
+  // in TeX stays intact), and outside math a small inline Markdown subset is
+  // formatted: ***both***, **bold**, *italic*, `code`; \* and \` are literal; a
+  // trailing backslash is a line break. Emphasis may contain math. Same rules
+  // as inlineMarkdown()/proseHtml() in math-exercise.lua (parity test).
+  var MATH_SLOT = '';   // stands for one math span while formatting
+  var SPACE = /[ \t\r\n\f\v]/, WORD = /[A-Za-z0-9]/;
+
+  function inlineMarkdown(s) {
+    var out = '', i = 0, n = s.length;
+    // Closing delimiter for emphasis opened just before `from`: on the same
+    // line, not escaped, not after whitespace, not followed by another "*"
+    // (or, for "*", by a letter or digit). Linear in the line length.
+    function closing(delim, from) {
+      if (from >= n || SPACE.test(s.charAt(from))) return -1;
+      var newline = s.indexOf('\n', from); if (newline < 0) newline = n;
+      var j = from + 1;
+      for (;;) {
+        var k = s.indexOf(delim, j);
+        if (k < 0 || k >= newline) return -1;
+        var next = s.charAt(k + delim.length), before = s.charAt(k - 1);
+        if (next === '*' || before === '\\' || SPACE.test(before) || (delim === '*' && WORD.test(next))) j = k + 1;
+        else return k;
+      }
+    }
+    while (i < n) {
+      var c = s.charAt(i), next = s.charAt(i + 1), k;
+      if (c === '\\' && (next === '*' || next === '`')) { out += next; i += 2; }
+      else if (c === '\\' && next === '\n') i++;   // Markdown hard line break: the newline already breaks the line
+      else if (c === '`' && (k = codeSpanEnd(s, i)) >= 0) { out += '<code>' + s.slice(i + 1, k) + '</code>'; i = k + 1; }
+      else if (s.slice(i, i + 3) === '***' && (k = closing('***', i + 3)) >= 0) {
+        out += '<em><strong>' + inlineMarkdown(s.slice(i + 3, k)) + '</strong></em>'; i = k + 3;
+      } else if (c === '*' && next === '*') {
+        k = closing('**', i + 2);
+        if (k >= 0) { out += '<strong>' + inlineMarkdown(s.slice(i + 2, k)) + '</strong>'; i = k + 2; }
+        else { out += '**'; i += 2; }
+      } else if (c === '*' && !(i > 0 && WORD.test(s.charAt(i - 1)))) {
+        k = closing('*', i + 1);
+        if (k >= 0) { out += '<em>' + inlineMarkdown(s.slice(i + 1, k)) + '</em>'; i = k + 1; }
+        else { out += c; i++; }
+      } else { out += c; i++; }
+    }
+    return out;
+  }
+
+  // Escapes a run of exercise text and formats inline Markdown outside math
+  // (\( \), \[ \], \begin{..} \end{..} after normalizeTaskMathDelimiters) and
+  // outside code spans. Each math span is a slot while formatting, so emphasis
+  // may contain math.
+  function proseHtml(text) {
+    var plain = '', maths = [], position = 0;
+    while (position < text.length) {
+      var c = text.charAt(position), codeEnd = c === '`' ? codeSpanEnd(text, position) : -1;
+      var two = text.slice(position, position + 2);
+      var env = /^\\begin\{([^}]*)\}/.exec(text.slice(position, position + 200));
+      var closer = two === '\\(' ? '\\)' : two === '\\[' ? '\\]' : env ? '\\end{' + env[1] + '}' : null;
+      if (codeEnd >= 0) { plain += text.slice(position, codeEnd + 1); position = codeEnd + 1; }
+      else if (closer) {
+        var close = text.indexOf(closer, position + 2);
+        var stop = close >= 0 ? close + closer.length : text.length;
+        maths.push(escHtml(text.slice(position, stop)));
+        plain += MATH_SLOT;
+        position = stop;
+      } else { plain += c; position++; }
+    }
+    var index = 0;
+    return inlineMarkdown(escHtml(plain)).replace(//g, function () { return maths[index++]; });
+  }
+
   function renderTaskText(text, exerciseId, vars, vecdir, mode, questionIsHtml) {
     // Generated variants have already been rendered by Pandoc; preserve their
     // markup and source annotations. Ordinary exercise bodies are plain text.
     if (!questionIsHtml) text = normalizeTaskMathDelimiters(text);
     mode = mode || 'equivalent';
-    var count = 0, fieldIds = [], structuralLabels = [], output = [], position = 0;
+    var count = 0, fieldIds = [], structuralLabels = [], output = [], position = 0, prose = '';
     var dynamicNames = {};
+    function flush() {
+      if (prose) { output.push(questionIsHtml ? prose : proseHtml(prose)); prose = ''; }
+    }
     while (position < text.length) {
       var scalar = /^_+\[/.exec(text.slice(position));
       var boundary = !scalar && (position === 0 || !/[\w]/.test(text.charAt(position - 1)));
@@ -2599,15 +3103,14 @@ Hint for problem 3
       var brace = dynamicMatrix ? matchBalanced(text, position + headLength - 1, '{', '}') : null;
       var balanced = bracket || brace;
 
-      // Task prose and TeX are text, never HTML; generated controls below
-      // remain markup. In particular, a<b<c must reach the math renderer.
-      if (!balanced) {
-        var character = text.charAt(position++);
-        output.push(questionIsHtml ? character : escHtml(character));
-        continue;
-      }
+      // Task prose and TeX are text, never HTML (see proseHtml); generated
+      // controls below remain markup. In particular, a<b<c must reach the
+      // math renderer.
+      if (!balanced) { prose += text.charAt(position++); continue; }
+      flush();
 
-      var content = balanced.slice(1, -1), rendered;
+      // Inside an answer marker an escaped dollar is a plain dollar.
+      var content = balanced.slice(1, -1).split(LITERAL_DOLLAR).join('$'), rendered;
       if (scalar) {
         count++;
         var fid = exerciseId + '-f' + count;
@@ -2633,8 +3136,9 @@ Hint for problem 3
       }
       position += headLength - 1 + balanced.length;
     }
+    flush();
     return {
-      html: output.join('').replace(/\n/g, '<br>\n'),
+      html: output.join('').split(LITERAL_DOLLAR).join(LITERAL_DOLLAR_HTML).replace(/\n/g, '<br>\n'),
       fieldIds: fieldIds,
       structuralLabels: structuralLabels
     };
@@ -2674,40 +3178,15 @@ Hint for problem 3
     };
   }
 
-  function renderDynamicMatrixElement(matrix, exerciseId, vars, rows, cols) {
-    var oldValues = {};
-    matrix.querySelectorAll('input[data-matrix-row][data-matrix-column]').forEach(function (input) {
-      oldValues[input.dataset.matrixRow + ',' + input.dataset.matrixColumn] = input.value;
-    });
-    var spec = dynamicSpecFromElement(matrix);
-    if (rows === 0 || cols === 0) { rows = 0; cols = 0; }
-    else {
-      matrix.dataset.lastRows = String(rows);
-      matrix.dataset.lastCols = String(cols);
-    }
-    var cells = [];
-    for (var row = 1; row <= rows; row++) {
-      for (var column = 1; column <= cols; column++) {
-        var cell = dynamicMatrixCellHtml(exerciseId, spec, row, column, vars);
-        cells.push(cell.html);
-      }
-    }
-    matrix.dataset.rows = String(rows);
-    matrix.dataset.cols = String(cols);
-    matrix.style.setProperty('--cols', String(Math.max(cols, 1)));
-    matrix.innerHTML = cells.length
-      ? cells.join('')
-      : '<span class="math-dynamic-matrix-empty" aria-live="polite">' + escHtml(L.emptyMatrix) + '</span>';
-    matrix.querySelectorAll('input[data-matrix-row][data-matrix-column]').forEach(function (input) {
-      var key = input.dataset.matrixRow + ',' + input.dataset.matrixColumn;
-      if (Object.prototype.hasOwnProperty.call(oldValues, key)) input.value = oldValues[key];
-    });
-  }
-
   function collectDynamicMatrixInputs(root) {
     var inputs = {};
     root.querySelectorAll('.math-dynamic-mat').forEach(function (matrix) {
       var name = matrix.dataset.matrixName;
+      if (matrix.parentElement.matrixInput) {
+        var value = matrix.parentElement.matrixInput.read();
+        value.raw = value.raw.map(function (raw) { return raw.trim(); });
+        inputs[name] = value; return;
+      }
       var rows = Number(matrix.dataset.rows), cols = Number(matrix.dataset.cols);
       var raw = [];
       for (var row = 1; row <= rows; row++) {
@@ -2723,69 +3202,22 @@ Hint for problem 3
   }
 
   function resizedDynamicMatrixShape(matrix, spec, action) {
-    var rows = Number(matrix.dataset.rows), cols = Number(matrix.dataset.cols);
-    var empty = rows === 0 || cols === 0;
-    if (empty && action === 'add-row') {
-      rows = Math.max(1, spec.rows.min);
-      cols = spec.cols.auto ? Math.max(1, Number(matrix.dataset.lastCols) || spec.cols.initial) : spec.cols.initial;
-    } else if (empty && action === 'add-col') {
-      cols = Math.max(1, spec.cols.min);
-      rows = spec.rows.auto ? Math.max(1, Number(matrix.dataset.lastRows) || spec.rows.initial) : spec.rows.initial;
-    } else if (action === 'add-row' && rows < spec.rows.max) rows++;
-    if (action === 'remove-row' && rows > spec.rows.min) rows--;
-    if (!empty && action === 'add-col' && cols < spec.cols.max) cols++;
-    if (action === 'remove-col' && cols > spec.cols.min) cols--;
-    return { rows: rows, cols: cols };
+    return window.MatrixInput.create({zeroDimensions:'canonical'}).resizedShape(matrix, spec, action);
   }
 
   function initializeDynamicMatrices(root, exerciseId, vars, onChange) {
-    var names = {};
-    root.querySelectorAll('.math-dynamic-matrix-wrap').forEach(function (wrap) {
+    var wraps = root.querySelectorAll('.math-dynamic-matrix-wrap');
+    var names = Object.create(null);
+    // Validate the complete question before attaching any editors or handlers.
+    wraps.forEach(function (wrap) {
       var matrix = wrap.querySelector('.math-dynamic-mat');
       if (!matrix) return;
-      var spec = dynamicSpecFromElement(matrix);
-      if (names[spec.name]) throw new Error('math-exercise: duplicate dynamic matrix name ' + spec.name);
-      names[spec.name] = true;
-      var controls = wrap.querySelector('.math-dynamic-matrix-controls');
-      if (!controls) return;
-
-      var labels = {
-        'add-row': L.matrixAddRow,
-        'remove-row': L.matrixRemoveRow,
-        'add-col': L.matrixAddColumn,
-        'remove-col': L.matrixRemoveColumn,
-      };
-      function syncControls() {
-        var rows = Number(matrix.dataset.rows), cols = Number(matrix.dataset.cols);
-        controls.querySelectorAll('.math-dynamic-axis').forEach(function (axisControl) {
-          var isRow = axisControl.dataset.dynamicAxis === 'row';
-          var axis = isRow ? spec.rows : spec.cols;
-          axisControl.style.display = axis.auto ? '' : 'none';
-          axisControl.querySelector('.math-dynamic-axis-label').textContent = isRow ? L.matrixRows : L.matrixColumns;
-          axisControl.querySelector('output').textContent = String(isRow ? rows : cols);
-        });
-        controls.querySelectorAll('button[data-dynamic-action]').forEach(function (button) {
-          var action = button.dataset.dynamicAction;
-          var rowAction = action.indexOf('row') !== -1;
-          var axis = rowAction ? spec.rows : spec.cols;
-          button.setAttribute('aria-label', labels[action] + ' ' + spec.name);
-          var value = rowAction ? rows : cols;
-          button.disabled = action.indexOf('add') === 0 ? value >= axis.max : value <= axis.min;
-        });
-      }
-      function resize(action) {
-        var shape = resizedDynamicMatrixShape(matrix, spec, action);
-        renderDynamicMatrixElement(matrix, exerciseId, vars, shape.rows, shape.cols);
-        syncControls();
-        if (onChange) onChange();
-      }
-      controls.querySelectorAll('button[data-dynamic-action]').forEach(function (button) {
-        button.addEventListener('click', function () { resize(button.dataset.dynamicAction); });
-      });
-      if (Number(matrix.dataset.rows) === 0 || Number(matrix.dataset.cols) === 0) {
-        renderDynamicMatrixElement(matrix, exerciseId, vars, Number(matrix.dataset.rows), Number(matrix.dataset.cols));
-      }
-      syncControls();
+      var name = matrix.dataset.matrixName;
+      if (names[name]) throw new Error('math-exercise: duplicate dynamic matrix name ' + name);
+      names[name] = true;
+    });
+    wraps.forEach(function (wrap) {
+      window.MatrixInput.create(matrixEditorOptions(exerciseId,vars,onChange)).mount(wrap);
     });
   }
 
@@ -2924,7 +3356,21 @@ Hint for problem 3
 
   function applyCustomAssessment(questionDiv, result) {
     var assessment = result.assessment || {};
+    questionDiv.querySelectorAll('.math-dynamic-matrix-wrap').forEach(function (wrap) {
+      if (!wrap.matrixInput) return;
+      var matrix = assessment[wrap.dataset.matrixName] || {};
+      var shape = wrap.matrixInput.read();
+      function axisStatuses(values, bound) {
+        return Array.isArray(values) ? values.slice(0, bound).map(normalizedAssessmentStatus) : [];
+      }
+      wrap.matrixInput.setState({
+        status: result.status === 'wrong' ? 'incorrect' : result.status,
+        rows: axisStatuses(matrix.rows, shape.rows),
+        columns: axisStatuses(matrix.columns, shape.cols),
+      });
+    });
     questionDiv.querySelectorAll('input.math-input').forEach(function (input) {
+      if (input.dataset.dynamicMatrixName && input.closest('.math-dynamic-matrix-wrap').matrixInput) return;
       input.classList.remove('math-input-ok', 'math-input-dependent', 'math-input-partial', 'math-input-wrong', 'math-input-err');
       var status = '';
       if (input.dataset.dynamicMatrixName) {
@@ -2989,8 +3435,8 @@ Hint for problem 3
 
   // Calls the _math_check() helper defined once in ensureSympy() and returns
   // its result as a JSON status string.
-  var CHECK_PY = '_mj.dumps(_math_check())';
-  var CHECK_CUSTOM_PY = '_mj.dumps(_math_check_custom())';
+  var CHECK_PY = runtimeCall('_math_check');
+  var CHECK_CUSTOM_PY = runtimeCall('_math_check_custom');
 
   // Python globals are shared: keep each set-globals/evaluate transaction together.
   var assessmentQueue = Promise.resolve();
@@ -3003,18 +3449,74 @@ Hint for problem 3
     var val = el.value.trim();
     if (!val) return { status: 'empty', score: 0.0 };
     opts = opts || {};
-    mainPyodide.globals.set('_math_student',   val);
-    mainPyodide.globals.set('_math_correct',   el.dataset.answer || '');
-    mainPyodide.globals.set('_math_vars',      el.dataset.vars   || '');
-    mainPyodide.globals.set('_math_mode',      mode || 'equivalent');
-    mainPyodide.globals.set('_math_reject',    opts.reject    || '');
-    mainPyodide.globals.set('_math_tolerance', opts.tolerance || '');
-    mainPyodide.globals.set('_math_decplaces', opts.decplaces || '');
-    mainPyodide.globals.set('_math_sigfigs',   opts.sigfigs   || '');
-    mainPyodide.globals.set('_math_form',      opts.form      || '');
-    mainPyodide.globals.set('_math_partial_credit', !!opts.partialCredit);
-    mainPyodide.globals.set('_math_form_credit', Number(opts.formCredit));
-    return JSON.parse(await mainPyodide.runPythonAsync(CHECK_PY));
+    return runOnCurrentRuntime(async function (py) {
+      await Promise.all([
+        py.globals.set('_math_student',   val),
+        py.globals.set('_math_correct',   el.dataset.answer || ''),
+        py.globals.set('_math_vars',      el.dataset.vars   || ''),
+        py.globals.set('_math_mode',      mode || 'equivalent'),
+        py.globals.set('_math_reject',    opts.reject    || ''),
+        py.globals.set('_math_tolerance', opts.tolerance || ''),
+        py.globals.set('_math_decplaces', opts.decplaces || ''),
+        py.globals.set('_math_sigfigs',   opts.sigfigs   || ''),
+        py.globals.set('_math_form',      opts.form      || ''),
+        py.globals.set('_math_partial_credit', !!opts.partialCredit),
+        py.globals.set('_math_form_credit', Number(opts.formCredit)),
+      ]);
+      return JSON.parse(await py.runPythonAsync(CHECK_PY));
+    });
+  }
+
+  // A check that was running when the runtime was replaced (Stop/restart) is
+  // repeated once on the new runtime instead of reporting a spurious error.
+  // The first check also covers SymPy's multi-second setup, so a restart
+  // during setup is retried as well.
+  // A check stopped from any button on the page (runtime.stopCount) is not repeated.
+  // `math-exercise: stop-after:` / `ctm-assessment: stop-after:` (seconds, default 20).
+  var SLOW_CHECK_MS = (typeof window !== 'undefined' && window.__mathExerciseSlowCheckMs) ||
+    (Number(ME_CFG.stopAfter) > 0 ? Number(ME_CFG.stopAfter) * 1000 : 20000);
+  // Checks in progress, told when Python reloads during a retry: loading is
+  // timed by the load limit, not by stop-after. A check counts as loading while
+  // any retry reloads (its Python calls wait behind that reload).
+  var reloadHooks = new Set(), activeReloads = 0;
+  function stoppedSince(epoch) { return epoch !== globalThis.MathExerciseRuntime.stopCount(); }
+  async function runOnCurrentRuntime(run, packages) {
+    var epoch = globalThis.MathExerciseRuntime.stopCount();
+    var attempted = await ensurePyodide(), ready = null;
+    try {
+      ready = await ensureSympy();
+      return await run(ready);
+    } catch (error) {
+      if (stoppedSince(epoch)) throw new Error('math-exercise: stopped by the learner');
+      // Learner code elsewhere on the page removed the checker module: install again.
+      var missing = /No module named '_ctm_|has no attribute '_math_run'/.test(String(error));
+      if (missing) {
+        globalThis.MathExerciseRuntime.forgetModules(ready || attempted);
+        sympyRuntime = null; sympyLoading = null;
+      }
+      var current;
+      activeReloads++;
+      try {
+        reloadHooks.forEach(function (hook) { hook(); });
+        current = await ensureSympy();
+        // The exercise's packages reload within the same loading window.
+        if (packages) await ensurePackages(packages);
+      } catch (reloadError) {
+        // Stop pressed (here or in another exercise) while Python reloaded.
+        if (stoppedSince(epoch)) throw new Error('math-exercise: stopped by the learner');
+        throw reloadError;
+      } finally {
+        activeReloads--;
+        reloadHooks.forEach(function (hook) { hook(); });
+      }
+      if (stoppedSince(epoch)) throw new Error('math-exercise: stopped by the learner');
+      if (current === (ready || attempted) && !missing) throw error;
+      return run(current);
+    }
+  }
+  // Prepares SymPy and the exercise's packages, with the same retry.
+  function prepareRuntime(packages) {
+    return runOnCurrentRuntime(function () { return ensurePackages(packages); }, packages);
   }
 
   async function checkCustomNow(response, opts) {
@@ -3022,15 +3524,29 @@ Hint for problem 3
       if (!response || typeof response !== 'object' || Array.isArray(response)) throw new Error('Generated custom responses must be objects');
       response = Object.assign({}, response, {variant: opts.variant});
     }
-    mainPyodide.globals.set('_math_response_json', JSON.stringify(response));
-    mainPyodide.globals.set('_math_vars', opts.vars || '');
-    mainPyodide.globals.set('_math_checker', opts.checker || '');
-    return JSON.parse(await mainPyodide.runPythonAsync(CHECK_CUSTOM_PY));
+    return runOnCurrentRuntime(async function (py) {
+      await ensurePackages(opts.packages);
+      await Promise.all([
+        py.globals.set('_math_response_json', JSON.stringify(response)),
+        py.globals.set('_math_vars', opts.vars || ''),
+        py.globals.set('_math_checker', opts.checker || ''),
+      ]);
+      return JSON.parse(await py.runPythonAsync(CHECK_CUSTOM_PY));
+    }, opts.packages);
   }
 
   // Domain extraction delegates shared context and math-safe serialization.
-  function contextText(root, labels) { return window.AIFeedback.contextText(root, labels); }
-  function questionText(cell, ids, label) { return window.AIFeedback.questionText(cell, ids, label); }
+  // Without ai-feedback on the page (feedback off) a plain text snapshot is
+  // enough: these texts only detect edits and build feedback requests.
+  function contextText(root, labels) {
+    if (window.AIFeedback) return window.AIFeedback.contextText(root, labels);
+    return root ? root.textContent.trim() : '';
+  }
+  function questionText(cell, ids, label) {
+    if (window.AIFeedback) return window.AIFeedback.questionText(cell, ids, label);
+    var question = cell.querySelector('.math-exercise-question');
+    return question ? question.textContent.trim() : '';
+  }
   function resolveContexts(cell) {
     var text = '';
     try { text = JSON.parse(cell.dataset.context || '""'); } catch (_) {}
@@ -3334,9 +3850,44 @@ Hint for problem 3
       checkBtn.disabled = true;
       if (feedbackBtn) feedbackBtn.disabled = true;
       fbDiv.innerHTML = '<div class="math-fb-checking">' + L.checking + '</div>';
+      var cancelSlow = function () {}, phase = null, stopNote = null;
+      var offerStop = function (loading) {
+          var note = stopNote = document.createElement('div');
+          note.className = 'math-fb-checking';
+          note.textContent = (loading ? L.slowLoad : L.slowCheck) + ' ';
+          var stopBtn = document.createElement('button');
+          stopBtn.type = 'button';
+          stopBtn.className = 'btn btn-sm btn-outline-danger math-stop-btn';
+          stopBtn.textContent = L.stop;
+          stopBtn.addEventListener('click', function () {
+            globalThis.MathExerciseRuntime.stop('Stopped by the learner');
+          });
+          note.appendChild(stopBtn);
+          fbDiv.replaceChildren(note);
+      };
+      // Loading is timed by the load limit (a load that never finishes can
+      // still be stopped), the check itself by stop-after.
+      var timePhase = function (loading) {
+        // The same phase keeps its timer; a new one starts its own and takes
+        // back a Stop note that belonged to the previous phase.
+        if (loading === phase) return;
+        phase = loading;
+        if (stopNote && stopNote.isConnected) fbDiv.innerHTML = '<div class="math-fb-checking">' + L.checking + '</div>';
+        stopNote = null;
+        cancelSlow();
+        cancelSlow = globalThis.MathExerciseRuntime.whenSlow(
+          loading ? globalThis.MathExerciseRuntime.loadTimeout : SLOW_CHECK_MS,
+          function () { offerStop(loading); });
+      };
+      // A reload during another check's retry ends with that check's own phase.
+      var stillLoading = true;
+      var onReload = function () { timePhase(activeReloads > 0 || stillLoading); };
+      reloadHooks.add(onReload);
       try {
-        await ensureSympy();
-        await ensurePackages(checkOpts.packages);
+        timePhase(true);
+        await prepareRuntime(checkOpts.packages);
+        stillLoading = false;
+        timePhase(activeReloads > 0);
         var parts = [];
         var fieldElements = fieldIds.map(function (id) { return document.getElementById(id); });
         if (mode === 'custom') {
@@ -3390,6 +3941,10 @@ Hint for problem 3
       } catch (err) {
         fbDiv.innerHTML = '<div class="math-fb-err">&#9888;&nbsp;' + friendlyError(String(err)) + '</div>';
       } finally {
+        reloadHooks.delete(onReload);
+        cancelSlow();
+        // A check abandoned after an edit returns early: its Stop note goes too.
+        if (stopNote && stopNote.isConnected) stopNote.remove();
         checkBtn.disabled = false;
         if (feedbackBtn) feedbackBtn.disabled = !feedbackHandle;
       }
@@ -3409,6 +3964,17 @@ Hint for problem 3
     checkBtn.addEventListener('click', runCheck);
     attachKeyListeners();
 
+    // Author-facing hint: a JSXGraph block that the jsxgraph filter did not
+    // process (extension installed but not listed in `filters`) has no iframe.
+    if (checkOpts.responseSource.indexOf('jsxgraph:') === 0) {
+      var diagramId = checkOpts.responseSource.slice('jsxgraph:'.length).trim();
+      var diagram = document.getElementById(diagramId);
+      if (!diagram || diagram.tagName !== 'IFRAME') {
+        fbDiv.innerHTML = '<div class="math-fb-err">&#9888;&nbsp;JSXGraph diagram "' + escHtml(diagramId) +
+          '" is not available. Add <code>jsxgraph</code> to the page\'s <code>filters</code>.</div>';
+      }
+    }
+
     // Selection is shared by random reload and author review; always invalidates old feedback.
     function selectTask(next) {
       if (!poolTasks || !Number.isInteger(next) || next < 0 || next >= poolTasks.length) throw new Error('Invalid variant selection');
@@ -3417,6 +3983,7 @@ Hint for problem 3
       idx = next;
       try { sessionStorage.setItem(poolKey, String(next)); } catch(e) {}
       var r = renderTaskText(poolTasks[next], cell.id, vars, vecdir, mode, !!generated);
+      questionDiv.querySelectorAll('.math-dynamic-matrix-wrap').forEach(function (wrap) { if (wrap.matrixInput) wrap.matrixInput.destroy(); });
       setQuestionContent(questionDiv, r);
       cell.dataset.fields = JSON.stringify(r.fieldIds);
       cell.dataset.structuralFieldLabels = JSON.stringify(r.structuralLabels);
@@ -3435,7 +4002,7 @@ Hint for problem 3
         getVariant: currentVariant,
         selectVariant: function(id) {selectTask(generated.variants.findIndex(function(v){return v.id===id;}));},
         checkFixture: async function(record, fixture) {
-          await ensureSympy(); await ensurePackages(checkOpts.packages);
+          await prepareRuntime(checkOpts.packages);
           var options=Object.assign({}, checkOpts, {checker:record.checker,
             variant:JSON.parse(JSON.stringify({id:record.id, parameters:record.parameters, derived:record.derived, fingerprint:record.fingerprint, context:record['variant-context']}))});
           if(mode==='custom') return [await checkCustom(fixture.response || {kind:'expressions', raw:fixture.answers || [], inputs:{}}, options)];
@@ -3528,6 +4095,8 @@ Hint for problem 3
       splitTop: splitTop,
       parseDynamicMatrixSpec: parseDynamicMatrixSpec,
       dynamicSpecFromElement: dynamicSpecFromElement,
+      initializeDynamicMatrices: initializeDynamicMatrices,
+      applyCustomAssessment: applyCustomAssessment,
       resizedDynamicMatrixShape: resizedDynamicMatrixShape,
       renderTaskText: renderTaskText,
       setQuestionContent: setQuestionContent,
@@ -3542,6 +4111,9 @@ Hint for problem 3
       structuredGroupStatus: structuredGroupStatus,
       parsePackageList: parsePackageList,
       ensurePackages: ensurePackages,
+      ensureSympy: ensureSympy,
+      checkField: checkField,
+      runtimeCall: runtimeCall,
       notifyExternalLayout: notifyExternalLayout,
       scheduleExternalLayout: scheduleExternalLayout,
     };

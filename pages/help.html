@@ -76,10 +76,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-b6dc9e813fb09d2bbff48e8f9eb94b8d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/ai-feedback-0.7.0/feedback-core.js"></script>
-<script src="../site_libs/quarto-contrib/ai-feedback-0.7.0/feedback-dom.js"></script>
-<script src="../site_libs/quarto-contrib/ai-feedback-0.7.0/ai-feedback.js"></script>
-<link href="../site_libs/quarto-contrib/ai-feedback-0.7.0/ai-feedback.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/ai-feedback-0.8.1/feedback-core.js"></script>
+<script src="../site_libs/quarto-contrib/ai-feedback-0.8.1/feedback-dom.js"></script>
+<script src="../site_libs/quarto-contrib/ai-feedback-0.8.1/ai-feedback.js"></script>
+<link href="../site_libs/quarto-contrib/ai-feedback-0.8.1/ai-feedback.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -222,8 +222,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 <script>window.__aiFeedbackPolicies = {"layers":[],"pageLayers":[]};</script>
-<script>window.__aiFeedbackConfig = {"baseUrl":"","mode":"api","model":"","storage":"local"};</script>
-<script>window.__mathExerciseConfig = {"lang":"en"};</script>
+<script>window.__aiFeedbackConfig = {"baseUrl":"","mode":"api","model":""};</script>
+<script>window.__mathExerciseConfig = {"lang":"en","stopAfter":20};</script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -264,12 +264,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td><code>jsxgraph</code> filter + JSXGraph</td>
 <td>Turns a JavaScript block into the draggable vector applet. JSXGraph draws the board in a sandboxed iframe.</td>
-<td><a href="https://github.com/Erasmus-CTM/math-exercise/tree/main/_extensions/jsxgraph">Erasmus-CTM bridge</a>, based on <a href="https://github.com/jsxgraph/jsxgraph-quarto">jsxgraph-quarto</a>; <a href="https://jsxgraph.org/">JSXGraph</a> supplies the graphics library.</td>
+<td><a href="https://github.com/jsxgraph/jsxgraph-quarto">jsxgraph-quarto</a>, bundled in the CTM Assessment package; <a href="https://jsxgraph.org/">JSXGraph</a> 1.x supplies the graphics library.</td>
 </tr>
 <tr class="odd">
 <td><code>pyodide-interaktiv</code></td>
-<td>Editable Python cells, plots, and optional feedback; Python runs in a Web Worker through Pyodide.</td>
-<td><a href="https://github.com/Erasmus-CTM/pyodide-interaktiv">Erasmus-CTM/pyodide-interaktiv</a>, branch <code>feature/shared-feedback-integration</code></td>
+<td>Editable Python cells, plots, and optional feedback; Python runs in a Web Worker through Pyodide. A long-running exercise check offers <strong>Stop</strong> after 20 s.</td>
+<td><a href="https://github.com/Erasmus-CTM/pyodide-interaktiv">Erasmus-CTM/pyodide-interaktiv</a>, pinned by commit in the CTM Assessment package</td>
 </tr>
 <tr class="even">
 <td><code>math-exercise</code></td>
@@ -397,7 +397,7 @@ Then install the build dependencies and extensions:"><pre class="sourceCode bash
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/setup.py</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Open the localhost URL printed by Quarto. Do not open generated HTML directly with <code>file://</code>: the browser runtime uses workers and network requests. In VS Code, accept the recommended Quarto and Python extensions, and select <code>.venv</code> as the Python interpreter. <strong>Terminal → Run Task → Preview website</strong> starts the preview; <strong>Build website</strong> renders to <code>_site/</code>.</p>
-<p>The Python setup script fetches <code>ctm-assessment/main</code>, builds its umbrella package and installs that distribution. <code>quarto-extensions.yml</code> contains only the umbrella source. The demo does not install individual extensions separately. It requires Git and Quarto on <code>PATH</code>; the same command runs locally and in CI. The full suite is activated by the <code>ctm-assessment</code> filter. The umbrella’s own manifest selects current <code>main</code> branches and retains only its temporary Pyodide AI migration pin. JSXGraph comes from the same math-exercise checkout. Re-running setup resolves those sources again, verifies installed file hashes, and records revisions in <code>.private-extensions/resolved-repos.json</code>. After setup, render the site and optional review profile.</p>
+<p>The Python setup script fetches <code>ctm-assessment/main</code>, builds its umbrella package and installs that distribution. <code>quarto-extensions.yml</code> contains only the umbrella source. The demo does not install individual extensions separately. It requires Git and Quarto on <code>PATH</code>; the same command runs locally and in CI. The full suite is activated by the <code>ctm-assessment</code> filter. The umbrella’s own manifest pins every component, including the upstream JSXGraph extension, by commit; the package is built from exactly those tested commits. Re-running setup resolves those sources again, verifies installed file hashes, and records revisions in <code>.private-extensions/resolved-repos.json</code>. After setup, render the site and optional review profile.</p>
 </section>
 <section id="publish-with-github-pages" class="level2">
 <h2 class="anchored" data-anchor-id="publish-with-github-pages">Publish with GitHub Pages</h2>
@@ -465,13 +465,14 @@ Then install the build dependencies and extensions:"><pre class="sourceCode bash
 This is a source example, not an extra exercise on the demo page. Paste it into pages/experiments.qmd to try the installed Python exercise extension:"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{py-exercise}</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: add-two-numbers</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| caption: Implement addition</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(a, b):</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">## TESTS ##</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> add(<span class="dv">1</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="dv">3</span>, <span class="st">"Check addition of positive numbers."</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> add(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="op">==</span> <span class="dv">0</span>, <span class="st">"Check addition with a negative number."</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| task: Complete add(a, b) so that it returns the sum of a and b.</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(a, b):</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">## TESTS ##</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> add(<span class="dv">1</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="dv">3</span>, <span class="st">"Check addition of positive numbers."</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> add(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="op">==</span> <span class="dv">0</span>, <span class="st">"Check addition with a negative number."</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Use unique labels when copying cells. Tests are hidden from the normal exercise view, but remain downloadable in a static site; these exercises provide practice feedback rather than secure examination grading.</p>
 </section>
 </section>

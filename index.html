@@ -41,10 +41,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-b6dc9e813fb09d2bbff48e8f9eb94b8d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/ai-feedback-0.7.0/feedback-core.js"></script>
-<script src="site_libs/quarto-contrib/ai-feedback-0.7.0/feedback-dom.js"></script>
-<script src="site_libs/quarto-contrib/ai-feedback-0.7.0/ai-feedback.js"></script>
-<link href="site_libs/quarto-contrib/ai-feedback-0.7.0/ai-feedback.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/ai-feedback-0.8.1/feedback-core.js"></script>
+<script src="site_libs/quarto-contrib/ai-feedback-0.8.1/feedback-dom.js"></script>
+<script src="site_libs/quarto-contrib/ai-feedback-0.8.1/ai-feedback.js"></script>
+<link href="site_libs/quarto-contrib/ai-feedback-0.8.1/ai-feedback.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -73,100 +73,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style type="text/css">
-/* ---- Exercise container ---- */
-.math-exercise-cell {
-  position: relative;
-  margin: 1.5em 0;
-  padding: 1.25em 1.5em;
-  border: 1px solid var(--bs-border-color, #dee2e6);
-  border-radius: .5em;
-  background: var(--bs-body-bg, #fafafa);
-  color: var(--bs-body-color, #212529);
-}
-
-/* ---- Explicit AI-feedback context block (::: {.math-exercise-context}) ---- */
-.math-exercise-context {
-  margin: 1.5em 0;
-  padding: .85em 1.1em;
-  border-left: 3px solid var(--bs-secondary-color, #6c757d);
-  background: var(--bs-tertiary-bg, #f8f9fa);
-  border-radius: 0 .35em .35em 0;
-}
-
-/* Pool reload button – top-right corner */
-.math-pool-reload {
-  position: absolute;
-  top: .55em;
-  right: .6em;
-  background: none;
-  border: 1px solid var(--bs-border-color, #ced4da);
-  border-radius: .3em;
-  padding: .1em .4em;
-  font-size: 1.05em;
-  line-height: 1;
-  cursor: pointer;
-  color: var(--bs-secondary-color, #6c757d);
-  transition: background .12s, color .12s;
-}
-.math-pool-reload:hover { background: var(--bs-tertiary-bg, #e9ecef); color: var(--bs-body-color, #212529); }
-
-.math-exercise-caption {
-  font-weight: 600;
-  font-size: 1.05em;
-  margin-bottom: 0;
-  color: var(--bs-body-color, #1a1a2e);
-  border-bottom: 2px solid var(--bs-border-color, #dee2e6);
-  padding-bottom: .35em;
-}
-
-/* Collapsible toggle */
-.math-exercise-toggle {
-  cursor: pointer;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  gap: .45em;
-}
-.math-exercise-toggle:hover { color: var(--bs-primary, #0d6efd); border-bottom-color: var(--bs-primary, #0d6efd); }
-.math-exercise-open .math-exercise-toggle { margin-bottom: .75em; }
-
-/* Keep collapsed interactive content in layout so iframe-based tools such as
-   JSXGraph initialize with real dimensions. Clipping and visibility preserve
-   the compact, non-interactive collapsed state without display:none. */
-.math-exercise-cell:not(.math-exercise-open) > .math-exercise-body {
-  height: 0;
-  overflow: hidden;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.math-chevron {
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;
-  transition: transform .18s ease;
-  color: var(--bs-secondary-color, #6c757d);
-  font-size: .7em;
-}
-.math-chevron::before { content: '▶'; }
-.math-exercise-open .math-chevron { transform: rotate(90deg); }
-
-.math-exercise-question {
-  margin-bottom: 1em;
-  line-height: 1.8;
-  color: var(--bs-body-color, #212529);
-}
-
-.math-exercise-response-slot {
-  margin: 0 0 1em;
-}
-
-.math-exercise-response-slot iframe {
-  display: block;
-  width: 100% !important;
-  max-width: 100%;
-}
-
+/* Matrix input presentation; also retained for legacy scalar/vector inputs.
+ * SPDX-License-Identifier: AGPL-3.0-or-later */
 /* ---- Input fields ---- */
 .math-input {
   font-family: 'Fira Mono', 'Consolas', 'Courier New', monospace;
@@ -346,6 +254,101 @@ ul.task-list li input[type="checkbox"] {
   color:        #7c2d12 !important;
 }
 
+
+/* ---- Exercise container ---- */
+.math-exercise-cell {
+  position: relative;
+  margin: 1.5em 0;
+  padding: 1.25em 1.5em;
+  border: 1px solid var(--bs-border-color, #dee2e6);
+  border-radius: .5em;
+  background: var(--bs-body-bg, #fafafa);
+  color: var(--bs-body-color, #212529);
+}
+
+/* ---- Explicit AI-feedback context block (::: {.math-exercise-context}) ---- */
+.math-exercise-context {
+  margin: 1.5em 0;
+  padding: .85em 1.1em;
+  border-left: 3px solid var(--bs-secondary-color, #6c757d);
+  background: var(--bs-tertiary-bg, #f8f9fa);
+  border-radius: 0 .35em .35em 0;
+}
+
+/* Pool reload button – top-right corner */
+.math-pool-reload {
+  position: absolute;
+  top: .55em;
+  right: .6em;
+  background: none;
+  border: 1px solid var(--bs-border-color, #ced4da);
+  border-radius: .3em;
+  padding: .1em .4em;
+  font-size: 1.05em;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--bs-secondary-color, #6c757d);
+  transition: background .12s, color .12s;
+}
+.math-pool-reload:hover { background: var(--bs-tertiary-bg, #e9ecef); color: var(--bs-body-color, #212529); }
+
+.math-exercise-caption {
+  font-weight: 600;
+  font-size: 1.05em;
+  margin-bottom: 0;
+  color: var(--bs-body-color, #1a1a2e);
+  border-bottom: 2px solid var(--bs-border-color, #dee2e6);
+  padding-bottom: .35em;
+}
+
+/* Collapsible toggle */
+.math-exercise-toggle {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: .45em;
+}
+.math-exercise-toggle:hover { color: var(--bs-primary, #0d6efd); border-bottom-color: var(--bs-primary, #0d6efd); }
+.math-exercise-open .math-exercise-toggle { margin-bottom: .75em; }
+
+/* Keep collapsed interactive content in layout so iframe-based tools such as
+   JSXGraph initialize with real dimensions. Clipping and visibility preserve
+   the compact, non-interactive collapsed state without display:none. */
+.math-exercise-cell:not(.math-exercise-open) > .math-exercise-body {
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.math-chevron {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: transform .18s ease;
+  color: var(--bs-secondary-color, #6c757d);
+  font-size: .7em;
+}
+.math-chevron::before { content: '▶'; }
+.math-exercise-open .math-chevron { transform: rotate(90deg); }
+
+.math-exercise-question {
+  margin-bottom: 1em;
+  line-height: 1.8;
+  color: var(--bs-body-color, #212529);
+}
+
+.math-exercise-response-slot {
+  margin: 0 0 1em;
+}
+
+.math-exercise-response-slot iframe {
+  display: block;
+  width: 100% !important;
+  max-width: 100%;
+}
+
 /* ---- Buttons ---- */
 .math-exercise-controls {
   display: flex;
@@ -514,17 +517,23 @@ ul.task-list li input[type="checkbox"] {
   margin: 0;
 }
 
-/* Shared settings must not stretch the existing Bootstrap controls. */
+/* Common CTM button size, shared by all CTM components (math-exercise,
+   py-exercise, pyodide-interaktiv, ai-feedback). Set the --ctm-button-*
+   variables in your CSS or theme to change all of them together. */
+.math-exercise-controls button,
+.math-exercise-controls .ai-feedback-gear {
+  font-size: var(--ctm-button-font-size, .875rem);
+  padding: var(--ctm-button-padding-y, .375rem) var(--ctm-button-padding-x, .75rem);
+  line-height: var(--ctm-button-line-height, 1.5);
+  border-radius: var(--ctm-button-radius, var(--bs-border-radius, .375rem));
+}
 .math-exercise-controls .ai-feedback-gear {
   margin: 0;
-  padding: .375rem .75rem;
-  font-size: inherit;
-  line-height: 1.5;
 }
 
 </style>
 <script src="./coi-serviceworker.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs/editor/editor.main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.46/min/vs/editor/editor.main.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" defer="" crossorigin="anonymous"></script>
   
 <style type="text/css">
@@ -537,7 +546,9 @@ ul.task-list li input[type="checkbox"] {
 /* ---------------------------------------------------------------------- */
 /* Editor & console                                                       */
 
-.monaco-editor pre {
+/* Scoped to this extension's editors: other Monaco editors on the page
+   (py-exercise) keep their own look. */
+.qpyodide-editor .monaco-editor pre {
   background-color: unset !important;
 }
 
@@ -606,14 +617,16 @@ ul.task-list li input[type="checkbox"] {
   background-color: var(--bs-tertiary-bg, #eeeeee);
   display: inline-block;
   font-weight: 400;
-  line-height: 1;
   text-decoration: none;
   text-align: center;
   color: var(--bs-body-color, #000);
   border: 1px solid var(--bs-border-color, #dee2e6);
-  padding: 0.375rem 0.75rem;
-  font-size: .9rem;
-  border-radius: 0.25rem;
+  /* Common CTM button size, shared by all CTM components; set the
+     --ctm-button-* variables in your CSS or theme to change all of them. */
+  font-size: var(--ctm-button-font-size, .875rem);
+  padding: var(--ctm-button-padding-y, .375rem) var(--ctm-button-padding-x, .75rem);
+  line-height: var(--ctm-button-line-height, 1.5);
+  border-radius: var(--ctm-button-radius, var(--bs-border-radius, .375rem));
   transition: color .15s ease-in-out, background-color .15s ease-in-out,
               border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
@@ -1376,22 +1389,6 @@ body.quarto-dark .qpyodide-input-echo {
   overflow: scroll;
 }
 
-/* Pan and zoom are toggles, but matplotlib renders no pressed state for
-   them: both buttons look identical whether the mode is on or off, so
-   nothing tells the reader whether dragging will move the plot or do
-   nothing at all. qpyodide-canvas-plots.js keeps this class in sync with
-   NavigationToolbar2.mode; colour it so the active tool is obvious.
-   The :hover twin is not redundant - matplotlib's own
-   `button.matplotlib-toolbar-button:hover` rule is injected into
-   <head> at runtime, i.e. after this file, and would otherwise win the
-   tie on equal specificity and hide the active state while hovering. */
-button.matplotlib-toolbar-button.qpyodide-toolbar-button-active,
-button.matplotlib-toolbar-button.qpyodide-toolbar-button-active:hover {
-  color: #fff;
-  background: var(--bs-primary, #2780e3);
-  border-color: var(--bs-primary, #2780e3);
-}
-
 /* Interactive plots (canvas) --------------------------------------------
    The hint only shows while the second Pyodide instance is loading, or if
    the switchover fails. See qpyodide-canvas-plots.js. */
@@ -1402,10 +1399,8 @@ button.matplotlib-toolbar-button.qpyodide-toolbar-button-active:hover {
   margin: 0.25rem 0 0.5rem 0;
 }
 
-/* Center plots. The canvas backend centers itself (it sets margin: 0 auto
-   on its container); for the PNG path and rich HTML output (animation,
-   Plotly, zeige_svg) there was previously no rule at all, so they were
-   left-aligned. */
+/* Center plots. For the PNG path and rich HTML output (animation, Plotly,
+   zeige_svg) there was previously no rule at all, so they were left-aligned. */
 .qpyodide-output-graph-area figure,
 .qpyodide-canvas-figure {
   margin-inline: auto;
@@ -1429,30 +1424,86 @@ button.matplotlib-toolbar-button.qpyodide-toolbar-button-active:hover {
   margin-inline: auto;
 }
 
-/* Do NOT scale the canvas via CSS: mouse coordinates are recalculated via
-   getBoundingClientRect and stay correct, but a downscaled canvas becomes
-   blurry. Prefer horizontal scrolling instead. */
+/* WebAgg renders at the figure's requested pixel dimensions. Prefer
+   horizontal scrolling to CSS downscaling, which would make it blurry. */
 .qpyodide-canvas-figure {
   overflow-x: auto;
 }
 
-/* The backend creates a "window title" row per figure ("Figure 1",
-   "Figure 2", ...) - that's the window title of the original desktop GUI,
-   meaningless here. It has no CSS class of its own, only an ID ending in
-   "top" (see FigureCanvasWasm.show() in matplotlib-pyodide). */
-.qpyodide-canvas-figure div[id$="top"] {
+/* The browser does not need the desktop-style window title. */
+.qpyodide-canvas-figure .ui-dialog-titlebar {
   display: none;
+}
+
+/* Pyodide below 0.28 (pinned via `pyodide: base-url:`): matplotlib-pyodide's
+   html5_canvas_backend, as in 1.6/1.7. See qpyodide-canvas-plots.js.
+   Its "window title" row ("Figure 1", ...) has no class of its own, only an
+   ID ending in "top" (FigureCanvasWasm.show()). */
+.qpyodide-canvas-legacy div[id$="top"] {
+  display: none;
+}
+
+/* Pan and zoom are toggles, but that backend renders no pressed state, so
+   the prelude keeps this class in sync with NavigationToolbar2.mode. The
+   :hover twin is needed because matplotlib-pyodide injects its own
+   `button.matplotlib-toolbar-button:hover` rule into <head> at runtime,
+   after this file, which would otherwise win on equal specificity. */
+button.matplotlib-toolbar-button.qpyodide-toolbar-button-active,
+button.matplotlib-toolbar-button.qpyodide-toolbar-button-active:hover {
+  color: #fff;
+  background: var(--bs-primary, #2780e3);
+  border-color: var(--bs-primary, #2780e3);
 }
 
 .qpyodide-editor-toolbar .qpyodide-feedback-gear {
   margin: 0;
-  padding: .375rem .75rem;
-  font-size: .9rem;
-  line-height: 1;
+  font-size: var(--ctm-button-font-size, .875rem);
+  padding: var(--ctm-button-padding-y, .375rem) var(--ctm-button-padding-x, .75rem);
+  line-height: var(--ctm-button-line-height, 1.5);
 }
 
 /* Runtime status spans the complete header grid. */
 #qpyodide-status-message-area { grid-column: 1 / -1; }
+
+.qpyodide-canvas-figure > div {
+  margin-inline: auto;
+}
+
+/* WebAgg puts its controls and changing status message in one inline row.
+   Because plot output is centered, every change in that message (coordinates,
+   pan/zoom help, etc.) would re-center the whole row and make the buttons move.
+   Keep the controls in a fixed first row and reserve a second row for status. */
+.qpyodide-canvas-figure .mpl-toolbar {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  box-sizing: border-box;
+  padding-bottom: 1.7em;
+  text-align: left;
+}
+
+.qpyodide-canvas-figure .mpl-toolbar .mpl-button-group,
+.qpyodide-canvas-figure .mpl-toolbar > select.mpl-widget {
+  flex: 0 0 auto;
+}
+
+.qpyodide-canvas-figure .mpl-toolbar .mpl-message {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  min-width: 0;
+  height: 1.7em;
+  min-height: 1.7em;
+  padding-top: 0.2em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
 </style>
 <script type="module">
@@ -1478,11 +1529,18 @@ globalThis.qpyodideShowStartupMessage = true;
 // Data only (no functions) – the configuration is passed to the Pyodide
 // web worker via postMessage; the worker collects stdout/stderr itself.
 globalThis.qpyodideCustomizedPyodideOptions = {
-  "indexURL": "https://cdn.jsdelivr.net/pyodide/v0.27.2/full/",
+  "indexURL": "https://cdn.jsdelivr.net/pyodide/v0.28.3/full/",
   "env": {
     "HOME": "/home/pyodide",
   }
 }
+
+// Interactive plot backend ----
+//
+// "webagg" (Pyodide 0.28+), "html5-canvas" (an older Pyodide pinned via
+// `pyodide: base-url:`) or "auto" (the base URL names no version; decided
+// from the loaded Pyodide). See qpyodide-canvas-plots.js.
+globalThis.qpyodideCanvasBackend = "webagg";
 
 // UI language for this render pass ----
 //
@@ -3296,6 +3354,8 @@ async function init(config) {
   postStatus(msg.workerLoading || "Loading Python (Pyodide) ...");
   pyodide = await mod.loadPyodide({
     indexURL: config.indexURL,
+    // Preserve the pre-0.28 JavaScript-null behaviour for existing lessons.
+    convertNullToNone: true,
     env: config.env,
     stdin: stdin,
     stdout: function(text) {
@@ -3649,30 +3709,15 @@ globalThis._qpyodideGetInstance = function() {
 //
 // Starting point: in this extension, Python runs in a Web Worker. There is no
 // DOM there, so matplotlib can only render with the AGG backend, i.e. it can
-// only deliver PNG images. The interactive `html5_canvas_backend` (toolbar
-// with zoom, pan, reset, save), by contrast, draws directly onto a <canvas>
-// and therefore necessarily needs the main thread.
+// only deliver PNG images. WebAgg (toolbar with zoom, pan, reset and save),
+// by contrast, needs the browser DOM and therefore runs in a second Pyodide
+// instance on the main thread.
 //
-// Additionally, the canvas backend itself needs to be re-enabled. In
-// matplotlib-pyodide 0.2.3 (what Pyodide 0.27.2 ships), the interactive
-// layer is disabled upstream - it was still active in v0.2.0, and the
-// changelog says nothing about the removal. Three places are affected, all
-// three reset by QPC_PY_SETUP below:
-//   1. In the export block of html5_canvas_backend.py, FigureCanvasHTMLCanvas
-//      and FigureManagerHTMLCanvas are commented out; the Agg classes are
-//      active instead, which only blit finished Agg pixels onto the canvas.
-//      As a result, the vector renderer RendererHTMLCanvas is never used.
-//   2. canvas.manager_class is set nowhere. Since matplotlib 3.6, that is
-//      exactly what decides the manager, so otherwise a bare
-//      FigureManagerBase without a toolbar is created and canvas.toolbar
-//      stays None.
-//   3. In browser_backend.py, the add_event_listener lines for mouse and
-//      keyboard are commented out, and the corresponding handlers call
-//      canvas.motion_notify_event(), an API that matplotlib removed in
-//      3.8. That's presumably why they got commented out. Replaced with our
-//      own handlers on Event(...)._process().
+// WebAgg needs Pyodide 0.28 or later (the default). A project that pins an
+// older Pyodide via `pyodide: base-url:` keeps the html5_canvas_backend path
+// of pyodide-interaktiv 1.6/1.7 instead; see QPC_PY_BACKEND_HTML5_CANVAS.
 //
-// This module's compromise (EXPERIMENT):
+// The interactive plot pipeline:
 //   1. The worker computes as before and additionally sends each open
 //      figure along as `pickle` bytes (Base64) with the PNG.
 //   2. The PNG is displayed immediately – the page therefore doesn't feel
@@ -3719,7 +3764,13 @@ globalThis.qpyodideCanvasPlots = {
   // "idle" | "booting" | "ready" | "failed"
   status: "idle",
 
-  // Measurements for the experiment (for evaluation in the console)
+  // Plot backend: "webagg" (Pyodide 0.28+) or "html5-canvas" (older Pyodide,
+  // pinned via `pyodide: base-url:`). Starts as what the Lua filter derived
+  // from the base URL ("auto" if the URL names no version) and is settled
+  // from the loaded Pyodide's own version once the instance is up.
+  backend: globalThis.qpyodideCanvasBackend || "auto",
+
+  // Timing measurements for diagnostics in the browser console
   bootSeconds: null,
   renderSeconds: [],
 
@@ -3729,12 +3780,44 @@ globalThis.qpyodideCanvasPlots = {
 };
 
 // Python side of the second instance: enable the interactive backend and
-// define a restorer for the pickle bytes coming from the worker.
-const QPC_PY_SETUP = [
+// define a restorer for the pickle bytes coming from the worker. Assembled by
+// qpyodideCanvasSetup() from a header, one backend prelude and a shared part.
+const QPC_PY_HEADER = [
   "import base64, pickle",
   "import numpy as np",
   "import matplotlib",
+  ""
+];
+
+// Pyodide 0.28 or later: Matplotlib's own WebAgg backend, patched by Pyodide.
+const QPC_PY_BACKEND_WEBAGG = [
+  "# Pyodide 0.28+ patches Matplotlib's maintained WebAgg backend so it talks",
+  "# directly to an in-page JavaScript client instead of a Tornado server.",
+  "# It also honours document.pyodideMplTarget, which the JavaScript side sets",
+  "# to the output element belonging to the cell currently being upgraded.",
+  "matplotlib.use('webagg', force=True)",
+  "import matplotlib.backends.backend_webagg as _qpc_webagg",
   "",
+  "def _qpc_new_manager(num, fig):",
+  "    return _qpc_webagg.new_figure_manager_given_figure(num, fig)",
+  "",
+  "def _qpc_after_show(fig):",
+  "    pass      # WebAgg owns its event wiring and toolbar lifecycle",
+  ""
+];
+
+// Pyodide below 0.28 (pyodide-interaktiv 1.6/1.7 behaviour, kept unchanged for
+// projects that pin such a version via `pyodide: base-url:`). Without Pyodide
+// 0.28's patch, WebAgg needs a Tornado server, which Pyodide does not ship, so
+// these versions use matplotlib-pyodide's html5_canvas_backend instead.
+// In matplotlib-pyodide 0.2.3 (what Pyodide 0.27.2 ships), its interactive
+// layer is disabled upstream: the canvas classes are commented out of the
+// export block, canvas.manager_class is never set (which decides the manager
+// since matplotlib 3.6), and the mouse/keyboard listeners are commented out
+// because they call event methods matplotlib 3.8 removed. This prelude
+// restores all three, and builds a toolbar that survives Font Awesome's JS kit.
+// Frozen: new plot features go to the WebAgg path.
+const QPC_PY_BACKEND_HTML5_CANVAS = [
   "# --- 1. Re-enable the HTML5 canvas backend --------------------------------",
   "# In matplotlib-pyodide 0.2.3 (Pyodide 0.27.2), the HTML5 classes are",
   "# commented out in the export block of html5_canvas_backend.py:",
@@ -3758,8 +3841,6 @@ const QPC_PY_SETUP = [
   "# mouse_move, which writes the x/y values into the toolbar.",
   "_qpc_h5.FigureCanvasHTMLCanvas.manager_class = _qpc_h5.FigureManagerHTMLCanvas",
   "matplotlib.use('module://matplotlib_pyodide.html5_canvas_backend', force=True)",
-  "from matplotlib import pyplot as plt",
-  "import matplotlib._pylab_helpers as _qpc_helpers",
   "",
   "# --- 2. Reconnect mouse and keyboard events --------------------------------",
   "# In browser_backend.py, the add_event_listener lines for the rubberband",
@@ -3793,12 +3874,11 @@ const QPC_PY_SETUP = [
   "",
   "_qpc_h5.FigureCanvasHTMLCanvas._convert_mouse_event = _qpc_convert_mouse_event",
   "",
-  "# Keep proxies and figures alive. Mandatory for the proxies: otherwise",
-  "# Pyodide frees them and the listener calls into nothing. For the figures,",
-  "# because the backend's DOM ids are hex(id(canvas)) and CPython reuses the",
+  "# Keep the event proxies alive: otherwise Pyodide frees them and the",
+  "# listener calls into nothing. Figures are kept alive in _qpc_keep (shared",
+  "# part): this backend's DOM ids are hex(id(canvas)), and CPython reuses the",
   "# id() of a freed object - a new figure could otherwise get the id of an",
   "# older, still-visible one and draw into its canvas.",
-  "_qpc_keep = []",
   "_qpc_proxies = []",
   "",
   "def _qpc_wire_events(canvas):",
@@ -3927,7 +4007,25 @@ const QPC_PY_SETUP = [
   "for _qpc_name in ('pan', 'zoom'):",
   "    _qpc_mode_toggle(_qpc_name)",
   "",
-  "# --- 4. Snapping cursor ----------------------------------------------------",
+  "def _qpc_new_manager(num, fig):",
+  "    return plt._backend_mod.new_figure_manager_given_figure(num, fig)",
+  "",
+  "def _qpc_after_show(fig):",
+  "    _qpc_wire_events(fig.canvas)",
+  ""
+];
+
+// Shared by both backends. Each backend prelude defines _qpc_new_manager()
+// and _qpc_after_show().
+const QPC_PY_COMMON = [
+  "from matplotlib import pyplot as plt",
+  "import matplotlib._pylab_helpers as _qpc_helpers",
+  "",
+  "# Keep figures and cursor callbacks alive after they leave pyplot's global",
+  "# registry.",
+  "_qpc_keep = []",
+  "",
+  "# --- Snapping cursor -------------------------------------------------------",
   "# matplotlib doesn't come with this: matplotlib.widgets.Cursor only draws a",
   "# free-floating crosshair and doesn't snap. Hence our own small class. The",
   "# nearest point is searched for in pixel distance, not in data values -",
@@ -4079,7 +4177,7 @@ const QPC_PY_SETUP = [
   "        fig.canvas.mpl_connect('motion_notify_event', cursor.on_move)",
   "        _qpc_keep.append(cursor)",
   "",
-  "# --- 5. Restore and show the figure from the worker ------------------------",
+  "# --- Restore and show the figure from the worker ---------------------------",
   "",
   "def _qpc_show(payload, snap=True):",
   "    # Clear the figure registry so plt.show() only shows the new figure.",
@@ -4091,7 +4189,7 @@ const QPC_PY_SETUP = [
   "    if not _qpc_helpers.Gcf.figs:",
   "        # The figure wasn't registered with pyplot in the worker (e.g.",
   "        # created directly via Figure()) -> create the manager ourselves.",
-  "        mgr = plt._backend_mod.new_figure_manager_given_figure(len(_qpc_keep) + 1, fig)",
+  "        mgr = _qpc_new_manager(len(_qpc_keep) + 1, fig)",
   "        _qpc_helpers.Gcf._set_new_active_manager(mgr)",
   "    # The worker PNG is created with bbox_inches='tight' - there, the image",
   "    # area grows around the labels. The canvas, by contrast, renders exactly",
@@ -4109,18 +4207,38 @@ const QPC_PY_SETUP = [
   "        _qpc_attach_snap(fig)",
   "    plt.show()",
   "    _qpc_keep.append(fig)",
-  "    _qpc_wire_events(fig.canvas)",
+  "    _qpc_after_show(fig)",
   "    return True",
   "",
   "def _qpc_redraw(count):",
-  "    # Redraw once more after showing. On the very first plot, the web fonts",
-  "    # aren't loaded yet; their callback does redraw on its own, but this",
-  "    # call makes the result independent of that race.",
+  "    # Redraw once more after the hidden target becomes visible.",
   "    for item in _qpc_keep[-count:]:",
   "        if hasattr(item, 'canvas'):",
   "            item.canvas.draw()",
   "    return True"
-].join("\n");
+];
+
+const QPC_PY_BACKENDS = {
+  "webagg": QPC_PY_BACKEND_WEBAGG,
+  "html5-canvas": QPC_PY_BACKEND_HTML5_CANVAS
+};
+
+/**
+ * Picks the plot backend for the Pyodide that actually loaded. WebAgg needs
+ * the browser patch that Pyodide ships from 0.28 on; older releases get the
+ * html5_canvas_backend path of pyodide-interaktiv 1.6/1.7. `configured` is
+ * what the Lua filter derived from `pyodide: base-url:` (globalThis.
+ * qpyodideCanvasBackend); it only decides when the version is unknown.
+ */
+function qpyodideCanvasBackendFor(version, configured) {
+  const m = /^(\d+)\.(\d+)/.exec(String(version || ""));
+  if (m) return (Number(m[1]) === 0 && Number(m[2]) < 28) ? "html5-canvas" : "webagg";
+  return Object.hasOwn(QPC_PY_BACKENDS, configured) ? configured : "webagg";
+}
+
+function qpyodideCanvasSetup(backend) {
+  return [...QPC_PY_HEADER, ...QPC_PY_BACKENDS[backend], ...QPC_PY_COMMON].join("\n");
+}
 
 // ---------------------------------------------------------------------------
 // Load the second Pyodide instance (main thread)
@@ -4144,6 +4262,8 @@ function qpyodideCanvasEngine() {
 
     const py = await mod.loadPyodide({
       indexURL: indexURL,
+      // Match the worker and preserve compatibility with pre-0.28 lessons.
+      convertNullToNone: true,
       env: qpyodideCustomizedPyodideOptions.env,
       // This instance only draws; its output doesn't belong in the cell terminal.
       stdout: (text) => console.debug("qpyodide/canvas:", text),
@@ -4151,13 +4271,15 @@ function qpyodideCanvasEngine() {
     });
 
     await py.loadPackage("matplotlib");
-    await py.runPythonAsync(QPC_PY_SETUP);
+    state.backend = qpyodideCanvasBackendFor(py.version, state.backend);
+    await py.runPythonAsync(qpyodideCanvasSetup(state.backend));
 
     state.pyodide = py;
     state.status = "ready";
     state.bootSeconds = (performance.now() - started) / 1000;
     console.log(
-      "qpyodide: second Pyodide instance (canvas plots) ready after " +
+      "qpyodide: second Pyodide instance (canvas plots, " + state.backend +
+      " on Pyodide " + py.version + ") ready after " +
       state.bootSeconds.toFixed(1) + "s" + qpyodideCanvasMemoryNote()
     );
     return py;
@@ -4271,6 +4393,9 @@ globalThis.qpyodideCanvasUpgrade = async function (targetDiv, pickles, options) 
   // not layout.
   const figure = document.createElement("figure");
   figure.className = "qpyodide-canvas-figure";
+  if (globalThis.qpyodideCanvasPlots.backend === "html5-canvas") {
+    figure.classList.add("qpyodide-canvas-legacy");
+  }
   figure.hidden = true;
   targetDiv.appendChild(figure);
 
@@ -4446,15 +4571,15 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 <script>window.__aiFeedbackPolicies = {"layers":[],"pageLayers":[]};</script>
-<script>window.__aiFeedbackConfig = {"baseUrl":"","mode":"api","model":"","storage":"local"};</script>
-<script>window.__mathExerciseConfig = {"lang":"en"};</script>
-<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs/loader.js"></script>
+<script>window.__aiFeedbackConfig = {"baseUrl":"","mode":"api","model":""};</script>
+<script>window.__mathExerciseConfig = {"lang":"en","stopAfter":20};</script>
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.46/min/vs/loader.js"></script>
 <script type="module" id="qpyodide-monaco-editor-init">
 
   // Configure the Monaco Editor's loader
   require.config({
     paths: {
-      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs'
+      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.46/min/vs'
     }
   });
 </script>
@@ -4506,7 +4631,7 @@ Go deeper
 <li>Try <strong>(0, 1)</strong> and <strong>(1, −0.9)</strong>. The latter is close to the special direction <span class="math inline">\((1,-1)^T\)</span>. Then drag the orange ring to choose your own starting vector.</li>
 </ol>
 <p>The presets specify directions. To <strong>normalize</strong> a vector means to divide it by its length, giving a unit vector. The orange vector shows <span class="math inline">\(x_0\)</span>; the blue vector shows the normalized iterate <span class="math inline">\(x_k\)</span>. Each click computes <span class="math inline">\(Ax\)</span> and divides the whole vector by its length. We do not normalize individual coordinates. The formula beside the blue endpoint identifies the iterate. You can drag the orange ring even when it surrounds the blue endpoint.</p>
-<iframe src="data:text/html;base64,PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CjxtZXRhIGNoYXJzZXQ9IlVURi04Ij4KPHNjcmlwdCBpZD0iTWF0aEpheC1zY3JpcHQiIGFzeW5jIHNyYz0iaHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L25wbS9tYXRoamF4QDQvdGV4LW1tbC1zdmcuanMiPjwvc2NyaXB0Pgo8c2NyaXB0IHNyYz0iaHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L25wbS9qc3hncmFwaC9kaXN0cmliL2pzeGdyYXBoY29yZS5qcyI+PC9zY3JpcHQ+CjxzdHlsZT5AaW1wb3J0IHVybCgiaHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L25wbS9qc3hncmFwaC9kaXN0cmliL2pzeGdyYXBoLmNzcyIpOzwvc3R5bGU+CjxzdHlsZT5odG1sLGJvZHl7bWFyZ2luOjA7cGFkZGluZzowO3dpZHRoOjEwMCU7aGVpZ2h0OjEwMCU7fS5qeGdib3h7Ym9yZGVyOm5vbmU7Ym9yZGVyLXJhZGl1czowcHg7fTwvc3R5bGU+CjwvaGVhZD4KPGJvZHk+CjxkaXYgaWQ9IkpYRzMxNTU0MmQzXzUxZWFfZTM1N183YjY1X2YwM2Y5YzYwIiBjbGFzcz0ianhnYm94IiBzdHlsZT0id2lkdGg6MTAwJTtoZWlnaHQ6MTAwJTtkaXNwbGF5OmJsb2NrO29iamVjdC1maXQ6ZmlsbDtib3gtc2l6aW5nOmJvcmRlci1ib3g7Ij48L2Rpdj4KPHNjcmlwdD4oZnVuY3Rpb24gKCkgewogICd1c2Ugc3RyaWN0JzsKICBjb25zdCBwcm90b2NvbCA9ICdqc3hncmFwaC1xdWFydG8tYXNzZXNzbWVudCc7CiAgY29uc3QgdmVyc2lvbiA9IDE7CiAgY29uc3QgYXNzZXNzbWVudElkID0gIkpYRzMxNTU0MmQzXzUxZWFfZTM1N183YjY1X2YwM2Y5YzYwIjsKICBsZXQgcmVnaXN0cmF0aW9uID0gbnVsbDsKCiAgYXN5bmMgZnVuY3Rpb24gc3ZnVG9QbmcoZGF0YVVyaSwgYm9hcmQpIHsKICAgIHJldHVybiBuZXcgUHJvbWlzZSgocmVzb2x2ZSwgcmVqZWN0KSA9PiB7CiAgICAgIGNvbnN0IGltYWdlID0gbmV3IEltYWdlKCk7CiAgICAgIGltYWdlLm9ubG9hZCA9ICgpID0+IHsKICAgICAgICBjb25zdCBjYW52YXMgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdjYW52YXMnKTsKICAgICAgICBjYW52YXMud2lkdGggPSBNYXRoLm1heCgxLCBNYXRoLnJvdW5kKGJvYXJkLmNhbnZhc1dpZHRoIHx8IGltYWdlLndpZHRoIHx8IDgwMCkpOwogICAgICAgIGNhbnZhcy5oZWlnaHQgPSBNYXRoLm1heCgxLCBNYXRoLnJvdW5kKGJvYXJkLmNhbnZhc0hlaWdodCB8fCBpbWFnZS5oZWlnaHQgfHwgNjAwKSk7CiAgICAgICAgY29uc3QgY29udGV4dCA9IGNhbnZhcy5nZXRDb250ZXh0KCcyZCcpOwogICAgICAgIGNvbnRleHQuZmlsbFN0eWxlID0gJyNmZmZmZmYnOwogICAgICAgIGNvbnRleHQuZmlsbFJlY3QoMCwgMCwgY2FudmFzLndpZHRoLCBjYW52YXMuaGVpZ2h0KTsKICAgICAgICBjb250ZXh0LmRyYXdJbWFnZShpbWFnZSwgMCwgMCwgY2FudmFzLndpZHRoLCBjYW52YXMuaGVpZ2h0KTsKICAgICAgICByZXNvbHZlKGNhbnZhcy50b0RhdGFVUkwoJ2ltYWdlL3BuZycpKTsKICAgICAgfTsKICAgICAgaW1hZ2Uub25lcnJvciA9ICgpID0+IHJlamVjdChuZXcgRXJyb3IoJ0NvdWxkIG5vdCByZW5kZXIgdGhlIEpTWEdyYXBoIGJvYXJkJykpOwogICAgICBpbWFnZS5zcmMgPSBkYXRhVXJpOwogICAgfSk7CiAgfQoKICBmdW5jdGlvbiByZXNvbHZlQm9hcmQoc3BlYykgewogICAgaWYgKHNwZWMgJiYgdHlwZW9mIHNwZWMuYm9hcmQgPT09ICdmdW5jdGlvbicpIHJldHVybiBzcGVjLmJvYXJkKCk7CiAgICBpZiAoc3BlYyAmJiBzcGVjLmJvYXJkKSByZXR1cm4gc3BlYy5ib2FyZDsKICAgIGNvbnN0IGJvYXJkcyA9IE9iamVjdC52YWx1ZXMoSlhHLmJvYXJkcyB8fCB7fSk7CiAgICByZXR1cm4gYm9hcmRzLmxlbmd0aCA/IGJvYXJkc1swXSA6IG51bGw7CiAgfQoKICBmdW5jdGlvbiByZWZyZXNoQm9hcmRzKCkgewogICAgT2JqZWN0LnZhbHVlcyhKWEcuYm9hcmRzIHx8IHt9KS5mb3JFYWNoKChib2FyZCkgPT4gewogICAgICBjb25zdCBjb250YWluZXIgPSBib2FyZC5jb250YWluZXJPYmo7CiAgICAgIGlmICghY29udGFpbmVyKSByZXR1cm47CiAgICAgIGNvbnN0IHdpZHRoID0gY29udGFpbmVyLmNsaWVudFdpZHRoOwogICAgICBjb25zdCBoZWlnaHQgPSBjb250YWluZXIuY2xpZW50SGVpZ2h0OwogICAgICBpZiAoISh3aWR0aCA+IDAgJiYgaGVpZ2h0ID4gMCkpIHJldHVybjsKICAgICAgaWYgKHR5cGVvZiBib2FyZC5yZXNpemVDb250YWluZXIgPT09ICdmdW5jdGlvbicgJiYKICAgICAgICAgIChNYXRoLmFicygoYm9hcmQuY2FudmFzV2lkdGggfHwgMCkgLSB3aWR0aCkgPiAxIHx8CiAgICAgICAgICAgTWF0aC5hYnMoKGJvYXJkLmNhbnZhc0hlaWdodCB8fCAwKSAtIGhlaWdodCkgPiAxKSkgewogICAgICAgIGJvYXJkLnJlc2l6ZUNvbnRhaW5lcih3aWR0aCwgaGVpZ2h0KTsKICAgICAgfQogICAgICBpZiAodHlwZW9mIGJvYXJkLmZ1bGxVcGRhdGUgPT09ICdmdW5jdGlvbicpIGJvYXJkLmZ1bGxVcGRhdGUoKTsKICAgICAgZWxzZSBpZiAodHlwZW9mIGJvYXJkLnVwZGF0ZSA9PT0gJ2Z1bmN0aW9uJykgYm9hcmQudXBkYXRlKCk7CiAgICB9KTsKICB9CgogIGZ1bmN0aW9uIHNjaGVkdWxlQm9hcmRSZWZyZXNoKCkgewogICAgcmVmcmVzaEJvYXJkcygpOwogICAgaWYgKHR5cGVvZiByZXF1ZXN0QW5pbWF0aW9uRnJhbWUgPT09ICdmdW5jdGlvbicpIHsKICAgICAgcmVxdWVzdEFuaW1hdGlvbkZyYW1lKCgpID0+IHsKICAgICAgICByZWZyZXNoQm9hcmRzKCk7CiAgICAgICAgcmVxdWVzdEFuaW1hdGlvbkZyYW1lKHJlZnJlc2hCb2FyZHMpOwogICAgICB9KTsKICAgIH0KICB9CgogIEpYRy5RdWFydG9Bc3Nlc3NtZW50ID0gewogICAgcmVnaXN0ZXIoc3BlYykgewogICAgICByZWdpc3RyYXRpb24gPSB0eXBlb2Ygc3BlYyA9PT0gJ2Z1bmN0aW9uJyA/IHsgcmVzcG9uc2U6IHNwZWMgfSA6IHNwZWM7CiAgICAgIGlmICghcmVnaXN0cmF0aW9uIHx8IHR5cGVvZiByZWdpc3RyYXRpb24ucmVzcG9uc2UgIT09ICdmdW5jdGlvbicpIHsKICAgICAgICB0aHJvdyBuZXcgVHlwZUVycm9yKCdBc3Nlc3NtZW50IHJlZ2lzdHJhdGlvbiByZXF1aXJlcyBhIHJlc3BvbnNlIGZ1bmN0aW9uJyk7CiAgICAgIH0KICAgIH0KICB9OwoKICB3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcignbWVzc2FnZScsIGFzeW5jIChldmVudCkgPT4gewogICAgY29uc3QgbWVzc2FnZSA9IGV2ZW50LmRhdGE7CiAgICBpZiAoZXZlbnQuc291cmNlICE9PSB3aW5kb3cucGFyZW50IHx8ICFtZXNzYWdlIHx8IG1lc3NhZ2UucHJvdG9jb2wgIT09IHByb3RvY29sIHx8CiAgICAgICAgbWVzc2FnZS52ZXJzaW9uICE9PSB2ZXJzaW9uIHx8IG1lc3NhZ2UuYXNzZXNzbWVudElkICE9PSBhc3Nlc3NtZW50SWQpIHJldHVybjsKICAgIGlmIChtZXNzYWdlLnR5cGUgPT09ICdsYXlvdXQnKSB7CiAgICAgIHNjaGVkdWxlQm9hcmRSZWZyZXNoKCk7CiAgICAgIHJldHVybjsKICAgIH0KICAgIGlmIChtZXNzYWdlLnR5cGUgIT09ICdyZXF1ZXN0JykgcmV0dXJuOwoKICAgIGNvbnN0IHJlcGx5ID0gewogICAgICBwcm90b2NvbCwKICAgICAgdmVyc2lvbiwKICAgICAgdHlwZTogJ3Jlc3BvbnNlJywKICAgICAgYXNzZXNzbWVudElkLAogICAgICByZXF1ZXN0SWQ6IG1lc3NhZ2UucmVxdWVzdElkCiAgICB9OwogICAgdHJ5IHsKICAgICAgaWYgKCFyZWdpc3RyYXRpb24pIHRocm93IG5ldyBFcnJvcignTm8gSlNYR3JhcGggYXNzZXNzbWVudCByZXNwb25zZSBpcyByZWdpc3RlcmVkJyk7CiAgICAgIGNvbnN0IHJhdyA9IGF3YWl0IHJlZ2lzdHJhdGlvbi5yZXNwb25zZSgpOwogICAgICByZXBseS5wYXlsb2FkID0gSlNPTi5wYXJzZShKU09OLnN0cmluZ2lmeShyYXcpKTsKICAgICAgaWYgKG1lc3NhZ2UuaW5jbHVkZUFJICYmIHJlZ2lzdHJhdGlvbi5haSkgewogICAgICAgIGNvbnN0IGFpU3BlYyA9IHJlZ2lzdHJhdGlvbi5haTsKICAgICAgICBjb25zdCBzdW1tYXJ5ID0gdHlwZW9mIGFpU3BlYy5zdW1tYXJ5ID09PSAnZnVuY3Rpb24nCiAgICAgICAgICA/IGF3YWl0IGFpU3BlYy5zdW1tYXJ5KHJlcGx5LnBheWxvYWQpCiAgICAgICAgICA6IGFpU3BlYy5zdW1tYXJ5OwogICAgICAgIHJlcGx5LmFpID0ge307CiAgICAgICAgaWYgKHN1bW1hcnkgIT09IHVuZGVmaW5lZCkgcmVwbHkuYWkuc3VtbWFyeSA9IHN1bW1hcnk7CiAgICAgICAgaWYgKGFpU3BlYy5yZW5kZXIpIHsKICAgICAgICAgIGNvbnN0IGJvYXJkID0gcmVzb2x2ZUJvYXJkKHJlZ2lzdHJhdGlvbik7CiAgICAgICAgICBpZiAoIWJvYXJkIHx8ICFib2FyZC5yZW5kZXJlciB8fCB0eXBlb2YgYm9hcmQucmVuZGVyZXIuZHVtcFRvRGF0YVVSSSAhPT0gJ2Z1bmN0aW9uJykgewogICAgICAgICAgICB0aHJvdyBuZXcgRXJyb3IoJ05vIHJlbmRlcmFibGUgSlNYR3JhcGggYm9hcmQgaXMgYXZhaWxhYmxlJyk7CiAgICAgICAgICB9CiAgICAgICAgICByZXBseS5haS5pbWFnZSA9IGF3YWl0IHN2Z1RvUG5nKGJvYXJkLnJlbmRlcmVyLmR1bXBUb0RhdGFVUkkoZmFsc2UpLCBib2FyZCk7CiAgICAgICAgfQogICAgICB9CiAgICB9IGNhdGNoIChlcnJvcikgewogICAgICByZXBseS5lcnJvciA9IGVycm9yICYmIGVycm9yLm1lc3NhZ2UgPyBlcnJvci5tZXNzYWdlIDogU3RyaW5nKGVycm9yKTsKICAgIH0KICAgIHdpbmRvdy5wYXJlbnQucG9zdE1lc3NhZ2UocmVwbHksICcqJyk7CiAgfSk7CiAgd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ3Jlc2l6ZScsIHNjaGVkdWxlQm9hcmRSZWZyZXNoKTsKfSkoKTsKPC9zY3JpcHQ+CjxzY3JpcHQ+KGZ1bmN0aW9uICgpIHsKICAndXNlIHN0cmljdCc7CgogIGZ1bmN0aW9uIG1lcmdlKGJhc2UsIGV4dHJhKSB7CiAgICByZXR1cm4gT2JqZWN0LmFzc2lnbih7fSwgYmFzZSwgZXh0cmEgfHwge30pOwogIH0KCiAgZnVuY3Rpb24gc3VtbWFyaXplR3JhcGgoZGF0YSwgb3B0aW9ucykgewogICAgZGF0YSA9IGRhdGEgfHwge307CiAgICBvcHRpb25zID0gb3B0aW9ucyB8fCB7fTsKICAgIHZhciBub2RlcyA9IEFycmF5LmlzQXJyYXkoZGF0YS5ub2RlcykgPyBkYXRhLm5vZGVzIDogW107CiAgICB2YXIgcmF3RWRnZXMgPSBBcnJheS5pc0FycmF5KGRhdGEuZWRnZXMpID8gZGF0YS5lZGdlcyA6IFtdOwogICAgdmFyIHZlcnRleElkcyA9IG5vZGVzLm1hcChmdW5jdGlvbiAobm9kZSkgeyByZXR1cm4gbm9kZS5pZDsgfSkuc29ydChmdW5jdGlvbiAoYSwgYikgeyByZXR1cm4gYSAtIGI7IH0pOwogICAgdmFyIGFkamFjZW5jeSA9IHt9OwogICAgdmVydGV4SWRzLmZvckVhY2goZnVuY3Rpb24gKGlkKSB7IGFkamFjZW5jeVtpZF0gPSBbXTsgfSk7CiAgICB2YXIgZWRnZXMgPSByYXdFZGdlcy5tYXAoZnVuY3Rpb24gKGVkZ2UpIHsKICAgICAgdmFyIHNvdXJjZSA9IGVkZ2VbMF07CiAgICAgIHZhciB0YXJnZXQgPSBlZGdlWzFdOwogICAgICBpZiAoYWRqYWNlbmN5W3NvdXJjZV0pIGFkamFjZW5jeVtzb3VyY2VdLnB1c2godGFyZ2V0KTsKICAgICAgaWYgKGFkamFjZW5jeVt0YXJnZXRdKSBhZGphY2VuY3lbdGFyZ2V0XS5wdXNoKHNvdXJjZSk7CiAgICAgIHJldHVybiBzb3VyY2UgPCB0YXJnZXQgPyBbc291cmNlLCB0YXJnZXRdIDogW3RhcmdldCwgc291cmNlXTsKICAgIH0pLnNvcnQoZnVuY3Rpb24gKGEsIGIpIHsgcmV0dXJuIGFbMF0gLSBiWzBdIHx8IGFbMV0gLSBiWzFdOyB9KTsKICAgIHZlcnRleElkcy5mb3JFYWNoKGZ1bmN0aW9uIChpZCkgeyBhZGphY2VuY3lbaWRdLnNvcnQoZnVuY3Rpb24gKGEsIGIpIHsgcmV0dXJuIGEgLSBiOyB9KTsgfSk7CgogICAgdmFyIHZpc2l0ZWQgPSB7fTsKICAgIHZhciBjb21wb25lbnRzID0gW107CiAgICB2ZXJ0ZXhJZHMuZm9yRWFjaChmdW5jdGlvbiAoc3RhcnQpIHsKICAgICAgaWYgKHZpc2l0ZWRbc3RhcnRdKSByZXR1cm47CiAgICAgIHZhciBjb21wb25lbnQgPSBbXTsKICAgICAgdmFyIHF1ZXVlID0gW3N0YXJ0XTsKICAgICAgdmlzaXRlZFtzdGFydF0gPSB0cnVlOwogICAgICB3aGlsZSAocXVldWUubGVuZ3RoKSB7CiAgICAgICAgdmFyIGlkID0gcXVldWUuc2hpZnQoKTsKICAgICAgICBjb21wb25lbnQucHVzaChpZCk7CiAgICAgICAgYWRqYWNlbmN5W2lkXS5mb3JFYWNoKGZ1bmN0aW9uIChuZWlnaGJvcikgewogICAgICAgICAgaWYgKCF2aXNpdGVkW25laWdoYm9yXSkgewogICAgICAgICAgICB2aXNpdGVkW25laWdoYm9yXSA9IHRydWU7CiAgICAgICAgICAgIHF1ZXVlLnB1c2gobmVpZ2hib3IpOwogICAgICAgICAgfQogICAgICAgIH0pOwogICAgICB9CiAgICAgIGNvbXBvbmVudC5zb3J0KGZ1bmN0aW9uIChhLCBiKSB7IHJldHVybiBhIC0gYjsgfSk7CiAgICAgIGNvbXBvbmVudHMucHVzaChjb21wb25lbnQpOwogICAgfSk7CgogICAgdmFyIHN1bW1hcnkgPSB7CiAgICAgIHJlcHJlc2VudGF0aW9uOiBkYXRhLnJlcHJlc2VudGF0aW9uIHx8ICd1bmRpcmVjdGVkLWdyYXBoJywKICAgICAgdmVydGV4Q291bnQ6IHZlcnRleElkcy5sZW5ndGgsCiAgICAgIGVkZ2VDb3VudDogZWRnZXMubGVuZ3RoLAogICAgICB2ZXJ0ZXhJZHM6IHZlcnRleElkcywKICAgICAgZWRnZXM6IGVkZ2VzLAogICAgICBkZWdyZWVzOiB2ZXJ0ZXhJZHMubWFwKGZ1bmN0aW9uIChpZCkgeyByZXR1cm4geyB2ZXJ0ZXg6IGlkLCBkZWdyZWU6IGFkamFjZW5jeVtpZF0ubGVuZ3RoIH07IH0pLAogICAgICBjb25uZWN0ZWQ6IGNvbXBvbmVudHMubGVuZ3RoID09PSAxLAogICAgICBjb21wb25lbnRDb3VudDogY29tcG9uZW50cy5sZW5ndGgsCiAgICAgIGNvbXBvbmVudHM6IGNvbXBvbmVudHMsCiAgICAgIGlzb2xhdGVkVmVydGljZXM6IHZlcnRleElkcy5maWx0ZXIoZnVuY3Rpb24gKGlkKSB7IHJldHVybiBhZGphY2VuY3lbaWRdLmxlbmd0aCA9PT0gMDsgfSksCiAgICAgIGN5Y2xlUmFuazogZWRnZXMubGVuZ3RoIC0gdmVydGV4SWRzLmxlbmd0aCArIGNvbXBvbmVudHMubGVuZ3RoCiAgICB9OwogICAgaWYgKG9wdGlvbnMuZmVlZGJhY2tQb2xpY3kgIT09IHVuZGVmaW5lZCkgewogICAgICBzdW1tYXJ5LmZlZWRiYWNrUG9saWN5ID0gU3RyaW5nKG9wdGlvbnMuZmVlZGJhY2tQb2xpY3kpOwogICAgfQogICAgaWYgKG9wdGlvbnMuZXh0cmEgJiYgdHlwZW9mIG9wdGlvbnMuZXh0cmEgPT09ICdvYmplY3QnKSB7CiAgICAgIHN1bW1hcnkuZXh0cmEgPSBvcHRpb25zLmV4dHJhOwogICAgfQogICAgcmV0dXJuIHN1bW1hcnk7CiAgfQoKICBmdW5jdGlvbiBjcmVhdGVHcmFwaEVkaXRvcihvcHRpb25zKSB7CiAgICBvcHRpb25zID0gb3B0aW9ucyB8fCB7fTsKICAgIHZhciBib2FyZCA9IG9wdGlvbnMuYm9hcmQ7CiAgICBpZiAoIWJvYXJkIHx8IHR5cGVvZiBib2FyZC5jcmVhdGUgIT09ICdmdW5jdGlvbicpIHsKICAgICAgdGhyb3cgbmV3IFR5cGVFcnJvcignR3JhcGggZWRpdG9yIHJlcXVpcmVzIGEgSlNYR3JhcGggYm9hcmQnKTsKICAgIH0KCiAgICB2YXIgbGFiZWxzID0gbWVyZ2UoewogICAgICBkZWxldGVTZWxlY3RlZDogJ0RlbGV0ZSBzZWxlY3RlZCcsCiAgICAgIGNsZWFyR3JhcGg6ICdDbGVhciBncmFwaCcsCiAgICAgIHNob3dDb250cm9sczogJ1Nob3cgY29udHJvbHMnLAogICAgICBoaWRlQ29udHJvbHM6ICdIaWRlIGNvbnRyb2xzJwogICAgfSwgb3B0aW9ucy5sYWJlbHMpOwogICAgdmFyIGluc3RydWN0aW9ucyA9IG9wdGlvbnMuaW5zdHJ1Y3Rpb25zIHx8IFsKICAgICAgJ0NsaWNrIGVtcHR5IHNwYWNlIHRvIGFkZCBhIHZlcnRleC4nLAogICAgICAnQ2xpY2sgdHdvIHZlcnRpY2VzIHRvIGFkZCBvciByZW1vdmUgdGhlaXIgZWRnZS4nLAogICAgICAnRHJhZyBhIHZlcnRleCB0byBtb3ZlIGl0LicsCiAgICAgICdTZWxlY3QgYSB2ZXJ0ZXgsIHRoZW4gY2hvb3NlIERlbGV0ZSBzZWxlY3RlZCB0byByZW1vdmUgaXQuJwogICAgXTsKICAgIHZhciBwb2ludEF0dHJpYnV0ZXMgPSBtZXJnZSh7CiAgICAgIHNpemU6IDYsCiAgICAgIGZpeGVkOiBmYWxzZSwKICAgICAgc2hvd0luZm9ib3g6IGZhbHNlLAogICAgICBoaWdobGlnaHQ6IGZhbHNlCiAgICB9LCBvcHRpb25zLnBvaW50QXR0cmlidXRlcyk7CiAgICB2YXIgZWRnZUF0dHJpYnV0ZXMgPSBtZXJnZSh7CiAgICAgIHN0cm9rZUNvbG9yOiAnIzQ3NTU2OScsCiAgICAgIHN0cm9rZVdpZHRoOiAzLAogICAgICBmaXhlZDogdHJ1ZSwKICAgICAgaGlnaGxpZ2h0OiBmYWxzZQogICAgfSwgb3B0aW9ucy5lZGdlQXR0cmlidXRlcyk7CiAgICB2YXIgbm9ybWFsU3R5bGUgPSBtZXJnZSh7IGZpbGxDb2xvcjogJyMyNTYzZWInLCBzdHJva2VDb2xvcjogJyMxZDRlZDgnIH0sIG9wdGlvbnMubm9ybWFsU3R5bGUpOwogICAgdmFyIHNlbGVjdGVkU3R5bGUgPSBtZXJnZSh7IGZpbGxDb2xvcjogJyNmNTllMGInLCBzdHJva2VDb2xvcjogJyM5MjQwMGUnIH0sIG9wdGlvbnMuc2VsZWN0ZWRTdHlsZSk7CiAgICB2YXIgYm91bmRzID0gYm9hcmQuZ2V0Qm91bmRpbmdCb3goKTsKICAgIHZhciBlZGl0YWJsZUJvdHRvbSA9IG9wdGlvbnMuZWRpdGFibGVCb3R0b20gPT09IHVuZGVmaW5lZCA/IGJvdW5kc1szXSArIDAuOSA6IE51bWJlcihvcHRpb25zLmVkaXRhYmxlQm90dG9tKTsKICAgIHZhciB2ZXJ0aWNlcyA9IFtdOwogICAgdmFyIGVkZ2VzID0gW107CiAgICB2YXIgc2VsZWN0ZWRWZXJ0ZXggPSBudWxsOwogICAgdmFyIHBvaW50ZXJTdGFydCA9IG51bGw7CiAgICB2YXIgbmV4dFZlcnRleElkID0gMTsKICAgIHZhciBjb250cm9sc1Zpc2libGUgPSBmYWxzZTsKICAgIHZhciBjbGlja1RvbGVyYW5jZVNxdWFyZWQgPSAzNjsKCiAgICBmdW5jdGlvbiBzZXRTZWxlY3RlZCh2ZXJ0ZXgpIHsKICAgICAgaWYgKHNlbGVjdGVkVmVydGV4KSBzZWxlY3RlZFZlcnRleC5wb2ludC5zZXRBdHRyaWJ1dGUobm9ybWFsU3R5bGUpOwogICAgICBzZWxlY3RlZFZlcnRleCA9IHZlcnRleDsKICAgICAgaWYgKHNlbGVjdGVkVmVydGV4KSBzZWxlY3RlZFZlcnRleC5wb2ludC5zZXRBdHRyaWJ1dGUoc2VsZWN0ZWRTdHlsZSk7CiAgICAgIGJvYXJkLnVwZGF0ZSgpOwogICAgfQoKICAgIGZ1bmN0aW9uIGFkZFZlcnRleCh4LCB5KSB7CiAgICAgIHggPSBOdW1iZXIoeCk7CiAgICAgIHkgPSBOdW1iZXIoeSk7CiAgICAgIGlmICghTnVtYmVyLmlzRmluaXRlKHgpIHx8ICFOdW1iZXIuaXNGaW5pdGUoeSkpIHsKICAgICAgICB0aHJvdyBuZXcgVHlwZUVycm9yKCdWZXJ0ZXggY29vcmRpbmF0ZXMgbXVzdCBiZSBmaW5pdGUgbnVtYmVycycpOwogICAgICB9CiAgICAgIHZhciB2ZXJ0ZXggPSB7IGlkOiBuZXh0VmVydGV4SWQrKyB9OwogICAgICB2ZXJ0ZXgucG9pbnQgPSBib2FyZC5jcmVhdGUoJ3BvaW50JywgW3gsIHldLCBtZXJnZShwb2ludEF0dHJpYnV0ZXMsIG1lcmdlKG5vcm1hbFN0eWxlLCB7CiAgICAgICAgbmFtZTogU3RyaW5nKHZlcnRleC5pZCkKICAgICAgfSkpKTsKICAgICAgdmVydGljZXMucHVzaCh2ZXJ0ZXgpOwogICAgICBzZXRTZWxlY3RlZChudWxsKTsKICAgICAgcmV0dXJuIHZlcnRleC5pZDsKICAgIH0KCiAgICBmdW5jdGlvbiBmaW5kVmVydGV4KGlkKSB7CiAgICAgIHJldHVybiB2ZXJ0aWNlcy5maW5kKGZ1bmN0aW9uICh2ZXJ0ZXgpIHsgcmV0dXJuIHZlcnRleC5pZCA9PT0gaWQ7IH0pIHx8IG51bGw7CiAgICB9CgogICAgZnVuY3Rpb24gZWRnZUtleShhLCBiKSB7CiAgICAgIHJldHVybiBhLmlkIDwgYi5pZCA/IGEuaWQgKyAnOicgKyBiLmlkIDogYi5pZCArICc6JyArIGEuaWQ7CiAgICB9CgogICAgZnVuY3Rpb24gdG9nZ2xlRWRnZVZlcnRpY2VzKGEsIGIpIHsKICAgICAgaWYgKCFhIHx8ICFiIHx8IGEgPT09IGIpIHJldHVybiBmYWxzZTsKICAgICAgdmFyIGtleSA9IGVkZ2VLZXkoYSwgYik7CiAgICAgIHZhciBpbmRleCA9IGVkZ2VzLmZpbmRJbmRleChmdW5jdGlvbiAoZWRnZSkgeyByZXR1cm4gZWRnZS5rZXkgPT09IGtleTsgfSk7CiAgICAgIGlmIChpbmRleCA+PSAwKSB7CiAgICAgICAgYm9hcmQucmVtb3ZlT2JqZWN0KGVkZ2VzW2luZGV4XS5zZWdtZW50KTsKICAgICAgICBlZGdlcy5zcGxpY2UoaW5kZXgsIDEpOwogICAgICAgIHNldFNlbGVjdGVkKG51bGwpOwogICAgICAgIHJldHVybiBmYWxzZTsKICAgICAgfQogICAgICBlZGdlcy5wdXNoKHsKICAgICAgICBrZXk6IGtleSwKICAgICAgICBzb3VyY2U6IGEsCiAgICAgICAgdGFyZ2V0OiBiLAogICAgICAgIHNlZ21lbnQ6IGJvYXJkLmNyZWF0ZSgnc2VnbWVudCcsIFthLnBvaW50LCBiLnBvaW50XSwgZWRnZUF0dHJpYnV0ZXMpCiAgICAgIH0pOwogICAgICBzZXRTZWxlY3RlZChudWxsKTsKICAgICAgcmV0dXJuIHRydWU7CiAgICB9CgogICAgZnVuY3Rpb24gdG9nZ2xlRWRnZShzb3VyY2VJZCwgdGFyZ2V0SWQpIHsKICAgICAgdmFyIHNvdXJjZSA9IGZpbmRWZXJ0ZXgoc291cmNlSWQpOwogICAgICB2YXIgdGFyZ2V0ID0gZmluZFZlcnRleCh0YXJnZXRJZCk7CiAgICAgIGlmICghc291cmNlIHx8ICF0YXJnZXQpIHRocm93IG5ldyBFcnJvcignQ2Fubm90IGNvbm5lY3QgYW4gdW5rbm93biB2ZXJ0ZXgnKTsKICAgICAgcmV0dXJuIHRvZ2dsZUVkZ2VWZXJ0aWNlcyhzb3VyY2UsIHRhcmdldCk7CiAgICB9CgogICAgZnVuY3Rpb24gaGFuZGxlVmVydGV4Q2xpY2sodmVydGV4KSB7CiAgICAgIGlmICghc2VsZWN0ZWRWZXJ0ZXgpIHNldFNlbGVjdGVkKHZlcnRleCk7CiAgICAgIGVsc2UgaWYgKHNlbGVjdGVkVmVydGV4ID09PSB2ZXJ0ZXgpIHNldFNlbGVjdGVkKG51bGwpOwogICAgICBlbHNlIHRvZ2dsZUVkZ2VWZXJ0aWNlcyhzZWxlY3RlZFZlcnRleCwgdmVydGV4KTsKICAgIH0KCiAgICBmdW5jdGlvbiBkZWxldGVTZWxlY3RlZCgpIHsKICAgICAgaWYgKCFzZWxlY3RlZFZlcnRleCkgcmV0dXJuIGZhbHNlOwogICAgICB2YXIgZG9vbWVkID0gc2VsZWN0ZWRWZXJ0ZXg7CiAgICAgIGVkZ2VzLnNsaWNlKCkuZm9yRWFjaChmdW5jdGlvbiAoZWRnZSkgewogICAgICAgIGlmIChlZGdlLnNvdXJjZSA9PT0gZG9vbWVkIHx8IGVkZ2UudGFyZ2V0ID09PSBkb29tZWQpIHsKICAgICAgICAgIGJvYXJkLnJlbW92ZU9iamVjdChlZGdlLnNlZ21lbnQpOwogICAgICAgICAgZWRnZXMuc3BsaWNlKGVkZ2VzLmluZGV4T2YoZWRnZSksIDEpOwogICAgICAgIH0KICAgICAgfSk7CiAgICAgIGJvYXJkLnJlbW92ZU9iamVjdChkb29tZWQucG9pbnQpOwogICAgICB2ZXJ0aWNlcy5zcGxpY2UodmVydGljZXMuaW5kZXhPZihkb29tZWQpLCAxKTsKICAgICAgc2VsZWN0ZWRWZXJ0ZXggPSBudWxsOwogICAgICBib2FyZC51cGRhdGUoKTsKICAgICAgcmV0dXJuIHRydWU7CiAgICB9CgogICAgZnVuY3Rpb24gY2xlYXIoKSB7CiAgICAgIHNldFNlbGVjdGVkKG51bGwpOwogICAgICBlZGdlcy5mb3JFYWNoKGZ1bmN0aW9uIChlZGdlKSB7IGJvYXJkLnJlbW92ZU9iamVjdChlZGdlLnNlZ21lbnQpOyB9KTsKICAgICAgdmVydGljZXMuZm9yRWFjaChmdW5jdGlvbiAodmVydGV4KSB7IGJvYXJkLnJlbW92ZU9iamVjdCh2ZXJ0ZXgucG9pbnQpOyB9KTsKICAgICAgZWRnZXMgPSBbXTsKICAgICAgdmVydGljZXMgPSBbXTsKICAgICAgbmV4dFZlcnRleElkID0gMTsKICAgICAgYm9hcmQudXBkYXRlKCk7CiAgICB9CgogICAgZnVuY3Rpb24gcmVzcG9uc2UoKSB7CiAgICAgIHJldHVybiB7CiAgICAgICAgcmVwcmVzZW50YXRpb246ICd1bmRpcmVjdGVkLWdyYXBoJywKICAgICAgICBub2RlczogdmVydGljZXMubWFwKGZ1bmN0aW9uICh2ZXJ0ZXgpIHsKICAgICAgICAgIHJldHVybiB7CiAgICAgICAgICAgIGlkOiB2ZXJ0ZXguaWQsCiAgICAgICAgICAgIHg6IE51bWJlcih2ZXJ0ZXgucG9pbnQuWCgpLnRvRml4ZWQoNCkpLAogICAgICAgICAgICB5OiBOdW1iZXIodmVydGV4LnBvaW50LlkoKS50b0ZpeGVkKDQpKQogICAgICAgICAgfTsKICAgICAgICB9KSwKICAgICAgICBlZGdlczogZWRnZXMubWFwKGZ1bmN0aW9uIChlZGdlKSB7IHJldHVybiBbZWRnZS5zb3VyY2UuaWQsIGVkZ2UudGFyZ2V0LmlkXTsgfSkKICAgICAgfTsKICAgIH0KCiAgICB2YXIgcGFuZWwgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTsKICAgIHBhbmVsLnNldEF0dHJpYnV0ZSgncm9sZScsICdub3RlJyk7CiAgICBwYW5lbC5zZXRBdHRyaWJ1dGUoJ2FyaWEtbGFiZWwnLCAnR3JhcGggZWRpdG9yIGNvbnRyb2xzJyk7CiAgICBwYW5lbC5zZXRBdHRyaWJ1dGUoJ2RhdGEtZ3JhcGgtZWRpdG9yLWNvbnRyb2wnLCAndHJ1ZScpOwogICAgcGFuZWwuc3R5bGUuY3NzVGV4dCA9IFsKICAgICAgJ3Bvc2l0aW9uOmFic29sdXRlJywgJ3RvcDo0OHB4JywgJ3JpZ2h0OjEycHgnLCAnei1pbmRleDoyMCcsCiAgICAgICdkaXNwbGF5Om5vbmUnLCAnd2lkdGg6bWluKDI3MHB4LGNhbGMoMTAwJSAtIDI0cHgpKScsCiAgICAgICdib3gtc2l6aW5nOmJvcmRlci1ib3gnLCAncGFkZGluZzoxMHB4IDEycHgnLCAnYm9yZGVyOjFweCBzb2xpZCAjOTRhM2I4JywKICAgICAgJ2JvcmRlci1yYWRpdXM6N3B4JywgJ2JhY2tncm91bmQ6cmdiYSgyNTUsMjU1LDI1NSwwLjk2KScsCiAgICAgICdjb2xvcjojMWUyOTNiJywgJ2ZvbnQ6MTRweC8xLjM1IHNhbnMtc2VyaWYnLCAnYm94LXNoYWRvdzowIDNweCAxMnB4IHJnYmEoMTUsMjMsNDIsMC4xOCknCiAgICBdLmpvaW4oJzsnKTsKICAgIHZhciBsaXN0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnb2wnKTsKICAgIGxpc3Quc3R5bGUuY3NzVGV4dCA9ICdtYXJnaW46MDtwYWRkaW5nLWxlZnQ6MS4zNXJlbSc7CiAgICBpbnN0cnVjdGlvbnMuZm9yRWFjaChmdW5jdGlvbiAoaW5zdHJ1Y3Rpb24pIHsKICAgICAgdmFyIGl0ZW0gPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdsaScpOwogICAgICBpdGVtLnRleHRDb250ZW50ID0gaW5zdHJ1Y3Rpb247CiAgICAgIGxpc3QuYXBwZW5kQ2hpbGQoaXRlbSk7CiAgICB9KTsKICAgIHBhbmVsLmFwcGVuZENoaWxkKGxpc3QpOwogICAgYm9hcmQuY29udGFpbmVyT2JqLnN0eWxlLnBvc2l0aW9uID0gYm9hcmQuY29udGFpbmVyT2JqLnN0eWxlLnBvc2l0aW9uIHx8ICdyZWxhdGl2ZSc7CiAgICBib2FyZC5jb250YWluZXJPYmouYXBwZW5kQ2hpbGQocGFuZWwpOwoKICAgIHZhciBjb250cm9sQmFyID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7CiAgICBjb250cm9sQmFyLnNldEF0dHJpYnV0ZSgnZGF0YS1ncmFwaC1lZGl0b3ItY29udHJvbCcsICd0cnVlJyk7CiAgICBjb250cm9sQmFyLnN0eWxlLmNzc1RleHQgPSBbCiAgICAgICdwb3NpdGlvbjphYnNvbHV0ZScsICdsZWZ0OjEycHgnLCAnYm90dG9tOjEwcHgnLCAnei1pbmRleDoyMCcsCiAgICAgICdkaXNwbGF5OmZsZXgnLCAnZ2FwOjhweCcsICdmbGV4LXdyYXA6d3JhcCcsICdmb250OjE0cHgvMS4yIHNhbnMtc2VyaWYnCiAgICBdLmpvaW4oJzsnKTsKICAgIGJvYXJkLmNvbnRhaW5lck9iai5hcHBlbmRDaGlsZChjb250cm9sQmFyKTsKCiAgICBmdW5jdGlvbiBjcmVhdGVDb250cm9sKGxhYmVsLCBoYW5kbGVyKSB7CiAgICAgIHZhciBidXR0b24gPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdidXR0b24nKTsKICAgICAgYnV0dG9uLnR5cGUgPSAnYnV0dG9uJzsKICAgICAgYnV0dG9uLnRleHRDb250ZW50ID0gbGFiZWw7CiAgICAgIGJ1dHRvbi5zdHlsZS5jc3NUZXh0ID0gWwogICAgICAgICdwYWRkaW5nOjZweCAxMHB4JywgJ2JvcmRlcjoxcHggc29saWQgIzk0YTNiOCcsICdib3JkZXItcmFkaXVzOjVweCcsCiAgICAgICAgJ2JhY2tncm91bmQ6I2ZmZicsICdjb2xvcjojMWUyOTNiJywgJ2N1cnNvcjpwb2ludGVyJwogICAgICBdLmpvaW4oJzsnKTsKICAgICAgYnV0dG9uLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZnVuY3Rpb24gKGV2ZW50KSB7CiAgICAgICAgZXZlbnQucHJldmVudERlZmF1bHQoKTsKICAgICAgICBldmVudC5zdG9wUHJvcGFnYXRpb24oKTsKICAgICAgICBoYW5kbGVyKCk7CiAgICAgIH0pOwogICAgICBjb250cm9sQmFyLmFwcGVuZENoaWxkKGJ1dHRvbik7CiAgICAgIHJldHVybiBidXR0b247CiAgICB9CgogICAgdmFyIHRvZ2dsZUJ1dHRvbjsKICAgIGZ1bmN0aW9uIHNob3dDb250cm9scyhzaG93KSB7CiAgICAgIGNvbnRyb2xzVmlzaWJsZSA9IHNob3cgPT09IHVuZGVmaW5lZCA/ICFjb250cm9sc1Zpc2libGUgOiAhIXNob3c7CiAgICAgIHBhbmVsLnN0eWxlLmRpc3BsYXkgPSBjb250cm9sc1Zpc2libGUgPyAnYmxvY2snIDogJ25vbmUnOwogICAgICBpZiAodG9nZ2xlQnV0dG9uKSB0b2dnbGVCdXR0b24udGV4dENvbnRlbnQgPSBjb250cm9sc1Zpc2libGUgPyBsYWJlbHMuaGlkZUNvbnRyb2xzIDogbGFiZWxzLnNob3dDb250cm9sczsKICAgICAgYm9hcmQudXBkYXRlKCk7CiAgICAgIHJldHVybiBjb250cm9sc1Zpc2libGU7CiAgICB9CgogICAgY3JlYXRlQ29udHJvbChsYWJlbHMuZGVsZXRlU2VsZWN0ZWQsIGRlbGV0ZVNlbGVjdGVkKTsKICAgIGNyZWF0ZUNvbnRyb2wobGFiZWxzLmNsZWFyR3JhcGgsIGNsZWFyKTsKICAgIHRvZ2dsZUJ1dHRvbiA9IGNyZWF0ZUNvbnRyb2wobGFiZWxzLnNob3dDb250cm9scywgZnVuY3Rpb24gKCkgeyBzaG93Q29udHJvbHMoKTsgfSk7CgogICAgZnVuY3Rpb24gaXNDb250cm9sRXZlbnQoZXZlbnQpIHsKICAgICAgcmV0dXJuICEhKGV2ZW50LnRhcmdldCAmJiBldmVudC50YXJnZXQuY2xvc2VzdCAmJgogICAgICAgIGV2ZW50LnRhcmdldC5jbG9zZXN0KCdidXR0b24sIGlucHV0LCBbZGF0YS1ncmFwaC1lZGl0b3ItY29udHJvbF0nKSk7CiAgICB9CgogICAgZnVuY3Rpb24gdmVydGV4QXQoc2NyZWVuKSB7CiAgICAgIGZvciAodmFyIGkgPSB2ZXJ0aWNlcy5sZW5ndGggLSAxOyBpID49IDA7IGktLSkgewogICAgICAgIGlmICh2ZXJ0aWNlc1tpXS5wb2ludC5oYXNQb2ludChzY3JlZW5bMF0sIHNjcmVlblsxXSkpIHJldHVybiB2ZXJ0aWNlc1tpXTsKICAgICAgfQogICAgICByZXR1cm4gbnVsbDsKICAgIH0KCiAgICBmdW5jdGlvbiB1c2VyUG9zaXRpb24oc2NyZWVuKSB7CiAgICAgIHZhciB3aWR0aCA9IGJvYXJkLmNvbnRhaW5lck9iai5jbGllbnRXaWR0aCB8fCBib2FyZC5jYW52YXNXaWR0aDsKICAgICAgdmFyIGhlaWdodCA9IGJvYXJkLmNvbnRhaW5lck9iai5jbGllbnRIZWlnaHQgfHwgYm9hcmQuY2FudmFzSGVpZ2h0OwogICAgICBpZiAoTnVtYmVyLmlzRmluaXRlKHdpZHRoKSAmJiB3aWR0aCA+IDAgJiYgTnVtYmVyLmlzRmluaXRlKGhlaWdodCkgJiYgaGVpZ2h0ID4gMCkgewogICAgICAgIHJldHVybiBbCiAgICAgICAgICBib3VuZHNbMF0gKyBzY3JlZW5bMF0gLyB3aWR0aCAqIChib3VuZHNbMl0gLSBib3VuZHNbMF0pLAogICAgICAgICAgYm91bmRzWzFdIC0gc2NyZWVuWzFdIC8gaGVpZ2h0ICogKGJvdW5kc1sxXSAtIGJvdW5kc1szXSkKICAgICAgICBdOwogICAgICB9CiAgICAgIHZhciBjb29yZHMgPSBuZXcgSlhHLkNvb3JkcyhKWEcuQ09PUkRTX0JZX1NDUkVFTiwgc2NyZWVuLCBib2FyZCk7CiAgICAgIHJldHVybiBbY29vcmRzLnVzckNvb3Jkc1sxXSwgY29vcmRzLnVzckNvb3Jkc1syXV07CiAgICB9CgogICAgYm9hcmQub24oJ2Rvd24nLCBmdW5jdGlvbiAoZXZlbnQpIHsKICAgICAgcG9pbnRlclN0YXJ0ID0gbnVsbDsKICAgICAgaWYgKGlzQ29udHJvbEV2ZW50KGV2ZW50KSkgcmV0dXJuOwogICAgICB2YXIgc2NyZWVuID0gYm9hcmQuZ2V0TW91c2VQb3NpdGlvbihldmVudCk7CiAgICAgIHBvaW50ZXJTdGFydCA9IHsKICAgICAgICBzY3JlZW46IHNjcmVlbiwKICAgICAgICB2ZXJ0ZXg6IHZlcnRleEF0KHNjcmVlbikKICAgICAgfTsKICAgIH0pOwoKICAgIGJvYXJkLm9uKCd1cCcsIGZ1bmN0aW9uIChldmVudCkgewogICAgICBpZiAoIXBvaW50ZXJTdGFydCB8fCBpc0NvbnRyb2xFdmVudChldmVudCkpIHsKICAgICAgICBwb2ludGVyU3RhcnQgPSBudWxsOwogICAgICAgIHJldHVybjsKICAgICAgfQogICAgICB2YXIgc2NyZWVuID0gYm9hcmQuZ2V0TW91c2VQb3NpdGlvbihldmVudCk7CiAgICAgIHZhciBkeCA9IHNjcmVlblswXSAtIHBvaW50ZXJTdGFydC5zY3JlZW5bMF07CiAgICAgIHZhciBkeSA9IHNjcmVlblsxXSAtIHBvaW50ZXJTdGFydC5zY3JlZW5bMV07CiAgICAgIGlmIChkeCAqIGR4ICsgZHkgKiBkeSA8PSBjbGlja1RvbGVyYW5jZVNxdWFyZWQpIHsKICAgICAgICBpZiAocG9pbnRlclN0YXJ0LnZlcnRleCkgewogICAgICAgICAgaGFuZGxlVmVydGV4Q2xpY2socG9pbnRlclN0YXJ0LnZlcnRleCk7CiAgICAgICAgfSBlbHNlIGlmICghdmVydGV4QXQoc2NyZWVuKSkgewogICAgICAgIHZhciBwb3NpdGlvbiA9IHVzZXJQb3NpdGlvbihzY3JlZW4pOwogICAgICAgIGlmIChwb3NpdGlvblsxXSA+IGVkaXRhYmxlQm90dG9tKSBhZGRWZXJ0ZXgocG9zaXRpb25bMF0sIHBvc2l0aW9uWzFdKTsKICAgICAgICB9CiAgICAgIH0KICAgICAgcG9pbnRlclN0YXJ0ID0gbnVsbDsKICAgIH0pOwoKICAgIGJvYXJkLmNvbnRhaW5lck9iai5zZXRBdHRyaWJ1dGUoJ2RhdGEtZ3JhcGgtZWRpdG9yLXJlYWR5JywgJ3RydWUnKTsKCiAgICBpZiAob3B0aW9ucy5jb250cm9sc0luaXRpYWxseVZpc2libGUpIHNob3dDb250cm9scyh0cnVlKTsKCiAgICB2YXIgYXBpID0gewogICAgICBib2FyZDogYm9hcmQsCiAgICAgIGFkZFZlcnRleDogYWRkVmVydGV4LAogICAgICB0b2dnbGVFZGdlOiB0b2dnbGVFZGdlLAogICAgICBkZWxldGVTZWxlY3RlZDogZGVsZXRlU2VsZWN0ZWQsCiAgICAgIGNsZWFyOiBjbGVhciwKICAgICAgcmVzcG9uc2U6IHJlc3BvbnNlLAogICAgICBzdW1tYXJpemU6IGZ1bmN0aW9uIChzdW1tYXJ5T3B0aW9ucykgeyByZXR1cm4gc3VtbWFyaXplR3JhcGgocmVzcG9uc2UoKSwgc3VtbWFyeU9wdGlvbnMpOyB9LAogICAgICBzaG93Q29udHJvbHM6IHNob3dDb250cm9scywKICAgICAgcmVnaXN0ZXI6IGZ1bmN0aW9uIChzcGVjKSB7CiAgICAgICAgaWYgKCFKWEcuUXVhcnRvQXNzZXNzbWVudCB8fCB0eXBlb2YgSlhHLlF1YXJ0b0Fzc2Vzc21lbnQucmVnaXN0ZXIgIT09ICdmdW5jdGlvbicpIHsKICAgICAgICAgIHRocm93IG5ldyBFcnJvcignR3JhcGggZWRpdG9yIHJlZ2lzdHJhdGlvbiByZXF1aXJlcyB0aGUgUXVhcnRvIGFzc2Vzc21lbnQgYnJpZGdlJyk7CiAgICAgICAgfQogICAgICAgIEpYRy5RdWFydG9Bc3Nlc3NtZW50LnJlZ2lzdGVyKG1lcmdlKHNwZWMsIHsgYm9hcmQ6IGJvYXJkLCByZXNwb25zZTogcmVzcG9uc2UgfSkpOwogICAgICAgIHJldHVybiBhcGk7CiAgICAgIH0KICAgIH07CiAgICByZXR1cm4gYXBpOwogIH0KCiAgZnVuY3Rpb24gY3JlYXRlQm9hcmQob3B0aW9ucykgewogICAgb3B0aW9ucyA9IG9wdGlvbnMgfHwge307CiAgICB2YXIgY29udGFpbmVyID0gb3B0aW9ucy5jb250YWluZXIgfHwgZG9jdW1lbnQucXVlcnlTZWxlY3RvcignLmp4Z2JveCcpOwogICAgaWYgKCFjb250YWluZXIpIHRocm93IG5ldyBFcnJvcignR3JhcGggZWRpdG9yIGNvdWxkIG5vdCBmaW5kIGl0cyBKU1hHcmFwaCBjb250YWluZXInKTsKICAgIHZhciBib2FyZCA9IEpYRy5KU1hHcmFwaC5pbml0Qm9hcmQoY29udGFpbmVyLmlkLCBtZXJnZSh7CiAgICAgIGJvdW5kaW5nYm94OiBbLTUsIDQsIDUsIC00XSwKICAgICAgYXhpczogZmFsc2UsCiAgICAgIHBhbjogeyBlbmFibGVkOiBmYWxzZSB9LAogICAgICB6b29tOiB7IGVuYWJsZWQ6IGZhbHNlIH0sCiAgICAgIHNob3dOYXZpZ2F0aW9uOiBmYWxzZSwKICAgICAgc2hvd0NvcHlyaWdodDogZmFsc2UKICAgIH0sIG9wdGlvbnMuYm9hcmRBdHRyaWJ1dGVzKSk7CiAgICB2YXIgZWRpdG9yID0gY3JlYXRlR3JhcGhFZGl0b3IobWVyZ2Uob3B0aW9ucywgeyBib2FyZDogYm9hcmQgfSkpOwoKICAgIGZ1bmN0aW9uIHJlc2l6ZVRvVmlzaWJsZUNvbnRhaW5lcigpIHsKICAgICAgdmFyIHdpZHRoID0gY29udGFpbmVyLmNsaWVudFdpZHRoOwogICAgICB2YXIgaGVpZ2h0ID0gY29udGFpbmVyLmNsaWVudEhlaWdodDsKICAgICAgaWYgKCEod2lkdGggPiAwICYmIGhlaWdodCA+IDApIHx8IHR5cGVvZiBib2FyZC5yZXNpemVDb250YWluZXIgIT09ICdmdW5jdGlvbicpIHJldHVybiBmYWxzZTsKICAgICAgaWYgKE1hdGguYWJzKChib2FyZC5jYW52YXNXaWR0aCB8fCAwKSAtIHdpZHRoKSA+IDEgfHwKICAgICAgICAgIE1hdGguYWJzKChib2FyZC5jYW52YXNIZWlnaHQgfHwgMCkgLSBoZWlnaHQpID4gMSkgewogICAgICAgIGJvYXJkLnJlc2l6ZUNvbnRhaW5lcih3aWR0aCwgaGVpZ2h0KTsKICAgICAgICBpZiAodHlwZW9mIGJvYXJkLmZ1bGxVcGRhdGUgPT09ICdmdW5jdGlvbicpIGJvYXJkLmZ1bGxVcGRhdGUoKTsKICAgICAgfQogICAgICByZXR1cm4gdHJ1ZTsKICAgIH0KCiAgICBlZGl0b3IucmVzaXplID0gcmVzaXplVG9WaXNpYmxlQ29udGFpbmVyOwogICAgaWYgKHR5cGVvZiBSZXNpemVPYnNlcnZlciAhPT0gJ3VuZGVmaW5lZCcpIHsKICAgICAgdmFyIG9ic2VydmVyID0gbmV3IFJlc2l6ZU9ic2VydmVyKHJlc2l6ZVRvVmlzaWJsZUNvbnRhaW5lcik7CiAgICAgIG9ic2VydmVyLm9ic2VydmUoY29udGFpbmVyKTsKICAgICAgZWRpdG9yLnJlc2l6ZU9ic2VydmVyID0gb2JzZXJ2ZXI7CiAgICB9CiAgICBpZiAodHlwZW9mIHJlcXVlc3RBbmltYXRpb25GcmFtZSA9PT0gJ2Z1bmN0aW9uJykgewogICAgICByZXF1ZXN0QW5pbWF0aW9uRnJhbWUoZnVuY3Rpb24gKCkgewogICAgICAgIHJlc2l6ZVRvVmlzaWJsZUNvbnRhaW5lcigpOwogICAgICAgIHJlcXVlc3RBbmltYXRpb25GcmFtZShyZXNpemVUb1Zpc2libGVDb250YWluZXIpOwogICAgICB9KTsKICAgIH0KICAgIHJlc2l6ZVRvVmlzaWJsZUNvbnRhaW5lcigpOwogICAgcmV0dXJuIGVkaXRvcjsKICB9CgogIEpYRy5RdWFydG9HcmFwaEVkaXRvciA9IHsKICAgIGNyZWF0ZTogY3JlYXRlR3JhcGhFZGl0b3IsCiAgICBjcmVhdGVCb2FyZDogY3JlYXRlQm9hcmQsCiAgICBzdW1tYXJpemU6IHN1bW1hcml6ZUdyYXBoCiAgfTsKfSkoKTsKPC9zY3JpcHQ+CjxzY3JpcHQ+Ly8gVGhlIGV4dGVuc2lvbiBpc29sYXRlcyB0aGlzIGRvY3VtZW50IGluIGEgc2FuZGJveGVkIGlmcmFtZS4gS2VlcCBib3RoCi8vIGNvbnRyb2xzIGFuZCB0aGVpciBDU1MgaGVyZTsgYm9hcmQgY29vcmRpbmF0ZXMgYXJlIG9ubHkgZm9yIG1hdGhlbWF0aWNzLgpkb2N1bWVudC5kb2N1bWVudEVsZW1lbnQubGFuZyA9ICdlbic7CnZhciBncmFwaCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJy5qeGdib3gnKTsKdmFyIGxhYlN0eWxlID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc3R5bGUnKTsKbGFiU3R5bGUudGV4dENvbnRlbnQgPSBgCiAgaHRtbCwgYm9keSB7IG1hcmdpbjogMDsgd2lkdGg6IDEwMCU7IGhlaWdodDogMTAwJTsgZm9udC1mYW1pbHk6IHN5c3RlbS11aSwgc2Fucy1zZXJpZjsgY29sb3I6ICMyNDM0NDc7IH0KICAqIHsgYm94LXNpemluZzogYm9yZGVyLWJveDsgfQogIC53ZWVrNS1sYWIgeyBoZWlnaHQ6IDEwMCU7IHBhZGRpbmc6IDE2cHg7IGRpc3BsYXk6IGZsZXg7IGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47IGdhcDogMTJweDsKICAgIGJvcmRlcjogMXB4IHNvbGlkICNkNGRkZTU7IGJvcmRlci1yYWRpdXM6IDEycHg7IGJhY2tncm91bmQ6ICNmZmY7IH0KICAud2VlazUtbGFiIGZpZWxkc2V0IHsgbWFyZ2luOiAwOyBwYWRkaW5nOiAwOyBib3JkZXI6IDA7IG1pbi13aWR0aDogMDsgfQogIC53ZWVrNS1sYWIgbGVnZW5kIHsgcGFkZGluZzogMDsgbWFyZ2luLWJvdHRvbTogOHB4OyBmb250LXdlaWdodDogNjUwOyBmb250LXNpemU6IDE2cHg7IH0KICAud2VlazUtcHJlc2V0cyB7IGRpc3BsYXk6IGdyaWQ7IGdyaWQtdGVtcGxhdGUtY29sdW1uczogcmVwZWF0KDMsIG1pbm1heCgwLCAxZnIpKTsgZ2FwOiA4cHg7IH0KICAud2VlazUtbGFiIGJ1dHRvbiB7IG1pbi1oZWlnaHQ6IDQ0cHg7IHBhZGRpbmc6IDhweDsgYm9yZGVyOiAxcHggc29saWQgI2E4YjZjNDsgYm9yZGVyLXJhZGl1czogN3B4OwogICAgYmFja2dyb3VuZDogI2ZmZjsgY29sb3I6ICMyNDM0NDc7IGZvbnQ6IGluaGVyaXQ7IGZvbnQtc2l6ZTogMTVweDsgY3Vyc29yOiBwb2ludGVyOyB9CiAgLndlZWs1LWxhYiBidXR0b246aG92ZXIgeyBiYWNrZ3JvdW5kOiAjZjBmNGY4OyB9CiAgLndlZWs1LWxhYiBidXR0b25bYXJpYS1wcmVzc2VkPSJ0cnVlIl0geyBiYWNrZ3JvdW5kOiAjZmZmMWRmOyBib3JkZXI6IDJweCBzb2xpZCAjYTA0YTAwOyBmb250LXdlaWdodDogNzAwOyB9CiAgLndlZWs1LWxhYiBidXR0b246Zm9jdXMtdmlzaWJsZSB7IG91dGxpbmU6IDNweCBzb2xpZCAjMTU2NWMwOyBvdXRsaW5lLW9mZnNldDogMnB4OyB9CiAgLndlZWs1LWFjdGlvbnMgeyBkaXNwbGF5OiBncmlkOyBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IDFmciAxZnI7IGdhcDogOHB4OyB9CiAgLndlZWs1LWxhYiAud2VlazUtbWFpbi1zdGVwIHsgbWluLWhlaWdodDogNDhweDsgYmFja2dyb3VuZDogIzE1NTdhMDsgYm9yZGVyLWNvbG9yOiAjMTU1N2EwOwogICAgY29sb3I6ICNmZmY7IGZvbnQtc2l6ZTogMThweDsgZm9udC13ZWlnaHQ6IDcwMDsgfQogIC53ZWVrNS1sYWIgLndlZWs1LW1haW4tc3RlcDpob3ZlciB7IGJhY2tncm91bmQ6ICMxMDQ1N2Y7IH0KICAud2VlazUtZ3JhcGgtc2xvdCB7IGZsZXg6IDEgMSBhdXRvOyBtaW4taGVpZ2h0OiAxODBweDsgcG9zaXRpb246IHJlbGF0aXZlOyB9CiAgLndlZWs1LWdyYXBoLXNsb3QgLmp4Z2JveCB7IHBvc2l0aW9uOiBhYnNvbHV0ZTsgaW5zZXQ6IDA7IHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7IGhlaWdodDogMTAwJSAhaW1wb3J0YW50OyBib3JkZXI6IDA7IH0KICAud2VlazUtcmVhZG91dCB7IGZsZXg6IDAgMCBhdXRvOyBwYWRkaW5nOiAxMnB4OyBib3JkZXItcmFkaXVzOiA4cHg7IGJhY2tncm91bmQ6ICNmM2Y2ZmE7IH0KICAud2VlazUtcmVhZG91dCBwIHsgbWFyZ2luOiAwOyBsaW5lLWhlaWdodDogMS41OyB9CiAgLndlZWs1LXN0YXJ0LWtleSB7IGNvbG9yOiAjODU0MDAwOyBmb250LXNpemU6IDE0cHg7IH0KICAud2VlazUtZm9ybXVsYSB7IGNvbG9yOiAjMTU1N2EwOyBmb250LXNpemU6IGNsYW1wKDE2cHgsIDN2dywgMjBweCk7IGZvbnQtd2VpZ2h0OiA2NTA7IG92ZXJmbG93LXdyYXA6IGFueXdoZXJlOyB9CiAgLndlZWs1LWNvb3JkaW5hdGVzIHsgZm9udC1zaXplOiAxNXB4OyBmb250LXZhcmlhbnQtbnVtZXJpYzogdGFidWxhci1udW1zOyB9CiAgQG1lZGlhIChtYXgtd2lkdGg6IDM4MHB4KSB7IC53ZWVrNS1sYWIgeyBwYWRkaW5nOiAxMHB4OyBnYXA6IDEwcHg7IH0gLndlZWs1LXJlYWRvdXQgeyBwYWRkaW5nOiAxMHB4OyB9IC53ZWVrNS1hY3Rpb25zIHsgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiAxZnI7IH0gfQpgOwpkb2N1bWVudC5oZWFkLmFwcGVuZENoaWxkKGxhYlN0eWxlKTsKdmFyIGxhYiA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ3NlY3Rpb24nKTsKbGFiLmNsYXNzTmFtZSA9ICd3ZWVrNS1sYWInOwpsYWIuc2V0QXR0cmlidXRlKCdhcmlhLWxhYmVsJywgJ1JlcGVhdGVkIG1hdHJpeCBtdWx0aXBsaWNhdGlvbicpOwpsYWIuaW5uZXJIVE1MID0gYAogIDxmaWVsZHNldD48bGVnZW5kPkNob29zZSBhIHN0YXJ0aW5nIGRpcmVjdGlvbjwvbGVnZW5kPjxkaXYgY2xhc3M9IndlZWs1LXByZXNldHMiPjwvZGl2PjwvZmllbGRzZXQ+CiAgPGRpdiBjbGFzcz0id2VlazUtYWN0aW9ucyI+CiAgICA8YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9IndlZWs1LW1haW4tc3RlcCI+T25lIHN0ZXA8L2J1dHRvbj4KICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0id2VlazUtcmVzZXQiPlJlc2V0IHRvIHN0YXJ0aW5nIHZlY3RvcjwvYnV0dG9uPgogIDwvZGl2PgogIDxkaXYgY2xhc3M9IndlZWs1LWdyYXBoLXNsb3QiPjwvZGl2PgogIDxkaXYgY2xhc3M9IndlZWs1LXJlYWRvdXQiPgogICAgPHAgY2xhc3M9IndlZWs1LXN0YXJ0LWtleSI+PC9wPgogICAgPHAgY2xhc3M9IndlZWs1LXN0YXJ0LWtleSI+RHJhZyB0aGUgb3JhbmdlIHJpbmcgdG8gY2hvb3NlIHlvdXIgb3duIHN0YXJ0aW5nIHZlY3Rvci48L3A+CiAgICA8ZGl2IHJvbGU9InN0YXR1cyIgYXJpYS1saXZlPSJwb2xpdGUiIGFyaWEtYXRvbWljPSJ0cnVlIj4KICAgICAgPHAgY2xhc3M9IndlZWs1LWZvcm11bGEiPjwvcD4KICAgICAgPHAgY2xhc3M9IndlZWs1LWNvb3JkaW5hdGVzIj48L3A+CiAgICA8L2Rpdj4KICA8L2Rpdj4KYDsKZ3JhcGgucGFyZW50Tm9kZS5pbnNlcnRCZWZvcmUobGFiLCBncmFwaCk7CmxhYi5xdWVyeVNlbGVjdG9yKCcud2VlazUtZ3JhcGgtc2xvdCcpLmFwcGVuZENoaWxkKGdyYXBoKTsKdmFyIGZvcm11bGEgPSBsYWIucXVlcnlTZWxlY3RvcignLndlZWs1LWZvcm11bGEnKTsKdmFyIGNvb3JkaW5hdGVzID0gbGFiLnF1ZXJ5U2VsZWN0b3IoJy53ZWVrNS1jb29yZGluYXRlcycpOwp2YXIgc3RhcnRLZXkgPSBsYWIucXVlcnlTZWxlY3RvcignLndlZWs1LXN0YXJ0LWtleScpOwp2YXIgc2VsZWN0ZWRTdGFydCA9ICcoMSwgMCknOwp2YXIgcHJlc2V0cyA9IFtbMSwgMCwgJygxLCAwKSddLCBbLTEsIDAsICco4oiSMSwgMCknXSwgWzEsIDEsICcoMSwgMSknXSwKICBbMSwgLTEsICcoMSwg4oiSMSknXSwgWzAsIDEsICcoMCwgMSknXSwgWzEsIC0wLjksICcoMSwg4oiSMC45KSddXTsKdmFyIHByZXNldEJ1dHRvbnMgPSBbXTsKdmFyIGJvdW5kcyA9IFstMS4zLCAxLjMsIDEuMywgLTEuM107CnZhciBib2FyZCA9IEpYRy5KU1hHcmFwaC5pbml0Qm9hcmQoIkpYRzMxNTU0MmQzXzUxZWFfZTM1N183YjY1X2YwM2Y5YzYwIiwgewogIGJvdW5kaW5nYm94OiBib3VuZHMsIGF4aXM6IHRydWUsIHBhbjoge2VuYWJsZWQ6IGZhbHNlfSwgem9vbToge2VuYWJsZWQ6IGZhbHNlfSwKICBzaG93Q29weXJpZ2h0OiBmYWxzZSwgc2hvd05hdmlnYXRpb246IGZhbHNlLCBrZWVwYXNwZWN0cmF0aW86IHRydWUKfSk7CnZhciBvcmlnaW4gPSBib2FyZC5jcmVhdGUoJ3BvaW50JywgWzAsIDBdLCB7dmlzaWJsZTogZmFsc2UsIGZpeGVkOiB0cnVlfSk7CnZhciBjaXJjbGUgPSBib2FyZC5jcmVhdGUoJ2NpcmNsZScsIFtvcmlnaW4sIDFdLCB7c3Ryb2tlQ29sb3I6ICcjYWFiNmMxJywgZGFzaDogMiwgZml4ZWQ6IHRydWUsIGhpZ2hsaWdodDogZmFsc2V9KTsKdmFyIHN0YXJ0ID0gYm9hcmQuY3JlYXRlKCdnbGlkZXInLCBbMSwgMCwgY2lyY2xlXSwgewogIG5hbWU6ICcnLCB3aXRoTGFiZWw6IGZhbHNlLCBzaXplOiA5LCBzdHJva2VXaWR0aDogMywgc3Ryb2tlQ29sb3I6ICcjYTA0YTAwJywKICBmaWxsQ29sb3I6ICcjZmZmJywgZmlsbE9wYWNpdHk6IDAsIGhpZ2hsaWdodEZpbGxPcGFjaXR5OiAwLCBoaWdobGlnaHRTdHJva2VDb2xvcjogJyNhMDRhMDAnLCBsYXllcjogOQp9KTsKYm9hcmQuY3JlYXRlKCdhcnJvdycsIFtvcmlnaW4sIHN0YXJ0XSwge3N0cm9rZUNvbG9yOiAnI2EwNGEwMCcsIHN0cm9rZVdpZHRoOiAyLCBkYXNoOiAyLCBmaXhlZDogdHJ1ZSwgaGlnaGxpZ2h0OiBmYWxzZX0pOwp2YXIgY3VycmVudCA9IFsxLCAwXSwgY291bnQgPSAwOwp2YXIgZW5kID0gYm9hcmQuY3JlYXRlKCdwb2ludCcsIFtmdW5jdGlvbigpe3JldHVybiBjdXJyZW50WzBdO30sIGZ1bmN0aW9uKCl7cmV0dXJuIGN1cnJlbnRbMV07fV0sCiAge25hbWU6ICcnLCB3aXRoTGFiZWw6IGZhbHNlLCBmaXhlZDogdHJ1ZSwgc2l6ZTogMywgY29sb3I6ICcjMTU2NWMwJywgaGlnaGxpZ2h0OiBmYWxzZSwgbGF5ZXI6IDh9KTsKYm9hcmQuY3JlYXRlKCdhcnJvdycsIFtvcmlnaW4sIGVuZF0sIHtzdHJva2VDb2xvcjogJyMxNTY1YzAnLCBzdHJva2VXaWR0aDogMywgZml4ZWQ6IHRydWUsIGhpZ2hsaWdodDogZmFsc2V9KTsKLy8gS2VlcCB0aGUgbm9ybWFsaXplZCBpdGVyYXRlIGlkZW50aWZpYWJsZSBuZXh0IHRvIHRoZSBibHVlIGVuZHBvaW50LgovLyBUaGUgY29tcGFjdCBmcmFjdGlvbiBmaXRzIGluc2lkZSB0aGUgYm9hcmQgZXZlbiBmb3Igc3RhcnRzIG5lYXIgaXRzIGVkZ2VzLgpmdW5jdGlvbiBjYW52YXNGb3JtdWxhKCkgewogIHZhciBwb3dlciA9ICdBPHN1cD4nK2NvdW50Kyc8L3N1cD54PHN1Yj4wPC9zdWI+JzsKICByZXR1cm4gJzxzcGFuIHN0eWxlPSJkaXNwbGF5OmlubGluZS1mbGV4O2FsaWduLWl0ZW1zOmNlbnRlcjtnYXA6NHB4O3doaXRlLXNwYWNlOm5vd3JhcDsnICsKICAgICdiYWNrZ3JvdW5kOnJnYmEoMjU1LDI1NSwyNTUsLjk0KTtwYWRkaW5nOjNweCA1cHg7Ym9yZGVyLXJhZGl1czo0cHg7Y29sb3I6IzE1NjVjMCI+JyArCiAgICAnPHNwYW4+eDxzdWI+Jytjb3VudCsnPC9zdWI+ID08L3NwYW4+JyArCiAgICAnPHNwYW4gc3R5bGU9ImRpc3BsYXk6aW5saW5lLWZsZXg7ZmxleC1kaXJlY3Rpb246Y29sdW1uO3RleHQtYWxpZ246Y2VudGVyO2xpbmUtaGVpZ2h0OjEuMjUiPicgKwogICAgJzxzcGFuIHN0eWxlPSJib3JkZXItYm90dG9tOjFweCBzb2xpZCAjMTU2NWMwO3BhZGRpbmc6MCAzcHgiPicrcG93ZXIrJzwvc3Bhbj4nICsKICAgICc8c3Bhbj7igJYnK3Bvd2VyKyfigJY8c3ViPjI8L3N1Yj48L3NwYW4+PC9zcGFuPic7Cn0KLy8gVXNlIGEgRE9NIG92ZXJsYXkgaW5zaWRlIHRoZSBwbG90dGluZyBhcmVhIHNvIEpTWEdyYXBoJ3MgdGV4dCByZW5kZXJlcgovLyBkb2VzIG5vdCBwcm9jZXNzIG9yIGhpZGUgdGhlIEhUTUwgZnJhY3Rpb24uCnZhciBpdGVyYXRlTGFiZWwgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTsKaXRlcmF0ZUxhYmVsLmNsYXNzTmFtZSA9ICd3ZWVrNS1jYW52YXMtbGFiZWwnOwppdGVyYXRlTGFiZWwuc3R5bGUuY3NzVGV4dCA9ICdwb3NpdGlvbjphYnNvbHV0ZTt6LWluZGV4OjIwO3BvaW50ZXItZXZlbnRzOm5vbmU7Zm9udC1zaXplOjE0cHg7bGluZS1oZWlnaHQ6MS4yNTsnOwpsYWIucXVlcnlTZWxlY3RvcignLndlZWs1LWdyYXBoLXNsb3QnKS5hcHBlbmRDaGlsZChpdGVyYXRlTGFiZWwpOwpmdW5jdGlvbiBwb3NpdGlvbkl0ZXJhdGVMYWJlbCgpIHsKICB2YXIgd2lkdGggPSBncmFwaC5jbGllbnRXaWR0aCwgaGVpZ2h0ID0gZ3JhcGguY2xpZW50SGVpZ2h0OwogIGlmICghKHdpZHRoID4gMCAmJiBoZWlnaHQgPiAwKSkgcmV0dXJuOwogIHZhciBweCA9IGJvYXJkLm9yaWdpbi5zY3JDb29yZHNbMV0gKyBjdXJyZW50WzBdICogYm9hcmQudW5pdFg7CiAgdmFyIHB5ID0gYm9hcmQub3JpZ2luLnNjckNvb3Jkc1syXSAtIGN1cnJlbnRbMV0gKiBib2FyZC51bml0WTsKICB2YXIgbGFiZWxXaWR0aCA9IGl0ZXJhdGVMYWJlbC5vZmZzZXRXaWR0aDsKICB2YXIgbGFiZWxIZWlnaHQgPSBpdGVyYXRlTGFiZWwub2Zmc2V0SGVpZ2h0OwogIHZhciBsZWZ0ID0gTWF0aC5tYXgoNiwgTWF0aC5taW4od2lkdGgtbGFiZWxXaWR0aC02LCBweCsxMikpOwogIHZhciB0b3AgPSBweS1sYWJlbEhlaWdodC0xMjsKICBpZiAodG9wIDwgNikgdG9wID0gcHkrMTI7CiAgdG9wID0gTWF0aC5tYXgoNiwgTWF0aC5taW4oaGVpZ2h0LWxhYmVsSGVpZ2h0LTYsIHRvcCkpOwogIGl0ZXJhdGVMYWJlbC5zdHlsZS5sZWZ0ID0gbGVmdCsncHgnOwogIGl0ZXJhdGVMYWJlbC5zdHlsZS50b3AgPSB0b3ArJ3B4JzsKfQpmdW5jdGlvbiBmb3JtYXRDb29yZGluYXRlKHZhbHVlKSB7IHJldHVybiAoTWF0aC5hYnModmFsdWUpIDwgMC4wMDA1ID8gMCA6IHZhbHVlKS50b0ZpeGVkKDMpOyB9CmZ1bmN0aW9uIHVwZGF0ZVJlYWRvdXQoKSB7CiAgaXRlcmF0ZUxhYmVsLmlubmVySFRNTCA9IGNhbnZhc0Zvcm11bGEoKTsKICBwb3NpdGlvbkl0ZXJhdGVMYWJlbCgpOwogIHN0YXJ0S2V5LnRleHRDb250ZW50ID0gJ09yYW5nZSByaW5nIMK3ICcrKHNlbGVjdGVkU3RhcnQgfHwgJ0N1c3RvbSBzdGFydGluZyB2ZWN0b3InKSsnOiB44oKAID0gKCcrCiAgICBmb3JtYXRDb29yZGluYXRlKHN0YXJ0LlgoKSkrJywgJytmb3JtYXRDb29yZGluYXRlKHN0YXJ0LlkoKSkrJyknOwogIGZvcm11bGEuaW5uZXJIVE1MID0gJ0JsdWU6IHg8c3ViPicrY291bnQrJzwvc3ViPiA9IEE8c3VwPicrY291bnQrJzwvc3VwPng8c3ViPjA8L3N1Yj4nICsKICAgICcgLyDigJZBPHN1cD4nK2NvdW50Kyc8L3N1cD54PHN1Yj4wPC9zdWI+4oCWPHN1Yj4yPC9zdWI+JzsKICB2YXIgcm91bmRlZCA9IGN1cnJlbnQubWFwKGZvcm1hdENvb3JkaW5hdGUpOwogIGNvb3JkaW5hdGVzLnRleHRDb250ZW50ID0gJ1N0ZXAgJytjb3VudCsnIMK3ICgnK3JvdW5kZWRbMF0rJywgJytyb3VuZGVkWzFdKycpJzsKfQpmdW5jdGlvbiByZXNldCgpIHsKICBjdXJyZW50ID0gW3N0YXJ0LlgoKSwgc3RhcnQuWSgpXTsgY291bnQgPSAwOyBib2FyZC51cGRhdGUoKTsgdXBkYXRlUmVhZG91dCgpOwp9CmZ1bmN0aW9uIGNob29zZShhLCBiLCBzZWxlY3RlZCkgewogIHZhciBsZW5ndGggPSBNYXRoLmh5cG90KGEsIGIpOwogIHN0YXJ0Lm1vdmVUbyhbYS9sZW5ndGgsIGIvbGVuZ3RoXSk7CiAgc2VsZWN0ZWRTdGFydCA9IHNlbGVjdGVkID8gc2VsZWN0ZWQudGV4dENvbnRlbnQgOiBudWxsOwogIHByZXNldEJ1dHRvbnMuZm9yRWFjaChmdW5jdGlvbihidXR0b24pIHsgYnV0dG9uLnNldEF0dHJpYnV0ZSgnYXJpYS1wcmVzc2VkJywgU3RyaW5nKGJ1dHRvbiA9PT0gc2VsZWN0ZWQpKTsgfSk7CiAgcmVzZXQoKTsKfQpwcmVzZXRzLmZvckVhY2goZnVuY3Rpb24ocHJlc2V0KSB7CiAgdmFyIGJ1dHRvbiA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2J1dHRvbicpOwogIGJ1dHRvbi50eXBlID0gJ2J1dHRvbic7IGJ1dHRvbi50ZXh0Q29udGVudCA9IHByZXNldFsyXTsKICBidXR0b24uc2V0QXR0cmlidXRlKCdhcmlhLXByZXNzZWQnLCBTdHJpbmcocHJlc2V0QnV0dG9ucy5sZW5ndGggPT09IDApKTsKICBidXR0b24uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbigpIHsgY2hvb3NlKHByZXNldFswXSwgcHJlc2V0WzFdLCBidXR0b24pOyB9KTsKICBwcmVzZXRCdXR0b25zLnB1c2goYnV0dG9uKTsgbGFiLnF1ZXJ5U2VsZWN0b3IoJy53ZWVrNS1wcmVzZXRzJykuYXBwZW5kQ2hpbGQoYnV0dG9uKTsKfSk7CnN0YXJ0Lm9uKCdkcmFnJywgZnVuY3Rpb24oKSB7CiAgc2VsZWN0ZWRTdGFydCA9IG51bGw7CiAgcHJlc2V0QnV0dG9ucy5mb3JFYWNoKGZ1bmN0aW9uKGJ1dHRvbikgeyBidXR0b24uc2V0QXR0cmlidXRlKCdhcmlhLXByZXNzZWQnLCAnZmFsc2UnKTsgfSk7CiAgcmVzZXQoKTsKfSk7CmxhYi5xdWVyeVNlbGVjdG9yKCcud2VlazUtbWFpbi1zdGVwJykuYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbigpIHsKICB2YXIgeSA9IFsyKmN1cnJlbnRbMF0rY3VycmVudFsxXSwgY3VycmVudFswXSsyKmN1cnJlbnRbMV1dOwogIHZhciBsZW5ndGggPSBNYXRoLmh5cG90KHlbMF0sIHlbMV0pOwogIGN1cnJlbnQgPSBbeVswXS9sZW5ndGgsIHlbMV0vbGVuZ3RoXTsgY291bnQrKzsgYm9hcmQudXBkYXRlKCk7IHVwZGF0ZVJlYWRvdXQoKTsKfSk7CmxhYi5xdWVyeVNlbGVjdG9yKCcud2VlazUtcmVzZXQnKS5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIHJlc2V0KTsKLy8gUmUtbWVhc3VyZSBvbiB3aWR0aCBjaGFuZ2VzIGFuZCB3aGVuIHRoZSBjb250YWluaW5nIFF1YXJ0byB0YWIgYmVjb21lcyB2aXNpYmxlLgovLyBJZ25vcmUgemVybyBkaW1lbnNpb25zIHdoaWxlIGhpZGRlbjsgcmV0YWluIENTUyBvd25lcnNoaXAgb2YgdGhlIGdyYXBoIHNpemUuCmZ1bmN0aW9uIHJlc2l6ZUdyYXBoKCkgewogIHZhciB3aWR0aCA9IGdyYXBoLmNsaWVudFdpZHRoLCBoZWlnaHQgPSBncmFwaC5jbGllbnRIZWlnaHQ7CiAgaWYgKCEod2lkdGggPiAwICYmIGhlaWdodCA+IDApKSByZXR1cm47CiAgYm9hcmQucmVzaXplQ29udGFpbmVyKHdpZHRoLCBoZWlnaHQsIHRydWUpOwogIGJvYXJkLnNldEJvdW5kaW5nQm94KGJvdW5kcywgdHJ1ZSk7IGJvYXJkLmZ1bGxVcGRhdGUoKTsKICBwb3NpdGlvbkl0ZXJhdGVMYWJlbCgpOwp9CmlmICh0eXBlb2YgUmVzaXplT2JzZXJ2ZXIgIT09ICd1bmRlZmluZWQnKSB7CiAgdmFyIGdyYXBoT2JzZXJ2ZXIgPSBuZXcgUmVzaXplT2JzZXJ2ZXIocmVzaXplR3JhcGgpOwogIGdyYXBoT2JzZXJ2ZXIub2JzZXJ2ZShncmFwaCk7Cn0Kd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ3Jlc2l6ZScsIHJlc2l6ZUdyYXBoKTsKd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ3BhZ2VzaG93JywgcmVzaXplR3JhcGgpOwp1cGRhdGVSZWFkb3V0KCk7IHJlc2l6ZUdyYXBoKCk7PC9zY3JpcHQ+CjwvYm9keT4KPC9odG1sPg==" class="" name="iframeJXG315542d3_51ea_e357_7b65_f03f9c60" style="width:680px; height:650px; position:relative; margin:0; padding:0; display:block; z-index:1;width:100%;max-width:680px;height:650px;border:0;;" id="JXG315542d3_51ea_e357_7b65_f03f9c60" sandbox="allow-scripts"></iframe>
+<iframe src="data:text/html;base64,PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CjxtZXRhIGNoYXJzZXQ9IlVURi04Ij4KPHNjcmlwdCBpZD0iTWF0aEpheC1zY3JpcHQiIGFzeW5jIHNyYz0iaHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L25wbS9tYXRoamF4QDQvdGV4LW1tbC1zdmcuanMiPjwvc2NyaXB0Pgo8c2NyaXB0IHNyYz0iaHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L25wbS9qc3hncmFwaEAxL2Rpc3RyaWIvanN4Z3JhcGhjb3JlLmpzIj48L3NjcmlwdD4KPHN0eWxlPkBpbXBvcnQgdXJsKCJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvbnBtL2pzeGdyYXBoQDEvZGlzdHJpYi9qc3hncmFwaC5jc3MiKTs8L3N0eWxlPgo8c3R5bGU+aHRtbCxib2R5e21hcmdpbjowO3BhZGRpbmc6MDt3aWR0aDoxMDAlO2hlaWdodDoxMDAlO30uanhnYm94e2JvcmRlcjpub25lO2JvcmRlci1yYWRpdXM6MHB4O308L3N0eWxlPgo8L2hlYWQ+Cjxib2R5Pgo8ZGl2IGlkPSJKWEc5NTI0MjBiOF9kMDI3XzYyYzVfYjY3M19lMTg0YTY4YyIgY2xhc3M9Imp4Z2JveCIgc3R5bGU9IndpZHRoOjEwMCU7aGVpZ2h0OjEwMCU7ZGlzcGxheTpibG9jaztvYmplY3QtZml0OmZpbGw7Ym94LXNpemluZzpib3JkZXItYm94OyI+PC9kaXY+CjxzY3JpcHQ+KGZ1bmN0aW9uICgpIHsKICAndXNlIHN0cmljdCc7CiAgY29uc3QgcHJvdG9jb2wgPSAnanN4Z3JhcGgtcXVhcnRvLWFzc2Vzc21lbnQnOwogIGNvbnN0IHZlcnNpb24gPSAxOwogIGNvbnN0IGFzc2Vzc21lbnRJZCA9ICJKWEc5NTI0MjBiOF9kMDI3XzYyYzVfYjY3M19lMTg0YTY4YyI7CiAgY29uc3QgYm9hcmRJZCA9ICJKWEc5NTI0MjBiOF9kMDI3XzYyYzVfYjY3M19lMTg0YTY4YyI7CiAgLy8gQSBzaXplIGZvciBhIGJvYXJkIHRoYXQgbXVzdCBzdGFydCB3aGlsZSBoaWRkZW4gKGFuIGFzc2Vzc21lbnQgcmVxdWVzdCk6CiAgLy8gYSBoaWRkZW4gaWZyYW1lIGxheXMgbm90aGluZyBvdXQsIGJ1dCBKU1hHcmFwaCByZWFkcyBhIGNvbnRhaW5lcidzIENTUwogIC8vIHBpeGVsIHNpemUgdGhlbi4gVGhlIGJvYXJkIGdldHMgaXRzIHJlYWwgc2l6ZSB3aGVuIGl0IGlzIHNob3duLgogIGNvbnN0IHByb3Zpc2lvbmFsU2l6ZSA9IFs2ODAsIDY1MF07CiAgbGV0IHByb3Zpc2lvbmFsID0gbnVsbDsKICBsZXQgcmVnaXN0cmF0aW9uID0gbnVsbDsKCiAgYXN5bmMgZnVuY3Rpb24gc3ZnVG9QbmcoZGF0YVVyaSwgYm9hcmQpIHsKICAgIHJldHVybiBuZXcgUHJvbWlzZSgocmVzb2x2ZSwgcmVqZWN0KSA9PiB7CiAgICAgIGNvbnN0IGltYWdlID0gbmV3IEltYWdlKCk7CiAgICAgIGltYWdlLm9ubG9hZCA9ICgpID0+IHsKICAgICAgICBjb25zdCBjYW52YXMgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdjYW52YXMnKTsKICAgICAgICBjYW52YXMud2lkdGggPSBNYXRoLm1heCgxLCBNYXRoLnJvdW5kKGJvYXJkLmNhbnZhc1dpZHRoIHx8IGltYWdlLndpZHRoIHx8IDgwMCkpOwogICAgICAgIGNhbnZhcy5oZWlnaHQgPSBNYXRoLm1heCgxLCBNYXRoLnJvdW5kKGJvYXJkLmNhbnZhc0hlaWdodCB8fCBpbWFnZS5oZWlnaHQgfHwgNjAwKSk7CiAgICAgICAgY29uc3QgY29udGV4dCA9IGNhbnZhcy5nZXRDb250ZXh0KCcyZCcpOwogICAgICAgIGNvbnRleHQuZmlsbFN0eWxlID0gJyNmZmZmZmYnOwogICAgICAgIGNvbnRleHQuZmlsbFJlY3QoMCwgMCwgY2FudmFzLndpZHRoLCBjYW52YXMuaGVpZ2h0KTsKICAgICAgICBjb250ZXh0LmRyYXdJbWFnZShpbWFnZSwgMCwgMCwgY2FudmFzLndpZHRoLCBjYW52YXMuaGVpZ2h0KTsKICAgICAgICByZXNvbHZlKGNhbnZhcy50b0RhdGFVUkwoJ2ltYWdlL3BuZycpKTsKICAgICAgfTsKICAgICAgaW1hZ2Uub25lcnJvciA9ICgpID0+IHJlamVjdChuZXcgRXJyb3IoJ0NvdWxkIG5vdCByZW5kZXIgdGhlIEpTWEdyYXBoIGJvYXJkJykpOwogICAgICBpbWFnZS5zcmMgPSBkYXRhVXJpOwogICAgfSk7CiAgfQoKICBmdW5jdGlvbiByZXNvbHZlQm9hcmQoc3BlYykgewogICAgaWYgKHNwZWMgJiYgdHlwZW9mIHNwZWMuYm9hcmQgPT09ICdmdW5jdGlvbicpIHJldHVybiBzcGVjLmJvYXJkKCk7CiAgICBpZiAoc3BlYyAmJiBzcGVjLmJvYXJkKSByZXR1cm4gc3BlYy5ib2FyZDsKICAgIGNvbnN0IGJvYXJkcyA9IE9iamVjdC52YWx1ZXMoSlhHLmJvYXJkcyB8fCB7fSk7CiAgICByZXR1cm4gYm9hcmRzLmxlbmd0aCA/IGJvYXJkc1swXSA6IG51bGw7CiAgfQoKICAvLyBUaGUgYm9hcmQgZmlsbHMgdGhlIGlmcmFtZS4gSGlkZGVuIHRhYnMgYW5kIGNvbGxhcHNlZCBibG9ja3MgZ2l2ZSB0aGUKICAvLyBpZnJhbWUgbm8gc2l6ZTsgcmVzaXppbmcgZm9sbG93cyB0aGUgaWZyYW1lLCB3aXRob3V0IGZpeGluZyB0aGUKICAvLyBjb250YWluZXIncyBwaXhlbCBzaXplLCBhbmQgc2hvd3MgdGhlIGludGVuZGVkIHZpZXc6IHRoZSBib3VuZGluZyBib3ggdGhlCiAgLy8gYm9hcmQgd2FzIGNyZWF0ZWQgd2l0aCwgb3IgdGhlIG9uZSB0aGUgcGFnZSdzIGNvZGUgb3IgdGhlIHVzZXIgc2V0IGxhdGVyLgogIGZ1bmN0aW9uIHZhbGlkQm94KGJveCkgewogICAgcmV0dXJuIEFycmF5LmlzQXJyYXkoYm94KSAmJiBib3gubGVuZ3RoID09PSA0ICYmIGJveC5ldmVyeShOdW1iZXIuaXNGaW5pdGUpICYmCiAgICAgIGJveFsyXSA+IGJveFswXSAmJiBib3hbMV0gPiBib3hbM107CiAgfQogIGZ1bmN0aW9uIHNhbWVCb3goYSwgYikgewogICAgcmV0dXJuIHZhbGlkQm94KGEpICYmIHZhbGlkQm94KGIpICYmIGEuZXZlcnkoKHZhbHVlLCBpKSA9PiBNYXRoLmFicyh2YWx1ZSAtIGJbaV0pIDw9IDFlLTkgKiBNYXRoLm1heCgxLCBNYXRoLmFicyhiW2ldKSkpOwogIH0KICBjb25zdCBjb250YWluZXJPYnNlcnZlciA9IHR5cGVvZiBSZXNpemVPYnNlcnZlciA9PT0gJ2Z1bmN0aW9uJyA/IG5ldyBSZXNpemVPYnNlcnZlcigoKSA9PiBzY2hlZHVsZUJvYXJkUmVmcmVzaCgpKSA6IG51bGw7CiAgZnVuY3Rpb24gcmVtZW1iZXIoYm9hcmQpIHsKICAgIC8vIFdpdGggdW5pdFgvdW5pdFkgKGFuZCBvcmlnaW5YL29yaWdpblkpIEpTWEdyYXBoIGlnbm9yZXMgYm91bmRpbmdib3gsIHNvCiAgICAvLyB0aGUgdmlldyB0aGUgYm9hcmQgd2FzIGNyZWF0ZWQgd2l0aCBpcyBpdHMgY3VycmVudCBvbmUuCiAgICBjb25zdCBhdHRyID0gYm9hcmQuYXR0ciB8fCB7fSwgY3VycmVudCA9IGJvYXJkLmdldEJvdW5kaW5nQm94KCk7CiAgICBjb25zdCBpbml0aWFsID0gIShhdHRyLnVuaXR4IHx8IGF0dHIudW5pdHkpICYmIGF0dHIuYm91bmRpbmdib3g7CiAgICBib2FyZC5xdWFydG9WaWV3ID0ge2ludGVuZGVkOiB2YWxpZEJveChpbml0aWFsKSA/IGluaXRpYWwuc2xpY2UoKSA6ICh2YWxpZEJveChjdXJyZW50KSA/IGN1cnJlbnQuc2xpY2UoKSA6IG51bGwpLCBsYXN0OiBjdXJyZW50LAogICAgICB1bml0czogISEoYXR0ci51bml0eCB8fCBhdHRyLnVuaXR5KSwgcHJvdmlzaW9uYWw6ICEhcHJvdmlzaW9uYWx9OwogICAgLy8gRm9sbG93IHRoZSBjb250YWluZXIgaXRzZWxmIHRvbzogYm9hcmQgY29kZSBtYXkgcmVzaXplIGl0IChhIHNpZGUgcGFuZWwpLgogICAgLy8gT25lIG9ic2VydmVyIGZvciBhbGwgY29udGFpbmVyczogb2JzZXJ2aW5nIGFuIGVsZW1lbnQgYWdhaW4gaXMgYSBuby1vcCwKICAgIC8vIHNvIGJvYXJkcyB0aGF0IGFyZSBmcmVlZCBhbmQgY3JlYXRlZCBhZ2FpbiBkbyBub3QgYWRkIG9ic2VydmVycy4KICAgIGlmIChjb250YWluZXJPYnNlcnZlciAmJiBib2FyZC5jb250YWluZXJPYmopIGNvbnRhaW5lck9ic2VydmVyLm9ic2VydmUoYm9hcmQuY29udGFpbmVyT2JqKTsKICB9CiAgLy8gVGhlIGV4dGVuc2lvbiByZXNpemVzIHRoZSBib2FyZHMgKGJlbG93KTsgSlNYR3JhcGgncyBvd24gcmVzaXplIG9ic2VydmVyCiAgLy8gd291bGQgYWRqdXN0IHRoZSB2aWV3IGEgc2Vjb25kIHRpbWUuIEJvYXJkIGNvZGUgY2FuIHN0aWxsIGVuYWJsZSBpdC4KICBpZiAoSlhHLk9wdGlvbnMgJiYgSlhHLk9wdGlvbnMuYm9hcmQgJiYgSlhHLk9wdGlvbnMuYm9hcmQucmVzaXplKSBKWEcuT3B0aW9ucy5ib2FyZC5yZXNpemUuZW5hYmxlZCA9IGZhbHNlOwogIC8vIFJlY29yZCBlYWNoIGJvYXJkJ3MgdmlldyBhcyBjcmVhdGVkLCBiZWZvcmUgYW55IGxhdGVyIGNoYW5nZS4KICBpZiAoSlhHLkpTWEdyYXBoICYmIHR5cGVvZiBKWEcuSlNYR3JhcGguaW5pdEJvYXJkID09PSAnZnVuY3Rpb24nKSB7CiAgICBjb25zdCBpbml0Qm9hcmQgPSBKWEcuSlNYR3JhcGguaW5pdEJvYXJkOwogICAgSlhHLkpTWEdyYXBoLmluaXRCb2FyZCA9IGZ1bmN0aW9uICgpIHsKICAgICAgY29uc3QgYm9hcmQgPSBpbml0Qm9hcmQuYXBwbHkodGhpcywgYXJndW1lbnRzKTsKICAgICAgdHJ5IHsgcmVtZW1iZXIoYm9hcmQpOyB9IGNhdGNoIChlcnJvcikgeyAvKiBrZWVwIHRoZSBib2FyZCB1c2FibGUgKi8gfQogICAgICByZXR1cm4gYm9hcmQ7CiAgICB9OwogIH0KICAvLyBXaXRoIGtlZXBhc3BlY3RyYXRpbyB0aGUgd2hvbGUgaW50ZW5kZWQgYm94IHN0YXlzIHZpc2libGU6IG9uZSBzY2FsZSBmb3IKICAvLyBib3RoIGRpcmVjdGlvbnMsIGNlbnRyZWQgKEpTWEdyYXBoJ3Mgc2V0Qm91bmRpbmdCb3ggbWF5IGNyb3AgaW5zdGVhZCkuCiAgZnVuY3Rpb24gZml0KGJveCwgYm9hcmQsIHdpZHRoLCBoZWlnaHQpIHsKICAgIGlmICghYm9hcmQua2VlcGFzcGVjdHJhdGlvKSByZXR1cm4gYm94LnNsaWNlKCk7CiAgICBjb25zdCBzY2FsZSA9IE1hdGgubWluKHdpZHRoIC8gKGJveFsyXSAtIGJveFswXSksIGhlaWdodCAvIChib3hbMV0gLSBib3hbM10pKTsKICAgIGNvbnN0IGN4ID0gKGJveFswXSArIGJveFsyXSkgLyAyLCBjeSA9IChib3hbMV0gKyBib3hbM10pIC8gMjsKICAgIHJldHVybiBbY3ggLSB3aWR0aCAvICgyICogc2NhbGUpLCBjeSArIGhlaWdodCAvICgyICogc2NhbGUpLCBjeCArIHdpZHRoIC8gKDIgKiBzY2FsZSksIGN5IC0gaGVpZ2h0IC8gKDIgKiBzY2FsZSldOwogIH0KICBmdW5jdGlvbiByZWZyZXNoQm9hcmRzKCkgewogICAgY29uc3QgdmlzaWJsZSA9IHdpbmRvdy5pbm5lcldpZHRoID4gMCAmJiB3aW5kb3cuaW5uZXJIZWlnaHQgPiAwOwogICAgLy8gU3RpbGwgaGlkZGVuIGFmdGVyIGEgcHJvdmlzaW9uYWwgc3RhcnQ6IGxlYXZlIHRoZSBib2FyZHMgYXMgY3JlYXRlZCAoYQogICAgLy8gbGF5b3V0IG1lc3NhZ2UgbWF5IGFycml2ZSBiZWZvcmUgdGhlIGlmcmFtZSBpcyBzaG93bikuCiAgICBpZiAocHJvdmlzaW9uYWwgJiYgIXZpc2libGUpIHJldHVybjsKICAgIC8vIFNob3duIGF0IGxhc3Q6IHRoZSBjb250YWluZXIgZmlsbHMgdGhlIGlmcmFtZSBhZ2Fpbi4KICAgIGlmIChwcm92aXNpb25hbCkgewogICAgICBpZiAocHJvdmlzaW9uYWwuZWxlbWVudC5zdHlsZS53aWR0aCA9PT0gcHJvdmlzaW9uYWwud2lkdGgpIHByb3Zpc2lvbmFsLmVsZW1lbnQuc3R5bGUud2lkdGggPSBwcm92aXNpb25hbC5wcmV2aW91c1swXTsKICAgICAgaWYgKHByb3Zpc2lvbmFsLmVsZW1lbnQuc3R5bGUuaGVpZ2h0ID09PSBwcm92aXNpb25hbC5oZWlnaHQpIHByb3Zpc2lvbmFsLmVsZW1lbnQuc3R5bGUuaGVpZ2h0ID0gcHJvdmlzaW9uYWwucHJldmlvdXNbMV07CiAgICAgIHByb3Zpc2lvbmFsID0gbnVsbDsKICAgIH0KICAgIE9iamVjdC52YWx1ZXMoSlhHLmJvYXJkcyB8fCB7fSkuZm9yRWFjaCgoYm9hcmQpID0+IHsKICAgICAgY29uc3QgY29udGFpbmVyID0gYm9hcmQuY29udGFpbmVyT2JqOwogICAgICBpZiAoIWNvbnRhaW5lciB8fCB0eXBlb2YgYm9hcmQucmVzaXplQ29udGFpbmVyICE9PSAnZnVuY3Rpb24nKSByZXR1cm47CiAgICAgIC8vIFRoZSBjb250YWluZXIga2VlcHMgaXRzIENTUyBzaXplICgxMDAlIG9mIHRoZSBpZnJhbWUgdW5sZXNzIHRoZSBib2FyZAogICAgICAvLyBjb2RlIGxheXMgaXQgb3V0IG90aGVyd2lzZSksIHNvIGl0cyBzaXplIGlzIHRoZSBib2FyZCdzIHNpemUuCiAgICAgIGNvbnN0IHdpZHRoID0gY29udGFpbmVyLmNsaWVudFdpZHRoLCBoZWlnaHQgPSBjb250YWluZXIuY2xpZW50SGVpZ2h0OwogICAgICBpZiAoISh3aWR0aCA+IDAgJiYgaGVpZ2h0ID4gMCkpIHJldHVybjsKICAgICAgaWYgKCFib2FyZC5xdWFydG9WaWV3KSByZW1lbWJlcihib2FyZCk7CiAgICAgIGNvbnN0IHZpZXcgPSBib2FyZC5xdWFydG9WaWV3LCBjdXJyZW50ID0gYm9hcmQuZ2V0Qm91bmRpbmdCb3goKTsKICAgICAgLy8gQSB2aWV3IHNldCBzaW5jZSB0aGUgbGFzdCByZWZyZXNoIChieSB0aGUgcGFnZSdzIGNvZGUgb3IgdGhlIHVzZXIncyBwYW4KICAgICAgLy8gb3Igem9vbSkgYmVjb21lcyB0aGUgb25lIHRvIGtlZXAuCiAgICAgIGNvbnN0IGFkb3B0ZWQgPSB2YWxpZEJveChjdXJyZW50KSAmJiAhc2FtZUJveChjdXJyZW50LCB2aWV3Lmxhc3QpOwogICAgICBpZiAoYWRvcHRlZCkgdmlldy5pbnRlbmRlZCA9IGN1cnJlbnQuc2xpY2UoKTsKICAgICAgY29uc3QgY2hhbmdlZCA9IE1hdGguYWJzKChib2FyZC5jYW52YXNXaWR0aCB8fCAwKSAtIHdpZHRoKSA+IDEgfHwgTWF0aC5hYnMoKGJvYXJkLmNhbnZhc0hlaWdodCB8fCAwKSAtIGhlaWdodCkgPiAxOwogICAgICAvLyBGaXJzdCByZWFsIHNpemUgYWZ0ZXIgYSBoaWRkZW4gc3RhcnQ6IGEgYm9hcmQgc2V0IHVwIHdpdGggb3JpZ2luIGFuZAogICAgICAvLyB1bml0cyBrZWVwcyB0aGVtLCBhcyBpZiBpdCBoYWQgc3RhcnRlZCB2aXNpYmxlIGF0IHRoaXMgc2l6ZQogICAgICAvLyAocmVzaXplQ29udGFpbmVyIHdvdWxkIG1vdmUgdGhlIG9yaWdpbiBieSBoYWxmIHRoZSBzaXplIGNoYW5nZSkuCiAgICAgIC8vIEEgYm94IHRoZSBjb2RlIHNldCBtZWFud2hpbGUgaXMga2VwdCBpbnN0ZWFkIChhYm92ZSkuCiAgICAgIGNvbnN0IGtlZXBPcmlnaW4gPSB2aWV3LnByb3Zpc2lvbmFsICYmIHZpZXcudW5pdHMgJiYgIWFkb3B0ZWQgJiYgYm9hcmQub3JpZ2luICYmIGJvYXJkLm9yaWdpbi5zY3JDb29yZHMKICAgICAgICA/IFtib2FyZC5vcmlnaW4uc2NyQ29vcmRzWzFdLCBib2FyZC5vcmlnaW4uc2NyQ29vcmRzWzJdIF0gOiBudWxsOwogICAgICBpZiAoY2hhbmdlZCkgYm9hcmQucmVzaXplQ29udGFpbmVyKHdpZHRoLCBoZWlnaHQsIHRydWUsIHRydWUpOwogICAgICBpZiAodmlldy5wcm92aXNpb25hbCkgewogICAgICAgIHZpZXcucHJvdmlzaW9uYWwgPSBmYWxzZTsKICAgICAgICBpZiAoa2VlcE9yaWdpbiAmJiB0eXBlb2YgYm9hcmQubW92ZU9yaWdpbiA9PT0gJ2Z1bmN0aW9uJykgYm9hcmQubW92ZU9yaWdpbihrZWVwT3JpZ2luWzBdLCBrZWVwT3JpZ2luWzFdKTsKICAgICAgICBpZiAodmlldy51bml0cyAmJiAhYWRvcHRlZCkgdmlldy5pbnRlbmRlZCA9IGJvYXJkLmdldEJvdW5kaW5nQm94KCkuc2xpY2UoKTsKICAgICAgfQogICAgICBpZiAodmlldy5pbnRlbmRlZCAmJiAoY2hhbmdlZCB8fCAhdmFsaWRCb3goY3VycmVudCkpKSBib2FyZC5zZXRCb3VuZGluZ0JveChmaXQodmlldy5pbnRlbmRlZCwgYm9hcmQsIHdpZHRoLCBoZWlnaHQpLCBib2FyZC5rZWVwYXNwZWN0cmF0aW8pOwogICAgICB2aWV3Lmxhc3QgPSBib2FyZC5nZXRCb3VuZGluZ0JveCgpOwogICAgICBpZiAodHlwZW9mIGJvYXJkLmZ1bGxVcGRhdGUgPT09ICdmdW5jdGlvbicpIGJvYXJkLmZ1bGxVcGRhdGUoKTsKICAgICAgZWxzZSBpZiAodHlwZW9mIGJvYXJkLnVwZGF0ZSA9PT0gJ2Z1bmN0aW9uJykgYm9hcmQudXBkYXRlKCk7CiAgICB9KTsKICB9CgogIGZ1bmN0aW9uIHNjaGVkdWxlQm9hcmRSZWZyZXNoKCkgewogICAgcmVmcmVzaEJvYXJkcygpOwogICAgaWYgKHR5cGVvZiByZXF1ZXN0QW5pbWF0aW9uRnJhbWUgPT09ICdmdW5jdGlvbicpIHsKICAgICAgcmVxdWVzdEFuaW1hdGlvbkZyYW1lKCgpID0+IHsKICAgICAgICByZWZyZXNoQm9hcmRzKCk7CiAgICAgICAgcmVxdWVzdEFuaW1hdGlvbkZyYW1lKHJlZnJlc2hCb2FyZHMpOwogICAgICB9KTsKICAgIH0KICB9CgogIEpYRy5RdWFydG9Bc3Nlc3NtZW50ID0gewogICAgcmVnaXN0ZXIoc3BlYykgewogICAgICByZWdpc3RyYXRpb24gPSB0eXBlb2Ygc3BlYyA9PT0gJ2Z1bmN0aW9uJyA/IHsgcmVzcG9uc2U6IHNwZWMgfSA6IHNwZWM7CiAgICAgIGlmICghcmVnaXN0cmF0aW9uIHx8IHR5cGVvZiByZWdpc3RyYXRpb24ucmVzcG9uc2UgIT09ICdmdW5jdGlvbicpIHsKICAgICAgICB0aHJvdyBuZXcgVHlwZUVycm9yKCdBc3Nlc3NtZW50IHJlZ2lzdHJhdGlvbiByZXF1aXJlcyBhIHJlc3BvbnNlIGZ1bmN0aW9uJyk7CiAgICAgIH0KICAgIH0KICB9OwoKICB3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcignbWVzc2FnZScsIGFzeW5jIChldmVudCkgPT4gewogICAgY29uc3QgbWVzc2FnZSA9IGV2ZW50LmRhdGE7CiAgICBpZiAoZXZlbnQuc291cmNlICE9PSB3aW5kb3cucGFyZW50IHx8ICFtZXNzYWdlIHx8IG1lc3NhZ2UucHJvdG9jb2wgIT09IHByb3RvY29sIHx8CiAgICAgICAgbWVzc2FnZS52ZXJzaW9uICE9PSB2ZXJzaW9uIHx8IG1lc3NhZ2UuYXNzZXNzbWVudElkICE9PSBhc3Nlc3NtZW50SWQpIHJldHVybjsKICAgIGlmIChtZXNzYWdlLnR5cGUgPT09ICdsYXlvdXQnKSB7CiAgICAgIHNjaGVkdWxlQm9hcmRSZWZyZXNoKCk7CiAgICAgIHJldHVybjsKICAgIH0KICAgIGlmIChtZXNzYWdlLnR5cGUgIT09ICdyZXF1ZXN0JykgcmV0dXJuOwogICAgLy8gQm9hcmQgY29kZSBtYXkgcmVnaXN0ZXIgaW4gYSBsb2FkIGhhbmRsZXI6IHdhaXQgZm9yIHRoZSBwYWdlJ3MgbG9hZAogICAgLy8gZXZlbnQgKE1hdGhKYXggbWF5IHN0aWxsIGJlIGxvYWRpbmcpLCBhdCBtb3N0IGEgZmV3IHNlY29uZHMuCiAgICBpZiAoIXJlZ2lzdHJhdGlvbiAmJiBkb2N1bWVudC5yZWFkeVN0YXRlICE9PSAnY29tcGxldGUnKSB7CiAgICAgIGF3YWl0IG5ldyBQcm9taXNlKChyZXNvbHZlKSA9PiB7CiAgICAgICAgd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ2xvYWQnLCByZXNvbHZlLCB7b25jZTogdHJ1ZX0pOwogICAgICAgIHNldFRpbWVvdXQocmVzb2x2ZSwgMzAwMCk7CiAgICAgIH0pOwogICAgfQoKICAgIGNvbnN0IHJlcGx5ID0gewogICAgICBwcm90b2NvbCwKICAgICAgdmVyc2lvbiwKICAgICAgdHlwZTogJ3Jlc3BvbnNlJywKICAgICAgYXNzZXNzbWVudElkLAogICAgICByZXF1ZXN0SWQ6IG1lc3NhZ2UucmVxdWVzdElkCiAgICB9OwogICAgdHJ5IHsKICAgICAgaWYgKCFyZWdpc3RyYXRpb24pIHRocm93IG5ldyBFcnJvcignTm8gSlNYR3JhcGggYXNzZXNzbWVudCByZXNwb25zZSBpcyByZWdpc3RlcmVkJyk7CiAgICAgIGNvbnN0IHJhdyA9IGF3YWl0IHJlZ2lzdHJhdGlvbi5yZXNwb25zZSgpOwogICAgICByZXBseS5wYXlsb2FkID0gSlNPTi5wYXJzZShKU09OLnN0cmluZ2lmeShyYXcpKTsKICAgICAgaWYgKG1lc3NhZ2UuaW5jbHVkZUFJICYmIHJlZ2lzdHJhdGlvbi5haSkgewogICAgICAgIGNvbnN0IGFpU3BlYyA9IHJlZ2lzdHJhdGlvbi5haTsKICAgICAgICBjb25zdCBzdW1tYXJ5ID0gdHlwZW9mIGFpU3BlYy5zdW1tYXJ5ID09PSAnZnVuY3Rpb24nCiAgICAgICAgICA/IGF3YWl0IGFpU3BlYy5zdW1tYXJ5KHJlcGx5LnBheWxvYWQpCiAgICAgICAgICA6IGFpU3BlYy5zdW1tYXJ5OwogICAgICAgIHJlcGx5LmFpID0ge307CiAgICAgICAgaWYgKHN1bW1hcnkgIT09IHVuZGVmaW5lZCkgcmVwbHkuYWkuc3VtbWFyeSA9IHN1bW1hcnk7CiAgICAgICAgaWYgKGFpU3BlYy5yZW5kZXIpIHsKICAgICAgICAgIGNvbnN0IGJvYXJkID0gcmVzb2x2ZUJvYXJkKHJlZ2lzdHJhdGlvbik7CiAgICAgICAgICBpZiAoIWJvYXJkIHx8ICFib2FyZC5yZW5kZXJlciB8fCB0eXBlb2YgYm9hcmQucmVuZGVyZXIuZHVtcFRvRGF0YVVSSSAhPT0gJ2Z1bmN0aW9uJykgewogICAgICAgICAgICB0aHJvdyBuZXcgRXJyb3IoJ05vIHJlbmRlcmFibGUgSlNYR3JhcGggYm9hcmQgaXMgYXZhaWxhYmxlJyk7CiAgICAgICAgICB9CiAgICAgICAgICByZXBseS5haS5pbWFnZSA9IGF3YWl0IHN2Z1RvUG5nKGJvYXJkLnJlbmRlcmVyLmR1bXBUb0RhdGFVUkkoZmFsc2UpLCBib2FyZCk7CiAgICAgICAgfQogICAgICB9CiAgICB9IGNhdGNoIChlcnJvcikgewogICAgICByZXBseS5lcnJvciA9IGVycm9yICYmIGVycm9yLm1lc3NhZ2UgPyBlcnJvci5tZXNzYWdlIDogU3RyaW5nKGVycm9yKTsKICAgIH0KICAgIHdpbmRvdy5wYXJlbnQucG9zdE1lc3NhZ2UocmVwbHksICcqJyk7CiAgfSk7CiAgd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ3Jlc2l6ZScsIHNjaGVkdWxlQm9hcmRSZWZyZXNoKTsKICBpZiAodHlwZW9mIFJlc2l6ZU9ic2VydmVyID09PSAnZnVuY3Rpb24nKSBuZXcgUmVzaXplT2JzZXJ2ZXIoc2NoZWR1bGVCb2FyZFJlZnJlc2gpLm9ic2VydmUoZG9jdW1lbnQuZG9jdW1lbnRFbGVtZW50KTsKCiAgLy8gVGhlIGJvYXJkIGNvZGUgcnVucyB3aGlsZSB0aGUgcGFnZSBpcyBwYXJzZWQsIGFzIGluIHVwc3RyZWFtLCBzbwogIC8vIERPTUNvbnRlbnRMb2FkZWQsIGxvYWQgYW5kIGRvY3VtZW50LndyaXRlIGJlaGF2ZSBhcyBhbHdheXMuIEEgaGlkZGVuIHRhYgogIC8vIG9yIGNvbGxhcHNlZCBibG9jayBnaXZlcyB0aGUgaWZyYW1lIG5vIHNpemUgYW5kIGxheXMgbm90aGluZyBvdXQ7IEpTWEdyYXBoCiAgLy8gdGhlbiByZWFkcyB0aGUgY29udGFpbmVyJ3MgQ1NTIHBpeGVsIHNpemUsIHNvIHRoZSBjb250YWluZXIgZ2V0cyBhCiAgLy8gcHJvdmlzaW9uYWwgb25lIHVudGlsIHRoZSBpZnJhbWUgaXMgc2hvd24gKHJlZnJlc2hCb2FyZHMpLgogIGNvbnN0IGJveCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGJvYXJkSWQpOwogIGlmIChib3ggJiYgISh3aW5kb3cuaW5uZXJXaWR0aCA+IDAgJiYgd2luZG93LmlubmVySGVpZ2h0ID4gMCkpIHsKICAgIGNvbnN0IHdpZHRoID0gcHJvdmlzaW9uYWxTaXplWzBdICsgJ3B4JywgaGVpZ2h0ID0gcHJvdmlzaW9uYWxTaXplWzFdICsgJ3B4JzsKICAgIHByb3Zpc2lvbmFsID0ge2VsZW1lbnQ6IGJveCwgd2lkdGgsIGhlaWdodCwgcHJldmlvdXM6IFtib3guc3R5bGUud2lkdGgsIGJveC5zdHlsZS5oZWlnaHRdfTsKICAgIGJveC5zdHlsZS53aWR0aCA9IHdpZHRoOwogICAgYm94LnN0eWxlLmhlaWdodCA9IGhlaWdodDsKICB9Cn0pKCk7Cjwvc2NyaXB0Pgo8c2NyaXB0PihmdW5jdGlvbiAoKSB7CiAgJ3VzZSBzdHJpY3QnOwoKICBmdW5jdGlvbiBtZXJnZShiYXNlLCBleHRyYSkgewogICAgcmV0dXJuIE9iamVjdC5hc3NpZ24oe30sIGJhc2UsIGV4dHJhIHx8IHt9KTsKICB9CgogIGZ1bmN0aW9uIHN1bW1hcml6ZUdyYXBoKGRhdGEsIG9wdGlvbnMpIHsKICAgIGRhdGEgPSBkYXRhIHx8IHt9OwogICAgb3B0aW9ucyA9IG9wdGlvbnMgfHwge307CiAgICB2YXIgbm9kZXMgPSBBcnJheS5pc0FycmF5KGRhdGEubm9kZXMpID8gZGF0YS5ub2RlcyA6IFtdOwogICAgdmFyIHJhd0VkZ2VzID0gQXJyYXkuaXNBcnJheShkYXRhLmVkZ2VzKSA/IGRhdGEuZWRnZXMgOiBbXTsKICAgIHZhciB2ZXJ0ZXhJZHMgPSBub2Rlcy5tYXAoZnVuY3Rpb24gKG5vZGUpIHsgcmV0dXJuIG5vZGUuaWQ7IH0pLnNvcnQoZnVuY3Rpb24gKGEsIGIpIHsgcmV0dXJuIGEgLSBiOyB9KTsKICAgIHZhciBhZGphY2VuY3kgPSB7fTsKICAgIHZlcnRleElkcy5mb3JFYWNoKGZ1bmN0aW9uIChpZCkgeyBhZGphY2VuY3lbaWRdID0gW107IH0pOwogICAgdmFyIGVkZ2VzID0gcmF3RWRnZXMubWFwKGZ1bmN0aW9uIChlZGdlKSB7CiAgICAgIHZhciBzb3VyY2UgPSBlZGdlWzBdOwogICAgICB2YXIgdGFyZ2V0ID0gZWRnZVsxXTsKICAgICAgaWYgKGFkamFjZW5jeVtzb3VyY2VdKSBhZGphY2VuY3lbc291cmNlXS5wdXNoKHRhcmdldCk7CiAgICAgIGlmIChhZGphY2VuY3lbdGFyZ2V0XSkgYWRqYWNlbmN5W3RhcmdldF0ucHVzaChzb3VyY2UpOwogICAgICByZXR1cm4gc291cmNlIDwgdGFyZ2V0ID8gW3NvdXJjZSwgdGFyZ2V0XSA6IFt0YXJnZXQsIHNvdXJjZV07CiAgICB9KS5zb3J0KGZ1bmN0aW9uIChhLCBiKSB7IHJldHVybiBhWzBdIC0gYlswXSB8fCBhWzFdIC0gYlsxXTsgfSk7CiAgICB2ZXJ0ZXhJZHMuZm9yRWFjaChmdW5jdGlvbiAoaWQpIHsgYWRqYWNlbmN5W2lkXS5zb3J0KGZ1bmN0aW9uIChhLCBiKSB7IHJldHVybiBhIC0gYjsgfSk7IH0pOwoKICAgIHZhciB2aXNpdGVkID0ge307CiAgICB2YXIgY29tcG9uZW50cyA9IFtdOwogICAgdmVydGV4SWRzLmZvckVhY2goZnVuY3Rpb24gKHN0YXJ0KSB7CiAgICAgIGlmICh2aXNpdGVkW3N0YXJ0XSkgcmV0dXJuOwogICAgICB2YXIgY29tcG9uZW50ID0gW107CiAgICAgIHZhciBxdWV1ZSA9IFtzdGFydF07CiAgICAgIHZpc2l0ZWRbc3RhcnRdID0gdHJ1ZTsKICAgICAgd2hpbGUgKHF1ZXVlLmxlbmd0aCkgewogICAgICAgIHZhciBpZCA9IHF1ZXVlLnNoaWZ0KCk7CiAgICAgICAgY29tcG9uZW50LnB1c2goaWQpOwogICAgICAgIGFkamFjZW5jeVtpZF0uZm9yRWFjaChmdW5jdGlvbiAobmVpZ2hib3IpIHsKICAgICAgICAgIGlmICghdmlzaXRlZFtuZWlnaGJvcl0pIHsKICAgICAgICAgICAgdmlzaXRlZFtuZWlnaGJvcl0gPSB0cnVlOwogICAgICAgICAgICBxdWV1ZS5wdXNoKG5laWdoYm9yKTsKICAgICAgICAgIH0KICAgICAgICB9KTsKICAgICAgfQogICAgICBjb21wb25lbnQuc29ydChmdW5jdGlvbiAoYSwgYikgeyByZXR1cm4gYSAtIGI7IH0pOwogICAgICBjb21wb25lbnRzLnB1c2goY29tcG9uZW50KTsKICAgIH0pOwoKICAgIHZhciBzdW1tYXJ5ID0gewogICAgICByZXByZXNlbnRhdGlvbjogZGF0YS5yZXByZXNlbnRhdGlvbiB8fCAndW5kaXJlY3RlZC1ncmFwaCcsCiAgICAgIHZlcnRleENvdW50OiB2ZXJ0ZXhJZHMubGVuZ3RoLAogICAgICBlZGdlQ291bnQ6IGVkZ2VzLmxlbmd0aCwKICAgICAgdmVydGV4SWRzOiB2ZXJ0ZXhJZHMsCiAgICAgIGVkZ2VzOiBlZGdlcywKICAgICAgZGVncmVlczogdmVydGV4SWRzLm1hcChmdW5jdGlvbiAoaWQpIHsgcmV0dXJuIHsgdmVydGV4OiBpZCwgZGVncmVlOiBhZGphY2VuY3lbaWRdLmxlbmd0aCB9OyB9KSwKICAgICAgY29ubmVjdGVkOiBjb21wb25lbnRzLmxlbmd0aCA9PT0gMSwKICAgICAgY29tcG9uZW50Q291bnQ6IGNvbXBvbmVudHMubGVuZ3RoLAogICAgICBjb21wb25lbnRzOiBjb21wb25lbnRzLAogICAgICBpc29sYXRlZFZlcnRpY2VzOiB2ZXJ0ZXhJZHMuZmlsdGVyKGZ1bmN0aW9uIChpZCkgeyByZXR1cm4gYWRqYWNlbmN5W2lkXS5sZW5ndGggPT09IDA7IH0pLAogICAgICBjeWNsZVJhbms6IGVkZ2VzLmxlbmd0aCAtIHZlcnRleElkcy5sZW5ndGggKyBjb21wb25lbnRzLmxlbmd0aAogICAgfTsKICAgIGlmIChvcHRpb25zLmZlZWRiYWNrUG9saWN5ICE9PSB1bmRlZmluZWQpIHsKICAgICAgc3VtbWFyeS5mZWVkYmFja1BvbGljeSA9IFN0cmluZyhvcHRpb25zLmZlZWRiYWNrUG9saWN5KTsKICAgIH0KICAgIGlmIChvcHRpb25zLmV4dHJhICYmIHR5cGVvZiBvcHRpb25zLmV4dHJhID09PSAnb2JqZWN0JykgewogICAgICBzdW1tYXJ5LmV4dHJhID0gb3B0aW9ucy5leHRyYTsKICAgIH0KICAgIHJldHVybiBzdW1tYXJ5OwogIH0KCiAgZnVuY3Rpb24gY3JlYXRlR3JhcGhFZGl0b3Iob3B0aW9ucykgewogICAgb3B0aW9ucyA9IG9wdGlvbnMgfHwge307CiAgICB2YXIgYm9hcmQgPSBvcHRpb25zLmJvYXJkOwogICAgaWYgKCFib2FyZCB8fCB0eXBlb2YgYm9hcmQuY3JlYXRlICE9PSAnZnVuY3Rpb24nKSB7CiAgICAgIHRocm93IG5ldyBUeXBlRXJyb3IoJ0dyYXBoIGVkaXRvciByZXF1aXJlcyBhIEpTWEdyYXBoIGJvYXJkJyk7CiAgICB9CgogICAgdmFyIGxhYmVscyA9IG1lcmdlKHsKICAgICAgZGVsZXRlU2VsZWN0ZWQ6ICdEZWxldGUgc2VsZWN0ZWQnLAogICAgICBjbGVhckdyYXBoOiAnQ2xlYXIgZ3JhcGgnLAogICAgICBzaG93Q29udHJvbHM6ICdTaG93IGNvbnRyb2xzJywKICAgICAgaGlkZUNvbnRyb2xzOiAnSGlkZSBjb250cm9scycKICAgIH0sIG9wdGlvbnMubGFiZWxzKTsKICAgIHZhciBpbnN0cnVjdGlvbnMgPSBvcHRpb25zLmluc3RydWN0aW9ucyB8fCBbCiAgICAgICdDbGljayBlbXB0eSBzcGFjZSB0byBhZGQgYSB2ZXJ0ZXguJywKICAgICAgJ0NsaWNrIHR3byB2ZXJ0aWNlcyB0byBhZGQgb3IgcmVtb3ZlIHRoZWlyIGVkZ2UuJywKICAgICAgJ0RyYWcgYSB2ZXJ0ZXggdG8gbW92ZSBpdC4nLAogICAgICAnU2VsZWN0IGEgdmVydGV4LCB0aGVuIGNob29zZSBEZWxldGUgc2VsZWN0ZWQgdG8gcmVtb3ZlIGl0LicKICAgIF07CiAgICB2YXIgcG9pbnRBdHRyaWJ1dGVzID0gbWVyZ2UoewogICAgICBzaXplOiA2LAogICAgICBmaXhlZDogZmFsc2UsCiAgICAgIHNob3dJbmZvYm94OiBmYWxzZSwKICAgICAgaGlnaGxpZ2h0OiBmYWxzZQogICAgfSwgb3B0aW9ucy5wb2ludEF0dHJpYnV0ZXMpOwogICAgdmFyIGVkZ2VBdHRyaWJ1dGVzID0gbWVyZ2UoewogICAgICBzdHJva2VDb2xvcjogJyM0NzU1NjknLAogICAgICBzdHJva2VXaWR0aDogMywKICAgICAgZml4ZWQ6IHRydWUsCiAgICAgIGhpZ2hsaWdodDogZmFsc2UKICAgIH0sIG9wdGlvbnMuZWRnZUF0dHJpYnV0ZXMpOwogICAgdmFyIG5vcm1hbFN0eWxlID0gbWVyZ2UoeyBmaWxsQ29sb3I6ICcjMjU2M2ViJywgc3Ryb2tlQ29sb3I6ICcjMWQ0ZWQ4JyB9LCBvcHRpb25zLm5vcm1hbFN0eWxlKTsKICAgIHZhciBzZWxlY3RlZFN0eWxlID0gbWVyZ2UoeyBmaWxsQ29sb3I6ICcjZjU5ZTBiJywgc3Ryb2tlQ29sb3I6ICcjOTI0MDBlJyB9LCBvcHRpb25zLnNlbGVjdGVkU3R5bGUpOwogICAgLy8gUmVhZCB0aGUgdmlldyB3aGVuIGEgY2xpY2sgaGFwcGVuczogYSBib2FyZCBzdGFydGVkIHdoaWxlIGhpZGRlbiBoYXMgbm8KICAgIC8vIHZhbGlkIHZpZXcgeWV0LCBhbmQgcmVzaXppbmcgbWF5IGNoYW5nZSBpdC4KICAgIGZ1bmN0aW9uIGVkaXRhYmxlQm90dG9tKCkgewogICAgICByZXR1cm4gb3B0aW9ucy5lZGl0YWJsZUJvdHRvbSA9PT0gdW5kZWZpbmVkID8gYm9hcmQuZ2V0Qm91bmRpbmdCb3goKVszXSArIDAuOSA6IE51bWJlcihvcHRpb25zLmVkaXRhYmxlQm90dG9tKTsKICAgIH0KICAgIHZhciB2ZXJ0aWNlcyA9IFtdOwogICAgdmFyIGVkZ2VzID0gW107CiAgICB2YXIgc2VsZWN0ZWRWZXJ0ZXggPSBudWxsOwogICAgdmFyIHBvaW50ZXJTdGFydCA9IG51bGw7CiAgICB2YXIgbmV4dFZlcnRleElkID0gMTsKICAgIHZhciBjb250cm9sc1Zpc2libGUgPSBmYWxzZTsKICAgIHZhciBjbGlja1RvbGVyYW5jZVNxdWFyZWQgPSAzNjsKCiAgICBmdW5jdGlvbiBzZXRTZWxlY3RlZCh2ZXJ0ZXgpIHsKICAgICAgaWYgKHNlbGVjdGVkVmVydGV4KSBzZWxlY3RlZFZlcnRleC5wb2ludC5zZXRBdHRyaWJ1dGUobm9ybWFsU3R5bGUpOwogICAgICBzZWxlY3RlZFZlcnRleCA9IHZlcnRleDsKICAgICAgaWYgKHNlbGVjdGVkVmVydGV4KSBzZWxlY3RlZFZlcnRleC5wb2ludC5zZXRBdHRyaWJ1dGUoc2VsZWN0ZWRTdHlsZSk7CiAgICAgIGJvYXJkLnVwZGF0ZSgpOwogICAgfQoKICAgIGZ1bmN0aW9uIGFkZFZlcnRleCh4LCB5KSB7CiAgICAgIHggPSBOdW1iZXIoeCk7CiAgICAgIHkgPSBOdW1iZXIoeSk7CiAgICAgIGlmICghTnVtYmVyLmlzRmluaXRlKHgpIHx8ICFOdW1iZXIuaXNGaW5pdGUoeSkpIHsKICAgICAgICB0aHJvdyBuZXcgVHlwZUVycm9yKCdWZXJ0ZXggY29vcmRpbmF0ZXMgbXVzdCBiZSBmaW5pdGUgbnVtYmVycycpOwogICAgICB9CiAgICAgIHZhciB2ZXJ0ZXggPSB7IGlkOiBuZXh0VmVydGV4SWQrKyB9OwogICAgICB2ZXJ0ZXgucG9pbnQgPSBib2FyZC5jcmVhdGUoJ3BvaW50JywgW3gsIHldLCBtZXJnZShwb2ludEF0dHJpYnV0ZXMsIG1lcmdlKG5vcm1hbFN0eWxlLCB7CiAgICAgICAgbmFtZTogU3RyaW5nKHZlcnRleC5pZCkKICAgICAgfSkpKTsKICAgICAgdmVydGljZXMucHVzaCh2ZXJ0ZXgpOwogICAgICBzZXRTZWxlY3RlZChudWxsKTsKICAgICAgcmV0dXJuIHZlcnRleC5pZDsKICAgIH0KCiAgICBmdW5jdGlvbiBmaW5kVmVydGV4KGlkKSB7CiAgICAgIHJldHVybiB2ZXJ0aWNlcy5maW5kKGZ1bmN0aW9uICh2ZXJ0ZXgpIHsgcmV0dXJuIHZlcnRleC5pZCA9PT0gaWQ7IH0pIHx8IG51bGw7CiAgICB9CgogICAgZnVuY3Rpb24gZWRnZUtleShhLCBiKSB7CiAgICAgIHJldHVybiBhLmlkIDwgYi5pZCA/IGEuaWQgKyAnOicgKyBiLmlkIDogYi5pZCArICc6JyArIGEuaWQ7CiAgICB9CgogICAgZnVuY3Rpb24gdG9nZ2xlRWRnZVZlcnRpY2VzKGEsIGIpIHsKICAgICAgaWYgKCFhIHx8ICFiIHx8IGEgPT09IGIpIHJldHVybiBmYWxzZTsKICAgICAgdmFyIGtleSA9IGVkZ2VLZXkoYSwgYik7CiAgICAgIHZhciBpbmRleCA9IGVkZ2VzLmZpbmRJbmRleChmdW5jdGlvbiAoZWRnZSkgeyByZXR1cm4gZWRnZS5rZXkgPT09IGtleTsgfSk7CiAgICAgIGlmIChpbmRleCA+PSAwKSB7CiAgICAgICAgYm9hcmQucmVtb3ZlT2JqZWN0KGVkZ2VzW2luZGV4XS5zZWdtZW50KTsKICAgICAgICBlZGdlcy5zcGxpY2UoaW5kZXgsIDEpOwogICAgICAgIHNldFNlbGVjdGVkKG51bGwpOwogICAgICAgIHJldHVybiBmYWxzZTsKICAgICAgfQogICAgICBlZGdlcy5wdXNoKHsKICAgICAgICBrZXk6IGtleSwKICAgICAgICBzb3VyY2U6IGEsCiAgICAgICAgdGFyZ2V0OiBiLAogICAgICAgIHNlZ21lbnQ6IGJvYXJkLmNyZWF0ZSgnc2VnbWVudCcsIFthLnBvaW50LCBiLnBvaW50XSwgZWRnZUF0dHJpYnV0ZXMpCiAgICAgIH0pOwogICAgICBzZXRTZWxlY3RlZChudWxsKTsKICAgICAgcmV0dXJuIHRydWU7CiAgICB9CgogICAgZnVuY3Rpb24gdG9nZ2xlRWRnZShzb3VyY2VJZCwgdGFyZ2V0SWQpIHsKICAgICAgdmFyIHNvdXJjZSA9IGZpbmRWZXJ0ZXgoc291cmNlSWQpOwogICAgICB2YXIgdGFyZ2V0ID0gZmluZFZlcnRleCh0YXJnZXRJZCk7CiAgICAgIGlmICghc291cmNlIHx8ICF0YXJnZXQpIHRocm93IG5ldyBFcnJvcignQ2Fubm90IGNvbm5lY3QgYW4gdW5rbm93biB2ZXJ0ZXgnKTsKICAgICAgcmV0dXJuIHRvZ2dsZUVkZ2VWZXJ0aWNlcyhzb3VyY2UsIHRhcmdldCk7CiAgICB9CgogICAgZnVuY3Rpb24gaGFuZGxlVmVydGV4Q2xpY2sodmVydGV4KSB7CiAgICAgIGlmICghc2VsZWN0ZWRWZXJ0ZXgpIHNldFNlbGVjdGVkKHZlcnRleCk7CiAgICAgIGVsc2UgaWYgKHNlbGVjdGVkVmVydGV4ID09PSB2ZXJ0ZXgpIHNldFNlbGVjdGVkKG51bGwpOwogICAgICBlbHNlIHRvZ2dsZUVkZ2VWZXJ0aWNlcyhzZWxlY3RlZFZlcnRleCwgdmVydGV4KTsKICAgIH0KCiAgICBmdW5jdGlvbiBkZWxldGVTZWxlY3RlZCgpIHsKICAgICAgaWYgKCFzZWxlY3RlZFZlcnRleCkgcmV0dXJuIGZhbHNlOwogICAgICB2YXIgZG9vbWVkID0gc2VsZWN0ZWRWZXJ0ZXg7CiAgICAgIGVkZ2VzLnNsaWNlKCkuZm9yRWFjaChmdW5jdGlvbiAoZWRnZSkgewogICAgICAgIGlmIChlZGdlLnNvdXJjZSA9PT0gZG9vbWVkIHx8IGVkZ2UudGFyZ2V0ID09PSBkb29tZWQpIHsKICAgICAgICAgIGJvYXJkLnJlbW92ZU9iamVjdChlZGdlLnNlZ21lbnQpOwogICAgICAgICAgZWRnZXMuc3BsaWNlKGVkZ2VzLmluZGV4T2YoZWRnZSksIDEpOwogICAgICAgIH0KICAgICAgfSk7CiAgICAgIGJvYXJkLnJlbW92ZU9iamVjdChkb29tZWQucG9pbnQpOwogICAgICB2ZXJ0aWNlcy5zcGxpY2UodmVydGljZXMuaW5kZXhPZihkb29tZWQpLCAxKTsKICAgICAgc2VsZWN0ZWRWZXJ0ZXggPSBudWxsOwogICAgICBib2FyZC51cGRhdGUoKTsKICAgICAgcmV0dXJuIHRydWU7CiAgICB9CgogICAgZnVuY3Rpb24gY2xlYXIoKSB7CiAgICAgIHNldFNlbGVjdGVkKG51bGwpOwogICAgICBlZGdlcy5mb3JFYWNoKGZ1bmN0aW9uIChlZGdlKSB7IGJvYXJkLnJlbW92ZU9iamVjdChlZGdlLnNlZ21lbnQpOyB9KTsKICAgICAgdmVydGljZXMuZm9yRWFjaChmdW5jdGlvbiAodmVydGV4KSB7IGJvYXJkLnJlbW92ZU9iamVjdCh2ZXJ0ZXgucG9pbnQpOyB9KTsKICAgICAgZWRnZXMgPSBbXTsKICAgICAgdmVydGljZXMgPSBbXTsKICAgICAgbmV4dFZlcnRleElkID0gMTsKICAgICAgYm9hcmQudXBkYXRlKCk7CiAgICB9CgogICAgZnVuY3Rpb24gcmVzcG9uc2UoKSB7CiAgICAgIHJldHVybiB7CiAgICAgICAgcmVwcmVzZW50YXRpb246ICd1bmRpcmVjdGVkLWdyYXBoJywKICAgICAgICBub2RlczogdmVydGljZXMubWFwKGZ1bmN0aW9uICh2ZXJ0ZXgpIHsKICAgICAgICAgIHJldHVybiB7CiAgICAgICAgICAgIGlkOiB2ZXJ0ZXguaWQsCiAgICAgICAgICAgIHg6IE51bWJlcih2ZXJ0ZXgucG9pbnQuWCgpLnRvRml4ZWQoNCkpLAogICAgICAgICAgICB5OiBOdW1iZXIodmVydGV4LnBvaW50LlkoKS50b0ZpeGVkKDQpKQogICAgICAgICAgfTsKICAgICAgICB9KSwKICAgICAgICBlZGdlczogZWRnZXMubWFwKGZ1bmN0aW9uIChlZGdlKSB7IHJldHVybiBbZWRnZS5zb3VyY2UuaWQsIGVkZ2UudGFyZ2V0LmlkXTsgfSkKICAgICAgfTsKICAgIH0KCiAgICB2YXIgcGFuZWwgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTsKICAgIHBhbmVsLnNldEF0dHJpYnV0ZSgncm9sZScsICdub3RlJyk7CiAgICBwYW5lbC5zZXRBdHRyaWJ1dGUoJ2FyaWEtbGFiZWwnLCAnR3JhcGggZWRpdG9yIGNvbnRyb2xzJyk7CiAgICBwYW5lbC5zZXRBdHRyaWJ1dGUoJ2RhdGEtZ3JhcGgtZWRpdG9yLWNvbnRyb2wnLCAndHJ1ZScpOwogICAgcGFuZWwuc3R5bGUuY3NzVGV4dCA9IFsKICAgICAgJ3Bvc2l0aW9uOmFic29sdXRlJywgJ3RvcDo0OHB4JywgJ3JpZ2h0OjEycHgnLCAnei1pbmRleDoyMCcsCiAgICAgICdkaXNwbGF5Om5vbmUnLCAnd2lkdGg6bWluKDI3MHB4LGNhbGMoMTAwJSAtIDI0cHgpKScsCiAgICAgICdib3gtc2l6aW5nOmJvcmRlci1ib3gnLCAncGFkZGluZzoxMHB4IDEycHgnLCAnYm9yZGVyOjFweCBzb2xpZCAjOTRhM2I4JywKICAgICAgJ2JvcmRlci1yYWRpdXM6N3B4JywgJ2JhY2tncm91bmQ6cmdiYSgyNTUsMjU1LDI1NSwwLjk2KScsCiAgICAgICdjb2xvcjojMWUyOTNiJywgJ2ZvbnQ6MTRweC8xLjM1IHNhbnMtc2VyaWYnLCAnYm94LXNoYWRvdzowIDNweCAxMnB4IHJnYmEoMTUsMjMsNDIsMC4xOCknCiAgICBdLmpvaW4oJzsnKTsKICAgIHZhciBsaXN0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnb2wnKTsKICAgIGxpc3Quc3R5bGUuY3NzVGV4dCA9ICdtYXJnaW46MDtwYWRkaW5nLWxlZnQ6MS4zNXJlbSc7CiAgICBpbnN0cnVjdGlvbnMuZm9yRWFjaChmdW5jdGlvbiAoaW5zdHJ1Y3Rpb24pIHsKICAgICAgdmFyIGl0ZW0gPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdsaScpOwogICAgICBpdGVtLnRleHRDb250ZW50ID0gaW5zdHJ1Y3Rpb247CiAgICAgIGxpc3QuYXBwZW5kQ2hpbGQoaXRlbSk7CiAgICB9KTsKICAgIHBhbmVsLmFwcGVuZENoaWxkKGxpc3QpOwogICAgYm9hcmQuY29udGFpbmVyT2JqLnN0eWxlLnBvc2l0aW9uID0gYm9hcmQuY29udGFpbmVyT2JqLnN0eWxlLnBvc2l0aW9uIHx8ICdyZWxhdGl2ZSc7CiAgICBib2FyZC5jb250YWluZXJPYmouYXBwZW5kQ2hpbGQocGFuZWwpOwoKICAgIHZhciBjb250cm9sQmFyID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7CiAgICBjb250cm9sQmFyLnNldEF0dHJpYnV0ZSgnZGF0YS1ncmFwaC1lZGl0b3ItY29udHJvbCcsICd0cnVlJyk7CiAgICBjb250cm9sQmFyLnN0eWxlLmNzc1RleHQgPSBbCiAgICAgICdwb3NpdGlvbjphYnNvbHV0ZScsICdsZWZ0OjEycHgnLCAnYm90dG9tOjEwcHgnLCAnei1pbmRleDoyMCcsCiAgICAgICdkaXNwbGF5OmZsZXgnLCAnZ2FwOjhweCcsICdmbGV4LXdyYXA6d3JhcCcsICdmb250OjE0cHgvMS4yIHNhbnMtc2VyaWYnCiAgICBdLmpvaW4oJzsnKTsKICAgIGJvYXJkLmNvbnRhaW5lck9iai5hcHBlbmRDaGlsZChjb250cm9sQmFyKTsKCiAgICBmdW5jdGlvbiBjcmVhdGVDb250cm9sKGxhYmVsLCBoYW5kbGVyKSB7CiAgICAgIHZhciBidXR0b24gPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdidXR0b24nKTsKICAgICAgYnV0dG9uLnR5cGUgPSAnYnV0dG9uJzsKICAgICAgYnV0dG9uLnRleHRDb250ZW50ID0gbGFiZWw7CiAgICAgIGJ1dHRvbi5zdHlsZS5jc3NUZXh0ID0gWwogICAgICAgICdwYWRkaW5nOjZweCAxMHB4JywgJ2JvcmRlcjoxcHggc29saWQgIzk0YTNiOCcsICdib3JkZXItcmFkaXVzOjVweCcsCiAgICAgICAgJ2JhY2tncm91bmQ6I2ZmZicsICdjb2xvcjojMWUyOTNiJywgJ2N1cnNvcjpwb2ludGVyJwogICAgICBdLmpvaW4oJzsnKTsKICAgICAgYnV0dG9uLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZnVuY3Rpb24gKGV2ZW50KSB7CiAgICAgICAgZXZlbnQucHJldmVudERlZmF1bHQoKTsKICAgICAgICBldmVudC5zdG9wUHJvcGFnYXRpb24oKTsKICAgICAgICBoYW5kbGVyKCk7CiAgICAgIH0pOwogICAgICBjb250cm9sQmFyLmFwcGVuZENoaWxkKGJ1dHRvbik7CiAgICAgIHJldHVybiBidXR0b247CiAgICB9CgogICAgdmFyIHRvZ2dsZUJ1dHRvbjsKICAgIGZ1bmN0aW9uIHNob3dDb250cm9scyhzaG93KSB7CiAgICAgIGNvbnRyb2xzVmlzaWJsZSA9IHNob3cgPT09IHVuZGVmaW5lZCA/ICFjb250cm9sc1Zpc2libGUgOiAhIXNob3c7CiAgICAgIHBhbmVsLnN0eWxlLmRpc3BsYXkgPSBjb250cm9sc1Zpc2libGUgPyAnYmxvY2snIDogJ25vbmUnOwogICAgICBpZiAodG9nZ2xlQnV0dG9uKSB0b2dnbGVCdXR0b24udGV4dENvbnRlbnQgPSBjb250cm9sc1Zpc2libGUgPyBsYWJlbHMuaGlkZUNvbnRyb2xzIDogbGFiZWxzLnNob3dDb250cm9sczsKICAgICAgYm9hcmQudXBkYXRlKCk7CiAgICAgIHJldHVybiBjb250cm9sc1Zpc2libGU7CiAgICB9CgogICAgY3JlYXRlQ29udHJvbChsYWJlbHMuZGVsZXRlU2VsZWN0ZWQsIGRlbGV0ZVNlbGVjdGVkKTsKICAgIGNyZWF0ZUNvbnRyb2wobGFiZWxzLmNsZWFyR3JhcGgsIGNsZWFyKTsKICAgIHRvZ2dsZUJ1dHRvbiA9IGNyZWF0ZUNvbnRyb2wobGFiZWxzLnNob3dDb250cm9scywgZnVuY3Rpb24gKCkgeyBzaG93Q29udHJvbHMoKTsgfSk7CgogICAgZnVuY3Rpb24gaXNDb250cm9sRXZlbnQoZXZlbnQpIHsKICAgICAgcmV0dXJuICEhKGV2ZW50LnRhcmdldCAmJiBldmVudC50YXJnZXQuY2xvc2VzdCAmJgogICAgICAgIGV2ZW50LnRhcmdldC5jbG9zZXN0KCdidXR0b24sIGlucHV0LCBbZGF0YS1ncmFwaC1lZGl0b3ItY29udHJvbF0nKSk7CiAgICB9CgogICAgZnVuY3Rpb24gdmVydGV4QXQoc2NyZWVuKSB7CiAgICAgIGZvciAodmFyIGkgPSB2ZXJ0aWNlcy5sZW5ndGggLSAxOyBpID49IDA7IGktLSkgewogICAgICAgIGlmICh2ZXJ0aWNlc1tpXS5wb2ludC5oYXNQb2ludChzY3JlZW5bMF0sIHNjcmVlblsxXSkpIHJldHVybiB2ZXJ0aWNlc1tpXTsKICAgICAgfQogICAgICByZXR1cm4gbnVsbDsKICAgIH0KCiAgICBmdW5jdGlvbiB1c2VyUG9zaXRpb24oc2NyZWVuKSB7CiAgICAgIHZhciB3aWR0aCA9IGJvYXJkLmNvbnRhaW5lck9iai5jbGllbnRXaWR0aCB8fCBib2FyZC5jYW52YXNXaWR0aDsKICAgICAgdmFyIGhlaWdodCA9IGJvYXJkLmNvbnRhaW5lck9iai5jbGllbnRIZWlnaHQgfHwgYm9hcmQuY2FudmFzSGVpZ2h0OwogICAgICB2YXIgYm91bmRzID0gYm9hcmQuZ2V0Qm91bmRpbmdCb3goKTsKICAgICAgaWYgKE51bWJlci5pc0Zpbml0ZSh3aWR0aCkgJiYgd2lkdGggPiAwICYmIE51bWJlci5pc0Zpbml0ZShoZWlnaHQpICYmIGhlaWdodCA+IDAgJiYgYm91bmRzLmV2ZXJ5KE51bWJlci5pc0Zpbml0ZSkpIHsKICAgICAgICByZXR1cm4gWwogICAgICAgICAgYm91bmRzWzBdICsgc2NyZWVuWzBdIC8gd2lkdGggKiAoYm91bmRzWzJdIC0gYm91bmRzWzBdKSwKICAgICAgICAgIGJvdW5kc1sxXSAtIHNjcmVlblsxXSAvIGhlaWdodCAqIChib3VuZHNbMV0gLSBib3VuZHNbM10pCiAgICAgICAgXTsKICAgICAgfQogICAgICB2YXIgY29vcmRzID0gbmV3IEpYRy5Db29yZHMoSlhHLkNPT1JEU19CWV9TQ1JFRU4sIHNjcmVlbiwgYm9hcmQpOwogICAgICByZXR1cm4gW2Nvb3Jkcy51c3JDb29yZHNbMV0sIGNvb3Jkcy51c3JDb29yZHNbMl1dOwogICAgfQoKICAgIGJvYXJkLm9uKCdkb3duJywgZnVuY3Rpb24gKGV2ZW50KSB7CiAgICAgIHBvaW50ZXJTdGFydCA9IG51bGw7CiAgICAgIGlmIChpc0NvbnRyb2xFdmVudChldmVudCkpIHJldHVybjsKICAgICAgdmFyIHNjcmVlbiA9IGJvYXJkLmdldE1vdXNlUG9zaXRpb24oZXZlbnQpOwogICAgICBwb2ludGVyU3RhcnQgPSB7CiAgICAgICAgc2NyZWVuOiBzY3JlZW4sCiAgICAgICAgdmVydGV4OiB2ZXJ0ZXhBdChzY3JlZW4pCiAgICAgIH07CiAgICB9KTsKCiAgICBib2FyZC5vbigndXAnLCBmdW5jdGlvbiAoZXZlbnQpIHsKICAgICAgaWYgKCFwb2ludGVyU3RhcnQgfHwgaXNDb250cm9sRXZlbnQoZXZlbnQpKSB7CiAgICAgICAgcG9pbnRlclN0YXJ0ID0gbnVsbDsKICAgICAgICByZXR1cm47CiAgICAgIH0KICAgICAgdmFyIHNjcmVlbiA9IGJvYXJkLmdldE1vdXNlUG9zaXRpb24oZXZlbnQpOwogICAgICB2YXIgZHggPSBzY3JlZW5bMF0gLSBwb2ludGVyU3RhcnQuc2NyZWVuWzBdOwogICAgICB2YXIgZHkgPSBzY3JlZW5bMV0gLSBwb2ludGVyU3RhcnQuc2NyZWVuWzFdOwogICAgICBpZiAoZHggKiBkeCArIGR5ICogZHkgPD0gY2xpY2tUb2xlcmFuY2VTcXVhcmVkKSB7CiAgICAgICAgaWYgKHBvaW50ZXJTdGFydC52ZXJ0ZXgpIHsKICAgICAgICAgIGhhbmRsZVZlcnRleENsaWNrKHBvaW50ZXJTdGFydC52ZXJ0ZXgpOwogICAgICAgIH0gZWxzZSBpZiAoIXZlcnRleEF0KHNjcmVlbikpIHsKICAgICAgICB2YXIgcG9zaXRpb24gPSB1c2VyUG9zaXRpb24oc2NyZWVuKTsKICAgICAgICBpZiAocG9zaXRpb25bMV0gPiBlZGl0YWJsZUJvdHRvbSgpKSBhZGRWZXJ0ZXgocG9zaXRpb25bMF0sIHBvc2l0aW9uWzFdKTsKICAgICAgICB9CiAgICAgIH0KICAgICAgcG9pbnRlclN0YXJ0ID0gbnVsbDsKICAgIH0pOwoKICAgIGJvYXJkLmNvbnRhaW5lck9iai5zZXRBdHRyaWJ1dGUoJ2RhdGEtZ3JhcGgtZWRpdG9yLXJlYWR5JywgJ3RydWUnKTsKCiAgICBpZiAob3B0aW9ucy5jb250cm9sc0luaXRpYWxseVZpc2libGUpIHNob3dDb250cm9scyh0cnVlKTsKCiAgICB2YXIgYXBpID0gewogICAgICBib2FyZDogYm9hcmQsCiAgICAgIGFkZFZlcnRleDogYWRkVmVydGV4LAogICAgICB0b2dnbGVFZGdlOiB0b2dnbGVFZGdlLAogICAgICBkZWxldGVTZWxlY3RlZDogZGVsZXRlU2VsZWN0ZWQsCiAgICAgIGNsZWFyOiBjbGVhciwKICAgICAgcmVzcG9uc2U6IHJlc3BvbnNlLAogICAgICBzdW1tYXJpemU6IGZ1bmN0aW9uIChzdW1tYXJ5T3B0aW9ucykgeyByZXR1cm4gc3VtbWFyaXplR3JhcGgocmVzcG9uc2UoKSwgc3VtbWFyeU9wdGlvbnMpOyB9LAogICAgICBzaG93Q29udHJvbHM6IHNob3dDb250cm9scywKICAgICAgcmVnaXN0ZXI6IGZ1bmN0aW9uIChzcGVjKSB7CiAgICAgICAgaWYgKCFKWEcuUXVhcnRvQXNzZXNzbWVudCB8fCB0eXBlb2YgSlhHLlF1YXJ0b0Fzc2Vzc21lbnQucmVnaXN0ZXIgIT09ICdmdW5jdGlvbicpIHsKICAgICAgICAgIHRocm93IG5ldyBFcnJvcignR3JhcGggZWRpdG9yIHJlZ2lzdHJhdGlvbiByZXF1aXJlcyB0aGUgUXVhcnRvIGFzc2Vzc21lbnQgYnJpZGdlJyk7CiAgICAgICAgfQogICAgICAgIEpYRy5RdWFydG9Bc3Nlc3NtZW50LnJlZ2lzdGVyKG1lcmdlKHNwZWMsIHsgYm9hcmQ6IGJvYXJkLCByZXNwb25zZTogcmVzcG9uc2UgfSkpOwogICAgICAgIHJldHVybiBhcGk7CiAgICAgIH0KICAgIH07CiAgICByZXR1cm4gYXBpOwogIH0KCiAgZnVuY3Rpb24gY3JlYXRlQm9hcmQob3B0aW9ucykgewogICAgb3B0aW9ucyA9IG9wdGlvbnMgfHwge307CiAgICB2YXIgY29udGFpbmVyID0gb3B0aW9ucy5jb250YWluZXIgfHwgZG9jdW1lbnQucXVlcnlTZWxlY3RvcignLmp4Z2JveCcpOwogICAgaWYgKCFjb250YWluZXIpIHRocm93IG5ldyBFcnJvcignR3JhcGggZWRpdG9yIGNvdWxkIG5vdCBmaW5kIGl0cyBKU1hHcmFwaCBjb250YWluZXInKTsKICAgIHZhciBib2FyZCA9IEpYRy5KU1hHcmFwaC5pbml0Qm9hcmQoY29udGFpbmVyLmlkLCBtZXJnZSh7CiAgICAgIGJvdW5kaW5nYm94OiBbLTUsIDQsIDUsIC00XSwKICAgICAgYXhpczogZmFsc2UsCiAgICAgIHBhbjogeyBlbmFibGVkOiBmYWxzZSB9LAogICAgICB6b29tOiB7IGVuYWJsZWQ6IGZhbHNlIH0sCiAgICAgIHNob3dOYXZpZ2F0aW9uOiBmYWxzZSwKICAgICAgc2hvd0NvcHlyaWdodDogZmFsc2UKICAgIH0sIG9wdGlvbnMuYm9hcmRBdHRyaWJ1dGVzKSk7CiAgICB2YXIgZWRpdG9yID0gY3JlYXRlR3JhcGhFZGl0b3IobWVyZ2Uob3B0aW9ucywgeyBib2FyZDogYm9hcmQgfSkpOwoKICAgIGZ1bmN0aW9uIHJlc2l6ZVRvVmlzaWJsZUNvbnRhaW5lcigpIHsKICAgICAgdmFyIHdpZHRoID0gY29udGFpbmVyLmNsaWVudFdpZHRoOwogICAgICB2YXIgaGVpZ2h0ID0gY29udGFpbmVyLmNsaWVudEhlaWdodDsKICAgICAgaWYgKCEod2lkdGggPiAwICYmIGhlaWdodCA+IDApIHx8IHR5cGVvZiBib2FyZC5yZXNpemVDb250YWluZXIgIT09ICdmdW5jdGlvbicpIHJldHVybiBmYWxzZTsKICAgICAgaWYgKE1hdGguYWJzKChib2FyZC5jYW52YXNXaWR0aCB8fCAwKSAtIHdpZHRoKSA+IDEgfHwKICAgICAgICAgIE1hdGguYWJzKChib2FyZC5jYW52YXNIZWlnaHQgfHwgMCkgLSBoZWlnaHQpID4gMSkgewogICAgICAgIC8vIEtlZXAgdGhlIGNvbnRhaW5lciBmbHVpZCAoQ1NTIHNpemUpOiBmaXhpbmcgaXQgaW4gcHggd291bGQgc3RvcCBpdAogICAgICAgIC8vIGZvbGxvd2luZyB0aGUgaWZyYW1lIG9uIG5hcnJvdyBzY3JlZW5zLgogICAgICAgIGJvYXJkLnJlc2l6ZUNvbnRhaW5lcih3aWR0aCwgaGVpZ2h0LCB0cnVlKTsKICAgICAgICBpZiAodHlwZW9mIGJvYXJkLmZ1bGxVcGRhdGUgPT09ICdmdW5jdGlvbicpIGJvYXJkLmZ1bGxVcGRhdGUoKTsKICAgICAgfQogICAgICByZXR1cm4gdHJ1ZTsKICAgIH0KCiAgICBlZGl0b3IucmVzaXplID0gcmVzaXplVG9WaXNpYmxlQ29udGFpbmVyOwogICAgaWYgKHR5cGVvZiBSZXNpemVPYnNlcnZlciAhPT0gJ3VuZGVmaW5lZCcpIHsKICAgICAgdmFyIG9ic2VydmVyID0gbmV3IFJlc2l6ZU9ic2VydmVyKHJlc2l6ZVRvVmlzaWJsZUNvbnRhaW5lcik7CiAgICAgIG9ic2VydmVyLm9ic2VydmUoY29udGFpbmVyKTsKICAgICAgZWRpdG9yLnJlc2l6ZU9ic2VydmVyID0gb2JzZXJ2ZXI7CiAgICB9CiAgICBpZiAodHlwZW9mIHJlcXVlc3RBbmltYXRpb25GcmFtZSA9PT0gJ2Z1bmN0aW9uJykgewogICAgICByZXF1ZXN0QW5pbWF0aW9uRnJhbWUoZnVuY3Rpb24gKCkgewogICAgICAgIHJlc2l6ZVRvVmlzaWJsZUNvbnRhaW5lcigpOwogICAgICAgIHJlcXVlc3RBbmltYXRpb25GcmFtZShyZXNpemVUb1Zpc2libGVDb250YWluZXIpOwogICAgICB9KTsKICAgIH0KICAgIHJlc2l6ZVRvVmlzaWJsZUNvbnRhaW5lcigpOwogICAgcmV0dXJuIGVkaXRvcjsKICB9CgogIEpYRy5RdWFydG9HcmFwaEVkaXRvciA9IHsKICAgIGNyZWF0ZTogY3JlYXRlR3JhcGhFZGl0b3IsCiAgICBjcmVhdGVCb2FyZDogY3JlYXRlQm9hcmQsCiAgICBzdW1tYXJpemU6IHN1bW1hcml6ZUdyYXBoCiAgfTsKfSkoKTsKCjwvc2NyaXB0Pgo8c2NyaXB0PndpbmRvdy5CT0FSRElEID0gIkpYRzk1MjQyMGI4X2QwMjdfNjJjNV9iNjczX2UxODRhNjhjIjsKLy8gVGhlIGV4dGVuc2lvbiBpc29sYXRlcyB0aGlzIGRvY3VtZW50IGluIGEgc2FuZGJveGVkIGlmcmFtZS4gS2VlcCBib3RoCi8vIGNvbnRyb2xzIGFuZCB0aGVpciBDU1MgaGVyZTsgYm9hcmQgY29vcmRpbmF0ZXMgYXJlIG9ubHkgZm9yIG1hdGhlbWF0aWNzLgpkb2N1bWVudC5kb2N1bWVudEVsZW1lbnQubGFuZyA9ICdlbic7CnZhciBncmFwaCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJy5qeGdib3gnKTsKdmFyIGxhYlN0eWxlID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc3R5bGUnKTsKbGFiU3R5bGUudGV4dENvbnRlbnQgPSBgCiAgaHRtbCwgYm9keSB7IG1hcmdpbjogMDsgd2lkdGg6IDEwMCU7IGhlaWdodDogMTAwJTsgZm9udC1mYW1pbHk6IHN5c3RlbS11aSwgc2Fucy1zZXJpZjsgY29sb3I6ICMyNDM0NDc7IH0KICAqIHsgYm94LXNpemluZzogYm9yZGVyLWJveDsgfQogIC53ZWVrNS1sYWIgeyBoZWlnaHQ6IDEwMCU7IHBhZGRpbmc6IDE2cHg7IGRpc3BsYXk6IGZsZXg7IGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47IGdhcDogMTJweDsKICAgIGJvcmRlcjogMXB4IHNvbGlkICNkNGRkZTU7IGJvcmRlci1yYWRpdXM6IDEycHg7IGJhY2tncm91bmQ6ICNmZmY7IH0KICAud2VlazUtbGFiIGZpZWxkc2V0IHsgbWFyZ2luOiAwOyBwYWRkaW5nOiAwOyBib3JkZXI6IDA7IG1pbi13aWR0aDogMDsgfQogIC53ZWVrNS1sYWIgbGVnZW5kIHsgcGFkZGluZzogMDsgbWFyZ2luLWJvdHRvbTogOHB4OyBmb250LXdlaWdodDogNjUwOyBmb250LXNpemU6IDE2cHg7IH0KICAud2VlazUtcHJlc2V0cyB7IGRpc3BsYXk6IGdyaWQ7IGdyaWQtdGVtcGxhdGUtY29sdW1uczogcmVwZWF0KDMsIG1pbm1heCgwLCAxZnIpKTsgZ2FwOiA4cHg7IH0KICAud2VlazUtbGFiIGJ1dHRvbiB7IG1pbi1oZWlnaHQ6IDQ0cHg7IHBhZGRpbmc6IDhweDsgYm9yZGVyOiAxcHggc29saWQgI2E4YjZjNDsgYm9yZGVyLXJhZGl1czogN3B4OwogICAgYmFja2dyb3VuZDogI2ZmZjsgY29sb3I6ICMyNDM0NDc7IGZvbnQ6IGluaGVyaXQ7IGZvbnQtc2l6ZTogMTVweDsgY3Vyc29yOiBwb2ludGVyOyB9CiAgLndlZWs1LWxhYiBidXR0b246aG92ZXIgeyBiYWNrZ3JvdW5kOiAjZjBmNGY4OyB9CiAgLndlZWs1LWxhYiBidXR0b25bYXJpYS1wcmVzc2VkPSJ0cnVlIl0geyBiYWNrZ3JvdW5kOiAjZmZmMWRmOyBib3JkZXI6IDJweCBzb2xpZCAjYTA0YTAwOyBmb250LXdlaWdodDogNzAwOyB9CiAgLndlZWs1LWxhYiBidXR0b246Zm9jdXMtdmlzaWJsZSB7IG91dGxpbmU6IDNweCBzb2xpZCAjMTU2NWMwOyBvdXRsaW5lLW9mZnNldDogMnB4OyB9CiAgLndlZWs1LWFjdGlvbnMgeyBkaXNwbGF5OiBncmlkOyBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IDFmciAxZnI7IGdhcDogOHB4OyB9CiAgLndlZWs1LWxhYiAud2VlazUtbWFpbi1zdGVwIHsgbWluLWhlaWdodDogNDhweDsgYmFja2dyb3VuZDogIzE1NTdhMDsgYm9yZGVyLWNvbG9yOiAjMTU1N2EwOwogICAgY29sb3I6ICNmZmY7IGZvbnQtc2l6ZTogMThweDsgZm9udC13ZWlnaHQ6IDcwMDsgfQogIC53ZWVrNS1sYWIgLndlZWs1LW1haW4tc3RlcDpob3ZlciB7IGJhY2tncm91bmQ6ICMxMDQ1N2Y7IH0KICAud2VlazUtZ3JhcGgtc2xvdCB7IGZsZXg6IDEgMSBhdXRvOyBtaW4taGVpZ2h0OiAxODBweDsgcG9zaXRpb246IHJlbGF0aXZlOyB9CiAgLndlZWs1LWdyYXBoLXNsb3QgLmp4Z2JveCB7IHBvc2l0aW9uOiBhYnNvbHV0ZTsgaW5zZXQ6IDA7IHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7IGhlaWdodDogMTAwJSAhaW1wb3J0YW50OyBib3JkZXI6IDA7IH0KICAud2VlazUtcmVhZG91dCB7IGZsZXg6IDAgMCBhdXRvOyBwYWRkaW5nOiAxMnB4OyBib3JkZXItcmFkaXVzOiA4cHg7IGJhY2tncm91bmQ6ICNmM2Y2ZmE7IH0KICAud2VlazUtcmVhZG91dCBwIHsgbWFyZ2luOiAwOyBsaW5lLWhlaWdodDogMS41OyB9CiAgLndlZWs1LXN0YXJ0LWtleSB7IGNvbG9yOiAjODU0MDAwOyBmb250LXNpemU6IDE0cHg7IH0KICAud2VlazUtZm9ybXVsYSB7IGNvbG9yOiAjMTU1N2EwOyBmb250LXNpemU6IGNsYW1wKDE2cHgsIDN2dywgMjBweCk7IGZvbnQtd2VpZ2h0OiA2NTA7IG92ZXJmbG93LXdyYXA6IGFueXdoZXJlOyB9CiAgLndlZWs1LWNvb3JkaW5hdGVzIHsgZm9udC1zaXplOiAxNXB4OyBmb250LXZhcmlhbnQtbnVtZXJpYzogdGFidWxhci1udW1zOyB9CiAgQG1lZGlhIChtYXgtd2lkdGg6IDM4MHB4KSB7IC53ZWVrNS1sYWIgeyBwYWRkaW5nOiAxMHB4OyBnYXA6IDEwcHg7IH0gLndlZWs1LXJlYWRvdXQgeyBwYWRkaW5nOiAxMHB4OyB9IC53ZWVrNS1hY3Rpb25zIHsgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiAxZnI7IH0gfQpgOwpkb2N1bWVudC5oZWFkLmFwcGVuZENoaWxkKGxhYlN0eWxlKTsKdmFyIGxhYiA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ3NlY3Rpb24nKTsKbGFiLmNsYXNzTmFtZSA9ICd3ZWVrNS1sYWInOwpsYWIuc2V0QXR0cmlidXRlKCdhcmlhLWxhYmVsJywgJ1JlcGVhdGVkIG1hdHJpeCBtdWx0aXBsaWNhdGlvbicpOwpsYWIuaW5uZXJIVE1MID0gYAogIDxmaWVsZHNldD48bGVnZW5kPkNob29zZSBhIHN0YXJ0aW5nIGRpcmVjdGlvbjwvbGVnZW5kPjxkaXYgY2xhc3M9IndlZWs1LXByZXNldHMiPjwvZGl2PjwvZmllbGRzZXQ+CiAgPGRpdiBjbGFzcz0id2VlazUtYWN0aW9ucyI+CiAgICA8YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9IndlZWs1LW1haW4tc3RlcCI+T25lIHN0ZXA8L2J1dHRvbj4KICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0id2VlazUtcmVzZXQiPlJlc2V0IHRvIHN0YXJ0aW5nIHZlY3RvcjwvYnV0dG9uPgogIDwvZGl2PgogIDxkaXYgY2xhc3M9IndlZWs1LWdyYXBoLXNsb3QiPjwvZGl2PgogIDxkaXYgY2xhc3M9IndlZWs1LXJlYWRvdXQiPgogICAgPHAgY2xhc3M9IndlZWs1LXN0YXJ0LWtleSI+PC9wPgogICAgPHAgY2xhc3M9IndlZWs1LXN0YXJ0LWtleSI+RHJhZyB0aGUgb3JhbmdlIHJpbmcgdG8gY2hvb3NlIHlvdXIgb3duIHN0YXJ0aW5nIHZlY3Rvci48L3A+CiAgICA8ZGl2IHJvbGU9InN0YXR1cyIgYXJpYS1saXZlPSJwb2xpdGUiIGFyaWEtYXRvbWljPSJ0cnVlIj4KICAgICAgPHAgY2xhc3M9IndlZWs1LWZvcm11bGEiPjwvcD4KICAgICAgPHAgY2xhc3M9IndlZWs1LWNvb3JkaW5hdGVzIj48L3A+CiAgICA8L2Rpdj4KICA8L2Rpdj4KYDsKZ3JhcGgucGFyZW50Tm9kZS5pbnNlcnRCZWZvcmUobGFiLCBncmFwaCk7CmxhYi5xdWVyeVNlbGVjdG9yKCcud2VlazUtZ3JhcGgtc2xvdCcpLmFwcGVuZENoaWxkKGdyYXBoKTsKdmFyIGZvcm11bGEgPSBsYWIucXVlcnlTZWxlY3RvcignLndlZWs1LWZvcm11bGEnKTsKdmFyIGNvb3JkaW5hdGVzID0gbGFiLnF1ZXJ5U2VsZWN0b3IoJy53ZWVrNS1jb29yZGluYXRlcycpOwp2YXIgc3RhcnRLZXkgPSBsYWIucXVlcnlTZWxlY3RvcignLndlZWs1LXN0YXJ0LWtleScpOwp2YXIgc2VsZWN0ZWRTdGFydCA9ICcoMSwgMCknOwp2YXIgcHJlc2V0cyA9IFtbMSwgMCwgJygxLCAwKSddLCBbLTEsIDAsICco4oiSMSwgMCknXSwgWzEsIDEsICcoMSwgMSknXSwKICBbMSwgLTEsICcoMSwg4oiSMSknXSwgWzAsIDEsICcoMCwgMSknXSwgWzEsIC0wLjksICcoMSwg4oiSMC45KSddXTsKdmFyIHByZXNldEJ1dHRvbnMgPSBbXTsKdmFyIGJvdW5kcyA9IFstMS4zLCAxLjMsIDEuMywgLTEuM107CnZhciBib2FyZCA9IEpYRy5KU1hHcmFwaC5pbml0Qm9hcmQoIkpYRzk1MjQyMGI4X2QwMjdfNjJjNV9iNjczX2UxODRhNjhjIiwgewogIGJvdW5kaW5nYm94OiBib3VuZHMsIGF4aXM6IHRydWUsIHBhbjoge2VuYWJsZWQ6IGZhbHNlfSwgem9vbToge2VuYWJsZWQ6IGZhbHNlfSwKICBzaG93Q29weXJpZ2h0OiBmYWxzZSwgc2hvd05hdmlnYXRpb246IGZhbHNlLCBrZWVwYXNwZWN0cmF0aW86IHRydWUKfSk7CnZhciBvcmlnaW4gPSBib2FyZC5jcmVhdGUoJ3BvaW50JywgWzAsIDBdLCB7dmlzaWJsZTogZmFsc2UsIGZpeGVkOiB0cnVlfSk7CnZhciBjaXJjbGUgPSBib2FyZC5jcmVhdGUoJ2NpcmNsZScsIFtvcmlnaW4sIDFdLCB7c3Ryb2tlQ29sb3I6ICcjYWFiNmMxJywgZGFzaDogMiwgZml4ZWQ6IHRydWUsIGhpZ2hsaWdodDogZmFsc2V9KTsKdmFyIHN0YXJ0ID0gYm9hcmQuY3JlYXRlKCdnbGlkZXInLCBbMSwgMCwgY2lyY2xlXSwgewogIG5hbWU6ICcnLCB3aXRoTGFiZWw6IGZhbHNlLCBzaXplOiA5LCBzdHJva2VXaWR0aDogMywgc3Ryb2tlQ29sb3I6ICcjYTA0YTAwJywKICBmaWxsQ29sb3I6ICcjZmZmJywgZmlsbE9wYWNpdHk6IDAsIGhpZ2hsaWdodEZpbGxPcGFjaXR5OiAwLCBoaWdobGlnaHRTdHJva2VDb2xvcjogJyNhMDRhMDAnLCBsYXllcjogOQp9KTsKYm9hcmQuY3JlYXRlKCdhcnJvdycsIFtvcmlnaW4sIHN0YXJ0XSwge3N0cm9rZUNvbG9yOiAnI2EwNGEwMCcsIHN0cm9rZVdpZHRoOiAyLCBkYXNoOiAyLCBmaXhlZDogdHJ1ZSwgaGlnaGxpZ2h0OiBmYWxzZX0pOwp2YXIgY3VycmVudCA9IFsxLCAwXSwgY291bnQgPSAwOwp2YXIgZW5kID0gYm9hcmQuY3JlYXRlKCdwb2ludCcsIFtmdW5jdGlvbigpe3JldHVybiBjdXJyZW50WzBdO30sIGZ1bmN0aW9uKCl7cmV0dXJuIGN1cnJlbnRbMV07fV0sCiAge25hbWU6ICcnLCB3aXRoTGFiZWw6IGZhbHNlLCBmaXhlZDogdHJ1ZSwgc2l6ZTogMywgY29sb3I6ICcjMTU2NWMwJywgaGlnaGxpZ2h0OiBmYWxzZSwgbGF5ZXI6IDh9KTsKYm9hcmQuY3JlYXRlKCdhcnJvdycsIFtvcmlnaW4sIGVuZF0sIHtzdHJva2VDb2xvcjogJyMxNTY1YzAnLCBzdHJva2VXaWR0aDogMywgZml4ZWQ6IHRydWUsIGhpZ2hsaWdodDogZmFsc2V9KTsKLy8gS2VlcCB0aGUgbm9ybWFsaXplZCBpdGVyYXRlIGlkZW50aWZpYWJsZSBuZXh0IHRvIHRoZSBibHVlIGVuZHBvaW50LgovLyBUaGUgY29tcGFjdCBmcmFjdGlvbiBmaXRzIGluc2lkZSB0aGUgYm9hcmQgZXZlbiBmb3Igc3RhcnRzIG5lYXIgaXRzIGVkZ2VzLgpmdW5jdGlvbiBjYW52YXNGb3JtdWxhKCkgewogIHZhciBwb3dlciA9ICdBPHN1cD4nK2NvdW50Kyc8L3N1cD54PHN1Yj4wPC9zdWI+JzsKICByZXR1cm4gJzxzcGFuIHN0eWxlPSJkaXNwbGF5OmlubGluZS1mbGV4O2FsaWduLWl0ZW1zOmNlbnRlcjtnYXA6NHB4O3doaXRlLXNwYWNlOm5vd3JhcDsnICsKICAgICdiYWNrZ3JvdW5kOnJnYmEoMjU1LDI1NSwyNTUsLjk0KTtwYWRkaW5nOjNweCA1cHg7Ym9yZGVyLXJhZGl1czo0cHg7Y29sb3I6IzE1NjVjMCI+JyArCiAgICAnPHNwYW4+eDxzdWI+Jytjb3VudCsnPC9zdWI+ID08L3NwYW4+JyArCiAgICAnPHNwYW4gc3R5bGU9ImRpc3BsYXk6aW5saW5lLWZsZXg7ZmxleC1kaXJlY3Rpb246Y29sdW1uO3RleHQtYWxpZ246Y2VudGVyO2xpbmUtaGVpZ2h0OjEuMjUiPicgKwogICAgJzxzcGFuIHN0eWxlPSJib3JkZXItYm90dG9tOjFweCBzb2xpZCAjMTU2NWMwO3BhZGRpbmc6MCAzcHgiPicrcG93ZXIrJzwvc3Bhbj4nICsKICAgICc8c3Bhbj7igJYnK3Bvd2VyKyfigJY8c3ViPjI8L3N1Yj48L3NwYW4+PC9zcGFuPic7Cn0KLy8gVXNlIGEgRE9NIG92ZXJsYXkgaW5zaWRlIHRoZSBwbG90dGluZyBhcmVhIHNvIEpTWEdyYXBoJ3MgdGV4dCByZW5kZXJlcgovLyBkb2VzIG5vdCBwcm9jZXNzIG9yIGhpZGUgdGhlIEhUTUwgZnJhY3Rpb24uCnZhciBpdGVyYXRlTGFiZWwgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTsKaXRlcmF0ZUxhYmVsLmNsYXNzTmFtZSA9ICd3ZWVrNS1jYW52YXMtbGFiZWwnOwppdGVyYXRlTGFiZWwuc3R5bGUuY3NzVGV4dCA9ICdwb3NpdGlvbjphYnNvbHV0ZTt6LWluZGV4OjIwO3BvaW50ZXItZXZlbnRzOm5vbmU7Zm9udC1zaXplOjE0cHg7bGluZS1oZWlnaHQ6MS4yNTsnOwpsYWIucXVlcnlTZWxlY3RvcignLndlZWs1LWdyYXBoLXNsb3QnKS5hcHBlbmRDaGlsZChpdGVyYXRlTGFiZWwpOwpmdW5jdGlvbiBwb3NpdGlvbkl0ZXJhdGVMYWJlbCgpIHsKICB2YXIgd2lkdGggPSBncmFwaC5jbGllbnRXaWR0aCwgaGVpZ2h0ID0gZ3JhcGguY2xpZW50SGVpZ2h0OwogIGlmICghKHdpZHRoID4gMCAmJiBoZWlnaHQgPiAwKSkgcmV0dXJuOwogIHZhciBweCA9IGJvYXJkLm9yaWdpbi5zY3JDb29yZHNbMV0gKyBjdXJyZW50WzBdICogYm9hcmQudW5pdFg7CiAgdmFyIHB5ID0gYm9hcmQub3JpZ2luLnNjckNvb3Jkc1syXSAtIGN1cnJlbnRbMV0gKiBib2FyZC51bml0WTsKICB2YXIgbGFiZWxXaWR0aCA9IGl0ZXJhdGVMYWJlbC5vZmZzZXRXaWR0aDsKICB2YXIgbGFiZWxIZWlnaHQgPSBpdGVyYXRlTGFiZWwub2Zmc2V0SGVpZ2h0OwogIHZhciBsZWZ0ID0gTWF0aC5tYXgoNiwgTWF0aC5taW4od2lkdGgtbGFiZWxXaWR0aC02LCBweCsxMikpOwogIHZhciB0b3AgPSBweS1sYWJlbEhlaWdodC0xMjsKICBpZiAodG9wIDwgNikgdG9wID0gcHkrMTI7CiAgdG9wID0gTWF0aC5tYXgoNiwgTWF0aC5taW4oaGVpZ2h0LWxhYmVsSGVpZ2h0LTYsIHRvcCkpOwogIGl0ZXJhdGVMYWJlbC5zdHlsZS5sZWZ0ID0gbGVmdCsncHgnOwogIGl0ZXJhdGVMYWJlbC5zdHlsZS50b3AgPSB0b3ArJ3B4JzsKfQpmdW5jdGlvbiBmb3JtYXRDb29yZGluYXRlKHZhbHVlKSB7IHJldHVybiAoTWF0aC5hYnModmFsdWUpIDwgMC4wMDA1ID8gMCA6IHZhbHVlKS50b0ZpeGVkKDMpOyB9CmZ1bmN0aW9uIHVwZGF0ZVJlYWRvdXQoKSB7CiAgaXRlcmF0ZUxhYmVsLmlubmVySFRNTCA9IGNhbnZhc0Zvcm11bGEoKTsKICBwb3NpdGlvbkl0ZXJhdGVMYWJlbCgpOwogIHN0YXJ0S2V5LnRleHRDb250ZW50ID0gJ09yYW5nZSByaW5nIMK3ICcrKHNlbGVjdGVkU3RhcnQgfHwgJ0N1c3RvbSBzdGFydGluZyB2ZWN0b3InKSsnOiB44oKAID0gKCcrCiAgICBmb3JtYXRDb29yZGluYXRlKHN0YXJ0LlgoKSkrJywgJytmb3JtYXRDb29yZGluYXRlKHN0YXJ0LlkoKSkrJyknOwogIGZvcm11bGEuaW5uZXJIVE1MID0gJ0JsdWU6IHg8c3ViPicrY291bnQrJzwvc3ViPiA9IEE8c3VwPicrY291bnQrJzwvc3VwPng8c3ViPjA8L3N1Yj4nICsKICAgICcgLyDigJZBPHN1cD4nK2NvdW50Kyc8L3N1cD54PHN1Yj4wPC9zdWI+4oCWPHN1Yj4yPC9zdWI+JzsKICB2YXIgcm91bmRlZCA9IGN1cnJlbnQubWFwKGZvcm1hdENvb3JkaW5hdGUpOwogIGNvb3JkaW5hdGVzLnRleHRDb250ZW50ID0gJ1N0ZXAgJytjb3VudCsnIMK3ICgnK3JvdW5kZWRbMF0rJywgJytyb3VuZGVkWzFdKycpJzsKfQpmdW5jdGlvbiByZXNldCgpIHsKICBjdXJyZW50ID0gW3N0YXJ0LlgoKSwgc3RhcnQuWSgpXTsgY291bnQgPSAwOyBib2FyZC51cGRhdGUoKTsgdXBkYXRlUmVhZG91dCgpOwp9CmZ1bmN0aW9uIGNob29zZShhLCBiLCBzZWxlY3RlZCkgewogIHZhciBsZW5ndGggPSBNYXRoLmh5cG90KGEsIGIpOwogIHN0YXJ0Lm1vdmVUbyhbYS9sZW5ndGgsIGIvbGVuZ3RoXSk7CiAgc2VsZWN0ZWRTdGFydCA9IHNlbGVjdGVkID8gc2VsZWN0ZWQudGV4dENvbnRlbnQgOiBudWxsOwogIHByZXNldEJ1dHRvbnMuZm9yRWFjaChmdW5jdGlvbihidXR0b24pIHsgYnV0dG9uLnNldEF0dHJpYnV0ZSgnYXJpYS1wcmVzc2VkJywgU3RyaW5nKGJ1dHRvbiA9PT0gc2VsZWN0ZWQpKTsgfSk7CiAgcmVzZXQoKTsKfQpwcmVzZXRzLmZvckVhY2goZnVuY3Rpb24ocHJlc2V0KSB7CiAgdmFyIGJ1dHRvbiA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2J1dHRvbicpOwogIGJ1dHRvbi50eXBlID0gJ2J1dHRvbic7IGJ1dHRvbi50ZXh0Q29udGVudCA9IHByZXNldFsyXTsKICBidXR0b24uc2V0QXR0cmlidXRlKCdhcmlhLXByZXNzZWQnLCBTdHJpbmcocHJlc2V0QnV0dG9ucy5sZW5ndGggPT09IDApKTsKICBidXR0b24uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbigpIHsgY2hvb3NlKHByZXNldFswXSwgcHJlc2V0WzFdLCBidXR0b24pOyB9KTsKICBwcmVzZXRCdXR0b25zLnB1c2goYnV0dG9uKTsgbGFiLnF1ZXJ5U2VsZWN0b3IoJy53ZWVrNS1wcmVzZXRzJykuYXBwZW5kQ2hpbGQoYnV0dG9uKTsKfSk7CnN0YXJ0Lm9uKCdkcmFnJywgZnVuY3Rpb24oKSB7CiAgc2VsZWN0ZWRTdGFydCA9IG51bGw7CiAgcHJlc2V0QnV0dG9ucy5mb3JFYWNoKGZ1bmN0aW9uKGJ1dHRvbikgeyBidXR0b24uc2V0QXR0cmlidXRlKCdhcmlhLXByZXNzZWQnLCAnZmFsc2UnKTsgfSk7CiAgcmVzZXQoKTsKfSk7CmxhYi5xdWVyeVNlbGVjdG9yKCcud2VlazUtbWFpbi1zdGVwJykuYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbigpIHsKICB2YXIgeSA9IFsyKmN1cnJlbnRbMF0rY3VycmVudFsxXSwgY3VycmVudFswXSsyKmN1cnJlbnRbMV1dOwogIHZhciBsZW5ndGggPSBNYXRoLmh5cG90KHlbMF0sIHlbMV0pOwogIGN1cnJlbnQgPSBbeVswXS9sZW5ndGgsIHlbMV0vbGVuZ3RoXTsgY291bnQrKzsgYm9hcmQudXBkYXRlKCk7IHVwZGF0ZVJlYWRvdXQoKTsKfSk7CmxhYi5xdWVyeVNlbGVjdG9yKCcud2VlazUtcmVzZXQnKS5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIHJlc2V0KTsKLy8gUmUtbWVhc3VyZSBvbiB3aWR0aCBjaGFuZ2VzIGFuZCB3aGVuIHRoZSBjb250YWluaW5nIFF1YXJ0byB0YWIgYmVjb21lcyB2aXNpYmxlLgovLyBJZ25vcmUgemVybyBkaW1lbnNpb25zIHdoaWxlIGhpZGRlbjsgcmV0YWluIENTUyBvd25lcnNoaXAgb2YgdGhlIGdyYXBoIHNpemUuCmZ1bmN0aW9uIHJlc2l6ZUdyYXBoKCkgewogIHZhciB3aWR0aCA9IGdyYXBoLmNsaWVudFdpZHRoLCBoZWlnaHQgPSBncmFwaC5jbGllbnRIZWlnaHQ7CiAgaWYgKCEod2lkdGggPiAwICYmIGhlaWdodCA+IDApKSByZXR1cm47CiAgYm9hcmQucmVzaXplQ29udGFpbmVyKHdpZHRoLCBoZWlnaHQsIHRydWUpOwogIGJvYXJkLnNldEJvdW5kaW5nQm94KGJvdW5kcywgdHJ1ZSk7IGJvYXJkLmZ1bGxVcGRhdGUoKTsKICBwb3NpdGlvbkl0ZXJhdGVMYWJlbCgpOwp9CmlmICh0eXBlb2YgUmVzaXplT2JzZXJ2ZXIgIT09ICd1bmRlZmluZWQnKSB7CiAgdmFyIGdyYXBoT2JzZXJ2ZXIgPSBuZXcgUmVzaXplT2JzZXJ2ZXIocmVzaXplR3JhcGgpOwogIGdyYXBoT2JzZXJ2ZXIub2JzZXJ2ZShncmFwaCk7Cn0Kd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ3Jlc2l6ZScsIHJlc2l6ZUdyYXBoKTsKd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ3BhZ2VzaG93JywgcmVzaXplR3JhcGgpOwp1cGRhdGVSZWFkb3V0KCk7IHJlc2l6ZUdyYXBoKCk7PC9zY3JpcHQ+CjwvYm9keT4KPC9odG1sPg==" class="" name="iframeJXG952420b8_d027_62c5_b673_e184a68c" style="width:680px; height:650px; position:relative; margin:0; padding:0; display:block; z-index:1;width:100%;max-width:680px;height:650px;border:0;;" id="JXG952420b8_d027_62c5_b673_e184a68c" sandbox="allow-scripts"></iframe>
 </section>
 <section id="what-did-you-notice" class="level3">
 <h3 class="anchored" data-anchor-id="what-did-you-notice">What did you notice?</h3>
@@ -4761,9 +4886,9 @@ A corresponding eigenvector: \(v_2=\) <span class="math-vec" style="--n:2"><inpu
 For eigenvalue \(1\), enter \(w_2(t)=\) <span class=&quot;math-vec&quot; style=&quot;--n:2&quot;><input type=&quot;text&quot; id=&quot;math-exercise-4-f3&quot; data-vars=&quot;t&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-4-f4&quot; data-vars=&quot;t&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;></span><br>
 <br>
 Each eigenspace consists of the corresponding family for all \(t\in\mathbb R\).<br>
-To describe only its **eigenvectors**, exclude \(t=\) <input type=&quot;text&quot; id=&quot;math-exercise-4-f5&quot; data-vars=&quot;t&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-small&quot;>.<br>
+To describe only its <strong>eigenvectors</strong>, exclude \(t=\) <input type=&quot;text&quot; id=&quot;math-exercise-4-f5&quot; data-vars=&quot;t&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-small&quot;>.<br>
 <br>
-Enter **1 for yes**, **0 for no**:<br>
+Enter <strong>1 for yes</strong>, <strong>0 for no</strong>:<br>
 <br>
 Does the zero vector belong to each eigenspace? <input type=&quot;text&quot; id=&quot;math-exercise-4-f6&quot; data-vars=&quot;t&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-small&quot;><br>
 <br>
@@ -4772,9 +4897,9 @@ Is the zero vector an eigenvector? <input type=&quot;text&quot; id=&quot;math-ex
 For eigenvalue \(1\), enter \(w_2(t)=\) <span class="math-vec" style="--n:2"><input type="text" id="math-exercise-4-f3" data-answer="" data-vars="t" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-4-f4" data-answer="" data-vars="t" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"></span><br>
 <br>
 Each eigenspace consists of the corresponding family for all \(t\in\mathbb R\).<br>
-To describe only its **eigenvectors**, exclude \(t=\) <input type="text" id="math-exercise-4-f5" data-answer="" data-vars="t" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-small">.<br>
+To describe only its <strong>eigenvectors</strong>, exclude \(t=\) <input type="text" id="math-exercise-4-f5" data-answer="" data-vars="t" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-small">.<br>
 <br>
-Enter **1 for yes**, **0 for no**:<br>
+Enter <strong>1 for yes</strong>, <strong>0 for no</strong>:<br>
 <br>
 Does the zero vector belong to each eigenspace? <input type="text" id="math-exercise-4-f6" data-answer="" data-vars="t" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-small"><br>
 <br>
@@ -5362,14 +5487,18 @@ Hint for problem 2
   </script>
 </div> <!-- /content -->
 <script type="text/javascript">
-// Shared classic-script bootstrap for math-exercise and stack-sympy.
-// Keep the vendored copy in stack-sympy byte-identical to this file.
+// Shared classic-script bootstrap for math-exercise, py-exercise and stack-sympy.
+// py-exercise ships a byte-identical copy (checked in CI); stack-sympy vendors
+// a pinned revision (see its vendor/provenance.json).
 (function (root) {
   'use strict';
 
-  if (root.MathExerciseRuntime) return;
+  // An older copy (another component's release) may have loaded first; a
+  // copy with the current interface replaces it (shared state lives on root).
+  if (root.MathExerciseRuntime && typeof root.MathExerciseRuntime.whenSlow === 'function') return;
 
   var indexURL = 'https://cdn.jsdelivr.net/pyodide/v0.27.2/full/';
+  var LOAD_TIMEOUT = root.__qExercisePyodideTimeout || 180000; // override for tests
 
   function loadScript(src) {
     if (src === indexURL + 'pyodide.js' && typeof root.loadPyodide === 'function') {
@@ -5416,19 +5545,35 @@ Hint for problem 2
     });
   }
 
+  // Waits for Python at most LOAD_TIMEOUT: a load that never finishes ends
+  // with an error a later attempt can retry, instead of waiting forever.
+  function withLoadLimit(promise) {
+    if (typeof setTimeout !== 'function') return Promise.resolve(promise);
+    var timer;
+    var timeout = new Promise(function (resolve, reject) {
+      timer = setTimeout(function () {
+        var error = new Error('Python did not finish loading within ' + LOAD_TIMEOUT / 1000 + ' s');
+        error.code = 'pyodide-timeout';
+        reject(error);
+      }, LOAD_TIMEOUT);
+    });
+    return Promise.race([Promise.resolve(promise), timeout]).finally(function () { clearTimeout(timer); });
+  }
+
   async function ensurePyodide() {
     // Some Quarto integrations declare these with top-level `let`, which is
     // visible to classic scripts but is not a property of globalThis.
     var coatless = typeof qpyodideInstance !== 'undefined'
       ? qpyodideInstance : root.qpyodideInstance;
     if (typeof coatless !== 'undefined') {
-      root.mainPyodide = await coatless;
+      // pyodide-interaktiv's worker may still be starting.
+      root.mainPyodide = await withLoadLimit(coatless);
       return root.mainPyodide;
     }
     var existing = typeof mainPyodide !== 'undefined'
       ? mainPyodide : root.mainPyodide;
     if (typeof existing !== 'undefined') {
-      root.mainPyodide = await existing;
+      root.mainPyodide = await withLoadLimit(existing);
       return root.mainPyodide;
     }
 
@@ -5437,7 +5582,9 @@ Hint for problem 2
     if (!root.__qExercisePyodide) {
       root.__qExercisePyodide = (async function () {
         await loadScript(indexURL + 'pyodide.js');
-        return root.loadPyodide({ indexURL: indexURL });
+        // A failed WebAssembly download leaves loadPyodide() pending forever;
+        // give up after LOAD_TIMEOUT so that a later attempt can start again.
+        return withLoadLimit(root.loadPyodide({ indexURL: indexURL }));
       })();
     }
     var pending = root.__qExercisePyodide;
@@ -5450,12 +5597,354 @@ Hint for problem 2
     }
   }
 
+  // Interpreter state that code run by one component on the page must not
+  // change for the others (learner code in py-exercise, answers parsed by
+  // math-exercise): `snapshot()` before, `restore(state)` after.
+  var GUARD_PY = [
+    'import builtins as _builtins, os as _os, sys as _sys',
+    '_MISSING = object()',
+    '',
+    'def snapshot():',
+    '    return {',
+    '        "builtins": dict(_builtins.__dict__),',
+    '        "streams": (_sys.stdin, _sys.stdout, _sys.stderr),',
+    '        "hooks": (_sys.displayhook, _sys.excepthook),',
+    '        "recursion": _sys.getrecursionlimit(),',
+    '        "path": list(_sys.path),',
+    '        "path_list": _sys.path,',
+    '        "cwd": _os.getcwd(),',
+    '        "modules": {k: v for k, v in _sys.modules.items() if k.startswith("_ctm_")},',
+    '    }',
+    '',
+    'def restore(state):',
+    '    # Each item on its own: one that fails must not leave the others changed.',
+    '    def builtins_():',
+    '        current = _builtins.__dict__',
+    '        for key in [k for k in current if k not in state["builtins"]]:',
+    '            del current[key]',
+    '        for key, value in state["builtins"].items():',
+    '            if current.get(key, _MISSING) is not value:',
+    '                current[key] = value',
+    '    def streams():',
+    '        _sys.stdin, _sys.stdout, _sys.stderr = state["streams"]',
+    '        _sys.displayhook, _sys.excepthook = state["hooks"]',
+    '    def path():',
+    '        _sys.path = state["path_list"]',
+    '        _sys.path[:] = state["path"]',
+    '    for step in (builtins_, streams, lambda: _sys.setrecursionlimit(state["recursion"]), path,',
+    '                 lambda: _os.chdir(state["cwd"]), lambda: _sys.modules.update(state["modules"])):',
+    '        try:',
+    '            step()',
+    '        except Exception:',
+    '            pass',
+  ].join('\n');
+
+  // Installs a Python source as a private module (not in the interpreter's
+  // global namespace, which learner code shares), once per runtime. Calls for
+  // the same module share one install; each module passes its source under
+  // its own name, so concurrent installs of different modules cannot mix.
+  var installed = typeof WeakMap === 'function' ? new WeakMap() : null;
+  function installModule(py, name, source) {
+    var done = installed && installed.get(py);
+    if (done && done[name]) return done[name];
+    var variable = '_ctm_source_' + name.replace(/[^A-Za-z0-9_]/g, '_');
+    var install = (async function () {
+      await py.globals.set(variable, source);
+      await py.runPythonAsync([
+        'import sys as _ctm_sys, types as _ctm_types',
+        '_ctm_module = _ctm_types.ModuleType("' + name + '")',
+        'exec(' + variable + ', _ctm_module.__dict__)',
+        '_ctm_sys.modules["' + name + '"] = _ctm_module',
+        'del _ctm_sys, _ctm_types, _ctm_module, ' + variable,
+      ].join('\n'));
+    })();
+    if (installed) {
+      if (!done) { done = {}; installed.set(py, done); }
+      done[name] = install;
+      install.catch(function () { if (done[name] === install) delete done[name]; });
+    }
+    return install;
+  }
+  // Forget installed modules of a runtime (for example after learner code in
+  // another cell removed them); the next install runs again.
+  function forgetModules(py) { if (installed) installed.delete(py); }
+  function ensureGuard(py) { return installModule(py, '_ctm_guard', GUARD_PY); }
+
+  // A runtime that can be stopped while it runs (pyodide-interaktiv's worker):
+  // Python on the page itself cannot be interrupted, only reloaded.
+  function canStop() {
+    var py = root.mainPyodide;
+    return !!(py && typeof py.restart === 'function');
+  }
+  // Stops are page-wide: every component compares `stops` before and after a
+  // run, so a check stopped from any button is neither repeated nor shown as
+  // an unexpected error.
+  var stops = 0;
+  function stop(reason) {
+    if (!canStop()) return;
+    stops++;
+    root.mainPyodide.restart(reason || 'Stopped by the learner');
+  }
+  function stopCount() { return stops; }
+  // Calls onSlow once when a run has taken `ms` and the runtime can be
+  // stopped (a worker that is still starting becomes stoppable later).
+  // Returns a function that cancels it.
+  function whenSlow(ms, onSlow) {
+    var timer = null, cancelled = false;
+    function check() {
+      if (cancelled) return;
+      if (canStop()) { onSlow(); return; }
+      timer = setTimeout(check, 1000);
+    }
+    timer = setTimeout(check, Math.min(ms, 2147483647));  // larger delays overflow to 0
+    return function () { cancelled = true; clearTimeout(timer); };
+  }
+
   root.MathExerciseRuntime = {
     indexURL: indexURL,
+    loadTimeout: LOAD_TIMEOUT,
     loadScript: loadScript,
-    ensurePyodide: ensurePyodide
+    ensurePyodide: ensurePyodide,
+    installModule: installModule,
+    forgetModules: forgetModules,
+    ensureGuard: ensureGuard,
+    canStop: canStop,
+    stop: stop,
+    stopCount: stopCount,
+    whenSlow: whenSlow
   };
 })(globalThis);
+
+/* Reusable dynamic matrix editor extracted from math-exercise. AGPL-3.0-or-later.
+ * Editing/presentation only: consumers own parsing, grading and feedback policy. */
+(function (root) {
+  'use strict';
+  function escHtml(value) { return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
+  var defaults = { matrixAddRow: 'Add row', matrixRemoveRow: 'Remove row', matrixAddColumn: 'Add column', matrixRemoveColumn: 'Remove column', matrixRows: 'Rows', matrixColumns: 'Columns', emptyMatrix: 'Empty matrix' };
+  function factory(options) {
+    options = options || {};
+    var exerciseId = options.idPrefix || 'matrix', vars = options.vars || '';
+    var L = Object.assign({}, defaults, options.labels || {});
+    var zero = options.zeroDimensions || 'reject';
+    if (zero !== 'reject' && zero !== 'canonical') throw new Error('matrix-input: invalid zeroDimensions policy');
+    function validateSpec(spec) {
+      if (!spec || !/^[A-Za-z][A-Za-z0-9_-]*$/.test(spec.name)) throw new Error('matrix-input: invalid name');
+      ['rows', 'cols'].forEach(function (key) {
+        var axis = spec[key];
+        if (!axis || typeof axis.auto !== 'boolean') throw new Error('matrix-input: invalid axis');
+        ['min','max','initial'].forEach(function (bound) {
+          if (!Number.isInteger(axis[bound]) || axis[bound] < (zero === 'reject' ? 1 : 0) || axis[bound] > 20) throw new Error('matrix-input: invalid dimension bound');
+        });
+        if (axis.min > axis.initial || axis.initial > axis.max || (!axis.auto && (axis.min !== axis.max || axis.initial !== axis.min))) throw new Error('matrix-input: inconsistent axis bounds');
+      });
+      if (options.maxEntries !== undefined && (!Number.isInteger(options.maxEntries) || options.maxEntries < 1 || spec.rows.max * spec.cols.max > options.maxEntries)) throw new Error('matrix-input: total entry bound exceeded');
+    }
+  function dynamicMatrixCellHtml(exerciseId, spec, row, column, vars) {
+    var fid = exerciseId + '-dm-' + spec.name + '-' + row + '-' + column;
+    var label = 'dm:' + spec.name + ':' + row + ',' + column;
+    return {
+      id: fid,
+      label: label,
+      html: '<input type="text" id="' + escHtml(fid) + '" data-answer=""'
+          + ' data-vars="' + escHtml(vars) + '"'
+          + ' data-dynamic-matrix-name="' + escHtml(spec.name) + '"'
+          + ' data-matrix-row="' + row + '" data-matrix-column="' + column + '"'
+          + ' data-structural-label="' + escHtml(label) + '"'
+          + ' aria-label="' + escHtml(spec.name + ', ' + L.matrixRows + ' ' + row + ', ' + L.matrixColumns + ' ' + column) + '"'
+          + ' autocomplete="off" autocorrect="off" spellcheck="false"'
+          + ' class="math-input math-mat-cell">',
+    };
+  }
+
+  function renderHTML(spec) {
+    validateSpec(spec);
+    var configuredRows = spec.rows.initial, configuredCols = spec.cols.initial;
+    var rows = configuredRows, cols = configuredCols;
+    if (rows === 0 || cols === 0) { rows = 0; cols = 0; }
+    var ids = [], labels = [], cells = [];
+    for (var row = 1; row <= rows; row++) {
+      for (var column = 1; column <= cols; column++) {
+        var cell = dynamicMatrixCellHtml(exerciseId, spec, row, column, vars);
+        ids.push(cell.id); labels.push(cell.label); cells.push(cell.html);
+      }
+    }
+    var matrix = '<span class="math-mat math-dynamic-mat" style="--cols:' + Math.max(cols, 1) + '"'
+      + ' data-matrix-name="' + escHtml(spec.name) + '" data-rows="' + rows + '" data-cols="' + cols + '"'
+      + ' data-auto-rows="' + spec.rows.auto + '" data-auto-cols="' + spec.cols.auto + '"'
+      + ' data-min-rows="' + spec.rows.min + '" data-max-rows="' + spec.rows.max + '"'
+      + ' data-min-cols="' + spec.cols.min + '" data-max-cols="' + spec.cols.max + '"'
+      + ' data-last-rows="' + configuredRows + '" data-last-cols="' + configuredCols + '">'
+      + cells.join('') + '</span>';
+    var controls = '<span class="math-dynamic-matrix-controls" aria-label="Matrix size controls">'
+      + '<span class="math-dynamic-axis" data-dynamic-axis="row"><span class="math-dynamic-axis-label"></span>'
+      + '<button type="button" data-dynamic-action="remove-row">−</button><output></output>'
+      + '<button type="button" data-dynamic-action="add-row">+</button></span>'
+      + '<span class="math-dynamic-axis" data-dynamic-axis="col"><span class="math-dynamic-axis-label"></span>'
+      + '<button type="button" data-dynamic-action="remove-col">−</button><output></output>'
+      + '<button type="button" data-dynamic-action="add-col">+</button></span>'
+      + '</span>';
+    return {
+      html: '<span class="math-dynamic-matrix-wrap" data-matrix-name="' + escHtml(spec.name) + '">' + matrix + controls + '</span>',
+      ids: ids,
+      labels: labels,
+      count: 0,
+    };
+  }
+
+  function dynamicSpecFromElement(matrix) {
+    return {
+      name: matrix.dataset.matrixName,
+      rows: {
+        auto: matrix.dataset.autoRows === 'true',
+        initial: Number(matrix.dataset.lastRows),
+        min: Number(matrix.dataset.minRows),
+        max: Number(matrix.dataset.maxRows),
+      },
+      cols: {
+        auto: matrix.dataset.autoCols === 'true',
+        initial: Number(matrix.dataset.lastCols),
+        min: Number(matrix.dataset.minCols),
+        max: Number(matrix.dataset.maxCols),
+      },
+    };
+  }
+
+  function renderDynamicMatrixElement(matrix, exerciseId, vars, rows, cols) {
+    var oldValues = {};
+    matrix.querySelectorAll('input[data-matrix-row][data-matrix-column]').forEach(function (input) {
+      oldValues[input.dataset.matrixRow + ',' + input.dataset.matrixColumn] = input.value;
+    });
+    var spec = dynamicSpecFromElement(matrix);
+    if (rows === 0 || cols === 0) { rows = 0; cols = 0; }
+    else {
+      matrix.dataset.lastRows = String(rows);
+      matrix.dataset.lastCols = String(cols);
+    }
+    var cells = [];
+    for (var row = 1; row <= rows; row++) {
+      for (var column = 1; column <= cols; column++) {
+        var cell = dynamicMatrixCellHtml(exerciseId, spec, row, column, vars);
+        cells.push(cell.html);
+      }
+    }
+    matrix.dataset.rows = String(rows);
+    matrix.dataset.cols = String(cols);
+    matrix.style.setProperty('--cols', String(Math.max(cols, 1)));
+    matrix.innerHTML = cells.length
+      ? cells.join('')
+      : '<span class="math-dynamic-matrix-empty" aria-live="polite">' + escHtml(L.emptyMatrix) + '</span>';
+    matrix.querySelectorAll('input[data-matrix-row][data-matrix-column]').forEach(function (input) {
+      var key = input.dataset.matrixRow + ',' + input.dataset.matrixColumn;
+      if (Object.prototype.hasOwnProperty.call(oldValues, key)) input.value = oldValues[key];
+    });
+  }
+
+  function resizedDynamicMatrixShape(matrix, spec, action) {
+    var rows = Number(matrix.dataset.rows), cols = Number(matrix.dataset.cols);
+    var empty = rows === 0 || cols === 0;
+    if (empty && action === 'add-row') {
+      rows = Math.max(1, spec.rows.min);
+      cols = spec.cols.auto ? Math.max(1, Number(matrix.dataset.lastCols) || spec.cols.initial) : spec.cols.initial;
+    } else if (empty && action === 'add-col') {
+      cols = Math.max(1, spec.cols.min);
+      rows = spec.rows.auto ? Math.max(1, Number(matrix.dataset.lastRows) || spec.rows.initial) : spec.rows.initial;
+    } else if (action === 'add-row' && rows < spec.rows.max) rows++;
+    if (action === 'remove-row' && rows > spec.rows.min) rows--;
+    if (!empty && action === 'add-col' && cols < spec.cols.max) cols++;
+    if (action === 'remove-col' && cols > spec.cols.min) cols--;
+    return { rows: rows, cols: cols };
+  }
+
+
+    function mount(wrap) {
+      if (wrap.matrixInput) wrap.matrixInput.destroy();
+      var matrix = wrap.querySelector('.math-dynamic-mat');
+      if (!matrix) throw new Error('matrix-input: missing matrix element');
+      var spec = dynamicSpecFromElement(matrix);
+      validateSpec(spec);
+      var controls = wrap.querySelector('.math-dynamic-matrix-controls');
+      var destroyed = false, listeners = [];
+      var labels = {'add-row':L.matrixAddRow,'remove-row':L.matrixRemoveRow,'add-col':L.matrixAddColumn,'remove-col':L.matrixRemoveColumn};
+      function alive() { if (destroyed) throw new Error('matrix-input: editor destroyed'); }
+      function read() {
+        alive();
+        return {type:'matrix', rows:Number(matrix.dataset.rows), cols:Number(matrix.dataset.cols), raw:Array.from(matrix.querySelectorAll('input[data-matrix-row]'), function (input) { return input.value; })};
+      }
+      function setState(state) {
+        alive(); state = state || {};
+        var classes = {correct:'math-input-ok',dependent:'math-input-dependent',partial:'math-input-partial',incorrect:'math-input-wrong',invalid:'math-input-err',error:'math-input-err'};
+        function validStatus(status) {
+          if (status !== undefined && status !== '' && status !== 'empty' && !Object.prototype.hasOwnProperty.call(classes,status)) throw new Error('matrix-input: invalid presentation status');
+        }
+        function validAxis(values, limit) {
+          if (values === undefined) return;
+          if (!Array.isArray(values) || values.length > limit) throw new Error('matrix-input: invalid state coordinates');
+          values.forEach(validStatus);
+        }
+        validStatus(state.status);
+        validAxis(state.rows,Number(matrix.dataset.rows));
+        validAxis(state.columns,Number(matrix.dataset.cols));
+        if (state.cells !== undefined) {
+          if (!Array.isArray(state.cells) || state.cells.length > Number(matrix.dataset.rows)) throw new Error('matrix-input: invalid state coordinates');
+          state.cells.forEach(function (row) { validAxis(row,Number(matrix.dataset.cols)); });
+        }
+        matrix.querySelectorAll('input').forEach(function (input) {
+          Object.keys(classes).forEach(function (key) { input.classList.remove(classes[key]); });
+          input.removeAttribute('aria-invalid');
+          var row = Number(input.dataset.matrixRow)-1, col = Number(input.dataset.matrixColumn)-1;
+          var status = (state.cells && state.cells[row] && state.cells[row][col]) || (state.columns && state.columns[col]) || (state.rows && state.rows[row]) || state.status;
+          if (classes[status]) input.classList.add(classes[status]);
+          if (status === 'invalid' || status === 'error') input.setAttribute('aria-invalid','true');
+        });
+      }
+      function syncControls() {
+        var rows=Number(matrix.dataset.rows), cols=Number(matrix.dataset.cols);
+        controls.querySelectorAll('.math-dynamic-axis').forEach(function (el) {
+          var row=el.dataset.dynamicAxis==='row', axis=row?spec.rows:spec.cols;
+          el.style.display=axis.auto?'':'none';
+          el.querySelector('.math-dynamic-axis-label').textContent=row?L.matrixRows:L.matrixColumns;
+          el.querySelector('output').textContent=String(row?rows:cols);
+        });
+        controls.querySelectorAll('button').forEach(function (button) {
+          var action=button.dataset.dynamicAction, row=action.indexOf('row')!==-1, axis=row?spec.rows:spec.cols, value=row?rows:cols;
+          button.setAttribute('aria-label',labels[action]+' '+spec.name);
+          var opposite = row ? spec.cols : spec.rows;
+          button.disabled=!axis.auto || (action.indexOf('add')===0?(value>=axis.max || opposite.max===0):value<=axis.min);
+        });
+      }
+      function notify(kind) { setState(); if (options.onChange) options.onChange({kind:kind, value:read()}); }
+    function resize(rows,cols, silent) {
+        alive();
+        var canonical=zero==='canonical' && (rows===0 || cols===0);
+        ['rows','cols'].forEach(function (key) {
+          var n=key==='rows'?rows:cols, axis=spec[key];
+          if (!Number.isInteger(n) || (!canonical && (n<axis.min || n>axis.max)) || (canonical && (n<0 || n>axis.max))) throw new Error('matrix-input: dimensions outside bounds');
+        });
+        renderDynamicMatrixElement(matrix,exerciseId,vars,rows,cols); syncControls(); if (!silent) notify('resize');
+      }
+      function write(value) {
+        alive();
+        if (!value || !Array.isArray(value.raw) || value.raw.length!==value.rows*value.cols || value.raw.some(function (v) {return typeof v!=='string';})) throw new Error('matrix-input: expected rectangular raw string values');
+        resize(value.rows,value.cols,true);
+        matrix.querySelectorAll('input[data-matrix-row]').forEach(function (input,index) { input.value=value.raw[index]; });
+        notify('write');
+      }
+      function listen(el,event,fn) { el.addEventListener(event,fn); listeners.push(function () {el.removeEventListener(event,fn);}); }
+      controls.querySelectorAll('button[data-dynamic-action]').forEach(function (button) {
+        listen(button,'click',function () { if (button.disabled) return; var shape=resizedDynamicMatrixShape(matrix,spec,button.dataset.dynamicAction); resize(shape.rows,shape.cols); });
+      });
+      listen(matrix,'input',function () {notify('edit');});
+      if (Number(matrix.dataset.rows)===0 || Number(matrix.dataset.cols)===0) renderDynamicMatrixElement(matrix,exerciseId,vars,0,0);
+      syncControls();
+      var initial=read();
+      var api={read:read,write:write,resize:resize,setState:setState,reset:function () {write(initial);},destroy:function () { if (destroyed) return; listeners.forEach(function (remove) {remove();}); destroyed=true; delete wrap.matrixInput; }};
+      wrap.matrixInput=api;
+      return api;
+    }
+    return {renderHTML:renderHTML,mount:mount,resizedShape:resizedDynamicMatrixShape};
+  }
+  root.MatrixInput={version:'1.0.0',create:factory};
+})(typeof window !== 'undefined' ? window : globalThis);
 
 (function () {
   'use strict';
@@ -5475,6 +5964,7 @@ Hint for problem 2
       errDivZero: "Division by zero: the expression is undefined at this point.",
       errType: "Type error: make sure numbers and variables are combined correctly.",
       errGeneric: "The input could not be processed – use the input help for the correct spelling.",
+      errRuntime: "Python could not be loaded. Check the internet connection and press Check again.",
       vecComponent: function (n) { return 'Component ' + n; },
       matCell: function (row, column) { return 'Row ' + row + ', column ' + column; },
       dynamicMatCell: function (name, row, column) { return name + ', row ' + row + ', column ' + column; },
@@ -5501,6 +5991,10 @@ Hint for problem 2
       },
       loadingHelp: "&#9203; Loading help&hellip;",
       checking: "&#9203; Checking&hellip;",
+      slowCheck: "Still checking – the answer may be too large to evaluate.",
+      slowLoad: "Python is still loading.",
+      stop: "Stop",
+      errStopped: "Stopped. Python was restarted (interactive cells on this page lost their variables).",
       needAnswerFirst: "Please enter an answer first, then request feedback.",
       outputLanguageCode: "en",
       feedbackFieldSingle: "Answer",
@@ -5522,6 +6016,7 @@ Hint for problem 2
       errDivZero: "Division durch Null: der Ausdruck ist an dieser Stelle nicht definiert.",
       errType: "Typ-Fehler: Stelle sicher, dass Zahlen und Variablen korrekt kombiniert sind.",
       errGeneric: "Die Eingabe konnte nicht verarbeitet werden – nutze die Eingabe-Hilfe für korrekte Schreibweisen.",
+      errRuntime: "Python konnte nicht geladen werden. Prüfe die Internetverbindung und drücke erneut auf Überprüfen.",
       vecComponent: function (n) { return 'Komponente ' + n; },
       matCell: function (row, column) { return 'Zeile ' + row + ', Spalte ' + column; },
       dynamicMatCell: function (name, row, column) { return name + ', Zeile ' + row + ', Spalte ' + column; },
@@ -5548,6 +6043,10 @@ Hint for problem 2
       },
       loadingHelp: "&#9203; Lade Hilfe&hellip;",
       checking: "&#9203; Überprüfe&hellip;",
+      slowCheck: "Die Prüfung dauert noch – die Antwort ist vielleicht zu groß zum Auswerten.",
+      slowLoad: "Python wird noch geladen.",
+      stop: "Abbrechen",
+      errStopped: "Abgebrochen. Python wurde neu gestartet (interaktive Zellen auf dieser Seite haben ihre Variablen verloren).",
       needAnswerFirst: "Bitte zuerst eine Antwort eingeben, dann Feedback anfordern.",
       outputLanguageCode: "de",
       feedbackFieldSingle: "Antwort",
@@ -5569,6 +6068,7 @@ Hint for problem 2
       errDivZero: "Divisjon med null: Uttrykket er ikke definert i dette punktet.",
       errType: "Typefeil: Sjekk at tall og variabler er kombinert riktig.",
       errGeneric: "Inntastingen kunne ikke behandles – bruk inntastingshjelpen for å finne riktig skrivemåte.",
+      errRuntime: "Python kunne ikke lastes inn. Kontroller internettforbindelsen og trykk Sjekk igjen.",
       vecComponent: function (n) { return 'Komponent ' + n; },
       matCell: function (row, column) { return 'Rad ' + row + ', kolonne ' + column; },
       dynamicMatCell: function (name, row, column) { return name + ', rad ' + row + ', kolonne ' + column; },
@@ -5595,6 +6095,10 @@ Hint for problem 2
     },
       loadingHelp: "&#9203; Laster hjelp&hellip;",
       checking: "&#9203; Sjekker&hellip;",
+      slowCheck: "Sjekken pågår fortsatt – svaret er kanskje for stort til å regnes ut.",
+      slowLoad: "Python lastes fortsatt inn.",
+      stop: "Avbryt",
+      errStopped: "Avbrutt. Python ble startet på nytt (interaktive celler på denne siden mistet variablene sine).",
       needAnswerFirst: "Skriv inn et svar før du ber om tilbakemelding.",
       outputLanguageCode: "nb",
       feedbackFieldSingle: "Svar",
@@ -5642,25 +6146,6 @@ Hint for problem 2
 
   function simpleMarkdown(text) { return window.AIFeedback.renderMarkdown(text); }
 
-  function loadScript(src) {
-    return new Promise(function (resolve, reject) {
-      var existing = document.querySelector('script[src="' + src + '"]');
-      if (existing) {
-        if (existing.dataset.qLoaded === '1') { resolve(); return; }
-        existing.addEventListener('load', function () { resolve(); });
-        existing.addEventListener('error', function () {
-          reject(new Error('Failed to load: ' + src));
-        });
-        return;
-      }
-      var s = document.createElement('script');
-      s.src = src;
-      s.onload = function () { s.dataset.qLoaded = '1'; resolve(); };
-      s.onerror = function () { reject(new Error('Failed to load: ' + src)); };
-      document.head.appendChild(s);
-    });
-  }
-
   // ---------------------------------------------------------------------------
   // Pyodide bootstrap  (reuse coatless instance if present)
   // ---------------------------------------------------------------------------
@@ -5676,7 +6161,7 @@ Hint for problem 2
   var katexReady = false;
   var katexLib = null;
   var renderMathInElementFn = null;
-  var KATEX = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/';
+  var KATEX = 'https://cdn.jsdelivr.net/npm/katex@0.16/';
 
   async function ensureKatex() {
     if (katexReady) return;
@@ -5716,8 +6201,16 @@ Hint for problem 2
   // SymPy  (lazy – first Check click)
   // ---------------------------------------------------------------------------
 
-  var sympyReady = false;
-  var packageLoads = Object.create(null);
+  // A Pyodide runtime can be replaced on the page (pyodide-interaktiv's Stop or
+  // restart terminates its worker). SymPy setup and package loads therefore
+  // belong to one runtime object and are repeated for a new one.
+  var sympyRuntime = null;
+  var packageLoads = new WeakMap();
+  if (typeof window !== 'undefined' && window.addEventListener) {
+    window.addEventListener('qpyodide-runtime-restart', function () {
+      sympyRuntime = null; sympyLoading = null;
+    });
+  }
 
   function parsePackageList(value) {
     var packages = Array.isArray(value) ? value : [];
@@ -5737,28 +6230,46 @@ Hint for problem 2
 
   async function ensurePackages(packages) {
     var requested = parsePackageList(packages);
+    if (!requested.length) return;
+    var py = await ensurePyodide();
+    var loads = packageLoads.get(py);
+    if (!loads) { loads = Object.create(null); packageLoads.set(py, loads); }
     await Promise.all(requested.map(function (name) {
       var key = name.toLowerCase();
-      if (!packageLoads[key]) {
-        packageLoads[key] = mainPyodide.loadPackage(name).catch(function (error) {
-          delete packageLoads[key];
+      if (!loads[key]) {
+        loads[key] = py.loadPackage(name).catch(function (error) {
+          delete loads[key];
           throw error;
         });
       }
-      return packageLoads[key];
+      return loads[key];
     }));
   }
 
   var sympyLoading = null;
-  function ensureSympy() {
-    if (!sympyLoading) sympyLoading = initializeSympy().catch(function(error){sympyLoading=null;throw error;});
+  // Resolves to the runtime on which SymPy and the checker helpers are ready.
+  async function ensureSympy() {
+    var py = await ensurePyodide();
+    if (sympyRuntime === py) return py;
+    if (!sympyLoading || sympyLoading.runtime !== py) {
+      var loading = initializeSympy(py).then(function () { sympyRuntime = py; return py; },
+        function (error) { if (sympyLoading === loading) sympyLoading = null; throw error; });
+      loading.runtime = py;
+      sympyLoading = loading;
+    }
     return sympyLoading;
   }
-  async function initializeSympy() {
-    if (sympyReady) return;
-    await ensurePyodide();
-    await mainPyodide.loadPackage('sympy');
-    await mainPyodide.runPythonAsync([
+  // The checker runtime lives in its own module, not in the interpreter's
+  // global namespace: learner code in other cells on the page (for example
+  // pyodide-interaktiv) shares that namespace and may rebind names such as
+  // `symbols`, `Matrix` or `sqrt`.
+  var MATH_MODULE = '_ctm_math_exercise';
+  function runtimeCall(name) {
+    return '__import__("' + MATH_MODULE + '")._math_run("' + name + '", globals())';
+  }
+  async function initializeSympy(py) {
+    await py.loadPackage('sympy');
+    var source = [
       'from sympy import *',
       'from sympy.parsing.sympy_parser import (',
       '    parse_expr, standard_transformations,',
@@ -5799,10 +6310,20 @@ Hint for problem 2
       '    parts.append(cur)',
       '    return [p.strip() for p in parts if p.strip() != ""]',
       '',
+      '# Rounds the decimal value (15 significant digits, so binary noise in a',
+      '# computed key such as 1.05*1.9 does not count) half away from zero:',
+      '# round(5.395, 2) is 5.39 for the binary float, but 5.40 here.',
+      'def _round_places(x, d):',
+      '    from decimal import Decimal, ROUND_HALF_UP, InvalidOperation',
+      '    try:',
+      '        return float(Decimal(format(float(x), \'.15g\')).quantize(Decimal(1).scaleb(-d), rounding=ROUND_HALF_UP))',
+      '    except (InvalidOperation, ValueError, OverflowError):',
+      '        return round(x, d)',
+      '',
       'def _sigfigs_round(x, n):',
       '    if x == 0: return 0.0',
       '    d = n - int(floor(log10(abs(x)))) - 1',
-      '    return round(x, d)',
+      '    return _round_places(x, d)',
       '',
       'def _parse_tol(spec, ref):',
       '    spec = spec.strip()',
@@ -5820,7 +6341,7 @@ Hint for problem 2
       'def _num_equal(sv, cv):',
       '    if _math_decplaces.strip():',
       '        n = int(_math_decplaces)',
-      '        return round(sv, n) == round(cv, n)',
+      '        return _round_places(sv, n) == _round_places(cv, n)',
       '    if _math_sigfigs.strip():',
       '        n = int(_math_sigfigs)',
       '        return _sigfigs_round(sv, n) == _sigfigs_round(cv, n)',
@@ -6094,8 +6615,49 @@ Hint for problem 2
       '        return _normalize_custom_result(checker(response, checker_symbols))',
       '    except Exception as _me:',
       '        return {"status": "error", "message": str(_me)}',
-    ].join('\n'));
-    sympyReady = true;
+      '',
+      '_MATH_INPUTS = ("_math_student", "_math_correct", "_math_vars", "_math_mode", "_math_reject",',
+      '                "_math_tolerance", "_math_decplaces", "_math_sigfigs", "_math_form",',
+      '                "_math_partial_credit", "_math_form_credit", "_math_response_json", "_math_checker")',
+      '',
+      'try:',
+      '    import _ctm_guard',
+      'except ImportError:  # native test runners (question-tests.py) have no page to protect',
+      '    _ctm_guard = None',
+      '',
+      'def _learner_strings(request):',
+      '    # Only what this request brought: earlier requests leave other inputs behind.',
+      '    if "_math_student" in request and request.get("_math_mode") not in ("string", "string_ci"):',
+      '        yield request["_math_student"] or ""  # string answers are never evaluated',
+      '    try:',
+      '        response = _mj.loads(request.get("_math_response_json") or "null")',
+      '    except ValueError:',
+      '        return',
+      '    if isinstance(response, dict):',
+      '        yield from response.get("raw", []) or []',
+      '        for item in (response.get("inputs") or {}).values():',
+      '            if isinstance(item, dict):',
+      '                yield from item.get("raw", []) or []',
+      '',
+      'def _math_run(name, caller):',
+      '    # Move this request\'s inputs out of the shared namespace into the module.',
+      '    request = {key: caller.pop(key) for key in _MATH_INPUTS if key in caller}',
+      '    globals().update(request)',
+      '    # Learner answers are parsed by SymPy (which evaluates Python): no dunder',
+      '    # access. Author data (variants, checkers) is not restricted.',
+      '    if any("__" in str(text) for text in _learner_strings(request)):',
+      '        raise ValueError("SyntaxError: unsupported input")',
+      '    # Whatever the parsed answer or checker does, other components on the',
+      '    # page keep their interpreter state.',
+      '    state = _ctm_guard.snapshot() if _ctm_guard else None',
+      '    try:',
+      '        return _mj.dumps(globals()[name]())',
+      '    finally:',
+      '        if state is not None:',
+      '            _ctm_guard.restore(state)',
+    ].join('\n');
+    await globalThis.MathExerciseRuntime.ensureGuard(py);
+    await globalThis.MathExerciseRuntime.installModule(py, MATH_MODULE, source);
   }
 
   // ---------------------------------------------------------------------------
@@ -6133,6 +6695,10 @@ Hint for problem 2
 
   function friendlyError(raw) {
     var msg = String(raw || '');
+    if (/did not finish loading|Failed to load: https?:/.test(msg))
+      return L.errRuntime;
+    if (/stopped by the learner/i.test(msg))
+      return L.errStopped;
     if (/SyntaxError/i.test(msg))
       return L.errSyntax;
     var nm = msg.match(/name ['"]([\w]+)['"] is not defined/);
@@ -6270,56 +6836,13 @@ Hint for problem 2
     return { name: name, rows: axis('rows'), cols: axis('cols') };
   }
 
-  function dynamicMatrixCellHtml(exerciseId, spec, row, column, vars) {
-    var fid = exerciseId + '-dm-' + spec.name + '-' + row + '-' + column;
-    var label = 'dm:' + spec.name + ':' + row + ',' + column;
-    return {
-      id: fid,
-      label: label,
-      html: '<input type="text" id="' + fid + '" data-answer=""'
-          + ' data-vars="' + escHtml(vars) + '"'
-          + ' data-dynamic-matrix-name="' + escHtml(spec.name) + '"'
-          + ' data-matrix-row="' + row + '" data-matrix-column="' + column + '"'
-          + ' data-structural-label="' + escHtml(label) + '"'
-          + ' autocomplete="off" autocorrect="off" spellcheck="false"'
-          + ' class="math-input math-mat-cell">',
-    };
+  function matrixEditorOptions(exerciseId, vars, onChange) {
+    return {idPrefix:exerciseId, vars:vars, labels:L, zeroDimensions:'canonical', onChange:onChange};
   }
 
   function buildDynamicMatrix(exerciseId, content, vars, mode) {
     if (mode !== 'custom') throw new Error('math-exercise: mat{...} currently requires mode: custom');
-    var spec = parseDynamicMatrixSpec(content);
-    var configuredRows = spec.rows.initial, configuredCols = spec.cols.initial;
-    var rows = configuredRows, cols = configuredCols;
-    if (rows === 0 || cols === 0) { rows = 0; cols = 0; }
-    var ids = [], labels = [], cells = [];
-    for (var row = 1; row <= rows; row++) {
-      for (var column = 1; column <= cols; column++) {
-        var cell = dynamicMatrixCellHtml(exerciseId, spec, row, column, vars);
-        ids.push(cell.id); labels.push(cell.label); cells.push(cell.html);
-      }
-    }
-    var matrix = '<span class="math-mat math-dynamic-mat" style="--cols:' + Math.max(cols, 1) + '"'
-      + ' data-matrix-name="' + escHtml(spec.name) + '" data-rows="' + rows + '" data-cols="' + cols + '"'
-      + ' data-auto-rows="' + spec.rows.auto + '" data-auto-cols="' + spec.cols.auto + '"'
-      + ' data-min-rows="' + spec.rows.min + '" data-max-rows="' + spec.rows.max + '"'
-      + ' data-min-cols="' + spec.cols.min + '" data-max-cols="' + spec.cols.max + '"'
-      + ' data-last-rows="' + configuredRows + '" data-last-cols="' + configuredCols + '">'
-      + cells.join('') + '</span>';
-    var controls = '<span class="math-dynamic-matrix-controls" aria-label="Matrix size controls">'
-      + '<span class="math-dynamic-axis" data-dynamic-axis="row"><span class="math-dynamic-axis-label"></span>'
-      + '<button type="button" data-dynamic-action="remove-row">−</button><output></output>'
-      + '<button type="button" data-dynamic-action="add-row">+</button></span>'
-      + '<span class="math-dynamic-axis" data-dynamic-axis="col"><span class="math-dynamic-axis-label"></span>'
-      + '<button type="button" data-dynamic-action="remove-col">−</button><output></output>'
-      + '<button type="button" data-dynamic-action="add-col">+</button></span>'
-      + '</span>';
-    return {
-      html: '<span class="math-dynamic-matrix-wrap" data-matrix-name="' + escHtml(spec.name) + '">' + matrix + controls + '</span>',
-      ids: ids,
-      labels: labels,
-      count: 0,
-    };
+    return window.MatrixInput.create(matrixEditorOptions(exerciseId,vars)).renderHTML(parseDynamicMatrixSpec(content));
   }
 
   function matchBalanced(text, position, open, close) {
@@ -6335,6 +6858,20 @@ Hint for problem 2
   // Raw exercise bodies bypass Pandoc's Markdown math handling. Normalize
   // paired dollar delimiters before inserting HTML so a page-level MathJax
   // pass cannot claim a bare \\begin{...} environment and strand the dollars.
+  // Same placeholder as math-exercise.lua: a literal dollar becomes its own
+  // element, so neither KaTeX auto-render nor MathJax treats it as a delimiter.
+  var LITERAL_DOLLAR = '\uE024';
+  var LITERAL_DOLLAR_HTML = '<span class="math-literal-dollar">$</span>';
+  // A code span: the next backtick on the same line, with something between;
+  // \` is a literal backtick. Returns the closing index or -1.
+  function codeSpanEnd(s, i) {
+    if (i > 0 && s.charAt(i - 1) === '\\') return -1;
+    var k = s.indexOf('`', i + 1);
+    if (k < 0 || k === i + 1) return -1;
+    var newline = s.indexOf('\n', i + 1);
+    return newline >= 0 && newline < k ? -1 : k;
+  }
+
   function normalizeTaskMathDelimiters(text) {
     var output = '', position = 0;
     function unescapedAt(needle, start) {
@@ -6348,7 +6885,18 @@ Hint for problem 2
       return -1;
     }
     while (position < text.length) {
-      if (text.charAt(position) !== '$' || (position > 0 && text.charAt(position - 1) === '\\')) {
+      var codeEnd = text.charAt(position) === '`' ? codeSpanEnd(text, position) : -1;
+      if (codeEnd >= 0) {
+        // A dollar inside a code span is literal.
+        output += text.slice(position, codeEnd + 1); position = codeEnd + 1;
+        continue;
+      }
+      if (text.charAt(position) === '$' && position > 0 && text.charAt(position - 1) === '\\') {
+        // Escaped dollar: placeholder, turned into its own element after escaping.
+        output = output.slice(0, -1) + LITERAL_DOLLAR; position++;
+        continue;
+      }
+      if (text.charAt(position) !== '$') {
         output += text.charAt(position++);
         continue;
       }
@@ -6363,13 +6911,85 @@ Hint for problem 2
     return output;
   }
 
+  // Exercise text is Markdown-like plain text: HTML is shown as text (so a<b<c
+  // in TeX stays intact), and outside math a small inline Markdown subset is
+  // formatted: ***both***, **bold**, *italic*, `code`; \* and \` are literal; a
+  // trailing backslash is a line break. Emphasis may contain math. Same rules
+  // as inlineMarkdown()/proseHtml() in math-exercise.lua (parity test).
+  var MATH_SLOT = '';   // stands for one math span while formatting
+  var SPACE = /[ \t\r\n\f\v]/, WORD = /[A-Za-z0-9]/;
+
+  function inlineMarkdown(s) {
+    var out = '', i = 0, n = s.length;
+    // Closing delimiter for emphasis opened just before `from`: on the same
+    // line, not escaped, not after whitespace, not followed by another "*"
+    // (or, for "*", by a letter or digit). Linear in the line length.
+    function closing(delim, from) {
+      if (from >= n || SPACE.test(s.charAt(from))) return -1;
+      var newline = s.indexOf('\n', from); if (newline < 0) newline = n;
+      var j = from + 1;
+      for (;;) {
+        var k = s.indexOf(delim, j);
+        if (k < 0 || k >= newline) return -1;
+        var next = s.charAt(k + delim.length), before = s.charAt(k - 1);
+        if (next === '*' || before === '\\' || SPACE.test(before) || (delim === '*' && WORD.test(next))) j = k + 1;
+        else return k;
+      }
+    }
+    while (i < n) {
+      var c = s.charAt(i), next = s.charAt(i + 1), k;
+      if (c === '\\' && (next === '*' || next === '`')) { out += next; i += 2; }
+      else if (c === '\\' && next === '\n') i++;   // Markdown hard line break: the newline already breaks the line
+      else if (c === '`' && (k = codeSpanEnd(s, i)) >= 0) { out += '<code>' + s.slice(i + 1, k) + '</code>'; i = k + 1; }
+      else if (s.slice(i, i + 3) === '***' && (k = closing('***', i + 3)) >= 0) {
+        out += '<em><strong>' + inlineMarkdown(s.slice(i + 3, k)) + '</strong></em>'; i = k + 3;
+      } else if (c === '*' && next === '*') {
+        k = closing('**', i + 2);
+        if (k >= 0) { out += '<strong>' + inlineMarkdown(s.slice(i + 2, k)) + '</strong>'; i = k + 2; }
+        else { out += '**'; i += 2; }
+      } else if (c === '*' && !(i > 0 && WORD.test(s.charAt(i - 1)))) {
+        k = closing('*', i + 1);
+        if (k >= 0) { out += '<em>' + inlineMarkdown(s.slice(i + 1, k)) + '</em>'; i = k + 1; }
+        else { out += c; i++; }
+      } else { out += c; i++; }
+    }
+    return out;
+  }
+
+  // Escapes a run of exercise text and formats inline Markdown outside math
+  // (\( \), \[ \], \begin{..} \end{..} after normalizeTaskMathDelimiters) and
+  // outside code spans. Each math span is a slot while formatting, so emphasis
+  // may contain math.
+  function proseHtml(text) {
+    var plain = '', maths = [], position = 0;
+    while (position < text.length) {
+      var c = text.charAt(position), codeEnd = c === '`' ? codeSpanEnd(text, position) : -1;
+      var two = text.slice(position, position + 2);
+      var env = /^\\begin\{([^}]*)\}/.exec(text.slice(position, position + 200));
+      var closer = two === '\\(' ? '\\)' : two === '\\[' ? '\\]' : env ? '\\end{' + env[1] + '}' : null;
+      if (codeEnd >= 0) { plain += text.slice(position, codeEnd + 1); position = codeEnd + 1; }
+      else if (closer) {
+        var close = text.indexOf(closer, position + 2);
+        var stop = close >= 0 ? close + closer.length : text.length;
+        maths.push(escHtml(text.slice(position, stop)));
+        plain += MATH_SLOT;
+        position = stop;
+      } else { plain += c; position++; }
+    }
+    var index = 0;
+    return inlineMarkdown(escHtml(plain)).replace(//g, function () { return maths[index++]; });
+  }
+
   function renderTaskText(text, exerciseId, vars, vecdir, mode, questionIsHtml) {
     // Generated variants have already been rendered by Pandoc; preserve their
     // markup and source annotations. Ordinary exercise bodies are plain text.
     if (!questionIsHtml) text = normalizeTaskMathDelimiters(text);
     mode = mode || 'equivalent';
-    var count = 0, fieldIds = [], structuralLabels = [], output = [], position = 0;
+    var count = 0, fieldIds = [], structuralLabels = [], output = [], position = 0, prose = '';
     var dynamicNames = {};
+    function flush() {
+      if (prose) { output.push(questionIsHtml ? prose : proseHtml(prose)); prose = ''; }
+    }
     while (position < text.length) {
       var scalar = /^_+\[/.exec(text.slice(position));
       var boundary = !scalar && (position === 0 || !/[\w]/.test(text.charAt(position - 1)));
@@ -6381,15 +7001,14 @@ Hint for problem 2
       var brace = dynamicMatrix ? matchBalanced(text, position + headLength - 1, '{', '}') : null;
       var balanced = bracket || brace;
 
-      // Task prose and TeX are text, never HTML; generated controls below
-      // remain markup. In particular, a<b<c must reach the math renderer.
-      if (!balanced) {
-        var character = text.charAt(position++);
-        output.push(questionIsHtml ? character : escHtml(character));
-        continue;
-      }
+      // Task prose and TeX are text, never HTML (see proseHtml); generated
+      // controls below remain markup. In particular, a<b<c must reach the
+      // math renderer.
+      if (!balanced) { prose += text.charAt(position++); continue; }
+      flush();
 
-      var content = balanced.slice(1, -1), rendered;
+      // Inside an answer marker an escaped dollar is a plain dollar.
+      var content = balanced.slice(1, -1).split(LITERAL_DOLLAR).join('$'), rendered;
       if (scalar) {
         count++;
         var fid = exerciseId + '-f' + count;
@@ -6415,8 +7034,9 @@ Hint for problem 2
       }
       position += headLength - 1 + balanced.length;
     }
+    flush();
     return {
-      html: output.join('').replace(/\n/g, '<br>\n'),
+      html: output.join('').split(LITERAL_DOLLAR).join(LITERAL_DOLLAR_HTML).replace(/\n/g, '<br>\n'),
       fieldIds: fieldIds,
       structuralLabels: structuralLabels
     };
@@ -6456,40 +7076,15 @@ Hint for problem 2
     };
   }
 
-  function renderDynamicMatrixElement(matrix, exerciseId, vars, rows, cols) {
-    var oldValues = {};
-    matrix.querySelectorAll('input[data-matrix-row][data-matrix-column]').forEach(function (input) {
-      oldValues[input.dataset.matrixRow + ',' + input.dataset.matrixColumn] = input.value;
-    });
-    var spec = dynamicSpecFromElement(matrix);
-    if (rows === 0 || cols === 0) { rows = 0; cols = 0; }
-    else {
-      matrix.dataset.lastRows = String(rows);
-      matrix.dataset.lastCols = String(cols);
-    }
-    var cells = [];
-    for (var row = 1; row <= rows; row++) {
-      for (var column = 1; column <= cols; column++) {
-        var cell = dynamicMatrixCellHtml(exerciseId, spec, row, column, vars);
-        cells.push(cell.html);
-      }
-    }
-    matrix.dataset.rows = String(rows);
-    matrix.dataset.cols = String(cols);
-    matrix.style.setProperty('--cols', String(Math.max(cols, 1)));
-    matrix.innerHTML = cells.length
-      ? cells.join('')
-      : '<span class="math-dynamic-matrix-empty" aria-live="polite">' + escHtml(L.emptyMatrix) + '</span>';
-    matrix.querySelectorAll('input[data-matrix-row][data-matrix-column]').forEach(function (input) {
-      var key = input.dataset.matrixRow + ',' + input.dataset.matrixColumn;
-      if (Object.prototype.hasOwnProperty.call(oldValues, key)) input.value = oldValues[key];
-    });
-  }
-
   function collectDynamicMatrixInputs(root) {
     var inputs = {};
     root.querySelectorAll('.math-dynamic-mat').forEach(function (matrix) {
       var name = matrix.dataset.matrixName;
+      if (matrix.parentElement.matrixInput) {
+        var value = matrix.parentElement.matrixInput.read();
+        value.raw = value.raw.map(function (raw) { return raw.trim(); });
+        inputs[name] = value; return;
+      }
       var rows = Number(matrix.dataset.rows), cols = Number(matrix.dataset.cols);
       var raw = [];
       for (var row = 1; row <= rows; row++) {
@@ -6505,69 +7100,22 @@ Hint for problem 2
   }
 
   function resizedDynamicMatrixShape(matrix, spec, action) {
-    var rows = Number(matrix.dataset.rows), cols = Number(matrix.dataset.cols);
-    var empty = rows === 0 || cols === 0;
-    if (empty && action === 'add-row') {
-      rows = Math.max(1, spec.rows.min);
-      cols = spec.cols.auto ? Math.max(1, Number(matrix.dataset.lastCols) || spec.cols.initial) : spec.cols.initial;
-    } else if (empty && action === 'add-col') {
-      cols = Math.max(1, spec.cols.min);
-      rows = spec.rows.auto ? Math.max(1, Number(matrix.dataset.lastRows) || spec.rows.initial) : spec.rows.initial;
-    } else if (action === 'add-row' && rows < spec.rows.max) rows++;
-    if (action === 'remove-row' && rows > spec.rows.min) rows--;
-    if (!empty && action === 'add-col' && cols < spec.cols.max) cols++;
-    if (action === 'remove-col' && cols > spec.cols.min) cols--;
-    return { rows: rows, cols: cols };
+    return window.MatrixInput.create({zeroDimensions:'canonical'}).resizedShape(matrix, spec, action);
   }
 
   function initializeDynamicMatrices(root, exerciseId, vars, onChange) {
-    var names = {};
-    root.querySelectorAll('.math-dynamic-matrix-wrap').forEach(function (wrap) {
+    var wraps = root.querySelectorAll('.math-dynamic-matrix-wrap');
+    var names = Object.create(null);
+    // Validate the complete question before attaching any editors or handlers.
+    wraps.forEach(function (wrap) {
       var matrix = wrap.querySelector('.math-dynamic-mat');
       if (!matrix) return;
-      var spec = dynamicSpecFromElement(matrix);
-      if (names[spec.name]) throw new Error('math-exercise: duplicate dynamic matrix name ' + spec.name);
-      names[spec.name] = true;
-      var controls = wrap.querySelector('.math-dynamic-matrix-controls');
-      if (!controls) return;
-
-      var labels = {
-        'add-row': L.matrixAddRow,
-        'remove-row': L.matrixRemoveRow,
-        'add-col': L.matrixAddColumn,
-        'remove-col': L.matrixRemoveColumn,
-      };
-      function syncControls() {
-        var rows = Number(matrix.dataset.rows), cols = Number(matrix.dataset.cols);
-        controls.querySelectorAll('.math-dynamic-axis').forEach(function (axisControl) {
-          var isRow = axisControl.dataset.dynamicAxis === 'row';
-          var axis = isRow ? spec.rows : spec.cols;
-          axisControl.style.display = axis.auto ? '' : 'none';
-          axisControl.querySelector('.math-dynamic-axis-label').textContent = isRow ? L.matrixRows : L.matrixColumns;
-          axisControl.querySelector('output').textContent = String(isRow ? rows : cols);
-        });
-        controls.querySelectorAll('button[data-dynamic-action]').forEach(function (button) {
-          var action = button.dataset.dynamicAction;
-          var rowAction = action.indexOf('row') !== -1;
-          var axis = rowAction ? spec.rows : spec.cols;
-          button.setAttribute('aria-label', labels[action] + ' ' + spec.name);
-          var value = rowAction ? rows : cols;
-          button.disabled = action.indexOf('add') === 0 ? value >= axis.max : value <= axis.min;
-        });
-      }
-      function resize(action) {
-        var shape = resizedDynamicMatrixShape(matrix, spec, action);
-        renderDynamicMatrixElement(matrix, exerciseId, vars, shape.rows, shape.cols);
-        syncControls();
-        if (onChange) onChange();
-      }
-      controls.querySelectorAll('button[data-dynamic-action]').forEach(function (button) {
-        button.addEventListener('click', function () { resize(button.dataset.dynamicAction); });
-      });
-      if (Number(matrix.dataset.rows) === 0 || Number(matrix.dataset.cols) === 0) {
-        renderDynamicMatrixElement(matrix, exerciseId, vars, Number(matrix.dataset.rows), Number(matrix.dataset.cols));
-      }
-      syncControls();
+      var name = matrix.dataset.matrixName;
+      if (names[name]) throw new Error('math-exercise: duplicate dynamic matrix name ' + name);
+      names[name] = true;
+    });
+    wraps.forEach(function (wrap) {
+      window.MatrixInput.create(matrixEditorOptions(exerciseId,vars,onChange)).mount(wrap);
     });
   }
 
@@ -6706,7 +7254,21 @@ Hint for problem 2
 
   function applyCustomAssessment(questionDiv, result) {
     var assessment = result.assessment || {};
+    questionDiv.querySelectorAll('.math-dynamic-matrix-wrap').forEach(function (wrap) {
+      if (!wrap.matrixInput) return;
+      var matrix = assessment[wrap.dataset.matrixName] || {};
+      var shape = wrap.matrixInput.read();
+      function axisStatuses(values, bound) {
+        return Array.isArray(values) ? values.slice(0, bound).map(normalizedAssessmentStatus) : [];
+      }
+      wrap.matrixInput.setState({
+        status: result.status === 'wrong' ? 'incorrect' : result.status,
+        rows: axisStatuses(matrix.rows, shape.rows),
+        columns: axisStatuses(matrix.columns, shape.cols),
+      });
+    });
     questionDiv.querySelectorAll('input.math-input').forEach(function (input) {
+      if (input.dataset.dynamicMatrixName && input.closest('.math-dynamic-matrix-wrap').matrixInput) return;
       input.classList.remove('math-input-ok', 'math-input-dependent', 'math-input-partial', 'math-input-wrong', 'math-input-err');
       var status = '';
       if (input.dataset.dynamicMatrixName) {
@@ -6771,8 +7333,8 @@ Hint for problem 2
 
   // Calls the _math_check() helper defined once in ensureSympy() and returns
   // its result as a JSON status string.
-  var CHECK_PY = '_mj.dumps(_math_check())';
-  var CHECK_CUSTOM_PY = '_mj.dumps(_math_check_custom())';
+  var CHECK_PY = runtimeCall('_math_check');
+  var CHECK_CUSTOM_PY = runtimeCall('_math_check_custom');
 
   // Python globals are shared: keep each set-globals/evaluate transaction together.
   var assessmentQueue = Promise.resolve();
@@ -6785,18 +7347,74 @@ Hint for problem 2
     var val = el.value.trim();
     if (!val) return { status: 'empty', score: 0.0 };
     opts = opts || {};
-    mainPyodide.globals.set('_math_student',   val);
-    mainPyodide.globals.set('_math_correct',   el.dataset.answer || '');
-    mainPyodide.globals.set('_math_vars',      el.dataset.vars   || '');
-    mainPyodide.globals.set('_math_mode',      mode || 'equivalent');
-    mainPyodide.globals.set('_math_reject',    opts.reject    || '');
-    mainPyodide.globals.set('_math_tolerance', opts.tolerance || '');
-    mainPyodide.globals.set('_math_decplaces', opts.decplaces || '');
-    mainPyodide.globals.set('_math_sigfigs',   opts.sigfigs   || '');
-    mainPyodide.globals.set('_math_form',      opts.form      || '');
-    mainPyodide.globals.set('_math_partial_credit', !!opts.partialCredit);
-    mainPyodide.globals.set('_math_form_credit', Number(opts.formCredit));
-    return JSON.parse(await mainPyodide.runPythonAsync(CHECK_PY));
+    return runOnCurrentRuntime(async function (py) {
+      await Promise.all([
+        py.globals.set('_math_student',   val),
+        py.globals.set('_math_correct',   el.dataset.answer || ''),
+        py.globals.set('_math_vars',      el.dataset.vars   || ''),
+        py.globals.set('_math_mode',      mode || 'equivalent'),
+        py.globals.set('_math_reject',    opts.reject    || ''),
+        py.globals.set('_math_tolerance', opts.tolerance || ''),
+        py.globals.set('_math_decplaces', opts.decplaces || ''),
+        py.globals.set('_math_sigfigs',   opts.sigfigs   || ''),
+        py.globals.set('_math_form',      opts.form      || ''),
+        py.globals.set('_math_partial_credit', !!opts.partialCredit),
+        py.globals.set('_math_form_credit', Number(opts.formCredit)),
+      ]);
+      return JSON.parse(await py.runPythonAsync(CHECK_PY));
+    });
+  }
+
+  // A check that was running when the runtime was replaced (Stop/restart) is
+  // repeated once on the new runtime instead of reporting a spurious error.
+  // The first check also covers SymPy's multi-second setup, so a restart
+  // during setup is retried as well.
+  // A check stopped from any button on the page (runtime.stopCount) is not repeated.
+  // `math-exercise: stop-after:` / `ctm-assessment: stop-after:` (seconds, default 20).
+  var SLOW_CHECK_MS = (typeof window !== 'undefined' && window.__mathExerciseSlowCheckMs) ||
+    (Number(ME_CFG.stopAfter) > 0 ? Number(ME_CFG.stopAfter) * 1000 : 20000);
+  // Checks in progress, told when Python reloads during a retry: loading is
+  // timed by the load limit, not by stop-after. A check counts as loading while
+  // any retry reloads (its Python calls wait behind that reload).
+  var reloadHooks = new Set(), activeReloads = 0;
+  function stoppedSince(epoch) { return epoch !== globalThis.MathExerciseRuntime.stopCount(); }
+  async function runOnCurrentRuntime(run, packages) {
+    var epoch = globalThis.MathExerciseRuntime.stopCount();
+    var attempted = await ensurePyodide(), ready = null;
+    try {
+      ready = await ensureSympy();
+      return await run(ready);
+    } catch (error) {
+      if (stoppedSince(epoch)) throw new Error('math-exercise: stopped by the learner');
+      // Learner code elsewhere on the page removed the checker module: install again.
+      var missing = /No module named '_ctm_|has no attribute '_math_run'/.test(String(error));
+      if (missing) {
+        globalThis.MathExerciseRuntime.forgetModules(ready || attempted);
+        sympyRuntime = null; sympyLoading = null;
+      }
+      var current;
+      activeReloads++;
+      try {
+        reloadHooks.forEach(function (hook) { hook(); });
+        current = await ensureSympy();
+        // The exercise's packages reload within the same loading window.
+        if (packages) await ensurePackages(packages);
+      } catch (reloadError) {
+        // Stop pressed (here or in another exercise) while Python reloaded.
+        if (stoppedSince(epoch)) throw new Error('math-exercise: stopped by the learner');
+        throw reloadError;
+      } finally {
+        activeReloads--;
+        reloadHooks.forEach(function (hook) { hook(); });
+      }
+      if (stoppedSince(epoch)) throw new Error('math-exercise: stopped by the learner');
+      if (current === (ready || attempted) && !missing) throw error;
+      return run(current);
+    }
+  }
+  // Prepares SymPy and the exercise's packages, with the same retry.
+  function prepareRuntime(packages) {
+    return runOnCurrentRuntime(function () { return ensurePackages(packages); }, packages);
   }
 
   async function checkCustomNow(response, opts) {
@@ -6804,15 +7422,29 @@ Hint for problem 2
       if (!response || typeof response !== 'object' || Array.isArray(response)) throw new Error('Generated custom responses must be objects');
       response = Object.assign({}, response, {variant: opts.variant});
     }
-    mainPyodide.globals.set('_math_response_json', JSON.stringify(response));
-    mainPyodide.globals.set('_math_vars', opts.vars || '');
-    mainPyodide.globals.set('_math_checker', opts.checker || '');
-    return JSON.parse(await mainPyodide.runPythonAsync(CHECK_CUSTOM_PY));
+    return runOnCurrentRuntime(async function (py) {
+      await ensurePackages(opts.packages);
+      await Promise.all([
+        py.globals.set('_math_response_json', JSON.stringify(response)),
+        py.globals.set('_math_vars', opts.vars || ''),
+        py.globals.set('_math_checker', opts.checker || ''),
+      ]);
+      return JSON.parse(await py.runPythonAsync(CHECK_CUSTOM_PY));
+    }, opts.packages);
   }
 
   // Domain extraction delegates shared context and math-safe serialization.
-  function contextText(root, labels) { return window.AIFeedback.contextText(root, labels); }
-  function questionText(cell, ids, label) { return window.AIFeedback.questionText(cell, ids, label); }
+  // Without ai-feedback on the page (feedback off) a plain text snapshot is
+  // enough: these texts only detect edits and build feedback requests.
+  function contextText(root, labels) {
+    if (window.AIFeedback) return window.AIFeedback.contextText(root, labels);
+    return root ? root.textContent.trim() : '';
+  }
+  function questionText(cell, ids, label) {
+    if (window.AIFeedback) return window.AIFeedback.questionText(cell, ids, label);
+    var question = cell.querySelector('.math-exercise-question');
+    return question ? question.textContent.trim() : '';
+  }
   function resolveContexts(cell) {
     var text = '';
     try { text = JSON.parse(cell.dataset.context || '""'); } catch (_) {}
@@ -7116,9 +7748,44 @@ Hint for problem 2
       checkBtn.disabled = true;
       if (feedbackBtn) feedbackBtn.disabled = true;
       fbDiv.innerHTML = '<div class="math-fb-checking">' + L.checking + '</div>';
+      var cancelSlow = function () {}, phase = null, stopNote = null;
+      var offerStop = function (loading) {
+          var note = stopNote = document.createElement('div');
+          note.className = 'math-fb-checking';
+          note.textContent = (loading ? L.slowLoad : L.slowCheck) + ' ';
+          var stopBtn = document.createElement('button');
+          stopBtn.type = 'button';
+          stopBtn.className = 'btn btn-sm btn-outline-danger math-stop-btn';
+          stopBtn.textContent = L.stop;
+          stopBtn.addEventListener('click', function () {
+            globalThis.MathExerciseRuntime.stop('Stopped by the learner');
+          });
+          note.appendChild(stopBtn);
+          fbDiv.replaceChildren(note);
+      };
+      // Loading is timed by the load limit (a load that never finishes can
+      // still be stopped), the check itself by stop-after.
+      var timePhase = function (loading) {
+        // The same phase keeps its timer; a new one starts its own and takes
+        // back a Stop note that belonged to the previous phase.
+        if (loading === phase) return;
+        phase = loading;
+        if (stopNote && stopNote.isConnected) fbDiv.innerHTML = '<div class="math-fb-checking">' + L.checking + '</div>';
+        stopNote = null;
+        cancelSlow();
+        cancelSlow = globalThis.MathExerciseRuntime.whenSlow(
+          loading ? globalThis.MathExerciseRuntime.loadTimeout : SLOW_CHECK_MS,
+          function () { offerStop(loading); });
+      };
+      // A reload during another check's retry ends with that check's own phase.
+      var stillLoading = true;
+      var onReload = function () { timePhase(activeReloads > 0 || stillLoading); };
+      reloadHooks.add(onReload);
       try {
-        await ensureSympy();
-        await ensurePackages(checkOpts.packages);
+        timePhase(true);
+        await prepareRuntime(checkOpts.packages);
+        stillLoading = false;
+        timePhase(activeReloads > 0);
         var parts = [];
         var fieldElements = fieldIds.map(function (id) { return document.getElementById(id); });
         if (mode === 'custom') {
@@ -7172,6 +7839,10 @@ Hint for problem 2
       } catch (err) {
         fbDiv.innerHTML = '<div class="math-fb-err">&#9888;&nbsp;' + friendlyError(String(err)) + '</div>';
       } finally {
+        reloadHooks.delete(onReload);
+        cancelSlow();
+        // A check abandoned after an edit returns early: its Stop note goes too.
+        if (stopNote && stopNote.isConnected) stopNote.remove();
         checkBtn.disabled = false;
         if (feedbackBtn) feedbackBtn.disabled = !feedbackHandle;
       }
@@ -7191,6 +7862,17 @@ Hint for problem 2
     checkBtn.addEventListener('click', runCheck);
     attachKeyListeners();
 
+    // Author-facing hint: a JSXGraph block that the jsxgraph filter did not
+    // process (extension installed but not listed in `filters`) has no iframe.
+    if (checkOpts.responseSource.indexOf('jsxgraph:') === 0) {
+      var diagramId = checkOpts.responseSource.slice('jsxgraph:'.length).trim();
+      var diagram = document.getElementById(diagramId);
+      if (!diagram || diagram.tagName !== 'IFRAME') {
+        fbDiv.innerHTML = '<div class="math-fb-err">&#9888;&nbsp;JSXGraph diagram "' + escHtml(diagramId) +
+          '" is not available. Add <code>jsxgraph</code> to the page\'s <code>filters</code>.</div>';
+      }
+    }
+
     // Selection is shared by random reload and author review; always invalidates old feedback.
     function selectTask(next) {
       if (!poolTasks || !Number.isInteger(next) || next < 0 || next >= poolTasks.length) throw new Error('Invalid variant selection');
@@ -7199,6 +7881,7 @@ Hint for problem 2
       idx = next;
       try { sessionStorage.setItem(poolKey, String(next)); } catch(e) {}
       var r = renderTaskText(poolTasks[next], cell.id, vars, vecdir, mode, !!generated);
+      questionDiv.querySelectorAll('.math-dynamic-matrix-wrap').forEach(function (wrap) { if (wrap.matrixInput) wrap.matrixInput.destroy(); });
       setQuestionContent(questionDiv, r);
       cell.dataset.fields = JSON.stringify(r.fieldIds);
       cell.dataset.structuralFieldLabels = JSON.stringify(r.structuralLabels);
@@ -7217,7 +7900,7 @@ Hint for problem 2
         getVariant: currentVariant,
         selectVariant: function(id) {selectTask(generated.variants.findIndex(function(v){return v.id===id;}));},
         checkFixture: async function(record, fixture) {
-          await ensureSympy(); await ensurePackages(checkOpts.packages);
+          await prepareRuntime(checkOpts.packages);
           var options=Object.assign({}, checkOpts, {checker:record.checker,
             variant:JSON.parse(JSON.stringify({id:record.id, parameters:record.parameters, derived:record.derived, fingerprint:record.fingerprint, context:record['variant-context']}))});
           if(mode==='custom') return [await checkCustom(fixture.response || {kind:'expressions', raw:fixture.answers || [], inputs:{}}, options)];
@@ -7310,6 +7993,8 @@ Hint for problem 2
       splitTop: splitTop,
       parseDynamicMatrixSpec: parseDynamicMatrixSpec,
       dynamicSpecFromElement: dynamicSpecFromElement,
+      initializeDynamicMatrices: initializeDynamicMatrices,
+      applyCustomAssessment: applyCustomAssessment,
       resizedDynamicMatrixShape: resizedDynamicMatrixShape,
       renderTaskText: renderTaskText,
       setQuestionContent: setQuestionContent,
@@ -7324,6 +8009,9 @@ Hint for problem 2
       structuredGroupStatus: structuredGroupStatus,
       parsePackageList: parsePackageList,
       ensurePackages: ensurePackages,
+      ensureSympy: ensureSympy,
+      checkField: checkField,
+      runtimeCall: runtimeCall,
       notifyExternalLayout: notifyExternalLayout,
       scheduleExternalLayout: scheduleExternalLayout,
     };
@@ -7993,11 +8681,16 @@ class EditorUnit {
       // Keyboard shortcuts must be re-registered per editor on focus change
       // (Monaco regression since 0.32.0):
       // https://github.com/microsoft/monaco-editor/issues/2947
+      // addCommand registers a page-wide keybinding; the context key limits it
+      // to this extension's editors, so other Monaco editors on the page (for
+      // example py-exercise) keep their own keys.
+      const shortcutContext = typeof thiz.editor.createContextKey === 'function'
+        ? (thiz.editor.createContextKey('qpyodideCellEditor', true), 'qpyodideCellEditor') : undefined;
       const addPyodideKeyboardShortCutCommands = () => {
         // Shift+Enter: run the entire cell content
         thiz.editor.addCommand(monaco.KeyMod.Shift | monaco.KeyCode.Enter, () => {
           thiz.runCode(thiz.editor.getValue());
-        });
+        }, shortcutContext);
 
         // Ctrl/Cmd+Enter: run the selection (or the current line)
         thiz.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
@@ -8023,7 +8716,7 @@ class EditorUnit {
           } else {
             thiz.runCode(selectedText);
           }
-        });
+        }, shortcutContext);
       };
 
       thiz.editor.onDidFocusEditorText(addPyodideKeyboardShortCutCommands);
