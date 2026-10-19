@@ -39,6 +39,8 @@ jobs:
         run: python scripts/setup.py --review-refs "$CTM_REVIEW_REFS"
       - name: Render website
         run: quarto render
+      - name: Build the temporary JSXGraph reproduction (old commits)
+        run: scripts/build-jsxgraph-repro.sh
       - name: Render optional STACK review
         run: quarto render --profile review
       - name: Verify generated STACK variants

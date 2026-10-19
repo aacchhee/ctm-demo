@@ -38,6 +38,8 @@ website:
         file: pages/stack-oppgaver.qmd
       - text: "Help"
         file: pages/help.qmd
+      - text: "JSXGraph reproduction (temporary)"
+        href: jsxgraph-repro/index.html
 
 format:
   html:
