@@ -21,6 +21,9 @@
 <a href="?v=1.9.1">1.9.1</a> · <a href="?v=1.13.3">1.13.3</a> ·
 <a href="?v=1.14.0">1.14.0</a> · <a href="?v=1.14.0&amp;noerror">1.14.0 without the error (reference)</a> ·
 <a href="../index.html">overview</a></p>
+<div id="wrap" style="width:600px;max-width:100%"><div id="box" class="jxgbox" style="width:100%;height:300px"></div></div>
+<p id="status"></p>
+
 <p>A visible board with a text whose content function throws once, during
 the second of four automatic container resizes (600 → 500 → 400 → 700 →
 300 px, one every 400 ms). Nothing to click.</p>
@@ -30,8 +33,7 @@ next resizes again.<br>
 keeps its size; the status marks every later step "not following". Without
 the error (reference link) every step follows. The only trace is a
 <code>console.log</code> of the error (1.11.0 and later).</p>
-<div id="wrap" style="width:600px;max-width:100%"><div id="box" class="jxgbox" style="width:100%;height:300px"></div></div>
-<p id="status"></p>
+
 <script>
   document.getElementById('version').textContent = V + (/[?&]noerror/.test(location.search) ? ', without the error' : '');
   var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-5, 5, 5, -5], axis: true});
@@ -44,8 +46,9 @@ the error (reference link) every step follows. The only trace is a
   var lines = [];
   function log(label) {
     var svg = +board.renderer.svgRoot.getAttribute('width');
-    lines.push({step: label, container: box.clientWidth, svg: svg, following: svg === box.clientWidth});
-    out.textContent += label + ': div ' + box.clientWidth + ' px, SVG ' + svg + ' px' + (svg === box.clientWidth ? '' : '   <-- not following') + '\n';
+    var following = Math.abs(svg - box.clientWidth) <= 1;   // tolerance for fractional SVG sizes
+    lines.push({step: label, container: box.clientWidth, svg: svg, following: following});
+    out.textContent += label + ': div ' + box.clientWidth + ' px, SVG ' + svg + ' px' + (following ? '' : '   <-- not following') + '\n';
   }
   setTimeout(function () { wrap.style.width = '500px'; }, 300);
   var NOERROR = /[?&]noerror/.test(location.search);

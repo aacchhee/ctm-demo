@@ -69,7 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap-7e87bcf20ba77d48feeeb6cd8bca1af4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/bootstrap/bootstrap-3c508df4e88cf44594e28143bcf93280.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 <link rel="stylesheet" href="style.css">
@@ -91,7 +91,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#p5" id="toc-p5" class="nav-link" data-scroll-target="#p5">5. Library: a keepaspectratio board that gets narrower than high is cropped</a></li>
   <li><a href="#p6r" id="toc-p6r" class="nav-link" data-scroll-target="#p6r">6. Library: possible endless loop in the SVG renderer (found by reading, not run)</a></li>
   <li><a href="#p6" id="toc-p6" class="nav-link" data-scroll-target="#p6">7. Extension: after the first resize, boards no longer follow the window</a></li>
-  <li><a href="#p7" id="toc-p7" class="nav-link" data-scroll-target="#p7">8. Extension: boards in hidden tabs are often blank (library problem 1)</a></li>
+  <li><a href="#p7" id="toc-p7" class="nav-link" data-scroll-target="#p7">8. Extension: boards in hidden tabs can stay blank (library problem 1)</a></li>
   <li><a href="#fixed" id="toc-fixed" class="nav-link" data-scroll-target="#fixed">Fixed in later JSXGraph versions</a></li>
   <li><a href="#test-pages-with-the-courses-figures" id="toc-test-pages-with-the-courses-figures" class="nav-link" data-scroll-target="#test-pages-with-the-courses-figures">Test pages with the course’s figures</a></li>
   <li><a href="#about-this-page" id="toc-about-this-page" class="nav-link" data-scroll-target="#about-this-page">About this page</a></li>
@@ -120,9 +120,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>This page is for the JSXGraph maintainers. It lists every problem we found with boards that are created while hidden (a closed tab, a collapsed section, a hidden iframe) and shown later, ordered by severity. Each problem is labelled <strong>library</strong> (JSXGraph) or <strong>extension</strong> (the jsxgraph-quarto extension). Most have a minimal page that reproduces them; each has what you should see and what you see, the affected versions, the place in the source, and possible fixes.</p>
-<p>Problems 1, 2 and 4, the <code>functiongraph</code> crash listed at the end, and the extension measurements were checked by an independent verification (fresh downloads, its own test pages and drivers); the numbers given are from it unless a section says otherwise. Problems 3 and 5 and the two plain-div pages under problem 1 were found and measured for this page only. Problem 6 was found by reading the code.</p>
+<p>Problems 1, 2 and 4, the <code>functiongraph</code> crash listed at the end, and the extension measurements were checked by an independent verification (fresh downloads, its own test pages and drivers); the numbers given are from it unless a section says otherwise. Problems 3 and 5 and the two plain-div pages under problem 1 were found and measured for this page, not by the verification; the div page and the iframe page of problem 1 were also checked by hand in Chrome 152 on Windows. Problem 6 was found by reading the code.</p>
 <p>The pages in <code>repro/</code> load JSXGraph from jsDelivr; add <code>?v=1.9.1</code> (or another version) to a page’s address to load that version. Source locations are from our investigation of tag v1.14.0; the resize code is unchanged on <code>main</code> (55a2035, 19 October 2026).</p>
-<p><strong>Browsers.</strong> Measured on 19 October 2026 in Chromium 141.0.7390.37, the full browser that Chrome is built from, both with a window (under Xvfb) and in headless mode. Chromium’s separate “headless shell” never shows problem 1 in iframes. Firefox and Safari were not available to us, so this page says nothing about them.</p>
+<p><strong>Browsers.</strong> On 19 October 2026 the maintainers’ desktop setting was checked by hand in Chrome 152.0.7977.149 on Windows: problem 1 reproduces there in a normal, visible window with the div page (blank in 4 of 4 loads with JSXGraph 1.14.0, drawn with 1.9.1), and with the iframe page only while Chrome is not painting the window (see problem 1). All other measurements on this page were made in Chromium 141.0.7390.37 on Linux, the full browser that Chrome is built from, under automation, with a window (under Xvfb) and in headless mode, except where a section says “checked by hand on Windows Chrome 152”: the repro pages of problems 1 to 4 and the <code>functiongraph</code> page were also opened there in a visible window in front, and each showed the problem as described. Problem 5 was not checked there. Chromium’s separate “headless shell” never shows problem 1 in iframes. Firefox and Safari were not available to us, so this page says nothing about them.</p>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>Library (JSXGraph 1.14.0):</p>
@@ -141,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><a href="#p1">1</a></td>
 <td>Resize notifications are dropped; a board shown from a hidden tab can stay blank</td>
 <td>1.9.2</td>
-<td>hidden sandboxed iframes (about half of the page loads in Chrome); hidden or visible divs whose size changes twice within 10 ms</td>
+<td>hidden divs shown while the page is busy (4 of 4 loads in desktop Chrome 152, window in front); hidden sandboxed iframes shown while Chrome is not painting the window (covered, in the background, automated); visible divs resized twice within 10 ms</td>
 </tr>
 <tr class="even">
 <td><a href="#p2">2</a></td>
@@ -195,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td><a href="#p7">8</a></td>
-<td>Boards in hidden tabs are blank in about half of the page loads (problem 1, through the extension’s iframes)</td>
+<td>Boards in hidden tabs can stay blank when the tab is opened (problem 1, through the extension’s iframes)</td>
 <td>a26aea8, 59d549c</td>
 </tr>
 </tbody>
@@ -207,12 +207,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="p1">1. Library: resize notifications are dropped, so a board can stay blank</h2>
 <p><strong>What goes wrong.</strong> The board’s ResizeObserver callback takes the size from the first notification, ignores further notifications for 10 ms (<code>resize.throttle</code>), and then applies the size it took. If the container changes size again within those 10 ms, the board keeps the earlier size. The observer does not report the same size twice, so nothing corrects it later. For a board created hidden, the earlier size is 0×0 and the board stays blank.</p>
 <p><strong>Versions:</strong> 1.9.2 to 1.14.0 and <code>main</code>. Not 1.9.1 or earlier.</p>
-<p><strong>Reproduce</strong> in desktop Chrome with <a href="repro/blank-in-hidden-iframe.html">blank-in-hidden-iframe.html</a>. This is the case met in practice: a sandboxed <code>data:</code> iframe in a tab that is <code>display:none</code> at load, as the Quarto extension embeds boards.</p>
-<ol type="1">
-<li>Open the page and, without resizing the window, click <strong>Tab 2 (board)</strong>. A second later the status line says whether the board is drawn.</li>
-<li>Reload and repeat a few times.</li>
-</ol>
-<p>Resizing the window while the tab is still hidden prevents the problem (0 of 20 loads); a longer wait before the click does not (10 of 20 after 4.5 s).</p>
+<p><strong>Reproduce in a visible window</strong> with <a href="repro/blank-after-quick-show.html">blank-after-quick-show.html</a>. A board in a div whose parent is <code>display:none</code> is shown while JSXGraph’s first (0×0) timer is pending and the page is busy for 30 ms, as other scripts on a page often are when a tab opens. Open the page; the status line says whether the board is drawn.</p>
+<ul>
+<li>Chrome 152.0.7977.149 on Windows, window in front, checked by hand: JSXGraph 1.14.0 blank in 4 of 4 loads; 1.9.1 drawn in 2 of 2.</li>
+<li>Chromium 141 on Linux, headless, automated: blank in 5 of 8 loads.</li>
+</ul>
 <div class="table-responsive">
 <table class="caption-top table">
 <colgroup>
@@ -221,8 +220,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </colgroup>
 <thead>
 <tr class="header">
-<th>You should see (every time)</th>
-<th>You see (1.13.3, 1.14.0: about every second load)</th>
+<th>You should see (here: shown 500 ms later)</th>
+<th>You see (1.14.0)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="img/quick-show-expected.png" class="img-fluid" alt="Axes and a sine curve"></td>
+<td><img src="img/quick-show-seen.png" class="img-fluid" alt="An empty frame"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Reproduce with a sandboxed iframe</strong> (as the Quarto extension embeds boards) with <a href="repro/blank-in-hidden-iframe.html">blank-in-hidden-iframe.html</a>: a <code>data:</code> iframe in a tab that is <code>display:none</code> at load. Here the board stays blank only if Chrome is not painting the window at the moment the tab opens: the window is covered by another window or in the background, or the browser is headless or automated. Chrome still reports <code>document.hidden = false</code> in these cases.</p>
+<ol type="1">
+<li>Open the page and press <strong>Run 20 times automatically</strong>. Each trial shows a fresh hidden iframe at the top of the page and reads the board 2 s later.</li>
+<li>While it runs, cover the browser window with another window for some of the trials. The result is “blank in N of 20”, with one line per trial.</li>
+</ol>
+<ul>
+<li>Chrome 152.0.7977.149 on Windows, JSXGraph 1.14.0, checked by hand: blank in 4 of 20, exactly the trials during which the window was covered; while the window was in front, every board was drawn.</li>
+<li>Chromium 141 on Linux under automation: blank in 40 to 63 % of page loads (independent verification, table below).</li>
+<li>A blank board stays blank when the tab is hidden and shown again; it recovers when the iframe’s size changes (narrowing or widening the window). Resizing the window while the tab is still hidden prevents the problem (0 of 20 loads); a longer wait before the click does not (10 of 20 after 4.5 s).</li>
+</ul>
+<div class="table-responsive">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>You should see</th>
+<th>You see (1.14.0, automated Chromium)</th>
 </tr>
 </thead>
 <tbody>
@@ -233,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </div>
-<p>Measured by an independent verification, 30 page loads per cell (tab clicked 0.3 to 0.9 s after the page was ready; pooled, 1.13.3 and 1.14.0 were blank in 120 of 240 loads in the full Chromium, 1.9.1 in 0 of 120):</p>
+<p>Measured by an independent verification in Chromium 141 on Linux, 30 page loads per cell (tab clicked 0.3 to 0.9 s after the page was ready; pooled, 1.13.3 and 1.14.0 were blank in 120 of 240 loads in the full Chromium, 1.9.1 in 0 of 120):</p>
 <div class="table-responsive">
 <table class="caption-top table">
 <thead>
@@ -266,31 +295,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </div>
-<p>The two numbers per cell are for an iframe with a pixel size and one sized by <code>aspect-ratio</code>. A blank board stays blank when the tab is hidden and shown again; it recovers when the iframe’s size changes (narrowing or widening the window).</p>
-<p>Two more pages show the same defect without an iframe. These two were measured for this page only, not by the independent verification:</p>
-<ul>
-<li><p><a href="repro/blank-after-quick-show.html">blank-after-quick-show.html</a>: a board in a hidden div is shown while the first (0×0) timer is pending and the page is busy for 30 ms. Blank in 5 of 8 page loads in Chromium headless here; the share depends on the machine’s load.</p>
-<div class="table-responsive">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>You should see (here: shown 500 ms later)</th>
-<th>You see</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><img src="img/quick-show-expected.png" class="img-fluid" alt="Axes and a sine curve"></td>
-<td><img src="img/quick-show-seen.png" class="img-fluid" alt="An empty frame"></td>
-</tr>
-</tbody>
-</table>
-</div></li>
-<li><p><a href="repro/stale-svg-after-quick-resize.html">stale-svg-after-quick-resize.html</a>: a visible board whose container grows from 300 to 400 to 500 px within 10 ms while the page is busy for 30 ms (press <strong>Run</strong>). Stale in every run in our measurements.</p>
+<p>The two numbers per cell are for an iframe with a pixel size and one sized by <code>aspect-ratio</code>.</p>
+<p><strong>A visible board</strong> shows the same defect in <a href="repro/stale-svg-after-quick-resize.html">stale-svg-after-quick-resize.html</a>: its container grows from 300 to 400 to 500 px within 10 ms while the page is busy for 30 ms (press <strong>Run</strong>). Stale in every run in our (automated) measurements. Checked by hand on Windows Chrome 152 with 1.14.0: stale in 2 of 2 clean page loads (SVG 400 px in a 500 px div); watching the page, the board did not fill its frame in roughly 70 % of runs. With 1.9.1 the SVG is 500 px (the page allows 1 px for fractional sizes).</p>
 <div class="table-responsive">
 <table class="caption-top table">
 <colgroup>
@@ -310,9 +316,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-</div></li>
-</ul>
-<p><strong>Why it happens in iframes.</strong> Chromium does not render a hidden cross-origin iframe. When the tab is shown, the iframe first delivers the observer’s pending notification with 0×0 and, 1 to 4 ms later, the real size. Whether the 0×0 comes first depends on which arrives first in the iframe, its first rendering update or its new window size. In every one of the 120 blank runs above, the only call of <code>updateContainerDims</code> was <code>(0, 0)</code> while the container had its full size (500×400, or 984×787 with <code>aspect-ratio</code>). Version 1.9.1 receives the same two notifications, but reads the size when its timer fires, so it gets the real one. The headless shell does not show the race: there the 0×0 arrives while the tab is still hidden.</p>
+</div>
+<p>All three pages show one defect with one cause and one fix, below.</p>
+<p><strong>Why it happens in iframes.</strong> Chromium does not render a hidden cross-origin iframe. In the automated runs, when the tab was shown, the iframe first delivered the observer’s pending notification with 0×0 and, 1 to 4 ms later, the real size. Whether the 0×0 comes first depends on which arrives first in the iframe, its first rendering update or its new window size. In every one of the 120 blank runs above, the only call of <code>updateContainerDims</code> was <code>(0, 0)</code> while the container had its full size (500×400, or 984×787 with <code>aspect-ratio</code>). Version 1.9.1 receives the same two notifications, but reads the size when its timer fires, so it gets the real one. The headless shell does not show the race: there the 0×0 arrives while the tab is still hidden. In the Windows checks no blank iframe board was seen while the window was in front; the order of events there was not traced.</p>
 <p><strong>Cause</strong> (source location from our investigation): <code>src/base/board.js</code>, <code>startResizeObserver</code>, <a href="https://github.com/jsxgraph/jsxgraph/blob/v1.14.0/src/base/board.js#L4497-L4513">lines 4497–4513</a>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">resizeObserver</span> <span class="op">=</span> <span class="kw">new</span> <span class="fu">ResizeObserver</span>(<span class="kw">function</span> (entries) {</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> bb<span class="op">;</span></span>
@@ -361,7 +367,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="p2">2. Library: boards with unitX/originX created hidden are broken</h2>
 <p><strong>What goes wrong.</strong> A board defined by <code>unitX</code>, <code>unitY</code>, <code>originX</code>, <code>originY</code> (no <code>boundingbox</code>) whose container is 0 px wide at creation is broken once shown: <code>unitX</code> becomes Infinity, coordinates become NaN and the console shows <code>Error: &lt;ellipse&gt; attribute cx: Expected length, "NaN"</code>. At the next resize the board is drawn again, but with the default bounding box [−5, 5, 5, −5], not with the given units and origin.</p>
 <p><strong>Versions:</strong> exactly as described in 1.3.0, 1.4.6, 1.5.0 and 1.9.2 to 1.14.0 (verified). 1.6.2 to 1.9.1 are also broken, differently: <code>unitX</code> about 2.4·10¹⁰ and a degenerate box that stays broken. 1.3.2 draws unit boards wrongly even when they are created visible. Only containers without a CSS pixel size are affected; with an inline <code>width: 500px; height: 400px</code> the board is right in every version from 1.3.0 except 1.3.2.</p>
-<p><strong>Reproduce:</strong> <a href="repro/unit-origin-hidden.html">unit-origin-hidden.html</a>. Press <strong>Show</strong>; the page reads the board after 300 ms, then narrows the container to 90% and reads it again. The reference link on the page creates the same board visible.</p>
+<p><strong>Reproduce:</strong> <a href="repro/unit-origin-hidden.html">unit-origin-hidden.html</a>. Press <strong>Show</strong>; the page reads the board after 300 ms, then narrows the container to 90% and reads it again. The reference link on the page creates the same board visible. Checked by hand on Windows Chrome 152 with 1.14.0: after showing <code>unitX</code> Infinity and P at [NaN, 100]; after the resize the bounding box [−5, 5, 5, −5], <code>unitX</code> 58.5, <code>unitY</code> 30.</p>
 <div class="table-responsive">
 <table class="caption-top table">
 <colgroup>
@@ -400,7 +406,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="p3">3. Library: a keepaspectratio board created at 0×0 shows the wrong region</h2>
 <p><strong>What goes wrong.</strong> A board with <code>keepaspectratio: true</code> and a bounding box that is not square, created while its container is 0×0, shows a different region once it is shown. Example: <code>boundingbox: [-1, 7, 13, -1]</code> in a 320×171 px frame shows x −7.1…19.1, y −4…10 instead of x −1.49…13.49, y −1…7, so the figure is drawn about 1.75 times too small. The container is 0×0 at creation when its size is relative (percent width, <code>aspect-ratio</code>) and its parent is <code>display:none</code>, and in every hidden iframe whose board div is 100%×100%, as with the Quarto extension. A container with a pixel width and height is not affected, because JSXGraph reads the CSS pixel size of a hidden element. With a square bounding box the right and the wrong rule give the same region.</p>
 <p><strong>Versions:</strong> 1.9.2 to 1.14.0 as described. 1.6.2 to 1.9.1 show another wrong region (here x −14.1…12.1, y 3…17); 1.5.0 leaves the bounding box NaN.</p>
-<p><strong>Reproduce:</strong> <a href="repro/keepaspectratio-hidden.html">keepaspectratio-hidden.html</a>. Press <strong>Show B and C</strong> and compare (B) and (C) with (A). The result is the same in every load and in all three Chromium variants. (C) can also be blank because of problem 1; reload in that case.</p>
+<p><strong>Reproduce:</strong> <a href="repro/keepaspectratio-hidden.html">keepaspectratio-hidden.html</a>. Press <strong>Show B and C</strong> and compare (B) and (C) with (A). The result is the same in every load and in all three Chromium variants. Checked by hand on Windows Chrome 152 with 1.14.0: (A) [−1.49, 7, 13.49, −1], (B) [−7.1, 10, 19.1, −4]. (C) tests this problem only if it is in view when shown; an SVG of 0×0 in (C) means it was not painted at that moment, which is problem 1, not this one.</p>
 <p>You should see (B) and (C) like (A); you see the grey rectangle (the bounding box) small in (B) and (C):</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -425,7 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="p4">4. Library: one exception during a resize stops all later resizing</h2>
 <p><strong>What goes wrong.</strong> If anything throws during a resize-triggered update (for example a user function of a text or curve that fails once), JSXGraph stops the board’s ResizeObserver for good. From then on the board never follows its container. The only trace is a <code>console.log</code> of the error (1.11.1 and 1.14.0 log it; 1.9.2 and earlier log nothing).</p>
 <p><strong>Versions:</strong> 1.3.1 to 1.14.0 (verified in 1.3.1, 1.3.2, 1.9.1, 1.9.2, 1.11.1 and 1.14.0). 1.3.0 also stops following, through an uncaught error that leaves <code>_isResizing</code> set.</p>
-<p><strong>Reproduce:</strong> <a href="repro/exception-stops-resize.html">exception-stops-resize.html</a>. Nothing to click: the page resizes the container 600 → 500 → 400 → 700 → 300 px, and a text’s content function throws once during the second resize. The status lists each step. The reference link runs the same steps without the error.</p>
+<p><strong>Reproduce:</strong> <a href="repro/exception-stops-resize.html">exception-stops-resize.html</a>. Nothing to click: the page resizes the container 600 → 500 → 400 → 700 → 300 px, and a text’s content function throws once during the second resize. The status lists each step. The reference link runs the same steps without the error. Checked by hand on Windows Chrome 152 with 1.14.0: after the resize in which the text throws, the SVG stays 400 px while the container goes to 650 and 300 px.</p>
 <div class="table-responsive">
 <table class="caption-top table">
 <colgroup>
@@ -458,7 +464,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="p5">5. Library: a keepaspectratio board that gets narrower than high is cropped</h2>
 <p>This one concerns visible boards and may be intended. It is listed because it looks like a defect on phones. Measured for this page (15 of 15 loads), not part of the independent verification.</p>
 <p><strong>What goes wrong.</strong> A <code>keepaspectratio</code> board whose container changes from wider-than-high to higher-than-wide keeps the box’s vertical extent and crops it at the sides. Example: <code>boundingbox: [-1, 7, 13, -1]</code> visible in a 718×388 px div, narrowed to 356×388 px, shows x 2…10 instead of the whole x −1…13; the left and right parts of the figure are cut off. Widening restores it.</p>
-<p><strong>Versions:</strong> measured in 1.12.2, 1.13.3 and 1.14.0; the code is from 1.5.0.</p>
+<p><strong>Versions:</strong> measured in 1.12.2, 1.13.3 and 1.14.0 (automated Chromium; not checked on Windows); the code is from 1.5.0.</p>
 <p><strong>Reproduce:</strong> <a href="library/jsxgraph-1.14.0.html">JSXGraph 1.14.0 page with the course figures</a>, pendulum in (a): open the page in a wide window, then make it narrow (about 390 px).</p>
 <p><strong>Cause</strong> (source location from our investigation): the “switch dominating interval” branch of <code>setBoundingBox</code>’s keep-aspect logic, <a href="https://github.com/jsxgraph/jsxgraph/blob/v1.14.0/src/base/board.js#L6461-L6479">board.js 6461–6479</a> (83ec5a4e5, 1.5.0).</p>
 <p><strong>Possible fixes.</strong> If cropping is not intended: fit the whole intended box on resize (the rule initBoard uses), which needs the board to remember its intended box. If it is intended: nothing; authors can size such boards with <code>aspect-ratio</code> so the frame keeps its shape.</p>
@@ -488,17 +494,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Possible fixes.</strong> Leave the sizing to JSXGraph’s ResizeObserver; or call <code>resizeContainer(w, h, true)</code> (or <code>updateContainerDims()</code>), which do not set the div’s CSS size. <a href="https://github.com/jsxgraph/jsxgraph-quarto/pull/2">Pull request #2</a> does this.</p>
 </section>
 <section id="p7" class="level2">
-<h2 class="anchored" data-anchor-id="p7">8. Extension: boards in hidden tabs are often blank (library problem 1)</h2>
+<h2 class="anchored" data-anchor-id="p7">8. Extension: boards in hidden tabs can stay blank (library problem 1)</h2>
 <p>This is library problem 1 as it shows in Quarto pages.</p>
-<p><strong>What goes wrong.</strong> The extension puts each board into a sandboxed <code>data:</code> iframe. A board in a tab that is hidden at load is blank after the tab is opened in about half of the page loads in Chrome.</p>
-<p><strong>Versions:</strong> jsxgraph-quarto a26aea8 and 59d549c. Measured by the independent verification, 20 page loads each, tab opened after load: a26aea8 (its bundled JSXGraph 1.13.3) blank in 11/20 headless and 15/20 with a window; 59d549c (JSXGraph 1.14.0) in 7/20 and 11/20; 17de83e, an earlier state of pull request #2 that turned JSXGraph’s observer off, in 0/20 and 0/20. The headless shell: 0/20 for all three. In the 59d549c runs the extension’s own <code>resizeContainer</code> call gives the SVG the right size, but the bounding box stays NaN, so the board draws nothing; it stays so after narrowing and widening. With a26aea8 the board recovers at the first later resize of the iframe.</p>
-<p><strong>Reproduce:</strong> <a href="extension-a26aea8/index.html">test page built with a26aea8</a>, tab <strong>2025 → Prøve 4</strong>; reload a few times.</p>
+<p><strong>What goes wrong.</strong> The extension puts each board into a sandboxed <code>data:</code> iframe. A board in a tab that is hidden at load can stay blank after the tab is opened, under the same condition as the iframe page of problem 1: Chrome is not painting the window at that moment (covered, in the background, headless or automated). It was not checked by hand on Windows with the extension’s pages.</p>
+<p><strong>Versions:</strong> jsxgraph-quarto a26aea8 and 59d549c. Measured by the independent verification in Chromium 141 on Linux under automation, 20 page loads each, tab opened after load: a26aea8 (its bundled JSXGraph 1.13.3) blank in 11/20 headless and 15/20 with a window; 59d549c (JSXGraph 1.14.0) in 7/20 and 11/20; 17de83e, an earlier state of pull request #2 that turned JSXGraph’s observer off, in 0/20 and 0/20. The headless shell: 0/20 for all three. In the 59d549c runs the extension’s own <code>resizeContainer</code> call gives the SVG the right size, but the bounding box stays NaN, so the board draws nothing; it stays so after narrowing and widening. With a26aea8 the board recovers at the first later resize of the iframe.</p>
+<p><strong>Reproduce:</strong> <a href="extension-a26aea8/index.html">test page built with a26aea8</a>, tab <strong>2025 → Prøve 4</strong>. By hand this needs the tab to open while Chrome is not painting the window, which is hard to arrange; the iframe page of problem 1 with its 20-trial button is the easier way.</p>
 <p><strong>Fix.</strong> In the library: problem 1. In the extension until then: the <code>resize</code> workaround shown under problem 1. The current state of <a href="https://github.com/jsxgraph/jsxgraph-quarto/pull/2">pull request #2</a> keeps JSXGraph’s observer and adds this workaround; see the pull request for its approach. In our own measurement of it (not independently verified) there were 0 blank boards among 600 hidden boards: 20 loads of a page with 40 boards, 30 of them hidden.</p>
 </section>
 <section id="fixed" class="level2">
 <h2 class="anchored" data-anchor-id="fixed">Fixed in later JSXGraph versions</h2>
 <p>For completeness, and because older versions are still in use. Each item can be seen with a test page and the version link on it. The first item was checked by the independent verification; the others were measured for this page with the linked pages.</p>
-<p><strong>1.13.0 and 1.13.1: <code>functiongraph</code> with an interval throws in a board created hidden.</strong> <code>board.create('functiongraph', [f, -2, 3])</code> in a container 0 px wide, without a CSS pixel width (for example <code>width: 100%</code>, as in Quarto), throws <code>TypeError: Cannot read properties of undefined (reading 'usrCoords')</code>, so the rest of the page’s script does not run (here: point B is missing). Not when the board is created visible, and not when the hidden container has an inline pixel width. Fixed in 1.13.2 by <a href="https://github.com/jsxgraph/jsxgraph/commit/fe4342311">fe4342311</a> (2026-08-05, “Bug fix: plotting while the division has display:none”). Page: <a href="repro/functiongraph-interval-hidden.html">functiongraph-interval-hidden.html</a> (opens with 1.13.1; press <strong>Show</strong>).</p>
+<p><strong>1.13.0 and 1.13.1: <code>functiongraph</code> with an interval throws in a board created hidden.</strong> <code>board.create('functiongraph', [f, -2, 3])</code> in a container 0 px wide, without a CSS pixel width (for example <code>width: 100%</code>, as in Quarto), throws <code>TypeError: Cannot read properties of undefined (reading 'usrCoords')</code>, so the rest of the page’s script does not run (here: point B is missing). Not when the board is created visible, and not when the hidden container has an inline pixel width. Fixed in 1.13.2 by <a href="https://github.com/jsxgraph/jsxgraph/commit/fe4342311">fe4342311</a> (2026-08-05, “Bug fix: plotting while the division has display:none”). Page: <a href="repro/functiongraph-interval-hidden.html">functiongraph-interval-hidden.html</a> (opens with 1.13.1; press <strong>Show</strong>). Checked by hand on Windows Chrome 152: 1.13.1 throws the TypeError and creates neither the functiongraph nor B; 1.13.2 creates all three without errors.</p>
 <div class="table-responsive">
 <table class="caption-top table">
 <thead>

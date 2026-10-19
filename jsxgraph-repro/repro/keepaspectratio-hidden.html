@@ -56,7 +56,9 @@ height of the frame, as in (A).<br>
 <strong>Seen with 1.9.2 to 1.14.0:</strong> (B) and (C) show a region about
 1.75 times larger, so the rectangle is small and centred. Versions 1.5.0 to
 1.9.1 show other wrong regions. Each status line compares the bounding
-box with the one a board created visible at that size gets. (C) can also stay blank: that is the separate
+box with the one a board created visible at that size gets. (C) tests this problem only if it is in view when it is shown; make the
+window wide enough for the three frames to sit side by side. If (C) shows
+an SVG of 0×0, it was not painted at that moment: that is the separate
 <a href="blank-in-hidden-iframe.html">blank-board problem</a>; reload in that
 case.</p>
 

@@ -6,38 +6,25 @@
 <title>JSXGraph: blank board in a hidden iframe</title>
 <style>
   body { font-family: system-ui, sans-serif; line-height: 1.45; margin: 1rem; max-width: 760px; }
-  .tabs button { font-size: 1rem; padding: 0.3rem 0.8rem; }
+  h1 { font-size: 1.3rem; margin: 0 0 0.3rem; }
+  .tabs button, .run button { font-size: 1rem; padding: 0.3rem 0.8rem; }
   .pane { border: 1px solid #888; padding: 0.5rem; margin-top: 0.3rem; }
-  #status { font-family: monospace; white-space: pre-wrap; background: #f4f4f4; padding: 0.5rem; }
+  .status { font-family: monospace; white-space: pre-wrap; background: #f4f4f4; padding: 0.5rem; margin: 0.5rem 0; }
   .blank { color: #b00020; font-weight: bold; }
+  .run { margin-top: 0.5rem; }
+  iframe { width: 500px; max-width: 100%; height: 300px; border: 0; display: block; }
 </style>
 </head>
 <body>
-<h1>Board in a sandboxed iframe in a hidden tab: sometimes blank</h1>
+<h1>Board in a sandboxed iframe in a hidden tab: blank when the tab is opened</h1>
 <p>JSXGraph version: <strong id="version"></strong>. Other versions:
 <a href="?v=1.9.1">1.9.1</a> · <a href="?v=1.9.2">1.9.2</a> ·
 <a href="?v=1.13.3">1.13.3</a> · <a href="?v=1.14.0">1.14.0</a> ·
-<a href="../index.html">overview</a></p>
-<p>A tab pane is <code>display:none</code> when the page loads. It holds a
-sandboxed <code>data:</code> iframe (500×400 px) whose page loads JSXGraph
-and creates a board in a div of 100%×100%. Quarto's jsxgraph extension
-embeds boards this way.</p>
-<ol>
-<li>Open this page in desktop Chrome.</li>
-<li>Click <strong>Tab 2 (board)</strong>. One second later the line below
-reports what the iframe shows.</li>
-<li>Reload the page and repeat a few times. The effect is intermittent.</li>
-</ol>
-<p><strong>Expected:</strong> axes and a sine curve, every time.<br>
-<strong>Seen with 1.9.2 to 1.14.0:</strong> in some page loads the frame stays
-white (the status says BLANK). Clicking Tab 1 and Tab 2 again does not bring
-the board back. With 1.9.1 the board is always drawn, though showing the
-shifted region of the 1.6.0–1.9.1 item listed under "Fixed in later JSXGraph
-versions" on the <a href="../index.html#fixed">overview page</a>.</p>
+<a href="../index.html#p1">overview</a></p>
 
 <div class="tabs"><button type="button" id="tab1">Tab 1</button>
 <button type="button" id="tab2">Tab 2 (board)</button></div>
-<div class="pane" id="pane1">Tab 1: no board here.</div>
+<div class="pane" id="pane1">Tab 1: no board here. Click <strong>Tab 2 (board)</strong>.</div>
 <script>
   var V = (/[?&]v=([0-9.]+)/.exec(location.search) || [])[1] || '1.14.0';
   var CDN = 'https://cdn.jsdelivr.net/npm/jsxgraph@' + V + '/distrib/';
@@ -53,28 +40,125 @@ versions" on the <a href="../index.html#fixed">overview page</a>.</p>
     ' parent.postMessage({container: box.clientWidth + "x" + box.clientHeight,' +
     ' svg: s.getAttribute("width") + "x" + s.getAttribute("height"), bbox: board.getBoundingBox()}, "*"); });' +
     '<\/script></body></html>';
+  var SRC = 'data:text/html;base64,' + btoa(inner);
   // The iframe is part of the parsed page, as a Quarto filter would emit it.
   document.write('<div class="pane" id="pane2" style="display:none">' +
-    '<iframe id="frame" sandbox="allow-scripts" title="JSXGraph board" style="width:500px;max-width:100%;height:400px;border:0;display:block" ' +
-    'src="data:text/html;base64,' + btoa(inner) + '"></iframe></div>');
+    '<iframe id="frame" sandbox="allow-scripts" title="JSXGraph board" src="' + SRC + '"></iframe></div>');
 </script>
-<p id="status">Status: Tab 2 not opened yet.</p>
+<p class="status" id="status">Status: Tab 2 not opened yet.</p>
+<div class="run"><button type="button" id="run20">Run 20 times automatically</button></div>
+<div id="auto"></div>
+<p class="status" id="autostatus" style="display:none"></p>
+
+<p>A tab pane is <code>display:none</code> when the page loads. It holds a
+sandboxed <code>data:</code> iframe (500×300 px) whose page loads JSXGraph
+and creates a board in a div of 100%×100%, as the Quarto jsxgraph extension
+embeds boards.</p>
+<p>The board stays blank only if Chrome is not painting the window at the
+moment the pane is shown: the window is covered by another window or in the
+background, or the browser is headless or automated. Chrome still reports
+<code>document.hidden = false</code> then. In a window in front, the board
+is drawn. For a reliable reproduction in a visible window, see
+<a href="blank-after-quick-show.html">blank-after-quick-show.html</a>: the
+same defect without an iframe.</p>
+<ol>
+<li>Open this page in desktop Chrome and press <strong>Run 20 times
+automatically</strong>. Each trial puts a new hidden pane with the same
+iframe at the top of the page, shows it 1.5 s later, and reads the board
+2 s after that.</li>
+<li>While it runs, cover the browser window with another window for some of
+the trials. The result is "Blank in N of 20", with one line per trial.</li>
+<li>Or click <strong>Tab 2 (board)</strong>; a second later the status line
+says what the iframe shows.</li>
+</ol>
+<p><strong>Expected:</strong> axes and a sine curve in every trial.<br>
+<strong>Seen with 1.9.2 to 1.14.0:</strong> the trials during which the
+window was covered stay white: the status says BLANK (the board's div has
+its size, its SVG is 0×0). In Chrome 152 on Windows with JSXGraph 1.14.0,
+checked by hand: blank in 4 of 20, exactly the trials while the window was
+covered; every board shown while the window was in front was drawn. In
+Chromium 141 on Linux under automation: blank in 40 to 63 % of page loads
+(an independent verification, 30 loads per cell). Clicking Tab 1 and Tab 2
+again does not bring a blank board back; a change of the iframe's size does.
+With 1.9.1 the board is drawn, though showing the shifted region of the
+1.6.0–1.9.1 item listed under "Fixed in later JSXGraph versions" on the
+<a href="../index.html#fixed">overview page</a>.</p>
+<p>"Not yet laid out" in the status means that the iframe was still 0×0 when
+it was read, for example because it was outside the visible area.</p>
+
 <script>
+  function describe(d) {
+    var divW = +d.container.split('x')[0], svgW = +d.svg.split('x')[0];
+    if (divW === 0) return {kind: 'notyet', text: 'Not yet laid out: the iframe is still 0x0 (for example because it is outside the visible area).'};
+    if (svgW === 0) return {kind: 'blank', text: 'BLANK: the board div has its size, but the SVG is 0x0.'};
+    return {kind: 'drawn', text: 'Drawn.'};
+  }
   function show(n) {
     document.getElementById('pane1').style.display = n === 1 ? 'block' : 'none';
     document.getElementById('pane2').style.display = n === 2 ? 'block' : 'none';
   }
-  function query() { document.getElementById('frame').contentWindow.postMessage('state', '*'); }
+  function query(win) { win.postMessage('state', '*'); }
+  var waiting = null;   // callback for the automatic run
   document.getElementById('tab1').onclick = function () { show(1); };
-  document.getElementById('tab2').onclick = function () { show(2); setTimeout(query, 1000); };
+  document.getElementById('tab2').onclick = function () {
+    show(2);
+    setTimeout(function () { query(document.getElementById('frame').contentWindow); }, 1000);
+  };
   addEventListener('message', function (e) {
-    var blank = e.data.svg.split('x')[0] === '0' && e.data.container.split('x')[0] !== '0';
-    window.RESULT = {blank: blank, container: e.data.container, svg: e.data.svg, bbox: e.data.bbox};
+    var d = e.data, r = describe(d);
+    if (waiting && waiting.win === e.source) { var cb = waiting.cb; waiting = null; cb(d, r); return; }
+    window.RESULT = {kind: r.kind, blank: r.kind === 'blank', container: d.container, svg: d.svg, bbox: d.bbox};
     var status = document.getElementById('status');
-    status.textContent = 'Status: board div ' + e.data.container + ' px, SVG ' + e.data.svg + ' px, bounding box ' +
-      JSON.stringify(e.data.bbox) + (blank ? '\nBLANK: the SVG has no size although the div has.' : '\nDrawn.');
-    status.className = blank ? 'blank' : '';
+    status.textContent = 'Status: board div ' + d.container + ' px, SVG ' + d.svg + ' px, bounding box ' +
+      JSON.stringify(d.bbox) + '\n' + r.text;
+    status.className = 'status' + (r.kind === 'blank' ? ' blank' : '');
   });
+
+  // Automatic in-view trials: fresh hidden pane + iframe at the top, show after 1.5 s, read 2 s later.
+  function trial(done) {
+    var auto = document.getElementById('auto');
+    auto.innerHTML = '';
+    var pane = document.createElement('div');
+    pane.className = 'pane';
+    pane.style.display = 'none';
+    var frame = document.createElement('iframe');
+    frame.setAttribute('sandbox', 'allow-scripts');
+    frame.title = 'JSXGraph board, automatic trial';
+    frame.src = SRC;
+    pane.appendChild(frame);
+    auto.appendChild(pane);
+    setTimeout(function () {
+      pane.style.display = 'block';
+      setTimeout(function () {
+        waiting = {win: frame.contentWindow, cb: done};
+        query(frame.contentWindow);
+      }, 2000);
+    }, 1500);
+  }
+  document.getElementById('run20').onclick = function () {
+    var button = this, out = document.getElementById('autostatus'), n = 20, i = 0, counts = {blank: 0, drawn: 0, notyet: 0}, lines = [];
+    button.disabled = true;
+    show(1);
+    out.style.display = 'block';
+    scrollTo(0, 0);
+    (function next() {
+      if (i === n) {
+        window.AUTO = counts;
+        out.textContent = 'Blank in ' + counts.blank + ' of ' + n + ' (drawn ' + counts.drawn + ', not yet laid out ' + counts.notyet +
+          '), JSXGraph ' + V + '.\n' + lines.join('\n');
+        out.className = 'status' + (counts.blank ? ' blank' : '');
+        button.disabled = false;
+        return;
+      }
+      i += 1;
+      out.textContent = 'Trial ' + i + ' of ' + n + ' running …\n' + lines.join('\n');
+      trial(function (d, r) {
+        counts[r.kind] += 1;
+        lines.push('trial ' + i + ': div ' + d.container + ', SVG ' + d.svg + ': ' + r.kind);
+        next();
+      });
+    })();
+  };
 </script>
 </body>
 </html>
