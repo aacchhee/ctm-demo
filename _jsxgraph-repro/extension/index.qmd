@@ -11,11 +11,11 @@ board. Each extension version has its own copy of this page:
 [17de83e](../extension-17de83e/index.html) (an earlier state of PR #2) ·
 [overview and measurements](../index.html).
 
-To test a board in a tab: load the page in a wide window, scroll so that the
-tab bar is near the top of the window (a board that is off-screen when its
-tab opens is drawn correctly when scrolled to, which hides the blank-board
-problem), open the tabs named at the board, then make the window narrow
-(about 390 px) and wide again.
+To test a board in a tab: load the page in a wide window, open the tabs named
+at the board, then make the window narrow (about 390 px) and wide again. A
+blank board after opening a tab (library problem 1) appears only if Chrome
+is not painting the window at that moment, for example while it is covered
+by another window.
 
 ## Visible at load (for comparison)
 

@@ -14,22 +14,23 @@ Problems 1, 2 and 4, the `functiongraph` crash listed at the end, and the
 extension measurements were checked by an independent verification (fresh downloads,
 its own test pages and drivers); the numbers given are from it unless a
 section says otherwise. Problems 3 and 5 and the two plain-div pages under
-problem 1 were found and measured for this page only. Problem 6 was found by
-reading the code.
+problem 1 were found and measured for this page, not by the verification;
+the div page and the iframe page of problem 1 were also checked by hand in
+Chrome 152 on Windows. Problem 6 was found by reading the code.
 
 The pages in `repro/` load JSXGraph from jsDelivr; add `?v=1.9.1` (or another version)
 to a page's address to load that version. Source locations are from our
 investigation of tag v1.14.0; the resize code is unchanged on `main`
 (55a2035, 19 October 2026).
 
-**Browsers.** Problem 1 reproduces reliably in desktop Chrome
-152.0.7977.149 on Windows, with the board in view when its tab opens: with
-the repro page's **Run 20 times automatically** button, JSXGraph 1.14.0 was
-blank in 20 of 20 trials and 1.9.1 in 0 of 20; a manual click on the tab
-also gave a blank board. The other measurements on this page were made on
-19 October 2026 in Chromium 141.0.7390.37 on Linux, the full browser that
-Chrome is built from, with a window (under Xvfb) and in headless mode; there
-problem 1 shows less reliably (40–63 % of loads). Chromium's separate
+**Browsers.** On 19 October 2026 the maintainers' desktop setting was checked
+by hand in Chrome 152.0.7977.149 on Windows: problem 1 reproduces there in a
+normal, visible window with the div page (blank in 4 of 4 loads with
+JSXGraph 1.14.0, drawn with 1.9.1), and with the iframe page only while
+Chrome is not painting the window (see problem 1). All other measurements on
+this page were made in Chromium 141.0.7390.37 on Linux, the full browser that
+Chrome is built from, under automation, with a window (under Xvfb) and in
+headless mode. Chromium's separate
 "headless shell" never shows problem 1 in iframes. Firefox and Safari were
 not available to us, so this page says nothing about them.
 
@@ -40,7 +41,7 @@ Library (JSXGraph 1.14.0):
 ::: {.table-responsive}
 | # | Problem | Since | Where it shows |
 |---|---|---|---|
-| [1](#p1) | Resize notifications are dropped; a board shown from a hidden tab can stay blank | 1.9.2 | hidden sandboxed iframes that are in view when shown (20 of 20 in desktop Chrome 152 on Windows, 0 of 20 with 1.9.1; 40–63 % of loads in automated Chromium 141 on Linux); hidden or visible divs whose size changes twice within 10 ms |
+| [1](#p1) | Resize notifications are dropped; a board shown from a hidden tab can stay blank | 1.9.2 | hidden divs shown while the page is busy (4 of 4 loads in desktop Chrome 152, window in front); hidden sandboxed iframes shown while Chrome is not painting the window (covered, in the background, automated); visible divs resized twice within 10 ms |
 | [2](#p2) | Boards with `unitX/unitY/originX/originY` created hidden are broken after showing | 1.3.0 | containers without a CSS pixel size, 0 px wide at creation |
 | [3](#p3) | `keepaspectratio` boards created at 0×0 show the wrong region | 1.5.0 | relative sizes in a hidden parent; hidden iframes |
 | [4](#p4) | One exception during a resize stops all later resizing | 1.3.1 | any board |
@@ -61,7 +62,7 @@ Extension (jsxgraph-quarto):
 | # | Problem | Versions |
 |---|---|---|
 | [7](#p6) | After the first resize, boards no longer follow the window | upstream main 59d549c |
-| [8](#p7) | Boards in hidden tabs are often blank when the tab is opened (problem 1, through the extension's iframes) | a26aea8, 59d549c |
+| [8](#p7) | Boards in hidden tabs can stay blank when the tab is opened (problem 1, through the extension's iframes) | a26aea8, 59d549c |
 :::
 
 [Pull request #2](https://github.com/jsxgraph/jsxgraph-quarto/pull/2) of
@@ -79,45 +80,57 @@ For a board created hidden, the earlier size is 0×0 and the board stays blank.
 
 **Versions:** 1.9.2 to 1.14.0 and `main`. Not 1.9.1 or earlier.
 
-**Reproduce** in desktop Chrome with
-[blank-in-hidden-iframe.html](repro/blank-in-hidden-iframe.html). This is the
-case met in practice: a sandboxed `data:` iframe in a tab that is
-`display:none` at load, as the Quarto extension embeds boards.
+**Reproduce in a visible window** with
+[blank-after-quick-show.html](repro/blank-after-quick-show.html). A board in
+a div whose parent is `display:none` is shown while JSXGraph's first (0×0)
+timer is pending and the page is busy for 30 ms, as other scripts on a page
+often are when a tab opens. Open the page; the status line says whether the
+board is drawn.
 
-1. Open the page and, without resizing the window, click **Tab 2 (board)**.
-   The board appears at the top of the page, in view. A second later the
-   status line says whether the board is drawn.
-2. Or press **Run 20 times automatically**: each trial shows a fresh hidden
-   iframe at the top of the page and reports "blank in N of 20".
-
-What we know about how often it happens:
-
-- **Reliable reproduction:** desktop Chrome 152.0.7977.149 on Windows, with
-  the iframe in view at the moment its pane is shown. The page's
-  **Run 20 times automatically** button: JSXGraph 1.14.0 blank in 20 of 20,
-  JSXGraph 1.9.1 blank in 0 of 20 (drawn 20). A manual click on
-  **Tab 2 (board)** also gave a blank board (div 500×300, SVG 0×0).
-- Secondary: Chromium 141 on Linux under automation, blank in 40 to 63 % of
-  page loads (independent verification, table below); the page's button
-  gave 2 of 20 there.
-- A board that is below the visible area when its tab opens draws correctly:
-  Chrome does not render an off-screen cross-origin iframe, so the iframe
-  stays 0×0 until it is scrolled into view and JSXGraph then gets one clean
-  size. This is why the problem can look intermittent on longer pages. The
-  page's status says "not yet laid out" in that case.
-- Resizing the window while the tab is still hidden prevents the problem
-  (0 of 20 loads); a longer wait before the click does not (10 of 20 after
-  4.5 s).
+- Chrome 152.0.7977.149 on Windows, window in front, checked by hand:
+  JSXGraph 1.14.0 blank in 4 of 4 loads; 1.9.1 drawn in 2 of 2.
+- Chromium 141 on Linux, headless, automated: blank in 5 of 8 loads.
 
 ::: {.table-responsive}
-| You should see | You see (1.9.2 to 1.14.0, board in view when shown) |
+| You should see (here: shown 500 ms later) | You see (1.14.0) |
+|---|---|
+| ![Axes and a sine curve](img/quick-show-expected.png) | ![An empty frame](img/quick-show-seen.png) |
+:::
+
+**Reproduce with a sandboxed iframe** (as the Quarto extension embeds
+boards) with [blank-in-hidden-iframe.html](repro/blank-in-hidden-iframe.html):
+a `data:` iframe in a tab that is `display:none` at load. Here the board
+stays blank only if Chrome is not painting the window at the moment the tab
+opens: the window is covered by another window or in the background, or the
+browser is headless or automated. Chrome still reports
+`document.hidden = false` in these cases.
+
+1. Open the page and press **Run 20 times automatically**. Each trial shows a
+   fresh hidden iframe at the top of the page and reads the board 2 s later.
+2. While it runs, cover the browser window with another window for some of
+   the trials. The result is "blank in N of 20", with one line per trial.
+
+- Chrome 152.0.7977.149 on Windows, JSXGraph 1.14.0, checked by hand: blank
+  in 4 of 20, exactly the trials during which the window was covered; while
+  the window was in front, every board was drawn.
+- Chromium 141 on Linux under automation: blank in 40 to 63 % of page loads
+  (independent verification, table below).
+- A blank board stays blank when the tab is hidden and shown again; it
+  recovers when the iframe's size changes (narrowing or widening the
+  window). Resizing the window while the tab is still hidden prevents the
+  problem (0 of 20 loads); a longer wait before the click does not (10 of 20
+  after 4.5 s).
+
+::: {.table-responsive}
+| You should see | You see (1.14.0, automated Chromium) |
 |---|---|
 | ![Axes and a sine curve](img/iframe-blank-expected.png) | ![An empty frame](img/iframe-blank-seen.png) |
 :::
 
-Measured by an independent verification, 30 page loads per cell (tab
-clicked 0.3 to 0.9 s after the page was ready; pooled, 1.13.3 and 1.14.0 were
-blank in 120 of 240 loads in the full Chromium, 1.9.1 in 0 of 120):
+Measured by an independent verification in Chromium 141 on Linux, 30 page
+loads per cell (tab clicked 0.3 to 0.9 s after the page was ready; pooled,
+1.13.3 and 1.14.0 were blank in 120 of 240 loads in the full Chromium, 1.9.1
+in 0 of 120):
 
 ::: {.table-responsive}
 | Browser | 1.9.1 | 1.13.3 | 1.14.0 |
@@ -128,44 +141,34 @@ blank in 120 of 240 loads in the full Chromium, 1.9.1 in 0 of 120):
 :::
 
 The two numbers per cell are for an iframe with a pixel size and one sized
-by `aspect-ratio`. A blank board stays blank when the tab is hidden and shown
-again; it recovers when the iframe's size changes (narrowing or widening the
-window).
+by `aspect-ratio`.
 
-Two more pages show the same defect without an iframe. These two were measured for this page only, not by the independent
-verification:
+**A visible board** shows the same defect in
+[stale-svg-after-quick-resize.html](repro/stale-svg-after-quick-resize.html):
+its container grows from 300 to 400 to 500 px within 10 ms while the page is
+busy for 30 ms (press **Run**). Stale in every run in our (automated)
+measurements; not checked on Windows.
 
-- [blank-after-quick-show.html](repro/blank-after-quick-show.html): a board
-  in a hidden div is shown while the first (0×0) timer is pending and the page
-  is busy for 30 ms. Blank in 5 of 8 page loads in Chromium headless here; the share depends on the machine's load.
+::: {.table-responsive}
+| You should see (1.9.1) | You see (1.14.0): the SVG stays 400 px wide |
+|---|---|
+| ![Board fills 500 px](img/stale-svg-expected.png) | ![Drawing ends at 400 px](img/stale-svg-seen.png) |
+:::
 
-  ::: {.table-responsive}
-  | You should see (here: shown 500 ms later) | You see |
-  |---|---|
-  | ![Axes and a sine curve](img/quick-show-expected.png) | ![An empty frame](img/quick-show-seen.png) |
-  :::
-
-- [stale-svg-after-quick-resize.html](repro/stale-svg-after-quick-resize.html):
-  a visible board whose container grows from 300 to 400 to 500 px within
-  10 ms while the page is busy for 30 ms (press **Run**). Stale in every run
-  in our measurements.
-
-  ::: {.table-responsive}
-  | You should see (1.9.1) | You see (1.14.0): the SVG stays 400 px wide |
-  |---|---|
-  | ![Board fills 500 px](img/stale-svg-expected.png) | ![Drawing ends at 400 px](img/stale-svg-seen.png) |
-  :::
+All three pages show one defect with one cause and one fix, below.
 
 **Why it happens in iframes.** Chromium does not render a hidden cross-origin
-iframe. When the tab is shown, the iframe first delivers the observer's
-pending notification with 0×0 and, 1 to 4 ms later, the real size. Whether
-the 0×0 comes first depends on which arrives first in the iframe, its first
-rendering update or its new window size. In every one of the 120 blank runs
-above, the only call of `updateContainerDims` was `(0, 0)` while the
-container had its full size (500×400, or 984×787 with `aspect-ratio`). Version 1.9.1 receives the same two notifications,
-but reads the size when its timer fires, so it gets the real one. The
-headless shell does not show the race: there the 0×0 arrives while the tab
-is still hidden.
+iframe. In the automated runs, when the tab was shown, the iframe first
+delivered the observer's pending notification with 0×0 and, 1 to 4 ms later,
+the real size. Whether the 0×0 comes first depends on which arrives first in
+the iframe, its first rendering update or its new window size. In every one
+of the 120 blank runs above, the only call of `updateContainerDims` was
+`(0, 0)` while the container had its full size (500×400, or 984×787 with
+`aspect-ratio`). Version 1.9.1 receives the same two notifications, but reads
+the size when its timer fires, so it gets the real one. The headless shell
+does not show the race: there the 0×0 arrives while the tab is still hidden.
+In the Windows checks no blank iframe board was seen while the window was in
+front; the order of events there was not traced.
 
 **Cause** (source location from our investigation): `src/base/board.js`,
 `startResizeObserver`,
@@ -508,20 +511,20 @@ sees a new size.
 the div's CSS size. [Pull request #2](https://github.com/jsxgraph/jsxgraph-quarto/pull/2)
 does this.
 
-## 8. Extension: boards in hidden tabs are often blank (library problem 1) {#p7}
+## 8. Extension: boards in hidden tabs can stay blank (library problem 1) {#p7}
 
 This is library problem 1 as it shows in Quarto pages.
 
 **What goes wrong.** The extension puts each board into a sandboxed `data:`
-iframe. A board in a tab that is hidden at load is often blank after the
-tab is opened in Chrome, reliably so when the board is in view at that
-moment (see problem 1). Whether a board in a Quarto tab is in view when the
-tab opens depends on the page's layout and on where the reader has
-scrolled; a board below the visible area draws correctly when it is
-scrolled to.
+iframe. A board in a tab that is hidden at load can stay blank after the
+tab is opened, under the same condition as the iframe page of problem 1:
+Chrome is not painting the window at that moment (covered, in the
+background, headless or automated). It was not checked by hand on Windows
+with the extension's pages.
 
 **Versions:** jsxgraph-quarto a26aea8 and 59d549c. Measured by the
-independent verification, 20 page loads each, tab opened after load:
+independent verification in Chromium 141 on Linux under automation, 20 page
+loads each, tab opened after load:
 a26aea8 (its bundled JSXGraph 1.13.3) blank in 11/20 headless and 15/20 with
 a window; 59d549c (JSXGraph 1.14.0) in 7/20 and 11/20; 17de83e, an earlier
 state of pull request #2 that turned JSXGraph's observer off, in
@@ -531,10 +534,10 @@ the bounding box stays NaN, so the board draws nothing; it stays so after
 narrowing and widening. With a26aea8 the board recovers at the first later
 resize of the iframe.
 
-**Reproduce:** [test page built with a26aea8](extension-a26aea8/index.html).
-Scroll so that the tab bar is near the top of the window, so that the board
-will be in view, then open **2025 → Prøve 4**. Reload and repeat if it is
-drawn.
+**Reproduce:** [test page built with a26aea8](extension-a26aea8/index.html),
+tab **2025 → Prøve 4**. By hand this needs the tab to open while Chrome is
+not painting the window, which is hard to arrange; the iframe page of
+problem 1 with its 20-trial button is the easier way.
 
 **Fix.** In the library: problem 1. In the extension until then: the
 `resize` workaround shown under problem 1. The current state of

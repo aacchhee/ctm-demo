@@ -33,9 +33,11 @@ ResizeObserver reports 0×0 once and JSXGraph starts its 10 ms timer
 window and keeps the main thread busy for 30 ms, as other scripts on a page
 often do when a tab opens.</p>
 <p><strong>Expected:</strong> axes and a sine curve.<br>
-<strong>Seen with 1.9.2 to 1.14.0:</strong> in most page loads an empty
-frame; the status says BLANK. Reload if it is drawn: the timing depends on
-the machine's load. With 1.9.1 the board is drawn. The reference link shows the same
+<strong>Seen with 1.9.2 to 1.14.0:</strong> an empty frame; the status says
+BLANK. In Chrome 152 on Windows, window in front, checked by hand: blank in
+4 of 4 loads with 1.14.0; drawn in 2 of 2 with 1.9.1. In automated Chromium
+141 on Linux: blank in 5 of 8 loads; reload if it is drawn, the timing
+depends on the machine's load. With 1.9.1 the board is drawn. The reference link shows the same
 board shown 500 ms after load instead: drawn, also with 1.14.0.</p>
 
 <script>

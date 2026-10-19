@@ -54,37 +54,42 @@
 sandboxed <code>data:</code> iframe (500×300 px) whose page loads JSXGraph
 and creates a board in a div of 100%×100%, as the Quarto jsxgraph extension
 embeds boards.</p>
+<p>The board stays blank only if Chrome is not painting the window at the
+moment the pane is shown: the window is covered by another window or in the
+background, or the browser is headless or automated. Chrome still reports
+<code>document.hidden = false</code> then. In a window in front, the board
+is drawn. For a reliable reproduction in a visible window, see
+<a href="blank-after-quick-show.html">blank-after-quick-show.html</a>: the
+same defect without an iframe.</p>
 <ol>
-<li>Open this page in desktop Chrome and keep the area above in view.</li>
-<li>Click <strong>Tab 2 (board)</strong>. A second later the status line says
-what the iframe shows.</li>
-<li>Or press <strong>Run 20 times automatically</strong>: each trial puts a
-new hidden pane with the same iframe at the top of the page, shows it
-1.5 s later, and reads the board 2 s after that.</li>
+<li>Open this page in desktop Chrome and press <strong>Run 20 times
+automatically</strong>. Each trial puts a new hidden pane with the same
+iframe at the top of the page, shows it 1.5 s later, and reads the board
+2 s after that.</li>
+<li>While it runs, cover the browser window with another window for some of
+the trials. The result is "Blank in N of 20", with one line per trial.</li>
+<li>Or click <strong>Tab 2 (board)</strong>; a second later the status line
+says what the iframe shows.</li>
 </ol>
-<p><strong>Expected:</strong> axes and a sine curve.<br>
-<strong>Seen with 1.9.2 to 1.14.0:</strong> when the iframe is in view at the
-moment its pane is shown, the frame stays white: the status says BLANK (the
-board's div has its size, its SVG is 0×0). In desktop Chrome 152 on Windows
-the <strong>Run 20 times automatically</strong> button gave: JSXGraph 1.14.0 blank in 20 of 20, JSXGraph 1.9.1
-blank in 0 of 20; a manual click on Tab 2 was blank as well. Chromium 141 on
-Linux under automation shows it less reliably: 40 to 63 % of page loads in an
-independent verification (30 loads per cell), 2 of 20 with the button. Clicking Tab 1 and Tab 2 again does not bring the board back; a change
-of the iframe's size does.
+<p><strong>Expected:</strong> axes and a sine curve in every trial.<br>
+<strong>Seen with 1.9.2 to 1.14.0:</strong> the trials during which the
+window was covered stay white: the status says BLANK (the board's div has
+its size, its SVG is 0×0). In Chrome 152 on Windows with JSXGraph 1.14.0,
+checked by hand: blank in 4 of 20, exactly the trials while the window was
+covered; every board shown while the window was in front was drawn. In
+Chromium 141 on Linux under automation: blank in 40 to 63 % of page loads
+(an independent verification, 30 loads per cell). Clicking Tab 1 and Tab 2
+again does not bring a blank board back; a change of the iframe's size does.
 With 1.9.1 the board is drawn, though showing the shifted region of the
 1.6.0–1.9.1 item listed under "Fixed in later JSXGraph versions" on the
 <a href="../index.html#fixed">overview page</a>.</p>
-<p><strong>Why the position matters.</strong> Chrome does not render a
-cross-origin iframe that is outside the visible area. If the pane is opened
-while the iframe is below the visible area, the iframe's window stays 0×0
-until it is scrolled into view, and JSXGraph then receives one clean size
-and draws correctly. The status says "not yet laid out" in that case. This
-is why the problem can look intermittent on longer pages.</p>
+<p>"Not yet laid out" in the status means that the iframe was still 0×0 when
+it was read, for example because it was outside the visible area.</p>
 
 <script>
   function describe(d) {
     var divW = +d.container.split('x')[0], svgW = +d.svg.split('x')[0];
-    if (divW === 0) return {kind: 'notyet', text: 'Not yet laid out: the iframe is still 0x0 (for example because it is off-screen).'};
+    if (divW === 0) return {kind: 'notyet', text: 'Not yet laid out: the iframe is still 0x0 (for example because it is outside the visible area).'};
     if (svgW === 0) return {kind: 'blank', text: 'BLANK: the board div has its size, but the SVG is 0x0.'};
     return {kind: 'drawn', text: 'Drawn.'};
   }
