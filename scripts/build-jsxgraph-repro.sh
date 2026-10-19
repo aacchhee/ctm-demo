@@ -2,9 +2,10 @@
 # Temporary JSXGraph reproduction, published at <site>/jsxgraph-repro/.
 # Run after `quarto render`. Builds _jsxgraph-repro/ on its own, with old code
 # fetched by commit (nothing old is kept in this repository):
-#   library/jsxgraph-<version>.html  plain HTML, one page per JSXGraph version
+#   index.html                       the report (problems, causes, measurements)
+#   repro/*.html                     minimal plain-HTML repros (kept in this repo)
+#   library/jsxgraph-<version>.html  plain HTML with course figures, per JSXGraph version
 #   extension-<commit>/index.html    Quarto pages, one per jsxgraph-quarto commit
-#   index.html                       overview and measurements
 # Remove together with _jsxgraph-repro/, its workflow step and .gitignore lines.
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -56,6 +57,7 @@ done
 rm -rf "$out"
 (cd "$src" && quarto render --quiet)
 mkdir -p "$out/library"
+cp -r "$src/repro" "$out/repro"
 
 # Library only: plain HTML with two of the figures (code without the fences).
 for version in $LIBRARY_VERSIONS; do

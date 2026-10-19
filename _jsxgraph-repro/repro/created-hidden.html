@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSXGraph: board created hidden, then shown</title>
+<style>
+  body { font-family: system-ui, sans-serif; line-height: 1.45; margin: 1rem; max-width: 1000px; }
+  .row { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .col { flex: 1 1 280px; max-width: 320px; }
+  .frame { width: 100%; height: 240px; border: 1px solid #888; box-sizing: border-box; }
+  iframe.frame { display: block; }
+  .status { font-family: monospace; font-size: 0.8rem; white-space: pre-wrap; background: #f4f4f4; padding: 0.5rem; }
+  .wrong { color: #b00020; font-weight: bold; }
+  button { font-size: 1rem; }
+  h2 { font-size: 1rem; margin: 0.5rem 0; }
+</style>
+<script>
+  var V = (/[?&]v=([0-9.]+)/.exec(location.search) || [])[1] || '1.14.0';
+  var CDN = 'https://cdn.jsdelivr.net/npm/jsxgraph@' + V + '/distrib/';
+  document.write('<link rel="stylesheet" href="' + CDN + 'jsxgraph.css"><script src="' + CDN + 'jsxgraphcore.js"><\/script>');
+</script>
+</head>
+<body>
+<h1>Board created hidden, then shown</h1>
+<p>JSXGraph version: <strong id="version"></strong>. Other versions:
+<a href="?v=1.2.3">1.2.3</a> · <a href="?v=1.3.0">1.3.0</a> ·
+<a href="?v=1.4.4">1.4.4</a> · <a href="?v=1.4.6">1.4.6</a> ·
+<a href="?v=1.6.2">1.6.2</a> · <a href="?v=1.9.1">1.9.1</a> ·
+<a href="?v=1.9.2">1.9.2</a> · <a href="?v=1.14.0">1.14.0</a> ·
+<a href="../index.html">overview</a></p>
+<p>Press <strong>Show B and C</strong> and compare (B) and (C) with (A).</p>
+<p><button type="button" id="show">Show B and C</button></p>
+<div class="row">
+<div class="col"><h2>(A) Visible from the start</h2>
+<div id="box-a" class="jxgbox frame"></div>
+<p class="status" id="status-a"></p></div>
+<div class="col"><div class="hidden" style="display:none"><h2>(B) Div, hidden at creation</h2>
+<div id="box-b" class="jxgbox frame"></div>
+<p class="status" id="status-b"></p></div></div>
+<div class="col"><div class="hidden" style="display:none"><h2>(C) Sandboxed data: iframe, hidden at creation</h2>
+<iframe id="frame-c" class="frame" sandbox="allow-scripts" title="JSXGraph board in an iframe"></iframe>
+<p class="status" id="status-c"></p></div></div>
+</div>
+<p>One board three times: <code>boundingbox: [-5, 5, 5, -5]</code>, axes, and a
+point P at (1, 2), in a frame 100% wide and 240 px high. (B) is a div whose
+parent is <code>display:none</code>, so it is 0 px wide at creation. (C) is a
+sandboxed <code>data:</code> iframe whose parent is <code>display:none</code>,
+with the board div at 100%×100%.</p>
+<p><strong>Expected:</strong> (B) and (C) look like (A): x and y from −5 to 5,
+P to the upper right of the origin.<br>
+<strong>Seen:</strong> with 1.9.2 to 1.14.0, (B) is right; (C) is right or,
+in Chrome in about half of the page loads, blank (see the
+<a href="blank-in-hidden-iframe.html">blank-board problem</a>). With 1.6.2 to
+1.9.1, (B) and (C) show x −10…0 instead of −5…5, so P is outside the view.
+With 1.4.4 and with 1.2.3, (B) and (C) stay empty.</p>
+<script>
+  document.getElementById('version').textContent = V;
+  function makeBoard(id) {
+    var board = JXG.JSXGraph.initBoard(id, {boundingbox: [-5, 5, 5, -5], axis: true,
+      showNavigation: false, showCopyright: false});
+    board.create('point', [1, 2], {name: 'P', fixed: true});
+    return board;
+  }
+  var boardA = makeBoard('box-a'), boardB = makeBoard('box-b');
+  var inner = '<!DOCTYPE html><html><head><meta charset="UTF-8">' +
+    '<link rel="stylesheet" href="' + CDN + 'jsxgraph.css"><script src="' + CDN + 'jsxgraphcore.js"><\/script>' +
+    '<style>html,body{margin:0;width:100%;height:100%}.jxgbox{border:none;border-radius:0}</style></head><body>' +
+    '<div id="box-c" class="jxgbox" style="width:100%;height:100%;box-sizing:border-box"></div><script>' +
+    makeBoard.toString() + 'var board = makeBoard("box-c");' +
+    'addEventListener("message", function () { var s = board.renderer.svgRoot;' +
+    ' parent.postMessage({div: board.containerObj.clientWidth + "x" + board.containerObj.clientHeight,' +
+    ' svg: s.getAttribute("width") + "x" + s.getAttribute("height"), bbox: board.getBoundingBox()}, "*"); });' +
+    '<\/script></body></html>';
+  document.getElementById('frame-c').src = 'data:text/html;base64,' + btoa(inner);
+
+  function round(box) { return box.map(function (v) { return Math.round(v * 100) / 100; }); }
+  function report(id, div, svg, box) {
+    var got = round(box), el = document.getElementById('status-' + id);
+    var sizeOk = Math.abs(parseFloat(svg) - parseFloat(div)) <= 2 && parseFloat(svg) > 0;
+    var viewOk = [-5, 5, 5, -5].every(function (v, i) { return Math.abs(got[i] - v) < 0.05; });
+    window.RESULT = window.RESULT || {};
+    window.RESULT[id] = {div: div, svg: svg, bbox: got, ok: sizeOk && viewOk};
+    el.textContent = 'Board div ' + div + ' px, SVG ' + svg + ' px, bounding box ' + JSON.stringify(got) +
+      (!sizeOk ? '\nBLANK OR WRONG SIZE' : !viewOk ? '\nWRONG VIEW: expected [-5,5,5,-5].' : '\nAs expected.');
+    el.className = 'status' + (sizeOk && viewOk ? '' : ' wrong');
+  }
+  function state(board) {
+    var s = board.renderer.svgRoot;
+    return [board.containerObj.clientWidth + 'x' + board.containerObj.clientHeight,
+      s.getAttribute('width') + 'x' + s.getAttribute('height'), board.getBoundingBox()];
+  }
+  addEventListener('message', function (e) { report('c', e.data.div, e.data.svg, e.data.bbox); });
+  function update() {
+    report.apply(null, ['a'].concat(state(boardA)));
+    if (document.querySelector('.hidden').style.display !== 'none') {
+      report.apply(null, ['b'].concat(state(boardB)));
+      document.getElementById('frame-c').contentWindow.postMessage('state', '*');
+    }
+  }
+  document.getElementById('show').onclick = function () {
+    document.querySelectorAll('.hidden').forEach(function (el) { el.style.display = 'block'; });
+    setTimeout(update, 1000);
+  };
+  setTimeout(update, 300);
+</script>
+</body>
+</html>

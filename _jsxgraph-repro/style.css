@@ -1,0 +1,2 @@
+/* Temporary JSXGraph reproduction: keep long inline code inside the column on phones. */
+p code, li code, td code { white-space: pre-wrap; overflow-wrap: anywhere; }

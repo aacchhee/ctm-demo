@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSXGraph: blank board after a quick show</title>
+<style>
+  body { font-family: system-ui, sans-serif; line-height: 1.45; margin: 1rem; max-width: 760px; }
+  #status { font-family: monospace; white-space: pre-wrap; background: #f4f4f4; padding: 0.5rem; }
+  .blank { color: #b00020; font-weight: bold; }
+  .jxgbox { border: 1px solid #888; }
+</style>
+<script>
+  var V = (/[?&]v=([0-9.]+)/.exec(location.search) || [])[1] || '1.14.0';
+  var CDN = 'https://cdn.jsdelivr.net/npm/jsxgraph@' + V + '/distrib/';
+  document.write('<link rel="stylesheet" href="' + CDN + 'jsxgraph.css"><script src="' + CDN + 'jsxgraphcore.js"><\/script>');
+</script>
+</head>
+<body>
+<h1>Hidden div shown while the first resize timer is pending: blank</h1>
+<p>JSXGraph version: <strong id="version"></strong>. Other versions:
+<a href="?v=1.9.1">1.9.1</a> · <a href="?v=1.9.2">1.9.2</a> ·
+<a href="?v=1.13.3">1.13.3</a> · <a href="?v=1.14.0">1.14.0</a> ·
+<a href="?v=1.14.0&amp;slow">1.14.0, shown 500 ms later (reference)</a> ·
+<a href="../index.html">overview</a></p>
+<p>No iframe here. The board is
+created in a div whose parent is <code>display:none</code>. The board's
+ResizeObserver reports 0×0 once and JSXGraph starts its 10 ms timer
+(<code>resize.throttle</code>). The page then shows the parent inside that
+window and keeps the main thread busy for 30 ms, as other scripts on a page
+often do when a tab opens.</p>
+<p><strong>Expected:</strong> axes and a sine curve.<br>
+<strong>Seen with 1.9.2 to 1.14.0:</strong> in most page loads an empty
+frame; the status says BLANK. Reload if it is drawn: the timing depends on
+the machine's load. With 1.9.1 the board is drawn. The reference link shows the same
+board shown 500 ms after load instead: drawn, also with 1.14.0.</p>
+<div id="pane" style="display:none"><div id="box" class="jxgbox" style="width:100%;height:300px"></div></div>
+<p id="status">Status: waiting…</p>
+<script>
+  document.getElementById('version').textContent = V + (/[?&]slow/.test(location.search) ? ', shown 500 ms later' : '');
+  var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-5, 5, 5, -5], axis: true});
+  board.create('functiongraph', [function (x) { return 3 * Math.sin(x); }]);
+  // This observer is created after the board's, so its first callback runs
+  // right after the board's first (0x0) callback.
+  var SLOW = /[?&]slow/.test(location.search);
+  if (SLOW) setTimeout(function () { document.getElementById('pane').style.display = 'block'; }, 500);
+  var first = true, ro = new ResizeObserver(function () {
+    if (!first || SLOW) return;
+    first = false;
+    var channel = new MessageChannel();
+    channel.port1.onmessage = function () {
+      document.getElementById('pane').style.display = 'block';            // the tab opens ...
+      var t = performance.now(); while (performance.now() - t < 30) {}      // ... and the page is busy for 30 ms
+    };
+    channel.port2.postMessage(0);
+  });
+  ro.observe(document.getElementById('box'));
+  setTimeout(function () {
+    var svg = board.renderer.svgRoot, box = board.containerObj;
+    var blank = +svg.getAttribute('width') === 0 && box.clientWidth > 0;
+    window.RESULT = {blank: blank, container: box.clientWidth + 'x' + box.clientHeight,
+      svg: svg.getAttribute('width') + 'x' + svg.getAttribute('height'), bbox: board.getBoundingBox()};
+    var status = document.getElementById('status');
+    status.textContent = 'Status: board div ' + window.RESULT.container + ' px, SVG ' + window.RESULT.svg +
+      ' px, bounding box ' + JSON.stringify(window.RESULT.bbox) +
+      (blank ? '\nBLANK: the SVG has no size although the div has.' : '\nDrawn.');
+    status.className = blank ? 'blank' : '';
+  }, 1500);
+</script>
+</body>
+</html>

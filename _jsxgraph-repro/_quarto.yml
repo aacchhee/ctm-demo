@@ -12,3 +12,5 @@ format:
     theme: cosmo
     toc: true
     toc-depth: 2
+    code-overflow: wrap
+    css: style.css

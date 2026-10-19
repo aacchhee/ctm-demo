@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSXGraph: keepaspectratio board created hidden</title>
+<style>
+  body { font-family: system-ui, sans-serif; line-height: 1.45; margin: 1rem; max-width: 760px; }
+  .status { font-family: monospace; white-space: pre-wrap; background: #f4f4f4; padding: 0.5rem; }
+  .wrong { color: #b00020; font-weight: bold; }
+  body { max-width: 1000px; }
+  .row { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .col { flex: 1 1 280px; max-width: 320px; }
+  .frame { width: 100%; aspect-ratio: 560 / 300; border: 1px solid #888; box-sizing: content-box; }
+  iframe.frame { display: block; }
+  button { font-size: 1rem; }
+  h2 { font-size: 1rem; margin: 0.5rem 0; }
+  .status { font-size: 0.8rem; }
+</style>
+<script>
+  var V = (/[?&]v=([0-9.]+)/.exec(location.search) || [])[1] || '1.14.0';
+  var CDN = 'https://cdn.jsdelivr.net/npm/jsxgraph@' + V + '/distrib/';
+  document.write('<link rel="stylesheet" href="' + CDN + 'jsxgraph.css"><script src="' + CDN + 'jsxgraphcore.js"><\/script>');
+</script>
+</head>
+<body>
+<h1>keepaspectratio board created in a 0×0 container: wrong view when shown</h1>
+<p>JSXGraph version: <strong id="version"></strong>. Other versions:
+<a href="?v=1.5.0">1.5.0</a> · <a href="?v=1.6.2">1.6.2</a> ·
+<a href="?v=1.9.1">1.9.1</a> · <a href="?v=1.9.2">1.9.2</a> ·
+<a href="?v=1.13.3">1.13.3</a> · <a href="?v=1.14.0">1.14.0</a> ·
+<a href="../index.html">overview</a></p>
+<p>Press <strong>Show B and C</strong> and compare (B) and (C) with (A).</p>
+<p><button type="button" id="show">Show B and C</button></p>
+<div class="row">
+<div class="col"><h2>(A) Visible from the start</h2>
+<div id="box-a" class="jxgbox frame"></div>
+<p class="status" id="status-a"></p></div>
+<div class="col"><div class="hidden" style="display:none"><h2>(B) Div, hidden at creation</h2>
+<div id="box-b" class="jxgbox frame"></div>
+<p class="status" id="status-b"></p></div></div>
+<div class="col"><div class="hidden" style="display:none"><h2>(C) Sandboxed data: iframe, hidden at creation</h2>
+<iframe id="frame-c" class="frame" sandbox="allow-scripts" title="JSXGraph board in an iframe"></iframe>
+<p class="status" id="status-c"></p></div></div>
+</div>
+<p>The same board three times: <code>boundingbox: [-1, 7, 13, -1]</code>
+(14 wide, 8 high), <code>keepaspectratio: true</code>, in a frame 100% wide
+with <code>aspect-ratio: 560/300</code>. The grey rectangle is the bounding
+box. (A) is visible from the start. (B) and (C) are created while hidden, so
+their containers are 0×0 at creation: (B) is a div whose parent is
+<code>display:none</code>; (C) is a sandboxed <code>data:</code> iframe whose
+parent is <code>display:none</code>, with the board div at 100%×100%, as the
+Quarto extension does it.</p>
+<p><strong>Expected:</strong> all three show the grey rectangle filling the
+height of the frame, as in (A).<br>
+<strong>Seen with 1.9.2 to 1.14.0:</strong> (B) and (C) show a region about
+1.75 times larger, so the rectangle is small and centred. Versions 1.5.0 to
+1.9.1 show other wrong regions. Each status line compares the bounding
+box with the one a board created visible at that size gets. (C) can also stay blank: that is the separate
+<a href="blank-in-hidden-iframe.html">blank-board problem</a>; reload in that
+case.</p>
+
+<script>
+  document.getElementById('version').textContent = V;
+  // The board code, used for (A), (B) and, inside the iframe, (C).
+  function makeBoard(id) {
+    var board = JXG.JSXGraph.initBoard(id, {boundingbox: [-1, 7, 13, -1], keepaspectratio: true,
+      axis: false, showNavigation: false, showCopyright: false});
+    board.create('polygon', [[-1, -1], [13, -1], [13, 7], [-1, 7]],
+      {fillColor: '#dddddd', fillOpacity: 0.6, borders: {strokeColor: '#555555'}, vertices: {visible: false}, fixed: true});
+    board.create('text', [6, 3, 'bounding box'], {anchorX: 'middle', anchorY: 'middle', fontSize: 16, fixed: true});
+    return board;
+  }
+  var boardA = makeBoard('box-a'), boardB = makeBoard('box-b');
+  var inner = '<!DOCTYPE html><html><head><meta charset="UTF-8">' +
+    '<link rel="stylesheet" href="' + CDN + 'jsxgraph.css"><script src="' + CDN + 'jsxgraphcore.js"><\/script>' +
+    '<style>html,body{margin:0;width:100%;height:100%}.jxgbox{border:none;border-radius:0}</style></head><body>' +
+    '<div id="box-c" class="jxgbox" style="width:100%;height:100%;box-sizing:border-box"></div><script>' +
+    makeBoard.toString() + 'var board = makeBoard("box-c");' +
+    'addEventListener("message", function () { var s = board.renderer.svgRoot;' +
+    ' parent.postMessage({div: board.containerObj.clientWidth + "x" + board.containerObj.clientHeight,' +
+    ' svg: s.getAttribute("width") + "x" + s.getAttribute("height"), bbox: board.getBoundingBox()}, "*"); });' +
+    '<\/script></body></html>';
+  document.getElementById('frame-c').src = 'data:text/html;base64,' + btoa(inner);
+
+  function round(box) { return box.map(function (v) { return Math.round(v * 100) / 100; }); }
+  // The view a board created visible at size w x h gets (initBoard's rule):
+  // the bounding box widened in one direction to the frame's aspect ratio.
+  function intended(div) {
+    var w = +div.split('x')[0], h = +div.split('x')[1], u = Math.min(w / 14, h / 8);
+    return round([6 - w / (2 * u), 3 + h / (2 * u), 6 + w / (2 * u), 3 - h / (2 * u)]);
+  }
+  function report(id, svg, box, div) {
+    var ref = intended(div), got = round(box), el = document.getElementById('status-' + id);
+    var same = got.every(function (v, i) { return Math.abs(v - ref[i]) < 0.05; });
+    window.RESULT = window.RESULT || {};
+    window.RESULT[id] = {div: div, svg: svg, bbox: got, reference: ref, same: same};
+    el.textContent = 'Board div ' + div + ' px, SVG ' + svg + ' px, bounding box ' + JSON.stringify(got) +
+      (same ? '\nView as when created visible.' : '\nWRONG VIEW: created visible at this size, it would be ' + JSON.stringify(ref) + '.');
+    el.className = 'status' + (!same ? ' wrong' : '');
+  }
+  addEventListener('message', function (e) { report('c', e.data.svg, e.data.bbox, e.data.div); });
+  function size(board) { return board.containerObj.clientWidth + 'x' + board.containerObj.clientHeight; }
+  function update() {
+    report('a', boardA.renderer.svgRoot.getAttribute('width') + 'x' + boardA.renderer.svgRoot.getAttribute('height'), boardA.getBoundingBox(), size(boardA));
+    if (document.querySelector('.hidden').style.display !== 'none') {
+      report('b', boardB.renderer.svgRoot.getAttribute('width') + 'x' + boardB.renderer.svgRoot.getAttribute('height'), boardB.getBoundingBox(), size(boardB));
+      document.getElementById('frame-c').contentWindow.postMessage('state', '*');
+    }
+  }
+  document.getElementById('show').onclick = function () {
+    document.querySelectorAll('.hidden').forEach(function (el) { el.style.display = 'block'; });
+    setTimeout(update, 1000);
+  };
+  update();
+</script>
+</body>
+</html>

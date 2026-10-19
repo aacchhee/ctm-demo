@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSXGraph: one exception stops resizing</title>
+<style>
+  body { font-family: system-ui, sans-serif; line-height: 1.45; margin: 1rem; max-width: 760px; }
+  #status { font-family: monospace; white-space: pre-wrap; background: #f4f4f4; padding: 0.5rem; }
+  .jxgbox { border: 1px solid #888; }
+</style>
+<script>
+  var V = (/[?&]v=([0-9.]+)/.exec(location.search) || [])[1] || '1.14.0';
+  var CDN = 'https://cdn.jsdelivr.net/npm/jsxgraph@' + V + '/distrib/';
+  document.write('<link rel="stylesheet" href="' + CDN + 'jsxgraph.css"><script src="' + CDN + 'jsxgraphcore.js"><\/script>');
+</script>
+</head>
+<body>
+<h1>One exception during a resize stops all later resizing</h1>
+<p>JSXGraph version: <strong id="version"></strong>. Other versions:
+<a href="?v=1.9.1">1.9.1</a> · <a href="?v=1.13.3">1.13.3</a> ·
+<a href="?v=1.14.0">1.14.0</a> · <a href="?v=1.14.0&amp;noerror">1.14.0 without the error (reference)</a> ·
+<a href="../index.html">overview</a></p>
+<p>A visible board with a text whose content function throws once, during
+the second of four automatic container resizes (600 → 500 → 400 → 700 →
+300 px, one every 400 ms). Nothing to click.</p>
+<p><strong>Expected:</strong> after the failed update, the board follows the
+next resizes again.<br>
+<strong>Seen:</strong> after the resize in which the error happened, the SVG
+keeps its size; the status marks every later step "not following". Without
+the error (reference link) every step follows. The only trace is a
+<code>console.log</code> of the error (1.11.0 and later).</p>
+<div id="wrap" style="width:600px;max-width:100%"><div id="box" class="jxgbox" style="width:100%;height:300px"></div></div>
+<p id="status"></p>
+<script>
+  document.getElementById('version').textContent = V + (/[?&]noerror/.test(location.search) ? ', without the error' : '');
+  var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-5, 5, 5, -5], axis: true});
+  var failOnce = false;
+  board.create('text', [-4, 4, function () {
+    if (failOnce) { failOnce = false; throw new Error('user function failed once'); }
+    return 'width ' + board.canvasWidth;
+  }]);
+  var box = document.getElementById('box'), wrap = document.getElementById('wrap'), out = document.getElementById('status');
+  var lines = [];
+  function log(label) {
+    var svg = +board.renderer.svgRoot.getAttribute('width');
+    lines.push({step: label, container: box.clientWidth, svg: svg, following: svg === box.clientWidth});
+    out.textContent += label + ': div ' + box.clientWidth + ' px, SVG ' + svg + ' px' + (svg === box.clientWidth ? '' : '   <-- not following') + '\n';
+  }
+  setTimeout(function () { wrap.style.width = '500px'; }, 300);
+  var NOERROR = /[?&]noerror/.test(location.search);
+  setTimeout(function () { log('resize 1 (no error)'); failOnce = !NOERROR; wrap.style.width = '400px'; }, 700);
+  setTimeout(function () { log(NOERROR ? 'resize 2 (no error)' : 'resize 2 (the text throws once)'); wrap.style.width = '700px'; }, 1100);
+  setTimeout(function () { log('resize 3 (no error)'); wrap.style.width = '300px'; }, 1500);
+  setTimeout(function () { log('resize 4 (no error)'); window.RESULT = lines; }, 1900);
+</script>
+</body>
+</html>
