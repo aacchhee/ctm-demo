@@ -65,11 +65,11 @@ new hidden pane with the same iframe at the top of the page, shows it
 <p><strong>Expected:</strong> axes and a sine curve.<br>
 <strong>Seen with 1.9.2 to 1.14.0:</strong> when the iframe is in view at the
 moment its pane is shown, the frame stays white: the status says BLANK (the
-board's div has its size, its SVG is 0×0). In Chrome 152 on a Windows
-desktop this happened in 11 of 11 automatic trials; in Chromium 141 on
-Linux, under automation, in 40 to 63 % of page loads (an independent
-verification, 30 loads per cell); this page's automatic run there gave 2 of
-20. Clicking Tab 1 and Tab 2 again does not bring the board back; a change
+board's div has its size, its SVG is 0×0). In desktop Chrome 152 on Windows
+the <strong>Run 20 times automatically</strong> button gave: JSXGraph 1.14.0 blank in 20 of 20, JSXGraph 1.9.1
+blank in 0 of 20; a manual click on Tab 2 was blank as well. Chromium 141 on
+Linux under automation shows it less reliably: 40 to 63 % of page loads in an
+independent verification (30 loads per cell), 2 of 20 with the button. Clicking Tab 1 and Tab 2 again does not bring the board back; a change
 of the iframe's size does.
 With 1.9.1 the board is drawn, though showing the shifted region of the
 1.6.0–1.9.1 item listed under "Fixed in later JSXGraph versions" on the

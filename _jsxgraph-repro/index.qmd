@@ -22,13 +22,16 @@ to a page's address to load that version. Source locations are from our
 investigation of tag v1.14.0; the resize code is unchanged on `main`
 (55a2035, 19 October 2026).
 
-**Browsers.** Measured on 19 October 2026 in Chromium 141.0.7390.37, the full
-browser that Chrome is built from, both with a window (under Xvfb) and in
-headless mode. Chromium's separate "headless shell" never shows problem 1 in
-iframes. Problem 1 was also reproduced on a Windows desktop in Chrome
-152.0.7977.149: every time (11 of 11 trials) when the board was in view at
-the moment its tab opened. Firefox and Safari were not available to us, so
-this page says nothing about them.
+**Browsers.** Problem 1 reproduces reliably in desktop Chrome
+152.0.7977.149 on Windows, with the board in view when its tab opens: with
+the repro page's **Run 20 times automatically** button, JSXGraph 1.14.0 was
+blank in 20 of 20 trials and 1.9.1 in 0 of 20; a manual click on the tab
+also gave a blank board. The other measurements on this page were made on
+19 October 2026 in Chromium 141.0.7390.37 on Linux, the full browser that
+Chrome is built from, with a window (under Xvfb) and in headless mode; there
+problem 1 shows less reliably (40–63 % of loads). Chromium's separate
+"headless shell" never shows problem 1 in iframes. Firefox and Safari were
+not available to us, so this page says nothing about them.
 
 ## Summary
 
@@ -37,7 +40,7 @@ Library (JSXGraph 1.14.0):
 ::: {.table-responsive}
 | # | Problem | Since | Where it shows |
 |---|---|---|---|
-| [1](#p1) | Resize notifications are dropped; a board shown from a hidden tab can stay blank | 1.9.2 | hidden sandboxed iframes that are in view when shown (11 of 11 in desktop Chrome 152; 40–63 % of loads in automated Chromium 141); hidden or visible divs whose size changes twice within 10 ms |
+| [1](#p1) | Resize notifications are dropped; a board shown from a hidden tab can stay blank | 1.9.2 | hidden sandboxed iframes that are in view when shown (20 of 20 in desktop Chrome 152 on Windows, 0 of 20 with 1.9.1; 40–63 % of loads in automated Chromium 141 on Linux); hidden or visible divs whose size changes twice within 10 ms |
 | [2](#p2) | Boards with `unitX/unitY/originX/originY` created hidden are broken after showing | 1.3.0 | containers without a CSS pixel size, 0 px wide at creation |
 | [3](#p3) | `keepaspectratio` boards created at 0×0 show the wrong region | 1.5.0 | relative sizes in a hidden parent; hidden iframes |
 | [4](#p4) | One exception during a resize stops all later resizing | 1.3.1 | any board |
@@ -89,10 +92,13 @@ case met in practice: a sandboxed `data:` iframe in a tab that is
 
 What we know about how often it happens:
 
-- In desktop Chrome 152 on Windows, with the iframe in view at the moment
-  its pane is shown: blank in 11 of 11 automatic trials.
-- In Chromium 141 on Linux under automation: blank in 40 to 63 % of page
-  loads (independent verification, table below); this page's automatic run
+- **Reliable reproduction:** desktop Chrome 152.0.7977.149 on Windows, with
+  the iframe in view at the moment its pane is shown. The page's
+  **Run 20 times automatically** button: JSXGraph 1.14.0 blank in 20 of 20,
+  JSXGraph 1.9.1 blank in 0 of 20 (drawn 20). A manual click on
+  **Tab 2 (board)** also gave a blank board (div 500×300, SVG 0×0).
+- Secondary: Chromium 141 on Linux under automation, blank in 40 to 63 % of
+  page loads (independent verification, table below); the page's button
   gave 2 of 20 there.
 - A board that is below the visible area when its tab opens draws correctly:
   Chrome does not render an off-screen cross-origin iframe, so the iframe
