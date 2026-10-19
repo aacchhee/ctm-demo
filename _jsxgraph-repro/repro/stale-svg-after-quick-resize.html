@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSXGraph: stale SVG size after two quick resizes</title>
+<style>
+  body { font-family: system-ui, sans-serif; line-height: 1.45; margin: 1rem; max-width: 760px; }
+  #status { font-family: monospace; white-space: pre-wrap; background: #f4f4f4; padding: 0.5rem; }
+  .blank { color: #b00020; font-weight: bold; }
+  .jxgbox { border: 1px solid #888; }
+  button { font-size: 1rem; }
+</style>
+<script>
+  var V = (/[?&]v=([0-9.]+)/.exec(location.search) || [])[1] || '1.14.0';
+  var CDN = 'https://cdn.jsdelivr.net/npm/jsxgraph@' + V + '/distrib/';
+  document.write('<link rel="stylesheet" href="' + CDN + 'jsxgraph.css"><script src="' + CDN + 'jsxgraphcore.js"><\/script>');
+</script>
+</head>
+<body>
+<h1>Visible board resized twice within 10 ms: SVG keeps the old size</h1>
+<p>JSXGraph version: <strong id="version"></strong>. Other versions:
+<a href="?v=1.9.1">1.9.1</a> · <a href="?v=1.9.2">1.9.2</a> ·
+<a href="?v=1.13.3">1.13.3</a> · <a href="?v=1.14.0">1.14.0</a> ·
+<a href="../index.html">overview</a></p>
+<p>No hiding involved. Press <strong>Run</strong>: the board's container
+grows from 300 px to 400 px and, before JSXGraph's 10 ms timer has fired,
+to 500 px, while the main thread is busy for 30 ms.</p>
+<p><strong>Expected:</strong> the board fills the 500 px frame.<br>
+<strong>Seen with 1.9.2 to 1.14.0:</strong> the SVG stays 400 px wide in the
+500 px frame; the right part of the frame stays empty, and the status says
+STALE. With 1.9.1 the SVG is 500 px wide.</p>
+<p><button type="button" id="run">Run</button></p>
+<div id="wrap" style="width:300px"><div id="box" class="jxgbox" style="width:100%;height:300px"></div></div>
+<p id="status">Status: press Run.</p>
+<script>
+  document.getElementById('version').textContent = V;
+  var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-5, 5, 5, -5], axis: true});
+  board.create('functiongraph', [function (x) { return 3 * Math.sin(x); }]);
+  var box = document.getElementById('box'), wrap = document.getElementById('wrap');
+  function run() {
+    var n = 0, ro = new ResizeObserver(function () {
+      // n === 2: the board's own observer (created first) has just taken the
+      // 400 px notification and started its timer.
+      if (++n === 2) {
+        var channel = new MessageChannel();
+        channel.port1.onmessage = function () {
+          wrap.style.width = '500px';                                         // second change ...
+          var t = performance.now(); while (performance.now() - t < 30) {}      // ... while the page is busy for 30 ms
+        };
+        channel.port2.postMessage(0);
+      }
+    });
+    ro.observe(box);
+    setTimeout(function () { wrap.style.width = '400px'; }, 100);           // first change
+    setTimeout(function () {
+      ro.disconnect();
+      var svgWidth = +board.renderer.svgRoot.getAttribute('width');
+      var stale = svgWidth !== box.clientWidth;
+      window.RESULT = {stale: stale, container: box.clientWidth, canvasWidth: board.canvasWidth, svgWidth: svgWidth};
+      var status = document.getElementById('status');
+      status.textContent = 'Status: board div ' + box.clientWidth + ' px, board.canvasWidth ' + board.canvasWidth +
+        ', SVG ' + svgWidth + ' px' + (stale ? '\nSTALE: the SVG is narrower than its div.' : '\nConsistent.');
+      status.className = stale ? 'blank' : '';
+    }, 1500);
+  }
+  document.getElementById('run').onclick = run;
+</script>
+</body>
+</html>

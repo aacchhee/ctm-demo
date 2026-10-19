@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!-- Temporary JSXGraph reproduction. scripts/build-jsxgraph-repro.sh fills in
+     @VERSION@, @SOLENOID@ (ctm-demo 60b1cb0) and @PENDULUM@ (ctm-demo 3d7c60f),
+     both without the figure's own resize code, and writes one page per
+     JSXGraph version. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSXGraph @VERSION@: hidden board</title>
+<script src="https://cdn.jsdelivr.net/npm/jsxgraph@@VERSION@/distrib/jsxgraphcore.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph@@VERSION@/distrib/jsxgraph.css">
+<style>
+  body { font-family: system-ui, sans-serif; line-height: 1.45; margin: 1rem; max-width: 800px; }
+  .host { width: 100%; max-width: 760px; height: 320px; }
+  .host.pendulum { max-width: 720px; height: 390px; }
+  h3 { font-size: 1rem; margin: 1rem 0 0.3rem; }
+  .jxgbox { border: 1px solid #888; border-radius: 0; box-sizing: border-box; }
+  iframe.host { display: block; border: 1px solid #888; box-sizing: border-box; }
+  button { font-size: 1rem; margin: 0.3rem 0 0.6rem; }
+  pre { background: #f4f4f4; padding: 0.5rem; overflow-x: auto; font-size: 0.8rem; }
+  section { margin-bottom: 2rem; }
+</style>
+</head>
+<body>
+<h1>JSXGraph @VERSION@: board visible, hidden, hidden in an iframe</h1>
+<p>Plain HTML, no Quarto and no Quarto extension. JSXGraph @VERSION@ is loaded
+from jsDelivr with this exact version. Two boards, each placed three ways;
+all six are created at page load:</p>
+<ul>
+<li><strong>Solenoid</strong> (<code>keepaspectratio: false</code>), 100% wide
+(at most 760 px), 320 px high. Expected: 30 turns spread over the whole
+length, filling the frame, at every width.</li>
+<li><strong>Pendulum</strong> (<code>keepaspectratio: true</code>), 100% wide
+(at most 720 px), 390 px high. Expected: the cart fills most of the frame's
+height, as in (a), at every width.</li>
+</ul>
+<p>To test: open the page in a wide window; press both <em>Show</em> buttons;
+then make the window narrow (phone width, about 390 px, or the device toolbar
+of the developer tools); then wide again. Compare (b) and (c) with (a).</p>
+<p>Other versions: <a href="jsxgraph-1.12.2.html">1.12.2</a> &middot;
+<a href="jsxgraph-1.13.3.html">1.13.3</a> &middot;
+<a href="jsxgraph-1.14.0.html">1.14.0</a> &middot;
+<a href="../index.html">overview and measurements</a></p>
+
+<section id="a">
+<h2>(a) Visible at load</h2>
+<h3>Solenoid</h3>
+<div id="board-a1" class="jxgbox host"></div>
+<h3>Pendulum</h3>
+<div id="board-a2" class="jxgbox host pendulum"></div>
+</section>
+
+<section id="b">
+<h2>(b) Hidden with display:none at load, shown by a button</h2>
+<p>Like a tab that is not open yet: the board's parent has
+<code>display:none</code> when the board is created.</p>
+<button type="button" data-show="wrap-b">Show</button>
+<div id="wrap-b" style="display:none">
+<h3>Solenoid</h3>
+<div id="board-b1" class="jxgbox host"></div>
+<h3>Pendulum</h3>
+<div id="board-b2" class="jxgbox host pendulum"></div>
+</div>
+</section>
+
+<section id="c">
+<h2>(c) In an iframe that is hidden at load, shown by a button</h2>
+<p>Closest to the Quarto extension: one sandboxed <code>data:</code> iframe
+(<code>sandbox="allow-scripts"</code>) per board, whose page loads JSXGraph and
+runs the board code in a board div of 100% &times; 100%; the iframes' parent
+has <code>display:none</code> when they load.</p>
+<button type="button" data-show="wrap-c">Show</button>
+<div id="wrap-c" style="display:none">
+<h3>Solenoid</h3>
+<iframe id="frame-c1" class="host" sandbox="allow-scripts" title="Solenoid board in an iframe"></iframe>
+<h3>Pendulum</h3>
+<iframe id="frame-c2" class="host pendulum" sandbox="allow-scripts" title="Pendulum board in an iframe"></iframe>
+</div>
+</section>
+
+<section>
+<h2>The board code</h2>
+<p>From the course repository aacchhee/ctm-demo, without the figures' own
+resize code. Solenoid: commit 60b1cb0, <code>_includes/physics/prove4-2025.md</code>.
+Pendulum: commit 3d7c60f, <code>_includes/physics/prove1-2025.md</code>.</p>
+<pre id="code-view-1"></pre>
+<pre id="code-view-2"></pre>
+</section>
+
+<script type="text/plain" id="applet-code-1">
+@SOLENOID@
+</script>
+<script type="text/plain" id="applet-code-2">
+@PENDULUM@
+</script>
+<script>
+  var lib = 'https://cdn.jsdelivr.net/npm/jsxgraph@@VERSION@/distrib/';
+  [1, 2].forEach(function (k) {
+    var code = document.getElementById('applet-code-' + k).textContent;
+    document.getElementById('code-view-' + k).textContent = code.trim();
+    // (a) and (b): the board code with BOARDID set to the div's id.
+    new Function('BOARDID', code)('board-a' + k);
+    new Function('BOARDID', code)('board-b' + k);
+    // (c): the same code in a data: iframe, as the Quarto extension does it.
+    var doc = '<!DOCTYPE html><html><head><meta charset="UTF-8">' +
+      '<script src="' + lib + 'jsxgraphcore.js"><\/script>' +
+      '<link rel="stylesheet" href="' + lib + 'jsxgraph.css">' +
+      '<style>html,body{margin:0;padding:0;width:100%;height:100%;}.jxgbox{border:none;border-radius:0px;}</style>' +
+      '</head><body><div id="board-c' + k + '" class="jxgbox" style="width:100%;height:100%;display:block;box-sizing:border-box;"></div>' +
+      '<script>var BOARDID = "board-c' + k + '";\n' + code + '<\/script></body></html>';
+    var bytes = new TextEncoder().encode(doc), bin = '';
+    bytes.forEach(function (x) { bin += String.fromCharCode(x); });
+    document.getElementById('frame-c' + k).src = 'data:text/html;base64,' + btoa(bin);
+  });
+  document.querySelectorAll('button[data-show]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var wrap = document.getElementById(button.dataset.show);
+      var hidden = wrap.style.display === 'none';
+      wrap.style.display = hidden ? 'block' : 'none';
+      button.textContent = hidden ? 'Hide' : 'Show';
+    });
+  });
+</script>
+</body>
+</html>

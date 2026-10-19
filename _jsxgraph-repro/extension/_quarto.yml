@@ -1,0 +1,21 @@
+# Temporary JSXGraph reproduction: the Quarto pages for one version of the
+# jsxgraph-quarto extension. scripts/build-jsxgraph-repro.sh copies this
+# folder once per extension commit, adds that commit's _extensions/jsxgraph and
+# the applets (_applets/*.md, from old ctm-demo commits) and renders it.
+project:
+  type: default
+  output-dir: _site
+
+filters:
+  - jsxgraph
+
+# The same JSXGraph library for every extension version, so that only the
+# extension differs (all three versions read these options).
+jsxgraph:
+  src_jxg: https://cdn.jsdelivr.net/npm/jsxgraph@1.14.0/distrib/jsxgraphcore.js
+  src_css: https://cdn.jsdelivr.net/npm/jsxgraph@1.14.0/distrib/jsxgraph.css
+
+format:
+  html:
+    theme: cosmo
+    toc: false
