@@ -76,10 +76,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-b6dc9e813fb09d2bbff48e8f9eb94b8d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/ai-feedback-0.8.1/feedback-core.js"></script>
-<script src="../site_libs/quarto-contrib/ai-feedback-0.8.1/feedback-dom.js"></script>
-<script src="../site_libs/quarto-contrib/ai-feedback-0.8.1/ai-feedback.js"></script>
-<link href="../site_libs/quarto-contrib/ai-feedback-0.8.1/ai-feedback.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/feedback-core.js"></script>
+<script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/feedback-dom.js"></script>
+<script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/ai-feedback.js"></script>
+<link href="../site_libs/quarto-contrib/ai-feedback-0.9.0/ai-feedback.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -370,17 +370,11 @@ Install Git, Python 3.12, Quarto CLI 1.8.27, and VS Code. The Quarto VS Code ext
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">macOS / Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Windows PowerShell</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-ai-feedback-context="Set up locally in VS Code
-Install Git, Python 3.12, Quarto CLI 1.8.27, and VS Code. The Quarto VS Code extension is useful, but does not replace the Quarto CLI. Open the repository folder, not just a file.
-Activate the environment:"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-ai-feedback-context="macOS / Linux"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If your system uses <code>python3</code>, use it instead of <code>python</code> when creating the environment.</p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-ai-feedback-context="Set up locally in VS Code
-Install Git, Python 3.12, Quarto CLI 1.8.27, and VS Code. The Quarto VS Code extension is useful, but does not replace the Quarto CLI. Open the repository folder, not just a file.
-Activate the environment:
-If your system uses python3, use it instead of python when creating the environment.
-macOS / Linux"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span><span class="fu">venv</span>\Scripts\Activate<span class="op">.</span><span class="fu">ps1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-ai-feedback-context="Windows PowerShell"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span><span class="fu">venv</span>\Scripts\Activate<span class="op">.</span><span class="fu">ps1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If script activation is unavailable, call <code>.venv\Scripts\python.exe</code> directly in the Python commands below. You can use <code>py -3.12</code> to create the environment.</p>
 </div>
 </div>
@@ -389,10 +383,6 @@ macOS / Linux"><pre class="sourceCode powershell code-with-copy"><code class="so
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-ai-feedback-context="Set up locally in VS Code
 Install Git, Python 3.12, Quarto CLI 1.8.27, and VS Code. The Quarto VS Code extension is useful, but does not replace the Quarto CLI. Open the repository folder, not just a file.
 Activate the environment:
-If your system uses python3, use it instead of python when creating the environment.
-macOS / Linux
-If script activation is unavailable, call .venv\Scripts\python.exe directly in the Python commands below. You can use py -3.12 to create the environment.
-Windows PowerShell
 Then install the build dependencies and extensions:"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install <span class="at">-r</span> requirements.txt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/setup.py</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
