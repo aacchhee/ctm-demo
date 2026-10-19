@@ -8,7 +8,7 @@ jsDelivr. The figure code comes from old ctm-demo commits, as noted at each
 board. Each extension version has its own copy of this page:
 [a26aea8](../extension-a26aea8/index.html) (before PR #1) ·
 [59d549c](../extension-59d549c/index.html) (upstream main, PR #1) ·
-[17de83e](../extension-17de83e/index.html) (fork, PR #2) ·
+[17de83e](../extension-17de83e/index.html) (an earlier state of PR #2) ·
 [overview and measurements](../index.html).
 
 To test a board in a tab: load the page in a wide window, open the tabs named

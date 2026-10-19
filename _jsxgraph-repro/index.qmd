@@ -6,9 +6,9 @@ This page is for the JSXGraph maintainers. It lists every problem we found
 with boards that are created while hidden (a closed tab, a collapsed section,
 a hidden iframe) and shown later, ordered by severity. Each problem is
 labelled **library** (JSXGraph) or **extension** (the jsxgraph-quarto
-extension). Each one has a minimal page that reproduces it, what you should
-see and what you see, the affected versions, the place in the source, and
-possible fixes.
+extension). Most have a minimal page that reproduces them; each has what
+you should see and what you see, the affected versions, the place in the
+source, and possible fixes.
 
 Problems 1, 2 and 4, the `functiongraph` crash listed at the end, and the
 extension measurements were checked by an independent verification (fresh downloads,
@@ -17,7 +17,7 @@ section says otherwise. Problems 3 and 5 and the two plain-div pages under
 problem 1 were found and measured for this page only. Problem 6 was found by
 reading the code.
 
-All pages load JSXGraph from jsDelivr; add `?v=1.9.1` (or another version)
+The pages in `repro/` load JSXGraph from jsDelivr; add `?v=1.9.1` (or another version)
 to a page's address to load that version. Source locations are from our
 investigation of tag v1.14.0; the resize code is unchanged on `main`
 (55a2035, 19 October 2026).
@@ -77,8 +77,7 @@ For a board created hidden, the earlier size is 0×0 and the board stays blank.
 **Reproduce** in desktop Chrome with
 [blank-in-hidden-iframe.html](repro/blank-in-hidden-iframe.html). This is the
 case met in practice: a sandboxed `data:` iframe in a tab that is
-`display:none` at load, as the Quarto extension and STACK's iframe blocks
-embed boards.
+`display:none` at load, as the Quarto extension embeds boards.
 
 1. Open the page and, without resizing the window, click **Tab 2 (board)**.
    A second later the status line says whether the board is drawn.
@@ -126,7 +125,8 @@ verification:
 
 - [stale-svg-after-quick-resize.html](repro/stale-svg-after-quick-resize.html):
   a visible board whose container grows from 300 to 400 to 500 px within
-  10 ms (press **Run**). Stale in every run in our measurements.
+  10 ms while the page is busy for 30 ms (press **Run**). Stale in every run
+  in our measurements.
 
   ::: {.table-responsive}
   | You should see (1.9.1) | You see (1.14.0): the SVG stays 400 px wide |
@@ -140,7 +140,7 @@ pending notification with 0×0 and, 1 to 4 ms later, the real size. Whether
 the 0×0 comes first depends on which arrives first in the iframe, its first
 rendering update or its new window size. In every one of the 120 blank runs
 above, the only call of `updateContainerDims` was `(0, 0)` while the
-container was 500×400. Version 1.9.1 receives the same two notifications,
+container had its full size (500×400, or 984×787 with `aspect-ratio`). Version 1.9.1 receives the same two notifications,
 but reads the size when its timer fires, so it gets the real one. The
 headless shell does not show the race: there the 0×0 arrives while the tab
 is still hidden.
@@ -459,7 +459,9 @@ following the window after its first size change. A board shown from a
 hidden tab keeps the width it had when shown: narrowed to phone width, it
 stays 727 px wide in a 267 px frame and gets a scrollbar. A visible board
 that was narrowed does not grow back: it stays 339 px wide in a 760 px frame.
-Library problem 1 also applies (problem 7).
+(These pixel figures are from the linked test page; not independently
+verified.)
+Library problem 1 also applies (problem 8).
 
 **Versions:** jsxgraph/jsxgraph-quarto main
 [59d549c](https://github.com/jsxgraph/jsxgraph-quarto/commit/59d549c)
@@ -495,7 +497,8 @@ opened in about half of the page loads in Chrome.
 **Versions:** jsxgraph-quarto a26aea8 and 59d549c. Measured by the
 independent verification, 20 page loads each, tab opened after load:
 a26aea8 (its bundled JSXGraph 1.13.3) blank in 11/20 headless and 15/20 with
-a window; 59d549c (JSXGraph 1.14.0) in 7/20 and 11/20; the fork's 17de83e in
+a window; 59d549c (JSXGraph 1.14.0) in 7/20 and 11/20; 17de83e, an earlier
+state of pull request #2 that turned JSXGraph's observer off, in
 0/20 and 0/20. The headless shell: 0/20 for all three. In the 59d549c runs
 the extension's own `resizeContainer` call gives the SVG the right size, but
 the bounding box stays NaN, so the board draws nothing; it stays so after
@@ -506,10 +509,12 @@ resize of the iframe.
 tab **2025 → Prøve 4**; reload a few times.
 
 **Fix.** In the library: problem 1. In the extension until then: the
-`resize` workaround shown under problem 1, which
+`resize` workaround shown under problem 1. The current state of
 [pull request #2](https://github.com/jsxgraph/jsxgraph-quarto/pull/2)
-includes. The reworked pull request measured 0 blank boards in 600 hidden
-boards (20 loads of a page with 40 boards).
+keeps JSXGraph's observer and adds this workaround; see the pull request for
+its approach. In our own measurement of it (not independently verified)
+there were 0 blank boards among 600 hidden boards: 20 loads of a page with
+40 boards, 30 of them hidden.
 
 ## Fixed in later JSXGraph versions {#fixed}
 
@@ -584,7 +589,8 @@ the setting where they were first noticed:
 - Quarto pages with nested tabs, one per extension version, all with
   JSXGraph 1.14.0: [a26aea8](extension-a26aea8/index.html) (before pull
   request #1), [59d549c](extension-59d549c/index.html) (main),
-  [17de83e](extension-17de83e/index.html) (pull request #2 as of 19 October).
+  [17de83e](extension-17de83e/index.html) (an earlier state of pull
+  request #2; see the pull request for the current approach).
 
 Measured on the plain HTML pages in Chromium with a window, 5 page loads per
 version (1.12.2, 1.13.3, 1.14.0), **Show** pressed 2.5 s after load, then the

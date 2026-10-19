@@ -20,8 +20,8 @@
 <a href="../index.html">overview</a></p>
 <p>A tab pane is <code>display:none</code> when the page loads. It holds a
 sandboxed <code>data:</code> iframe (500×400 px) whose page loads JSXGraph
-and creates a board in a div of 100%×100%. Quarto's jsxgraph extension and
-STACK's iframe blocks embed boards this way.</p>
+and creates a board in a div of 100%×100%. Quarto's jsxgraph extension
+embeds boards this way.</p>
 <ol>
 <li>Open this page in desktop Chrome.</li>
 <li>Click <strong>Tab 2 (board)</strong>. One second later the line below
@@ -31,7 +31,9 @@ reports what the iframe shows.</li>
 <p><strong>Expected:</strong> axes and a sine curve, every time.<br>
 <strong>Seen with 1.9.2 to 1.14.0:</strong> in some page loads the frame stays
 white (the status says BLANK). Clicking Tab 1 and Tab 2 again does not bring
-the board back. With 1.9.1 the board is always drawn.</p>
+the board back. With 1.9.1 the board is always drawn, though showing the
+shifted region of the 1.6.0–1.9.1 item listed under "Fixed in later JSXGraph
+versions" on the <a href="../index.html#fixed">overview page</a>.</p>
 
 <div class="tabs"><button type="button" id="tab1">Tab 1</button>
 <button type="button" id="tab2">Tab 2 (board)</button></div>

@@ -16,11 +16,11 @@ tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 
 LIBRARY_VERSIONS="1.12.2 1.13.3 1.14.0"
-# jsxgraph-quarto: before PR #1, upstream main (PR #1), the fork's PR #2.
+# jsxgraph-quarto: before PR #1, upstream main (PR #1), an earlier state of PR #2.
 EXTENSIONS="
 jsxgraph/jsxgraph-quarto a26aea8|jsxgraph/jsxgraph-quarto a26aea8 (before PR #1)
 jsxgraph/jsxgraph-quarto 59d549c|jsxgraph/jsxgraph-quarto 59d549c (main, with PR #1)
-aacchhee/jsxgraph-quarto 17de83e|aacchhee/jsxgraph-quarto 17de83e (the fork's PR #2)
+aacchhee/jsxgraph-quarto 17de83e|aacchhee/jsxgraph-quarto 17de83e (an earlier state of PR #2)
 "
 
 clone() {  # clone <owner/repo> <dir>: history without file contents
@@ -57,7 +57,8 @@ done
 rm -rf "$out"
 (cd "$src" && quarto render --quiet)
 mkdir -p "$out/library"
-cp -r "$src/repro" "$out/repro"
+mkdir -p "$out/repro"
+cp -r "$src/repro/." "$out/repro/"
 
 # Library only: plain HTML with two of the figures (code without the fences).
 for version in $LIBRARY_VERSIONS; do
