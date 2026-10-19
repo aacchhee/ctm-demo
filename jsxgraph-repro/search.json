@@ -1,0 +1,9 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "JSXGraph board in a tab: reproduction",
+    "section": "",
+    "text": "This page is built on its own, with old commits: the JSXGraph Quarto extension as ctm-demo used it on 22 September 2026 (math-exercise dad1ddd; its filter is the same as jsxgraph-quarto main 59d549c) and the original code of the solenoid figure (ctm-demo 60b1cb0). The JSXGraph library itself is loaded from the CDN, as then.\nTo see the problem:\n\nOpen the tab 2025, then Prøve 4. The board shows correctly.\nMake the window narrow, or turn a phone to portrait. The board keeps its wide size and is cut off on the right; it does not follow the page.\n\nBack to the course\n\n20242025\n\n\n\nPrøve 1Prøve 4\n\n\nNo figure here.\n\n\nNo figure here.\n\n\n\n\n\n\nPrøve 1Prøve 4\n\n\nNo figure here."
+  }
+]
