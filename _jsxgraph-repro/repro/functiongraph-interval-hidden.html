@@ -24,6 +24,10 @@
 <a href="?v=1.13.1">1.13.1</a> · <a href="?v=1.13.2">1.13.2</a> ·
 <a href="?v=1.14.0">1.14.0</a> · <a href="?v=1.13.1&amp;visible">1.13.1, created visible</a> ·
 <a href="../index.html">overview</a></p>
+<p><button type="button" id="show">Show</button></p>
+<div id="pane" style="display:none"><div id="box" class="jxgbox" style="width:100%;height:300px"></div></div>
+<p id="status"></p>
+
 <p>The board is created in a div of <code>width: 100%; height: 300px</code>
 whose parent is <code>display:none</code>. The script creates a point A, then
 <code>board.create('functiongraph', [f, -2, 3])</code> (an interval), then a
@@ -33,9 +37,7 @@ point B. Press <strong>Show</strong>.</p>
 throws <code>TypeError: Cannot read properties of undefined (reading
 'usrCoords')</code>, so the rest of the script does not run. Fixed in 1.13.2.
 The same board created visible (last link above) is fine.</p>
-<p><button type="button" id="show">Show</button></p>
-<div id="pane" style="display:none"><div id="box" class="jxgbox" style="width:100%;height:300px"></div></div>
-<p id="status"></p>
+
 <script>
   document.getElementById('version').textContent = V + (VISIBLE ? ', created visible' : '');
   if (VISIBLE) document.getElementById('pane').style.display = 'block';

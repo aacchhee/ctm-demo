@@ -23,6 +23,10 @@
 <a href="?v=1.9.1">1.9.1</a> · <a href="?v=1.9.2">1.9.2</a> ·
 <a href="?v=1.13.3">1.13.3</a> · <a href="?v=1.14.0">1.14.0</a> ·
 <a href="../index.html">overview</a></p>
+<p><button type="button" id="run">Run</button></p>
+<div id="wrap" style="width:300px"><div id="box" class="jxgbox" style="width:100%;height:300px"></div></div>
+<p id="status">Status: press Run.</p>
+
 <p>No hiding involved. Press <strong>Run</strong>: the board's container
 grows from 300 px to 400 px and, before JSXGraph's 10 ms timer has fired,
 to 500 px, while the main thread is busy for 30 ms.</p>
@@ -30,9 +34,7 @@ to 500 px, while the main thread is busy for 30 ms.</p>
 <strong>Seen with 1.9.2 to 1.14.0:</strong> the SVG stays 400 px wide in the
 500 px frame; the right part of the frame stays empty, and the status says
 STALE. With 1.9.1 the SVG is 500 px wide.</p>
-<p><button type="button" id="run">Run</button></p>
-<div id="wrap" style="width:300px"><div id="box" class="jxgbox" style="width:100%;height:300px"></div></div>
-<p id="status">Status: press Run.</p>
+
 <script>
   document.getElementById('version').textContent = V;
   var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-5, 5, 5, -5], axis: true});

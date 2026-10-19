@@ -23,6 +23,9 @@
 <a href="?v=1.13.3">1.13.3</a> · <a href="?v=1.14.0">1.14.0</a> ·
 <a href="?v=1.14.0&amp;slow">1.14.0, shown 500 ms later (reference)</a> ·
 <a href="../index.html">overview</a></p>
+<div id="pane" style="display:none"><div id="box" class="jxgbox" style="width:100%;height:300px"></div></div>
+<p id="status">Status: waiting…</p>
+
 <p>No iframe here. The board is
 created in a div whose parent is <code>display:none</code>. The board's
 ResizeObserver reports 0×0 once and JSXGraph starts its 10 ms timer
@@ -34,8 +37,7 @@ often do when a tab opens.</p>
 frame; the status says BLANK. Reload if it is drawn: the timing depends on
 the machine's load. With 1.9.1 the board is drawn. The reference link shows the same
 board shown 500 ms after load instead: drawn, also with 1.14.0.</p>
-<div id="pane" style="display:none"><div id="box" class="jxgbox" style="width:100%;height:300px"></div></div>
-<p id="status">Status: waiting…</p>
+
 <script>
   document.getElementById('version').textContent = V + (/[?&]slow/.test(location.search) ? ', shown 500 ms later' : '');
   var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-5, 5, 5, -5], axis: true});
