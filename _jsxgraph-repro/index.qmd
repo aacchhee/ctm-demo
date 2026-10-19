@@ -30,7 +30,10 @@ JSXGraph 1.14.0, drawn with 1.9.1), and with the iframe page only while
 Chrome is not painting the window (see problem 1). All other measurements on
 this page were made in Chromium 141.0.7390.37 on Linux, the full browser that
 Chrome is built from, under automation, with a window (under Xvfb) and in
-headless mode. Chromium's separate
+headless mode, except where a section says "checked by hand on Windows
+Chrome 152": the repro pages of problems 1 to 4 and the `functiongraph` page
+were also opened there in a visible window in front, and each showed the
+problem as described. Problem 5 was not checked there. Chromium's separate
 "headless shell" never shows problem 1 in iframes. Firefox and Safari were
 not available to us, so this page says nothing about them.
 
@@ -147,7 +150,10 @@ by `aspect-ratio`.
 [stale-svg-after-quick-resize.html](repro/stale-svg-after-quick-resize.html):
 its container grows from 300 to 400 to 500 px within 10 ms while the page is
 busy for 30 ms (press **Run**). Stale in every run in our (automated)
-measurements; not checked on Windows.
+measurements. Checked by hand on Windows Chrome 152 with 1.14.0: stale in
+2 of 2 clean page loads (SVG 400 px in a 500 px div); watching the page, the
+board did not fill its frame in roughly 70 % of runs. With 1.9.1 the SVG is
+500 px (the page allows 1 px for fractional sizes).
 
 ::: {.table-responsive}
 | You should see (1.9.1) | You see (1.14.0): the SVG stays 400 px wide |
@@ -276,7 +282,9 @@ board is right in every version from 1.3.0 except 1.3.2.
 **Reproduce:** [unit-origin-hidden.html](repro/unit-origin-hidden.html).
 Press **Show**; the page reads the board after 300 ms, then narrows the
 container to 90% and reads it again. The reference link on the page creates
-the same board visible.
+the same board visible. Checked by hand on Windows Chrome 152 with 1.14.0:
+after showing `unitX` Infinity and P at [NaN, 100]; after the resize the
+bounding box [−5, 5, 5, −5], `unitX` 58.5, `unitY` 30.
 
 ::: {.table-responsive}
 | You should see (created visible): units 50, origin (250, 150) | You see after showing and one resize: the default box |
@@ -334,8 +342,11 @@ wrong region (here x −14.1…12.1, y 3…17); 1.5.0 leaves the bounding box Na
 
 **Reproduce:** [keepaspectratio-hidden.html](repro/keepaspectratio-hidden.html).
 Press **Show B and C** and compare (B) and (C) with (A). The result is the
-same in every load and in all three Chromium variants. (C) can also be blank
-because of problem 1; reload in that case.
+same in every load and in all three Chromium variants. Checked by hand on
+Windows Chrome 152 with 1.14.0: (A) [−1.49, 7, 13.49, −1], (B)
+[−7.1, 10, 19.1, −4]. (C) tests this problem only if it is in view when
+shown; an SVG of 0×0 in (C) means it was not painted at that moment, which
+is problem 1, not this one.
 
 You should see (B) and (C) like (A); you see the grey rectangle (the
 bounding box) small in (B) and (C):
@@ -397,7 +408,9 @@ that leaves `_isResizing` set.
 Nothing to click: the page resizes the container 600 → 500 → 400 → 700 →
 300 px, and a text's content function throws once during the second resize.
 The status lists each step. The reference link runs the same steps without
-the error.
+the error. Checked by hand on Windows Chrome 152 with 1.14.0: after the
+resize in which the text throws, the SVG stays 400 px while the container
+goes to 650 and 300 px.
 
 ::: {.table-responsive}
 | You should see (without the error): the board follows to 300 px | You see: the SVG stays 400 px wide in the 300 px container |
@@ -434,7 +447,8 @@ crops it at the sides. Example: `boundingbox: [-1, 7, 13, -1]` visible in a
 x −1…13; the left and right parts of the figure are cut off. Widening
 restores it.
 
-**Versions:** measured in 1.12.2, 1.13.3 and 1.14.0; the code is from 1.5.0.
+**Versions:** measured in 1.12.2, 1.13.3 and 1.14.0 (automated Chromium; not
+checked on Windows); the code is from 1.5.0.
 
 **Reproduce:** [JSXGraph 1.14.0 page with the course figures](library/jsxgraph-1.14.0.html),
 pendulum in (a): open the page in a wide window, then make it narrow (about
@@ -564,7 +578,9 @@ hidden container has an inline pixel width. Fixed in 1.13.2 by
 [fe4342311](https://github.com/jsxgraph/jsxgraph/commit/fe4342311)
 (2026-08-05, "Bug fix: plotting while the division has display:none").
 Page: [functiongraph-interval-hidden.html](repro/functiongraph-interval-hidden.html)
-(opens with 1.13.1; press **Show**).
+(opens with 1.13.1; press **Show**). Checked by hand on Windows Chrome 152:
+1.13.1 throws the TypeError and creates neither the functiongraph nor B;
+1.13.2 creates all three without errors.
 
 ::: {.table-responsive}
 | 1.13.2: A, the segment and B | 1.13.1: only A, then the exception |

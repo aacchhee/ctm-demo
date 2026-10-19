@@ -58,7 +58,7 @@ STALE. With 1.9.1 the SVG is 500 px wide.</p>
     setTimeout(function () {
       ro.disconnect();
       var svgWidth = +board.renderer.svgRoot.getAttribute('width');
-      var stale = svgWidth !== box.clientWidth;
+      var stale = Math.abs(svgWidth - box.clientWidth) > 1;   // tolerance for fractional SVG sizes
       window.RESULT = {stale: stale, container: box.clientWidth, canvasWidth: board.canvasWidth, svgWidth: svgWidth};
       var status = document.getElementById('status');
       status.textContent = 'Status: board div ' + box.clientWidth + ' px, board.canvasWidth ' + board.canvasWidth +

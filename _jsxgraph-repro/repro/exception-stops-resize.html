@@ -46,8 +46,9 @@ the error (reference link) every step follows. The only trace is a
   var lines = [];
   function log(label) {
     var svg = +board.renderer.svgRoot.getAttribute('width');
-    lines.push({step: label, container: box.clientWidth, svg: svg, following: svg === box.clientWidth});
-    out.textContent += label + ': div ' + box.clientWidth + ' px, SVG ' + svg + ' px' + (svg === box.clientWidth ? '' : '   <-- not following') + '\n';
+    var following = Math.abs(svg - box.clientWidth) <= 1;   // tolerance for fractional SVG sizes
+    lines.push({step: label, container: box.clientWidth, svg: svg, following: following});
+    out.textContent += label + ': div ' + box.clientWidth + ' px, SVG ' + svg + ' px' + (following ? '' : '   <-- not following') + '\n';
   }
   setTimeout(function () { wrap.style.width = '500px'; }, 300);
   var NOERROR = /[?&]noerror/.test(location.search);
