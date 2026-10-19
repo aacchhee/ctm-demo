@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSXGraph: blank board in a hidden iframe</title>
+<style>
+  body { font-family: system-ui, sans-serif; line-height: 1.45; margin: 1rem; max-width: 760px; }
+  .tabs button { font-size: 1rem; padding: 0.3rem 0.8rem; }
+  .pane { border: 1px solid #888; padding: 0.5rem; margin-top: 0.3rem; }
+  #status { font-family: monospace; white-space: pre-wrap; background: #f4f4f4; padding: 0.5rem; }
+  .blank { color: #b00020; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>Board in a sandboxed iframe in a hidden tab: sometimes blank</h1>
+<p>JSXGraph version: <strong id="version"></strong>. Other versions:
+<a href="?v=1.9.1">1.9.1</a> · <a href="?v=1.9.2">1.9.2</a> ·
+<a href="?v=1.13.3">1.13.3</a> · <a href="?v=1.14.0">1.14.0</a> ·
+<a href="../index.html">overview</a></p>
+<p>A tab pane is <code>display:none</code> when the page loads. It holds a
+sandboxed <code>data:</code> iframe (500×400 px) whose page loads JSXGraph
+and creates a board in a div of 100%×100%. Quarto's jsxgraph extension
+embeds boards this way.</p>
+<ol>
+<li>Open this page in desktop Chrome.</li>
+<li>Click <strong>Tab 2 (board)</strong>. One second later the line below
+reports what the iframe shows.</li>
+<li>Reload the page and repeat a few times. The effect is intermittent.</li>
+</ol>
+<p><strong>Expected:</strong> axes and a sine curve, every time.<br>
+<strong>Seen with 1.9.2 to 1.14.0:</strong> in some page loads the frame stays
+white (the status says BLANK). Clicking Tab 1 and Tab 2 again does not bring
+the board back. With 1.9.1 the board is always drawn, though showing the
+shifted region of the 1.6.0–1.9.1 item listed under "Fixed in later JSXGraph
+versions" on the <a href="../index.html#fixed">overview page</a>.</p>
+
+<div class="tabs"><button type="button" id="tab1">Tab 1</button>
+<button type="button" id="tab2">Tab 2 (board)</button></div>
+<div class="pane" id="pane1">Tab 1: no board here.</div>
+<script>
+  var V = (/[?&]v=([0-9.]+)/.exec(location.search) || [])[1] || '1.14.0';
+  var CDN = 'https://cdn.jsdelivr.net/npm/jsxgraph@' + V + '/distrib/';
+  document.getElementById('version').textContent = V;
+  var inner = '<!DOCTYPE html><html><head><meta charset="UTF-8">' +
+    '<link rel="stylesheet" href="' + CDN + 'jsxgraph.css">' +
+    '<script src="' + CDN + 'jsxgraphcore.js"><\/script>' +
+    '<style>html,body{margin:0;width:100%;height:100%}.jxgbox{border:none;border-radius:0}</style></head><body>' +
+    '<div id="box" class="jxgbox" style="width:100%;height:100%;box-sizing:border-box"></div><script>' +
+    'var board = JXG.JSXGraph.initBoard("box", {boundingbox: [-5, 5, 5, -5], axis: true});' +
+    'board.create("functiongraph", [function (x) { return 3 * Math.sin(x); }]);' +
+    'addEventListener("message", function () { var s = board.renderer.svgRoot;' +
+    ' parent.postMessage({container: box.clientWidth + "x" + box.clientHeight,' +
+    ' svg: s.getAttribute("width") + "x" + s.getAttribute("height"), bbox: board.getBoundingBox()}, "*"); });' +
+    '<\/script></body></html>';
+  // The iframe is part of the parsed page, as a Quarto filter would emit it.
+  document.write('<div class="pane" id="pane2" style="display:none">' +
+    '<iframe id="frame" sandbox="allow-scripts" title="JSXGraph board" style="width:500px;max-width:100%;height:400px;border:0;display:block" ' +
+    'src="data:text/html;base64,' + btoa(inner) + '"></iframe></div>');
+</script>
+<p id="status">Status: Tab 2 not opened yet.</p>
+<script>
+  function show(n) {
+    document.getElementById('pane1').style.display = n === 1 ? 'block' : 'none';
+    document.getElementById('pane2').style.display = n === 2 ? 'block' : 'none';
+  }
+  function query() { document.getElementById('frame').contentWindow.postMessage('state', '*'); }
+  document.getElementById('tab1').onclick = function () { show(1); };
+  document.getElementById('tab2').onclick = function () { show(2); setTimeout(query, 1000); };
+  addEventListener('message', function (e) {
+    var blank = e.data.svg.split('x')[0] === '0' && e.data.container.split('x')[0] !== '0';
+    window.RESULT = {blank: blank, container: e.data.container, svg: e.data.svg, bbox: e.data.bbox};
+    var status = document.getElementById('status');
+    status.textContent = 'Status: board div ' + e.data.container + ' px, SVG ' + e.data.svg + ' px, bounding box ' +
+      JSON.stringify(e.data.bbox) + (blank ? '\nBLANK: the SVG has no size although the div has.' : '\nDrawn.');
+    status.className = blank ? 'blank' : '';
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSXGraph: unitX/originX board created hidden</title>
+<style>
+  body { font-family: system-ui, sans-serif; line-height: 1.45; margin: 1rem; max-width: 760px; }
+  #status { font-family: monospace; white-space: pre-wrap; background: #f4f4f4; padding: 0.5rem; }
+  .jxgbox { border: 1px solid #888; }
+  button { font-size: 1rem; }
+</style>
+<script>
+  var V = (/[?&]v=([0-9.]+)/.exec(location.search) || [])[1] || '1.14.0';
+  var CDN = 'https://cdn.jsdelivr.net/npm/jsxgraph@' + V + '/distrib/';
+  document.write('<link rel="stylesheet" href="' + CDN + 'jsxgraph.css"><script src="' + CDN + 'jsxgraphcore.js"><\/script>');
+</script>
+</head>
+<body>
+<h1>Board with unitX/unitY/originX/originY created hidden: broken after showing</h1>
+<p>JSXGraph version: <strong id="version"></strong>. Other versions:
+<a href="?v=1.9.1">1.9.1</a> · <a href="?v=1.13.3">1.13.3</a> ·
+<a href="?v=1.14.0">1.14.0</a> · <a href="?v=1.14.0&amp;visible">1.14.0, created visible (reference)</a> ·
+<a href="../index.html">overview</a></p>
+<p>The board is defined by <code>unitX: 50, unitY: 50, originX: 250,
+originY: 150</code> (no bounding box) and created in a div of
+<code>width: 100%; height: 300px</code> whose parent is
+<code>display:none</code>, so the div is 0 px wide at creation. A point P is
+at (1, 1).</p>
+<ol>
+<li>Press <strong>Show</strong>. The page reads the board 300 ms later.</li>
+<li>Then it narrows the container to 90% and reads the board again.</li>
+</ol>
+<p><strong>Expected:</strong> units 50 and 50, origin at (250, 150), so P is at
+screen position (300, 100), after showing and after the resize.<br>
+<strong>Seen:</strong> after showing, unitX is Infinity and P's position is
+NaN; after the next resize the board uses the default bounding box
+[−5, 5, 5, −5] instead of the given units and origin.</p>
+<p><button type="button" id="show">Show</button></p>
+<div id="wrap" style="display:none"><div id="box" class="jxgbox" style="width:100%;height:300px"></div></div>
+<p id="status"></p>
+<script>
+  document.getElementById('version').textContent = V + (/[?&]visible/.test(location.search) ? ', created visible' : '');
+  if (/[?&]visible/.test(location.search)) document.getElementById('wrap').style.display = 'block';
+  var board = JXG.JSXGraph.initBoard('box', {unitX: 50, unitY: 50, originX: 250, originY: 150, axis: true});
+  var p = board.create('point', [1, 1], {name: 'P'});
+  var out = document.getElementById('status'), rows = [];
+  function r(v) { return Math.round(v * 100) / 100; }
+  function log(label) {
+    var row = {step: label, container: board.containerObj.clientWidth + 'x' + board.containerObj.clientHeight,
+      unitX: r(board.unitX), unitY: r(board.unitY), bbox: board.getBoundingBox().map(r),
+      P: p.coords.scrCoords.slice(1).map(r)};
+    rows.push(row);
+    out.textContent += label + ': div ' + row.container + ', unitX ' + row.unitX + ', unitY ' + row.unitY +
+      ', bounding box ' + JSON.stringify(row.bbox) + ', P on screen ' + JSON.stringify(row.P) + '\n';
+  }
+  var VISIBLE = /[?&]visible/.test(location.search);
+  log(VISIBLE ? 'created visible' : 'hidden at creation');
+  document.getElementById('show').onclick = function () {
+    document.getElementById('wrap').style.display = 'block';
+    setTimeout(function () {
+      log('after showing');
+      document.getElementById('wrap').style.width = '90%';
+      setTimeout(function () { log('after a further resize'); window.RESULT = rows; }, 300);
+    }, 300);
+  };
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSXGraph: functiongraph with an interval, created hidden</title>
+<style>
+  body { font-family: system-ui, sans-serif; line-height: 1.45; margin: 1rem; max-width: 760px; }
+  #status { font-family: monospace; white-space: pre-wrap; background: #f4f4f4; padding: 0.5rem; }
+  .jxgbox { border: 1px solid #888; }
+  button { font-size: 1rem; }
+</style>
+<script>
+  var V = (/[?&]v=([0-9.]+)/.exec(location.search) || [])[1] || '1.13.1';
+  var VISIBLE = /[?&]visible/.test(location.search);
+  var CDN = 'https://cdn.jsdelivr.net/npm/jsxgraph@' + V + '/distrib/';
+  document.write('<link rel="stylesheet" href="' + CDN + 'jsxgraph.css"><script src="' + CDN + 'jsxgraphcore.js"><\/script>');
+</script>
+</head>
+<body>
+<h1>functiongraph with an interval in a board created hidden: exception</h1>
+<p>JSXGraph version: <strong id="version"></strong>. Other versions:
+<a href="?v=1.12.2">1.12.2</a> · <a href="?v=1.13.0">1.13.0</a> ·
+<a href="?v=1.13.1">1.13.1</a> · <a href="?v=1.13.2">1.13.2</a> ·
+<a href="?v=1.14.0">1.14.0</a> · <a href="?v=1.13.1&amp;visible">1.13.1, created visible</a> ·
+<a href="../index.html">overview</a></p>
+<p>The board is created in a div of <code>width: 100%; height: 300px</code>
+whose parent is <code>display:none</code>. The script creates a point A, then
+<code>board.create('functiongraph', [f, -2, 3])</code> (an interval), then a
+point B. Press <strong>Show</strong>.</p>
+<p><strong>Expected:</strong> A, the line segment and B.<br>
+<strong>Seen with 1.13.0 and 1.13.1:</strong> only A. The functiongraph call
+throws <code>TypeError: Cannot read properties of undefined (reading
+'usrCoords')</code>, so the rest of the script does not run. Fixed in 1.13.2.
+The same board created visible (last link above) is fine.</p>
+<p><button type="button" id="show">Show</button></p>
+<div id="pane" style="display:none"><div id="box" class="jxgbox" style="width:100%;height:300px"></div></div>
+<p id="status"></p>
+<script>
+  document.getElementById('version').textContent = V + (VISIBLE ? ', created visible' : '');
+  if (VISIBLE) document.getElementById('pane').style.display = 'block';
+  var errors = [];
+  var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-5, 5, 5, -5], axis: true});
+  var A = board.create('point', [-3, 2], {name: 'A'});
+</script>
+<script>
+  try {
+    var f = board.create('functiongraph', [function (x) { return x / 2; }, -2, 3]);
+  } catch (e) {
+    errors.push(String(e));
+    throw e;                       // as in a page without try/catch: the script stops here
+  }
+  var B = board.create('point', [3, -2], {name: 'B'});
+</script>
+<script>
+  function report() {
+    window.RESULT = {A: !!window.A, f: !!window.f, B: !!window.B, errors: errors};
+    document.getElementById('status').textContent = 'Created: A ' + (window.A ? 'yes' : 'no') +
+      ', functiongraph ' + (window.f ? 'yes' : 'no') + ', B ' + (window.B ? 'yes' : 'no') +
+      (errors.length ? '\nException: ' + errors.join('; ') : '');
+  }
+  document.getElementById('show').onclick = function () {
+    document.getElementById('pane').style.display = 'block';
+    setTimeout(report, 500);
+  };
+  if (VISIBLE) setTimeout(report, 500);
+</script>
+</body>
+</html>

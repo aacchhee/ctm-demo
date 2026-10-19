@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JSXGraph board in a tab: reproduction – JSXGraph reproduction</title>
+<title>JSXGraph boards created while hidden: problems found</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,71 +20,89 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f53186b9ac0866246e638800b9d808a6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="index_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="index_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap-7e87bcf20ba77d48feeeb6cd8bca1af4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
+<link rel="stylesheet" href="style.css">
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="quarto-light">
 
-<div id="quarto-search-results"></div>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    
-<!-- main -->
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#p1" id="toc-p1" class="nav-link" data-scroll-target="#p1">1. Library: resize notifications are dropped, so a board can stay blank</a></li>
+  <li><a href="#p2" id="toc-p2" class="nav-link" data-scroll-target="#p2">2. Library: boards with unitX/originX created hidden are broken</a></li>
+  <li><a href="#p3" id="toc-p3" class="nav-link" data-scroll-target="#p3">3. Library: a keepaspectratio board created at 0×0 shows the wrong region</a></li>
+  <li><a href="#p4" id="toc-p4" class="nav-link" data-scroll-target="#p4">4. Library: one exception during a resize stops all later resizing</a></li>
+  <li><a href="#p5" id="toc-p5" class="nav-link" data-scroll-target="#p5">5. Library: a keepaspectratio board that gets narrower than high is cropped</a></li>
+  <li><a href="#p6r" id="toc-p6r" class="nav-link" data-scroll-target="#p6r">6. Library: possible endless loop in the SVG renderer (found by reading, not run)</a></li>
+  <li><a href="#p6" id="toc-p6" class="nav-link" data-scroll-target="#p6">7. Extension: after the first resize, boards no longer follow the window</a></li>
+  <li><a href="#p7" id="toc-p7" class="nav-link" data-scroll-target="#p7">8. Extension: boards in hidden tabs are often blank (library problem 1)</a></li>
+  <li><a href="#fixed" id="toc-fixed" class="nav-link" data-scroll-target="#fixed">Fixed in later JSXGraph versions</a></li>
+  <li><a href="#test-pages-with-the-courses-figures" id="toc-test-pages-with-the-courses-figures" class="nav-link" data-scroll-target="#test-pages-with-the-courses-figures">Test pages with the course’s figures</a></li>
+  <li><a href="#about-this-page" id="toc-about-this-page" class="nav-link" data-scroll-target="#about-this-page">About this page</a></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">JSXGraph board in a tab: reproduction</h1>
+<h1 class="title">JSXGraph boards created while hidden: problems found</h1>
 </div>
 
 
@@ -101,48 +119,446 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This page is built on its own, with old commits: the JSXGraph Quarto extension as ctm-demo used it on 22 September 2026 (math-exercise <code>dad1ddd</code>; its filter is the same as jsxgraph-quarto main <code>59d549c</code>) and the original code of the solenoid figure (ctm-demo <code>60b1cb0</code>). The JSXGraph library itself is loaded from the CDN, as then.</p>
-<p>To see the problem:</p>
+<p>This page is for the JSXGraph maintainers. It lists every problem we found with boards that are created while hidden (a closed tab, a collapsed section, a hidden iframe) and shown later, ordered by severity. Each problem is labelled <strong>library</strong> (JSXGraph) or <strong>extension</strong> (the jsxgraph-quarto extension). Most have a minimal page that reproduces them; each has what you should see and what you see, the affected versions, the place in the source, and possible fixes.</p>
+<p>Problems 1, 2 and 4, the <code>functiongraph</code> crash listed at the end, and the extension measurements were checked by an independent verification (fresh downloads, its own test pages and drivers); the numbers given are from it unless a section says otherwise. Problems 3 and 5 and the two plain-div pages under problem 1 were found and measured for this page only. Problem 6 was found by reading the code.</p>
+<p>The pages in <code>repro/</code> load JSXGraph from jsDelivr; add <code>?v=1.9.1</code> (or another version) to a page’s address to load that version. Source locations are from our investigation of tag v1.14.0; the resize code is unchanged on <code>main</code> (55a2035, 19 October 2026).</p>
+<p><strong>Browsers.</strong> Measured on 19 October 2026 in Chromium 141.0.7390.37, the full browser that Chrome is built from, both with a window (under Xvfb) and in headless mode. Chromium’s separate “headless shell” never shows problem 1 in iframes. Firefox and Safari were not available to us, so this page says nothing about them.</p>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>Library (JSXGraph 1.14.0):</p>
+<div class="table-responsive">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Problem</th>
+<th>Since</th>
+<th>Where it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="#p1">1</a></td>
+<td>Resize notifications are dropped; a board shown from a hidden tab can stay blank</td>
+<td>1.9.2</td>
+<td>hidden sandboxed iframes (about half of the page loads in Chrome); hidden or visible divs whose size changes twice within 10 ms</td>
+</tr>
+<tr class="even">
+<td><a href="#p2">2</a></td>
+<td>Boards with <code>unitX/unitY/originX/originY</code> created hidden are broken after showing</td>
+<td>1.3.0</td>
+<td>containers without a CSS pixel size, 0 px wide at creation</td>
+</tr>
+<tr class="odd">
+<td><a href="#p3">3</a></td>
+<td><code>keepaspectratio</code> boards created at 0×0 show the wrong region</td>
+<td>1.5.0</td>
+<td>relative sizes in a hidden parent; hidden iframes</td>
+</tr>
+<tr class="even">
+<td><a href="#p4">4</a></td>
+<td>One exception during a resize stops all later resizing</td>
+<td>1.3.1</td>
+<td>any board</td>
+</tr>
+<tr class="odd">
+<td><a href="#p5">5</a></td>
+<td>A <code>keepaspectratio</code> board that gets narrower than high is cropped</td>
+<td>1.5.0</td>
+<td>visible boards too; may be intended</td>
+</tr>
+<tr class="even">
+<td><a href="#p6r">6</a></td>
+<td>Possible endless loop in the SVG renderer for cubic curves with an undefined point</td>
+<td>1.13.2</td>
+<td>found by reading the code, not run</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>What works in 1.14.0: a board defined by a <code>boundingbox</code> that is created hidden gets a 0×0 size and a NaN bounding box, throws no error, and when its container is shown, JSXGraph’s ResizeObserver gives it the right size and view; afterwards it follows narrowing and widening. Problem 1 (timing) and problem 3 (<code>keepaspectratio</code>) are the exceptions; problem 2 concerns boards defined by units and origin instead.</p>
+<p>Extension (jsxgraph-quarto):</p>
+<div class="table-responsive">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Problem</th>
+<th>Versions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="#p6">7</a></td>
+<td>After the first resize, boards no longer follow the window</td>
+<td>upstream main 59d549c</td>
+</tr>
+<tr class="even">
+<td><a href="#p7">8</a></td>
+<td>Boards in hidden tabs are blank in about half of the page loads (problem 1, through the extension’s iframes)</td>
+<td>a26aea8, 59d549c</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a href="https://github.com/jsxgraph/jsxgraph-quarto/pull/2">Pull request #2</a> of jsxgraph-quarto addresses 7 and 8 on the extension side. Problems fixed in later JSXGraph releases are listed <a href="#fixed">at the end</a>.</p>
+</section>
+<section id="p1" class="level2">
+<h2 class="anchored" data-anchor-id="p1">1. Library: resize notifications are dropped, so a board can stay blank</h2>
+<p><strong>What goes wrong.</strong> The board’s ResizeObserver callback takes the size from the first notification, ignores further notifications for 10 ms (<code>resize.throttle</code>), and then applies the size it took. If the container changes size again within those 10 ms, the board keeps the earlier size. The observer does not report the same size twice, so nothing corrects it later. For a board created hidden, the earlier size is 0×0 and the board stays blank.</p>
+<p><strong>Versions:</strong> 1.9.2 to 1.14.0 and <code>main</code>. Not 1.9.1 or earlier.</p>
+<p><strong>Reproduce</strong> in desktop Chrome with <a href="repro/blank-in-hidden-iframe.html">blank-in-hidden-iframe.html</a>. This is the case met in practice: a sandboxed <code>data:</code> iframe in a tab that is <code>display:none</code> at load, as the Quarto extension embeds boards.</p>
 <ol type="1">
-<li>Open the tab <strong>2025</strong>, then <strong>Prøve 4</strong>. The board shows correctly.</li>
-<li>Make the window narrow, or turn a phone to portrait. The board keeps its wide size and is cut off on the right; it does not follow the page.</li>
+<li>Open the page and, without resizing the window, click <strong>Tab 2 (board)</strong>. A second later the status line says whether the board is drawn.</li>
+<li>Reload and repeat a few times.</li>
 </ol>
-<p><a href="https://aacchhee.github.io/ctm-demo/">Back to the course</a></p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">2025</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Prøve 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Prøve 4</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>No figure here.</p>
+<p>Resizing the window while the tab is still hidden prevents the problem (0 of 20 loads); a longer wait before the click does not (10 of 20 after 4.5 s).</p>
+<div class="table-responsive">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>You should see (every time)</th>
+<th>You see (1.13.3, 1.14.0: about every second load)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="img/iframe-blank-expected.png" class="img-fluid" alt="Axes and a sine curve"></td>
+<td><img src="img/iframe-blank-seen.png" class="img-fluid" alt="An empty frame"></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>No figure here.</p>
+<p>Measured by an independent verification, 30 page loads per cell (tab clicked 0.3 to 0.9 s after the page was ready; pooled, 1.13.3 and 1.14.0 were blank in 120 of 240 loads in the full Chromium, 1.9.1 in 0 of 120):</p>
+<div class="table-responsive">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Browser</th>
+<th>1.9.1</th>
+<th>1.13.3</th>
+<th>1.14.0</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Chromium, with a window</td>
+<td>0/30, 0/30</td>
+<td>13/30, 12/30</td>
+<td>15/30, 16/30</td>
+</tr>
+<tr class="even">
+<td>Chromium, headless</td>
+<td>0/30, 0/30</td>
+<td>12/30, 18/30</td>
+<td>19/30, 15/30</td>
+</tr>
+<tr class="odd">
+<td>Chromium headless shell</td>
+<td>0/30, 0/30</td>
+<td>0/30, 0/30</td>
+<td>0/30, 0/30</td>
+</tr>
+</tbody>
+</table>
 </div>
+<p>The two numbers per cell are for an iframe with a pixel size and one sized by <code>aspect-ratio</code>. A blank board stays blank when the tab is hidden and shown again; it recovers when the iframe’s size changes (narrowing or widening the window).</p>
+<p>Two more pages show the same defect without an iframe. These two were measured for this page only, not by the independent verification:</p>
+<ul>
+<li><p><a href="repro/blank-after-quick-show.html">blank-after-quick-show.html</a>: a board in a hidden div is shown while the first (0×0) timer is pending and the page is busy for 30 ms. Blank in 5 of 8 page loads in Chromium headless here; the share depends on the machine’s load.</p>
+<div class="table-responsive">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>You should see (here: shown 500 ms later)</th>
+<th>You see</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="img/quick-show-expected.png" class="img-fluid" alt="Axes and a sine curve"></td>
+<td><img src="img/quick-show-seen.png" class="img-fluid" alt="An empty frame"></td>
+</tr>
+</tbody>
+</table>
+</div></li>
+<li><p><a href="repro/stale-svg-after-quick-resize.html">stale-svg-after-quick-resize.html</a>: a visible board whose container grows from 300 to 400 to 500 px within 10 ms while the page is busy for 30 ms (press <strong>Run</strong>). Stale in every run in our measurements.</p>
+<div class="table-responsive">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>You should see (1.9.1)</th>
+<th>You see (1.14.0): the SVG stays 400 px wide</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="img/stale-svg-expected.png" class="img-fluid" alt="Board fills 500 px"></td>
+<td><img src="img/stale-svg-seen.png" class="img-fluid" alt="Drawing ends at 400 px"></td>
+</tr>
+</tbody>
+</table>
+</div></li>
+</ul>
+<p><strong>Why it happens in iframes.</strong> Chromium does not render a hidden cross-origin iframe. When the tab is shown, the iframe first delivers the observer’s pending notification with 0×0 and, 1 to 4 ms later, the real size. Whether the 0×0 comes first depends on which arrives first in the iframe, its first rendering update or its new window size. In every one of the 120 blank runs above, the only call of <code>updateContainerDims</code> was <code>(0, 0)</code> while the container had its full size (500×400, or 984×787 with <code>aspect-ratio</code>). Version 1.9.1 receives the same two notifications, but reads the size when its timer fires, so it gets the real one. The headless shell does not show the race: there the 0×0 arrives while the tab is still hidden.</p>
+<p><strong>Cause</strong> (source location from our investigation): <code>src/base/board.js</code>, <code>startResizeObserver</code>, <a href="https://github.com/jsxgraph/jsxgraph/blob/v1.14.0/src/base/board.js#L4497-L4513">lines 4497–4513</a>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">resizeObserver</span> <span class="op">=</span> <span class="kw">new</span> <span class="fu">ResizeObserver</span>(<span class="kw">function</span> (entries) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> bb<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>that<span class="op">.</span><span class="at">_isResizing</span>) {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        that<span class="op">.</span><span class="at">_isResizing</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        bb <span class="op">=</span> entries[<span class="dv">0</span>]<span class="op">.</span><span class="at">contentRect</span><span class="op">;</span>          <span class="co">// size of the first notification</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">window</span><span class="op">.</span><span class="fu">setTimeout</span>(<span class="kw">function</span> () {</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">try</span> {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                that<span class="op">.</span><span class="fu">updateContainerDims</span>(bb<span class="op">.</span><span class="at">width</span><span class="op">,</span> bb<span class="op">.</span><span class="at">height</span>)<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            } <span class="cf">catch</span> (e) {</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                JXG<span class="op">.</span><span class="fu">debug</span>(e)<span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                that<span class="op">.</span><span class="fu">stopResizeObserver</span>()<span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            } <span class="cf">finally</span> {</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                that<span class="op">.</span><span class="at">_isResizing</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        }<span class="op">,</span> that<span class="op">.</span><span class="at">attr</span><span class="op">.</span><span class="at">resize</span><span class="op">.</span><span class="at">throttle</span>)<span class="op">;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    }                                         <span class="co">// later notifications are not used</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This came with commit <a href="https://github.com/jsxgraph/jsxgraph/commit/d336a055c">d336a055c</a> (2024-06-26, “Bug fix: infinitely increasing board with resize observer”, first released in 1.9.2). Before it, the timer read the container’s size when it fired (1.9.1 calls <code>updateContainerDims()</code> without arguments). On the <code>sketchometry</code> branch, commit <a href="https://github.com/jsxgraph/jsxgraph/commit/66304e689">66304e689</a> (2025-01-23, “fix resize bug. Dimensions have to be evaluated in timeout. This issue was registered in sketchometry when re-opening the app.”) read the size in the timer again, with <code>getBoundingClientRect()</code>; it was reverted there on 2025-01-28 in <a href="https://github.com/jsxgraph/jsxgraph/commit/9a84579f5">9a84579f5</a>, without a stated reason. Neither commit is on <code>main</code> or in a release.</p>
+<p><strong>Possible fixes.</strong></p>
+<ol type="1">
+<li><p><em>Remember the latest notification.</em> Store the latest <code>contentRect</code> in every callback, also while the timer is pending, and apply that one when the timer fires:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">resizeObserver</span> <span class="op">=</span> <span class="kw">new</span> <span class="fu">ResizeObserver</span>(<span class="kw">function</span> (entries) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    that<span class="op">.</span><span class="at">_lastContentRect</span> <span class="op">=</span> entries[entries<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span>]<span class="op">.</span><span class="at">contentRect</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>that<span class="op">.</span><span class="at">_isResizing</span>) {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        that<span class="op">.</span><span class="at">_isResizing</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">window</span><span class="op">.</span><span class="fu">setTimeout</span>(<span class="kw">function</span> () {</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            <span class="kw">var</span> bb <span class="op">=</span> that<span class="op">.</span><span class="at">_lastContentRect</span><span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">try</span> { that<span class="op">.</span><span class="fu">updateContainerDims</span>(bb<span class="op">.</span><span class="at">width</span><span class="op">,</span> bb<span class="op">.</span><span class="at">height</span>)<span class="op">;</span> }</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">catch</span> (e) { JXG<span class="op">.</span><span class="fu">debug</span>(e)<span class="op">;</span> that<span class="op">.</span><span class="fu">stopResizeObserver</span>()<span class="op">;</span> }</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">finally</span> { that<span class="op">.</span><span class="at">_isResizing</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span> }</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        }<span class="op">,</span> that<span class="op">.</span><span class="at">attr</span><span class="op">.</span><span class="at">resize</span><span class="op">.</span><span class="at">throttle</span>)<span class="op">;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>It keeps <code>contentRect</code> (the reason for d336a055c) and still makes one update per 10 ms. Measured as a patch on the same pages: 0 blank boards in 30 page loads in each of 6 cells (1.14.0 with a window and headless, 1.13.3 headless; both iframe sizes), against 12 to 19 of 30 without it.</p></li>
+<li><p><em>Read the size when the timer fires</em>, as before 1.9.2 and as in 66304e689. Simpler, but d336a055c moved away from this to stop a board that kept growing, and the revert of 66304e689 on the sketchometry branch suggests a side effect that we do not know.</p></li>
+<li><p><em>Update once more if a notification arrived meanwhile</em> (a trailing update). Covers any sequence of changes, at the cost of a second update in that case.</p></li>
+</ol>
+<p>Until a fix is released, an embedding can repair the board itself. Inside the iframe, the iframe’s own window gets a <code>resize</code> event when it is shown:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addEventListener</span>(<span class="st">'resize'</span><span class="op">,</span> <span class="kw">function</span> () {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="pp">setTimeout</span>(<span class="kw">function</span> () { board<span class="op">.</span><span class="fu">updateContainerDims</span>()<span class="op">;</span> }<span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>updateContainerDims()</code> without arguments reads the real size, does not set the container’s CSS size, and does nothing when nothing changed. In 82 of the 180 measured loads the library had first applied 0×0 and this call repaired the board; the container kept <code>width: 100%</code>. Measured: 0 blank boards in 30 page loads in each of the same 6 cells, and the board still follows narrowing and widening.</p>
+</section>
+<section id="p2" class="level2">
+<h2 class="anchored" data-anchor-id="p2">2. Library: boards with unitX/originX created hidden are broken</h2>
+<p><strong>What goes wrong.</strong> A board defined by <code>unitX</code>, <code>unitY</code>, <code>originX</code>, <code>originY</code> (no <code>boundingbox</code>) whose container is 0 px wide at creation is broken once shown: <code>unitX</code> becomes Infinity, coordinates become NaN and the console shows <code>Error: &lt;ellipse&gt; attribute cx: Expected length, "NaN"</code>. At the next resize the board is drawn again, but with the default bounding box [−5, 5, 5, −5], not with the given units and origin.</p>
+<p><strong>Versions:</strong> exactly as described in 1.3.0, 1.4.6, 1.5.0 and 1.9.2 to 1.14.0 (verified). 1.6.2 to 1.9.1 are also broken, differently: <code>unitX</code> about 2.4·10¹⁰ and a degenerate box that stays broken. 1.3.2 draws unit boards wrongly even when they are created visible. Only containers without a CSS pixel size are affected; with an inline <code>width: 500px; height: 400px</code> the board is right in every version from 1.3.0 except 1.3.2.</p>
+<p><strong>Reproduce:</strong> <a href="repro/unit-origin-hidden.html">unit-origin-hidden.html</a>. Press <strong>Show</strong>; the page reads the board after 300 ms, then narrows the container to 90% and reads it again. The reference link on the page creates the same board visible.</p>
+<div class="table-responsive">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>You should see (created visible): units 50, origin (250, 150)</th>
+<th>You see after showing and one resize: the default box</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="img/unit-expected.png" class="img-fluid" alt="Units 50, P at (1, 1) left of centre"></td>
+<td><img src="img/unit-seen.png" class="img-fluid" alt="Default bounding box"></td>
+</tr>
+</tbody>
+</table>
 </div>
+<p>Status lines with 1.14.0: created hidden <code>unitX 50, unitY 50, bounding box [-5,3,-5,-3]</code>; after showing <code>unitX Infinity, bounding box [NaN,3,NaN,-3], P on screen [NaN,100]</code>; after the resize <code>unitX 68.4, unitY 30, bounding box [-5,5,5,-5]</code>.</p>
+<p><strong>Cause</strong> (source location from our investigation):</p>
+<ol type="1">
+<li>At creation, initBoard takes units and origin from the attributes (<a href="https://github.com/jsxgraph/jsxgraph/blob/v1.14.0/src/jsxgraph.js#L528-L532"><code>src/jsxgraph.js</code> 528–532</a>). With a width of 0 the bounding box is degenerate (<code>xmin == xmax</code>, here [−5, 3, −5, −3]) but not NaN.</li>
+<li><code>updateContainerDims</code> re-initialises only a NaN bounding box (<a href="https://github.com/jsxgraph/jsxgraph/blob/v1.14.0/src/base/board.js#L4456">board.js 4456</a>). So it calls <code>resizeContainer</code>, whose <code>setBoundingBox(box, …)</code> divides by <code>box[2] − box[0] = 0</code>: <code>unitX = Infinity</code>.</li>
+<li>At the next resize the bounding box is NaN, and <code>updateContainerDims</code> re-initialises it from <code>this.attr.boundingbox</code>, which is the default [−5, 5, 5, −5] because the board was not given one.</li>
+</ol>
+<p><strong>Possible fixes.</strong></p>
+<ol type="1">
+<li>In <code>updateContainerDims</code>, also re-initialise when the bounding box is degenerate (<code>bbox[2] − bbox[0] &lt;= 0</code> or <code>bbox[1] − bbox[3] &lt;= 0</code>), and for boards created with units and origin, re-initialise from those attributes rather than from the default <code>boundingbox</code>.</li>
+<li>In initBoard, store the intended units and origin (or the bounding box they imply at the real size) so that a later re-initialisation can use them.</li>
+<li>In an embedding: use <code>boundingbox</code>, or create the board only when its container is visible.</li>
+</ol>
+</section>
+<section id="p3" class="level2">
+<h2 class="anchored" data-anchor-id="p3">3. Library: a keepaspectratio board created at 0×0 shows the wrong region</h2>
+<p><strong>What goes wrong.</strong> A board with <code>keepaspectratio: true</code> and a bounding box that is not square, created while its container is 0×0, shows a different region once it is shown. Example: <code>boundingbox: [-1, 7, 13, -1]</code> in a 320×171 px frame shows x −7.1…19.1, y −4…10 instead of x −1.49…13.49, y −1…7, so the figure is drawn about 1.75 times too small. The container is 0×0 at creation when its size is relative (percent width, <code>aspect-ratio</code>) and its parent is <code>display:none</code>, and in every hidden iframe whose board div is 100%×100%, as with the Quarto extension. A container with a pixel width and height is not affected, because JSXGraph reads the CSS pixel size of a hidden element. With a square bounding box the right and the wrong rule give the same region.</p>
+<p><strong>Versions:</strong> 1.9.2 to 1.14.0 as described. 1.6.2 to 1.9.1 show another wrong region (here x −14.1…12.1, y 3…17); 1.5.0 leaves the bounding box NaN.</p>
+<p><strong>Reproduce:</strong> <a href="repro/keepaspectratio-hidden.html">keepaspectratio-hidden.html</a>. Press <strong>Show B and C</strong> and compare (B) and (C) with (A). The result is the same in every load and in all three Chromium variants. (C) can also be blank because of problem 1; reload in that case.</p>
+<p>You should see (B) and (C) like (A); you see the grey rectangle (the bounding box) small in (B) and (C):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/keepaspect-seen.png" class="img-fluid figure-img"></p>
+<figcaption>(A) correct, (B) and (C) zoomed out</figcaption>
+</figure>
 </div>
+<p>This problem was found and measured for this page; it was not part of the independent verification.</p>
+<p><strong>Cause</strong> (from a trace of the board’s units):</p>
+<ol type="1">
+<li>At creation in a 0×0 container, initBoard’s keep-aspect rule (<a href="https://github.com/jsxgraph/jsxgraph/blob/v1.14.0/src/jsxgraph.js#L556-L574"><code>src/jsxgraph.js</code> 556–574</a>) computes <code>unitX = 0/14 = 0</code>, <code>unitY = 0/8 = 0</code> and then <code>unitX = (|unitY|·unitX)/|unitX| = NaN</code>. The board starts with <code>unitX = NaN</code>, <code>unitY = 0</code>.</li>
+<li>When the container gets its size, <code>updateContainerDims</code> (<a href="https://github.com/jsxgraph/jsxgraph/blob/v1.14.0/src/base/board.js#L4456-L4458">board.js 4456–4458</a>) sees the NaN bounding box and calls <code>setBoundingBox(this.attr.boundingbox, this.keepaspectratio, 'keep')</code>. Its keep-aspect branch (<a href="https://github.com/jsxgraph/jsxgraph/blob/v1.14.0/src/base/board.js#L6445-L6481">board.js 6445–6481</a>, from <a href="https://github.com/jsxgraph/jsxgraph/commit/83ec5a4e5">83ec5a4e5</a>, 2022-12-02, first in 1.5.0) decides which interval dominates from the previous units. <code>prev_w = ux * dx</code> is NaN, so <code>prev_w &gt;= prev_h</code> is false, and the “switch dominating interval” branch (line 6466) sets <code>unitY = h / |dx|</code>: the width of the box is fitted into the frame’s height. Traced in a hidden iframe with 1.14.0: created with <code>unitX NaN, unitY 0</code>; the call <code>setBoundingBox([-1,7,13,-1], true, 'keep')</code> sets <code>unitX = unitY = 27.86</code> for a 720×390 frame (390/14), giving [−6.92, 10, 18.92, −4].</li>
+</ol>
+<p><strong>Possible fixes.</strong></p>
+<ol type="1">
+<li>In <code>updateContainerDims</code>, when the bounding box is NaN, set units and origin with initBoard’s rule (jsxgraph.js 556–579) and the real size, instead of going through <code>setBoundingBox</code>. The board then gets the region it would have had if created visible. Narrow in scope. Tried as a monkey patch on 1.14.0: (B) then shows the same region as (A), also after the window is narrowed and widened.</li>
+<li>In <code>setBoundingBox</code>, treat non-finite or zero previous units as “no previous view” and use the fit rule. Covers every caller, but changes a function used in many places.</li>
+<li>In an embedding: create the board only once its container has a size.</li>
+</ol>
+</section>
+<section id="p4" class="level2">
+<h2 class="anchored" data-anchor-id="p4">4. Library: one exception during a resize stops all later resizing</h2>
+<p><strong>What goes wrong.</strong> If anything throws during a resize-triggered update (for example a user function of a text or curve that fails once), JSXGraph stops the board’s ResizeObserver for good. From then on the board never follows its container. The only trace is a <code>console.log</code> of the error (1.11.1 and 1.14.0 log it; 1.9.2 and earlier log nothing).</p>
+<p><strong>Versions:</strong> 1.3.1 to 1.14.0 (verified in 1.3.1, 1.3.2, 1.9.1, 1.9.2, 1.11.1 and 1.14.0). 1.3.0 also stops following, through an uncaught error that leaves <code>_isResizing</code> set.</p>
+<p><strong>Reproduce:</strong> <a href="repro/exception-stops-resize.html">exception-stops-resize.html</a>. Nothing to click: the page resizes the container 600 → 500 → 400 → 700 → 300 px, and a text’s content function throws once during the second resize. The status lists each step. The reference link runs the same steps without the error.</p>
+<div class="table-responsive">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>You should see (without the error): the board follows to 300 px</th>
+<th>You see: the SVG stays 400 px wide in the 300 px container</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="img/exception-expected.png" class="img-fluid" alt="Board 300 px wide"></td>
+<td><img src="img/exception-seen.png" class="img-fluid" alt="Board cut off at 300 px"></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Prøve 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Prøve 4</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p>No figure here.</p>
+<p><strong>Cause</strong> (source location from our investigation): the <code>catch</code> in <code>startResizeObserver</code>, <a href="https://github.com/jsxgraph/jsxgraph/blob/v1.14.0/src/base/board.js#L4505-L4508">board.js 4505–4508</a> (<code>JXG.debug(e); that.stopResizeObserver();</code>), added in <a href="https://github.com/jsxgraph/jsxgraph/commit/46f210392">46f210392</a> (2021-09-13, “ResizeObserver: add try-catch”, first in 1.3.1).</p>
+<p><strong>Possible fixes.</strong></p>
+<ol type="1">
+<li>Log the error (as an error, not with <code>console.log</code>) and keep observing. A board whose update fails at every resize would then log at every resize.</li>
+<li>Stop only after several consecutive failures.</li>
+<li>Keep stopping, but report it with <code>console.error</code> or a board event, so the author can see why the board no longer follows.</li>
+</ol>
+</section>
+<section id="p5" class="level2">
+<h2 class="anchored" data-anchor-id="p5">5. Library: a keepaspectratio board that gets narrower than high is cropped</h2>
+<p>This one concerns visible boards and may be intended. It is listed because it looks like a defect on phones. Measured for this page (15 of 15 loads), not part of the independent verification.</p>
+<p><strong>What goes wrong.</strong> A <code>keepaspectratio</code> board whose container changes from wider-than-high to higher-than-wide keeps the box’s vertical extent and crops it at the sides. Example: <code>boundingbox: [-1, 7, 13, -1]</code> visible in a 718×388 px div, narrowed to 356×388 px, shows x 2…10 instead of the whole x −1…13; the left and right parts of the figure are cut off. Widening restores it.</p>
+<p><strong>Versions:</strong> measured in 1.12.2, 1.13.3 and 1.14.0; the code is from 1.5.0.</p>
+<p><strong>Reproduce:</strong> <a href="library/jsxgraph-1.14.0.html">JSXGraph 1.14.0 page with the course figures</a>, pendulum in (a): open the page in a wide window, then make it narrow (about 390 px).</p>
+<p><strong>Cause</strong> (source location from our investigation): the “switch dominating interval” branch of <code>setBoundingBox</code>’s keep-aspect logic, <a href="https://github.com/jsxgraph/jsxgraph/blob/v1.14.0/src/base/board.js#L6461-L6479">board.js 6461–6479</a> (83ec5a4e5, 1.5.0).</p>
+<p><strong>Possible fixes.</strong> If cropping is not intended: fit the whole intended box on resize (the rule initBoard uses), which needs the board to remember its intended box. If it is intended: nothing; authors can size such boards with <code>aspect-ratio</code> so the frame keeps its shape.</p>
+</section>
+<section id="p6r" class="level2">
+<h2 class="anchored" data-anchor-id="p6r">6. Library: possible endless loop in the SVG renderer (found by reading, not run)</h2>
+<p><strong>What may go wrong.</strong> In <code>src/renderer/svg.js</code>, the cubic Bézier branch added by fe4342311 skips undefined points with <code>continue</code> inside a <code>while (i &lt; len)</code> loop, before <code>i</code> is incremented (<a href="https://github.com/jsxgraph/jsxgraph/blob/v1.14.0/src/renderer/svg.js#L1250-L1254">svg.js 1250–1254 in v1.14.0</a>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (el<span class="op">.</span><span class="at">bezierDegree</span> <span class="op">===</span> <span class="dv">3</span>) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (i <span class="op">&lt;</span> len) {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (el<span class="op">.</span><span class="at">points</span>[i] <span class="op">===</span> <span class="kw">undefined</span>) {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span><span class="op">;</span>          <span class="co">// i is not incremented: the loop does not end</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">...</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        i <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If a curve with <code>bezierDegree</code> 3 ever has an undefined point, the page hangs. This was found by reading the code during the verification; it was not triggered or tested.</p>
+<p><strong>Possible fix.</strong> Increment <code>i</code> before <code>continue</code>, or use a <code>for</code> loop as the <code>bezierDegree === 1</code> branch does (line 1161), where <code>continue</code> is safe.</p>
+</section>
+<section id="p6" class="level2">
+<h2 class="anchored" data-anchor-id="p6">7. Extension: after the first resize, boards no longer follow the window</h2>
+<p><strong>What goes wrong.</strong> With jsxgraph-quarto’s upstream main, a board stops following the window after its first size change. A board shown from a hidden tab keeps the width it had when shown: narrowed to phone width, it stays 727 px wide in a 267 px frame and gets a scrollbar. A visible board that was narrowed does not grow back: it stays 339 px wide in a 760 px frame. (These pixel figures are from the linked test page; not independently verified.) Library problem 1 also applies (problem 8).</p>
+<p><strong>Versions:</strong> jsxgraph/jsxgraph-quarto main <a href="https://github.com/jsxgraph/jsxgraph-quarto/commit/59d549c">59d549c</a> (introduced in e9d575b, pull request #1). Not in a26aea8.</p>
+<p><strong>Reproduce:</strong> <a href="extension-59d549c/index.html">test page built with 59d549c</a>. Open it in a wide window, open <strong>2025 → Prøve 4</strong>, then narrow the window to about 390 px. Compare with <a href="extension-a26aea8/index.html">a26aea8</a>. Measured in Chromium with a window and headless, 20 page loads each: the board did not follow narrowing in 20 of 20.</p>
+<p><strong>Cause.</strong> The extension’s <code>refreshBoards()</code> calls <code>board.resizeContainer(width, height)</code> with the default <code>dontset = false</code> (<a href="https://github.com/jsxgraph/jsxgraph-quarto/blob/59d549c/_extensions/jsxgraph/lua/jsxgraph.lua#L595-L610"><code>_extensions/jsxgraph/lua/jsxgraph.lua</code> 595–610</a>). That writes <code>width: 727px; height: 320px</code> into the board div’s style (as documented for <code>resizeContainer</code>, board.js 5776–5778), so the div no longer follows the iframe, and neither JSXGraph’s ResizeObserver nor the extension sees a new size.</p>
+<p><strong>Possible fixes.</strong> Leave the sizing to JSXGraph’s ResizeObserver; or call <code>resizeContainer(w, h, true)</code> (or <code>updateContainerDims()</code>), which do not set the div’s CSS size. <a href="https://github.com/jsxgraph/jsxgraph-quarto/pull/2">Pull request #2</a> does this.</p>
+</section>
+<section id="p7" class="level2">
+<h2 class="anchored" data-anchor-id="p7">8. Extension: boards in hidden tabs are often blank (library problem 1)</h2>
+<p>This is library problem 1 as it shows in Quarto pages.</p>
+<p><strong>What goes wrong.</strong> The extension puts each board into a sandboxed <code>data:</code> iframe. A board in a tab that is hidden at load is blank after the tab is opened in about half of the page loads in Chrome.</p>
+<p><strong>Versions:</strong> jsxgraph-quarto a26aea8 and 59d549c. Measured by the independent verification, 20 page loads each, tab opened after load: a26aea8 (its bundled JSXGraph 1.13.3) blank in 11/20 headless and 15/20 with a window; 59d549c (JSXGraph 1.14.0) in 7/20 and 11/20; 17de83e, an earlier state of pull request #2 that turned JSXGraph’s observer off, in 0/20 and 0/20. The headless shell: 0/20 for all three. In the 59d549c runs the extension’s own <code>resizeContainer</code> call gives the SVG the right size, but the bounding box stays NaN, so the board draws nothing; it stays so after narrowing and widening. With a26aea8 the board recovers at the first later resize of the iframe.</p>
+<p><strong>Reproduce:</strong> <a href="extension-a26aea8/index.html">test page built with a26aea8</a>, tab <strong>2025 → Prøve 4</strong>; reload a few times.</p>
+<p><strong>Fix.</strong> In the library: problem 1. In the extension until then: the <code>resize</code> workaround shown under problem 1. The current state of <a href="https://github.com/jsxgraph/jsxgraph-quarto/pull/2">pull request #2</a> keeps JSXGraph’s observer and adds this workaround; see the pull request for its approach. In our own measurement of it (not independently verified) there were 0 blank boards among 600 hidden boards: 20 loads of a page with 40 boards, 30 of them hidden.</p>
+</section>
+<section id="fixed" class="level2">
+<h2 class="anchored" data-anchor-id="fixed">Fixed in later JSXGraph versions</h2>
+<p>For completeness, and because older versions are still in use. Each item can be seen with a test page and the version link on it. The first item was checked by the independent verification; the others were measured for this page with the linked pages.</p>
+<p><strong>1.13.0 and 1.13.1: <code>functiongraph</code> with an interval throws in a board created hidden.</strong> <code>board.create('functiongraph', [f, -2, 3])</code> in a container 0 px wide, without a CSS pixel width (for example <code>width: 100%</code>, as in Quarto), throws <code>TypeError: Cannot read properties of undefined (reading 'usrCoords')</code>, so the rest of the page’s script does not run (here: point B is missing). Not when the board is created visible, and not when the hidden container has an inline pixel width. Fixed in 1.13.2 by <a href="https://github.com/jsxgraph/jsxgraph/commit/fe4342311">fe4342311</a> (2026-08-05, “Bug fix: plotting while the division has display:none”). Page: <a href="repro/functiongraph-interval-hidden.html">functiongraph-interval-hidden.html</a> (opens with 1.13.1; press <strong>Show</strong>).</p>
+<div class="table-responsive">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>1.13.2: A, the segment and B</th>
+<th>1.13.1: only A, then the exception</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="img/fg-expected.png" class="img-fluid" alt="A, segment, B"></td>
+<td><img src="img/fg-seen.png" class="img-fluid" alt="Only A"></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<iframe src="data:text/html;base64,PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CjxtZXRhIGNoYXJzZXQ9IlVURi04Ij4KPHNjcmlwdCBpZD0iTWF0aEpheC1zY3JpcHQiIGFzeW5jIHNyYz0iaHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L25wbS9tYXRoamF4QDQvdGV4LW1tbC1zdmcuanMiPjwvc2NyaXB0Pgo8c2NyaXB0IHNyYz0iaHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L25wbS9qc3hncmFwaC9kaXN0cmliL2pzeGdyYXBoY29yZS5qcyI+PC9zY3JpcHQ+CjxzdHlsZT5AaW1wb3J0IHVybCgiaHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L25wbS9qc3hncmFwaC9kaXN0cmliL2pzeGdyYXBoLmNzcyIpOzwvc3R5bGU+CjxzdHlsZT5odG1sLGJvZHl7bWFyZ2luOjA7cGFkZGluZzowO3dpZHRoOjEwMCU7aGVpZ2h0OjEwMCU7fS5qeGdib3h7Ym9yZGVyOm5vbmU7Ym9yZGVyLXJhZGl1czowcHg7fTwvc3R5bGU+CjwvaGVhZD4KPGJvZHk+CjxkaXYgaWQ9IkpYRzg3Nzc0MGJiXzgzNGRfNDE0NF8wZTc3X2IwMWMxNzhmIiBjbGFzcz0ianhnYm94IiBzdHlsZT0id2lkdGg6MTAwJTtoZWlnaHQ6MTAwJTtkaXNwbGF5OmJsb2NrO29iamVjdC1maXQ6ZmlsbDtib3gtc2l6aW5nOmJvcmRlci1ib3g7Ij48L2Rpdj4KPHNjcmlwdD4oZnVuY3Rpb24gKCkgewogICd1c2Ugc3RyaWN0JzsKICBjb25zdCBwcm90b2NvbCA9ICdqc3hncmFwaC1xdWFydG8tYXNzZXNzbWVudCc7CiAgY29uc3QgdmVyc2lvbiA9IDE7CiAgY29uc3QgYXNzZXNzbWVudElkID0gIkpYRzg3Nzc0MGJiXzgzNGRfNDE0NF8wZTc3X2IwMWMxNzhmIjsKICBsZXQgcmVnaXN0cmF0aW9uID0gbnVsbDsKCiAgYXN5bmMgZnVuY3Rpb24gc3ZnVG9QbmcoZGF0YVVyaSwgYm9hcmQpIHsKICAgIHJldHVybiBuZXcgUHJvbWlzZSgocmVzb2x2ZSwgcmVqZWN0KSA9PiB7CiAgICAgIGNvbnN0IGltYWdlID0gbmV3IEltYWdlKCk7CiAgICAgIGltYWdlLm9ubG9hZCA9ICgpID0+IHsKICAgICAgICBjb25zdCBjYW52YXMgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdjYW52YXMnKTsKICAgICAgICBjYW52YXMud2lkdGggPSBNYXRoLm1heCgxLCBNYXRoLnJvdW5kKGJvYXJkLmNhbnZhc1dpZHRoIHx8IGltYWdlLndpZHRoIHx8IDgwMCkpOwogICAgICAgIGNhbnZhcy5oZWlnaHQgPSBNYXRoLm1heCgxLCBNYXRoLnJvdW5kKGJvYXJkLmNhbnZhc0hlaWdodCB8fCBpbWFnZS5oZWlnaHQgfHwgNjAwKSk7CiAgICAgICAgY29uc3QgY29udGV4dCA9IGNhbnZhcy5nZXRDb250ZXh0KCcyZCcpOwogICAgICAgIGNvbnRleHQuZmlsbFN0eWxlID0gJyNmZmZmZmYnOwogICAgICAgIGNvbnRleHQuZmlsbFJlY3QoMCwgMCwgY2FudmFzLndpZHRoLCBjYW52YXMuaGVpZ2h0KTsKICAgICAgICBjb250ZXh0LmRyYXdJbWFnZShpbWFnZSwgMCwgMCwgY2FudmFzLndpZHRoLCBjYW52YXMuaGVpZ2h0KTsKICAgICAgICByZXNvbHZlKGNhbnZhcy50b0RhdGFVUkwoJ2ltYWdlL3BuZycpKTsKICAgICAgfTsKICAgICAgaW1hZ2Uub25lcnJvciA9ICgpID0+IHJlamVjdChuZXcgRXJyb3IoJ0NvdWxkIG5vdCByZW5kZXIgdGhlIEpTWEdyYXBoIGJvYXJkJykpOwogICAgICBpbWFnZS5zcmMgPSBkYXRhVXJpOwogICAgfSk7CiAgfQoKICBmdW5jdGlvbiByZXNvbHZlQm9hcmQoc3BlYykgewogICAgaWYgKHNwZWMgJiYgdHlwZW9mIHNwZWMuYm9hcmQgPT09ICdmdW5jdGlvbicpIHJldHVybiBzcGVjLmJvYXJkKCk7CiAgICBpZiAoc3BlYyAmJiBzcGVjLmJvYXJkKSByZXR1cm4gc3BlYy5ib2FyZDsKICAgIGNvbnN0IGJvYXJkcyA9IE9iamVjdC52YWx1ZXMoSlhHLmJvYXJkcyB8fCB7fSk7CiAgICByZXR1cm4gYm9hcmRzLmxlbmd0aCA/IGJvYXJkc1swXSA6IG51bGw7CiAgfQoKICBmdW5jdGlvbiByZWZyZXNoQm9hcmRzKCkgewogICAgT2JqZWN0LnZhbHVlcyhKWEcuYm9hcmRzIHx8IHt9KS5mb3JFYWNoKChib2FyZCkgPT4gewogICAgICBjb25zdCBjb250YWluZXIgPSBib2FyZC5jb250YWluZXJPYmo7CiAgICAgIGlmICghY29udGFpbmVyKSByZXR1cm47CiAgICAgIGNvbnN0IHdpZHRoID0gY29udGFpbmVyLmNsaWVudFdpZHRoOwogICAgICBjb25zdCBoZWlnaHQgPSBjb250YWluZXIuY2xpZW50SGVpZ2h0OwogICAgICBpZiAoISh3aWR0aCA+IDAgJiYgaGVpZ2h0ID4gMCkpIHJldHVybjsKICAgICAgaWYgKHR5cGVvZiBib2FyZC5yZXNpemVDb250YWluZXIgPT09ICdmdW5jdGlvbicgJiYKICAgICAgICAgIChNYXRoLmFicygoYm9hcmQuY2FudmFzV2lkdGggfHwgMCkgLSB3aWR0aCkgPiAxIHx8CiAgICAgICAgICAgTWF0aC5hYnMoKGJvYXJkLmNhbnZhc0hlaWdodCB8fCAwKSAtIGhlaWdodCkgPiAxKSkgewogICAgICAgIGJvYXJkLnJlc2l6ZUNvbnRhaW5lcih3aWR0aCwgaGVpZ2h0KTsKICAgICAgfQogICAgICBpZiAodHlwZW9mIGJvYXJkLmZ1bGxVcGRhdGUgPT09ICdmdW5jdGlvbicpIGJvYXJkLmZ1bGxVcGRhdGUoKTsKICAgICAgZWxzZSBpZiAodHlwZW9mIGJvYXJkLnVwZGF0ZSA9PT0gJ2Z1bmN0aW9uJykgYm9hcmQudXBkYXRlKCk7CiAgICB9KTsKICB9CgogIGZ1bmN0aW9uIHNjaGVkdWxlQm9hcmRSZWZyZXNoKCkgewogICAgcmVmcmVzaEJvYXJkcygpOwogICAgaWYgKHR5cGVvZiByZXF1ZXN0QW5pbWF0aW9uRnJhbWUgPT09ICdmdW5jdGlvbicpIHsKICAgICAgcmVxdWVzdEFuaW1hdGlvbkZyYW1lKCgpID0+IHsKICAgICAgICByZWZyZXNoQm9hcmRzKCk7CiAgICAgICAgcmVxdWVzdEFuaW1hdGlvbkZyYW1lKHJlZnJlc2hCb2FyZHMpOwogICAgICB9KTsKICAgIH0KICB9CgogIEpYRy5RdWFydG9Bc3Nlc3NtZW50ID0gewogICAgcmVnaXN0ZXIoc3BlYykgewogICAgICByZWdpc3RyYXRpb24gPSB0eXBlb2Ygc3BlYyA9PT0gJ2Z1bmN0aW9uJyA/IHsgcmVzcG9uc2U6IHNwZWMgfSA6IHNwZWM7CiAgICAgIGlmICghcmVnaXN0cmF0aW9uIHx8IHR5cGVvZiByZWdpc3RyYXRpb24ucmVzcG9uc2UgIT09ICdmdW5jdGlvbicpIHsKICAgICAgICB0aHJvdyBuZXcgVHlwZUVycm9yKCdBc3Nlc3NtZW50IHJlZ2lzdHJhdGlvbiByZXF1aXJlcyBhIHJlc3BvbnNlIGZ1bmN0aW9uJyk7CiAgICAgIH0KICAgIH0KICB9OwoKICB3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcignbWVzc2FnZScsIGFzeW5jIChldmVudCkgPT4gewogICAgY29uc3QgbWVzc2FnZSA9IGV2ZW50LmRhdGE7CiAgICBpZiAoZXZlbnQuc291cmNlICE9PSB3aW5kb3cucGFyZW50IHx8ICFtZXNzYWdlIHx8IG1lc3NhZ2UucHJvdG9jb2wgIT09IHByb3RvY29sIHx8CiAgICAgICAgbWVzc2FnZS52ZXJzaW9uICE9PSB2ZXJzaW9uIHx8IG1lc3NhZ2UuYXNzZXNzbWVudElkICE9PSBhc3Nlc3NtZW50SWQpIHJldHVybjsKICAgIGlmIChtZXNzYWdlLnR5cGUgPT09ICdsYXlvdXQnKSB7CiAgICAgIHNjaGVkdWxlQm9hcmRSZWZyZXNoKCk7CiAgICAgIHJldHVybjsKICAgIH0KICAgIGlmIChtZXNzYWdlLnR5cGUgIT09ICdyZXF1ZXN0JykgcmV0dXJuOwoKICAgIGNvbnN0IHJlcGx5ID0gewogICAgICBwcm90b2NvbCwKICAgICAgdmVyc2lvbiwKICAgICAgdHlwZTogJ3Jlc3BvbnNlJywKICAgICAgYXNzZXNzbWVudElkLAogICAgICByZXF1ZXN0SWQ6IG1lc3NhZ2UucmVxdWVzdElkCiAgICB9OwogICAgdHJ5IHsKICAgICAgaWYgKCFyZWdpc3RyYXRpb24pIHRocm93IG5ldyBFcnJvcignTm8gSlNYR3JhcGggYXNzZXNzbWVudCByZXNwb25zZSBpcyByZWdpc3RlcmVkJyk7CiAgICAgIGNvbnN0IHJhdyA9IGF3YWl0IHJlZ2lzdHJhdGlvbi5yZXNwb25zZSgpOwogICAgICByZXBseS5wYXlsb2FkID0gSlNPTi5wYXJzZShKU09OLnN0cmluZ2lmeShyYXcpKTsKICAgICAgaWYgKG1lc3NhZ2UuaW5jbHVkZUFJICYmIHJlZ2lzdHJhdGlvbi5haSkgewogICAgICAgIGNvbnN0IGFpU3BlYyA9IHJlZ2lzdHJhdGlvbi5haTsKICAgICAgICBjb25zdCBzdW1tYXJ5ID0gdHlwZW9mIGFpU3BlYy5zdW1tYXJ5ID09PSAnZnVuY3Rpb24nCiAgICAgICAgICA/IGF3YWl0IGFpU3BlYy5zdW1tYXJ5KHJlcGx5LnBheWxvYWQpCiAgICAgICAgICA6IGFpU3BlYy5zdW1tYXJ5OwogICAgICAgIHJlcGx5LmFpID0ge307CiAgICAgICAgaWYgKHN1bW1hcnkgIT09IHVuZGVmaW5lZCkgcmVwbHkuYWkuc3VtbWFyeSA9IHN1bW1hcnk7CiAgICAgICAgaWYgKGFpU3BlYy5yZW5kZXIpIHsKICAgICAgICAgIGNvbnN0IGJvYXJkID0gcmVzb2x2ZUJvYXJkKHJlZ2lzdHJhdGlvbik7CiAgICAgICAgICBpZiAoIWJvYXJkIHx8ICFib2FyZC5yZW5kZXJlciB8fCB0eXBlb2YgYm9hcmQucmVuZGVyZXIuZHVtcFRvRGF0YVVSSSAhPT0gJ2Z1bmN0aW9uJykgewogICAgICAgICAgICB0aHJvdyBuZXcgRXJyb3IoJ05vIHJlbmRlcmFibGUgSlNYR3JhcGggYm9hcmQgaXMgYXZhaWxhYmxlJyk7CiAgICAgICAgICB9CiAgICAgICAgICByZXBseS5haS5pbWFnZSA9IGF3YWl0IHN2Z1RvUG5nKGJvYXJkLnJlbmRlcmVyLmR1bXBUb0RhdGFVUkkoZmFsc2UpLCBib2FyZCk7CiAgICAgICAgfQogICAgICB9CiAgICB9IGNhdGNoIChlcnJvcikgewogICAgICByZXBseS5lcnJvciA9IGVycm9yICYmIGVycm9yLm1lc3NhZ2UgPyBlcnJvci5tZXNzYWdlIDogU3RyaW5nKGVycm9yKTsKICAgIH0KICAgIHdpbmRvdy5wYXJlbnQucG9zdE1lc3NhZ2UocmVwbHksICcqJyk7CiAgfSk7CiAgd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ3Jlc2l6ZScsIHNjaGVkdWxlQm9hcmRSZWZyZXNoKTsKfSkoKTsKPC9zY3JpcHQ+CjxzY3JpcHQ+KGZ1bmN0aW9uICgpIHsKICAndXNlIHN0cmljdCc7CgogIGZ1bmN0aW9uIG1lcmdlKGJhc2UsIGV4dHJhKSB7CiAgICByZXR1cm4gT2JqZWN0LmFzc2lnbih7fSwgYmFzZSwgZXh0cmEgfHwge30pOwogIH0KCiAgZnVuY3Rpb24gc3VtbWFyaXplR3JhcGgoZGF0YSwgb3B0aW9ucykgewogICAgZGF0YSA9IGRhdGEgfHwge307CiAgICBvcHRpb25zID0gb3B0aW9ucyB8fCB7fTsKICAgIHZhciBub2RlcyA9IEFycmF5LmlzQXJyYXkoZGF0YS5ub2RlcykgPyBkYXRhLm5vZGVzIDogW107CiAgICB2YXIgcmF3RWRnZXMgPSBBcnJheS5pc0FycmF5KGRhdGEuZWRnZXMpID8gZGF0YS5lZGdlcyA6IFtdOwogICAgdmFyIHZlcnRleElkcyA9IG5vZGVzLm1hcChmdW5jdGlvbiAobm9kZSkgeyByZXR1cm4gbm9kZS5pZDsgfSkuc29ydChmdW5jdGlvbiAoYSwgYikgeyByZXR1cm4gYSAtIGI7IH0pOwogICAgdmFyIGFkamFjZW5jeSA9IHt9OwogICAgdmVydGV4SWRzLmZvckVhY2goZnVuY3Rpb24gKGlkKSB7IGFkamFjZW5jeVtpZF0gPSBbXTsgfSk7CiAgICB2YXIgZWRnZXMgPSByYXdFZGdlcy5tYXAoZnVuY3Rpb24gKGVkZ2UpIHsKICAgICAgdmFyIHNvdXJjZSA9IGVkZ2VbMF07CiAgICAgIHZhciB0YXJnZXQgPSBlZGdlWzFdOwogICAgICBpZiAoYWRqYWNlbmN5W3NvdXJjZV0pIGFkamFjZW5jeVtzb3VyY2VdLnB1c2godGFyZ2V0KTsKICAgICAgaWYgKGFkamFjZW5jeVt0YXJnZXRdKSBhZGphY2VuY3lbdGFyZ2V0XS5wdXNoKHNvdXJjZSk7CiAgICAgIHJldHVybiBzb3VyY2UgPCB0YXJnZXQgPyBbc291cmNlLCB0YXJnZXRdIDogW3RhcmdldCwgc291cmNlXTsKICAgIH0pLnNvcnQoZnVuY3Rpb24gKGEsIGIpIHsgcmV0dXJuIGFbMF0gLSBiWzBdIHx8IGFbMV0gLSBiWzFdOyB9KTsKICAgIHZlcnRleElkcy5mb3JFYWNoKGZ1bmN0aW9uIChpZCkgeyBhZGphY2VuY3lbaWRdLnNvcnQoZnVuY3Rpb24gKGEsIGIpIHsgcmV0dXJuIGEgLSBiOyB9KTsgfSk7CgogICAgdmFyIHZpc2l0ZWQgPSB7fTsKICAgIHZhciBjb21wb25lbnRzID0gW107CiAgICB2ZXJ0ZXhJZHMuZm9yRWFjaChmdW5jdGlvbiAoc3RhcnQpIHsKICAgICAgaWYgKHZpc2l0ZWRbc3RhcnRdKSByZXR1cm47CiAgICAgIHZhciBjb21wb25lbnQgPSBbXTsKICAgICAgdmFyIHF1ZXVlID0gW3N0YXJ0XTsKICAgICAgdmlzaXRlZFtzdGFydF0gPSB0cnVlOwogICAgICB3aGlsZSAocXVldWUubGVuZ3RoKSB7CiAgICAgICAgdmFyIGlkID0gcXVldWUuc2hpZnQoKTsKICAgICAgICBjb21wb25lbnQucHVzaChpZCk7CiAgICAgICAgYWRqYWNlbmN5W2lkXS5mb3JFYWNoKGZ1bmN0aW9uIChuZWlnaGJvcikgewogICAgICAgICAgaWYgKCF2aXNpdGVkW25laWdoYm9yXSkgewogICAgICAgICAgICB2aXNpdGVkW25laWdoYm9yXSA9IHRydWU7CiAgICAgICAgICAgIHF1ZXVlLnB1c2gobmVpZ2hib3IpOwogICAgICAgICAgfQogICAgICAgIH0pOwogICAgICB9CiAgICAgIGNvbXBvbmVudC5zb3J0KGZ1bmN0aW9uIChhLCBiKSB7IHJldHVybiBhIC0gYjsgfSk7CiAgICAgIGNvbXBvbmVudHMucHVzaChjb21wb25lbnQpOwogICAgfSk7CgogICAgdmFyIHN1bW1hcnkgPSB7CiAgICAgIHJlcHJlc2VudGF0aW9uOiBkYXRhLnJlcHJlc2VudGF0aW9uIHx8ICd1bmRpcmVjdGVkLWdyYXBoJywKICAgICAgdmVydGV4Q291bnQ6IHZlcnRleElkcy5sZW5ndGgsCiAgICAgIGVkZ2VDb3VudDogZWRnZXMubGVuZ3RoLAogICAgICB2ZXJ0ZXhJZHM6IHZlcnRleElkcywKICAgICAgZWRnZXM6IGVkZ2VzLAogICAgICBkZWdyZWVzOiB2ZXJ0ZXhJZHMubWFwKGZ1bmN0aW9uIChpZCkgeyByZXR1cm4geyB2ZXJ0ZXg6IGlkLCBkZWdyZWU6IGFkamFjZW5jeVtpZF0ubGVuZ3RoIH07IH0pLAogICAgICBjb25uZWN0ZWQ6IGNvbXBvbmVudHMubGVuZ3RoID09PSAxLAogICAgICBjb21wb25lbnRDb3VudDogY29tcG9uZW50cy5sZW5ndGgsCiAgICAgIGNvbXBvbmVudHM6IGNvbXBvbmVudHMsCiAgICAgIGlzb2xhdGVkVmVydGljZXM6IHZlcnRleElkcy5maWx0ZXIoZnVuY3Rpb24gKGlkKSB7IHJldHVybiBhZGphY2VuY3lbaWRdLmxlbmd0aCA9PT0gMDsgfSksCiAgICAgIGN5Y2xlUmFuazogZWRnZXMubGVuZ3RoIC0gdmVydGV4SWRzLmxlbmd0aCArIGNvbXBvbmVudHMubGVuZ3RoCiAgICB9OwogICAgaWYgKG9wdGlvbnMuZmVlZGJhY2tQb2xpY3kgIT09IHVuZGVmaW5lZCkgewogICAgICBzdW1tYXJ5LmZlZWRiYWNrUG9saWN5ID0gU3RyaW5nKG9wdGlvbnMuZmVlZGJhY2tQb2xpY3kpOwogICAgfQogICAgaWYgKG9wdGlvbnMuZXh0cmEgJiYgdHlwZW9mIG9wdGlvbnMuZXh0cmEgPT09ICdvYmplY3QnKSB7CiAgICAgIHN1bW1hcnkuZXh0cmEgPSBvcHRpb25zLmV4dHJhOwogICAgfQogICAgcmV0dXJuIHN1bW1hcnk7CiAgfQoKICBmdW5jdGlvbiBjcmVhdGVHcmFwaEVkaXRvcihvcHRpb25zKSB7CiAgICBvcHRpb25zID0gb3B0aW9ucyB8fCB7fTsKICAgIHZhciBib2FyZCA9IG9wdGlvbnMuYm9hcmQ7CiAgICBpZiAoIWJvYXJkIHx8IHR5cGVvZiBib2FyZC5jcmVhdGUgIT09ICdmdW5jdGlvbicpIHsKICAgICAgdGhyb3cgbmV3IFR5cGVFcnJvcignR3JhcGggZWRpdG9yIHJlcXVpcmVzIGEgSlNYR3JhcGggYm9hcmQnKTsKICAgIH0KCiAgICB2YXIgbGFiZWxzID0gbWVyZ2UoewogICAgICBkZWxldGVTZWxlY3RlZDogJ0RlbGV0ZSBzZWxlY3RlZCcsCiAgICAgIGNsZWFyR3JhcGg6ICdDbGVhciBncmFwaCcsCiAgICAgIHNob3dDb250cm9sczogJ1Nob3cgY29udHJvbHMnLAogICAgICBoaWRlQ29udHJvbHM6ICdIaWRlIGNvbnRyb2xzJwogICAgfSwgb3B0aW9ucy5sYWJlbHMpOwogICAgdmFyIGluc3RydWN0aW9ucyA9IG9wdGlvbnMuaW5zdHJ1Y3Rpb25zIHx8IFsKICAgICAgJ0NsaWNrIGVtcHR5IHNwYWNlIHRvIGFkZCBhIHZlcnRleC4nLAogICAgICAnQ2xpY2sgdHdvIHZlcnRpY2VzIHRvIGFkZCBvciByZW1vdmUgdGhlaXIgZWRnZS4nLAogICAgICAnRHJhZyBhIHZlcnRleCB0byBtb3ZlIGl0LicsCiAgICAgICdTZWxlY3QgYSB2ZXJ0ZXgsIHRoZW4gY2hvb3NlIERlbGV0ZSBzZWxlY3RlZCB0byByZW1vdmUgaXQuJwogICAgXTsKICAgIHZhciBwb2ludEF0dHJpYnV0ZXMgPSBtZXJnZSh7CiAgICAgIHNpemU6IDYsCiAgICAgIGZpeGVkOiBmYWxzZSwKICAgICAgc2hvd0luZm9ib3g6IGZhbHNlLAogICAgICBoaWdobGlnaHQ6IGZhbHNlCiAgICB9LCBvcHRpb25zLnBvaW50QXR0cmlidXRlcyk7CiAgICB2YXIgZWRnZUF0dHJpYnV0ZXMgPSBtZXJnZSh7CiAgICAgIHN0cm9rZUNvbG9yOiAnIzQ3NTU2OScsCiAgICAgIHN0cm9rZVdpZHRoOiAzLAogICAgICBmaXhlZDogdHJ1ZSwKICAgICAgaGlnaGxpZ2h0OiBmYWxzZQogICAgfSwgb3B0aW9ucy5lZGdlQXR0cmlidXRlcyk7CiAgICB2YXIgbm9ybWFsU3R5bGUgPSBtZXJnZSh7IGZpbGxDb2xvcjogJyMyNTYzZWInLCBzdHJva2VDb2xvcjogJyMxZDRlZDgnIH0sIG9wdGlvbnMubm9ybWFsU3R5bGUpOwogICAgdmFyIHNlbGVjdGVkU3R5bGUgPSBtZXJnZSh7IGZpbGxDb2xvcjogJyNmNTllMGInLCBzdHJva2VDb2xvcjogJyM5MjQwMGUnIH0sIG9wdGlvbnMuc2VsZWN0ZWRTdHlsZSk7CiAgICB2YXIgYm91bmRzID0gYm9hcmQuZ2V0Qm91bmRpbmdCb3goKTsKICAgIHZhciBlZGl0YWJsZUJvdHRvbSA9IG9wdGlvbnMuZWRpdGFibGVCb3R0b20gPT09IHVuZGVmaW5lZCA/IGJvdW5kc1szXSArIDAuOSA6IE51bWJlcihvcHRpb25zLmVkaXRhYmxlQm90dG9tKTsKICAgIHZhciB2ZXJ0aWNlcyA9IFtdOwogICAgdmFyIGVkZ2VzID0gW107CiAgICB2YXIgc2VsZWN0ZWRWZXJ0ZXggPSBudWxsOwogICAgdmFyIHBvaW50ZXJTdGFydCA9IG51bGw7CiAgICB2YXIgbmV4dFZlcnRleElkID0gMTsKICAgIHZhciBjb250cm9sc1Zpc2libGUgPSBmYWxzZTsKICAgIHZhciBjbGlja1RvbGVyYW5jZVNxdWFyZWQgPSAzNjsKCiAgICBmdW5jdGlvbiBzZXRTZWxlY3RlZCh2ZXJ0ZXgpIHsKICAgICAgaWYgKHNlbGVjdGVkVmVydGV4KSBzZWxlY3RlZFZlcnRleC5wb2ludC5zZXRBdHRyaWJ1dGUobm9ybWFsU3R5bGUpOwogICAgICBzZWxlY3RlZFZlcnRleCA9IHZlcnRleDsKICAgICAgaWYgKHNlbGVjdGVkVmVydGV4KSBzZWxlY3RlZFZlcnRleC5wb2ludC5zZXRBdHRyaWJ1dGUoc2VsZWN0ZWRTdHlsZSk7CiAgICAgIGJvYXJkLnVwZGF0ZSgpOwogICAgfQoKICAgIGZ1bmN0aW9uIGFkZFZlcnRleCh4LCB5KSB7CiAgICAgIHggPSBOdW1iZXIoeCk7CiAgICAgIHkgPSBOdW1iZXIoeSk7CiAgICAgIGlmICghTnVtYmVyLmlzRmluaXRlKHgpIHx8ICFOdW1iZXIuaXNGaW5pdGUoeSkpIHsKICAgICAgICB0aHJvdyBuZXcgVHlwZUVycm9yKCdWZXJ0ZXggY29vcmRpbmF0ZXMgbXVzdCBiZSBmaW5pdGUgbnVtYmVycycpOwogICAgICB9CiAgICAgIHZhciB2ZXJ0ZXggPSB7IGlkOiBuZXh0VmVydGV4SWQrKyB9OwogICAgICB2ZXJ0ZXgucG9pbnQgPSBib2FyZC5jcmVhdGUoJ3BvaW50JywgW3gsIHldLCBtZXJnZShwb2ludEF0dHJpYnV0ZXMsIG1lcmdlKG5vcm1hbFN0eWxlLCB7CiAgICAgICAgbmFtZTogU3RyaW5nKHZlcnRleC5pZCkKICAgICAgfSkpKTsKICAgICAgdmVydGljZXMucHVzaCh2ZXJ0ZXgpOwogICAgICBzZXRTZWxlY3RlZChudWxsKTsKICAgICAgcmV0dXJuIHZlcnRleC5pZDsKICAgIH0KCiAgICBmdW5jdGlvbiBmaW5kVmVydGV4KGlkKSB7CiAgICAgIHJldHVybiB2ZXJ0aWNlcy5maW5kKGZ1bmN0aW9uICh2ZXJ0ZXgpIHsgcmV0dXJuIHZlcnRleC5pZCA9PT0gaWQ7IH0pIHx8IG51bGw7CiAgICB9CgogICAgZnVuY3Rpb24gZWRnZUtleShhLCBiKSB7CiAgICAgIHJldHVybiBhLmlkIDwgYi5pZCA/IGEuaWQgKyAnOicgKyBiLmlkIDogYi5pZCArICc6JyArIGEuaWQ7CiAgICB9CgogICAgZnVuY3Rpb24gdG9nZ2xlRWRnZVZlcnRpY2VzKGEsIGIpIHsKICAgICAgaWYgKCFhIHx8ICFiIHx8IGEgPT09IGIpIHJldHVybiBmYWxzZTsKICAgICAgdmFyIGtleSA9IGVkZ2VLZXkoYSwgYik7CiAgICAgIHZhciBpbmRleCA9IGVkZ2VzLmZpbmRJbmRleChmdW5jdGlvbiAoZWRnZSkgeyByZXR1cm4gZWRnZS5rZXkgPT09IGtleTsgfSk7CiAgICAgIGlmIChpbmRleCA+PSAwKSB7CiAgICAgICAgYm9hcmQucmVtb3ZlT2JqZWN0KGVkZ2VzW2luZGV4XS5zZWdtZW50KTsKICAgICAgICBlZGdlcy5zcGxpY2UoaW5kZXgsIDEpOwogICAgICAgIHNldFNlbGVjdGVkKG51bGwpOwogICAgICAgIHJldHVybiBmYWxzZTsKICAgICAgfQogICAgICBlZGdlcy5wdXNoKHsKICAgICAgICBrZXk6IGtleSwKICAgICAgICBzb3VyY2U6IGEsCiAgICAgICAgdGFyZ2V0OiBiLAogICAgICAgIHNlZ21lbnQ6IGJvYXJkLmNyZWF0ZSgnc2VnbWVudCcsIFthLnBvaW50LCBiLnBvaW50XSwgZWRnZUF0dHJpYnV0ZXMpCiAgICAgIH0pOwogICAgICBzZXRTZWxlY3RlZChudWxsKTsKICAgICAgcmV0dXJuIHRydWU7CiAgICB9CgogICAgZnVuY3Rpb24gdG9nZ2xlRWRnZShzb3VyY2VJZCwgdGFyZ2V0SWQpIHsKICAgICAgdmFyIHNvdXJjZSA9IGZpbmRWZXJ0ZXgoc291cmNlSWQpOwogICAgICB2YXIgdGFyZ2V0ID0gZmluZFZlcnRleCh0YXJnZXRJZCk7CiAgICAgIGlmICghc291cmNlIHx8ICF0YXJnZXQpIHRocm93IG5ldyBFcnJvcignQ2Fubm90IGNvbm5lY3QgYW4gdW5rbm93biB2ZXJ0ZXgnKTsKICAgICAgcmV0dXJuIHRvZ2dsZUVkZ2VWZXJ0aWNlcyhzb3VyY2UsIHRhcmdldCk7CiAgICB9CgogICAgZnVuY3Rpb24gaGFuZGxlVmVydGV4Q2xpY2sodmVydGV4KSB7CiAgICAgIGlmICghc2VsZWN0ZWRWZXJ0ZXgpIHNldFNlbGVjdGVkKHZlcnRleCk7CiAgICAgIGVsc2UgaWYgKHNlbGVjdGVkVmVydGV4ID09PSB2ZXJ0ZXgpIHNldFNlbGVjdGVkKG51bGwpOwogICAgICBlbHNlIHRvZ2dsZUVkZ2VWZXJ0aWNlcyhzZWxlY3RlZFZlcnRleCwgdmVydGV4KTsKICAgIH0KCiAgICBmdW5jdGlvbiBkZWxldGVTZWxlY3RlZCgpIHsKICAgICAgaWYgKCFzZWxlY3RlZFZlcnRleCkgcmV0dXJuIGZhbHNlOwogICAgICB2YXIgZG9vbWVkID0gc2VsZWN0ZWRWZXJ0ZXg7CiAgICAgIGVkZ2VzLnNsaWNlKCkuZm9yRWFjaChmdW5jdGlvbiAoZWRnZSkgewogICAgICAgIGlmIChlZGdlLnNvdXJjZSA9PT0gZG9vbWVkIHx8IGVkZ2UudGFyZ2V0ID09PSBkb29tZWQpIHsKICAgICAgICAgIGJvYXJkLnJlbW92ZU9iamVjdChlZGdlLnNlZ21lbnQpOwogICAgICAgICAgZWRnZXMuc3BsaWNlKGVkZ2VzLmluZGV4T2YoZWRnZSksIDEpOwogICAgICAgIH0KICAgICAgfSk7CiAgICAgIGJvYXJkLnJlbW92ZU9iamVjdChkb29tZWQucG9pbnQpOwogICAgICB2ZXJ0aWNlcy5zcGxpY2UodmVydGljZXMuaW5kZXhPZihkb29tZWQpLCAxKTsKICAgICAgc2VsZWN0ZWRWZXJ0ZXggPSBudWxsOwogICAgICBib2FyZC51cGRhdGUoKTsKICAgICAgcmV0dXJuIHRydWU7CiAgICB9CgogICAgZnVuY3Rpb24gY2xlYXIoKSB7CiAgICAgIHNldFNlbGVjdGVkKG51bGwpOwogICAgICBlZGdlcy5mb3JFYWNoKGZ1bmN0aW9uIChlZGdlKSB7IGJvYXJkLnJlbW92ZU9iamVjdChlZGdlLnNlZ21lbnQpOyB9KTsKICAgICAgdmVydGljZXMuZm9yRWFjaChmdW5jdGlvbiAodmVydGV4KSB7IGJvYXJkLnJlbW92ZU9iamVjdCh2ZXJ0ZXgucG9pbnQpOyB9KTsKICAgICAgZWRnZXMgPSBbXTsKICAgICAgdmVydGljZXMgPSBbXTsKICAgICAgbmV4dFZlcnRleElkID0gMTsKICAgICAgYm9hcmQudXBkYXRlKCk7CiAgICB9CgogICAgZnVuY3Rpb24gcmVzcG9uc2UoKSB7CiAgICAgIHJldHVybiB7CiAgICAgICAgcmVwcmVzZW50YXRpb246ICd1bmRpcmVjdGVkLWdyYXBoJywKICAgICAgICBub2RlczogdmVydGljZXMubWFwKGZ1bmN0aW9uICh2ZXJ0ZXgpIHsKICAgICAgICAgIHJldHVybiB7CiAgICAgICAgICAgIGlkOiB2ZXJ0ZXguaWQsCiAgICAgICAgICAgIHg6IE51bWJlcih2ZXJ0ZXgucG9pbnQuWCgpLnRvRml4ZWQoNCkpLAogICAgICAgICAgICB5OiBOdW1iZXIodmVydGV4LnBvaW50LlkoKS50b0ZpeGVkKDQpKQogICAgICAgICAgfTsKICAgICAgICB9KSwKICAgICAgICBlZGdlczogZWRnZXMubWFwKGZ1bmN0aW9uIChlZGdlKSB7IHJldHVybiBbZWRnZS5zb3VyY2UuaWQsIGVkZ2UudGFyZ2V0LmlkXTsgfSkKICAgICAgfTsKICAgIH0KCiAgICB2YXIgcGFuZWwgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTsKICAgIHBhbmVsLnNldEF0dHJpYnV0ZSgncm9sZScsICdub3RlJyk7CiAgICBwYW5lbC5zZXRBdHRyaWJ1dGUoJ2FyaWEtbGFiZWwnLCAnR3JhcGggZWRpdG9yIGNvbnRyb2xzJyk7CiAgICBwYW5lbC5zZXRBdHRyaWJ1dGUoJ2RhdGEtZ3JhcGgtZWRpdG9yLWNvbnRyb2wnLCAndHJ1ZScpOwogICAgcGFuZWwuc3R5bGUuY3NzVGV4dCA9IFsKICAgICAgJ3Bvc2l0aW9uOmFic29sdXRlJywgJ3RvcDo0OHB4JywgJ3JpZ2h0OjEycHgnLCAnei1pbmRleDoyMCcsCiAgICAgICdkaXNwbGF5Om5vbmUnLCAnd2lkdGg6bWluKDI3MHB4LGNhbGMoMTAwJSAtIDI0cHgpKScsCiAgICAgICdib3gtc2l6aW5nOmJvcmRlci1ib3gnLCAncGFkZGluZzoxMHB4IDEycHgnLCAnYm9yZGVyOjFweCBzb2xpZCAjOTRhM2I4JywKICAgICAgJ2JvcmRlci1yYWRpdXM6N3B4JywgJ2JhY2tncm91bmQ6cmdiYSgyNTUsMjU1LDI1NSwwLjk2KScsCiAgICAgICdjb2xvcjojMWUyOTNiJywgJ2ZvbnQ6MTRweC8xLjM1IHNhbnMtc2VyaWYnLCAnYm94LXNoYWRvdzowIDNweCAxMnB4IHJnYmEoMTUsMjMsNDIsMC4xOCknCiAgICBdLmpvaW4oJzsnKTsKICAgIHZhciBsaXN0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnb2wnKTsKICAgIGxpc3Quc3R5bGUuY3NzVGV4dCA9ICdtYXJnaW46MDtwYWRkaW5nLWxlZnQ6MS4zNXJlbSc7CiAgICBpbnN0cnVjdGlvbnMuZm9yRWFjaChmdW5jdGlvbiAoaW5zdHJ1Y3Rpb24pIHsKICAgICAgdmFyIGl0ZW0gPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdsaScpOwogICAgICBpdGVtLnRleHRDb250ZW50ID0gaW5zdHJ1Y3Rpb247CiAgICAgIGxpc3QuYXBwZW5kQ2hpbGQoaXRlbSk7CiAgICB9KTsKICAgIHBhbmVsLmFwcGVuZENoaWxkKGxpc3QpOwogICAgYm9hcmQuY29udGFpbmVyT2JqLnN0eWxlLnBvc2l0aW9uID0gYm9hcmQuY29udGFpbmVyT2JqLnN0eWxlLnBvc2l0aW9uIHx8ICdyZWxhdGl2ZSc7CiAgICBib2FyZC5jb250YWluZXJPYmouYXBwZW5kQ2hpbGQocGFuZWwpOwoKICAgIHZhciBjb250cm9sQmFyID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7CiAgICBjb250cm9sQmFyLnNldEF0dHJpYnV0ZSgnZGF0YS1ncmFwaC1lZGl0b3ItY29udHJvbCcsICd0cnVlJyk7CiAgICBjb250cm9sQmFyLnN0eWxlLmNzc1RleHQgPSBbCiAgICAgICdwb3NpdGlvbjphYnNvbHV0ZScsICdsZWZ0OjEycHgnLCAnYm90dG9tOjEwcHgnLCAnei1pbmRleDoyMCcsCiAgICAgICdkaXNwbGF5OmZsZXgnLCAnZ2FwOjhweCcsICdmbGV4LXdyYXA6d3JhcCcsICdmb250OjE0cHgvMS4yIHNhbnMtc2VyaWYnCiAgICBdLmpvaW4oJzsnKTsKICAgIGJvYXJkLmNvbnRhaW5lck9iai5hcHBlbmRDaGlsZChjb250cm9sQmFyKTsKCiAgICBmdW5jdGlvbiBjcmVhdGVDb250cm9sKGxhYmVsLCBoYW5kbGVyKSB7CiAgICAgIHZhciBidXR0b24gPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdidXR0b24nKTsKICAgICAgYnV0dG9uLnR5cGUgPSAnYnV0dG9uJzsKICAgICAgYnV0dG9uLnRleHRDb250ZW50ID0gbGFiZWw7CiAgICAgIGJ1dHRvbi5zdHlsZS5jc3NUZXh0ID0gWwogICAgICAgICdwYWRkaW5nOjZweCAxMHB4JywgJ2JvcmRlcjoxcHggc29saWQgIzk0YTNiOCcsICdib3JkZXItcmFkaXVzOjVweCcsCiAgICAgICAgJ2JhY2tncm91bmQ6I2ZmZicsICdjb2xvcjojMWUyOTNiJywgJ2N1cnNvcjpwb2ludGVyJwogICAgICBdLmpvaW4oJzsnKTsKICAgICAgYnV0dG9uLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZnVuY3Rpb24gKGV2ZW50KSB7CiAgICAgICAgZXZlbnQucHJldmVudERlZmF1bHQoKTsKICAgICAgICBldmVudC5zdG9wUHJvcGFnYXRpb24oKTsKICAgICAgICBoYW5kbGVyKCk7CiAgICAgIH0pOwogICAgICBjb250cm9sQmFyLmFwcGVuZENoaWxkKGJ1dHRvbik7CiAgICAgIHJldHVybiBidXR0b247CiAgICB9CgogICAgdmFyIHRvZ2dsZUJ1dHRvbjsKICAgIGZ1bmN0aW9uIHNob3dDb250cm9scyhzaG93KSB7CiAgICAgIGNvbnRyb2xzVmlzaWJsZSA9IHNob3cgPT09IHVuZGVmaW5lZCA/ICFjb250cm9sc1Zpc2libGUgOiAhIXNob3c7CiAgICAgIHBhbmVsLnN0eWxlLmRpc3BsYXkgPSBjb250cm9sc1Zpc2libGUgPyAnYmxvY2snIDogJ25vbmUnOwogICAgICBpZiAodG9nZ2xlQnV0dG9uKSB0b2dnbGVCdXR0b24udGV4dENvbnRlbnQgPSBjb250cm9sc1Zpc2libGUgPyBsYWJlbHMuaGlkZUNvbnRyb2xzIDogbGFiZWxzLnNob3dDb250cm9sczsKICAgICAgYm9hcmQudXBkYXRlKCk7CiAgICAgIHJldHVybiBjb250cm9sc1Zpc2libGU7CiAgICB9CgogICAgY3JlYXRlQ29udHJvbChsYWJlbHMuZGVsZXRlU2VsZWN0ZWQsIGRlbGV0ZVNlbGVjdGVkKTsKICAgIGNyZWF0ZUNvbnRyb2wobGFiZWxzLmNsZWFyR3JhcGgsIGNsZWFyKTsKICAgIHRvZ2dsZUJ1dHRvbiA9IGNyZWF0ZUNvbnRyb2wobGFiZWxzLnNob3dDb250cm9scywgZnVuY3Rpb24gKCkgeyBzaG93Q29udHJvbHMoKTsgfSk7CgogICAgZnVuY3Rpb24gaXNDb250cm9sRXZlbnQoZXZlbnQpIHsKICAgICAgcmV0dXJuICEhKGV2ZW50LnRhcmdldCAmJiBldmVudC50YXJnZXQuY2xvc2VzdCAmJgogICAgICAgIGV2ZW50LnRhcmdldC5jbG9zZXN0KCdidXR0b24sIGlucHV0LCBbZGF0YS1ncmFwaC1lZGl0b3ItY29udHJvbF0nKSk7CiAgICB9CgogICAgZnVuY3Rpb24gdmVydGV4QXQoc2NyZWVuKSB7CiAgICAgIGZvciAodmFyIGkgPSB2ZXJ0aWNlcy5sZW5ndGggLSAxOyBpID49IDA7IGktLSkgewogICAgICAgIGlmICh2ZXJ0aWNlc1tpXS5wb2ludC5oYXNQb2ludChzY3JlZW5bMF0sIHNjcmVlblsxXSkpIHJldHVybiB2ZXJ0aWNlc1tpXTsKICAgICAgfQogICAgICByZXR1cm4gbnVsbDsKICAgIH0KCiAgICBmdW5jdGlvbiB1c2VyUG9zaXRpb24oc2NyZWVuKSB7CiAgICAgIHZhciB3aWR0aCA9IGJvYXJkLmNvbnRhaW5lck9iai5jbGllbnRXaWR0aCB8fCBib2FyZC5jYW52YXNXaWR0aDsKICAgICAgdmFyIGhlaWdodCA9IGJvYXJkLmNvbnRhaW5lck9iai5jbGllbnRIZWlnaHQgfHwgYm9hcmQuY2FudmFzSGVpZ2h0OwogICAgICBpZiAoTnVtYmVyLmlzRmluaXRlKHdpZHRoKSAmJiB3aWR0aCA+IDAgJiYgTnVtYmVyLmlzRmluaXRlKGhlaWdodCkgJiYgaGVpZ2h0ID4gMCkgewogICAgICAgIHJldHVybiBbCiAgICAgICAgICBib3VuZHNbMF0gKyBzY3JlZW5bMF0gLyB3aWR0aCAqIChib3VuZHNbMl0gLSBib3VuZHNbMF0pLAogICAgICAgICAgYm91bmRzWzFdIC0gc2NyZWVuWzFdIC8gaGVpZ2h0ICogKGJvdW5kc1sxXSAtIGJvdW5kc1szXSkKICAgICAgICBdOwogICAgICB9CiAgICAgIHZhciBjb29yZHMgPSBuZXcgSlhHLkNvb3JkcyhKWEcuQ09PUkRTX0JZX1NDUkVFTiwgc2NyZWVuLCBib2FyZCk7CiAgICAgIHJldHVybiBbY29vcmRzLnVzckNvb3Jkc1sxXSwgY29vcmRzLnVzckNvb3Jkc1syXV07CiAgICB9CgogICAgYm9hcmQub24oJ2Rvd24nLCBmdW5jdGlvbiAoZXZlbnQpIHsKICAgICAgcG9pbnRlclN0YXJ0ID0gbnVsbDsKICAgICAgaWYgKGlzQ29udHJvbEV2ZW50KGV2ZW50KSkgcmV0dXJuOwogICAgICB2YXIgc2NyZWVuID0gYm9hcmQuZ2V0TW91c2VQb3NpdGlvbihldmVudCk7CiAgICAgIHBvaW50ZXJTdGFydCA9IHsKICAgICAgICBzY3JlZW46IHNjcmVlbiwKICAgICAgICB2ZXJ0ZXg6IHZlcnRleEF0KHNjcmVlbikKICAgICAgfTsKICAgIH0pOwoKICAgIGJvYXJkLm9uKCd1cCcsIGZ1bmN0aW9uIChldmVudCkgewogICAgICBpZiAoIXBvaW50ZXJTdGFydCB8fCBpc0NvbnRyb2xFdmVudChldmVudCkpIHsKICAgICAgICBwb2ludGVyU3RhcnQgPSBudWxsOwogICAgICAgIHJldHVybjsKICAgICAgfQogICAgICB2YXIgc2NyZWVuID0gYm9hcmQuZ2V0TW91c2VQb3NpdGlvbihldmVudCk7CiAgICAgIHZhciBkeCA9IHNjcmVlblswXSAtIHBvaW50ZXJTdGFydC5zY3JlZW5bMF07CiAgICAgIHZhciBkeSA9IHNjcmVlblsxXSAtIHBvaW50ZXJTdGFydC5zY3JlZW5bMV07CiAgICAgIGlmIChkeCAqIGR4ICsgZHkgKiBkeSA8PSBjbGlja1RvbGVyYW5jZVNxdWFyZWQpIHsKICAgICAgICBpZiAocG9pbnRlclN0YXJ0LnZlcnRleCkgewogICAgICAgICAgaGFuZGxlVmVydGV4Q2xpY2socG9pbnRlclN0YXJ0LnZlcnRleCk7CiAgICAgICAgfSBlbHNlIGlmICghdmVydGV4QXQoc2NyZWVuKSkgewogICAgICAgIHZhciBwb3NpdGlvbiA9IHVzZXJQb3NpdGlvbihzY3JlZW4pOwogICAgICAgIGlmIChwb3NpdGlvblsxXSA+IGVkaXRhYmxlQm90dG9tKSBhZGRWZXJ0ZXgocG9zaXRpb25bMF0sIHBvc2l0aW9uWzFdKTsKICAgICAgICB9CiAgICAgIH0KICAgICAgcG9pbnRlclN0YXJ0ID0gbnVsbDsKICAgIH0pOwoKICAgIGJvYXJkLmNvbnRhaW5lck9iai5zZXRBdHRyaWJ1dGUoJ2RhdGEtZ3JhcGgtZWRpdG9yLXJlYWR5JywgJ3RydWUnKTsKCiAgICBpZiAob3B0aW9ucy5jb250cm9sc0luaXRpYWxseVZpc2libGUpIHNob3dDb250cm9scyh0cnVlKTsKCiAgICB2YXIgYXBpID0gewogICAgICBib2FyZDogYm9hcmQsCiAgICAgIGFkZFZlcnRleDogYWRkVmVydGV4LAogICAgICB0b2dnbGVFZGdlOiB0b2dnbGVFZGdlLAogICAgICBkZWxldGVTZWxlY3RlZDogZGVsZXRlU2VsZWN0ZWQsCiAgICAgIGNsZWFyOiBjbGVhciwKICAgICAgcmVzcG9uc2U6IHJlc3BvbnNlLAogICAgICBzdW1tYXJpemU6IGZ1bmN0aW9uIChzdW1tYXJ5T3B0aW9ucykgeyByZXR1cm4gc3VtbWFyaXplR3JhcGgocmVzcG9uc2UoKSwgc3VtbWFyeU9wdGlvbnMpOyB9LAogICAgICBzaG93Q29udHJvbHM6IHNob3dDb250cm9scywKICAgICAgcmVnaXN0ZXI6IGZ1bmN0aW9uIChzcGVjKSB7CiAgICAgICAgaWYgKCFKWEcuUXVhcnRvQXNzZXNzbWVudCB8fCB0eXBlb2YgSlhHLlF1YXJ0b0Fzc2Vzc21lbnQucmVnaXN0ZXIgIT09ICdmdW5jdGlvbicpIHsKICAgICAgICAgIHRocm93IG5ldyBFcnJvcignR3JhcGggZWRpdG9yIHJlZ2lzdHJhdGlvbiByZXF1aXJlcyB0aGUgUXVhcnRvIGFzc2Vzc21lbnQgYnJpZGdlJyk7CiAgICAgICAgfQogICAgICAgIEpYRy5RdWFydG9Bc3Nlc3NtZW50LnJlZ2lzdGVyKG1lcmdlKHNwZWMsIHsgYm9hcmQ6IGJvYXJkLCByZXNwb25zZTogcmVzcG9uc2UgfSkpOwogICAgICAgIHJldHVybiBhcGk7CiAgICAgIH0KICAgIH07CiAgICByZXR1cm4gYXBpOwogIH0KCiAgZnVuY3Rpb24gY3JlYXRlQm9hcmQob3B0aW9ucykgewogICAgb3B0aW9ucyA9IG9wdGlvbnMgfHwge307CiAgICB2YXIgY29udGFpbmVyID0gb3B0aW9ucy5jb250YWluZXIgfHwgZG9jdW1lbnQucXVlcnlTZWxlY3RvcignLmp4Z2JveCcpOwogICAgaWYgKCFjb250YWluZXIpIHRocm93IG5ldyBFcnJvcignR3JhcGggZWRpdG9yIGNvdWxkIG5vdCBmaW5kIGl0cyBKU1hHcmFwaCBjb250YWluZXInKTsKICAgIHZhciBib2FyZCA9IEpYRy5KU1hHcmFwaC5pbml0Qm9hcmQoY29udGFpbmVyLmlkLCBtZXJnZSh7CiAgICAgIGJvdW5kaW5nYm94OiBbLTUsIDQsIDUsIC00XSwKICAgICAgYXhpczogZmFsc2UsCiAgICAgIHBhbjogeyBlbmFibGVkOiBmYWxzZSB9LAogICAgICB6b29tOiB7IGVuYWJsZWQ6IGZhbHNlIH0sCiAgICAgIHNob3dOYXZpZ2F0aW9uOiBmYWxzZSwKICAgICAgc2hvd0NvcHlyaWdodDogZmFsc2UKICAgIH0sIG9wdGlvbnMuYm9hcmRBdHRyaWJ1dGVzKSk7CiAgICB2YXIgZWRpdG9yID0gY3JlYXRlR3JhcGhFZGl0b3IobWVyZ2Uob3B0aW9ucywgeyBib2FyZDogYm9hcmQgfSkpOwoKICAgIGZ1bmN0aW9uIHJlc2l6ZVRvVmlzaWJsZUNvbnRhaW5lcigpIHsKICAgICAgdmFyIHdpZHRoID0gY29udGFpbmVyLmNsaWVudFdpZHRoOwogICAgICB2YXIgaGVpZ2h0ID0gY29udGFpbmVyLmNsaWVudEhlaWdodDsKICAgICAgaWYgKCEod2lkdGggPiAwICYmIGhlaWdodCA+IDApIHx8IHR5cGVvZiBib2FyZC5yZXNpemVDb250YWluZXIgIT09ICdmdW5jdGlvbicpIHJldHVybiBmYWxzZTsKICAgICAgaWYgKE1hdGguYWJzKChib2FyZC5jYW52YXNXaWR0aCB8fCAwKSAtIHdpZHRoKSA+IDEgfHwKICAgICAgICAgIE1hdGguYWJzKChib2FyZC5jYW52YXNIZWlnaHQgfHwgMCkgLSBoZWlnaHQpID4gMSkgewogICAgICAgIGJvYXJkLnJlc2l6ZUNvbnRhaW5lcih3aWR0aCwgaGVpZ2h0KTsKICAgICAgICBpZiAodHlwZW9mIGJvYXJkLmZ1bGxVcGRhdGUgPT09ICdmdW5jdGlvbicpIGJvYXJkLmZ1bGxVcGRhdGUoKTsKICAgICAgfQogICAgICByZXR1cm4gdHJ1ZTsKICAgIH0KCiAgICBlZGl0b3IucmVzaXplID0gcmVzaXplVG9WaXNpYmxlQ29udGFpbmVyOwogICAgaWYgKHR5cGVvZiBSZXNpemVPYnNlcnZlciAhPT0gJ3VuZGVmaW5lZCcpIHsKICAgICAgdmFyIG9ic2VydmVyID0gbmV3IFJlc2l6ZU9ic2VydmVyKHJlc2l6ZVRvVmlzaWJsZUNvbnRhaW5lcik7CiAgICAgIG9ic2VydmVyLm9ic2VydmUoY29udGFpbmVyKTsKICAgICAgZWRpdG9yLnJlc2l6ZU9ic2VydmVyID0gb2JzZXJ2ZXI7CiAgICB9CiAgICBpZiAodHlwZW9mIHJlcXVlc3RBbmltYXRpb25GcmFtZSA9PT0gJ2Z1bmN0aW9uJykgewogICAgICByZXF1ZXN0QW5pbWF0aW9uRnJhbWUoZnVuY3Rpb24gKCkgewogICAgICAgIHJlc2l6ZVRvVmlzaWJsZUNvbnRhaW5lcigpOwogICAgICAgIHJlcXVlc3RBbmltYXRpb25GcmFtZShyZXNpemVUb1Zpc2libGVDb250YWluZXIpOwogICAgICB9KTsKICAgIH0KICAgIHJlc2l6ZVRvVmlzaWJsZUNvbnRhaW5lcigpOwogICAgcmV0dXJuIGVkaXRvcjsKICB9CgogIEpYRy5RdWFydG9HcmFwaEVkaXRvciA9IHsKICAgIGNyZWF0ZTogY3JlYXRlR3JhcGhFZGl0b3IsCiAgICBjcmVhdGVCb2FyZDogY3JlYXRlQm9hcmQsCiAgICBzdW1tYXJpemU6IHN1bW1hcml6ZUdyYXBoCiAgfTsKfSkoKTsKPC9zY3JpcHQ+CjxzY3JpcHQ+dmFyIGI9SlhHLkpTWEdyYXBoLmluaXRCb2FyZCgiSlhHODc3NzQwYmJfODM0ZF80MTQ0XzBlNzdfYjAxYzE3OGYiLHtib3VuZGluZ2JveDpbLTEsMywxNCwtM10sYXhpczpmYWxzZSxrZWVwYXNwZWN0cmF0aW86ZmFsc2Usc2hvd05hdmlnYXRpb246ZmFsc2Usc2hvd0NvcHlyaWdodDpmYWxzZX0pOwp2YXIgeDA9MSx4MT0xMS43LHR1cm5zPTMwOwpmb3IodmFyIGk9MDtpPHR1cm5zO2krKyl7CiAgdmFyIHg9eDAraSooeDEteDApLyh0dXJucy0xKSxvdXRlclg9W10sb3V0ZXJZPVtdLGlubmVyWD1bXSxpbm5lclk9W107CiAgZm9yKHZhciBqPTA7ajw9NjQ7aisrKXsKICAgIHZhciBhbmdsZT0yKk1hdGguUEkqai82NCxkeD0uMTYqTWF0aC5jb3MoYW5nbGUpOwogICAgb3V0ZXJYLnB1c2goeCtkeCk7IG91dGVyWS5wdXNoKDEuNzUqTWF0aC5zaW4oYW5nbGUpKTsKICAgIGlubmVyWC5wdXNoKHgrZHgpOyBpbm5lclkucHVzaCguNzUqTWF0aC5zaW4oYW5nbGUpKTsKICB9CiAgYi5jcmVhdGUoJ2N1cnZlJyxbb3V0ZXJYLG91dGVyWV0se3N0cm9rZUNvbG9yOicjMTU2NWMwJyxzdHJva2VXaWR0aDoxLjM1LGZpeGVkOnRydWUsaGlnaGxpZ2h0OmZhbHNlfSk7CiAgYi5jcmVhdGUoJ2N1cnZlJyxbaW5uZXJYLGlubmVyWV0se3N0cm9rZUNvbG9yOicjOWIxYzMxJyxzdHJva2VXaWR0aDoxLjM1LGZpeGVkOnRydWUsaGlnaGxpZ2h0OmZhbHNlfSk7Cn0KYi5jcmVhdGUoJ3NlZ21lbnQnLFtbLjYsMF0sWzEzLjMsMF1dLHtzdHJva2VDb2xvcjonIzI0MzQ0Nycsc3Ryb2tlV2lkdGg6MS41LGZpeGVkOnRydWUsaGlnaGxpZ2h0OmZhbHNlfSk7CmIuY3JlYXRlKCdzZWdtZW50JyxbW3gwLC0yLjM1XSxbeDEsLTIuMzVdXSx7c3Ryb2tlQ29sb3I6JyMyNDM0NDcnLGZpcnN0QXJyb3c6dHJ1ZSxsYXN0QXJyb3c6dHJ1ZSxmaXhlZDp0cnVlLGhpZ2hsaWdodDpmYWxzZX0pOwpiLmNyZWF0ZSgnc2VnbWVudCcsW1t4MCwtMi4xNV0sW3gwLC0xLjg1XV0se3N0cm9rZUNvbG9yOicjMjQzNDQ3JyxkYXNoOjIsZml4ZWQ6dHJ1ZSxoaWdobGlnaHQ6ZmFsc2V9KTsKYi5jcmVhdGUoJ3NlZ21lbnQnLFtbeDEsLTIuMTVdLFt4MSwtMS44NV1dLHtzdHJva2VDb2xvcjonIzI0MzQ0NycsZGFzaDoyLGZpeGVkOnRydWUsaGlnaGxpZ2h0OmZhbHNlfSk7CmIuY3JlYXRlKCd0ZXh0JyxbKHgwK3gxKS8yLC0yLjY1LCdsZW5nZGUg4oSTJ10se2ZpeGVkOnRydWUsZm9udFNpemU6MTgsYW5jaG9yWDonbWlkZGxlJ30pOyBiLmNyZWF0ZSgndGV4dCcsWzEyLjIsLjY1LCdhJ10se2ZpeGVkOnRydWUsY29sb3I6JyM5YjFjMzEnLGZvbnRTaXplOjE3fSk7IGIuY3JlYXRlKCd0ZXh0JyxbMTIuMiwxLjY1LCcyYSddLHtmaXhlZDp0cnVlLGNvbG9yOicjMTU2NWMwJyxmb250U2l6ZToxN30pOwp2YXIgZ3JhcGhCb3g9ZG9jdW1lbnQucXVlcnlTZWxlY3RvcignLmp4Z2JveCcpOyBmdW5jdGlvbiBmaXRCb2FyZCgpe3ZhciB3PWdyYXBoQm94LmNsaWVudFdpZHRoLGg9Z3JhcGhCb3guY2xpZW50SGVpZ2h0O2lmKHc+MCYmaD4wKXtiLnJlc2l6ZUNvbnRhaW5lcih3LGgsdHJ1ZSk7Yi5mdWxsVXBkYXRlKCk7fX0KaWYodHlwZW9mIFJlc2l6ZU9ic2VydmVyIT09J3VuZGVmaW5lZCcpbmV3IFJlc2l6ZU9ic2VydmVyKGZpdEJvYXJkKS5vYnNlcnZlKGdyYXBoQm94KTsgd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ3BhZ2VzaG93JyxmaXRCb2FyZCk7PC9zY3JpcHQ+CjwvYm9keT4KPC9odG1sPg==" class="" name="iframeJXG877740bb_834d_4144_0e77_b01c178f" style="width:760px; height:320px; position:relative; margin:0; padding:0; display:block; z-index:1;width:100%;max-width:760px;height:320px;border:0;;" id="JXG877740bb_834d_4144_0e77_b01c178f" sandbox="allow-scripts"></iframe>
+<p><strong>1.6.0 to 1.9.1: boards created hidden show a shifted region.</strong> A board with <code>boundingbox: [-5, 5, 5, -5]</code> created in a container 0 px wide (relative width in a hidden parent, or a hidden iframe) shows x −10…0 after it is shown, and keeps the wrong region through later resizes. Introduced by fa0b02ffa (1.6.0, sizes clamped to <code>Mat.eps</code>), removed by 77cbd7add (1.9.2). Page: <a href="repro/created-hidden.html?v=1.9.1">created-hidden.html?v=1.9.1</a>, press <strong>Show B and C</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/region-1.9.1.png" class="img-fluid figure-img"></p>
+<figcaption>(A) right, (B) and (C) shifted</figcaption>
+</figure>
 </div>
+<p><strong>1.5.0: <code>keepaspectratio</code> boards created hidden stay empty</strong> (their bounding box stays NaN). Page: <a href="repro/keepaspectratio-hidden.html?v=1.5.0">keepaspectratio-hidden.html?v=1.5.0</a>.</p>
+<p><strong>1.4.4: the ResizeObserver does not work at all.</strong> <code>updateContainerDims</code> throws <code>TypeError: d.isNaN is not a function</code> at every call, which stops the observer (problem 4), so no board follows resizing and boards created hidden stay empty. Fixed in 1.4.5 by <a href="https://github.com/jsxgraph/jsxgraph/commit/02cae89f6">02cae89f6</a> (“Fix regression: ResizeObserver was broken in v1.4.4”). Page: <a href="repro/created-hidden.html?v=1.4.4">created-hidden.html?v=1.4.4</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/observer-1.4.4.png" class="img-fluid figure-img"></p>
+<figcaption>(A) right, (B) and (C) empty</figcaption>
+</figure>
 </div>
-</div>
-</div>
-</div>
-</div>
+<p><strong>1.3.0: the SVG is 2 px larger than its container</strong>, also for visible boards (here a 318×238 div gets a 320×240 SVG). Page: <a href="repro/created-hidden.html?v=1.3.0">created-hidden.html?v=1.3.0</a>.</p>
+<p><strong>1.2.3 and earlier: no automatic resizing.</strong> There is no ResizeObserver yet, so a board created hidden stays 0 px wide when shown. Page: <a href="repro/created-hidden.html?v=1.2.3">created-hidden.html?v=1.2.3</a>.</p>
+</section>
+<section id="test-pages-with-the-courses-figures" class="level2">
+<h2 class="anchored" data-anchor-id="test-pages-with-the-courses-figures">Test pages with the course’s figures</h2>
+<p>Besides the minimal pages, these pages use the course’s own figures (from aacchhee/ctm-demo, fetched by commit), so that the problems can be seen in the setting where they were first noticed:</p>
+<ul>
+<li>plain HTML, no Quarto, one page per JSXGraph version: <a href="library/jsxgraph-1.12.2.html">1.12.2</a>, <a href="library/jsxgraph-1.13.3.html">1.13.3</a>, <a href="library/jsxgraph-1.14.0.html">1.14.0</a>. A solenoid (<code>keepaspectratio: false</code>) and a pendulum (<code>keepaspectratio: true</code>), each
+<ol type="a">
+<li>visible, (b) in a hidden div, (c) in a hidden <code>data:</code> iframe; press <strong>Show</strong>.</li>
+</ol></li>
+<li>Quarto pages with nested tabs, one per extension version, all with JSXGraph 1.14.0: <a href="extension-a26aea8/index.html">a26aea8</a> (before pull request #1), <a href="extension-59d549c/index.html">59d549c</a> (main), <a href="extension-17de83e/index.html">17de83e</a> (an earlier state of pull request #2; see the pull request for the current approach).</li>
+</ul>
+<p>Measured on the plain HTML pages in Chromium with a window, 5 page loads per version (1.12.2, 1.13.3, 1.14.0), <strong>Show</strong> pressed 2.5 s after load, then the window narrowed to 390 px and widened to 1200 px:</p>
+<ul>
+<li>the solenoid filled its frame with the intended view at every step in (a), (b) and (c), in all 15 loads;</li>
+<li>the pendulum in (c) showed the wrong region of <a href="#p3">problem 3</a> after showing and after widening (15 of 15), and the right one when narrowed;</li>
+<li>the pendulum in (a) and (b) was cropped when narrowed (<a href="#p5">problem 5</a>, 15 of 15);</li>
+<li>no board was blank in these loads.</li>
+</ul>
+<p>For the Quarto pages, see the measurements under <a href="#p6">problem 7</a> and <a href="#p7">problem 8</a>.</p>
+</section>
+<section id="about-this-page" class="level2">
+<h2 class="anchored" data-anchor-id="about-this-page">About this page</h2>
+<p>Built by <code>scripts/build-jsxgraph-repro.sh</code> in aacchhee/ctm-demo, in the workflow step “Build the temporary JSXGraph reproduction (old commits)”. The minimal pages in <code>repro/</code> are plain HTML kept in that repository; the course figures and the three extension versions are fetched by commit when the page is built. The course pages do not link here.</p>
+</section>
 
-
-
-</main> <!-- /main -->
+</main>
+<!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
