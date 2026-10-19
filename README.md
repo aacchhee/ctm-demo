@@ -39,9 +39,9 @@ the site. `quarto-extensions.yml` names only `ctm-assessment` at `main`.
 `scripts/setup.py` is shared by local development and GitHub Actions. It fetches
 that umbrella source, runs its builder, and installs the assembled distribution.
 The full suite is enabled through the `ctm-assessment` filter. Component sources
-are selected only by CTM Assessment's manifest: current `main` for maintained
-extensions and the temporary Pyodide feedback migration pin. JSXGraph comes from
-the same math-exercise checkout. The demo has no separate component refs.
+are selected only by CTM Assessment's manifest, which pins every component,
+including the upstream JSXGraph extension, by commit. The demo has no separate
+component refs.
 Setup verifies installed files against the umbrella's hashes and copies its
 revision record to `.private-extensions/resolved-repos.json`.
 To update, re-run setup and render both student and review profiles before publishing.
@@ -60,8 +60,8 @@ The four STACK definitions live in `_includes/stack/*.qmd`. Optional review:
 
 ## Coordinated dependency reviews
 
-Normal builds follow the maintained `main` sources and the umbrella's explicit
-Pyodide migration pin. A non-main review commit can declare exact dependency
+Normal builds use the component commits pinned in the manifest of
+`ctm-assessment` at `main`. A non-main review commit can declare exact dependency
 SHAs in a `CTM-Review-Refs: {"ai-feedback":"<40-character SHA>"}` commit trailer.
 The visibly named workflow step prints those refs; the umbrella records them in
 `resolved-repos.json`. Main ignores review trailers. Merge upstream changes

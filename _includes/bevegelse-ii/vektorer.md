@@ -153,7 +153,7 @@ $t_1=0.20\,\mathrm s$, og $P_2$ er posisjonen ved $t_2=0.70\,\mathrm s$.
 Finn posisjonene, forflytningen, gjennomsnittshastigheten og de momentane
 hastighetene. Tegn tangentretningene i begge punktene. Finn også banefarten i $P_1$.
 
-*Den håndtegnede grafen og de avleste koordinatene i PDF-en stemmer ikke
+*Den håndtegnede grafen og de avleste koordinatene i originalen stemmer ikke
 med vektorfunksjonen der. Her er graf, punkter og svar beregnet fra
 funksjonen ovenfor, med $g=9.81\,\mathrm{m/s^2}$.*
 

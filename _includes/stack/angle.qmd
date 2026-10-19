@@ -2,7 +2,7 @@
 #| label: stack-angle
 #| context: stack-conventions, stack-angle-context
 #| mode: numeric
-#| tolerance: 1%
+#| tolerance: '0.015'
 #| field-labels: Vinkel v i radianer
 #| parameters:
 #|   k:
@@ -11,8 +11,8 @@
 #| derived:
 #|   angle: k*pi/36
 #|   degrees: 5*k
-#|   sine: round(sin(angle),2)
-#|   cosine: round(cos(angle),2)
+#|   sine: round(sin(angle),2)+0
+#|   cosine: round(cos(angle),2)+0
 #| solution-target: stack-angle-solution
 #| variant-context: Sinus {{sine:.2f}}, cosinus {{cosine:.2f}}. Finn v i [0,2*pi).
 #| solution: |
@@ -35,7 +35,7 @@ Vinkelen $v$ ligger i første omløp: $0\leq v<2\pi$.
 Vi har $\sin v\approx {{sine:.2f}}$ og $\cos v\approx {{cosine:.2f}}$ (avrundede verdier).
 Flytt A slik at koordinatene stemmer så godt som mulig, og les av vinkelen.
 
-Svar i **radianer med 3 desimaler**. Relativt avvik inntil 1 % godtas.
+Svar i **radianer med 3 desimaler**. Avvik inntil 0.015 rad godtas.
 
 $v\approx$ _[{{k}}*pi/36] rad.
 ```

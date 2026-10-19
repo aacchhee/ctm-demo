@@ -1,0 +1,19 @@
+<script>
+// Author-supplied field names also identify inputs for assistive technology.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.math-exercise-cell[data-label^="phys-"]').forEach(function (cell) {
+    var fields = JSON.parse(cell.dataset.fields || '[]');
+    var labels = JSON.parse(cell.dataset.fieldLabels || '[]');
+    fields.forEach(function (id, index) {
+      var input = document.getElementById(id);
+      if (input && labels[index]) input.setAttribute('aria-label', labels[index]);
+    });
+  });
+  // The figures have no caption here; they follow the task heading ("Oppgave n — ...").
+  document.querySelectorAll('main iframe').forEach(function (frame) {
+    var heading = frame.previousElementSibling;
+    while (heading && heading.tagName !== 'P') heading = heading.previousElementSibling;
+    if (heading) frame.title = 'Interaktiv fysikkfigur: ' + heading.textContent.trim();
+  });
+});
+</script>

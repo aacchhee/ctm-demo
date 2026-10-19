@@ -12,7 +12,8 @@ math-exercise:
 Denne siden samler fysikkprøvene fra 2024–2026. Hver prøve ligger i en egen
 nøstet fane. Regn først på papir og skriv deretter svarene i feltene. Bruk
 `pi`, `sqrt(...)` og eksakt brøk når oppgaven ber om et uttrykk. For numeriske
-svar er enheten skrevet ved feltet; ikke skriv enheten i selve feltet.
+svar er enheten skrevet ved feltet; ikke skriv enheten i selve feltet. Bruk
+desimalpunkt i svarfeltene.
 
 Når ikke annet er oppgitt, brukes
 $g=9.81\,\mathrm{m/s^2}$, $\varepsilon_0=8.854\cdot10^{-12}\,\mathrm{F/m}$,
@@ -20,7 +21,7 @@ $\mu_0=4\pi\cdot10^{-7}\,\mathrm{H/m}$,
 $k_e=8.99\cdot10^9\,\mathrm{Nm^2/C^2}$,
 $e=1.60\cdot10^{-19}\,\mathrm C$,
 $m_e=9.11\cdot10^{-31}\,\mathrm{kg}$ og
-$m_p=1.67\cdot10^{-27}\,\mathrm{kg}$. Fet skrift og hake betyr vektorer.
+$m_p=1.67\cdot10^{-27}\,\mathrm{kg}$. Fet skrift betyr vektorer, og hatt betyr enhetsvektorer.
 
 :::
 
@@ -93,3 +94,5 @@ $m_p=1.67\cdot10^{-27}\,\mathrm{kg}$. Fet skrift og hake betyr vektorer.
 :::
 
 :::
+
+{{< include ../_includes/physics/accessibility.html >}}

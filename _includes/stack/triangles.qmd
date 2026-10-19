@@ -2,7 +2,7 @@
 #| label: stack-triangles
 #| context: stack-conventions, stack-triangles-context
 #| mode: numeric
-#| decplaces: '3'
+#| tolerance: '0.0005'
 #| field-labels: Lengdeforholdet EF/DF
 #| parameters:
 #|   ab:
@@ -23,7 +23,7 @@
 #| solution-target: stack-triangles-solution
 #| variant-context: AB={{ab}}, BC={{bc}}. Rettvinklede, formlike trekanter.
 #| solution: |
-#|   Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$, og hypotenusen $DF$ svarer til $AC$.
+#|   Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$ og hypotenusen $DF$ svarer til $AC$, får vi
 #|   
 #|   $$\frac{EF}{DF}=\frac{BC}{AC}=\frac{{{bc}}}{\sqrt{{{ab}}^2+{{bc}}^2}}\approx {{ratio:.3f}}.$$
 #|   En endring av størrelsen på trekant $DEF$ endrer ikke forholdet.

@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import shutil
 import subprocess
@@ -110,36 +109,37 @@ def clone_or_update_plugin(
 
 
 def install_umbrella(assessment_repo: Path, project_root: Path, review_refs: dict[str,str]) -> None:
-    """Use CTM Assessment's builder and manifest, then install its distribution."""
-    workspace = project_root / ".private-extensions" / "ctm-assessment-build"
-    run(
-        sys.executable,
-        str(assessment_repo / "scripts" / "setup-feedback-integration.py"),
-        "--workspace", str(workspace),
-        "--review-refs", json.dumps(review_refs),
-    )
-    distribution = workspace / "ctm-assessment"
-    record = json.loads((distribution / "resolved-repos.json").read_text())
-    # Replace only extensions owned by this umbrella; preserve course extensions.
-    for name in record["extension_sha256"]:
-        installed = project_root / "_extensions" / name
-        if installed.exists():
-            shutil.rmtree(installed)
-    run("quarto", "add", str(distribution), "--no-prompt", cwd=project_root)
-    for name, files in record["extension_sha256"].items():
-        for relative, expected in files.items():
-            installed = project_root / "_extensions" / name / relative
-            if not installed.is_file() or hashlib.sha256(installed.read_bytes()).hexdigest() != expected:
-                sys.exit(f"ERROR: installed umbrella file differs: {name}/{relative}")
-    shutil.copy2(distribution / "resolved-repos.json", project_root / ".private-extensions" / "resolved-repos.json")
+    """Build and install the package with CTM Assessment's own installer."""
+    try:
+        run(
+            sys.executable,
+            str(assessment_repo / "scripts" / "install-project.py"),
+            "--project", str(project_root),
+            "--review-refs", json.dumps(review_refs),
+        )
+    except subprocess.CalledProcessError:
+        sys.exit(1)  # the installer has printed the reason
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--review-refs", default="{}", help="Explicit coordinated review dependency SHAs; production defaults stay main")
-    review_refs = json.loads(parser.parse_args().review_refs)
+    parser.add_argument("--review-refs", default="{}", help="Coordinated review component commits (full SHAs) as JSON or NAME=SHA[,NAME=SHA]; production defaults stay main")
+    raw = parser.parse_args().review_refs.strip()
+    try:
+        # JSON, or NAME=SHA[,NAME=SHA] (PowerShell 5.1 strips JSON's inner quotes).
+        if raw.startswith("{"):
+            review_refs = json.loads(raw)
+        else:
+            pairs = [pair.split("=", 1) for pair in raw.split(",") if pair.strip()]
+            names = [name.strip() for name, _ in pairs]
+            if len(set(names)) != len(names):
+                sys.exit("ERROR: --review-refs names a component twice")
+            review_refs = dict(pairs)
+    except (ValueError, json.JSONDecodeError):
+        sys.exit("ERROR: --review-refs must be JSON or NAME=SHA[,NAME=SHA]")
     if not isinstance(review_refs, dict):
         sys.exit("ERROR: review refs must be a mapping")
+    review_refs = {str(k).strip(): str(v).strip() for k, v in review_refs.items()}
     project_root = Path(__file__).resolve().parent.parent
     config_path = project_root / CONFIG_FILE
     private_root = project_root / ".private-extensions"
