@@ -77,13 +77,19 @@ An early statistics overview counts record verdicts by pack, error classes and
 PRT failure mechanisms. `_stack-audit/classifications.json` explicitly maps each
 finding to affected records; unflagged records remain undecided, not certified
 correct. Class counts overlap, while question counts are deduplicated.
+The node-count comparison uses individual named PRTs, separating direct defects
+from missing cross-PRT consistency checks. Explicit attribution is maintained in
+`_stack-audit/prt-attribution.json`; the build verifies names and node counts
+against the pinned XML and publishes a per-tree ledger.
 
-Run `python scripts/build-stack-audit.py` after rendering the main site.
-It uses Quarto and Python's standard library, fetches the pinned public upstream
+Install the plot dependency with `python -m pip install -r _stack-audit/requirements.txt`,
+then run `python scripts/build-stack-audit.py` after rendering the main site.
+It uses Quarto, Matplotlib and Python's standard library, fetches the pinned public upstream
 archive, verifies inventory totals and selected witnesses, and copies the report
 to `_site/stack-audit/`. It does not execute STACK/Maxima grading.
 
 The audit branch also has a scoped preview workflow that publishes only this
 report, preserving the other CTM demo pages. Main's normal build preserves the
 report through the same build script after this change is merged.
+
 

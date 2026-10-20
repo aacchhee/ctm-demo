@@ -49,4 +49,41 @@ class StatisticsTests(unittest.TestCase):
             else: c["findings"][0]["classes"] = ["MATH_KEY"]
             with self.assertRaises(AssertionError): analyze(r, b, f, c)
 
+class NodeStatisticsTests(unittest.TestCase):
+    def data(self):
+        from copy import deepcopy
+        a="samplequestions/stacklibrary/Topics/a.xml"
+        b="samplequestions/stacklibrary/Topics/b.xml"
+        inv=[dict(path=a,ordinal=1,prt="p1",nodes=1),dict(path=a,ordinal=1,prt="p2",nodes=3),dict(path=b,ordinal=1,prt="p1",nodes=2)]
+        refs=[dict(path=a,ordinal=1),dict(path=a,ordinal=1),dict(path=b,ordinal=1)]
+        classes=dict(findings=[dict(id=f"N-{i}",disposition="confirmed",classes=["PRT_LOGIC"],records=[r]) for i,r in enumerate(refs)])
+        maps=[dict(finding_id=f"N-{i}",**r,prts=[dict(name="p1",node_count=1 if i<2 else 2,attribution="direct" if i<2 else "joint",note="test")]) for i,r in enumerate(refs)]
+        return inv,dict(source_sha="test",mappings=maps),classes
+
+    def test_tree_deduplication_and_joint_defects_are_separate(self):
+        from prt_node_statistics import analyze_nodes
+        inv,a,c=self.data();s,rows=analyze_nodes(inv,a,c)
+        self.assertEqual(s["standalone"]["prts"],3)
+        self.assertEqual(s["standalone"]["direct_defects"],1)
+        self.assertEqual(s["standalone"]["joint_only"],1)
+        self.assertEqual(s["multiple_nodes"]["direct_defects"],0)
+
+    def test_ladder_is_nested_and_questions_are_deduplicated(self):
+        from prt_node_statistics import analyze_nodes
+        inv,a,c=self.data();s,_=analyze_nodes(inv,a,c)
+        self.assertEqual([r["prts"] for r in s["cumulative_ladder"]],[3,2,1])
+        self.assertEqual([r["questions"] for r in s["cumulative_ladder"]],[2,2,1])
+        self.assertEqual(s["two_nodes"]["prts"],1)
+        self.assertEqual(s["three_or_more_nodes"]["prts"],1)
+
+    def test_unmatched_tree_missing_attribution_and_wrong_counts_fail(self):
+        from prt_node_statistics import analyze_nodes
+        for mode in ("name","count","missing"):
+            inv,a,c=self.data()
+            if mode=="name":a["mappings"][0]["prts"][0]["name"]="absent"
+            elif mode=="count":a["mappings"][0]["prts"][0]["node_count"]=99
+            else:a["mappings"].pop()
+            with self.assertRaises(AssertionError):analyze_nodes(inv,a,c)
+
 if __name__ == "__main__": unittest.main()
+

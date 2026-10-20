@@ -52,6 +52,7 @@ PRT entry-node semantics were checked against [questiontype.php](https://github.
 To reproduce the inventory, selected checks and report:
 
 ~~~bash
+python -m pip install -r _stack-audit/requirements.txt
 python scripts/build-stack-audit.py
 ~~~
 
@@ -102,4 +103,5 @@ Each entry gives what is wrong, a concrete witness, a proposed repair and regres
 7. Extend deep review of unflagged long descriptions, other Moodle question types and legacy backup records beyond the screening depth recorded here.
 
 This report proposes changes to upstream question content; it does not modify the STACK question bank. It was prepared with AI-assisted parallel source review and independent checks of selected witnesses. Maintainers should use the pinned evidence and native regression cases when deciding and implementing repairs.
+
 

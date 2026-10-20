@@ -1,0 +1,900 @@
+{
+  "schema_version": 1,
+  "source_sha": "33383047af39c204bf4442802a058f8b918b2b1b",
+  "method": "Explicit affected-tree attribution from existing confirmed PRT findings. Direct defects are distinguished from trees jointly participating in a missing cross-tree consistency condition. Counts are actual XML node elements, not largest node label.",
+  "mappings": [
+    {
+      "finding_id": "AR-01",
+      "path": "samplequestions/stacklibrary/Algebra-Refresher/14-Algebraic-fractions-involving-factorising/AlgMap-14-4.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 2,
+          "attribution": "direct",
+          "note": "Unique root node0 sends both SingleFrac outcomes to node1; lowesttermsp alone can then assign full credit."
+        }
+      ]
+    },
+    {
+      "finding_id": "CR-02",
+      "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Int_11/CR-Int-11-linearity-3-e.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "Result",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "Single AlgEquiv node compares ans1 with int(p,v)+c, fixing the arbitrary constant symbol instead of testing the integration family."
+        }
+      ]
+    },
+    {
+      "finding_id": "CR-02",
+      "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Int_11/CR-Int-11-linearity-3-f.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "Result",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "Single AlgEquiv node compares ans1 with int(p,v)+c, fixing the arbitrary constant symbol instead of testing the integration family."
+        }
+      ]
+    },
+    {
+      "finding_id": "CR-02",
+      "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Int_17/CR-Int-17-misc-12.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "Result",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "Single AlgEquiv node compares ans1 with int(p,v)+c, fixing the arbitrary constant symbol instead of testing the integration family."
+        }
+      ]
+    },
+    {
+      "finding_id": "TOP-02",
+      "path": "samplequestions/stacklibrary/Topics/Calculus/2nd-Order-Differential-Equations/2nd-Order-ODE-3-real-repeated-BC.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "Result2",
+          "node_count": 2,
+          "attribution": "direct",
+          "note": "Result2 only checks value and derivative at t=0, each worth0.5; it never checks the ODE residual. Result is excluded from this finding."
+        }
+      ]
+    },
+    {
+      "finding_id": "TOP-03",
+      "path": "samplequestions/stacklibrary/Topics/LinearAlgebra/EigenVectVal/Eigenvalues-vectors-PDPT.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt2",
+          "node_count": 2,
+          "attribution": "direct",
+          "note": "prt2 checks P^T*A*P=D and diagp(D), but omits P^T*P=I. Earlier eigenvalue/eigenvector prt1 is excluded."
+        }
+      ]
+    },
+    {
+      "finding_id": "TOP-05",
+      "path": "samplequestions/stacklibrary/Topics/LinearAlgebra/Vector-Spaces/Find-vector-parametric-equation-for-plane-given-three-points.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 4,
+          "attribution": "direct",
+          "note": "Single prt1 extracts two direction coefficients and checks each belongs to the plane, without rank2 of the pair."
+        }
+      ]
+    },
+    {
+      "finding_id": "TOP-06",
+      "path": "samplequestions/stacklibrary/Topics/Sets/Subset_1.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "result",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "Root node0 rejects the empty set, despite prompt asking a proper strict subset of nonempty A."
+        }
+      ]
+    },
+    {
+      "finding_id": "TOP-07",
+      "path": "samplequestions/stacklibrary/Topics/Calculus/Integration/Int_Quotient_1.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "Result",
+          "node_count": 4,
+          "attribution": "direct",
+          "note": "Root EqualComAss match to correctanswer2 ends at zero before the Int node; a valid primitive is rejected for an unstated form constraint."
+        }
+      ]
+    },
+    {
+      "finding_id": "TOP-10",
+      "path": "samplequestions/stacklibrary/Topics/Calculus/2nd-Order-Differential-Equations/ODE_2nd_order_linear.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "Result",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "Result counts symbol names and tests numberp of a two-time value ratio, which does not establish independent arbitrary constants. The nonlinear one-effective-parameter family can escape the heuristic; native CAS execution remains unrun."
+        }
+      ]
+    },
+    {
+      "finding_id": "TOP-10",
+      "path": "samplequestions/stacklibrary/Topics/Calculus/2nd-Order-Differential-Equations/2nd-Order-ODE-1-real-distinct.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "Result",
+          "node_count": 4,
+          "attribution": "direct",
+          "note": "Result counts symbol names and tests numberp of a two-time value ratio, which does not establish independent arbitrary constants. The nonlinear one-effective-parameter family can escape the heuristic; native CAS execution remains unrun."
+        }
+      ]
+    },
+    {
+      "finding_id": "TOP-10",
+      "path": "samplequestions/stacklibrary/Topics/Calculus/2nd-Order-Differential-Equations/2nd-Order-ODE-3-real-repeated-BC.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "Result",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "Result counts symbol names and tests numberp of a two-time value ratio, which does not establish independent arbitrary constants. The nonlinear one-effective-parameter family can escape the heuristic; native CAS execution remains unrun. Result2 is excluded here: its separate initial-condition-only defect is mapped under TOP-02."
+        }
+      ]
+    },
+    {
+      "finding_id": "TOP-10",
+      "path": "samplequestions/stacklibrary/Topics/Calculus/2nd-Order-Differential-Equations/2nd-Order-ODE-2-undamped-complex.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "Result",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "Result counts symbol names and tests numberp of a two-time value ratio, which does not establish independent arbitrary constants. The nonlinear one-effective-parameter family can escape the heuristic; native CAS execution remains unrun. In this undamped tree both outcomes of node2 add zero, retaining the previous full score even for a one-mode two-symbol answer."
+        }
+      ]
+    },
+    {
+      "finding_id": "ARC-04",
+      "archive": "samplequestions/STACK-demo.mbz",
+      "ordinal": 691,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "The single tree grades only the zero linear combination and omits nontriviality of the coefficient tuple."
+        }
+      ]
+    },
+    {
+      "finding_id": "ARC-05",
+      "archive": "samplequestions/STACK-demo.mbz",
+      "ordinal": 709,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 2,
+          "attribution": "direct",
+          "note": "Each of these three independent trees extracts only constant and linear coefficients, then checks the slope sign; none verifies the whole expression is arithmetic. The separate prt4 none-answer tree is not implicated."
+        },
+        {
+          "name": "prt2",
+          "node_count": 2,
+          "attribution": "direct",
+          "note": "Each of these three independent trees extracts only constant and linear coefficients, then checks the slope sign; none verifies the whole expression is arithmetic. The separate prt4 none-answer tree is not implicated."
+        },
+        {
+          "name": "prt3",
+          "node_count": 2,
+          "attribution": "direct",
+          "note": "Each of these three independent trees extracts only constant and linear coefficients, then checks the slope sign; none verifies the whole expression is arithmetic. The separate prt4 none-answer tree is not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "ARC-06",
+      "archive": "samplequestions/STACK-demo.mbz",
+      "ordinal": 701,
+      "prts": [
+        {
+          "name": "ptr3",
+          "node_count": 2,
+          "attribution": "direct",
+          "note": "The inflection-point tree checks the second derivative at the claimed point and signs at fixed offsets; it does not establish a local sign change at the point. The separate stationary-point ptr2 is not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "HE1-01",
+      "path": "samplequestions/stacklibrary/HELM/Course_quiz_4_1-right---angled-triangles/top/Default-for-4-1/4-1-1-6-Task-sin,-cos,-tan-using-calculator.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "Node 0 compares ans1 with itself through NumDecPlaces instead of ta1."
+        }
+      ]
+    },
+    {
+      "finding_id": "HE1-02",
+      "path": "samplequestions/stacklibrary/HELM/Course_quiz_1_2-indices/top/Default-for-1-2/1-2-5-6-Simplify-indices.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt2",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "Node 1 awards full credit to incorrect alternate ta2n, which multiplies exponents. prt1 is not implicated."
+        },
+        {
+          "name": "prt3",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "Node 1 awards full credit to incorrect alternate ta3n, which divides exponents."
+        }
+      ]
+    },
+    {
+      "finding_id": "HE1-03",
+      "path": "samplequestions/stacklibrary/HELM/Course/top/30-33-Questions-not-in-quizzes/31-1-Polynomial-Approximations/HELM-31-1-E4-Natural-Spline.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "s1",
+          "node_count": 15,
+          "attribution": "direct",
+          "note": "Nodes 8,9,10,11 compare teacher derivatives rather than submitted spline derivatives; the entire assessment is a single PRT with 15 actual node elements."
+        }
+      ]
+    },
+    {
+      "finding_id": "HE1-14",
+      "path": "samplequestions/stacklibrary/HELM/Course_quiz_5-1-the-modelling-cycle-and-functions/top/Default-for-5-1/5-1-1-6.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt7",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "Node 0 grades ans6 against ta6 instead of ans7; prt6 itself is not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "GEN-01",
+      "path": "samplequestions/stacklibrary/Features/input-type-sample-questions/Matrix_varmatrix.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 4,
+          "attribution": "direct",
+          "note": "Node 0 awards score 1 for square first matrix; later product failure subtracts zero and retains credit."
+        }
+      ]
+    },
+    {
+      "finding_id": "GEN-02",
+      "path": "samplequestions/stacklibrary/Doc-Examples/Specialist-Tools-Docs/Free-text-input/Free-text_with_regex.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt5",
+          "node_count": 4,
+          "attribution": "direct",
+          "note": "Other-reason route at node 0 awards 1 and bypasses convergence check; failed reason at node 3 subtracts zero. Other PRTs not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "HL-02",
+      "path": "samplequestions/stacklibrary/HELM/Course_quiz_14_4-lengths-of-curves-and-surfaces-of-revolution/top/Default-for-14-4/14-4-2-1-Area-of-surface.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "Wrong ans2dn/ans2int binding and retained full credit after upper-limit check."
+        },
+        {
+          "name": "prt2",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "Full credit retained after wrong lower limit or integrand."
+        }
+      ]
+    },
+    {
+      "finding_id": "HL-03",
+      "path": "samplequestions/stacklibrary/HELM/Course_quiz_16_3-the-binomial-series/top/Default-for-16-3/16-3-1-2-Using-binomial-theorem-obtain.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt2",
+          "node_count": 2,
+          "attribution": "direct",
+          "note": "Expanded node uses ans1/ta1 instead of ans2/ta2; prt1 is not defective."
+        }
+      ]
+    },
+    {
+      "finding_id": "HL-05",
+      "path": "samplequestions/stacklibrary/HELM/Course_quiz_16_2-infinite-series-and-convergence-tests/top/Default-for-16-2/16-2-5-3-Convergence-with-a-parameter.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt4",
+          "node_count": 2,
+          "attribution": "direct",
+          "note": "The all alias true branch adds zero after score zero was assigned."
+        }
+      ]
+    },
+    {
+      "finding_id": "HL-07",
+      "path": "samplequestions/stacklibrary/HELM/Course_quiz_19_2-first-order-differential-equations/top/Default-for-19-2/19-2-2-5-Separation-of-Variables-Ex3.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt2",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "Part (b) compares ans1/ta1 instead of ans2/ta2; prt1 unaffected."
+        }
+      ]
+    },
+    {
+      "finding_id": "HL-13",
+      "path": "samplequestions/stacklibrary/HELM/Course_quiz_22_3-repeated-eigenvalues-and-symmetric-matrices/top/Default-for-22-3/22-3-2-4-Complex-conjugate-2x2-eigentask.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt_eigenvalues",
+          "node_count": 2,
+          "attribution": "direct",
+          "note": "Duplicate eigenvalues pass membership checks within this one tree; no cross-tree condition, hence direct."
+        }
+      ]
+    },
+    {
+      "finding_id": "H25-18",
+      "path": "samplequestions/stacklibrary/HELM/Course_quiz_43_1-regression/top/Default-for-43-1/43-1-2-6-predict-elasticity.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt11",
+          "node_count": 2,
+          "attribution": "direct",
+          "note": "Second node accepts wrong alternateta11 with slope/intercept swapped; other PRTs not attributed."
+        }
+      ]
+    },
+    {
+      "finding_id": "H25-21",
+      "path": "samplequestions/stacklibrary/HELM/Course_quiz_28_2-differential-vector-calculus/top/Default-for-28-2/28-2-1-6-unit-vector-normal-to-sphere.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "Three component checks within one tree permit only one whole-vector normal orientation."
+        }
+      ]
+    },
+    {
+      "finding_id": "H25-22",
+      "path": "samplequestions/stacklibrary/HELM/Course_quiz_28_2-differential-vector-calculus/top/Default-for-28-2/28-2-1-7-Angle-between-curves-by-normal-vector.xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 2,
+          "attribution": "direct",
+          "note": "Second node accepts the alternative target mixing degrees and radians."
+        }
+      ]
+    },
+    {
+      "finding_id": "IW1-03",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-1-13-(Factorising-coefficient-not-1-positive-roots).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "Factorisation input is tested only for algebraic equivalence, without factor-form enforcement. Separate root-answer prt2 is not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "IW1-03",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-1-14-(Factorising-coefficient-not-1-negative-roots).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "Factorisation input is tested only for algebraic equivalence, without factor-form enforcement. Separate root-answer prt2 is not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "IW1-03",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-1-8-(Factorising-coefficient-1-negative-roots).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "Factorisation input is tested only for algebraic equivalence, without factor-form enforcement. Separate root-answer prt2 is not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "IW1-03",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-1-9-(Factorising-coefficient-1-positive-roots).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "Factorisation input is tested only for algebraic equivalence, without factor-form enforcement. Separate root-answer prt2 is not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "IW1-03",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/PT-1-4-(Factorising-coefficient-not-1-negative-roots).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "Factorisation input is tested only for algebraic equivalence, without factor-form enforcement. Separate root-answer prt2 is not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "IW1-04",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-2-14-(Solve-by-quadratic-formula-x).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "Coefficient-tree contributions are each 1, so a single correct coefficient reaches full credit under the pinned score clamp. Separate root-answer prt2 is not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "IW1-04",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-2-15-(Solve-by-quadratic-formula-y).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "Coefficient-tree contributions are each 1, so a single correct coefficient reaches full credit under the pinned score clamp. Separate root-answer prt2 is not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "IW2-05",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-02---Polynomials,-functions,-graphs-and-their-inverses/2-3-23-(Scaled-domain-and-range).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 2,
+          "attribution": "direct",
+          "note": "Each two-endpoint tree gives 1 for either correct endpoint, with no deduction for an incorrect companion; the score is clamped to 1."
+        },
+        {
+          "name": "prt2",
+          "node_count": 2,
+          "attribution": "direct",
+          "note": "Each two-endpoint tree gives 1 for either correct endpoint, with no deduction for an incorrect companion; the score is clamped to 1."
+        }
+      ]
+    },
+    {
+      "finding_id": "IW2-05",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-02---Polynomials,-functions,-graphs-and-their-inverses/PT-2-11-(Scaled-domain-and-range).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 2,
+          "attribution": "direct",
+          "note": "Each two-endpoint tree gives 1 for either correct endpoint, with no deduction for an incorrect companion; the score is clamped to 1."
+        },
+        {
+          "name": "prt2",
+          "node_count": 2,
+          "attribution": "direct",
+          "note": "Each two-endpoint tree gives 1 for either correct endpoint, with no deduction for an incorrect companion; the score is clamped to 1."
+        }
+      ]
+    },
+    {
+      "finding_id": "IW2-07",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-02---Polynomials,-functions,-graphs-and-their-inverses/2-4-4-(Volume-of-a-box).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "Formula tree uses EqualComAss against an expanded target despite no stated expanded-form requirement. Numerical substitution prt2, where present, is not implicated by this finding."
+        }
+      ]
+    },
+    {
+      "finding_id": "IW2-07",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-02---Polynomials,-functions,-graphs-and-their-inverses/2-4-5-(Volume-of-a-box-for-given-cut-out).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "Formula tree uses EqualComAss against an expanded target despite no stated expanded-form requirement. Numerical substitution prt2, where present, is not implicated by this finding."
+        }
+      ]
+    },
+    {
+      "finding_id": "IW3-04",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-03---Reasoning-and-writing-mathematical-arguments/3-2-9-(Maintain-Equivalence).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt3",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "These separate alternative-answer trees each accept either b or -b. Each local membership test is valid, but their pair lacks cross-tree distinctness/completeness, so repeated alternatives can omit a branch. Earlier algebra-step trees prt1/prt2 are not implicated."
+        },
+        {
+          "name": "prt4",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "These separate alternative-answer trees each accept either b or -b. Each local membership test is valid, but their pair lacks cross-tree distinctness/completeness, so repeated alternatives can omit a branch. Earlier algebra-step trees prt1/prt2 are not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "IM45-04",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/5-2-6-(Find-solutions-of-sine-equation-not-exact-positive).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 4,
+          "attribution": "direct",
+          "note": "One four-node tree grades both root inputs independently and awards full credit to duplicate roots. The defect is internal to this tree, not cross-tree attribution."
+        }
+      ]
+    },
+    {
+      "finding_id": "IM45-08",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/5-3-15-(Solve-to-scale-trig).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "One coefficient tree rejects valid negative b or c choices although the prompt requires only range and period. The affected tests are the b and c nodes; the reported node count is the size of the whole affected tree."
+        }
+      ]
+    },
+    {
+      "finding_id": "IL-01",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-06---The-Circle/6-1-14-(Find-intersection-points-of-circle-and-line).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt11",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "This coordinate tree accepts either true marginal coordinate; all four coordinate trees together omit x/y pairing and distinctness of the two intersection points."
+        },
+        {
+          "name": "prt12",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "This coordinate tree accepts either true marginal coordinate; all four coordinate trees together omit x/y pairing and distinctness of the two intersection points."
+        },
+        {
+          "name": "prt21",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "This coordinate tree accepts either true marginal coordinate; all four coordinate trees together omit x/y pairing and distinctness of the two intersection points."
+        },
+        {
+          "name": "prt22",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "This coordinate tree accepts either true marginal coordinate; all four coordinate trees together omit x/y pairing and distinctness of the two intersection points."
+        }
+      ]
+    },
+    {
+      "finding_id": "IL-02",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-06---The-Circle/6-3-9-(Parametrize-circle).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "The distance-squared identity accepts a constant point as a parametrization; the PRT omits tracing/full-circle coverage. Count includes all actual nodes, not only the accepting node."
+        }
+      ]
+    },
+    {
+      "finding_id": "IL-02",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-06---The-Circle/PT-6-10-(Parametrize-circle).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "The distance-squared identity accepts a constant point as a parametrization; the PRT omits tracing/full-circle coverage. Count includes all actual nodes, not only the accepting node."
+        }
+      ]
+    },
+    {
+      "finding_id": "IL-04",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-0-13-(Two-linear-sim-eqns-worded).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "Each equation field accepts either true equation locally; the two equation PRTs together fail to require both distinct conditions. The separate solution PRT, where present, is not implicated."
+        },
+        {
+          "name": "prt2",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "Each equation field accepts either true equation locally; the two equation PRTs together fail to require both distinct conditions. The separate solution PRT, where present, is not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "IL-04",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-0-14-(Two-linear-sim-eqns-worded-2).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "Each equation field accepts either true equation locally; the two equation PRTs together fail to require both distinct conditions. The separate solution PRT, where present, is not implicated."
+        },
+        {
+          "name": "prt2",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "Each equation field accepts either true equation locally; the two equation PRTs together fail to require both distinct conditions. The separate solution PRT, where present, is not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "IL-04",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-0-3-(Encoding-info-in-simultaneous-equations).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "Each equation field accepts either true equation locally; the two equation PRTs together fail to require both distinct conditions. The separate solution PRT, where present, is not implicated."
+        },
+        {
+          "name": "prt2",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "Each equation field accepts either true equation locally; the two equation PRTs together fail to require both distinct conditions. The separate solution PRT, where present, is not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "IL-04",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-0-4-(Encoding-info-in-simultaneous-equations-2).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "Each equation field accepts either true equation locally; the two equation PRTs together fail to require both distinct conditions. The separate solution PRT, where present, is not implicated."
+        },
+        {
+          "name": "prt2",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "Each equation field accepts either true equation locally; the two equation PRTs together fail to require both distinct conditions. The separate solution PRT, where present, is not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "IL-04",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-0-5-(Encoding-info-in-simultaneous-equations-3).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "Each equation field accepts either true equation locally; the two equation PRTs together fail to require both distinct conditions. The separate solution PRT, where present, is not implicated."
+        },
+        {
+          "name": "prt2",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "Each equation field accepts either true equation locally; the two equation PRTs together fail to require both distinct conditions. The separate solution PRT, where present, is not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "IL-06",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-1-16-(One-cubic-one-linear-sim-eqn-).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "First graph-equation field accepts either true graph formula; prt1/prt2 together permit duplicating one formula."
+        },
+        {
+          "name": "prt2",
+          "node_count": 2,
+          "attribution": "joint",
+          "note": "Second graph-equation field accepts either true graph formula; prt1/prt2 together permit duplicating one formula."
+        },
+        {
+          "name": "prt3",
+          "node_count": 6,
+          "attribution": "direct",
+          "note": "Inside this single six-node PRT, the x-coordinate alternatives and y-coordinate alternatives are independently combined; a mixed nonintersection pair receives full credit."
+        }
+      ]
+    },
+    {
+      "finding_id": "IL-11",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-08---Arithmetic-and-geometric-sequences/8-0-18-(Give-examples-with-properties).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "The feedback-variable/form test extracts only constant and linear coefficients, then checks slope; higher-degree terms are ignored. prt4, which grades the impossible fourth subpart, is not implicated."
+        },
+        {
+          "name": "prt2",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "The feedback-variable/form test extracts only constant and linear coefficients, then checks slope; higher-degree terms are ignored. prt4, which grades the impossible fourth subpart, is not implicated."
+        },
+        {
+          "name": "prt3",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "The feedback-variable/form test extracts only constant and linear coefficients, then checks slope; higher-degree terms are ignored. prt4, which grades the impossible fourth subpart, is not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "IL-11",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-08---Arithmetic-and-geometric-sequences/PT-8-11-(Give-examples-with-properties).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "The feedback-variable/form test extracts only constant and linear coefficients, then checks slope; higher-degree terms are ignored. prt4, which grades the impossible fourth subpart, is not implicated."
+        },
+        {
+          "name": "prt2",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "The feedback-variable/form test extracts only constant and linear coefficients, then checks slope; higher-degree terms are ignored. prt4, which grades the impossible fourth subpart, is not implicated."
+        },
+        {
+          "name": "prt3",
+          "node_count": 3,
+          "attribution": "direct",
+          "note": "The feedback-variable/form test extracts only constant and linear coefficients, then checks slope; higher-degree terms are ignored. prt4, which grades the impossible fourth subpart, is not implicated."
+        }
+      ]
+    },
+    {
+      "finding_id": "IL-17",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/10-2-5-(ODE).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "On the documented allowed degenerate ODE draw, the quadratic coefficient is free, but this tree compares ans1 with the one generated coefficient ta1. The b and c trees remain valid and are excluded; generation failure is an additional cause."
+        }
+      ]
+    },
+    {
+      "finding_id": "IL-17",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/10-2-6-(ODE-2).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "On the documented allowed degenerate ODE draw, the quadratic coefficient is free, but this tree compares ans1 with the one generated coefficient ta1. The b and c trees remain valid and are excluded; generation failure is an additional cause."
+        }
+      ]
+    },
+    {
+      "finding_id": "IL-17",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/PT-10-10-(ODE).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 1,
+          "attribution": "direct",
+          "note": "On the documented allowed degenerate ODE draw, the quadratic coefficient is free, but this tree compares ans1 with the one generated coefficient ta1. The b and c trees remain valid and are excluded; generation failure is an additional cause."
+        }
+      ]
+    },
+    {
+      "finding_id": "IL-19",
+      "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/10-3-35-(Give-example-of-fn-with-nonneg-integral).xml",
+      "ordinal": 1,
+      "prts": [
+        {
+          "name": "prt1",
+          "node_count": 4,
+          "attribution": "direct",
+          "note": "The negative-value witness is tested without requiring its x-coordinate to lie in [0,1]. The full tree has four nodes; missing interval validation affects the accepting path."
+        }
+      ]
+    }
+  ]
+}
