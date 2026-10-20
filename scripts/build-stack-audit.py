@@ -12,6 +12,7 @@ from html.parser import HTMLParser
 import csv,hashlib,json,math,re,shutil,subprocess,tarfile
 import xml.etree.ElementTree as ET
 from stack_audit_statistics import export_statistics
+from prt_node_statistics import export_node_statistics
 ROOT=Path(__file__).resolve().parents[1]
 SRC=ROOT/"_stack-audit"
 SHA="33383047af39c204bf4442802a058f8b918b2b1b"
@@ -28,7 +29,7 @@ def inventory():
    if not entry.is_dir():
     p=entry.filename.split("/",1)[1]
     if p.startswith("samplequestions/") and p.endswith((".xml",".mbz")):files[p]=z.read(entry)
- records=[];backups=[];manifest=[];questions={}
+ records=[];backups=[];manifest=[];questions={};prt_inventory=[]
  for p,b in sorted(files.items()):
   digest=hashlib.sha256(b).hexdigest()
   manifest.append(dict(path=p,bytes=len(b),sha256=digest))
@@ -41,6 +42,9 @@ def inventory():
     if "/HELM/" in p:review="structural and compact-content screen; candidates checked in full source"
     records.append(dict(source_sha=SHA,path=p,ordinal=ordinal,name=text(q,"name/text"),type=kind,prt_count=len(q.findall("prt")) if kind=="stack" else 0,file_sha256=digest,review=review,native_stack_run="not run"))
     questions.setdefault(p,[]).append(q)
+    if kind=="stack":
+     for prt in q.findall("prt"):
+      prt_inventory.append(dict(path=p,ordinal=ordinal,prt=prt.findtext("name"),nodes=len(prt.findall("node"))))
   else:
    with tarfile.open(fileobj=BytesIO(b),mode="r:*") as tar:
     for member in tar.getmembers():
@@ -49,6 +53,9 @@ def inventory():
      for ordinal,q in enumerate(doc.findall(".//question"),1):
       kind=q.findtext("qtype",q.get("type","unknown"))
       backups.append(dict(source_sha=SHA,archive=p,member=member.name,ordinal=ordinal,question_id=q.get("id",""),name=q.findtext("name",""),type=kind,review="legacy compact screen or core duplicate; see archive method" if kind=="stack" else "inventory only; not exhaustively reviewed",native_stack_run="not run"))
+      if kind=="stack":
+       for prt in q.findall(".//stackprt"):
+        prt_inventory.append(dict(archive=p,ordinal=ordinal,prt=prt.findtext("name"),nodes=len(prt.findall("stackprtnodes/stackprtnode"))))
  assert len(records)==3895,len(records)
  assert sum(r["type"]=="stack" for r in records)==2599
  assert len(backups)==753,len(backups)
@@ -57,6 +64,7 @@ def inventory():
   w=csv.DictWriter(f,fieldnames=list(records[0]));w.writeheader();w.writerows(records)
  (data/"archive-coverage.json").write_text(json.dumps(backups,ensure_ascii=False,indent=2),encoding="utf8")
  (data/"source-manifest.json").write_text(json.dumps(dict(repository="maths/moodle-qtype_stack",commit=SHA,archive_url=URL,archive_sha256=hashlib.sha256(archive).hexdigest(),files=manifest),ensure_ascii=False,indent=2),encoding="utf8")
+ (data/"prt-inventory.json").write_text(json.dumps(prt_inventory,ensure_ascii=False,indent=2),encoding="utf8")
  counts=Counter(("/".join(r["path"].split("/")[2:3]) if "/stacklibrary/" in r["path"] else "Demos/import examples") for r in records)
  stack_counts=Counter(("/".join(r["path"].split("/")[2:3]) if "/stacklibrary/" in r["path"] else "Demos/import examples") for r in records if r["type"]=="stack")
  table="| Collection | Records | STACK records |\n|---|---:|---:|\n"
@@ -145,13 +153,16 @@ def verify():
 def main():
  q=inventory();w=witnesses(q);f=export_findings()
  stats=export_statistics(SRC,f)
+ node_stats=export_node_statistics(SRC,json.loads((SRC/"classifications.json").read_text(encoding="utf8")))
  subprocess.run(["quarto","render","-M",f"audit_findings:{len(f)}"],cwd=SRC,check=True)
  out=SRC/"_site";shutil.copytree(SRC/"data",out/"data",dirs_exist_ok=True)
  result=verify();result.update(source_sha=SHA,findings=len(f),standalone_records=3895,stack_records=2599,backup_records=753,arithmetic_checks=len(w["checks"]),xml_score_traces=len(w["score_traces"]),native_stack_runs=0)
  result.update(statistics_confirmed_findings=stats["finding_dispositions"]["confirmed"],incorrect_standalone_records=stats["standalone"]["incorrect"],undecided_standalone_records=stats["standalone"]["undecided"],confirmed_prt_findings=stats["prt"]["confirmed_grouped_findings"])
+ result.update(standalone_prts=node_stats["standalone_prts"],standalone_prt_nodes=node_stats["standalone_nodes"],directly_affected_standalone_prts=node_stats["standalone"]["direct_defects"],joint_only_standalone_prts=node_stats["standalone"]["joint_only"])
  (out/"data/build-validation.json").write_text(json.dumps(result,indent=2),encoding="utf8")
  target=ROOT/"_site"/"stack-audit"
  if target.exists():shutil.rmtree(target)
  shutil.copytree(out,target);print(json.dumps(result,indent=2))
 if __name__=="__main__":main()
+
 

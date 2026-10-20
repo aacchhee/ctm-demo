@@ -1,0 +1,2 @@
+# Exact plotting version used for the node-count figures.
+matplotlib==3.11.2
