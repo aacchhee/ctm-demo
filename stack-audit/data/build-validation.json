@@ -1,5 +1,5 @@
 {
-  "html_bytes": 353764,
+  "html_bytes": 366361,
   "local_link_errors": [],
   "validated_question_source_links": 285,
   "source_sha": "33383047af39c204bf4442802a058f8b918b2b1b",
@@ -9,5 +9,9 @@
   "backup_records": 753,
   "arithmetic_checks": 6,
   "xml_score_traces": 3,
-  "native_stack_runs": 0
+  "native_stack_runs": 0,
+  "statistics_confirmed_findings": 178,
+  "incorrect_standalone_records": 261,
+  "undecided_standalone_records": 3634,
+  "confirmed_prt_findings": 39
 }

@@ -70,7 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap-3c508df4e88cf44594e28143bcf93280.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/bootstrap/bootstrap-7e87bcf20ba77d48feeeb6cd8bca1af4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -113,7 +113,8 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul class="collapse">
-  <li><a href="#where-to-start" id="toc-where-to-start" class="nav-link active" data-scroll-target="#where-to-start">Where to start</a></li>
+  <li><a href="#overview-statistics" id="toc-overview-statistics" class="nav-link active" data-scroll-target="#overview-statistics">Overview statistics</a></li>
+  <li><a href="#where-to-start" id="toc-where-to-start" class="nav-link" data-scroll-target="#where-to-start">Where to start</a></li>
   <li><a href="#scope-and-review-method" id="toc-scope-and-review-method" class="nav-link" data-scroll-target="#scope-and-review-method">Scope and review method</a></li>
   <li><a href="#finding-index" id="toc-finding-index" class="nav-link" data-scroll-target="#finding-index">Finding index</a></li>
   <li><a href="#algebra-and-calculus-refreshers" id="toc-algebra-and-calculus-refreshers" class="nav-link" data-scroll-target="#algebra-and-calculus-refreshers">Algebra and calculus refreshers</a></li>
@@ -174,6 +175,482 @@ window.Quarto = {
 <p>This is a complete source inventory and broad static screen, followed by detailed source/mathematical review of candidate defects. Review depth varies by collection and is described below and in the sections. <strong>No Moodle/STACK/Maxima question executions were performed.</strong> A source-proven mismatch or mathematical counterexample is distinguished from a runtime-dependent candidate and a clarification about wording, domains or conventions. The absence of a finding is not a correctness certificate, exhaustive random-seed test, or claim that every diagram and legacy item has been deeply reviewed.</p>
 </div>
 </div>
+<section id="overview-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="overview-statistics">Overview statistics</h2>
+<p><strong>261 of 3,895 standalone records have at least one confirmed source defect. 0 have an explicit whole-record correct verdict; 3,634 remain undecided.</strong> These are distinct question records, including explanatory descriptions and other Moodle types. One grouped finding can affect several records; several findings can affect the same record.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="What these verdicts mean">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>What these verdicts mean
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Incorrect:</strong> at least one confirmed mathematical, formulation, generator, code or PRT defect in the pinned source. <strong>Correct:</strong> an explicit whole-record positive verdict. No such verdict was recorded, so zero correct does <strong>not</strong> mean that no questions are correct. <strong>Undecided:</strong> no confirmed defect is recorded; this includes unflagged records, clarification-only cases and runtime-dependent candidates. A clean static screen is not a correctness certificate. A defective definition may fail only for some allowed random draws or responses; these are not student-attempt failure counts. Native STACK/Maxima runs remain at zero.</p>
+</div>
+</div>
+<section id="question-packs-standalone-records" class="level3">
+<h3 class="anchored" data-anchor-id="question-packs-standalone-records">Question packs: standalone records</h3>
+<p>Packs follow the review partitions; the two refresher packs are separated. Categories are excluded. Counts include all question types.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Pack</th>
+<th>Records</th>
+<th>Incorrect</th>
+<th>Correct</th>
+<th>Undecided</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Algebra refresher</td>
+<td>148</td>
+<td>20</td>
+<td>0</td>
+<td>128</td>
+</tr>
+<tr class="even">
+<td>Calculus refresher</td>
+<td>213</td>
+<td>18</td>
+<td>0</td>
+<td>195</td>
+</tr>
+<tr class="odd">
+<td>Topics</td>
+<td>174</td>
+<td>10</td>
+<td>0</td>
+<td>164</td>
+</tr>
+<tr class="even">
+<td>Introductory Mathematics: weeks 1–3</td>
+<td>249</td>
+<td>39</td>
+<td>0</td>
+<td>210</td>
+</tr>
+<tr class="odd">
+<td>Introductory Mathematics: weeks 4–5</td>
+<td>217</td>
+<td>32</td>
+<td>0</td>
+<td>185</td>
+</tr>
+<tr class="even">
+<td>Introductory Mathematics: weeks 6–10</td>
+<td>551</td>
+<td>56</td>
+<td>0</td>
+<td>495</td>
+</tr>
+<tr class="odd">
+<td>HELM: chapters 1–13 and numerical Course</td>
+<td>1159</td>
+<td>30</td>
+<td>0</td>
+<td>1129</td>
+</tr>
+<tr class="even">
+<td>HELM: chapters 14–23</td>
+<td>524</td>
+<td>20</td>
+<td>0</td>
+<td>504</td>
+</tr>
+<tr class="odd">
+<td>HELM: chapters 25+</td>
+<td>494</td>
+<td>26</td>
+<td>0</td>
+<td>468</td>
+</tr>
+<tr class="even">
+<td>Demos, features, docs and templates</td>
+<td>166</td>
+<td>10</td>
+<td>0</td>
+<td>156</td>
+</tr>
+<tr class="odd">
+<td><strong>Total standalone</strong></td>
+<td>3895</td>
+<td>261</td>
+<td>0</td>
+<td>3634</td>
+</tr>
+</tbody>
+</table>
+<p>For <strong>STACK questions alone</strong>, the corresponding totals are <strong>2,599 records: 203 incorrect, 0 correct and 2,396 undecided</strong>. The per-record downloads identify question type, verdict and finding IDs.</p>
+<details>
+<summary>
+STACK-only verdicts by pack
+</summary>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Pack</th>
+<th>STACK records</th>
+<th>Incorrect</th>
+<th>Correct</th>
+<th>Undecided</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Algebra refresher</td>
+<td>148</td>
+<td>20</td>
+<td>0</td>
+<td>128</td>
+</tr>
+<tr class="even">
+<td>Calculus refresher</td>
+<td>213</td>
+<td>18</td>
+<td>0</td>
+<td>195</td>
+</tr>
+<tr class="odd">
+<td>Topics</td>
+<td>168</td>
+<td>10</td>
+<td>0</td>
+<td>158</td>
+</tr>
+<tr class="even">
+<td>Introductory Mathematics: weeks 1–3</td>
+<td>142</td>
+<td>24</td>
+<td>0</td>
+<td>118</td>
+</tr>
+<tr class="odd">
+<td>Introductory Mathematics: weeks 4–5</td>
+<td>139</td>
+<td>18</td>
+<td>0</td>
+<td>121</td>
+</tr>
+<tr class="even">
+<td>Introductory Mathematics: weeks 6–10</td>
+<td>398</td>
+<td>35</td>
+<td>0</td>
+<td>363</td>
+</tr>
+<tr class="odd">
+<td>HELM: chapters 1–13 and numerical Course</td>
+<td>706</td>
+<td>25</td>
+<td>0</td>
+<td>681</td>
+</tr>
+<tr class="even">
+<td>HELM: chapters 14–23</td>
+<td>279</td>
+<td>18</td>
+<td>0</td>
+<td>261</td>
+</tr>
+<tr class="odd">
+<td>HELM: chapters 25+</td>
+<td>246</td>
+<td>25</td>
+<td>0</td>
+<td>221</td>
+</tr>
+<tr class="even">
+<td>Demos, features, docs and templates</td>
+<td>160</td>
+<td>10</td>
+<td>0</td>
+<td>150</td>
+</tr>
+<tr class="odd">
+<td><strong>Total STACK</strong></td>
+<td>2599</td>
+<td>203</td>
+<td>0</td>
+<td>2396</td>
+</tr>
+</tbody>
+</table>
+</details>
+</section>
+<section id="backup-packs-and-overall-total" class="level3">
+<h3 class="anchored" data-anchor-id="backup-packs-and-overall-total">Backup packs and overall total</h3>
+<p>These counts use the six explicitly identified legacy records. Defects are not automatically propagated to core-field duplicates. Backups include copies of standalone questions.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Pack</th>
+<th>Occurrences</th>
+<th>Incorrect</th>
+<th>Correct</th>
+<th>Undecided</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>STACK-demo.mbz</td>
+<td>736</td>
+<td>6</td>
+<td>0</td>
+<td>730</td>
+</tr>
+<tr class="even">
+<td>STACK-reveal-test.mbz</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>STACK-syntax-quiz.mbz</td>
+<td>14</td>
+<td>0</td>
+<td>0</td>
+<td>14</td>
+</tr>
+<tr class="even">
+<td>variant_matching.mbz</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td><strong>Total backup occurrences</strong></td>
+<td>753</td>
+<td>6</td>
+<td>0</td>
+<td>747</td>
+</tr>
+<tr class="even">
+<td><strong>Overall, including copies</strong></td>
+<td>4648</td>
+<td>267</td>
+<td>0</td>
+<td>4381</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>188 grouped findings</strong> comprise <strong>178 confirmed</strong>, <strong>6 clarifications</strong> and <strong>4 runtime-dependent candidates</strong>. Only confirmed findings enter the incorrect counts below.</p>
+</section>
+<section id="confirmed-errors-by-class" class="level3">
+<h3 class="anchored" data-anchor-id="confirmed-errors-by-class">Confirmed errors by class</h3>
+<p>Classes are <strong>multi-label</strong>: totals across rows must not be added. Record counts are deduplicated within each class. Worked text is separated from mathematical targets and PRT logic.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Error class</th>
+<th>Grouped findings</th>
+<th>Standalone records</th>
+<th>Backup occurrences</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Wrong mathematical target/result</td>
+<td>55</td>
+<td>66</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Incorrect worked mathematics</td>
+<td>54</td>
+<td>106</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Invalid random instance</td>
+<td>34</td>
+<td>56</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Prompt/data/key mismatch</td>
+<td>23</td>
+<td>29</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Domain/completeness/instruction defect</td>
+<td>20</td>
+<td>21</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>PRT grading logic</td>
+<td>39</td>
+<td>55</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>CAS syntax/name/evaluation defect</td>
+<td>5</td>
+<td>5</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="prt-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="prt-statistics">Are PRTs especially error-prone?</h3>
+<p><strong>39 confirmed grouped findings concern PRT logic</strong>, affecting <strong>55 standalone STACK records</strong> and <strong>3 explicitly identified backup occurrences</strong>. Among the <strong>2,585 standalone STACK records containing a PRT definition</strong>, the observed affected fraction is <strong>2.1%</strong>. Among the <strong>203 standalone STACK records with any confirmed defect</strong>, <strong>27.1%</strong> have a confirmed PRT logic defect. These are question-level counts, not counts of faulty trees or nodes.</p>
+<p><strong>The audit demonstrates recurring PRT failure mechanisms, but does not establish that PRTs are more error-prone than other components.</strong> The screen was not a uniform, exhaustive component-by-component review, and no representative native test campaign was run. Wrong ordinary model answers, invalid random instances and incorrect MCQ keys are not relabelled as PRT logic errors merely because they affect grading. A fair comparison needs matched questions, explicit review of each component, comparable testing and independently checked positive cases. The <strong>2.1%</strong> is an observed lower bound on the fraction of eligible standalone records affected by PRT defects, not an estimate of the true error rate. The <strong>27.1%</strong> is a descriptive share among currently identified incorrect STACK records; it can move in either direction as additional defects are found.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pack</th>
+<th>STACK with PRT</th>
+<th>Confirmed PRT-affected</th>
+<th>STACK with any confirmed defect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Algebra refresher</td>
+<td>148</td>
+<td>1</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td>Calculus refresher</td>
+<td>213</td>
+<td>3</td>
+<td>18</td>
+</tr>
+<tr class="odd">
+<td>Topics</td>
+<td>168</td>
+<td>8</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>Introductory Mathematics: weeks 1–3</td>
+<td>141</td>
+<td>12</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td>Introductory Mathematics: weeks 4–5</td>
+<td>139</td>
+<td>2</td>
+<td>18</td>
+</tr>
+<tr class="even">
+<td>Introductory Mathematics: weeks 6–10</td>
+<td>395</td>
+<td>15</td>
+<td>35</td>
+</tr>
+<tr class="odd">
+<td>HELM: chapters 1–13 and numerical Course</td>
+<td>704</td>
+<td>4</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td>HELM: chapters 14–23</td>
+<td>279</td>
+<td>5</td>
+<td>18</td>
+</tr>
+<tr class="odd">
+<td>HELM: chapters 25+</td>
+<td>245</td>
+<td>3</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td>Demos, features, docs and templates</td>
+<td>153</td>
+<td>2</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>PRT classes also overlap. The table counts confirmed mechanisms only; runtime-dependent inversion behaviour in HL-14 is excluded from the PRT numerator.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>PRT error class</th>
+<th>Grouped findings</th>
+<th>Standalone records</th>
+<th>Backup occurrences</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Wrong input or test operand</td>
+<td>6</td>
+<td>6</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Routing or scoring</td>
+<td>8</td>
+<td>13</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Missing mathematical condition</td>
+<td>7</td>
+<td>7</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Joint-answer/set handling</td>
+<td>6</td>
+<td>10</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Answer-test or form restriction</td>
+<td>8</td>
+<td>17</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Incorrect full-credit alternative</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Insufficient property heuristic</td>
+<td>4</td>
+<td>6</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>Download the <a href="data/statistics.json">statistics and definitions</a>, <a href="data/classifications.json">explicit finding-to-record classifications</a>, <a href="data/coverage.csv">standalone verdict ledger</a> and <a href="data/archive-coverage.json">backup verdict ledger</a>. Class definitions and exact contributing finding IDs are included in the statistics JSON; classifications are editorial coding of the existing evidence, not additional native runs.</p>
+</section>
+</section>
 <section id="where-to-start" class="level2">
 <h2 class="anchored" data-anchor-id="where-to-start">Where to start</h2>
 <p>The highest-impact repairs concern correctness gates and targets: <a href="#ar-01">AR-01</a> (equivalence bypass), <a href="#ar-02">AR-02</a> (completed-square sign), <a href="#top-01">TOP-01</a> (circle target), <a href="#top-02">TOP-02</a> (ODE initial conditions without residual), <a href="#top-03">TOP-03</a> (orthogonal diagonalisation), <a href="#gen-01">GEN-01</a> (matrix shape/product), <a href="#gen-02">GEN-02</a> (unchecked reason credit), <a href="#he1-01">HE1-01</a> (self-comparison), and <a href="#arc-01">ARC-01</a> (diameter/radius).</p>
@@ -1958,7 +2435,7 @@ window.Quarto = {
 </section>
 <section id="il-08" class="level3">
 <h3 class="anchored" data-anchor-id="il-08">IL-08 — Incompatible matrix products have no none-answer branch</h3>
-<p><strong>Priority:</strong> High. <strong>Status:</strong> source-confirmed mathematical or PRT defect; native execution remains proposed.</p>
+<p><strong>Priority:</strong> High. <strong>Status:</strong> source-level model-branch mismatch; native initialization effect remains an undecided runtime-dependent candidate.</p>
 <p><strong>Source:</strong> <a href="https://github.com/maths/moodle-qtype_stack/blob/33383047af39c204bf4442802a058f8b918b2b1b/samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-3-18-(Multiplying-matrices).xml">7-3-18-(Multiplying-matrices).xml</a>.</p>
 <p><strong>What is wrong:</strong> The prompt says to enter none when multiplication is impossible, but mat1 and mat2 are sampled independently and ta1 is set to mat1.mat2 unconditionally.</p>
 <p><strong>Witness:</strong> Choose aa, a 4×3 matrix, for both operands. The product 4×3 times 4×3 is undefined. No branch sets the promised model answer none. Actual Maxima initialization behavior has not been run.</p>
