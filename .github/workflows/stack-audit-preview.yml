@@ -1,0 +1,53 @@
+name: Publish STACK audit preview
+on:
+  push:
+    branches: [stack-question-audit]
+    paths:
+      - '_stack-audit/**'
+      - 'scripts/build-stack-audit.py'
+      - '.github/workflows/stack-audit-preview.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: stack-audit-preview
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: '1.8.27'
+      - name: Build and validate the standalone report
+        run: python scripts/build-stack-audit.py
+      - name: Preserve rendered report and validation
+        uses: actions/upload-artifact@v4
+        with:
+          name: stack-audit-report
+          path: _stack-audit/_site
+  publish:
+    if: github.ref == 'refs/heads/stack-question-audit'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download rendered report
+        uses: actions/download-artifact@v4
+        with:
+          name: stack-audit-report
+          path: report
+      - name: Publish report without replacing other CTM demo pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./report
+          destination_dir: stack-audit
+          publish_branch: gh-pages
+          keep_files: true
+

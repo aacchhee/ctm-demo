@@ -66,3 +66,20 @@ SHAs in a `CTM-Review-Refs: {"ai-feedback":"<40-character SHA>"}` commit trailer
 The visibly named workflow step prints those refs; the umbrella records them in
 `resolved-repos.json`. Main ignores review trailers. Merge upstream changes
 first, then rerun consumers with default dependencies before merging them.
+
+## Public STACK question audit
+
+Maintainer report: <https://aacchhee.github.io/ctm-demo/stack-audit/>.
+The standalone project in `_stack-audit/` records mathematics and PRT findings,
+counterexamples, proposed repairs and regression cases against a pinned upstream
+commit. Downloads include a reproducible question inventory and source hashes.
+
+Run `python scripts/build-stack-audit.py` after rendering the main site.
+It uses Quarto and Python's standard library, fetches the pinned public upstream
+archive, verifies inventory totals and selected witnesses, and copies the report
+to `_site/stack-audit/`. It does not execute STACK/Maxima grading.
+
+The audit branch also has a scoped preview workflow that publishes only this
+report, preserving the other CTM demo pages. Main's normal build preserves the
+report through the same build script after this change is merged.
+

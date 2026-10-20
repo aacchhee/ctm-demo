@@ -1,0 +1,103 @@
+---
+title: "Public STACK question bank: mathematics and PRT audit"
+subtitle: "Pinned evidence, counterexamples, proposed repairs and regression cases"
+date: 2026-10-20
+lang: en
+---
+
+This report is for STACK question-bank maintainers. Six parallel workers and a coordinating reviewer screened the public question collection shipped in [maths/moodle-qtype_stack at commit 33383047af39c204bf4442802a058f8b918b2b1b](https://github.com/maths/moodle-qtype_stack/tree/33383047af39c204bf4442802a058f8b918b2b1b). The scope includes standalone question XML, explanatory items and the four Moodle backup archives. Questions hosted elsewhere and other upstream branches are outside this snapshot.
+
+The report contains **{{< meta audit_findings >}} grouped findings** about mathematics, random generators, model answers, potential response trees (PRTs), and feedback. Several source paths give credit to mathematically wrong responses; others reject valid answers or present false identities. One finding may cover several related files.
+
+::: {.callout-note title="Evidence and limits"}
+This is a complete source inventory and broad static screen, followed by detailed source/mathematical review of candidate defects. Review depth varies by collection and is described below and in the sections. **No Moodle/STACK/Maxima question executions were performed.** A source-proven mismatch or mathematical counterexample is distinguished from a runtime-dependent candidate and a clarification about wording, domains or conventions. The absence of a finding is not a correctness certificate, exhaustive random-seed test, or claim that every diagram and legacy item has been deeply reviewed.
+:::
+
+## Where to start
+
+The highest-impact repairs concern correctness gates and targets: [AR-01](#ar-01) (equivalence bypass), [AR-02](#ar-02) (completed-square sign), [TOP-01](#top-01) (circle target), [TOP-02](#top-02) (ODE initial conditions without residual), [TOP-03](#top-03) (orthogonal diagonalisation), [GEN-01](#gen-01) (matrix shape/product), [GEN-02](#gen-02) (unchecked reason credit), [HE1-01](#he1-01) (self-comparison), and [ARC-01](#arc-01) (diameter/radius).
+
+For each repair, add an incorrect response that currently passes, a correct response that must pass, and a valid alternative representation. A PRT receiving full credit does not imply that every independent part of its question receives full credit. Parameter tuples in counterexamples are allowed generator assignments, **not recorded Moodle seed numbers** unless expressly stated.
+
+## Scope and review method
+
+The standalone XML contains **3,895 non-category question records**, including **2,599 STACK records**, 1,198 descriptions and 98 other Moodle question types. Multiple questions in one XML file are counted separately; category files are in the manifest but excluded from question counts.
+
+{{< include _scope-table.md >}}
+
+The four backups contain **753 record occurrences**, including **682 STACK records**. During backup review, 485 STACK occurrences matched the canonical core of a standalone definition (prompt, variables and PRT fields); 197 were additional or changed legacy records screened separately. Name equality alone was not treated as content equality. The 71 non-STACK backup records were inventoried but not exhaustively mathematically reviewed. Copies and archive occurrences are not distinct new question designs.
+
+The refreshers and Topics received source review of prompts, variables, targets and PRTs. Introductory Mathematics and HELM received collection-wide compact-content/structural screening, with full-source checks of candidate defects; long text and embedded figures did not all receive the same depth. Descriptions and non-STACK mathematical content were also screened in the active collections. Each section states its actual scope and remaining limitations.
+
+Technical UI demonstrations, deliberately permissive binding examples, manual-marking proof fields and intentionally broken Behat fixtures were not counted as accidental grading defects merely because they lack conventional automatic marking. Figures, external Meclib dependencies and interactive failure paths still need native rendering. The report covers question content, not a general audit of STACK software or its CAS.
+
+Download:
+
+- [Per-question source and review ledger (CSV)](data/coverage.csv)
+- [Backup inventory and review ledger (JSON)](data/archive-coverage.json)
+- [Pinned source manifest and SHA-256 hashes](data/source-manifest.json)
+- [Structured findings](data/findings.json)
+- [Executed independent arithmetic and XML score-trace checks](data/witnesses.json)
+
+The ledgers are regenerated from the pinned upstream archive on each report build. They identify the snapshot, files, record ordinals, types, review level and the fact that native grading was not run.
+
+### Verification performed
+
+Selected witnesses were independently checked with Python and, during source review, SymPy 1.14.0. The downloadable build checks use Python's standard library and reproduce selected arithmetic and three XML score traces. The traces use supplied, mathematically justified node truth values: they test the actual graph root, transitions and score fields, **not native answer tests or input validation**.
+
+PRT entry-node semantics were checked against [questiontype.php](https://github.com/maths/moodle-qtype_stack/blob/33383047af39c204bf4442802a058f8b918b2b1b/questiontype.php#L359), which derives the root from the graph. Candidates based on assuming node 0 always runs first were withdrawn. Independent re-review also removed apparent cross-product sign errors after following the full PRT paths, and downgraded convention-dependent or real-domain-dependent claims to clarifications.
+
+To reproduce the inventory, selected checks and report:
+
+~~~bash
+python scripts/build-stack-audit.py
+~~~
+
+Run this from the ctm-demo source checkout with Quarto installed. It downloads the pinned public source, asserts inventory totals, executes selected independent checks, renders the report and checks local links. It does not install or run Moodle/STACK/Maxima.
+
+## Finding index
+
+Each entry gives what is wrong, a concrete witness, a proposed repair and regression cases to add. **Proposed regression cases are not reported as executed native question tests.** Consult each entry's status before filing it upstream.
+
+{{< include _finding-index.md >}}
+
+{{< include sections/refreshers.md >}}
+
+{{< include sections/topics.md >}}
+
+{{< include sections/intro-weeks1-3.md >}}
+
+{{< include sections/intro-early.md >}}
+
+{{< include sections/intro-later.md >}}
+
+{{< include sections/helm-early.md >}}
+
+{{< include sections/helm-later.md >}}
+
+{{< include sections/helm-chapters25plus.md >}}
+
+{{< include sections/general.md >}}
+
+{{< include sections/archives.md >}}
+
+## Repairs that help across the collection
+
+- Make every correctness requirement necessary on the full-credit path. Shape, independence, nonzero-vector, domain and feasibility checks should not merely issue feedback while leaving credit intact.
+- Check the mathematical object requested: an ODE residual as well as initial data; an orthonormal eigenbasis rather than a congruence identity alone; independent directions rather than two parameter names; paired points rather than separately acceptable coordinates.
+- Derive prompts, targets and feedback from the same randomized definitions. Add generator invariants for nonzero denominators, nonsingular matrices, distinct factors, consistent equations, real domains and convergent infinite sums.
+- Grade nonunique answers by mathematical properties. State required presentation forms explicitly and distinguish them from mathematical correctness.
+- Exercise wrong-answer and feedback-failure paths. Tests accepting only the model cannot expose a permissive tree; tests encoding the same wrong key must be corrected too.
+
+## Runs needed
+
+1. Import affected questions and backup records into a supported STACK/Maxima environment at the pinned source commit. Record Moodle, STACK and Maxima versions and import diagnostics.
+2. Turn each grading counterexample into a native question test. Check validation, PRT answer notes, per-tree scores and total question scores. Independent score traces do not replace this.
+3. Bind witness parameter tuples to recorded seeds or deterministic fixtures. Sweep boundaries, singular draws, coincident factors and domain restrictions; the examples here are not an exhaustive seed search.
+4. Run original tests and proposed positive, negative and alternative-answer regressions after repair. Confirm intended partial credit and update tests that encode a defect.
+5. Confirm runtime-dependent candidates before describing their effect as observed. Check variable scope, division-by-zero handling, diagnostic evaluation and browser interactions.
+6. Render interactive examples and inspect figures and manual-marking fields. Pin external Meclib code: the STACK commit alone does not freeze moving external URLs.
+7. Extend deep review of unflagged long descriptions, other Moodle question types and legacy backup records beyond the screening depth recorded here.
+
+This report proposes changes to upstream question content; it does not modify the STACK question bank. It was prepared with AI-assisted parallel source review and independent checks of selected witnesses. Maintainers should use the pinned evidence and native regression cases when deciding and implementing repairs.
+

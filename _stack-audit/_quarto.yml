@@ -1,0 +1,13 @@
+project:
+  type: default
+  output-dir: _site
+  render:
+    - index.qmd
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 2
+    code-overflow: wrap
+    css: style.css
+

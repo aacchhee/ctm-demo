@@ -17,7 +17,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
     steps:
       - uses: actions/checkout@v6
         with:
@@ -41,14 +41,33 @@ jobs:
         run: quarto render
       - name: Build the temporary JSXGraph reproduction (old commits)
         run: scripts/build-jsxgraph-repro.sh
+      - name: Build the standalone STACK question audit
+        run: python scripts/build-stack-audit.py
       - name: Render optional STACK review
         run: quarto render --profile review
       - name: Verify generated STACK variants
         run: python scripts/check-stack-variants.py
+      - name: Save rendered website
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctm-demo-site
+          path: _site
+  publish:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download the read-only build output
+        uses: actions/download-artifact@v4
+        with:
+          name: ctm-demo-site
+          path: _site
       - name: Publish to gh-pages
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
           publish_branch: gh-pages
+
