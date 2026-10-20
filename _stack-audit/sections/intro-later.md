@@ -106,7 +106,7 @@
 
 ### IL-08 — Incompatible matrix products have no none-answer branch {#il-08}
 
-**Priority:** High. **Status:** source-confirmed mathematical or PRT defect; native execution remains proposed.
+**Priority:** High. **Status:** source-level model-branch mismatch; native initialization effect remains an undecided runtime-dependent candidate.
 
 **Source:** [7-3-18-(Multiplying-matrices).xml](<https://github.com/maths/moodle-qtype_stack/blob/33383047af39c204bf4442802a058f8b918b2b1b/samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-3-18-(Multiplying-matrices).xml>).
 

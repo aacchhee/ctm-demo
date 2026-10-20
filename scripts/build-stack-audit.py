@@ -11,6 +11,7 @@ from zipfile import ZipFile
 from html.parser import HTMLParser
 import csv,hashlib,json,math,re,shutil,subprocess,tarfile
 import xml.etree.ElementTree as ET
+from stack_audit_statistics import export_statistics
 ROOT=Path(__file__).resolve().parents[1]
 SRC=ROOT/"_stack-audit"
 SHA="33383047af39c204bf4442802a058f8b918b2b1b"
@@ -38,7 +39,7 @@ def inventory():
     review="static source screen; candidate details in report"
     if kind!="stack":review="content-summary screen; no native grading or figure validation"
     if "/HELM/" in p:review="structural and compact-content screen; candidates checked in full source"
-    records.append(dict(source_sha=SHA,path=p,ordinal=ordinal,name=text(q,"name/text"),type=kind,file_sha256=digest,review=review,native_stack_run="not run"))
+    records.append(dict(source_sha=SHA,path=p,ordinal=ordinal,name=text(q,"name/text"),type=kind,prt_count=len(q.findall("prt")) if kind=="stack" else 0,file_sha256=digest,review=review,native_stack_run="not run"))
     questions.setdefault(p,[]).append(q)
   else:
    with tarfile.open(fileobj=BytesIO(b),mode="r:*") as tar:
@@ -143,9 +144,11 @@ def verify():
  return dict(html_bytes=(out/"index.html").stat().st_size,local_link_errors=errors,validated_question_source_links=source_links)
 def main():
  q=inventory();w=witnesses(q);f=export_findings()
+ stats=export_statistics(SRC,f)
  subprocess.run(["quarto","render","-M",f"audit_findings:{len(f)}"],cwd=SRC,check=True)
  out=SRC/"_site";shutil.copytree(SRC/"data",out/"data",dirs_exist_ok=True)
  result=verify();result.update(source_sha=SHA,findings=len(f),standalone_records=3895,stack_records=2599,backup_records=753,arithmetic_checks=len(w["checks"]),xml_score_traces=len(w["score_traces"]),native_stack_runs=0)
+ result.update(statistics_confirmed_findings=stats["finding_dispositions"]["confirmed"],incorrect_standalone_records=stats["standalone"]["incorrect"],undecided_standalone_records=stats["standalone"]["undecided"],confirmed_prt_findings=stats["prt"]["confirmed_grouped_findings"])
  (out/"data/build-validation.json").write_text(json.dumps(result,indent=2),encoding="utf8")
  target=ROOT/"_site"/"stack-audit"
  if target.exists():shutil.rmtree(target)
