@@ -41,6 +41,8 @@ jobs:
         run: quarto render
       - name: Build the temporary JSXGraph reproduction (old commits)
         run: scripts/build-jsxgraph-repro.sh
+      - name: Test STACK audit statistics
+        run: python scripts/test-stack-audit-statistics.py
       - name: Build the standalone STACK question audit
         run: python scripts/build-stack-audit.py
       - name: Render optional STACK review

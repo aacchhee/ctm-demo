@@ -13,4 +13,7 @@ __pycache__/
 /_stack-audit/_site/
 /_stack-audit/.quarto/
 /_stack-audit/data/
+/_stack-audit/_scope-table.md
+/_stack-audit/_finding-index.md
+/_stack-audit/_statistics.md
 

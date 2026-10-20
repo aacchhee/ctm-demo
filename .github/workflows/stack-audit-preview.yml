@@ -5,6 +5,8 @@ on:
     paths:
       - '_stack-audit/**'
       - 'scripts/build-stack-audit.py'
+      - 'scripts/stack_audit_statistics.py'
+      - 'scripts/test-stack-audit-statistics.py'
       - '.github/workflows/stack-audit-preview.yml'
   workflow_dispatch:
 permissions:
@@ -23,6 +25,8 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: '1.8.27'
+      - name: Test record-level statistics
+        run: python scripts/test-stack-audit-statistics.py
       - name: Build and validate the standalone report
         run: python scripts/build-stack-audit.py
       - name: Preserve rendered report and validation

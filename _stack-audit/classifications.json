@@ -1,0 +1,3169 @@
+{
+  "schema_version": 1,
+  "source_sha": "33383047af39c204bf4442802a058f8b918b2b1b",
+  "method": "Editorial multi-label classification of the existing static findings. Confirmed findings mark explicitly referenced records incorrect. No implicit positive verdict and no propagation to backup core duplicates. Ordinary wrong model keys alone do not establish PRT logic defects.",
+  "correct_records": [],
+  "findings": [
+    {
+      "id": "AR-01",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "routing_scoring"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/14-Algebraic-fractions-involving-factorising/AlgMap-14-4.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "AR-02",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/15-Quadratic-equations/AlgMap-15-8.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "AR-03",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/09-Linear-equations/AlgMap-9-5.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "AR-04",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/12-Simultaneous-linear-equations/AlgMap-12-1.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "AR-05",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/Partial-Fractions/Diagnostic_ALG-SPF_2.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "AR-06",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/01-Combinations-of-arithmetic-operations/AlgMap-1-5.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/06-Simplifying-algebraic-expressions/AlgMap-6-4.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "AR-07",
+      "disposition": "confirmed",
+      "classes": [
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/06-Simplifying-algebraic-expressions/AlgMap-6-5.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "AR-08",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/02-Factorisation-of-whole-numbers/AlgMap-2-4.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "AR-09",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/08-Algebraic-fractions/AlgMap-8-23.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "AR-10",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/13-Factorising-algebraic-expressions/AlgMap-13-13.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/15-Quadratic-equations/AlgMap-15-2.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/15-Quadratic-equations/AlgMap-15-3.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/15-Quadratic-equations/AlgMap-15-4.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/15-Quadratic-equations/AlgMap-15-5.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/15-Quadratic-equations/AlgMap-15-7.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/15-Quadratic-equations/AlgMap-15-8.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "AR-11",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/07-Removing-brackets/AlgMap-7-8.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/09-Linear-equations/AlgMap-9-3.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/Partial-Fractions/Diagnostic_ALG-IPF_1.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Algebra-Refresher/Partial-Fractions/Diagnostic_ALG-IPF_2.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "ARC-01",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "archive": "samplequestions/STACK-demo.mbz",
+          "ordinal": 140
+        }
+      ]
+    },
+    {
+      "id": "ARC-02",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY",
+        "GENERATION",
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "archive": "samplequestions/STACK-demo.mbz",
+          "ordinal": 145
+        }
+      ]
+    },
+    {
+      "id": "ARC-03",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY",
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "archive": "samplequestions/STACK-demo.mbz",
+          "ordinal": 486
+        }
+      ]
+    },
+    {
+      "id": "ARC-04",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "missing_condition"
+      ],
+      "records": [
+        {
+          "archive": "samplequestions/STACK-demo.mbz",
+          "ordinal": 691
+        }
+      ]
+    },
+    {
+      "id": "ARC-05",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "sampled_property"
+      ],
+      "records": [
+        {
+          "archive": "samplequestions/STACK-demo.mbz",
+          "ordinal": 709
+        }
+      ]
+    },
+    {
+      "id": "ARC-06",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "sampled_property"
+      ],
+      "records": [
+        {
+          "archive": "samplequestions/STACK-demo.mbz",
+          "ordinal": 701
+        }
+      ]
+    },
+    {
+      "id": "CR-01",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT",
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Diff_07/CR-Diff-07-implicit-2-e.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "CR-02",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "answer_test"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Int_11/CR-Int-11-linearity-3-e.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Int_11/CR-Int-11-linearity-3-f.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Int_17/CR-Int-17-misc-12.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "CR-03",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Int_17/CR-Int-17-misc-11.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "CR-04",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Diff_07/CR-Diff-07-implicit-1-b.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "CR-05",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Diff_02/CR-Diff-02-linearity-1-d.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Diff_02/CR-Diff-02-linearity-2-d.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Int_10/CR-Int-10-basic-2-c.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Int_10/CR-Int-10-basic-2-l.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Int_11/CR-Int-11-linearity-1-c.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Int_11/CR-Int-11-linearity-2-l.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "CR-06",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Int_15/CR-Int-15-partialfrac-5.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Int_15/CR-Int-15-partialfrac-10.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "CR-07",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Int_13/CR-Int-13-parts-4-a.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "CR-08",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Diff_09/CR-Diff-09-misc-2-b.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Diff_09/CR-Diff-09-misc-2-c.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Diff_09/CR-Diff-09-misc-3-d.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "CR-09",
+      "disposition": "runtime_candidate",
+      "classes": [
+        "SOURCE_CODE"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Calculus-Refresher/CR_Int_12/CR-Int-12-definite-1-f.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "GEN-01",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "routing_scoring"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Features/input-type-sample-questions/Matrix_varmatrix.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "GEN-02",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "routing_scoring"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Doc-Examples/Specialist-Tools-Docs/Free-text-input/Free-text_with_regex.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "GEN-03",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT",
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Doc-Examples/Specialist-Tools-Docs/Free-text-input/Free-text_manually_graded_with_equiv.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "GEN-04",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Features/input-type-sample-questions/Free-text_final_answer.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "GEN-05",
+      "disposition": "confirmed",
+      "classes": [
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stackdemo/60_logic.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "GEN-06",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT",
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Syntax_practice/Syntax-Logarithms.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "GEN-07",
+      "disposition": "confirmed",
+      "classes": [
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Features/input-type-sample-questions/Units.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "GEN-08",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Doc-Examples/Specialist-Tools-Docs/ParsonsProof/Parsons-3-builder.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "GEN-09",
+      "disposition": "confirmed",
+      "classes": [
+        "SOURCE_CODE"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Doc-Examples/Specialist-Tools-Docs/ParsonsProof/Parsons-4-DAG-Proof.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "GEN-10",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Doc-Examples/Specialist-Tools-Docs/JSXgraphs/JSXGraph-examples/Conics-and-Polar-Coordinates/Ellipse_polar_form-ellipsis_vertices.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "GEN-11",
+      "disposition": "runtime_candidate",
+      "classes": [
+        "SOURCE_CODE"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Doc-Examples/Specialist-Tools-Docs/JSXgraphs/Author_quickstart_Line_parallel_to_graph.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-01",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY",
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_25_1-partial-differential-equations/top/Default-for-25-1/25-1-1-5-Auxiliary-equation-Exercise-2.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-02",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION",
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_25_1-partial-differential-equations/top/Default-for-25-1/25-1-2-2-PDE-Solution-Testing.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-03",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_25_4-solution-using-fourier-series/top/Default-for-25-4/25-4-1-7.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-04",
+      "disposition": "clarification",
+      "classes": [
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_27_4-changing-coordinates/top/Default-for-27-4/27-4-2-4-Task-Transformation.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-05",
+      "disposition": "confirmed",
+      "classes": [
+        "PROMPT_KEY",
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_27_4-changing-coordinates/top/Default-for-27-4/27-4-3-4-jacobian-transformation-task.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-06",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION",
+        "PROMPT_KEY",
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_27_4-changing-coordinates/top/Default-for-27-4/27-4-4-2-Integral-over-Cone.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-07",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_28_1-background-to-vector-calculus/top/Default-for-28-1/28-1-2-6-Unknown-scalar-in-vector-calculus-equation.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-08",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_28_2-differential-vector-calculus/top/Default-for-28-2/28-2-6-21-task-on-various-vector-field-calculations.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-09",
+      "disposition": "confirmed",
+      "classes": [
+        "SOURCE_CODE"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_28_2-differential-vector-calculus/top/Default-for-28-2/28-2-3-15-Curl-of-3-d-vector-fields.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-10",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_28_3-orthogonal-curvilinear-coordinates/top/Default-for-28-3/28-3-3-6-div-in-cylindrical-polar-coordinates.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-11",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_28_3-orthogonal-curvilinear-coordinates/top/Default-for-28-3/28-3-4-11-spherical-polar-coordinates-grad-questions.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-12",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_28_3-orthogonal-curvilinear-coordinates/top/Default-for-28-3/28-3-4-12-Spherical-polar-coordinates-div-and-curl-first-exercise.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-13",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION",
+        "PROMPT_KEY",
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_29_1-line-integrals-involving-vectors/top/Default-for-29-1/29-1-1-3-line-integral-with-constant-scalar-field.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-14",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_29_1-line-integrals-involving-vectors/top/Default-for-29-1/29-1-2-12-line-integrals-of-grad-and-curl-of-a-field.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-15",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_29_3-integral-vector-theorems/top/Default-for-29-3/29-3-2-4-Gauss-Theorem-for-a-cuboid.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-16",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION",
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_35_3-addition-and-multiplication-laws-of-probability/top/Default-for-35-3/35-3-1-5-Circuits-using-probability.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-17",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_37_2-the-binomial-distribution/top/Default-for-37-2/37-2-3-10-A-machine-is-built-to-make-mass-produced-items.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-18",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY",
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "wrong_alternative"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_43_1-regression/top/Default-for-43-1/43-1-2-6-predict-elasticity.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-19",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_43_2-correlation/top/Default-for-43-2/43-2-1-2-Pearson-r.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-20",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION",
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_43_2-correlation/top/Default-for-43-2/43-2-1-3-Spearman-R.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-21",
+      "disposition": "confirmed",
+      "classes": [
+        "DOMAIN_WORDING",
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "answer_test"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_28_2-differential-vector-calculus/top/Default-for-28-2/28-2-1-6-unit-vector-normal-to-sphere.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-22",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY",
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "wrong_alternative"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_28_2-differential-vector-calculus/top/Default-for-28-2/28-2-1-7-Angle-between-curves-by-normal-vector.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-23",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION",
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_27_3-volume-integrals/top/Default-for-27-3/27-3-4-9-Quarter-Cylinder-MoI-and-CoM-exercise.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_27_3-volume-integrals/top/Default-for-27-3/27-3-2-11-volume-of-quarter-cylinder-exercise.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-24",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_29_1-line-integrals-involving-vectors/top/Default-for-29-1/29-1-4-20-vector-line-integral-exercise.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-25",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_29_2-surface-and-volume-integrals/top/Default-for-29-2/29-2-1-3-triangle-surface-integral.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "H25-26",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_37_3-the-poisson-distribution/top/Default-for-37-3/(not-in-quiz)-37-3-3-7-The-Poisson-Process-Machine-breakdowns.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-01",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "binding_target"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_4_1-right---angled-triangles/top/Default-for-4-1/4-1-1-6-Task-sin,-cos,-tan-using-calculator.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-02",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY",
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "wrong_alternative"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_1_2-indices/top/Default-for-1-2/1-2-5-6-Simplify-indices.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-03",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "binding_target",
+        "missing_condition"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course/top/30-33-Questions-not-in-quizzes/31-1-Polynomial-Approximations/HELM-31-1-E4-Natural-Spline.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-04",
+      "disposition": "confirmed",
+      "classes": [
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_13_5-substitution-and-partial-fractions/top/Default-for-13-5/13-5-3-2-T-Find-Integrals.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-05",
+      "disposition": "confirmed",
+      "classes": [
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_2_6-the-circle/top/Default-for-2-6/2-6-3-2-Find-eq-of-circles.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-06",
+      "disposition": "confirmed",
+      "classes": [
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_3_4-solving-simultaneus-linear-equations/top/Default-for-3-4/3-4-1-5-Solve-simultaneous.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_3_4-solving-simultaneus-linear-equations/top/Default-for-3-4/NOT_IN_QUIZ-Use-a-graph-to-solve-simultaneous.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-07",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_3_3-solving-polynomial-equations/top/Default-for-3-3-Solving-Polynomial-Equations/3-3-7-3-Solve-cubic-given-a-root-III-(NOT-IN-QUIZ).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-08",
+      "disposition": "confirmed",
+      "classes": [
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_3_1-solving-linear-equations/top/Default-for-3-1/3-1-2-14-Solve-a-linear-equation_10.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-09",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_6_4-the-logarithmic-function/top/Default-for-6-4/6-4-4-4-Exercises.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-10",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_4_5-applications-of-trigonometry-to-waves/top/Default-for-4-5/4-5-4-9-Exercise-Weight-on-spring-(NOT-IN-QUIZ).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-11",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_13_6-integration-of-trigonometric-functions/top/Default-for-13-6/13-6-1-4-T-Integrate-after-trigonometric-indentity.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_13_6-integration-of-trigonometric-functions/top/Default-for-13-6/13-6-3-4-T-Wallis-s-formula.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-12",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_10_2-the-argand-diagram-and-polar-form/top/Default-for-10-2/10-2-3-6-Division-(NOT-IN-QUIZ).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-13",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY",
+        "GENERATION"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_2_5-the-straight-line/top/Default-for-2-5/2-5-1-8-Classify-as-line-or-other.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-14",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "binding_target"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_5-1-the-modelling-cycle-and-functions/top/Default-for-5-1/5-1-1-6.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-15",
+      "disposition": "confirmed",
+      "classes": [
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course/top/30-33-Questions-not-in-quizzes/32-5-Hyperbolic-PDEs/HELM-32-5-E1-Wave-Equation,-Single-Time-Step.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course/top/30-33-Questions-not-in-quizzes/32-5-Hyperbolic-PDEs/HELM-32-5-E2-Wave-equation,-Two-first-timesteps.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-16",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION",
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_8_2-solution-by-inverse-matrix-method/top/Default-for-8-2/8-2-1-5-Exercise-1-2x2-linear-system-inverse-matrix-method.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_7_4-the-inverse-of-a-matrix/top/Default-for-7-4/7-4-2-3-Which-2-x-2-matrix-has-an-inverse-.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-17",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_8_2-solution-by-inverse-matrix-method/top/Default-for-8-2/8-2-3-4-Exercise-3x3-linear-system-infinitely-many-solutions.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-18",
+      "disposition": "confirmed",
+      "classes": [
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_9_5-lines-and-planes/top/Default-for-9-5/9-5-4-5-Vector-and-Cartesian-equation-of-a-plane,-Exercise.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-19",
+      "disposition": "confirmed",
+      "classes": [
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_5_3-oscillating-functions-and-modelling/top/Default-for-5-3/5-3-2-6-Water-level.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-20",
+      "disposition": "confirmed",
+      "classes": [
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_6_1-the-exponential-function/top/Default-for-6-1/6-1-5-1-Exercises-(NOT-IN-QUIZ).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-21",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_2_7-some-common-functions/top/Default-for-2-7/2-7-2-6-The-poles-of-rational-functions.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-22",
+      "disposition": "clarification",
+      "classes": [
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_2_7-some-common-functions/top/Default-for-2-7/2-7-1-3-Polynomial-degree-or-not-poly.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_2_7-some-common-functions/top/Default-for-2-7/2-7-1-7-is-p(z)-constant-with-variable-z.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-S01",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_1_1-mathematical-notation-and-symbols/top/Default-for-1-1/1-1-3-1-Rounding-to-n-Decimal-Places.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-S02",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_2_6-the-circle/top/Default-for-2-6/2-6-1-8-Expanded-equation-of-the-circle.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-S03",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_12_3-the-newton–raphson-method/top/Default-for-12-3/12-3-1-1-The-Newton-Raphson-Method.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-S04",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_3_4-solving-simultaneus-linear-equations/top/Default-for-3-4/3-4-1-2-Introduction-elimination.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HE1-S05",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_5-1-the-modelling-cycle-and-functions/top/Default-for-5-1/5-1-1-16-Methods-for-calculating-gradient.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-01",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY",
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_14_4-lengths-of-curves-and-surfaces-of-revolution/top/Default-for-14-4/14-4-2-3-Exercise-2.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-02",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "binding_target",
+        "routing_scoring"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_14_4-lengths-of-curves-and-surfaces-of-revolution/top/Default-for-14-4/14-4-2-1-Area-of-surface.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-03",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "binding_target"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_16_3-the-binomial-series/top/Default-for-16-3/16-3-1-2-Using-binomial-theorem-obtain.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-04",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_16_3-the-binomial-series/top/Default-for-16-3/16-3-1-5-End-exercises.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-05",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "routing_scoring"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_16_2-infinite-series-and-convergence-tests/top/Default-for-16-2/16-2-5-3-Convergence-with-a-parameter.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-06",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_19_2-first-order-differential-equations/top/Default-for-19-2/19-2-2-4-Separation-of-Variables-Ex2.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-07",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "binding_target"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_19_2-first-order-differential-equations/top/Default-for-19-2/19-2-2-5-Separation-of-Variables-Ex3.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-08",
+      "disposition": "confirmed",
+      "classes": [
+        "PROMPT_KEY",
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_19_2-first-order-differential-equations/top/Default-for-19-2/19-2-5-6-Solving-an-Exact-Equation-Ex3.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-09",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_19_3-second-order-differential-equations/top/Default-for-19-3/19-3-2-9-Complementary-Func-Ex2.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-10",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_20_2-the-transform-and-its-inverse/top/Default-for-20-2/20-2-3-5-The-first-shift-theorem.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-11",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_23_2-representing-periodic-functions/top/Default-for-23-2/23-2-6-1-fs-ex1-(new-question-version).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-12",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_16_5-maclaurin-and-taylor-series/top/Default-for-16-5/16-5-4-1-The-Taylor-series.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-13",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "joint_answers"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_22_3-repeated-eigenvalues-and-symmetric-matrices/top/Default-for-22-3/22-3-2-4-Complex-conjugate-2x2-eigentask.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-14",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION",
+        "SOURCE_CODE"
+      ],
+      "prt_classes": [],
+      "notes": "Count the singular random generator as confirmed. The native effect of unguarded student-matrix inversion in PRT feedback remains pending, so exclude that PRT mechanism from confirmed PRT statistics.",
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_22_2-applications-of-eigenvalues-and-eigenvectors/top/Default-for-22-2/22-2-1-6-Finding-modal-matrices.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-15",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION",
+        "SOURCE_CODE",
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_22_3-repeated-eigenvalues-and-symmetric-matrices/top/Default-for-22-3/22-3-2-2-Pick-symmetric-matrices.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-16",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION",
+        "SOURCE_CODE"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_17-1-conic-sections/top/Default-for-17-1/17-1-1-13-Classifying-conic-sections.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-17",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY",
+        "GENERATION"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_19_3-second-order-differential-equations/top/Default-for-19-3/19-3-2-6-Complex-Roots-of-Aux.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_19_3-second-order-differential-equations/top/Default-for-19-3/19-3-2-10-Complementary-Func-Ex3.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_19_3-second-order-differential-equations/top/Default-for-19-3/19-3-2-8-Complementary-Func-Ex1.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "HL-18",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT",
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/HELM/Course_quiz_18_3-stationary-points/top/Default-for-18-3/18-3-2-3-Location-of-stationary-points.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-01",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "joint_answers"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-06---The-Circle/6-1-14-(Find-intersection-points-of-circle-and-line).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-02",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "missing_condition"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-06---The-Circle/6-3-9-(Parametrize-circle).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-06---The-Circle/PT-6-10-(Parametrize-circle).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-03",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION",
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-06---The-Circle/6-2-11-(Find-length-of-a-chord).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-06---The-Circle/6-2-12-(Find-length-of-a-chord-2).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-04",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "joint_answers"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-0-13-(Two-linear-sim-eqns-worded).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-0-14-(Two-linear-sim-eqns-worded-2).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-0-3-(Encoding-info-in-simultaneous-equations).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-0-4-(Encoding-info-in-simultaneous-equations-2).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-0-5-(Encoding-info-in-simultaneous-equations-3).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-05",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-0-13-(Two-linear-sim-eqns-worded).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-0-14-(Two-linear-sim-eqns-worded-2).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-06",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "joint_answers"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-1-16-(One-cubic-one-linear-sim-eqn-).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-07",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY",
+        "GENERATION"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-2-4-(Linear-programming-1).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-2-5-(Linear-programming-2).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-2-6-(Linear-programming-3).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/PT-7-10-(Linear-programming-1).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-08",
+      "disposition": "runtime_candidate",
+      "classes": [
+        "GENERATION",
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "notes": "Incompatible products are explicitly intended by the prompt; unconditional teacher-product evaluation and the absent none branch require native initialization verification. Kept undecided.",
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-3-18-(Multiplying-matrices).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-09",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-3-21-(Inverse-of-2-by-2-matrix).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-3-22-(Inverse-of-2-by-2-matrix-2).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-3-23-(Inverse-of-2-by-2-matrix-3).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-10",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-08---Arithmetic-and-geometric-sequences/8-0-15-(Given-sequence,-decide-its-properties-2).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-11",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "sampled_property"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-08---Arithmetic-and-geometric-sequences/8-0-18-(Give-examples-with-properties).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-08---Arithmetic-and-geometric-sequences/PT-8-11-(Give-examples-with-properties).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-12",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-08---Arithmetic-and-geometric-sequences/8-3-11-(Which-geo-series-have-a-sum-).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-13",
+      "disposition": "confirmed",
+      "classes": [
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "notes": "The unconditional none key has a fixed-point counterexample without an initial-value restriction; count the stated formulation/completeness defect as confirmed.",
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-08---Arithmetic-and-geometric-sequences/8-3-6-(Does-limit-exist-limit-from-recurrence-relation-2).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-14",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-09---The-Binomial-theorem/9-1-8-(Permutations-of-mathematics).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-09---The-Binomial-theorem/9-1-10-(Restricted-permutations-of-mathematics).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-15",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/10-0-2-(Constant-rate-of-change).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-16",
+      "disposition": "confirmed",
+      "classes": [
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/10-0-12-(Finding-limits-quadratic-over-linear).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-17",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION",
+        "PRT_LOGIC",
+        "MATH_TEXT"
+      ],
+      "prt_classes": [
+        "answer_test"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/10-2-5-(ODE).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/10-2-6-(ODE-2).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/PT-10-10-(ODE).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-18",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/10-2-26-(Solve-for-cubic-coeff-given-stat-point).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/PT-10-11-(Solve-for-cubic-coeff-given-stat-point).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-19",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "missing_condition"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/10-3-35-(Give-example-of-fn-with-nonneg-integral).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-20",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-06---The-Circle/6-0-1-(What-is-a-circle-).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-06---The-Circle/6-1-1-(Centre-and-radius-of-circles).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-06---The-Circle/6-1-16-(Finding-equation-of-tangents-to-circles).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-06---The-Circle/6-3-1-(Introduction-to-parametric-curves).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-06---The-Circle/6-4-4-(Application---Circular-motion-in-physics).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-06---The-Circle/PT-6-1-(Point-on-a-circle).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-21",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-0-1-(What-are-simultaneous-equations-).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-0-16-(Example-of-solving-sim-eqns-with-one-lin-one-qud-).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-2-2-(Example-of-linear-programming-question).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-3-15-(Commutativity-of-multiplication).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-3-19-(Matrix-inverses).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-07---Simultaneous-Equations/7-3-25-(Solve-sim-eqns-with-matrix-inverse).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-22",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-08---Arithmetic-and-geometric-sequences/8-2-4-(Sigma-notation).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-08---Arithmetic-and-geometric-sequences/8-3-8-(Infinite-series).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-23",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-09---The-Binomial-theorem/9-1-11-(Combinations).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-09---The-Binomial-theorem/9-1-16-(Formal-counting).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-09---The-Binomial-theorem/9-4-5-(Example-of-calculating-binomial-probability).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IL-24",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT",
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/10-0-6-(Limits).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/10-2-14-(Normal-to-a-curve).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/10-3-3-(Understanding-Riemann-sums-(x^2+1-on-[0,1])).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/10-3-12-(Example-of-calculating-a-definite-integral).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/10-4-4-(Example-of-solving-force-problem).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-10---Calculus-Concepts/PT-10-8-(Given-enclosed-area,-find-coeff-(quadratic)).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-01",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION",
+        "MATH_KEY",
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/5-3-22-(Arctrig-periodic-equation).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-02",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/5-3-20-(Arctrig-range-based-on-MNS-L3-2-Q2).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/PT-5-3-(Arctrig-domain-and-range-based-on-MNS-L3-2-Q2).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-03",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION",
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/5-2-6-(Find-solutions-of-sine-equation-not-exact-positive).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/5-2-8-(Sin-squared-equation-not-exact).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-04",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "joint_answers"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/5-2-6-(Find-solutions-of-sine-equation-not-exact-positive).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-05",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/5-1-20-(Cosine-rule-find-angle).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-06",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION",
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-04---Exponential-and-logarithmic-functions/4-1-3-(Exponentials-algebraically).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-04---Exponential-and-logarithmic-functions/4-1-4-(Exponentials-algebraically-2).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-04---Exponential-and-logarithmic-functions/4-3-5-(Find-range-of-exponential).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-04---Exponential-and-logarithmic-functions/4-3-12-(Find-range-of-log).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-07",
+      "disposition": "confirmed",
+      "classes": [
+        "PROMPT_KEY",
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/5-1-2-(Find-area-of-triangle).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-08",
+      "disposition": "confirmed",
+      "classes": [
+        "DOMAIN_WORDING",
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "answer_test"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/5-3-15-(Solve-to-scale-trig).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-09",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-04---Exponential-and-logarithmic-functions/4-0-6-(Fractional-indices).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-10",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT",
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-04---Exponential-and-logarithmic-functions/4-0-8-(Index-Laws).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-11",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-04---Exponential-and-logarithmic-functions/4-0-3-(Surds-and-radicals).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-12",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-04---Exponential-and-logarithmic-functions/4-3-2-(Plotting-exponential-example).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-04---Exponential-and-logarithmic-functions/4-3-8-(Plotting-log-example).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-13",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-04---Exponential-and-logarithmic-functions/4-4-9-(Log-Scale-Example).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-04---Exponential-and-logarithmic-functions/4-4-10-(Log-scales-from-graph-info).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-04---Exponential-and-logarithmic-functions/4-4-11-(Log-scales-from-graph-info-2).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-14",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-04---Exponential-and-logarithmic-functions/4-4-3-(Application---exponential-growth-(finance)).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-15",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/5-0-4-(Signs-of-trig-and-quadrants).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/5-2-1-(Basic-trig-equations).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/5-2-17-(Double-angle-formulas).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/5-1-7-(Sine-rule-example).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/5-1-14-(Cosine-rule-example).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-16",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT",
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-04---Exponential-and-logarithmic-functions/4-3-18-(Find-temperature-natural-log-2).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-17",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-04---Exponential-and-logarithmic-functions/4-2-15-(Simplify-natural-logs).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-18",
+      "disposition": "confirmed",
+      "classes": [
+        "PROMPT_KEY",
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-04---Exponential-and-logarithmic-functions/PT-4-7-(Quadratic-exponentials).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-19",
+      "disposition": "confirmed",
+      "classes": [
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-04---Exponential-and-logarithmic-functions/4-1-9-(Simple-exp-laws).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IM45-20",
+      "disposition": "confirmed",
+      "classes": [
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "notes": "Both sources share the confirmed missing-positive-period definition error. The cycloid interpretation is a separate clarification.",
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/5-3-1-(Periodicity).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-05---Trigonometric-functions/5-3-5-(Periodic-and-odd-even-again).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW1-01",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-0-3-(Write-quadratic-in-standard-form-1).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-0-4-(Write-quadratic-in-standard-form-2).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/PT-1-1-(Write-quadratic-in-standard-form-2).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW1-02",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION",
+        "MATH_KEY",
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-0-7-(Discriminant-Negative).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW1-03",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "answer_test"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-1-8-(Factorising-coefficient-1-negative-roots).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-1-9-(Factorising-coefficient-1-positive-roots).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-1-13-(Factorising-coefficient-not-1-positive-roots).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-1-14-(Factorising-coefficient-not-1-negative-roots).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/PT-1-4-(Factorising-coefficient-not-1-negative-roots).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW1-04",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "routing_scoring"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-2-14-(Solve-by-quadratic-formula-x).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-2-15-(Solve-by-quadratic-formula-y).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW1-05",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-3-14-(Equation-from-parabola-with-roots-given-evaluate-not-at-0).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-3-15-(Equation-from-parabola-with-vertex-given).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/PT-1-10-(Equation-from-parabola-with-vertex-given).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW1-06",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-0-9-(Expanding-brackets).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-1-1-(Factorising-Quadratics).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-1-15-(Inspection).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-1-5-(Difference-of-two-squares).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-2-12-(Quadratic-Formula).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-3-9-(Graphs-and-completing-the-square).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW1-07",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-4-3-(Application---golden-ratio).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW1-08",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-01---Quadratic-functions-and-their-graphs/1-4-8-(Stopping-distance-proportional-to-speed-squared).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW2-01",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-02---Polynomials,-functions,-graphs-and-their-inverses/2-2-7-(Sketching-quartics).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW2-02",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-02---Polynomials,-functions,-graphs-and-their-inverses/2-3-11-(Domain-and-range).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW2-03",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION",
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-02---Polynomials,-functions,-graphs-and-their-inverses/2-3-14-(Find-the-point-in-the-domain-1).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-02---Polynomials,-functions,-graphs-and-their-inverses/2-3-15-(Find-the-point-in-the-domain-2).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW2-04",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-02---Polynomials,-functions,-graphs-and-their-inverses/2-2-11-(Find-quartic-from-graph-(scaffolded)).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW2-05",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "routing_scoring"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-02---Polynomials,-functions,-graphs-and-their-inverses/2-3-23-(Scaled-domain-and-range).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-02---Polynomials,-functions,-graphs-and-their-inverses/PT-2-11-(Scaled-domain-and-range).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW2-06",
+      "disposition": "confirmed",
+      "classes": [
+        "GENERATION"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-02---Polynomials,-functions,-graphs-and-their-inverses/2-4-5-(Volume-of-a-box-for-given-cut-out).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW2-07",
+      "disposition": "confirmed",
+      "classes": [
+        "DOMAIN_WORDING",
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "answer_test"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-02---Polynomials,-functions,-graphs-and-their-inverses/2-4-4-(Volume-of-a-box).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-02---Polynomials,-functions,-graphs-and-their-inverses/2-4-5-(Volume-of-a-box-for-given-cut-out).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW2-08",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-02---Polynomials,-functions,-graphs-and-their-inverses/2-4-6-(Application---Crossed-Ladders-Problem).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW2-09",
+      "disposition": "clarification",
+      "classes": [
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-02---Polynomials,-functions,-graphs-and-their-inverses/2-4-1-(Application-of-Polynomials-Intro).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW3-01",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-03---Reasoning-and-writing-mathematical-arguments/3-1-4-(Negation-of-statements).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW3-02",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-03---Reasoning-and-writing-mathematical-arguments/3-1-17-(Quantifiers).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW3-03",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-03---Reasoning-and-writing-mathematical-arguments/3-2-2-(Pick-best-definition-of-rational).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW3-04",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "joint_answers"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-03---Reasoning-and-writing-mathematical-arguments/3-2-9-(Maintain-Equivalence).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW3-05",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT",
+        "PROMPT_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-03---Reasoning-and-writing-mathematical-arguments/3-2-6-(Direct-proof---sum-of-odd-integers).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW3-06",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-03---Reasoning-and-writing-mathematical-arguments/3-3-10-(Hypothesis-vs-Conclusion).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW3-07",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_TEXT"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-03---Reasoning-and-writing-mathematical-arguments/3-4-2-(History-of-proof).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "IW3-08",
+      "disposition": "runtime_candidate",
+      "classes": [
+        "SOURCE_CODE"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-03---Reasoning-and-writing-mathematical-arguments/3-2-4-(Direct-proof---multiplying-odd-integers).xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Introductory-Mathematics/Week-03---Reasoning-and-writing-mathematical-arguments/3-4-5-(Monty-Hall-problem).xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "TOP-01",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Topics/Conics/Conics-1-find-circle-given-centre-and-a-point.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "TOP-02",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "missing_condition"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Topics/Calculus/2nd-Order-Differential-Equations/2nd-Order-ODE-3-real-repeated-BC.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "TOP-03",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "missing_condition"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Topics/LinearAlgebra/EigenVectVal/Eigenvalues-vectors-PDPT.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "TOP-05",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "missing_condition"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Topics/LinearAlgebra/Vector-Spaces/Find-vector-parametric-equation-for-plane-given-three-points.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "TOP-06",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC",
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [
+        "answer_test"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Topics/Sets/Subset_1.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "TOP-07",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC",
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [
+        "answer_test"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Topics/Calculus/Integration/Int_Quotient_1.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "TOP-08",
+      "disposition": "clarification",
+      "classes": [
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Topics/Calculus/First-Order-ODE/1st-Order-ODE-2-sep.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "TOP-09",
+      "disposition": "clarification",
+      "classes": [
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Topics/Calculus/First-Order-ODE/Differential_Equation_3.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "TOP-10",
+      "disposition": "confirmed",
+      "classes": [
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "sampled_property",
+        "routing_scoring"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Topics/Calculus/2nd-Order-Differential-Equations/ODE_2nd_order_linear.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Topics/Calculus/2nd-Order-Differential-Equations/2nd-Order-ODE-1-real-distinct.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Topics/Calculus/2nd-Order-Differential-Equations/2nd-Order-ODE-3-real-repeated-BC.xml",
+          "ordinal": 1
+        },
+        {
+          "path": "samplequestions/stacklibrary/Topics/Calculus/2nd-Order-Differential-Equations/2nd-Order-ODE-2-undamped-complex.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "TOP-11",
+      "disposition": "clarification",
+      "classes": [
+        "DOMAIN_WORDING",
+        "PRT_LOGIC"
+      ],
+      "prt_classes": [
+        "joint_answers"
+      ],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Topics/LinearAlgebra/Matrix-Calculations/Matrix-Algebra-give-examples.xml",
+          "ordinal": 1
+        }
+      ]
+    },
+    {
+      "id": "TOP-12",
+      "disposition": "confirmed",
+      "classes": [
+        "MATH_KEY",
+        "DOMAIN_WORDING"
+      ],
+      "prt_classes": [],
+      "records": [
+        {
+          "path": "samplequestions/stacklibrary/Topics/Logs-and-Exponentials/Logs_1.xml",
+          "ordinal": 1
+        }
+      ]
+    }
+  ]
+}

@@ -73,6 +73,10 @@ Maintainer report: <https://aacchhee.github.io/ctm-demo/stack-audit/>.
 The standalone project in `_stack-audit/` records mathematics and PRT findings,
 counterexamples, proposed repairs and regression cases against a pinned upstream
 commit. Downloads include a reproducible question inventory and source hashes.
+An early statistics overview counts record verdicts by pack, error classes and
+PRT failure mechanisms. `_stack-audit/classifications.json` explicitly maps each
+finding to affected records; unflagged records remain undecided, not certified
+correct. Class counts overlap, while question counts are deduplicated.
 
 Run `python scripts/build-stack-audit.py` after rendering the main site.
 It uses Quarto and Python's standard library, fetches the pinned public upstream
