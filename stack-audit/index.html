@@ -70,7 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap-3c508df4e88cf44594e28143bcf93280.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/bootstrap/bootstrap-7e87bcf20ba77d48feeeb6cd8bca1af4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -649,6 +649,445 @@ STACK-only verdicts by pack
 </tbody>
 </table>
 <p>Download the <a href="data/statistics.json">statistics and definitions</a>, <a href="data/classifications.json">explicit finding-to-record classifications</a>, <a href="data/coverage.csv">standalone verdict ledger</a> and <a href="data/archive-coverage.json">backup verdict ledger</a>. Class definitions and exact contributing finding IDs are included in the statistics JSON; classifications are editorial coding of the existing evidence, not additional native runs.</p>
+<section id="prt-node-count" class="level4">
+<h4 class="anchored" data-anchor-id="prt-node-count">PRT defects by number of nodes</h4>
+<p>The standalone bank contains <strong>5,489 PRT definitions and 7,872 nodes</strong>. The unit here is an individual PRT, not a whole question. Nodes are actual XML node elements, not the largest numeric node label. There are 0 empty PRTs; empty definitions are excluded from the one-versus-multiple comparison.</p>
+<p><strong>Direct defect</strong> means a confirmed problem inside the named PRT. <strong>Joint-only</strong> means that a tree participates in a missing consistency check between separate PRTs; its local marginal test need not be wrong. Joint-only trees are shown separately and excluded from the direct-defect percentage. Each tree is counted once even if several findings affect it.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/prt-node-bands.svg" class="img-fluid figure-img"></p>
+<figcaption>Bank size and recorded direct-defect proportions for one-, two-, three-, four- and five-plus-node PRTs. Counts and exact numerators are labelled.</figcaption>
+</figure>
+</div>
+<p><a href="data/prt-node-bands.png">Download this plot as PNG</a>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nodes per PRT</th>
+<th>All PRTs</th>
+<th>Direct defects</th>
+<th>Direct / all</th>
+<th>Additional joint-only</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>4126</td>
+<td>17</td>
+<td>0.41%</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>2 or more</td>
+<td>1363</td>
+<td>40</td>
+<td>2.93%</td>
+<td>18</td>
+</tr>
+</tbody>
+</table>
+<p>The recorded direct-defect proportion is <strong>7.1 times as high</strong> for multi-node PRTs. This is an association in the recorded defects; it does not establish causation or estimate the true population error-rate ratio.</p>
+<p>For <strong>2 nodes versus 3 or more</strong>, the corresponding counts are <strong>12 / 791 (1.52%)</strong> and <strong>28 / 572 (4.90%)</strong>, a <strong>3.2-fold</strong> difference in recorded direct-defect proportions.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nodes per PRT</th>
+<th>All PRTs</th>
+<th>Direct defects</th>
+<th>Direct / all</th>
+<th>Additional joint-only</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>4126</td>
+<td>17</td>
+<td>0.41%</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>791</td>
+<td>12</td>
+<td>1.52%</td>
+<td>18</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>332</td>
+<td>19</td>
+<td>5.72%</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>123</td>
+<td>7</td>
+<td>5.69%</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>5+</td>
+<td>117</td>
+<td>2</td>
+<td>1.71%</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cumulative ladder.</strong> Each step keeps every tree with at least the stated number of nodes. The question column counts distinct source question records containing such a tree. These nested groups overlap and must not be added or treated as independent comparisons.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data/prt-node-ladder.svg" class="img-fluid figure-img"></p>
+<figcaption>Cumulative ladder of remaining PRTs, distinct questions and recorded direct defects at each minimum node count, on a logarithmic count scale. The sparse tail is shaded.</figcaption>
+</figure>
+</div>
+<p><a href="data/prt-node-ladder.png">Download this plot as PNG</a>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>At least this many nodes</th>
+<th>PRTs remaining</th>
+<th>Distinct questions</th>
+<th>Direct defects</th>
+<th>Direct / all</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>5489</td>
+<td>2585</td>
+<td>57</td>
+<td>1.04%</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>1363</td>
+<td>968</td>
+<td>40</td>
+<td>2.93%</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>572</td>
+<td>448</td>
+<td>28</td>
+<td>4.90%</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>240</td>
+<td>202</td>
+<td>9</td>
+<td>3.75%</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>117</td>
+<td>90</td>
+<td>2</td>
+<td>1.71%</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>50</td>
+<td>42</td>
+<td>2</td>
+<td>4.00%</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>13</td>
+<td>12</td>
+<td>1</td>
+<td>7.69%</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>8</td>
+<td>8</td>
+<td>1</td>
+<td>12.50%</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>6</td>
+<td>6</td>
+<td>1</td>
+<td>16.67%</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>5</td>
+<td>5</td>
+<td>1</td>
+<td>20.00%</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>50.00%</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>50.00%</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>50.00%</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>50.00%</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>100.00%</td>
+</tr>
+</tbody>
+</table>
+<p>The top step contains just one PRT. Its recorded defect is one case, not a stable estimate of reliability for long trees generally. Large percentages at the sparse end of this ladder should not be read as strong evidence.</p>
+<p><strong>Interpretation:</strong> more nodes also mean more opportunities for an error. Mathematical complexity, pack/authorship and unequal screening depth may explain part of the association. Trees in the same question are correlated. These descriptive counts do not demonstrate a higher error probability per node or a smooth increase with every added node. No error recorded means undecided, not proven correct. No significance test is used for this selectively detected set.</p>
+<details>
+<summary>
+Exact node counts and comparison within packs
+</summary>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Nodes</th>
+<th>All PRTs</th>
+<th>Direct defects</th>
+<th>Joint-only</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>4126</td>
+<td>17</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>791</td>
+<td>12</td>
+<td>18</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>332</td>
+<td>19</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>123</td>
+<td>7</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>67</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>37</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pack</th>
+<th>1 node: direct / all</th>
+<th>2 nodes: direct / all</th>
+<th>3+ nodes: direct / all</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Algebra refresher</td>
+<td>0 / 74 (0.00%)</td>
+<td>1 / 57 (1.75%)</td>
+<td>0 / 22 (0.00%)</td>
+</tr>
+<tr class="even">
+<td>Calculus refresher</td>
+<td>3 / 71 (4.23%)</td>
+<td>0 / 62 (0.00%)</td>
+<td>0 / 81 (0.00%)</td>
+</tr>
+<tr class="odd">
+<td>Demos, features, docs and templates</td>
+<td>0 / 215 (0.00%)</td>
+<td>0 / 34 (0.00%)</td>
+<td>2 / 34 (5.88%)</td>
+</tr>
+<tr class="even">
+<td>HELM: chapters 14–23</td>
+<td>1 / 752 (0.13%)</td>
+<td>3 / 75 (4.00%)</td>
+<td>2 / 61 (3.28%)</td>
+</tr>
+<tr class="odd">
+<td>HELM: chapters 1–13 and numerical Course</td>
+<td>2 / 1585 (0.13%)</td>
+<td>0 / 243 (0.00%)</td>
+<td>3 / 126 (2.38%)</td>
+</tr>
+<tr class="even">
+<td>HELM: chapters 25+</td>
+<td>0 / 577 (0.00%)</td>
+<td>2 / 61 (3.28%)</td>
+<td>1 / 104 (0.96%)</td>
+</tr>
+<tr class="odd">
+<td>Introductory Mathematics: weeks 1–3</td>
+<td>7 / 190 (3.68%)</td>
+<td>4 / 32 (12.50%)</td>
+<td>2 / 21 (9.52%)</td>
+</tr>
+<tr class="even">
+<td>Introductory Mathematics: weeks 4–5</td>
+<td>0 / 175 (0.00%)</td>
+<td>0 / 54 (0.00%)</td>
+<td>2 / 6 (33.33%)</td>
+</tr>
+<tr class="odd">
+<td>Introductory Mathematics: weeks 6–10</td>
+<td>4 / 386 (1.04%)</td>
+<td>0 / 112 (0.00%)</td>
+<td>9 / 40 (22.50%)</td>
+</tr>
+<tr class="even">
+<td>Topics</td>
+<td>0 / 101 (0.00%)</td>
+<td>2 / 61 (3.28%)</td>
+<td>7 / 77 (9.09%)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>The three separately reviewed legacy PRT findings map to <strong>5 directly affected backup trees</strong>. They are excluded from the main association calculation because backups contain copies and received different review depth.</p>
+<p><strong>Assessment of the hypothesis: partial evidence for a narrower authoring claim; the full hypothesis is not established.</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Claim</th>
+<th>What this audit supports</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Multi-node PRTs have more authoring errors</td>
+<td>A higher proportion of confirmed direct defects was recorded in multi-node trees. Unequal detection and task complexity prevent an unbiased actual error-rate comparison.</td>
+</tr>
+<tr class="even">
+<td>Every extra node increases the error rate</td>
+<td>Not supported by the observed bands: 5+ nodes have a lower recorded proportion than 3 or 4. Sparse groups limit interpretation.</td>
+</tr>
+<tr class="odd">
+<td>PRTs are pedagogically effective</td>
+<td>Not tested: no learner outcomes, teaching comparison or pedagogical effect sizes were measured.</td>
+</tr>
+<tr class="even">
+<td>PRT authoring is a disaster compared with alternatives</td>
+<td>Not established: no matched comparison with alternative authoring systems, author effort or production error rates was made.</td>
+</tr>
+</tbody>
+</table>
+<p>The confirmed mechanisms concern coordinating mathematical conditions, answer bindings, routes, scores and cross-input dependencies. They identify concrete authoring failures. They do not by themselves establish pedagogical benefit, a causal effect of tree length, or the reliability of PRT authoring relative to alternatives.</p>
+<p>Downloads: <a href="data/prt-node-statistics.json">node-count statistics</a>, <a href="data/prt-node-ledger.csv">per-PRT node/verdict ledger</a>, and <a href="data/prt-attribution.json">explicit affected-tree attribution</a>.</p>
+</section>
 </section>
 </section>
 <section id="where-to-start" class="level2">
@@ -737,7 +1176,8 @@ STACK-only verdicts by pack
 <p>Selected witnesses were independently checked with Python and, during source review, SymPy 1.14.0. The downloadable build checks use Python’s standard library and reproduce selected arithmetic and three XML score traces. The traces use supplied, mathematically justified node truth values: they test the actual graph root, transitions and score fields, <strong>not native answer tests or input validation</strong>.</p>
 <p>PRT entry-node semantics were checked against <a href="https://github.com/maths/moodle-qtype_stack/blob/33383047af39c204bf4442802a058f8b918b2b1b/questiontype.php#L359">questiontype.php</a>, which derives the root from the graph. Candidates based on assuming node 0 always runs first were withdrawn. Independent re-review also removed apparent cross-product sign errors after following the full PRT paths, and downgraded convention-dependent or real-domain-dependent claims to clarifications.</p>
 <p>To reproduce the inventory, selected checks and report:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/build-stack-audit.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install <span class="at">-r</span> _stack-audit/requirements.txt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/build-stack-audit.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Run this from the ctm-demo source checkout with Quarto installed. It downloads the pinned public source, asserts inventory totals, executes selected independent checks, renders the report and checks local links. It does not install or run Moodle/STACK/Maxima.</p>
 </section>
 </section>

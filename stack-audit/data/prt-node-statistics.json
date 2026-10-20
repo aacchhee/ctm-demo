@@ -1,0 +1,663 @@
+{
+  "source_sha": "33383047af39c204bf4442802a058f8b918b2b1b",
+  "unit": "A PRT definition identified by source record ordinal and PRT name. Counts are actual XML node elements.",
+  "standalone_prts": 5489,
+  "standalone_nodes": 7872,
+  "empty_prts": 0,
+  "standalone": {
+    "prts": 5489,
+    "direct_defects": 57,
+    "joint_only": 18,
+    "any_affected": 75,
+    "direct_percent": 1.0384405173984332
+  },
+  "backups": {
+    "prts": 948,
+    "direct_defects": 5,
+    "joint_only": 0,
+    "any_affected": 5,
+    "direct_percent": 0.5274261603375527
+  },
+  "one_node": {
+    "prts": 4126,
+    "direct_defects": 17,
+    "joint_only": 0,
+    "any_affected": 17,
+    "direct_percent": 0.4120213281628696
+  },
+  "multiple_nodes": {
+    "prts": 1363,
+    "direct_defects": 40,
+    "joint_only": 18,
+    "any_affected": 58,
+    "direct_percent": 2.93470286133529
+  },
+  "direct_detected_proportion_ratio": 7.1226964740408265,
+  "two_nodes": {
+    "prts": 791,
+    "direct_defects": 12,
+    "joint_only": 18,
+    "any_affected": 30,
+    "direct_percent": 1.5170670037926675
+  },
+  "three_or_more_nodes": {
+    "prts": 572,
+    "direct_defects": 28,
+    "joint_only": 0,
+    "any_affected": 28,
+    "direct_percent": 4.895104895104895
+  },
+  "three_plus_vs_two_direct_proportion_ratio": 3.226689976689977,
+  "node_bands": [
+    {
+      "label": "1",
+      "prts": 4126,
+      "direct_defects": 17,
+      "joint_only": 0,
+      "any_affected": 17,
+      "direct_percent": 0.4120213281628696
+    },
+    {
+      "label": "2",
+      "prts": 791,
+      "direct_defects": 12,
+      "joint_only": 18,
+      "any_affected": 30,
+      "direct_percent": 1.5170670037926675
+    },
+    {
+      "label": "3",
+      "prts": 332,
+      "direct_defects": 19,
+      "joint_only": 0,
+      "any_affected": 19,
+      "direct_percent": 5.72289156626506
+    },
+    {
+      "label": "4",
+      "prts": 123,
+      "direct_defects": 7,
+      "joint_only": 0,
+      "any_affected": 7,
+      "direct_percent": 5.691056910569106
+    },
+    {
+      "label": "5+",
+      "prts": 117,
+      "direct_defects": 2,
+      "joint_only": 0,
+      "any_affected": 2,
+      "direct_percent": 1.7094017094017093
+    }
+  ],
+  "exact_node_counts": [
+    {
+      "nodes": 1,
+      "prts": 4126,
+      "direct_defects": 17,
+      "joint_only": 0,
+      "any_affected": 17,
+      "direct_percent": 0.4120213281628696
+    },
+    {
+      "nodes": 2,
+      "prts": 791,
+      "direct_defects": 12,
+      "joint_only": 18,
+      "any_affected": 30,
+      "direct_percent": 1.5170670037926675
+    },
+    {
+      "nodes": 3,
+      "prts": 332,
+      "direct_defects": 19,
+      "joint_only": 0,
+      "any_affected": 19,
+      "direct_percent": 5.72289156626506
+    },
+    {
+      "nodes": 4,
+      "prts": 123,
+      "direct_defects": 7,
+      "joint_only": 0,
+      "any_affected": 7,
+      "direct_percent": 5.691056910569106
+    },
+    {
+      "nodes": 5,
+      "prts": 67,
+      "direct_defects": 0,
+      "joint_only": 0,
+      "any_affected": 0,
+      "direct_percent": 0.0
+    },
+    {
+      "nodes": 6,
+      "prts": 37,
+      "direct_defects": 1,
+      "joint_only": 0,
+      "any_affected": 1,
+      "direct_percent": 2.7027027027027026
+    },
+    {
+      "nodes": 7,
+      "prts": 5,
+      "direct_defects": 0,
+      "joint_only": 0,
+      "any_affected": 0,
+      "direct_percent": 0.0
+    },
+    {
+      "nodes": 8,
+      "prts": 2,
+      "direct_defects": 0,
+      "joint_only": 0,
+      "any_affected": 0,
+      "direct_percent": 0.0
+    },
+    {
+      "nodes": 9,
+      "prts": 1,
+      "direct_defects": 0,
+      "joint_only": 0,
+      "any_affected": 0,
+      "direct_percent": 0.0
+    },
+    {
+      "nodes": 10,
+      "prts": 3,
+      "direct_defects": 0,
+      "joint_only": 0,
+      "any_affected": 0,
+      "direct_percent": 0.0
+    },
+    {
+      "nodes": 14,
+      "prts": 1,
+      "direct_defects": 0,
+      "joint_only": 0,
+      "any_affected": 0,
+      "direct_percent": 0.0
+    },
+    {
+      "nodes": 15,
+      "prts": 1,
+      "direct_defects": 1,
+      "joint_only": 0,
+      "any_affected": 1,
+      "direct_percent": 100.0
+    }
+  ],
+  "cumulative_ladder": [
+    {
+      "minimum_nodes": 1,
+      "prts": 5489,
+      "direct_defects": 57,
+      "joint_only": 18,
+      "any_affected": 75,
+      "direct_percent": 1.0384405173984332,
+      "questions": 2585,
+      "questions_with_direct_defect": 48
+    },
+    {
+      "minimum_nodes": 2,
+      "prts": 1363,
+      "direct_defects": 40,
+      "joint_only": 18,
+      "any_affected": 58,
+      "direct_percent": 2.93470286133529,
+      "questions": 968,
+      "questions_with_direct_defect": 31
+    },
+    {
+      "minimum_nodes": 3,
+      "prts": 572,
+      "direct_defects": 28,
+      "joint_only": 0,
+      "any_affected": 28,
+      "direct_percent": 4.895104895104895,
+      "questions": 448,
+      "questions_with_direct_defect": 22
+    },
+    {
+      "minimum_nodes": 4,
+      "prts": 240,
+      "direct_defects": 9,
+      "joint_only": 0,
+      "any_affected": 9,
+      "direct_percent": 3.75,
+      "questions": 202,
+      "questions_with_direct_defect": 9
+    },
+    {
+      "minimum_nodes": 5,
+      "prts": 117,
+      "direct_defects": 2,
+      "joint_only": 0,
+      "any_affected": 2,
+      "direct_percent": 1.7094017094017093,
+      "questions": 90,
+      "questions_with_direct_defect": 2
+    },
+    {
+      "minimum_nodes": 6,
+      "prts": 50,
+      "direct_defects": 2,
+      "joint_only": 0,
+      "any_affected": 2,
+      "direct_percent": 4.0,
+      "questions": 42,
+      "questions_with_direct_defect": 2
+    },
+    {
+      "minimum_nodes": 7,
+      "prts": 13,
+      "direct_defects": 1,
+      "joint_only": 0,
+      "any_affected": 1,
+      "direct_percent": 7.6923076923076925,
+      "questions": 12,
+      "questions_with_direct_defect": 1
+    },
+    {
+      "minimum_nodes": 8,
+      "prts": 8,
+      "direct_defects": 1,
+      "joint_only": 0,
+      "any_affected": 1,
+      "direct_percent": 12.5,
+      "questions": 8,
+      "questions_with_direct_defect": 1
+    },
+    {
+      "minimum_nodes": 9,
+      "prts": 6,
+      "direct_defects": 1,
+      "joint_only": 0,
+      "any_affected": 1,
+      "direct_percent": 16.666666666666668,
+      "questions": 6,
+      "questions_with_direct_defect": 1
+    },
+    {
+      "minimum_nodes": 10,
+      "prts": 5,
+      "direct_defects": 1,
+      "joint_only": 0,
+      "any_affected": 1,
+      "direct_percent": 20.0,
+      "questions": 5,
+      "questions_with_direct_defect": 1
+    },
+    {
+      "minimum_nodes": 11,
+      "prts": 2,
+      "direct_defects": 1,
+      "joint_only": 0,
+      "any_affected": 1,
+      "direct_percent": 50.0,
+      "questions": 2,
+      "questions_with_direct_defect": 1
+    },
+    {
+      "minimum_nodes": 12,
+      "prts": 2,
+      "direct_defects": 1,
+      "joint_only": 0,
+      "any_affected": 1,
+      "direct_percent": 50.0,
+      "questions": 2,
+      "questions_with_direct_defect": 1
+    },
+    {
+      "minimum_nodes": 13,
+      "prts": 2,
+      "direct_defects": 1,
+      "joint_only": 0,
+      "any_affected": 1,
+      "direct_percent": 50.0,
+      "questions": 2,
+      "questions_with_direct_defect": 1
+    },
+    {
+      "minimum_nodes": 14,
+      "prts": 2,
+      "direct_defects": 1,
+      "joint_only": 0,
+      "any_affected": 1,
+      "direct_percent": 50.0,
+      "questions": 2,
+      "questions_with_direct_defect": 1
+    },
+    {
+      "minimum_nodes": 15,
+      "prts": 1,
+      "direct_defects": 1,
+      "joint_only": 0,
+      "any_affected": 1,
+      "direct_percent": 100.0,
+      "questions": 1,
+      "questions_with_direct_defect": 1
+    }
+  ],
+  "packs": [
+    {
+      "pack": "Algebra refresher",
+      "one": {
+        "prts": 74,
+        "direct_defects": 0,
+        "joint_only": 0,
+        "any_affected": 0,
+        "direct_percent": 0.0
+      },
+      "two": {
+        "prts": 57,
+        "direct_defects": 1,
+        "joint_only": 0,
+        "any_affected": 1,
+        "direct_percent": 1.7543859649122806
+      },
+      "three_plus": {
+        "prts": 22,
+        "direct_defects": 0,
+        "joint_only": 0,
+        "any_affected": 0,
+        "direct_percent": 0.0
+      },
+      "multi": {
+        "prts": 79,
+        "direct_defects": 1,
+        "joint_only": 0,
+        "any_affected": 1,
+        "direct_percent": 1.2658227848101267
+      }
+    },
+    {
+      "pack": "Calculus refresher",
+      "one": {
+        "prts": 71,
+        "direct_defects": 3,
+        "joint_only": 0,
+        "any_affected": 3,
+        "direct_percent": 4.225352112676056
+      },
+      "two": {
+        "prts": 62,
+        "direct_defects": 0,
+        "joint_only": 0,
+        "any_affected": 0,
+        "direct_percent": 0.0
+      },
+      "three_plus": {
+        "prts": 81,
+        "direct_defects": 0,
+        "joint_only": 0,
+        "any_affected": 0,
+        "direct_percent": 0.0
+      },
+      "multi": {
+        "prts": 143,
+        "direct_defects": 0,
+        "joint_only": 0,
+        "any_affected": 0,
+        "direct_percent": 0.0
+      }
+    },
+    {
+      "pack": "Demos, features, docs and templates",
+      "one": {
+        "prts": 215,
+        "direct_defects": 0,
+        "joint_only": 0,
+        "any_affected": 0,
+        "direct_percent": 0.0
+      },
+      "two": {
+        "prts": 34,
+        "direct_defects": 0,
+        "joint_only": 0,
+        "any_affected": 0,
+        "direct_percent": 0.0
+      },
+      "three_plus": {
+        "prts": 34,
+        "direct_defects": 2,
+        "joint_only": 0,
+        "any_affected": 2,
+        "direct_percent": 5.882352941176471
+      },
+      "multi": {
+        "prts": 68,
+        "direct_defects": 2,
+        "joint_only": 0,
+        "any_affected": 2,
+        "direct_percent": 2.9411764705882355
+      }
+    },
+    {
+      "pack": "HELM: chapters 14–23",
+      "one": {
+        "prts": 752,
+        "direct_defects": 1,
+        "joint_only": 0,
+        "any_affected": 1,
+        "direct_percent": 0.13297872340425532
+      },
+      "two": {
+        "prts": 75,
+        "direct_defects": 3,
+        "joint_only": 0,
+        "any_affected": 3,
+        "direct_percent": 4.0
+      },
+      "three_plus": {
+        "prts": 61,
+        "direct_defects": 2,
+        "joint_only": 0,
+        "any_affected": 2,
+        "direct_percent": 3.278688524590164
+      },
+      "multi": {
+        "prts": 136,
+        "direct_defects": 5,
+        "joint_only": 0,
+        "any_affected": 5,
+        "direct_percent": 3.676470588235294
+      }
+    },
+    {
+      "pack": "HELM: chapters 1–13 and numerical Course",
+      "one": {
+        "prts": 1585,
+        "direct_defects": 2,
+        "joint_only": 0,
+        "any_affected": 2,
+        "direct_percent": 0.12618296529968454
+      },
+      "two": {
+        "prts": 243,
+        "direct_defects": 0,
+        "joint_only": 0,
+        "any_affected": 0,
+        "direct_percent": 0.0
+      },
+      "three_plus": {
+        "prts": 126,
+        "direct_defects": 3,
+        "joint_only": 0,
+        "any_affected": 3,
+        "direct_percent": 2.380952380952381
+      },
+      "multi": {
+        "prts": 369,
+        "direct_defects": 3,
+        "joint_only": 0,
+        "any_affected": 3,
+        "direct_percent": 0.8130081300813008
+      }
+    },
+    {
+      "pack": "HELM: chapters 25+",
+      "one": {
+        "prts": 577,
+        "direct_defects": 0,
+        "joint_only": 0,
+        "any_affected": 0,
+        "direct_percent": 0.0
+      },
+      "two": {
+        "prts": 61,
+        "direct_defects": 2,
+        "joint_only": 0,
+        "any_affected": 2,
+        "direct_percent": 3.278688524590164
+      },
+      "three_plus": {
+        "prts": 104,
+        "direct_defects": 1,
+        "joint_only": 0,
+        "any_affected": 1,
+        "direct_percent": 0.9615384615384616
+      },
+      "multi": {
+        "prts": 165,
+        "direct_defects": 3,
+        "joint_only": 0,
+        "any_affected": 3,
+        "direct_percent": 1.8181818181818181
+      }
+    },
+    {
+      "pack": "Introductory Mathematics: weeks 1–3",
+      "one": {
+        "prts": 190,
+        "direct_defects": 7,
+        "joint_only": 0,
+        "any_affected": 7,
+        "direct_percent": 3.6842105263157894
+      },
+      "two": {
+        "prts": 32,
+        "direct_defects": 4,
+        "joint_only": 2,
+        "any_affected": 6,
+        "direct_percent": 12.5
+      },
+      "three_plus": {
+        "prts": 21,
+        "direct_defects": 2,
+        "joint_only": 0,
+        "any_affected": 2,
+        "direct_percent": 9.523809523809524
+      },
+      "multi": {
+        "prts": 53,
+        "direct_defects": 6,
+        "joint_only": 2,
+        "any_affected": 8,
+        "direct_percent": 11.320754716981131
+      }
+    },
+    {
+      "pack": "Introductory Mathematics: weeks 4–5",
+      "one": {
+        "prts": 175,
+        "direct_defects": 0,
+        "joint_only": 0,
+        "any_affected": 0,
+        "direct_percent": 0.0
+      },
+      "two": {
+        "prts": 54,
+        "direct_defects": 0,
+        "joint_only": 0,
+        "any_affected": 0,
+        "direct_percent": 0.0
+      },
+      "three_plus": {
+        "prts": 6,
+        "direct_defects": 2,
+        "joint_only": 0,
+        "any_affected": 2,
+        "direct_percent": 33.333333333333336
+      },
+      "multi": {
+        "prts": 60,
+        "direct_defects": 2,
+        "joint_only": 0,
+        "any_affected": 2,
+        "direct_percent": 3.3333333333333335
+      }
+    },
+    {
+      "pack": "Introductory Mathematics: weeks 6–10",
+      "one": {
+        "prts": 386,
+        "direct_defects": 4,
+        "joint_only": 0,
+        "any_affected": 4,
+        "direct_percent": 1.0362694300518134
+      },
+      "two": {
+        "prts": 112,
+        "direct_defects": 0,
+        "joint_only": 16,
+        "any_affected": 16,
+        "direct_percent": 0.0
+      },
+      "three_plus": {
+        "prts": 40,
+        "direct_defects": 9,
+        "joint_only": 0,
+        "any_affected": 9,
+        "direct_percent": 22.5
+      },
+      "multi": {
+        "prts": 152,
+        "direct_defects": 9,
+        "joint_only": 16,
+        "any_affected": 25,
+        "direct_percent": 5.921052631578948
+      }
+    },
+    {
+      "pack": "Topics",
+      "one": {
+        "prts": 101,
+        "direct_defects": 0,
+        "joint_only": 0,
+        "any_affected": 0,
+        "direct_percent": 0.0
+      },
+      "two": {
+        "prts": 61,
+        "direct_defects": 2,
+        "joint_only": 0,
+        "any_affected": 2,
+        "direct_percent": 3.278688524590164
+      },
+      "three_plus": {
+        "prts": 77,
+        "direct_defects": 7,
+        "joint_only": 0,
+        "any_affected": 7,
+        "direct_percent": 9.090909090909092
+      },
+      "multi": {
+        "prts": 138,
+        "direct_defects": 9,
+        "joint_only": 0,
+        "any_affected": 9,
+        "direct_percent": 6.521739130434782
+      }
+    }
+  ],
+  "interpretation": [
+    "Direct means a confirmed defect located within that PRT. Joint-only means participation in a missing cross-PRT consistency condition, without separately attributing an intrinsic error to each participating tree.",
+    "No recorded defect is undecided, not a correct verdict. Ordinary wrong model keys and runtime candidates are not included.",
+    "Main comparisons use standalone definitions only. Backup copies have separate counts and are not used as independent observations.",
+    "This is a descriptive association in detected source defects, not a causal effect or an unbiased estimate of actual error probability.",
+    "Screening depth, mathematical complexity, pack/authorship and multiple correlated trees per question can confound the association. Longer trees also offer more opportunities for a defect; this does not establish a higher error risk per node.",
+    "No inferential p-values or confidence intervals are assigned to this selectively ascertained defect set."
+  ]
+}

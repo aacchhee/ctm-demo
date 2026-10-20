@@ -1,5 +1,5 @@
 {
-  "html_bytes": 366361,
+  "html_bytes": 377535,
   "local_link_errors": [],
   "validated_question_source_links": 285,
   "source_sha": "33383047af39c204bf4442802a058f8b918b2b1b",
@@ -13,5 +13,9 @@
   "statistics_confirmed_findings": 178,
   "incorrect_standalone_records": 261,
   "undecided_standalone_records": 3634,
-  "confirmed_prt_findings": 39
+  "confirmed_prt_findings": 39,
+  "standalone_prts": 5489,
+  "standalone_prt_nodes": 7872,
+  "directly_affected_standalone_prts": 57,
+  "joint_only_standalone_prts": 18
 }
