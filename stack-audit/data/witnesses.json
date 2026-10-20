@@ -1,0 +1,109 @@
+{
+  "source_sha": "33383047af39c204bf4442802a058f8b918b2b1b",
+  "method": "Independent arithmetic and XML score-field traces with supplied node truths. No Maxima answer tests or input validation executed.",
+  "checks": [
+    {
+      "id": "AR-02",
+      "result": "Correct minus keyed completed square =16*x at x=1,2,3"
+    },
+    {
+      "id": "TOP-02",
+      "result": "Tangent-line normalized ODE residual -16+24*t; n2=2, initial data 2,6"
+    },
+    {
+      "id": "GEN-03",
+      "result": "Model equality compares 10 with 4 at n=1"
+    },
+    {
+      "id": "HE1-01",
+      "result": "sin(1.9 degrees) rounds to 0.0332, not 0.5000"
+    },
+    {
+      "id": "HE1-02",
+      "result": "Exponents add to 3/4; multiplying them gives wrong 1/8"
+    },
+    {
+      "id": "ARC-01",
+      "result": "Diameter 2 gives area pi; radius 2 gives 4*pi"
+    }
+  ],
+  "score_traces": [
+    {
+      "path": "samplequestions/stacklibrary/Features/input-type-sample-questions/Matrix_varmatrix.xml",
+      "prt": "prt1",
+      "score": "1",
+      "steps": [
+        {
+          "node": "0",
+          "truth": true,
+          "mode": "=",
+          "value": "1",
+          "score": "1"
+        },
+        {
+          "node": "1",
+          "truth": true,
+          "mode": "+",
+          "value": "0",
+          "score": "1"
+        },
+        {
+          "node": "2",
+          "truth": true,
+          "mode": "+",
+          "value": "0",
+          "score": "1"
+        },
+        {
+          "node": "3",
+          "truth": false,
+          "mode": "-",
+          "value": "0",
+          "score": "1"
+        }
+      ]
+    },
+    {
+      "path": "samplequestions/stacklibrary/Doc-Examples/Specialist-Tools-Docs/Free-text-input/Free-text_with_regex.xml",
+      "prt": "prt5",
+      "score": "1",
+      "steps": [
+        {
+          "node": "0",
+          "truth": true,
+          "mode": "+",
+          "value": "1",
+          "score": "1"
+        },
+        {
+          "node": "3",
+          "truth": false,
+          "mode": "-",
+          "value": "0",
+          "score": "1"
+        }
+      ]
+    },
+    {
+      "path": "samplequestions/stacklibrary/Algebra-Refresher/14-Algebraic-fractions-involving-factorising/AlgMap-14-4.xml",
+      "prt": "prt1",
+      "score": "1",
+      "steps": [
+        {
+          "node": "0",
+          "truth": false,
+          "mode": "=",
+          "value": "0",
+          "score": "0"
+        },
+        {
+          "node": "1",
+          "truth": true,
+          "mode": "=",
+          "value": "1",
+          "score": "1"
+        }
+      ]
+    }
+  ]
+}
