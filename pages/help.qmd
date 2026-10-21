@@ -20,9 +20,10 @@ build process.
 | NumPy and Matplotlib | Vector/matrix calculations and plots inside the Python examples. | Loaded by [Pyodide](https://pyodide.org/) in the browser. |
 | GitHub Actions and Pages | Build the source and serve the generated static website. | [Repository workflow](https://github.com/aacchhee/ctm-demo/blob/main/.github/workflows/quarto.yml) |
 
-The **Explore / Go deeper** buttons open or close the longer explanations.
-Hints remain individually expandable. The small shared tab-navigation script
-supports links into tabs and browser Back/Forward navigation.
+The **Explore / Go deeper** buttons open or close the longer explanations
+(`::: {.reading-step title="…"}` blocks). Hints (`::: {.hint}`) and solutions
+(`::: {.solution}`) remain individually expandable. CTM Assessment opens the
+right tab for links into tabs, also from other pages and on browser Back/Forward.
 
 ## Who does what, and when?
 
@@ -140,10 +141,10 @@ these repository links to match the new owner and name.
 | `_includes/direction-applet.md` | JSXGraph applet and its controls. |
 | `pages/experiments.qmd` | The clean “Your experiments here” page. Start writing below its YAML header. |
 | `pages/help.qmd` | This help page. |
-| `_quarto.yml` | Site title, sidebar, rendered pages, filters, and English language. |
+| `_quarto.yml` | Site title, sidebar, rendered pages, filters (the first, `tab-ids.lua`, keeps the ids of tab headings), and English language. |
 | `quarto-extensions.yml` | The CTM Assessment umbrella source at `main`. |
 | `scripts/setup.py` | Shared extension installer for local development and CI. |
-| `styles.css`, `_includes/site/` | Small presentation and navigation helpers. |
+| `styles.css` | Small presentation helpers. |
 
 For an additional page, create a `.qmd` file and add it to both `project.render`
 and `website.sidebar.contents` in `_quarto.yml`. Use relative page links so
