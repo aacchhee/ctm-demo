@@ -1,0 +1,368 @@
+---
+title: "STACK question type: problems found"
+---
+
+This page is for the maintainers of [STACK](https://github.com/maths/moodle-qtype_stack),
+the Moodle question type. While porting part of STACK's grading to Python
+for CTM Assessment, we compared our port with STACK itself. Most
+differences were bugs in our port. The four problems below are in STACK.
+Each one was reproduced with STACK's own code and Maxima, as described
+under [How we checked](#how). The [last section](#not-a-bug) lists what we
+looked at and ruled out.
+
+**Versions.** STACK 4.13.1 (2026080600, commit
+[10d3233](https://github.com/maths/moodle-qtype_stack/commit/10d323311b7f39fb7b092dd10ce75f7d8632f525))
+and STACK 4.14.0 (2026101500, `master` at
+[3338304](https://github.com/maths/moodle-qtype_stack/commit/33383047af39c204bf4442802a058f8b918b2b1b),
+16 October 2026), each with Maxima 5.46.0 on GCL. Both versions give the
+same result for every attempt on this page. Source references are to
+10d3233. The code they point to is the same in 4.14.0 and on `dev`
+(b1ad9df, 19 October 2026); only some line numbers have moved.
+
+**Not checked in a Moodle site.** We ran STACK's PHP code the way the STACK
+API runs it, not through Moodle's question engine. The Moodle steps given for
+each problem are the ones we expect to show it, but we have not tried them
+in a Moodle installation.
+
+## Summary
+
+::: {.table-responsive}
+| # | Problem | Severity | Where |
+|---|---|---|---|
+| [1](#p1) | A student who types the name of a feedback variable gets that variable's value, and can get full marks | Medium | input security, PRT evaluation |
+| [2](#p2) | `abs` of a product is not recognised as equivalent: correct answers are marked wrong, also by `Int` | Medium | `AlgEquiv`, `Int` |
+| [3](#p3) | `log(x^2)` is equivalent to `2*log(x)` but not to `2*log(abs(x))` | Low | `AlgEquiv` |
+| [4](#p4) | Rounding of the teacher's answer at a tie: `1.015` becomes `1.01`, and `NumDecPlaces` and `NumSigFigs` round `0.125` differently | Low | `NumDecPlaces`, `NumSigFigs` |
+:::
+
+Severity: **Medium** means a student's grade is wrong in a situation that
+can occur in ordinary use. **Low** means an edge case, or a case with an
+easy workaround.
+
+GitHub issues: none filed yet. Links will be added here.
+
+## 1. A feedback variable's name typed as an answer is graded with the variable's value {#p1}
+
+**What goes wrong.** STACK forbids students to use the names of question
+variables. "If the teacher defines 'ta' to be the answer, the student could
+type in 'ta'! We forbid this." Feedback variables are not forbidden. A
+student who types the name of a feedback variable gets a valid answer. The
+answer tests then evaluate it to the value the author gave that variable.
+If a feedback variable holds the correct answer, typing its name gives full
+marks.
+
+**Severity: Medium.** The student has to guess the name, but short names
+such as `d` or `sa` are common in feedback variables. Nothing in the
+grading flags the attempt: the preview shows `d` and the PRT gives full
+marks. An honest answer can be affected too: any symbol in it that has the
+same name as a feedback variable takes the author's value in `AlgEquiv` and
+the numerical tests.
+
+**Question:** [feedback-variable.xml](questions/feedback-variable.xml).
+Question variables `f: x^3+2*x; ta: diff(f,x);`. The input `ans1` has teacher's
+answer `ta`. The PRT's feedback variables are
+
+```
+d: diff(f,x);
+err: expand(ans1-d);
+```
+
+and its one node is `AlgEquiv(ans1, ta)`, score 1 if true, 0 if false.
+
+**Steps.**
+
+1. Import the file into a question bank (Moodle XML format).
+2. Preview the question.
+3. Enter `d` and press Check, then Check again to submit.
+
+::: {.table-responsive}
+| Answer | Expected | STACK 4.13.1 and 4.14.0 |
+|---|---|---|
+| `3*x^2+2` | valid, score 1 | valid, score 1 |
+| `d` | invalid, "Forbidden variable or constant: d." (or valid with score 0) | **valid, preview `d`, score 1, answer note `prt1-1-T`** |
+| `3*x^2` | valid, score 0 | valid, score 0 |
+| `ta` | invalid, "Forbidden variable or constant: ta." | invalid, "Forbidden variable or constant: ta." |
+:::
+
+The question's own test 2 (input `d`, expected: PRT not evaluated) fails in
+the question test runner: "Expected a null result, but got: prt1-1-T."
+Evidence: [feedback-variable.json](evidence/feedback-variable.json).
+
+**Where in the source.**
+
+- The forbidden names are the question variables only, with a TO-DO
+  for feedback variables:
+  [question.php lines 430–441](https://github.com/maths/moodle-qtype_stack/blob/10d323311b7f39fb7b092dd10ce75f7d8632f525/question.php#L430-L441)
+  ("TO-DO: shouldn't we also protect variables used in PRT logic? Feedback
+  vars and so on?").
+- The documentation says the same, for question variables only:
+  [Variables.md line 56](https://github.com/maths/moodle-qtype_stack/blob/10d323311b7f39fb7b092dd10ce75f7d8632f525/doc/en/Authoring/Variables.md#L56).
+- Feedback variables become local variables of the compiled PRT function
+  (`prt_prt1(ans1):=block([d, err, …], …)`,
+  [prt.class.php line 596](https://github.com/maths/moodle-qtype_stack/blob/10d323311b7f39fb7b092dd10ce75f7d8632f525/stack/prt.class.php#L596)).
+  Maxima's scoping is dynamic, so they are visible inside the answer-test
+  functions it calls.
+- `ATAlgEquiv` evaluates the student's answer again with `ev(…)`
+  ([stackmaxima.mac line 1193](https://github.com/maths/moodle-qtype_stack/blob/10d323311b7f39fb7b092dd10ce75f7d8632f525/stack/maxima/stackmaxima.mac#L1193)),
+  and that turns the symbol `d` into the local's value. In Maxima with
+  STACK's libraries, `block([d], d: 3*x^2+2, ATAlgEquiv('d, 3*x^2+2))`
+  returns `[true,true,"",""]`; `ATNumAbsolute` behaves the same.
+  `ATEqualComAss` and `ATCasEqual` return false, because they do not evaluate
+  the answer again.
+
+**Possible fixes.** Add the names that the feedback variables write to
+the forbidden keys, as the TO-DO suggests. Alternatively, evaluate the
+student's answer once, before the feedback variables are bound, and pass
+the value to the tests.
+
+## 2. `abs` of a product is not recognised as equivalent {#p2}
+
+**What goes wrong.** Maxima simplifies `abs((x-1)*(x+1))` to
+`abs(x-1)*abs(x+1)`. `AlgEquiv` cannot show that this equals
+`abs(x^2-1)`, so a correct answer is marked wrong. The `Int` test
+uses the same equivalence check. With the teacher's answer
+`integrate(2*x/(x^2-1),x)+c`, which Maxima returns as
+`log(abs(x^2-1))+c`, the partial-fraction answer
+`log(abs(x-1))+log(abs(x+1))+c` is marked wrong. The student is told that
+the formal derivative of the answer is right, but that the answer "differs
+from the correct answer in a significant way", and to ask the teacher.
+
+**Severity: Medium.** Both answers are correct for every real `x` where
+they are defined. Integrals that lead to partial fractions are a common
+exercise. The `Int` documentation says that a student must use absolute
+values in the logarithms when the teacher does, and here the student
+does.
+
+**Questions:** [abs-product.xml](questions/abs-product.xml) (`AlgEquiv`,
+teacher's answer `abs(x^2-1)`) and
+[int-partial-fractions.xml](questions/int-partial-fractions.xml) (`Int`
+with option `x`, teacher's answer `integrate(f,x)+c` with
+`f: 2*x/(x^2-1)`).
+
+**Steps.** Import both files, preview each question, and submit the
+answers below.
+
+::: {.table-responsive}
+| Question | Answer | Expected | STACK 4.13.1 and 4.14.0 |
+|---|---|---|---|
+| abs-product | `abs(x^2-1)` | score 1 | score 1 |
+| abs-product | `abs(1-x^2)` | score 1 | score 1 |
+| abs-product | `abs((x-1)*(x+1))` | score 1 | **score 0** |
+| abs-product | `abs(x-1)*abs(x+1)` | score 1 | **score 0** |
+| abs-product | `x^2-1` | score 0 | score 0 |
+| int-partial-fractions | `log(abs(x^2-1))+c` | score 1 | score 1, `ATInt_true_equiv` |
+| int-partial-fractions | `log(abs(x-1))+log(abs(x+1))+c` | score 1 | **score 0, `ATInt_EqFormalDiff`** |
+| int-partial-fractions | `log(abs((x-1)*(x+1)))+c` | score 1 | **score 0, `ATInt_EqFormalDiff`** |
+| int-partial-fractions | `log(abs(x^2+1))+c` | score 0 | score 0 |
+:::
+
+The questions' own tests fail for `abs((x-1)*(x+1))`, `abs(x-1)*abs(x+1)`
+and `log(abs(x-1))+log(abs(x+1))+c`. Evidence:
+[abs-product.json](evidence/abs-product.json),
+[int-partial-fractions.json](evidence/int-partial-fractions.json).
+`AlgEquivNouns` and `SubstEquiv` give false as well. The `Int` option
+`FORMAL` and the `Antidiff` test accept the partial-fraction answer,
+because they compare derivatives only. The reverse direction works: with
+the teacher's answer `log(abs(x-1))+log(abs(x+1))+c`, the answer
+`log(abs((x-1)*(x+1)))+c` is accepted, but `log(abs(x^2-1))+c` is not.
+
+**Where in the source.**
+[`algebraic_equivalence`, assessment.mac lines 1084–1186](https://github.com/maths/moodle-qtype_stack/blob/10d323311b7f39fb7b092dd10ce75f7d8632f525/stack/maxima/assessment.mac#L1084-L1186)
+works on the difference of the two expressions with `ratsimp`, `radcan`,
+`trigsimp` and `factcomb`. None of these relate `abs(a)*abs(b)` to
+`abs(a*b)` once `a*b` is expanded. In `Intfun`, the derivatives agree
+([stackmaxima.mac line 3092](https://github.com/maths/moodle-qtype_stack/blob/10d323311b7f39fb7b092dd10ce75f7d8632f525/stack/maxima/stackmaxima.mac#L3092)),
+then `algebraic_equivalence` of the answers fails
+([lines 3120–3122](https://github.com/maths/moodle-qtype_stack/blob/10d323311b7f39fb7b092dd10ce75f7d8632f525/stack/maxima/stackmaxima.mac#L3120-L3122)),
+and the result is `ATInt_EqFormalDiff`
+([line 3127](https://github.com/maths/moodle-qtype_stack/blob/10d323311b7f39fb7b092dd10ce75f7d8632f525/stack/maxima/stackmaxima.mac#L3127)).
+
+**Possible fix.** Before comparing, rewrite products of `abs` into one
+`abs` (`abs(a)*abs(b)` to `abs(a*b)`, and `abs(a)^n` to `abs(a^n)`), on
+both sides. Then `abs(x-1)*abs(x+1)` becomes `abs(x^2-1)` after
+expansion. Inside `log`, `log(abs(a))+log(abs(b))` could be combined the
+same way. We have not tried this.
+
+## 3. `log(x^2)` is equivalent to `2*log(x)` but not to `2*log(abs(x))` {#p3}
+
+**What goes wrong.** `AlgEquiv` sets `logexpand:super`, so `log(x^2)`
+becomes `2*log(x)`. As a result, the exact identity
+$\ln(x^2)=2\ln|x|$, true for every real $x\neq 0$, is rejected, while
+`2*log(x)`, which is only equal for $x>0$, is accepted.
+
+**Severity: Low.** Most questions ask for `log(abs(x))` or for `log(x)`
+and do not mix the two. We raised the wider question, whether
+`AlgEquiv` should accept identities that hold only for positive
+arguments, with the STACK author by email. This page lists those
+identities [under "not a bug"](#not-a-bug). The rejection reported here
+does not depend on that decision: it is a false negative for an answer
+that is correct everywhere.
+
+**Question:** [log-square.xml](questions/log-square.xml), teacher's
+answer `log(x^2)`, one `AlgEquiv` node.
+
+**Steps.** Import, preview, submit the answers below.
+
+::: {.table-responsive}
+| Answer | Expected | STACK 4.13.1 and 4.14.0 |
+|---|---|---|
+| `2*log(abs(x))` | score 1 | **score 0** |
+| `log(abs(x)^2)` | score 1 | score 1 |
+| `2*log(x)` | score 0, or at least not more than `2*log(abs(x))` | score 1 |
+| `log(x)` | score 0 | score 0 |
+:::
+
+The same happens the other way round: with the teacher's answer
+`2*log(abs(x))`, the answers `log(x^2)` and `log(abs(x)^2)` get 0.
+Evidence: [log-square.json](evidence/log-square.json).
+
+**Where in the source.** `logexpand:super` in
+[`algebraic_equivalence`, assessment.mac line 1096](https://github.com/maths/moodle-qtype_stack/blob/10d323311b7f39fb7b092dd10ce75f7d8632f525/stack/maxima/assessment.mac#L1096).
+With it, `log(x^2)` becomes `2*log(x)` and the difference to
+`2*log(abs(x))` does not simplify to zero.
+
+**Possible fix.** When `logexpand:super` expands `log(a^n)` with an even
+`n`, write `n*log(abs(a))` instead of `n*log(a)`. Then `2*log(abs(x))` is
+accepted. Whether `2*log(x)` should still be accepted is the design
+question above. We have not tried this.
+
+## 4. Rounding of the teacher's answer at a tie {#p4}
+
+**What goes wrong.** Two separate things, both at a tie (a last digit 5):
+
+**(a) Binary rounding.** The teacher's answer is rounded as a binary float. `1.015` is stored
+as 1.01499999999999990…, so `NumDecPlaces` with 2 places and `NumSigFigs`
+with 3 figures both accept `1.01` and reject `1.02`. STACK's own
+`decimalplaces(1.015,2)` and `significantfigures(1.015,3)` also give
+`1.01`. For `1.02`, `NumSigFigs` tells the student: "Either you have not
+rounded correctly, or you have rounded an intermediate answer which
+propagates an error." With the teacher's answer as the rational
+`203/200`, `NumDecPlaces` accepts `1.02`.
+
+**(b) Two tie rules.** The tie rule differs between the tests. `NumDecPlaces` (and
+`decimalplaces`) round half to even, through Maxima's `round`. `NumSigFigs`
+(and `significantfigures`) round half up. For `0.125`, two decimal places
+and two significant figures are the same digits, yet `NumDecPlaces`
+accepts only `0.12` and `NumSigFigs` only `0.13`.
+
+**Severity: Low.** It only matters when the teacher's answer is a decimal
+that ends exactly in 5 at the rounding position. A teacher who types
+`1.015` expects `1.02` under either documented convention. A student who
+rounds as taught at school gets 0 and sees the model answer `1.01`.
+
+**Questions:**
+[decimal-tie-binary.xml](questions/decimal-tie-binary.xml) (`a: 1.015`;
+`NumDecPlaces` with option 2, `NumSigFigs` with option 3) and
+[decimal-tie-rule.xml](questions/decimal-tie-rule.xml) (`a: 0.125`;
+`NumDecPlaces` with option 2, `NumSigFigs` with option 2).
+
+**Steps.** Import, preview, enter the same answer in both inputs and
+submit.
+
+::: {.table-responsive}
+| Question | Answers | Expected | STACK 4.13.1 and 4.14.0 (`NumDecPlaces`, `NumSigFigs`) |
+|---|---|---|---|
+| decimal-tie-binary (`1.015`) | `1.02`, `1.02` | 1, 1 | **0, 0** |
+| decimal-tie-binary (`1.015`) | `1.01`, `1.01` | 0, 0 | **1, 1** |
+| decimal-tie-rule (`0.125`) | `0.13`, `0.13` | the same in both | **0, 1** |
+| decimal-tie-rule (`0.125`) | `0.12`, `0.12` | the same in both | **1, 0** |
+:::
+
+The teacher's answers for the inputs, `decimalplaces(a,2)` and
+`significantfigures(a,…)`, evaluate to `1.01`, `1.01` and `0.12`, `0.13`.
+Evidence: [decimal-tie-binary.json](evidence/decimal-tie-binary.json),
+[decimal-tie-rule.json](evidence/decimal-tie-rule.json).
+
+**Where in the source.**
+
+- `ATNumDecPlaces` compares `round(sans*10^n)` with
+  `round(tans*10^n)` in floating point
+  ([numericaltest.mac lines 388–389](https://github.com/maths/moodle-qtype_stack/blob/10d323311b7f39fb7b092dd10ce75f7d8632f525/stack/maxima/numericaltest.mac#L388-L389)).
+- `decimalplacesfun` rounds `10^n*float(ex)`
+  ([assessment.mac line 858](https://github.com/maths/moodle-qtype_stack/blob/10d323311b7f39fb7b092dd10ce75f7d8632f525/stack/maxima/assessment.mac#L858)).
+- `sigfigsfun` rounds half up, with a test `ex1-floor(ex1) = 0.5` on a
+  float
+  ([assessment.mac line 909](https://github.com/maths/moodle-qtype_stack/blob/10d323311b7f39fb7b092dd10ce75f7d8632f525/stack/maxima/assessment.mac#L909)),
+  used by `ATNumSigFigs`
+  ([numericaltest.mac line 280](https://github.com/maths/moodle-qtype_stack/blob/10d323311b7f39fb7b092dd10ce75f7d8632f525/stack/maxima/numericaltest.mac#L280)).
+- The documentation says that Maxima's `round` rounds half to even and
+  that `significantfigures` rounds half up
+  ([Numerical_rounding.md lines 45–47](https://github.com/maths/moodle-qtype_stack/blob/10d323311b7f39fb7b092dd10ce75f7d8632f525/doc/en/CAS/Numerical_rounding.md#L45-L47)).
+  The `NumDecPlaces` documentation says only that the test "rounds the
+  numbers to the specified number of decimal places".
+
+**Possible fixes.** For (a), round the decimal that the teacher wrote,
+not its binary value: for example, turn the float into the exact rational
+of its shortest decimal form before rounding (Maxima's `rationalize` gives
+the binary value, which does not help here). For (b), use one tie rule in
+both tests, or state each test's rule in the documentation. We have not
+tried either.
+
+## Not a bug, or intended {#not-a-bug}
+
+These came up in the same comparison. For each one, STACK's behaviour is
+documented, intended, or a choice we leave to the maintainers. The IDs
+are from our audit of the port (stack-sympy, S-01 to S-23). The rows for
+S-01, S-03, S-13 and S-19 were run through STACK for this page. The rows
+for S-02, S-04, S-05 and S-07 to S-12 rest on the audit, which ran the
+answer tests in STACK's Maxima and read the PHP code for the rest.
+
+::: {.table-responsive}
+| Audit ID | What we looked at | STACK 4.13.1 | Why we do not report it |
+|---|---|---|---|
+| S-01 | Question-variable names typed as answers | forbidden: "Forbidden variable or constant: ta." | Correct. Our port leaked them. Problem 1 is the remaining gap. |
+| S-03 | `AlgEquiv` accepts identities that hold only for positive arguments: `2*log(x)` = `log(x^2)`, `log(x)+log(y)` = `log(x*y)`, `sqrt(x)*sqrt(y)` = `sqrt(x*y)`; and real-valued ones: `abs(x)` = `sqrt(x^2)`, `(-8)^(1/3)` = `-2` | true | A design choice (`logexpand:super`, real-valued roots), raised with the STACK author by email. Problem 3 is the one consequence we report. |
+| S-06 | `NumDecPlaces` at ties | see problem 4 | The difference in our port (exact rounding half to even) was our bug. What remains in STACK is problem 4. |
+| S-19 | `EqualComAss(x-(-1), x+1)` | false | Documented: unary minus is kept, and `-(-1)` → `1` is not a commutativity or associativity rule. |
+| S-19 | `LowestTerms(0.5/1, 1/2)` | false | Documented: the test checks the numbers as written. |
+| S-19 | `Sets({x^2-1}, {(x-1)*(x+1)})` | true | Documented: elements are compared in a canonical form. |
+| S-19 | `NumDecPlaces(1.50e2, 150, 2)` true; also `314.16e-2` accepted as 3.14159 to 2 places | true | Documented: "decimal places" counts the digits after the decimal separator as written. Maybe surprising with scientific notation, but as documented. |
+| S-13 | `sinx`, `sin*x`, `Sin(x)`, `SQRT(x)`, `x²`, `3,5`, `2 x`, `0^0` | invalid, each with a message | Intended input rules. Our port accepted some of them. |
+| S-02 | `I` and `E` | plain variables | Documented: only `e`, `i`, `pi` are constants. |
+| S-04 | `quiet` node | suppresses only the answer test's feedback | Documented; our port also hid the branch feedback. |
+| S-08 | PRT score rounded to 3 decimals | as described | Intended. |
+| S-10 | Answer of the wrong type, e.g. an expression for an equation | invalid | Intended (`checkanswertype`). |
+| S-05, S-07, S-09, S-11, S-12 | Branching on non-applicable tests, question options, partial answers, crashes, timeouts | STACK behaves as documented | Port bugs only. |
+| - | `ATNumDecPlaces` evaluates `rawans` where the parameter is `rawsans` ([numericaltest.mac line 351](https://github.com/maths/moodle-qtype_stack/blob/10d323311b7f39fb7b092dd10ce75f7d8632f525/stack/maxima/numericaltest.mac#L351)) | no effect | A typo with no visible effect: the unbound symbol evaluates to itself. Could be fixed in passing. |
+:::
+
+We did not find any of the four problems in STACK's issue tracker with a
+web search, but we could not search the tracker itself.
+
+## How we checked {#how}
+
+Each problem was checked with STACK's own code, without our port. A small
+PHP driver, [grade.php](oracle/grade.php), loads the question XML with the
+STACK API's question loader (`api/util/StackQuestionLoader.php`). It then
+instantiates the question, validates each input with
+`get_input_state`, and evaluates each PRT with `get_prt_result`, which is
+what the API's `/grade` route does. The question tests run through the
+API's `/test` controller. The driver uses STACK's Moodle emulation
+(`api/emulation`) and Maxima 5.46.0 on GCL. For 4.13.1 we used a
+GCL image with STACK's libraries loaded. For 4.14.0, STACK loaded its
+libraries from the checkout on every call. The questions are written by
+[repro.py](oracle/repro.py) (with [qgen.py](oracle/qgen.py)), which also
+runs them through STACK and checks every attempt against the result
+recorded on this page:
+
+```
+python repro.py write
+python repro.py check --stack <moodle-qtype_stack checkout> [--image <GCL image>]
+```
+
+The checkout needs `composer install --no-dev` in its `api` folder, and
+PHP 8. The evidence files linked above hold the driver's output for STACK
+4.13.1: the input states, PRT scores, answer notes and feedback of every
+attempt, and the question-test results. The same files for 4.14.0 are in
+`evidence/4.14.0/` (for example
+[feedback-variable.json](evidence/4.14.0/feedback-variable.json)); they give
+the same states, scores and notes.
+
+## About this page
+
+Built by `scripts/build-stack-repro.sh` in
+[aacchhee/ctm-demo](https://github.com/aacchhee/ctm-demo), in the workflow
+step "Build the STACK reproduction". The course pages do not link here.
+The question files are CC BY-SA 4.0 (Andrey Chesnokov, 2026). The
+scripts are AGPL-3.0-or-later. The evidence files are output of STACK
+(GPL-3.0-or-later) and Maxima.

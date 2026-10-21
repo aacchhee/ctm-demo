@@ -1,0 +1,214 @@
+{
+ "stack": "10d323311b7f39fb7b092dd10ce75f7d8632f525",
+ "release": "4.13.1 for Moodle 4.2+ (2026080600)",
+ "maxima": "\"5.46.0\"",
+ "platform": "linux-optimised",
+ "seed": 1,
+ "attempts": [
+  {
+   "answers": {
+    "ans1": "log(abs(x^2-1))+c"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "log(abs(x^2-1))+c",
+     "contentsdisplayed": "\\[ \\ln \\left( \\left| x^2-1\\right| \\right)+c \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 1,
+     "penalty": 0,
+     "answernotes": [
+      "ATInt_true_equiv.",
+      "prt1-1-T"
+     ],
+     "errors": [],
+     "feedback": ""
+    }
+   },
+   "expected": "score 1"
+  },
+  {
+   "answers": {
+    "ans1": "log(abs(x-1))+log(abs(x+1))+c"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "log(abs(x-1))+log(abs(x+1))+c",
+     "contentsdisplayed": "\\[ \\ln \\left( \\left| x-1\\right| \\right)+\\ln \\left( \\left| x+1\\right| \\right)+c \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 0,
+     "penalty": 0.1,
+     "answernotes": [
+      "ATInt_EqFormalDiff.",
+      "prt1-1-F"
+     ],
+     "errors": [],
+     "feedback": "The formal derivative of your answer does equal the expression that you were asked to integrate. However, your answer differs from the correct answer in a significant way, that is to say not just, e.g., a constant of integration. Please ask your teacher about this."
+    }
+   },
+   "expected": "score 1"
+  },
+  {
+   "answers": {
+    "ans1": "log(abs((x-1)*(x+1)))+c"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "log(abs((x-1)*(x+1)))+c",
+     "contentsdisplayed": "\\[ \\ln \\left( \\left| \\left(x-1\\right)\\cdot \\left(x+1\\right)\\right| \\right)+c \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 0,
+     "penalty": 0.1,
+     "answernotes": [
+      "ATInt_EqFormalDiff.",
+      "prt1-1-F"
+     ],
+     "errors": [],
+     "feedback": "The formal derivative of your answer does equal the expression that you were asked to integrate. However, your answer differs from the correct answer in a significant way, that is to say not just, e.g., a constant of integration. Please ask your teacher about this."
+    }
+   },
+   "expected": "score 1"
+  },
+  {
+   "answers": {
+    "ans1": "log(abs(x^2+1))+c"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "log(abs(x^2+1))+c",
+     "contentsdisplayed": "\\[ \\ln \\left( \\left| x^2+1\\right| \\right)+c \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 0,
+     "penalty": 0.1,
+     "answernotes": [
+      "ATInt_generic.",
+      "prt1-1-F"
+     ],
+     "errors": [],
+     "feedback": "The derivative of your answer should be equal to the expression that you were asked to integrate, that was: \\[\\frac{2\\cdot x}{x^2-1}\\] In fact, the derivative of your answer, with respect to \\(x\\) is: \\[\\frac{2\\cdot x}{x^2+1}\\] so you must have done something wrong!"
+    }
+   },
+   "expected": "score 0"
+  }
+ ],
+ "teacher": {
+  "ans1": "ta"
+ },
+ "teachervalue": {
+  "ans1": "log(abs(x^2-1))+c"
+ },
+ "question": "questions/int-partial-fractions.xml",
+ "questiontests": {
+  "name": "Int: partial fractions against integrate()",
+  "messages": "",
+  "isupgradeerror": false,
+  "isgeneralfeedback": false,
+  "isdeployedseeds": false,
+  "israndomvariants": false,
+  "istests": true,
+  "results": {
+   "noseed": {
+    "passes": 1,
+    "fails": 1,
+    "messages": "",
+    "outcomes": {
+     "1": {
+      "passed": true,
+      "reason": "",
+      "inputs": {
+       "ans1": {
+        "inputexpression": "ans1",
+        "inputentered": "log(abs(x^2-1))+c",
+        "inputmodified": "log(abs(x^2-1))+c",
+        "inputdisplayed": "\\[ \\ln \\left( \\left| x^2-1\\right| \\right)+c \\]",
+        "inputstatus": "Score",
+        "errors": ""
+       }
+      },
+      "outcomes": {
+       "prt1": {
+        "outcome": true,
+        "score": 1,
+        "penalty": 0,
+        "answernote": "ATInt_true_equiv. | prt1-1-T",
+        "answernotes": [
+         "ATInt_true_equiv.",
+         "prt1-1-T"
+        ],
+        "prtanswernotes": [
+         "prt1-1-T"
+        ],
+        "expectedscore": 1,
+        "expectedpenalty": 0,
+        "expectedanswernote": "prt1-1-T",
+        "feedback": "",
+        "reason": ""
+       }
+      }
+     },
+     "2": {
+      "passed": false,
+      "reason": "",
+      "inputs": {
+       "ans1": {
+        "inputexpression": "ans1",
+        "inputentered": "log(abs(x-1))+log(abs(x+1))+c",
+        "inputmodified": "log(abs(x-1))+log(abs(x+1))+c",
+        "inputdisplayed": "\\[ \\ln \\left( \\left| x-1\\right| \\right)+\\ln \\left( \\left| x+1\\right| \\right)+c \\]",
+        "inputstatus": "Score",
+        "errors": ""
+       }
+      },
+      "outcomes": {
+       "prt1": {
+        "outcome": false,
+        "score": 0,
+        "penalty": 0.1,
+        "answernote": "ATInt_EqFormalDiff. | prt1-1-F",
+        "answernotes": [
+         "ATInt_EqFormalDiff.",
+         "prt1-1-F"
+        ],
+        "prtanswernotes": [
+         "prt1-1-F"
+        ],
+        "expectedscore": 1,
+        "expectedpenalty": 0,
+        "expectedanswernote": "prt1-1-T",
+        "feedback": "The formal derivative of your answer does equal the expression that you were asked to integrate. However, your answer differs from the correct answer in a significant way, that is to say not just, e.g., a constant of integration. Please ask your teacher about this.",
+        "reason": " (Score, Penalty, Answer note: Expected last node of prt1-1-T but got prt1-1-F.)"
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

@@ -9,6 +9,8 @@ __pycache__/
 /_review-site/
 /_jsxgraph-repro/_site/
 /_jsxgraph-repro/.quarto/
+/_stack-repro/_site/
+/_stack-repro/.quarto/
 
 /_stack-audit/_site/
 /_stack-audit/.quarto/

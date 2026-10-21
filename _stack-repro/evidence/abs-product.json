@@ -1,0 +1,268 @@
+{
+ "stack": "10d323311b7f39fb7b092dd10ce75f7d8632f525",
+ "release": "4.13.1 for Moodle 4.2+ (2026080600)",
+ "maxima": "\"5.46.0\"",
+ "platform": "linux-optimised",
+ "seed": 1,
+ "attempts": [
+  {
+   "answers": {
+    "ans1": "abs(x^2-1)"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "abs(x^2-1)",
+     "contentsdisplayed": "\\[ \\left| x^2-1\\right| \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 1,
+     "penalty": 0,
+     "answernotes": [
+      "prt1-1-T"
+     ],
+     "errors": [],
+     "feedback": ""
+    }
+   },
+   "expected": "score 1"
+  },
+  {
+   "answers": {
+    "ans1": "abs(1-x^2)"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "abs(1-x^2)",
+     "contentsdisplayed": "\\[ \\left| 1-x^2\\right| \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 1,
+     "penalty": 0,
+     "answernotes": [
+      "prt1-1-T"
+     ],
+     "errors": [],
+     "feedback": ""
+    }
+   },
+   "expected": "score 1"
+  },
+  {
+   "answers": {
+    "ans1": "abs((x-1)*(x+1))"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "abs((x-1)*(x+1))",
+     "contentsdisplayed": "\\[ \\left| \\left(x-1\\right)\\cdot \\left(x+1\\right)\\right| \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 0,
+     "penalty": 0.1,
+     "answernotes": [
+      "prt1-1-F"
+     ],
+     "errors": [],
+     "feedback": ""
+    }
+   },
+   "expected": "score 1"
+  },
+  {
+   "answers": {
+    "ans1": "abs(x-1)*abs(x+1)"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "abs(x-1)*abs(x+1)",
+     "contentsdisplayed": "\\[ \\left| x-1\\right| \\cdot \\left| x+1\\right| \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 0,
+     "penalty": 0.1,
+     "answernotes": [
+      "prt1-1-F"
+     ],
+     "errors": [],
+     "feedback": ""
+    }
+   },
+   "expected": "score 1"
+  },
+  {
+   "answers": {
+    "ans1": "x^2-1"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "x^2-1",
+     "contentsdisplayed": "\\[ x^2-1 \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 0,
+     "penalty": 0.1,
+     "answernotes": [
+      "prt1-1-F"
+     ],
+     "errors": [],
+     "feedback": ""
+    }
+   },
+   "expected": "score 0"
+  }
+ ],
+ "teacher": {
+  "ans1": "ta"
+ },
+ "teachervalue": {
+  "ans1": "abs(x^2-1)"
+ },
+ "question": "questions/abs-product.xml",
+ "questiontests": {
+  "name": "AlgEquiv: absolute value of a product",
+  "messages": "",
+  "isupgradeerror": false,
+  "isgeneralfeedback": false,
+  "isdeployedseeds": false,
+  "israndomvariants": false,
+  "istests": true,
+  "results": {
+   "noseed": {
+    "passes": 1,
+    "fails": 2,
+    "messages": "",
+    "outcomes": {
+     "1": {
+      "passed": true,
+      "reason": "",
+      "inputs": {
+       "ans1": {
+        "inputexpression": "ans1",
+        "inputentered": "abs(x^2-1)",
+        "inputmodified": "abs(x^2-1)",
+        "inputdisplayed": "\\[ \\left| x^2-1\\right| \\]",
+        "inputstatus": "Score",
+        "errors": ""
+       }
+      },
+      "outcomes": {
+       "prt1": {
+        "outcome": true,
+        "score": 1,
+        "penalty": 0,
+        "answernote": "prt1-1-T",
+        "answernotes": [
+         "prt1-1-T"
+        ],
+        "prtanswernotes": [
+         "prt1-1-T"
+        ],
+        "expectedscore": 1,
+        "expectedpenalty": 0,
+        "expectedanswernote": "prt1-1-T",
+        "feedback": "",
+        "reason": ""
+       }
+      }
+     },
+     "2": {
+      "passed": false,
+      "reason": "",
+      "inputs": {
+       "ans1": {
+        "inputexpression": "ans1",
+        "inputentered": "abs((x-1)*(x+1))",
+        "inputmodified": "abs((x-1)*(x+1))",
+        "inputdisplayed": "\\[ \\left| \\left(x-1\\right)\\cdot \\left(x+1\\right)\\right| \\]",
+        "inputstatus": "Score",
+        "errors": ""
+       }
+      },
+      "outcomes": {
+       "prt1": {
+        "outcome": false,
+        "score": 0,
+        "penalty": 0.1,
+        "answernote": "prt1-1-F",
+        "answernotes": [
+         "prt1-1-F"
+        ],
+        "prtanswernotes": [
+         "prt1-1-F"
+        ],
+        "expectedscore": 1,
+        "expectedpenalty": 0,
+        "expectedanswernote": "prt1-1-T",
+        "feedback": "",
+        "reason": " (Score, Penalty, Answer note: Expected last node of prt1-1-T but got prt1-1-F.)"
+       }
+      }
+     },
+     "3": {
+      "passed": false,
+      "reason": "",
+      "inputs": {
+       "ans1": {
+        "inputexpression": "ans1",
+        "inputentered": "abs(x-1)*abs(x+1)",
+        "inputmodified": "abs(x-1)*abs(x+1)",
+        "inputdisplayed": "\\[ \\left| x-1\\right| \\cdot \\left| x+1\\right| \\]",
+        "inputstatus": "Score",
+        "errors": ""
+       }
+      },
+      "outcomes": {
+       "prt1": {
+        "outcome": false,
+        "score": 0,
+        "penalty": 0.1,
+        "answernote": "prt1-1-F",
+        "answernotes": [
+         "prt1-1-F"
+        ],
+        "prtanswernotes": [
+         "prt1-1-F"
+        ],
+        "expectedscore": 1,
+        "expectedpenalty": 0,
+        "expectedanswernote": "prt1-1-T",
+        "feedback": "",
+        "reason": " (Score, Penalty, Answer note: Expected last node of prt1-1-T but got prt1-1-F.)"
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

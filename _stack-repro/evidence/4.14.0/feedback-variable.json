@@ -1,0 +1,206 @@
+{
+ "stack": "33383047af39c204bf4442802a058f8b918b2b1b",
+ "release": "4.14.0 for Moodle 4.2+ (2026101500)",
+ "maxima": "\"5.46.0\"",
+ "platform": "linux",
+ "seed": 1,
+ "attempts": [
+  {
+   "answers": {
+    "ans1": "3*x^2+2"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "3*x^2+2",
+     "contentsdisplayed": "\\[ 3\\cdot x^2+2 \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 1,
+     "penalty": 0,
+     "answernotes": [
+      "prt1-1-T"
+     ],
+     "errors": [],
+     "feedback": ""
+    }
+   },
+   "expected": "valid, score 1"
+  },
+  {
+   "answers": {
+    "ans1": "d"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "d",
+     "contentsdisplayed": "\\[ d \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 1,
+     "penalty": 0,
+     "answernotes": [
+      "prt1-1-T"
+     ],
+     "errors": [],
+     "feedback": ""
+    }
+   },
+   "expected": "invalid (\"Forbidden variable or constant: d.\"), or valid with score 0"
+  },
+  {
+   "answers": {
+    "ans1": "3*x^2"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "3*x^2",
+     "contentsdisplayed": "\\[ 3\\cdot x^2 \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 0,
+     "penalty": 0.1,
+     "answernotes": [
+      "prt1-1-F"
+     ],
+     "errors": [],
+     "feedback": "Your answer differs from the derivative by \\({-2}\\)."
+    }
+   },
+   "expected": "valid, score 0"
+  },
+  {
+   "answers": {
+    "ans1": "ta"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "invalid",
+     "contentsmodified": "ta",
+     "contentsdisplayed": "<span class=\"stacksyntaxexample\">ta</span>",
+     "errors": "Forbidden variable or constant: ta.",
+     "note": "forbiddenVariable"
+    }
+   },
+   "gradable": false,
+   "prts": {
+    "prt1": {
+     "score": null,
+     "penalty": null,
+     "answernotes": [],
+     "errors": [],
+     "feedback": ""
+    }
+   },
+   "expected": "invalid: \"Forbidden variable or constant: ta.\""
+  }
+ ],
+ "teacher": {
+  "ans1": "ta"
+ },
+ "teachervalue": {
+  "ans1": "3*x^2+2"
+ },
+ "question": "questions/feedback-variable.xml",
+ "questiontests": {
+  "name": "Feedback variable typed as an answer",
+  "messages": "",
+  "isupgradeerror": false,
+  "isgeneralfeedback": false,
+  "isdeployedseeds": false,
+  "israndomvariants": false,
+  "istests": true,
+  "results": {
+   "noseed": {
+    "passes": 1,
+    "fails": 1,
+    "messages": "",
+    "outcomes": {
+     "1": {
+      "passed": true,
+      "reason": "",
+      "inputs": {
+       "ans1": {
+        "inputexpression": "ans1",
+        "inputentered": "3*x^2+2",
+        "inputmodified": "3*x^2+2",
+        "inputdisplayed": "\\[ 3\\cdot x^2+2 \\]",
+        "inputstatus": "Score",
+        "errors": ""
+       }
+      },
+      "outcomes": {
+       "prt1": {
+        "outcome": true,
+        "score": 1,
+        "penalty": 0,
+        "answernote": "prt1-1-T",
+        "answernotes": [
+         "prt1-1-T"
+        ],
+        "prtanswernotes": [
+         "prt1-1-T"
+        ],
+        "expectedscore": 1,
+        "expectedpenalty": 0,
+        "expectedanswernote": "prt1-1-T",
+        "feedback": "",
+        "reason": ""
+       }
+      }
+     },
+     "2": {
+      "passed": false,
+      "reason": "",
+      "inputs": {
+       "ans1": {
+        "inputexpression": "ans1",
+        "inputentered": "d",
+        "inputmodified": "d",
+        "inputdisplayed": "\\[ d \\]",
+        "inputstatus": "Score",
+        "errors": ""
+       }
+      },
+      "outcomes": {
+       "prt1": {
+        "outcome": false,
+        "score": 1,
+        "penalty": 0,
+        "answernote": "prt1-1-T",
+        "answernotes": [
+         "prt1-1-T"
+        ],
+        "prtanswernotes": [
+         "prt1-1-T"
+        ],
+        "expectedscore": null,
+        "expectedpenalty": null,
+        "expectedanswernote": "NULL",
+        "feedback": "",
+        "reason": " (Score, Answer note: Expected a null result, but got: prt1-1-T.)"
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

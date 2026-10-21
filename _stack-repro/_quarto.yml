@@ -1,0 +1,23 @@
+# STACK reproduction: one page for the STACK maintainers, published at
+# <site>/stack-repro/. Built on its own by scripts/build-stack-repro.sh,
+# not part of the course site, which does not link here.
+project:
+  type: default
+  output-dir: _site
+  render:
+    - index.qmd
+  resources:
+    - questions/*.xml
+    - evidence/*.json
+    - evidence/4.14.0/*.json
+    - oracle/*.py
+    - oracle/*.php
+
+format:
+  html:
+    title-prefix: "stack-repro"
+    theme: cosmo
+    toc: true
+    toc-depth: 2
+    code-overflow: wrap
+    css: style.css
