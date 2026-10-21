@@ -9,7 +9,7 @@
 
 ## jsxgraph-quarto (upstream jsxgraph/jsxgraph-quarto; our fork aacchhee/jsxgraph-quarto)
 
-- PR #2 (fork branch `audit/2026-10`, head 0b64e98) fixes the extension's own resize bug (fixed px sizes), `BOARDID`, hidden-board views, keep-aspect whole-view fit (AC's choice; maintainer decides), and bundles JSXGraph 1.14.1 (same files as upstream main ba2daa5). Tests: 0 failures with 1.14.1 and 1.14.0. Waiting for the maintainer (Alfred Wassermann) to merge.
+- PR #2 (fork branch `audit/2026-10`, head 21c5f9c; requires JSXGraph >= 1.14.1, old-version workarounds removed; reviewed by AC/Claude, not by you) fixes the extension's own resize bug (fixed px sizes), `BOARDID`, hidden-board views, keep-aspect whole-view fit (AC's choice; maintainer decides), and bundles JSXGraph 1.14.1 (same files as upstream main ba2daa5). Tests: 0 failures with 1.14.1 and 1.14.0. Waiting for the maintainer (Alfred Wassermann) to merge.
 - Courses use the fork pin 17de83e (ctm-assessment `repos.json`). After PR #2 merges: re-pin to upstream main in a ctm-assessment set with browser previews.
 - Step 5: upstream PR for `src_mode` (auto/link/embed) and `mjx_fonts` after #2 (fork-only if declined).
 - Still open in the library: hidden boards defined with `unitX/originX` (extension works around it).
