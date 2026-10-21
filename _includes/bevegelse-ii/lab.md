@@ -68,8 +68,7 @@ Kan tiden fra utskyting til toppunkt settes lik $T/2$ når ballen
 lander lavere enn den ble skutt ut? 1 = ja, 2 = nei. Svar: __[2].
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 **a)** Ved landing er $y=0$:
 $0=h_0+v_{0,T}T-\tfrac12gT^2$. Dermed
@@ -90,7 +89,7 @@ høydene**, men her ligger landingspunktet lavere enn utskytingspunktet.
 Derfor kan ikke total flygetid halveres for å finne tiden til toppen.
 Denne snarveien i originalnotatene er ikke gyldig for forsøksoppsettet.
 
-</details>
+:::
 
 ### Oppgave 9
 
@@ -202,8 +201,7 @@ $T=$ __[(6.3*sin(pi/180)+sqrt((6.3*sin(pi/180))^2+2*9.81*.2))/9.81] s.
 $R=$ __[6.3*cos(pi/180)*(6.3*sin(pi/180)+sqrt((6.3*sin(pi/180))^2+2*9.81*.2))/9.81] m.
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 Komponentene er $v_{0x}=6.30\cos1^\circ$ og
 $v_{0y}=6.30\sin1^\circ$. Sett $y(T)=0$:
@@ -213,7 +211,7 @@ Rekkevidden blir $R=v_{0x}T=1.344507\ldots\,\mathrm m\approx1.345\,\mathrm m$.
 For en annen vinkel brukes samme framgangsmåte; den vertikale startfarten
 kan ikke settes lik null når vinkelen er forskjellig fra null.
 
-</details>
+:::
 
 ### Oppgave 10
 
@@ -245,8 +243,7 @@ Minste vinkel: $\theta_1=$ __[asin(3*9.81/6.3^2)*90/pi] grader.
 Største vinkel: $\theta_2=$ __[90-asin(3*9.81/6.3^2)*90/pi] grader.
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 For samme start- og slutthøyde er den ikke-null flygetiden
 $T=2v_0\sin\theta/g$. Da blir
@@ -259,6 +256,6 @@ Originalen viser bare den lave vinkelen. Begge er mulige her, og den høye
 banen gir lengre flygetid. Generelt er målet bare mulig dersom
 $R\le v_0^2/g$ i denne modellen.
 
-</details>
+:::
 
 ::::

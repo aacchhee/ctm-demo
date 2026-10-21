@@ -75,14 +75,13 @@ $x=$ __[2]
 $y=$ __[3]
 ```
 
-<details class="learning-hint">
-<summary>Hint for problem 1</summary>
+::: {.hint title="Hint for problem 1"}
 
 In the second row, the coefficient of $y$ becomes $-1-2\cdot1$.
 The right-hand side becomes $1-2\cdot5$. A row operation changes the whole row.
 Check your final solution in both original equations.
 
-</details>
+:::
 
 ## 2. A 3×3 system
 
@@ -162,15 +161,14 @@ $y=$ __[2]
 $z=$ __[3]
 ```
 
-<details class="learning-hint">
-<summary>Hint for problem 2</summary>
+::: {.hint title="Hint for problem 2"}
 
 After part A, the first column below the pivot should contain only zeros.
 The second pivot is 1. Adding twice the new second row to the new third row
 eliminates its $y$ coefficient. The last row then contains only $z$ and the
 right-hand side. Substitute your solution into all three original equations.
 
-</details>
+:::
 
 ## 3. A 3×3 system that needs pivoting
 
@@ -276,8 +274,7 @@ $y=$ __[-1]
 $z=$ __[3]
 ```
 
-<details class="learning-hint">
-<summary>Hint for problem 3</summary>
+::: {.hint title="Hint for problem 3"}
 
 Swap the **entire** rows, including their right-hand sides. After the swap,
 the first pivot is 2, so subtract half of row 1 from row 3.
@@ -285,5 +282,5 @@ For the next step, check that $-3/2+(3/4)\cdot2=0$.
 Fractions during elimination are normal. Check your final answer in the
 original system, before any row swaps.
 
-</details>
+:::
 

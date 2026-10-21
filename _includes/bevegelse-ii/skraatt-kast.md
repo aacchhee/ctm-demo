@@ -144,8 +144,7 @@ $x_\mathrm{topp}=$ __[30*cos(pi/9)*30*sin(pi/9)/9.81] m.
 $y_\mathrm{maks}=$ __[.5*9.81*3^2-30*sin(pi/9)*3+(30*sin(pi/9))^2/(2*9.81)] m over sjøen.
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 **a)** Startkomponentene er
 $v_{0x}=30\cos20^\circ=28.1908\ldots\,\mathrm{m/s}$ og
@@ -163,7 +162,7 @@ Høyden over sjøen er
 $y_\mathrm{maks}=y_0+v_{0y}^2/(2g)=18.73\,\mathrm m$.
 Det siste tillegget er høydeøkningen **over kanonen**, ikke over sjøen.
 
-</details>
+:::
 
 ### Oppgave 7
 
@@ -314,8 +313,7 @@ Hvor mange ganger etter utskytingen og før landing har ballen denne farten?
 Skriv et heltall: __[2]. Begrunn med bevegelsen opp og ned.
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 **a)** $v_{0y}=12\sin35^\circ=6.88292\ldots\,\mathrm{m/s}$.
 Likningen for bakken er $0=1.80+v_{0y}t-4.905t^2$.
@@ -339,6 +337,6 @@ $\tfrac12mv_0^2+mgy_0=\tfrac12mv^2+mgy$.
 På vei opp og på vei ned har ballen samme banefart i samme høyde.
 Her skjer det ved omtrent $t=0.20\,\mathrm s$ og $t=1.20\,\mathrm s$.
 
-</details>
+:::
 
 ::::

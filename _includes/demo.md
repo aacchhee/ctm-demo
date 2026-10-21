@@ -1,11 +1,8 @@
 Explore a direction, run Python in your browser, and check your mathematics.
 Use the tabs to move between the examples and problems.
 
-<div class="learning-mode" data-learning-mode data-reading-label="Go deeper" role="group" aria-label="Choose reading mode">
-<button type="button" data-mode="lecture" aria-pressed="true">Explore</button>
-<button type="button" data-mode="reading" aria-pressed="false">Go deeper</button>
-<span role="status" aria-live="polite"></span>
-</div>
+::: {.modes}
+:::
 
 ```{pyodide-python}
 #| label: demo-setup
@@ -74,8 +71,7 @@ has length one.
 **Discuss:** Why can we discard length information and still see which direction
 dominates? What distinguishes the two special starting directions?
 
-<details class="reading-step">
-<summary>Go deeper: scaling without turning</summary>
+::: {.reading-step title="Go deeper: scaling without turning"}
 
 Starting from $(1,0)^T$, the first step is
 
@@ -113,7 +109,7 @@ The preset $(1,-1)$ uses $x_0=(1,-1)^T/\sqrt2$. Here $Ax_0=x_0$ from the
 start: this direction is an exception. In fact, the two special lines are
 eigenvector directions, with eigenvalues 3 and 1.
 
-</details>
+:::
 
 ## 2 The power method {#power-method}
 
@@ -174,8 +170,7 @@ For $\mu=1$, the blue share quickly approaches 1. For $\mu=2.9$, the shares
 change slowly: the two contributions grow by almost the same factor at each
 step. The **eigenvalue ratio** $\mu/3$ determines the speed.
 
-<details class="reading-step">
-<summary>Go deeper: connect the curves to the eigenvalues</summary>
+::: {.reading-step title="Go deeper: connect the curves to the eigenvalues"}
 
 The starting vector has equal coordinates along $q_1$ and $q_2$. After $k$
 multiplications, the ratio of contribution lengths is
@@ -201,7 +196,7 @@ The code computes coordinates from iterated vectors, so rounding can affect
 very small contributions. A linear vertical axis does not reveal such tiny
 errors clearly.
 
-</details>
+:::
 
 ### Write down the algorithm
 
@@ -270,8 +265,7 @@ satisfied. It does not prove that the eigenvalue is dominant: the direction
 with eigenvalue 1 also gives zero residual. For a general matrix it does not,
 by itself, guarantee proximity to a particular exact eigenvector.
 
-<details class="reading-step">
-<summary>Go deeper: why this quotient?</summary>
+::: {.reading-step title="Go deeper: why this quotient?"}
 
 Orthogonality of the residual gives
 
@@ -292,10 +286,9 @@ r=\frac1{5\sqrt5}\begin{bmatrix}-3\\6\end{bmatrix},\qquad
 
 The residual norm has decreased from 1 to $3/5$ after one step.
 
-</details>
+:::
 
-<details class="reading-step">
-<summary>Go deeper: implementation of the power method</summary>
+::: {.reading-step title="Go deeper: implementation of the power method"}
 
 The definition runs automatically. Follow the pseudocode: normalization,
 Rayleigh quotient, residual, and a maximum number of steps.
@@ -343,7 +336,7 @@ experiments that do not converge.
 If $Ax=0$, $x$ is already an eigenvector for zero, but the next normalization
 is impossible. The status message explains this case.
 
-</details>
+:::
 
 ```{pyodide-python}
 #| label: demo-power-result
@@ -423,12 +416,11 @@ Complete the matrix in $x=B[c_1,c_2]^T$:
 $B=$ mat[,;,]
 ```
 
-<details class="learning-hint">
-<summary>Hint for problem 1</summary>
+::: {.hint title="Hint for problem 1"}
 
 The equations are $c_1+c_2=2$ and $c_1-c_2=1$. What happens when you add them?
 
-</details>
+:::
 
 ### Problem 2 — eigenvalues and your choice of eigenvectors
 
@@ -549,14 +541,13 @@ Does the zero vector belong to each eigenspace? _[]
 Is the zero vector an eigenvector? _[]
 ```
 
-<details class="learning-hint">
-<summary>Hint for problem 2</summary>
+::: {.hint title="Hint for problem 2"}
 
 The determinant equation is $(2-\lambda)^2-1=0$. Substitute each root into
 $A-\lambda I$ and solve the homogeneous system. The matrix is singular;
 do not try to invert it.
 
-</details>
+:::
 
 :::
 
