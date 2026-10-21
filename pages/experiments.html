@@ -41,16 +41,20 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-b6dc9e813fb09d2bbff48e8f9eb94b8d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/ctm-ui-0.9.0/ctm-ui.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/ctm-reveal-0.9.0/ctm-reveal.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-nav-0.9.0/ctm-nav.js"></script>
 <script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/feedback-core.js"></script>
 <script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/feedback-dom.js"></script>
 <script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/ai-feedback.js"></script>
 <link href="../site_libs/quarto-contrib/ai-feedback-0.9.0/ai-feedback.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/ctm-runtime-0.9.0/pyodide-runtime.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-checkers-0.2.0/ctm-checkers.js"></script>
 <script src="../site_libs/quarto-contrib/ctm-locale-0.9.0/ctm-locale.js"></script>
 <script src="../site_libs/quarto-contrib/ctm-locale-0.9.0/common.js"></script>
 <script src="../site_libs/quarto-contrib/ctm-locale-math-exercise-0.9.0/math-exercise.js"></script>
-<link href="../site_libs/quarto-contrib/math-exercise-0.10.0/matrix-input.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/math-exercise-0.10.0/math-exercise.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/math-exercise-0.11.0/matrix-input.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/math-exercise-0.11.0/math-exercise.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -305,11 +309,13 @@ Mean value \(=\) <input type="text" id="math-exercise-1-f2" data-answer="" data-
 <div class="math-feedback-area"></div>
 </div>
 </div>
-<details class="learning-hint">
+<details class="ctm-reveal hint">
 <summary>
 Hint for A
 </summary>
+<div class="ctm-reveal-body">
 <p>The negative half-period contributes zero to every integral. For <span class="math inline">\(b_1\)</span>, choose <span class="math inline">\(u=x\)</span> and <span class="math inline">\(dv=\sin x\,dx\)</span> in integration by parts.</p>
+</div>
 </details>
 </section>
 <section id="part-b-general-coefficients-keep-track-of-parity" class="level3">
@@ -339,11 +345,13 @@ Hint for A
 <div class="math-feedback-area"></div>
 </div>
 </div>
-<details class="learning-hint">
+<details class="ctm-reveal hint">
 <summary>
 Hint for B
 </summary>
+<div class="ctm-reveal-body">
 <p>On the nonzero half-period, integrate <span class="math inline">\(x\cos(nx)\)</span> and <span class="math inline">\(x\sin(nx)\)</span>. For integer <span class="math inline">\(n\)</span>, <span class="math inline">\(\sin(n\pi)=0\)</span> and <span class="math inline">\(\cos(n\pi)=(-1)^n\)</span>. For the cosine coefficient, retain the contribution at <strong>both</strong> endpoints. Check your formulas at <span class="math inline">\(n=1\)</span> and <span class="math inline">\(n=2\)</span>, but remember that these checks alone are not a proof of a general formula.</p>
+</div>
 </details>
 </section>
 <section id="part-c-a-shift-and-a-discontinuity" class="level3">
@@ -381,11 +389,13 @@ Fourier-series sum at \(x=-2\pi/3\): <input type="text" id="math-exercise-3-f3" 
 <div class="math-feedback-area"></div>
 </div>
 </div>
-<details class="learning-hint">
+<details class="ctm-reveal hint">
 <summary>
 Hint for C
 </summary>
+<div class="ctm-reveal-body">
 <p>Substitute <span class="math inline">\(x-\pi/3\)</span> into the original Fourier series and use the angle-subtraction identities. Translation preserves the mean. The function is piecewise smooth, so its Fourier series converges at each point to the average of the left-hand and right-hand limits. At the chosen point, approach <span class="math inline">\(-\pi\)</span> from either side using the periodic extension of <span class="math inline">\(f\)</span>.</p>
+</div>
 </details>
 
 
@@ -393,160 +403,6 @@ Hint for C
 </section>
 
 </main> <!-- /main -->
-<script>
-// Shared fragment navigation for all Quarto pages, including Back/Forward.
-(() => {
-  const key = '__quartoTabPosition';
-  let navigation = 0, restoring = false, scrollTimer;
-  let handledURL = location.href;
-  history.scrollRestoration = 'manual';
-
-  function targetFor(hash) {
-    if (!hash || hash === '#') return null;
-    try { return document.getElementById(decodeURIComponent(hash.slice(1))); }
-    catch (_) { return null; }
-  }
-  function ancestors(target) {
-    const panes = [];
-    for (let el = target; el; el = el.parentElement) {
-      if (el.classList.contains('tab-pane')) panes.unshift(el);
-    }
-    return panes;
-  }
-  function snapshot() {
-    return { x: window.scrollX, y: window.scrollY,
-      panes: Array.from(document.querySelectorAll('.tab-pane.active'), el => el.id) };
-  }
-  function save() {
-    if (restoring) return;
-    const state = history.state;
-    // Preserve state owned by Quarto or other shared scripts.
-    history.replaceState({ ...(state && typeof state === 'object' ? state : {}),
-      [key]: snapshot() }, '', location.href);
-  }
-  function open(pane) {
-    if (pane.classList.contains('active')) return Promise.resolve();
-    const tab = document.getElementById(pane.getAttribute('aria-labelledby'));
-    if (!tab || !window.bootstrap?.Tab) return Promise.resolve();
-    return new Promise(resolve => {
-      tab.addEventListener('shown.bs.tab', resolve, { once: true });
-      window.bootstrap.Tab.getOrCreateInstance(tab).show();
-    });
-  }
-  const frame = () => new Promise(resolve => requestAnimationFrame(resolve));
-  async function navigate(position, target) {
-    const request = ++navigation;
-    restoring = true;
-    clearTimeout(scrollTimer);
-    // DOM order puts outer tab panes before nested ones.
-    const panes = position ? position.panes.map(id => document.getElementById(id)).filter(Boolean)
-      : target ? ancestors(target) : [];
-    for (const pane of panes) {
-      if (request !== navigation) return;
-      await open(pane);
-    }
-    if (request !== navigation) return;
-    window.dispatchEvent(new Event('resize'));
-    await frame(); await frame();
-    if (request !== navigation) return;
-    if (position) {
-      window.scrollTo({ left: position.x, top: position.y, behavior: 'instant' });
-    } else if (target && target.getClientRects().length) {
-      const header = document.getElementById('quarto-header');
-      const clearance = header ? Math.max(0, header.getBoundingClientRect().bottom) : 0;
-      window.scrollTo({ top: Math.max(0, window.scrollY + target.getBoundingClientRect().top - clearance - 16), behavior: 'instant' });
-    }
-    await frame();
-    if (request !== navigation) return;
-    restoring = false;
-    save();
-  }
-  document.addEventListener('click', event => {
-    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    const link = event.target.closest?.('a[href]');
-    if (!link || link.hasAttribute('download') || (link.target && link.target !== '_self')) return;
-    save();
-    if (link.getAttribute('role') === 'tab') return;
-    const url = new URL(link.href, location.href);
-    if (url.origin !== location.origin || url.pathname !== location.pathname || url.search !== location.search) return;
-    const target = targetFor(url.hash);
-    if (!target || !window.bootstrap?.Tab) return;
-    event.preventDefault();
-    event.stopPropagation();
-    if (location.hash !== url.hash) history.pushState(null, '', url.hash);
-    handledURL = location.href;
-    void navigate(null, target);
-  }, true);
-
-  window.addEventListener('scroll', () => {
-    if (restoring) return;
-    clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(save, 100);
-  }, { passive: true });
-  document.addEventListener('shown.bs.tab', () => { if (!restoring) save(); });
-  window.addEventListener('pagehide', save);
-  window.addEventListener('popstate', event => {
-    handledURL = location.href;
-    void navigate(event.state?.[key] || null, targetFor(location.hash));
-  });
-  window.addEventListener('hashchange', () => {
-    // Back/Forward emits popstate and then hashchange: restore only once.
-    if (handledURL === location.href) return;
-    handledURL = location.href;
-    void navigate(null, targetFor(location.hash));
-  });
-  window.addEventListener('pageshow', () => {
-    handledURL = location.href;
-    void navigate(history.state?.[key] || null, targetFor(location.hash));
-  });
-})();
-</script>
-
-<script>
-(() => {
-  function init() {
-    const controls = document.querySelector('[data-learning-mode]');
-    if (!controls) return;
-    const steps = [...document.querySelectorAll('details.reading-step')];
-    const buttons = [...controls.querySelectorAll('button[data-mode]')];
-    const status = controls.querySelector('[role="status"]');
-    function select(mode) {
-      steps.forEach(step => { step.open = mode === 'reading'; });
-      buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.mode === mode)));
-      status.textContent = mode === 'reading'
-        ? (controls.dataset.readingLabel || 'Go deeper') + ': try it yourself, then follow the explanations step by step.'
-        : (controls.dataset.lectureLabel || 'Explore') + (controls.dataset.lectureLabel ? ': try the problems before opening the explanations.' : ': experiment and discuss. Open explanations when needed.');
-      try { sessionStorage.setItem('learning-mode', mode); } catch (_) {}
-      window.dispatchEvent(new Event('resize'));
-    }
-    buttons.forEach(button => button.addEventListener('click', () => select(button.dataset.mode)));
-    let initial = 'lecture';
-    try { initial = sessionStorage.getItem('learning-mode') || initial; } catch (_) {}
-    select(initial === 'reading' ? 'reading' : 'lecture');
-    // A direct link into a closed explanation must still reveal its target.
-    function revealTarget() {
-      let target;
-      try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch (_) { return; }
-      for (let node = target; node; node = node.parentElement) {
-        if (node.matches('details')) node.open = true;
-      }
-    }
-    window.addEventListener('hashchange', revealTarget);
-    revealTarget();
-    const beforePrint = new Map();
-    window.addEventListener('beforeprint', () => {
-      steps.forEach(step => { beforePrint.set(step, step.open); step.open = true; });
-    });
-    window.addEventListener('afterprint', () => {
-      beforePrint.forEach((open, step) => { step.open = open; });
-      beforePrint.clear();
-    });
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
-})();
-</script>
-
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -952,6 +808,6 @@ Hint for C
 
 
 
-<script src="../site_libs/quarto-contrib/math-exercise-0.10.0/matrix-input.js"></script>
-<script src="../site_libs/quarto-contrib/math-exercise-0.10.0/math-exercise.js"></script>
+<script src="../site_libs/quarto-contrib/math-exercise-0.11.0/matrix-input.js"></script>
+<script src="../site_libs/quarto-contrib/math-exercise-0.11.0/math-exercise.js"></script>
 </body></html>
