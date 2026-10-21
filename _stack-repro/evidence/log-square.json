@@ -1,0 +1,175 @@
+{
+ "stack": "10d323311b7f39fb7b092dd10ce75f7d8632f525",
+ "release": "4.13.1 for Moodle 4.2+ (2026080600)",
+ "maxima": "\"5.46.0\"",
+ "platform": "linux-optimised",
+ "seed": 1,
+ "attempts": [
+  {
+   "answers": {
+    "ans1": "2*log(abs(x))"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "2*log(abs(x))",
+     "contentsdisplayed": "\\[ 2\\cdot \\ln \\left( \\left| x\\right| \\right) \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 0,
+     "penalty": 0.1,
+     "answernotes": [
+      "prt1-1-F"
+     ],
+     "errors": [],
+     "feedback": ""
+    }
+   },
+   "expected": "score 1"
+  },
+  {
+   "answers": {
+    "ans1": "log(abs(x)^2)"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "log(abs(x)^2)",
+     "contentsdisplayed": "\\[ \\ln \\left( {\\left| x\\right| }^2 \\right) \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 1,
+     "penalty": 0,
+     "answernotes": [
+      "prt1-1-T"
+     ],
+     "errors": [],
+     "feedback": ""
+    }
+   },
+   "expected": "score 1"
+  },
+  {
+   "answers": {
+    "ans1": "2*log(x)"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "2*log(x)",
+     "contentsdisplayed": "\\[ 2\\cdot \\ln \\left( x \\right) \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 1,
+     "penalty": 0,
+     "answernotes": [
+      "prt1-1-T"
+     ],
+     "errors": [],
+     "feedback": ""
+    }
+   },
+   "expected": "score 0, or at least not more than 2*log(abs(x))"
+  },
+  {
+   "answers": {
+    "ans1": "log(x)"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "log(x)",
+     "contentsdisplayed": "\\[ \\ln \\left( x \\right) \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 0,
+     "penalty": 0.1,
+     "answernotes": [
+      "prt1-1-F"
+     ],
+     "errors": [],
+     "feedback": ""
+    }
+   },
+   "expected": "score 0"
+  }
+ ],
+ "teacher": {
+  "ans1": "ta"
+ },
+ "teachervalue": {
+  "ans1": "2*log(x)"
+ },
+ "question": "questions/log-square.xml",
+ "questiontests": {
+  "name": "AlgEquiv: log(x^2) and 2*log(abs(x))",
+  "messages": "",
+  "isupgradeerror": false,
+  "isgeneralfeedback": false,
+  "isdeployedseeds": false,
+  "israndomvariants": false,
+  "istests": true,
+  "results": {
+   "noseed": {
+    "passes": 0,
+    "fails": 1,
+    "messages": "",
+    "outcomes": {
+     "1": {
+      "passed": false,
+      "reason": "",
+      "inputs": {
+       "ans1": {
+        "inputexpression": "ans1",
+        "inputentered": "2*log(abs(x))",
+        "inputmodified": "2*log(abs(x))",
+        "inputdisplayed": "\\[ 2\\cdot \\ln \\left( \\left| x\\right| \\right) \\]",
+        "inputstatus": "Score",
+        "errors": ""
+       }
+      },
+      "outcomes": {
+       "prt1": {
+        "outcome": false,
+        "score": 0,
+        "penalty": 0.1,
+        "answernote": "prt1-1-F",
+        "answernotes": [
+         "prt1-1-F"
+        ],
+        "prtanswernotes": [
+         "prt1-1-F"
+        ],
+        "expectedscore": 1,
+        "expectedpenalty": 0,
+        "expectedanswernote": "prt1-1-T",
+        "feedback": "",
+        "reason": " (Score, Penalty, Answer note: Expected last node of prt1-1-T but got prt1-1-F.)"
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

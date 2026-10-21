@@ -1,0 +1,186 @@
+{
+ "stack": "33383047af39c204bf4442802a058f8b918b2b1b",
+ "release": "4.14.0 for Moodle 4.2+ (2026101500)",
+ "maxima": "\"5.46.0\"",
+ "platform": "linux",
+ "seed": 1,
+ "attempts": [
+  {
+   "answers": {
+    "ans1": "0.13",
+    "ans2": "0.13"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "0.13",
+     "contentsdisplayed": "\\[ 0.13 \\]",
+     "errors": "",
+     "note": ""
+    },
+    "ans2": {
+     "status": "valid",
+     "contentsmodified": "0.13",
+     "contentsdisplayed": "\\[ 0.13 \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 0,
+     "penalty": 0.1,
+     "answernotes": [
+      "ATNumDecPlaces_Correct. ATNumDecPlaces_Not_equiv.",
+      "prt1-1-F"
+     ],
+     "errors": [],
+     "feedback": ""
+    },
+    "prt2": {
+     "score": 1,
+     "penalty": 0,
+     "answernotes": [
+      "prt2-1-T"
+     ],
+     "errors": [],
+     "feedback": ""
+    }
+   },
+   "expected": "the same score in both"
+  },
+  {
+   "answers": {
+    "ans1": "0.12",
+    "ans2": "0.12"
+   },
+   "inputs": {
+    "ans1": {
+     "status": "valid",
+     "contentsmodified": "0.12",
+     "contentsdisplayed": "\\[ 0.12 \\]",
+     "errors": "",
+     "note": ""
+    },
+    "ans2": {
+     "status": "valid",
+     "contentsmodified": "0.12",
+     "contentsdisplayed": "\\[ 0.12 \\]",
+     "errors": "",
+     "note": ""
+    }
+   },
+   "gradable": true,
+   "prts": {
+    "prt1": {
+     "score": 1,
+     "penalty": 0,
+     "answernotes": [
+      "ATNumDecPlaces_Correct. ATNumDecPlaces_Equiv.",
+      "prt1-1-T"
+     ],
+     "errors": [],
+     "feedback": ""
+    },
+    "prt2": {
+     "score": 0,
+     "penalty": 0.1,
+     "answernotes": [
+      "ATNumSigFigs_Inaccurate.",
+      "prt2-1-F"
+     ],
+     "errors": [],
+     "feedback": "The accuracy of your answer is not correct. Either you have not rounded correctly, or you have rounded an intermediate answer which propagates an error."
+    }
+   },
+   "expected": "the same score in both"
+  }
+ ],
+ "teacher": {
+  "ans1": "decimalplaces(a,2)",
+  "ans2": "significantfigures(a,2)"
+ },
+ "teachervalue": {
+  "ans1": "0.12",
+  "ans2": "0.13"
+ },
+ "question": "questions/decimal-tie-rule.xml",
+ "questiontests": {
+  "name": "NumDecPlaces and NumSigFigs: 0.125 rounded",
+  "messages": "",
+  "isupgradeerror": false,
+  "isgeneralfeedback": false,
+  "isdeployedseeds": false,
+  "israndomvariants": false,
+  "istests": true,
+  "results": {
+   "noseed": {
+    "passes": 0,
+    "fails": 1,
+    "messages": "",
+    "outcomes": {
+     "1": {
+      "passed": false,
+      "reason": "",
+      "inputs": {
+       "ans1": {
+        "inputexpression": "ans1",
+        "inputentered": "0.13",
+        "inputmodified": "0.13",
+        "inputdisplayed": "\\[ 0.13 \\]",
+        "inputstatus": "Score",
+        "errors": ""
+       },
+       "ans2": {
+        "inputexpression": "ans2",
+        "inputentered": "0.13",
+        "inputmodified": "0.13",
+        "inputdisplayed": "\\[ 0.13 \\]",
+        "inputstatus": "Score",
+        "errors": ""
+       }
+      },
+      "outcomes": {
+       "prt1": {
+        "outcome": false,
+        "score": 0,
+        "penalty": 0.1,
+        "answernote": "ATNumDecPlaces_Correct. ATNumDecPlaces_Not_equiv. | prt1-1-F",
+        "answernotes": [
+         "ATNumDecPlaces_Correct. ATNumDecPlaces_Not_equiv.",
+         "prt1-1-F"
+        ],
+        "prtanswernotes": [
+         "prt1-1-F"
+        ],
+        "expectedscore": 1,
+        "expectedpenalty": 0,
+        "expectedanswernote": "prt1-1-T",
+        "feedback": "",
+        "reason": " (Score, Penalty, Answer note: Expected last node of prt1-1-T but got prt1-1-F.)"
+       },
+       "prt2": {
+        "outcome": true,
+        "score": 1,
+        "penalty": 0,
+        "answernote": "prt2-1-T",
+        "answernotes": [
+         "prt2-1-T"
+        ],
+        "prtanswernotes": [
+         "prt2-1-T"
+        ],
+        "expectedscore": 1,
+        "expectedpenalty": 0,
+        "expectedanswernote": "prt2-1-T",
+        "feedback": "",
+        "reason": ""
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}
