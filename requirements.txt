@@ -2,5 +2,5 @@ PyYAML>=6
 jupyter>=1
 nbformat>=5
 beautifulsoup4>=4.12  # optional rendered-page audit script
-sympy>=1.13  # umbrella example/checker build; the browser uses Pyodide's SymPy 1.13.3
+sympy>=1.13  # umbrella example/checker build; the browser uses Pyodide's SymPy 1.13.3, which CI installs
 networkx>=3.4  # umbrella graph checker build

@@ -133,15 +133,14 @@ Akselerasjon: $a=$ __[1] m/s². Startfart: $v_0=$ __[10] m/s.
 $v(t)=$ ___[10+t] m/s.
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 Stigningstallet er
 $a=(15-10)/(5-0)=1.0\,\mathrm{m/s^2}$.
 Skjæringen med den vertikale aksen er $v_0=10.0\,\mathrm{m/s}$.
 Dermed $v(t)=10+t$ når $t$ måles i sekunder og $v$ i m/s.
 
-</details>
+:::
 
 ### Oppgave 12
 
@@ -251,8 +250,7 @@ Svar med 1 desimal.
 $v(2)=$ __[3] m/s. $v(4)=$ __[1] m/s. $a=$ __[-1] m/s².
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 Hastighet er stigningstallet til posisjonsgrafen.
 Ved $t=2$ gir tangentens hjelpepunkter
@@ -264,6 +262,6 @@ En funksjon som beskriver den gjenskapte grafen er
 $s(t)=2+5t-\tfrac12t^2$, med $v(t)=5-t$ for $0\le t\le5$.
 Den negative akselerasjonen gjør at den positive hastigheten avtar.
 
-</details>
+:::
 
 ::::

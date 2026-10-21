@@ -130,15 +130,14 @@ Svar med 1 desimal.
 $|\vec s|=$ __[5] m. $\theta=$ __[atan(3/4)*180/pi] grader.
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 Pytagoras gir $|\vec s|=\sqrt{4^2+3^2}=5.0\,\mathrm m$.
 Vektoren ligger i første kvadrant, og
 $\theta=\arctan(3/4)=36.9^\circ$ over positiv $x$-akse.
 Vi kan også bruke $\theta=\arccos(4/5)$.
 
-</details>
+:::
 
 ### Oppgave 2
 
@@ -302,8 +301,7 @@ $\vec v_2=($ __[15] $,\;$ __[7-9.81*.7] $)$ m/s.
 Banefart i $P_1$: $v_1=$ __[sqrt(15^2+(7-9.81*.2)^2)] m/s.
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 **a)** Innsetting gir $\vec r_1=(3.0000,2.7038)\,\mathrm m$ og
 $\vec r_2=(10.5000,3.99655)\,\mathrm m$.
@@ -324,7 +322,7 @@ Banefarten i $P_1$ er
 $\sqrt{15^2+5.038^2}=15.82\,\mathrm{m/s}$.
 Akselerasjonen til denne modellen er $\vec a=(0,-9.81)\,\mathrm{m/s^2}$.
 
-</details>
+:::
 
 ### Oppgave 3
 
@@ -428,14 +426,13 @@ Svar med 2 desimaler.
 $\bar{\vec a}=($ __[-4] $,\;$ __[-4] $)$ m/s². $|\bar{\vec a}|=$ __[sqrt(32)] m/s².
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 $$\bar{\vec a}=\frac{(0,-12)-(12,0)}{3.0}=(-4,-4)\,\mathrm{m/s^2}.$$
 Lengden er $\sqrt{(-4)^2+(-4)^2}=5.66\,\mathrm{m/s^2}$, og retningen er
 nedover mot venstre. Selv om start- og sluttfarten begge er
 $12\,\mathrm{m/s}$, har hastighetsvektoren endret seg.
 
-</details>
+:::
 
 ::::

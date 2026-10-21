@@ -120,14 +120,13 @@ Svar med 2 desimaler.
 $v=$ __[sqrt(14.2*2.05)] m/s.
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 Fra $a_s=v^2/r$ får vi
 $v=\sqrt{a_sr}=\sqrt{14.2\cdot2.05}=5.40\,\mathrm{m/s}$.
 Vi velger positiv rot fordi banefart er en størrelse uten fortegn.
 
-</details>
+:::
 
 ### Oppgave 16
 
@@ -173,8 +172,7 @@ Svar med 2 desimaler.
 Skriv $F=q\cdot10^{20}\,\mathrm N$: $q=$ __[7.35e22*4*pi^2*3.84e8/(27.3*86400)^2/1e20].
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 **a)** Omløpstiden i SI-enheter er
 $T=27.3\cdot86400=2358720\,\mathrm s$.
@@ -188,6 +186,6 @@ $F\approx2.00\cdot10^{20}\,\mathrm N$, rettet mot jorda.
 Den avrundede verdien $1.99\cdot10^{20}\,\mathrm N$ i originalen følger
 ikke av de oppgitte tallene uten ytterligere avrunding.
 
-</details>
+:::
 
 ::::

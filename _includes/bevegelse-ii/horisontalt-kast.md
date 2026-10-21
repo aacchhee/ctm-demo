@@ -48,15 +48,14 @@ Svar med 1 desimal.
 $x=$ __[50] m.
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 Det er ingen akselerasjon horisontalt, så
 $x=v_xt=10.0\cdot5.0=50.0\,\mathrm m$.
 Dette svarer til alternativ D i originalens flervalgsoppgave.
 Tyngden endrer den vertikale hastigheten, men ikke den horisontale.
 
-</details>
+:::
 
 ### Oppgave 5
 
@@ -180,8 +179,7 @@ $v=$ __[sqrt(3^2+(9.81*.4)^2)] m/s.
 Vinkel **under** horisontalen: $\theta=$ __[atan(9.81*.4/3)*180/pi] grader.
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 **a)** Horisontalt er $t=x/v_x=1.2/3.0=0.40\,\mathrm s$.
 Vertikalt er $v_{0y}=0$ og $\Delta y=-h$, så
@@ -193,6 +191,6 @@ Vinkelen under horisontalen er
 $\theta=\arctan(|v_y|/v_x)=52.60^\circ$.
 Negativ $v_y$ betyr bevegelse nedover i koordinatsystemet som brukes her.
 
-</details>
+:::
 
 ::::

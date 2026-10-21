@@ -76,8 +76,7 @@ Svar med 2 desimaler.
 $T=$ __[(2.5+sqrt(2.5^2+2*9.81*6))/9.81] s.
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 Den vertikale startfarten er $v_{0y}=5\sin30^\circ=2.5\,\mathrm{m/s}$.
 Riktig likning ved bakken er derfor
@@ -87,7 +86,7 @@ lagt til i den digitale versjonen.
 Den positive roten er $T=1.39\,\mathrm s$.
 Det er $v_{0y}$, ikke hele startfarten, som skal stå foran $t$ i høydefunksjonen.
 
-</details>
+:::
 
 ### Oppgave 18
 
@@ -215,8 +214,7 @@ $v_0=$ __[sqrt((11*cos(64*pi/180))^2+(-11*sin(64*pi/180)+9.81*2.7/(11*cos(64*pi/
 Takets vinkel under horisontalen: $\phi=$ __[atan((11*sin(64*pi/180)-9.81*2.7/(11*cos(64*pi/180)))/(11*cos(64*pi/180)))*180/pi] grader.
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 **a)** Dekomponer slutthastigheten:
 $$v_x=11\cos64^\circ=4.82208\ldots\,\mathrm{m/s},\qquad
@@ -232,6 +230,6 @@ $$v_0=\sqrt{v_{0x}^2+v_{0y}^2}=6.52\,\mathrm{m/s},\qquad
 Startretningen ligger under horisontalen. Fordi klumpen forlater taket
 langs takflaten, er dette også takets helningsvinkel.
 
-</details>
+:::
 
 ::::

@@ -82,13 +82,12 @@ Mean value $=$ __[]
 $b_1=$ __[]
 ```
 
-<details class="learning-hint">
-<summary>Hint for A</summary>
+::: {.hint title="Hint for A"}
 
 The negative half-period contributes zero to every integral.
 For $b_1$, choose $u=x$ and $dv=\sin x\,dx$ in integration by parts.
 
-</details>
+:::
 
 ### Part B — general coefficients: keep track of parity
 
@@ -136,8 +135,7 @@ $a_n=$ ___[]
 $b_n=$ ___[]
 ```
 
-<details class="learning-hint">
-<summary>Hint for B</summary>
+::: {.hint title="Hint for B"}
 
 On the nonzero half-period, integrate $x\cos(nx)$ and $x\sin(nx)$.
 For integer $n$, $\sin(n\pi)=0$ and $\cos(n\pi)=(-1)^n$.
@@ -145,7 +143,7 @@ For the cosine coefficient, retain the contribution at **both** endpoints.
 Check your formulas at $n=1$ and $n=2$, but remember that these checks alone
 are not a proof of a general formula.
 
-</details>
+:::
 
 ### Part C — a shift and a discontinuity
 
@@ -211,8 +209,7 @@ $\beta_n=$ ____[]
 Fourier-series sum at $x=-2\pi/3$: __[]
 ```
 
-<details class="learning-hint">
-<summary>Hint for C</summary>
+::: {.hint title="Hint for C"}
 
 Substitute $x-\pi/3$ into the original Fourier series and use the
 angle-subtraction identities. Translation preserves the mean.
@@ -220,5 +217,5 @@ The function is piecewise smooth, so its Fourier series converges at each
 point to the average of the left-hand and right-hand limits. At the chosen
 point, approach $-\pi$ from either side using the periodic extension of $f$.
 
-</details>
+:::
 

@@ -9,10 +9,17 @@ project:
     - pages/bevegelse-ii.qmd
     - pages/stack-oppgaver.qmd
     - pages/help.qmd
+    - pages/step4-ui.qmd
+    - pages/step4-ui-links.qmd
+    - pages/step4-ui-nb.qmd
+    - pages/step4-ui-nn.qmd
+    - pages/step4-ui-de.qmd
 
 lang: en
 
 filters:
+  - path: _extensions/ctm-assessment/tab-ids.lua
+    at: pre-ast
   - _filters/stack-content.lua
   - ctm-assessment
 
@@ -43,12 +50,12 @@ format:
   html:
     theme: cosmo
     css: styles.css
-    include-after-body:
-      - _includes/site/tab-links.html
-      - _includes/site/learning-mode.html
 
 ai-feedback:
   mode: api
 
 pyodide:
   lang: en
+
+ctm-assessment:
+  markdown-lint: true

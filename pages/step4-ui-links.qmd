@@ -1,0 +1,14 @@
+---
+title: "Step-4 UI: links from another page"
+---
+
+Links into the [test page](step4-ui.qmd): each opens what hides its target
+there, scrolls it below the header and moves the focus to it.
+
+`````markdown
+{{< include ../_includes/step4-ui/links-other.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/links-other.md >}}

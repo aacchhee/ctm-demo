@@ -1,0 +1,197 @@
+---
+title: "Step-4 UI: test page"
+toc: true
+---
+
+Test cases for the reading and navigation features that CTM Assessment's
+step 4 added: reveals, the lecture/reading switch, embedded pages, tab ids and
+links into tabs, reveals and callouts. Each section shows the Markdown, then
+what it gives. The pages
+[Links from another page](step4-ui-links.qmd),
+[Default titles (nb)](step4-ui-nb.qmd),
+[Default titles (nn)](step4-ui-nn.qmd) and
+[Default titles (de)](step4-ui-de.qmd) belong to this test.
+
+## The lecture/reading switch {#ui-modes}
+
+A page with `.reading-step` blocks gets the switch automatically, at the top of the page. An empty `::: {.modes}` block puts it somewhere else, here. The text outside reading steps is the lecture; the reading steps add the details for reading on one's own. The choice holds for the browser tab, on every page of this site, and a new tab starts in lecture mode.
+
+`````markdown
+{{< include ../_includes/step4-ui/modes.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/modes.md >}}
+
+## Links to the targets on this page {#ui-links}
+
+Each link opens what hides its target (tabs, nested tabs, reveals, a collapsed callout), scrolls the target below the header and moves the keyboard focus there. Back and Forward return to the link and to the target again. Most targets are further down: below the fold.
+
+`````markdown
+{{< include ../_includes/step4-ui/links.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/links.md >}}
+
+## Reveals with a title {#ui-titled}
+
+Four kinds of reveal. Only `.reading-step` follows the switch.
+
+`````markdown
+{{< include ../_includes/step4-ui/titled.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/titled.md >}}
+
+## Reveals without a title {#ui-untitled}
+
+Without `title=` a reveal takes the default title in the page's language. A `.details` block should always say what it holds: without a title it is called "Details", and `markdown-lint: true` warns about it. The pages for [nb](step4-ui-nb.qmd), [nn](step4-ui-nn.qmd) and [de](step4-ui-de.qmd) show all four default titles.
+
+`````markdown
+{{< include ../_includes/step4-ui/untitled.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/untitled.md >}}
+
+## Titles with Markdown and maths; `name=` {#ui-title-markdown}
+
+`````markdown
+{{< include ../_includes/step4-ui/title-markdown.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/title-markdown.md >}}
+
+## Nested reveals {#ui-nested}
+
+Reveals nest. The switch opens and closes only the reading step; the blocks inside it keep their own state.
+
+`````markdown
+{{< include ../_includes/step4-ui/nested.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/nested.md >}}
+
+## A heading inside a reveal {#ui-heading}
+
+`````markdown
+{{< include ../_includes/step4-ui/heading.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/heading.md >}}
+
+## Reveals in a list, a callout and a tab {#ui-places}
+
+`````markdown
+{{< include ../_includes/step4-ui/places.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/places.md >}}
+
+## An embedded page {#ui-embed}
+
+`.embed` shows another file of the site in a frame. `title=` is required: it names the frame for screen readers.
+
+`````markdown
+{{< include ../_includes/step4-ui/embed.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/embed.md >}}
+
+## Tabsets: ids on tab titles and links into tabs {#ui-tabs}
+
+The `tab-ids.lua` line in `_quarto.yml` keeps the id of each tab title, so a link can open a tab. The links are in [Links to the targets on this page](#ui-links) and on the [other page](step4-ui-links.qmd).
+
+`````markdown
+{{< include ../_includes/step4-ui/tabs.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/tabs.md >}}
+
+## Nested tabsets {#ui-nested-tabs}
+
+`````markdown
+{{< include ../_includes/step4-ui/nested-tabs.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/nested-tabs.md >}}
+
+## Grouped tabsets {#ui-groups}
+
+Tabsets with the same `group=` switch together, and Quarto remembers the choice. A link into a group still opens its own tab, and does not change the remembered choice.
+
+`````markdown
+{{< include ../_includes/step4-ui/groups.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/groups.md >}}
+
+## Links into reveals and collapsed callouts {#ui-targets}
+
+`````markdown
+{{< include ../_includes/step4-ui/targets.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/targets.md >}}
+
+## Saved answers {#ui-autosave}
+
+Write some code in the Python exercise and reload the page: py-exercise puts your code back. It keeps it in this browser only. **Reset** brings back the starter code and deletes what was saved. The mathematics exercise is not saved yet: CTM Assessment's store for saved answers (on by default, with a bar to delete them or to stop saving) is a later part of step 4. When it is in the package, this site gets it, and this section then tests it.
+
+`````markdown
+{{< include ../_includes/step4-ui/autosave.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/autosave.md >}}
+
+## Also new, without a section of its own {#ui-other}
+
+- **Print:** printing opens every reading step; the switch is not printed.
+- **Keyboard:** Tab reaches the switch's buttons and every summary; Enter and
+  Space open and close a reveal.
+- **`markdown-lint: true`** (in `_quarto.yml`): the render warns about raw
+  HTML (`<details>`, `<iframe>`, empty `<div id>`) and names the Markdown to
+  use instead.
+- **Settings:** `ctm-assessment: modes: false` hides the switch (the
+  [de page](step4-ui-de.qmd) uses it), `tab-links: false` turns the links
+  into tabs off.
+- **Not in the package yet:** saved answers for all exercises, progress
+  panels and quizzes, exercise text per language.
+
+## Tabs far down the page {#ui-far}
+
+The links at the top of the page and on the other page lead here.
+
+`````markdown
+{{< include ../_includes/step4-ui/far-tabs.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/far-tabs.md >}}

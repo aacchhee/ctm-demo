@@ -125,8 +125,7 @@ Svar med 3 desimaler.
 $\Delta s=$ __[(.15+1.05)/2*(1.4-.6)] m. $a=$ __[(1.05-.15)/(1.4-.6)] m/s².
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 Arealet er et rektangel og en trekant:
 $$\Delta s=v_1\Delta t+\frac{(v_2-v_1)\Delta t}{2}
@@ -142,7 +141,7 @@ $v(t)=1.15t-0.528$. Bruker man denne framfor de avrundede avlesningene,
 blir integralet $0.4976\,\mathrm m$. Forskjellen skyldes at man da bruker
 en annen tilnærming til måledataene; denne oppgaven ber om avlesningsmodellen.
 
-</details>
+:::
 
 ### Oppgave 14
 
@@ -252,8 +251,7 @@ Svar med 0 desimaler.
 $s\approx$ __[22] m.
 ```
 
-<details class="solution-block">
-<summary>Løsningsforslag</summary>
+::: {.solution}
 
 Hver hovedrute representerer
 $1\,\mathrm s\cdot2\,\mathrm{m/s}=2\,\mathrm m$.
@@ -264,6 +262,6 @@ Den gjenskapte kurven har et areal på omtrent $21\,\mathrm m$;
 derfor brukes en toleranse på $2\,\mathrm m$, ikke en eksakt fasit.
 Siden hastigheten er positiv hele tiden, er strekning og forflytning like.
 
-</details>
+:::
 
 ::::
