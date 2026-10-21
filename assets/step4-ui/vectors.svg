@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" role="img" aria-labelledby="t">
+  <title id="t">Two vectors u and v and their sum u + v</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="context-stroke"/>
+    </marker>
+  </defs>
+  <rect width="320" height="220" fill="#fff"/>
+  <g stroke-width="3" marker-end="url(#a)" fill="none">
+    <line x1="40" y1="190" x2="200" y2="150" stroke="#245b79"/>
+    <line x1="40" y1="190" x2="100" y2="60" stroke="#4f7d57"/>
+    <line x1="40" y1="190" x2="260" y2="20" stroke="#ad6600"/>
+  </g>
+  <g stroke-width="1.5" stroke-dasharray="5 4" stroke="#7899ac" fill="none">
+    <line x1="200" y1="150" x2="260" y2="20"/>
+    <line x1="100" y1="60" x2="260" y2="20"/>
+  </g>
+  <g font-family="sans-serif" font-size="18">
+    <text x="205" y="175" fill="#245b79">u</text>
+    <text x="75" y="60" fill="#4f7d57">v</text>
+    <text x="265" y="40" fill="#ad6600">u + v</text>
+  </g>
+</svg>

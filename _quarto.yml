@@ -9,6 +9,11 @@ project:
     - pages/bevegelse-ii.qmd
     - pages/stack-oppgaver.qmd
     - pages/help.qmd
+    - pages/step4-ui.qmd
+    - pages/step4-ui-links.qmd
+    - pages/step4-ui-nb.qmd
+    - pages/step4-ui-nn.qmd
+    - pages/step4-ui-de.qmd
 
 lang: en
 

@@ -3,3 +3,7 @@ title: "Interactive mathematics"
 ---
 
 {{< include _includes/demo.md >}}
+
+CTM Assessment's reading and navigation features (reveals, the
+lecture/reading switch, links into tabs) have a test page of their own:
+[Step-4 UI test page](pages/step4-ui.qmd).

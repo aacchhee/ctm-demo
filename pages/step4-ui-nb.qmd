@@ -1,0 +1,19 @@
+---
+title: "Step-4 UI: default titles (nb)"
+lang: nb
+ctm-assessment:
+  # A .details block without a title is a markdown-lint warning by design;
+  # this page shows it on purpose.
+  markdown-lint: false
+---
+
+A page with `lang: nb` (Norwegian Bokmål): reveals without `title=` are called
+"Gå i dybden", "Hint", "Løsningsforslag" and "Detaljer". The switch reads "Forelesning" and "Gå i dybden". Part of the [step-4 UI test page](step4-ui.qmd).
+
+`````markdown
+{{< include ../_includes/step4-ui/defaults.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/defaults.md >}}

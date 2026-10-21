@@ -1,0 +1,20 @@
+---
+title: "Step-4 UI: default titles (de)"
+lang: de
+ctm-assessment:
+  # A .details block without a title is a markdown-lint warning by design;
+  # this page shows it on purpose.
+  markdown-lint: false
+  modes: false
+---
+
+A page with `lang: de` (German): reveals without `title=` are called
+"Vertiefung", "Hinweis", "Lösungsvorschlag" and "Details". This page sets `modes: false`, so it has no switch. Part of the [step-4 UI test page](step4-ui.qmd).
+
+`````markdown
+{{< include ../_includes/step4-ui/defaults.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/defaults.md >}}
