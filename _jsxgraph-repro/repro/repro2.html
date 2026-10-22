@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSXGraph: view of a board created hidden</title>
+<style>
+  body { font-family: system-ui, sans-serif; line-height: 1.45; margin: 1rem; max-width: 1000px; }
+  .row { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .col { flex: 1 1 280px; max-width: 320px; }
+  .frame { width: 100%; height: 240px; border: 1px solid #888; box-sizing: border-box; }
+  .status { font-family: monospace; font-size: 0.8rem; white-space: pre-wrap; background: #f4f4f4; padding: 0.5rem; min-height: 3em; }
+  .ok { color: #1b5e20; font-weight: bold; }
+  .wrong { color: #b00020; font-weight: bold; }
+  button { font-size: 1rem; }
+  h2 { font-size: 1.15rem; margin-top: 2rem; }
+  h3 { font-size: 1rem; margin: 0.5rem 0; }
+  pre { background: #f4f4f4; padding: 0.6rem; overflow-x: auto; font-size: 0.85rem; }
+  code { font-size: 0.9em; }
+</style>
+<script>
+  var V = (/[?&]v=([0-9.]+)/.exec(location.search) || [])[1] || '1.14.1';
+  var CDN = 'https://cdn.jsdelivr.net/npm/jsxgraph@' + V + '/distrib/';
+  document.write('<link rel="stylesheet" href="' + CDN + 'jsxgraph.css"><script src="' + CDN + 'jsxgraphcore.js"><\/script>');
+</script>
+</head>
+<body>
+<h1>View of a board created while hidden</h1>
+<p>JSXGraph version: <strong id="version"></strong>. Other versions:
+<a href="?v=1.14.1">1.14.1</a> · <a href="?v=1.14.0">1.14.0</a> ·
+<a href="../index.html">overview</a></p>
+
+<p>Both cases use plain HTML and JSXGraph only: no Quarto, no iframe. Board (A) is visible from the
+start. Board (B) runs exactly the same code inside a <code>display:none</code> div, the way a board in a
+hidden tab or a closed <code>&lt;details&gt;</code> starts. Press <strong>Show</strong> and compare (B) with (A).
+Each status line is read 0.5 s after showing, after JSXGraph's resize observer has run.</p>
+
+<p><button type="button" id="show">Show the hidden boards (B)</button></p>
+
+<h2>1. A view set by the board code is lost (the important one)</h2>
+<p>The board code calls <code>initBoard</code> with one box and then sets another view right away, a common
+pattern: fit the view to the data, or pick it per exercise variant.</p>
+<pre>var board = JXG.JSXGraph.initBoard(id, {boundingbox: [-5, 5, 5, -5], axis: true});
+board.setBoundingBox([0, 10, 10, 0], false);   // the view the author wants</pre>
+<div class="row">
+<div class="col"><h3>(A) Visible from the start</h3>
+<div id="v-a" class="jxgbox frame"></div>
+<p class="status" id="s-v-a"></p></div>
+<div class="col"><div class="hidden" style="display:none"><h3>(B) Hidden at creation, then shown</h3>
+<div id="v-b" class="jxgbox frame"></div>
+<p class="status" id="s-v-b"></p></div></div>
+</div>
+<p><strong>Expected:</strong> both show x from 0 to 10 and y from 0 to 10.
+<strong>Seen in 1.14.1:</strong> (B) shows the <code>initBoard</code> box [-5, 5, 5, -5]: the view set by the
+code is gone.</p>
+
+<h3>Why</h3>
+<p>While the container is hidden it is 0 × 0 px, so <code>setBoundingBox</code> computes
+<code>unitX = 0 / 10 = 0</code> and the board's box becomes NaN. When the board is shown,
+<code>updateContainerDims()</code> sees the NaN box and rebuilds the units from
+<code>this.attr.boundingbox</code> (the 1.14.1 fix for hidden keep-aspect boards). That is the box given
+to <code>initBoard</code>, not the one the code asked for later.</p>
+
+<h3>Suggested fix</h3>
+<p>Remember a box that was requested while the container had no size, and use it when the board first
+gets a real size. A sketch against <code>src/base/board.js</code> of 1.14.1:</p>
+<pre>// In setBoundingBox(bbox, keepaspectratio, setZoom), after reading the container size:
+if (!(w &gt; 0 &amp;&amp; h &gt; 0)) {
+    // Hidden container: remember the request instead of producing NaN units.
+    this._pendingBoundingBox = { bbox: bbox.slice(), keepaspectratio: keepaspectratio };
+    return this;
+}
+this._pendingBoundingBox = null;
+
+// In updateContainerDims(), in the branch "If bounding box is not yet initialized":
+if (this._pendingBoundingBox) {
+    var p = this._pendingBoundingBox;
+    this._pendingBoundingBox = null;
+    this.canvasWidth = w;
+    this.canvasHeight = h;
+    this.setBoundingBox(p.bbox, p.keepaspectratio, 'keep');
+} else {
+    bbox = this.attr.boundingbox;
+    // ... the existing 1.14.1 code ...
+}</pre>
+<p>We tried this idea as a runtime patch on top of 1.14.1, in Chromium: (B) then shows [0, 10, 10, 0],
+like (A). The same loss happens in 1.14.0.</p>
+<p>The same idea also covers <code>zoomIn</code>, <code>zoomElements</code> and other calls that end in
+<code>setBoundingBox</code> while the board is hidden. Calls that pass only the <code>initBoard</code> box are not
+affected, because the box is then the same.</p>
+
+<h2>2. A board defined by unitX/originX gets a non-finite view (exotic)</h2>
+<p>A board defined by units and origin instead of a box. We do not use this option in our courses: it
+came up in a systematic test of every way to define a board, so this case is for completeness.</p>
+<pre>var board = JXG.JSXGraph.initBoard(id, {unitX: 25, unitY: 25, originX: 40, originY: 200, axis: true});</pre>
+<div class="row">
+<div class="col"><h3>(A) Visible from the start</h3>
+<div id="u-a" class="jxgbox frame"></div>
+<p class="status" id="s-u-a"></p></div>
+<div class="col"><div class="hidden" style="display:none"><h3>(B) Hidden at creation, then shown</h3>
+<div id="u-b" class="jxgbox frame"></div>
+<p class="status" id="s-u-b"></p></div></div>
+</div>
+<p><strong>Expected:</strong> (B) has the same view as (A): the origin 40 px from the left and 200 px from
+the top, 25 px per unit. <strong>Seen in 1.14.1:</strong> (B)'s box is not finite when shown.</p>
+<p><strong>Why and a possible fix:</strong> no box was given, so the repair in
+<code>updateContainerDims()</code> has no meaningful <code>attr.boundingbox</code> to use. When the board was
+created with <code>unitX/unitY/originX/originY</code>, the repair could rebuild from those instead:
+<code>this.unitX = attr.unitx; this.unitY = attr.unity; this.origin.scrCoords = [1, attr.originx, attr.originy];</code>.</p>
+
+<script>
+  document.getElementById('version').textContent = JXG.version;
+  function fmt(b) { return '[' + b.map(function (x) { return isFinite(x) ? (Math.round(x * 100) / 100) : String(x); }).join(', ') + ']'; }
+  function same(a, b) { return a.every(function (x, i) { return isFinite(x) && Math.abs(x - b[i]) < 0.05; }); }
+  function viewBoard(id) {
+    var board = JXG.JSXGraph.initBoard(id, {boundingbox: [-5, 5, 5, -5], axis: true, showCopyright: false, showNavigation: false});
+    board.setBoundingBox([0, 10, 10, 0], false);
+    board.create('point', [5, 5], {name: '(5, 5)', fixed: true});
+    return board;
+  }
+  function unitBoard(id) {
+    var board = JXG.JSXGraph.initBoard(id, {unitX: 25, unitY: 25, originX: 40, originY: 200, axis: true, showCopyright: false, showNavigation: false});
+    board.create('point', [4, 4], {name: '(4, 4)', fixed: true});
+    return board;
+  }
+  var va = viewBoard('v-a'), vb = viewBoard('v-b');
+  var ua = unitBoard('u-a'), ub = unitBoard('u-b');
+  function report(id, board, expected, label) {
+    var b = board.getBoundingBox();
+    var ok = expected ? same(b, expected) : b.every(isFinite);
+    document.getElementById(id).innerHTML = 'box ' + fmt(b) + '\n' +
+      (ok ? '<span class="ok">as expected</span>' : '<span class="wrong">' + label + '</span>');
+    document.getElementById(id).setAttribute('data-ok', ok ? '1' : '0');
+  }
+  setTimeout(function () {
+    report('s-v-a', va, [0, 10, 10, 0], 'wrong view');
+    report('s-u-a', ua, null, 'not finite');
+  }, 500);
+  document.getElementById('show').addEventListener('click', function () {
+    Array.prototype.forEach.call(document.querySelectorAll('.hidden'), function (el) { el.style.display = ''; });
+    setTimeout(function () {
+      report('s-v-b', vb, [0, 10, 10, 0], 'wrong view: the view set by the code is lost');
+      report('s-u-b', ub, ua.getBoundingBox(), 'wrong view (A shows ' + fmt(ua.getBoundingBox()) + ')');
+    }, 500);
+  });
+</script>
+</body>
+</html>
