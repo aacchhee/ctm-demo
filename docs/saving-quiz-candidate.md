@@ -17,6 +17,10 @@ load/startup update are copied from the
 [canonical upstream hook fixture](https://github.com/jsxgraph/jsxgraph-quarto/blob/e4ad81d82e1b56f86765026a3dd26f6975d29d57/tests/mathjax-preload.browser.test.mjs#L68).
 It uses the frozen umbrella's board/hook configuration without a local loader or
 pre-loader override.
+An ordinary labelled `pyodide-python` IDE also sits in its own reading step outside
+the quiz. It saves edited code with `save: true` and explicitly disables autorun;
+real Run, edit, save and passive reopen checks cover the IDE consumer separately
+from the Python quiz grader.
 Profile arrays merge with the base, so explicit negative render patterns remove
 all eight other base targets. This profile also turns off the inherited sidebar,
 whose links advertise those unrendered pages. Its header links only to the five
@@ -55,6 +59,9 @@ Focused browser checks after that tuple is ready should use the actual controls:
    actual SVG, expression speech/Braille, hidden-to-visible geometry and original
    native load evidence under the real isolated opaque-frame path. Require zero
    raw errors and failed requests; visible SVG alone is not acceptance.
+7. Open the ordinary Python editor and Run `print(6 * 7)` to obtain `42`. Edit it,
+   save and reopen; the code must restore without automatically running. Check
+   Run again through the real IDE control and reset without affecting the quiz.
 
 Small focused checks during wiring are allowed. One full final acceptance pass
 for the coherent demo candidate is already authorized. Freeze source, component,

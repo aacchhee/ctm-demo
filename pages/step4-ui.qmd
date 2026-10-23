@@ -204,6 +204,20 @@ window.addEventListener('load', function () { MathJax.startup.promise.then(funct
 ```
 :::
 
+## Python editor in a reading step {#ui-ide}
+
+Open the reading step and press Run to print the result. Edited code is saved in
+this browser; reopening restores the code without running it.
+
+::: {.reading-step title="Try the Python editor"}
+```{pyodide-python}
+#| label: step4-ui-ide
+#| autorun: false
+#| save: true
+print(6 * 7)
+```
+:::
+
 
 ## Also new, without a section of its own {#ui-other}
 

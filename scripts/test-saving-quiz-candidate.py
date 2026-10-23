@@ -113,6 +113,17 @@ class CandidateSource(unittest.TestCase):
         self.assertIn('label.needsUpdate = true; board.update();', board)
         self.assertNotIn('src_mjx', self.text('_quarto-saving-quiz.yml'))
 
+    def test_real_python_ide_is_saved_hidden_and_never_autorun(self):
+        page = self.text('pages/step4-ui.qmd')
+        start = page.index('## Python editor in a reading step {#ui-ide}')
+        self.assertGreater(start, page.index('## MathJax board in a reading step'))
+        ide = page[start:page.index('## Also new,', start)]
+        self.assertIn('::: {.reading-step', ide)
+        self.assertIn('```{pyodide-python}\n#| label: step4-ui-ide\n'
+                      '#| autorun: false\n#| save: true\nprint(6 * 7)\n```', ide)
+        self.assertNotIn('quiz=', ide)
+        self.assertNotRegex(ide, r'(?m)^(?:import|from) ')
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
