@@ -17,6 +17,7 @@ project:
     - "!pages/help.qmd"
 
 website:
+  favicon: assets/step4-ui/vectors.svg
   title: "CTM demo: saving and quiz candidate"
   sidebar: false
   navbar:
