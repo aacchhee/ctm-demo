@@ -8,11 +8,12 @@ import {createHash} from 'node:crypto';
 const args=process.argv.slice(2),arg=(name,fallback)=>{const i=args.indexOf('--'+name);if(i<0){assert.notEqual(fallback,undefined,'Missing --'+name);return fallback;}return args[i+1];};
 const root=fs.realpathSync(path.resolve(arg('site'))),output=path.resolve(arg('output')),engine=arg('browser','webkit');
 assert.ok(['chromium','firefox','webkit'].includes(engine));fs.mkdirSync(path.dirname(output),{recursive:true});
+const fault=arg('fault','none');assert.ok(['none','jsxgraph','speech'].includes(fault));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.wasm':'application/wasm','.woff2':'font/woff2','.woff':'font/woff','.ttf':'font/ttf','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon','.txt':'text/plain; charset=utf-8','.map':'application/json'};
 const report={passed:false,functionalPassed:false,engine,width:1280,startedAt:Date.now(),scope:'actual first-visit functionality baseline: COI ready OR explicit supported unavailable fallback; no static SAB-all-browsers, offline or deployed Pages claim; unresolved retired-frame requests remain separate',
   harnessSha256:sha(fs.readFileSync(fileURLToPath(import.meta.url))),pageSha256:sha(fs.readFileSync(path.join(root,'pages/step4-ui.html'))),serviceWorkerSha256:sha(fs.readFileSync(path.join(root,'coi-serviceworker.js'))),
-  phase:'setup',rawServed:[],mainNavigations:[],documentEvents:[],pageErrors:[],webErrors:[],windowErrors:[],unhandledRejections:[],consoleErrors:[],failedRequests:[],badResponses:[],responses:[],requestEvents:[],automationErrors:[]};
+  phase:'setup',intentionalFault:fault,injected:[],resultEvents:[],rawServed:[],mainNavigations:[],documentEvents:[],pageErrors:[],webErrors:[],windowErrors:[],unhandledRejections:[],consoleErrors:[],failedRequests:[],badResponses:[],responses:[],requestEvents:[],automationErrors:[]};
 const pending=new Map(),requestHistory=new Map();let lastActivity=0,server,browser,context,page;
 const stamp=()=>({at:Date.now(),elapsedMs:Date.now()-report.startedAt,executionPhase:report.phase});
 function pendingSnapshot(){const active=[],retired=[];for(const [request,row] of pending){const item={...row,observedAt:Date.now(),frameDetached:false,lifecycleStatus:'unknown-no-terminal-event',successfulTransferProven:false,receivedBytes:null};try{const frame=request.frame();item.frameUrl=frame.url();item.frameDetached=frame.isDetached();}catch(error){item.frameUnavailable=String(error);} (item.frameDetached?retired:active).push(item);}return {active,retired};}
@@ -31,6 +32,8 @@ async function reveal(locator){
   const tabs=await locator.evaluate(e=>{const out=[];for(let n=e;n;n=n.parentElement)if(n.classList.contains('tab-pane'))out.unshift(n.getAttribute('aria-labelledby'));return out;});
   for(const id of tabs){const tab=page.locator('[id="'+id+'"]');if(await tab.getAttribute('aria-selected')!=='true')await tab.click();}
   for(const detail of (await locator.locator('xpath=ancestor::details[not(@open)]').all()).reverse())await detail.locator(':scope > summary').click();
+  const toggle=locator.locator(':scope > .math-exercise-toggle[aria-expanded="false"], :scope > .py-exercise-toggle[aria-expanded="false"]');
+  if(await toggle.count())await toggle.click();
 }
 try{
   server=http.createServer((request,response)=>{
@@ -52,6 +55,13 @@ try{
   const url='http://127.0.0.1:'+server.address().port+'/candidate/pages/step4-ui.html';report.url=url;
   const browsers=await import(process.env.CTM_PLAYWRIGHT_MODULE||'playwright');browser=await browsers[engine].launch({headless:true});report.browser=browser.version();
   context=await browser.newContext({viewport:{width:1280,height:900},serviceWorkers:'allow'});
+  // Baseline has no interception. Negative controls abort only the named real
+  // enhancement request, retaining its failure and all downstream diagnostics.
+  if(fault!=='none')await context.route('**/*',async route=>{
+    const target=route.request().url();
+    const blocked=fault==='jsxgraph'?/(?:jsxgraphcore|jsxgraph)\.js(?:[?#]|$)/i.test(target):/(?:sre_browser|speech-rule-engine|mathmaps\/|\/sre\/[^?#]*\.js)/i.test(target);
+    if(blocked){report.injected.push({...stamp(),url:target});await route.abort('failed');}else await route.continue();
+  });
   context.on('console',message=>{if(message.type()==='error')report.consoleErrors.push({...stamp(),phase:report.phase,text:message.text(),location:message.location()});});
   context.on('weberror',event=>report.webErrors.push({...stamp(),phase:report.phase,message:event.error().message,stack:event.error().stack}));
   context.on('request',request=>{
@@ -67,6 +77,7 @@ try{
     const sw=self===top?navigator.serviceWorker:null;
     const meta=()=>({eventAt:Date.now(),eventPerformanceNow:performance.now(),documentId:String(performance.timeOrigin),url:location.href,top:self===top,isolated:crossOriginIsolated});
     const send=(kind,value)=>window.__firstVisitObserve(kind,{...meta(),...value});
+    window.__firstVisitResults=[];addEventListener('ctm:result',event=>{window.__firstVisitResults.push(event.detail);send('resultEvents',{detail:event.detail});});
     send('documentEvents',{event:'document-start',navigationType:performance.getEntriesByType('navigation')[0]?.type});
     for(const event of ['DOMContentLoaded','load','pageshow','pagehide','coi-sw-ready','coi-unavailable'])addEventListener(event,()=>send('documentEvents',{event,controller:sw?.controller?.scriptURL||null}),true);
     sw?.addEventListener('controllerchange',()=>send('documentEvents',{event:'controllerchange',controller:sw.controller?.scriptURL||null}));
@@ -98,9 +109,29 @@ try{
   phase('opaque-board');
   const board=page.locator('#ui-board iframe');await reveal(board);await board.scrollIntoViewIfNeeded();assert.equal(await board.getAttribute('sandbox'),'allow-scripts');
   const frame=await board.elementHandle().then(h=>h.contentFrame());assert.ok(frame);
+  if(fault==='none'){
   await frame.waitForFunction(()=>[...document.querySelectorAll('.jxgbox mjx-container')].some(n=>n.querySelector('svg path,svg use')&&n.getAttribute('data-semantic-speech-none')==='x squared plus 1'&&n.getAttribute('data-semantic-braille')==='⠭⠘⠆⠐⠬⠂'),null,{timeout:90000});
   report.board=await frame.evaluate(()=>({origin:self.origin,labels:[...document.querySelectorAll('.jxgbox mjx-container')].map(n=>({glyphs:n.querySelectorAll('svg path,svg use').length,speech:n.getAttribute('data-semantic-speech-none'),braille:n.getAttribute('data-semantic-braille')}))}));assert.equal(report.board.origin,'null');
   await page.screenshot({path:output.replace(/\.json$/,'-board.png'),fullPage:false});
+  }else{
+    await poll(()=>Promise.resolve(report.injected.length>0),'named enhancement dependency was actually requested and aborted',90000);
+    phase('ordinary-checks-after-fault');
+    const python=page.locator('[data-ctm-id="step4-ui-autosave"]');await reveal(python);
+    await python.locator('.monaco-editor').waitFor({state:'visible',timeout:90000});
+    await python.evaluate(element=>{const editor=monaco.editor.getEditors().find(editor=>element.contains(editor.getDomNode()));if(!editor)throw new Error('Scoped Monaco editor missing');editor.focus();editor.setSelection(editor.getModel().getFullModelRange());});
+    await page.keyboard.press('Backspace');
+    await page.keyboard.insertText('def double(x):');await page.keyboard.press('Enter');await page.keyboard.insertText('return 2 * x');
+    const code=await python.evaluate(element=>monaco.editor.getEditors().find(editor=>element.contains(editor.getDomNode()))?.getValue());
+    assert.equal(code,'def double(x):\n    return 2 * x','actual Monaco edit landed before grading');
+    await python.locator('.py-exercise-check').click();
+    await python.locator('.py-exercise-all-passed').waitFor({timeout:180000});
+    assert.equal(await python.locator('.py-test-pass').count(),2);
+    const math=page.locator('[data-ctm-id="step4-ui-autosave-math"]');await reveal(math);
+    await math.locator('.math-input').fill('4');await math.locator('.math-check-btn').click();
+    await page.waitForFunction(()=>window.__firstVisitResults.some(row=>row.id==='step4-ui-autosave-math'&&row.status==='correct'),null,{timeout:180000});
+    report.ordinaryChecks={pythonTests:2,pythonSummary:await python.locator('.py-exercise-summary').innerText(),math:'correct',runtime:'real Pyodide and canonical checker; no grader or renderer stubs'};
+    report.faultIsolationPassed=true;
+  }
   report.functionalPassed=true;await waitStartedSetup('setup-before-teardown');phase('final-settle');await settle();
 }catch(error){report.error=String(error.stack||error);process.exitCode=1;
   if(page&&!page.isClosed())try{report.failureState=await bounded(page.evaluate(()=>({url:location.href,isolated:crossOriginIsolated,sab:typeof SharedArrayBuffer,coiOutcome:window.qpyodideCoiOutcome,controller:navigator.serviceWorker?.controller?.scriptURL,body:document.body?.innerText.slice(-4000)})),10000,'failure snapshot');}catch(error){report.snapshotError=String(error);}
@@ -123,6 +154,7 @@ try{
   report.rawPassed=raw.every(key=>report[key].length===0);
   report.strictAllRequestLifecyclesObserved=report.allRequestsFinished;
   report.functionalBaselinePassed=!!(report.functionalPassed&&report.rawPassed&&report.activeRequestsSettled&&report.pendingBeforeTeardown.active.length===0&&!report.error&&!report.teardownError&&!report.setupTeardownError);
-  report.passed=report.functionalBaselinePassed;
+  report.passed=fault==='none'?!!(report.functionalBaselinePassed&&report.strictAllRequestLifecyclesObserved):!!(report.strictAllRequestLifecyclesObserved&&report.faultIsolationPassed&&report.functionalPassed&&report.activeRequestsSettled&&report.injected.length&&!report.error&&!report.teardownError&&!report.setupTeardownError);
+  report.acceptanceScope=fault==='none'?'original byte-preserving first-visit baseline':'intentional enhancement fault isolation; raw failures retained, not raw-clean acceptance';
   if(!report.passed)process.exitCode=1;save();console.log(JSON.stringify({passed:report.passed,functionalBaselinePassed:report.functionalBaselinePassed,functionalPassed:report.functionalPassed,allRequestsFinished:report.allRequestsFinished,engine,error:report.error,rawCountsByPhase:report.rawCountsByPhase}));
 }
