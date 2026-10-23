@@ -6,9 +6,9 @@ on:
       - .github/first-start-network-refs.json
       - scripts/diagnostics/test-demo-first-visit-network.mjs
       - scripts/diagnostics/probe-coi-head.mjs
-# Diagnostic only: unchanged full91be harness copied byte-for-byte to preserve
-# raw failures while recording actual CDN/SW HTTP methods and headers. No
-# production fix, filter, stubs or course/first-visit clearance is implied.
+# Diagnostic baseline uses the exact644704 harness and current reviewed tuple.
+# The separate negative control retains the original272d transport and all raw
+# failures. Full three-browser first-visit acceptance remains a separate gate.
 permissions:
   contents: read
 concurrency:
@@ -83,6 +83,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Check out the retained original transport for the negative control
+        uses: actions/checkout@v6
+        with:
+          repository: Erasmus-CTM/ctm-libs
+          ref: 272d2cd38cda46b02433455bed13759b86c91eb4
+          path: _network-original-libs
+          persist-credentials: false
       - name: Install the exact browser harness
         run: |
           npm install --prefix .first-start-tooling --no-save --ignore-scripts playwright@1.62.1
@@ -90,9 +97,25 @@ jobs:
           echo "CTM_PLAYWRIGHT_MODULE=file://$PWD/.first-start-tooling/node_modules/playwright/index.mjs" >> "$GITHUB_ENV"
       - name: Original static first visit, real runtime and opaque board
         run: node scripts/diagnostics/test-demo-first-visit-network.mjs --site _saving-quiz-site --browser chromium --output first-start-network/baseline.json
-      - name: Diagnostic CDN HEAD transport comparison with the canonical service worker
+      - name: Retained original worker HEAD transport compared with the reviewed correction
         if: ${{ !cancelled() }}
-        run: node scripts/diagnostics/probe-coi-head.mjs --site _saving-quiz-site --output first-start-network/nettrace-head.json
+        run: node scripts/diagnostics/probe-coi-head.mjs --runtime-root _network-original-libs/_extensions/ctm-libs/runtime --output first-start-network/nettrace-head.json
+      - name: Verify the corrected transport and its production provenance
+        if: ${{ !cancelled() }}
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          root = pathlib.Path('first-start-network')
+          baseline = json.loads((root / 'baseline.json').read_text())
+          probe = json.loads((root / 'nettrace-head.json').read_text())
+          assert baseline['passed'], 'The current original-page baseline must pass independently'
+          assert probe['completed'] and probe['sameGETBytes'], 'Both transport controls must complete with identical wheel bytes'
+          assert baseline['serviceWorkerSha256'] == probe['candidateSHA256'], 'The reviewed correction must be the actual production service worker'
+          original, corrected = probe['cases']
+          assert corrected['pending'] == [] and not any(corrected['beforeTeardownRawCounts'].values()), 'Corrected worker transport must be raw-clean before teardown'
+          assert all(row['method'] == 'HEAD' and row['url'] == probe['wheel'] and row.get('failure', {}).get('errorText') == 'net::ERR_ABORTED' for row in original['failedRequests']), 'The retained original control may only reproduce its named HEAD cancellation'
+          assert all(value == 0 for name, value in original['beforeTeardownRawCounts'].items() if name != 'failedRequests'), 'Other original-control failures remain errors'
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -11,7 +11,7 @@ assert.ok(['chromium','firefox','webkit'].includes(engine));fs.mkdirSync(path.di
 const fault=arg('fault','none');assert.ok(['none','jsxgraph','speech'].includes(fault));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.wasm':'application/wasm','.woff2':'font/woff2','.woff':'font/woff','.ttf':'font/ttf','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon','.txt':'text/plain; charset=utf-8','.map':'application/json'};
-const report={passed:false,functionalPassed:false,engine,width:1280,startedAt:Date.now(),scope:'actual first-visit functionality baseline: COI ready OR explicit supported unavailable fallback; no static SAB-all-browsers, offline or deployed Pages claim; unresolved retired-frame requests remain separate',
+const report={passed:false,functionalPassed:false,engine,width:1280,startedAt:Date.now(),scope:'actual first-visit baseline: Chromium/Firefox require isolation; WebKit permits its explicit supported unavailable fallback. Fault controls test ordinary Check independently. No offline or deployed Pages claim; unresolved retired-frame requests remain separate',
   harnessSha256:sha(fs.readFileSync(fileURLToPath(import.meta.url))),pageSha256:sha(fs.readFileSync(path.join(root,'pages/step4-ui.html'))),serviceWorkerSha256:sha(fs.readFileSync(path.join(root,'coi-serviceworker.js'))),
   phase:'setup',intentionalFault:fault,injected:[],resultEvents:[],rawServed:[],mainNavigations:[],documentEvents:[],pageErrors:[],webErrors:[],windowErrors:[],unhandledRejections:[],consoleErrors:[],failedRequests:[],badResponses:[],responses:[],requestEvents:[],automationErrors:[]};
 const pending=new Map(),requestHistory=new Map();let lastActivity=0,server,browser,context,page;
@@ -95,6 +95,7 @@ try{
     const registration=await navigator.serviceWorker.getRegistration();
     return {outcome:ready?'ready':'unavailable',inputState:window.qpyodideInputState,coiOutcome:window.qpyodideCoiOutcome,crossOriginIsolated,sharedArrayBufferBytes:ready?new SharedArrayBuffer(4).byteLength:null,controller:navigator.serviceWorker.controller?.scriptURL,scope:registration?.scope,active:registration?.active?.state,navigationType:performance.getEntriesByType('navigation')[0]?.type};
   }),'actual COI ready or explicit unavailable fallback',90000);
+  if(fault==='none'&&engine!=='webkit')assert.equal(report.isolation.outcome,'ready','trusted localhost Chromium/Firefox baseline must retain supported isolation, not escape a startup cycle through unavailable fallback');
   if(report.isolation.outcome==='ready'){
     assert.equal(report.isolation.active,'activated');assert.ok(report.isolation.controller);assert.ok(report.mainNavigations.length>=2,'fresh isolated first visit retains initial navigation and controlled reload');
     assert.ok(report.responses.some(r=>r.fromServiceWorker&&r.url===url),'controlled document response observed');
