@@ -1,0 +1,201 @@
+{
+  "sourceSummary": "work/hook-probe/navigation-local-summary.json",
+  "sourceSummarySha256": "4a066a3792be700cec2eaa143a4b3c3cf03219b100aa26dd943631c6d4d10cdf",
+  "localSelectedCasesPassed": true,
+  "fullExactCurrentArtifactAcceptance": false,
+  "scope": "Actual full rendered demo, headered require-corp, native browser links/history, keyboard summaries, modes and print lifecycle. Six selected browser/width cases; five current responsive artifact and one earlier desktop Chromium navigation proof. Final CI reruns all six against one exact current artifact.",
+  "finalHarness": {
+    "path": "work\\hook-probe\\test-demo-navigation.mjs",
+    "sha256": "3129db81f0277226c3d4c4b0b576807b5f49e379aafcd59ef69e3293eb86f198"
+  },
+  "currentCourse": "f33150e2da944bf202d187cf384031ef362fd0fb",
+  "currentSiteZipSha256": "59348168f08dcd98a3ec945f4b7f28b57fd436624189c83c0614cb3d9e890926",
+  "navigationStates": 186,
+  "languageCases": 18,
+  "rows": [
+    {
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "width": 1280,
+      "site": "75e96",
+      "report": "work\\hook-probe\\navigation-75e96-chromium-1280-first.json",
+      "reportSha256": "126983340a65b0b887cf66ed37ba00ec59f17c174a3376dc0251c7f25a666625",
+      "harnessSha256": "ca293e59e89f13e8b7e82928af76b6f180d0647a11460680c81b64d8e801ffe8",
+      "htmlSha256": {
+        "pages/step4-ui.html": "a540cb58a986029904d025bd8f381e1a77d35683e386d66230bc3055f3a963aa",
+        "pages/step4-ui-links.html": "4089c030f6e76d5164cb33e516fb368779f8f973b9b2457d2793f14bd045c0d3",
+        "pages/step4-ui-nb.html": "086d226436526e2f28383368cb5ba49ca226b21abdb0854d5285bee64ca636ef",
+        "pages/step4-ui-nn.html": "9ffe9dc03adeee4bc5a5cb497866c943bb50e4b2876da4c9ae83de571730275a",
+        "pages/step4-ui-de.html": "3474d39d04588767bec515e16a407d6667d11e73ff57bb64640db4e15803a9a9"
+      },
+      "navigationStates": 31,
+      "languages": 3,
+      "rawCounts": {
+        "pageErrors": 0,
+        "windowErrors": 0,
+        "consoleErrors": 0,
+        "failedRequests": 0,
+        "badResponses": 0,
+        "unhandledRejections": 0
+      },
+      "casePassed": true,
+      "parentReportPassed": true
+    },
+    {
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "width": 390,
+      "site": "f33150e2",
+      "report": "work\\hook-probe\\navigation-f331-chromium.json",
+      "reportSha256": "f84608276ec3495ae0a2b12d27e3c7c92be27f6868ed85ce69480462f42b7509",
+      "harnessSha256": "ef8a551512dbe6bea25e2bd40d56c4a4bcf9b29326f5c993ca40d785b6034ae7",
+      "htmlSha256": {
+        "pages/step4-ui.html": "e22988069c141f414b63f5e3493e2903c49f707ff3e28b9972dc5490afbb1869",
+        "pages/step4-ui-links.html": "4089c030f6e76d5164cb33e516fb368779f8f973b9b2457d2793f14bd045c0d3",
+        "pages/step4-ui-nb.html": "086d226436526e2f28383368cb5ba49ca226b21abdb0854d5285bee64ca636ef",
+        "pages/step4-ui-nn.html": "9ffe9dc03adeee4bc5a5cb497866c943bb50e4b2876da4c9ae83de571730275a",
+        "pages/step4-ui-de.html": "3474d39d04588767bec515e16a407d6667d11e73ff57bb64640db4e15803a9a9"
+      },
+      "navigationStates": 31,
+      "languages": 3,
+      "rawCounts": {
+        "pageErrors": 0,
+        "windowErrors": 0,
+        "consoleErrors": 0,
+        "failedRequests": 0,
+        "badResponses": 0,
+        "unhandledRejections": 0
+      },
+      "casePassed": true,
+      "parentReportPassed": true
+    },
+    {
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "width": 1280,
+      "site": "f33150e2",
+      "report": "work\\hook-probe\\navigation-f331-firefox.json",
+      "reportSha256": "66ce22b9005768f1832b047675b885725d808b72776f53670fd13f840b6e83f1",
+      "harnessSha256": "ef8a551512dbe6bea25e2bd40d56c4a4bcf9b29326f5c993ca40d785b6034ae7",
+      "htmlSha256": {
+        "pages/step4-ui.html": "e22988069c141f414b63f5e3493e2903c49f707ff3e28b9972dc5490afbb1869",
+        "pages/step4-ui-links.html": "4089c030f6e76d5164cb33e516fb368779f8f973b9b2457d2793f14bd045c0d3",
+        "pages/step4-ui-nb.html": "086d226436526e2f28383368cb5ba49ca226b21abdb0854d5285bee64ca636ef",
+        "pages/step4-ui-nn.html": "9ffe9dc03adeee4bc5a5cb497866c943bb50e4b2876da4c9ae83de571730275a",
+        "pages/step4-ui-de.html": "3474d39d04588767bec515e16a407d6667d11e73ff57bb64640db4e15803a9a9"
+      },
+      "navigationStates": 31,
+      "languages": 3,
+      "rawCounts": {
+        "pageErrors": 0,
+        "windowErrors": 0,
+        "consoleErrors": 0,
+        "failedRequests": 0,
+        "badResponses": 0,
+        "unhandledRejections": 0
+      },
+      "casePassed": true,
+      "parentReportPassed": true
+    },
+    {
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "width": 390,
+      "site": "f33150e2",
+      "report": "work\\hook-probe\\navigation-f331-firefox.json",
+      "reportSha256": "66ce22b9005768f1832b047675b885725d808b72776f53670fd13f840b6e83f1",
+      "harnessSha256": "ef8a551512dbe6bea25e2bd40d56c4a4bcf9b29326f5c993ca40d785b6034ae7",
+      "htmlSha256": {
+        "pages/step4-ui.html": "e22988069c141f414b63f5e3493e2903c49f707ff3e28b9972dc5490afbb1869",
+        "pages/step4-ui-links.html": "4089c030f6e76d5164cb33e516fb368779f8f973b9b2457d2793f14bd045c0d3",
+        "pages/step4-ui-nb.html": "086d226436526e2f28383368cb5ba49ca226b21abdb0854d5285bee64ca636ef",
+        "pages/step4-ui-nn.html": "9ffe9dc03adeee4bc5a5cb497866c943bb50e4b2876da4c9ae83de571730275a",
+        "pages/step4-ui-de.html": "3474d39d04588767bec515e16a407d6667d11e73ff57bb64640db4e15803a9a9"
+      },
+      "navigationStates": 31,
+      "languages": 3,
+      "rawCounts": {
+        "pageErrors": 0,
+        "windowErrors": 0,
+        "consoleErrors": 0,
+        "failedRequests": 0,
+        "badResponses": 0,
+        "unhandledRejections": 0
+      },
+      "casePassed": true,
+      "parentReportPassed": true
+    },
+    {
+      "browser": "webkit",
+      "browserVersion": "26.5",
+      "width": 1280,
+      "site": "f33150e2",
+      "report": "work\\hook-probe\\navigation-f331-webkit-traced.json",
+      "reportSha256": "49d13b0663479f9fc1ac4c147a88e132b1d8d9748bf96340ce8149b8c19f8a13",
+      "harnessSha256": "f5d9b251457cf2e9b7dcd0963ba64e962d70b7cb368c5de90ec40adf3dae39da",
+      "htmlSha256": {
+        "pages/step4-ui.html": "e22988069c141f414b63f5e3493e2903c49f707ff3e28b9972dc5490afbb1869",
+        "pages/step4-ui-links.html": "4089c030f6e76d5164cb33e516fb368779f8f973b9b2457d2793f14bd045c0d3",
+        "pages/step4-ui-nb.html": "086d226436526e2f28383368cb5ba49ca226b21abdb0854d5285bee64ca636ef",
+        "pages/step4-ui-nn.html": "9ffe9dc03adeee4bc5a5cb497866c943bb50e4b2876da4c9ae83de571730275a",
+        "pages/step4-ui-de.html": "3474d39d04588767bec515e16a407d6667d11e73ff57bb64640db4e15803a9a9"
+      },
+      "navigationStates": 31,
+      "languages": 3,
+      "rawCounts": {
+        "pageErrors": 0,
+        "windowErrors": 0,
+        "consoleErrors": 0,
+        "failedRequests": 0,
+        "badResponses": 0,
+        "unhandledRejections": 0
+      },
+      "casePassed": true,
+      "parentReportPassed": false
+    },
+    {
+      "browser": "webkit",
+      "browserVersion": "26.5",
+      "width": 390,
+      "site": "f33150e2",
+      "report": "work\\hook-probe\\navigation-f331-webkit-390-contract.json",
+      "reportSha256": "439b10daa8b6be9225dcaadcea1902bc2fa1375cc112e7a8f090d79df2713b58",
+      "harnessSha256": "3129db81f0277226c3d4c4b0b576807b5f49e379aafcd59ef69e3293eb86f198",
+      "htmlSha256": {
+        "pages/step4-ui.html": "e22988069c141f414b63f5e3493e2903c49f707ff3e28b9972dc5490afbb1869",
+        "pages/step4-ui-links.html": "4089c030f6e76d5164cb33e516fb368779f8f973b9b2457d2793f14bd045c0d3",
+        "pages/step4-ui-nb.html": "086d226436526e2f28383368cb5ba49ca226b21abdb0854d5285bee64ca636ef",
+        "pages/step4-ui-nn.html": "9ffe9dc03adeee4bc5a5cb497866c943bb50e4b2876da4c9ae83de571730275a",
+        "pages/step4-ui-de.html": "3474d39d04588767bec515e16a407d6667d11e73ff57bb64640db4e15803a9a9"
+      },
+      "navigationStates": 31,
+      "languages": 3,
+      "rawCounts": {
+        "pageErrors": 0,
+        "windowErrors": 0,
+        "consoleErrors": 0,
+        "failedRequests": 0,
+        "badResponses": 0,
+        "unhandledRejections": 0
+      },
+      "casePassed": true,
+      "parentReportPassed": true
+    }
+  ],
+  "focusContractCorrection": {
+    "design": "2026-10-step4.md §6.3; compare-browser.mjs links(); ctm-nav.js keepFocus()",
+    "reason": "Eight-sample continuous non-BODY focus was stronger than the approved landing/final focus and two-second target stability contract, and conflicted with explicit asynchronous native WebKit fragment-focus recovery. Final harness atomically captures visible related landing focus and requires visible related final focus >=2.1s; all eight target geometry/open/hash/header gates and raw errors retained. Intermediate focus changes remain transparent; no recovery SLA or product/PIN change.",
+    "strictFailedReport": "work\\hook-probe\\navigation-f331-webkit-traced.json",
+    "strictReportSha256": "49d13b0663479f9fc1ac4c147a88e132b1d8d9748bf96340ce8149b8c19f8a13",
+    "originalReportPassed": false,
+    "strictFailure": "WebKit390 ui-tab-vectors BODY sample; null-related native focus loss recovered in305.78ms, second loss18.28ms; final focus correct, geometry stable, raw0.",
+    "strictHarness": "work\\hook-probe\\test-demo-navigation-strict-focus-f5d9.mjs",
+    "strictHarnessSha256": "f5d9b251457cf2e9b7dcd0963ba64e962d70b7cb368c5de90ec40adf3dae39da",
+    "affectedRerun": "WebKit390 only, once, passed; no intermediate BODY samples in that run."
+  },
+  "limits": [
+    "Print proof is beforeprint/afterprint plus print media emulation, not an OS print dialog.",
+    "No offline/static-host, full input/SAB, native assistive-technology, axe or pixel-comparison claim.",
+    "Initial sandbox localhost denial and interrupted partial matrices remain separate files; actual functional failures are not deleted."
+  ]
+}

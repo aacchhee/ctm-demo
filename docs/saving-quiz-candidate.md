@@ -35,11 +35,14 @@ cross-page links remain
 The candidate PR runs only the small source contracts. It skips the old automatic
 all-site build, STACK audit/review and variant statistics; that existing workflow
 remains manually available. The candidate's own manual workflow creates artifacts
-only. Root must replace both `PENDING_ROOT_FINAL_TUPLE` values with a reviewed
-40-character umbrella commit and explicit component-ref JSON (possibly `{}` when
-the umbrella already pins the entire tuple). Until then it fails before setup or
-downloads. Setup uses the existing canonical installer, and the artifact retains
-the resolved dependency record and its hash. A render artifact is not acceptance.
+only. Both workflows now select reviewed umbrella commit
+`87c3398d293f81b1eec28aedbc933986ac9bb2e0` with component overrides `{}`;
+the umbrella pins the full reviewed component tuple. The existing guard still
+requires immutable commit IDs before setup or downloads. Setup uses the canonical
+installer and retains the resolved dependency record and its hash. A render
+artifact is not acceptance. The [combined acceptance record](combined-acceptance.md)
+separates the local core passes, pending primary CI and the unresolved first-visit
+failures; course/static acceptance remains on hold.
 The workflow's first cheap PR source run registers it; GitHub documents API/CLI
 dispatch against another branch after a workflow has run once. The manual UI
 requires the file on the default branch, so do not change main just to show that

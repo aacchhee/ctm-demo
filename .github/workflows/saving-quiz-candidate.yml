@@ -33,8 +33,8 @@ jobs:
     needs: source
     runs-on: ubuntu-latest
     env:
-      # Root replaces both values together after the component tuple is reviewed.
-      CTM_UMBRELLA_REF: 95b6a6a5c16b0f96c1dc0e13dd1e3af308475e31
+      # Reviewed activation pins the full component tuple; no extra overrides.
+      CTM_UMBRELLA_REF: 87c3398d293f81b1eec28aedbc933986ac9bb2e0
       CTM_COMPONENT_REVIEW_REFS: '{}'
     steps:
       - name: Require the frozen reviewed dependency tuple before setup or downloads

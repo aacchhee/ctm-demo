@@ -1,0 +1,128 @@
+name: Combined demo acceptance (artifacts only)
+# The one final combined run is explicitly authorized by AC. Routine changes
+# retain the small candidate source gate. This workflow starts on a change to
+# this file on the isolated candidate branch, or an explicit manual campaign.
+on:
+  push:
+    branches: [consolidation/2026-10-saving-quiz-candidate]
+    paths: [.github/workflows/combined-demo-acceptance.yml]
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: 'Enter broad testing campaign'
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: combined-demo-acceptance-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  CTM_UMBRELLA_REF: 87c3398d293f81b1eec28aedbc933986ac9bb2e0
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check authorized candidate scope
+        env:
+          EVENT: ${{ github.event_name }}
+          CONFIRMATION: ${{ inputs.confirmation }}
+          REF: ${{ github.ref }}
+        run: |
+          test "$REF" = 'refs/heads/consolidation/2026-10-saving-quiz-candidate'
+          if [ "$EVENT" = workflow_dispatch ]; then
+            test "$CONFIRMATION" = 'broad testing campaign'
+          fi
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: '1.8.27'
+      - name: Install ordinary course dependencies
+        run: python -m pip install -r requirements.txt sympy==1.13.3
+      - name: Install exact reviewed component set
+        run: python scripts/setup.py --review-refs "{\"ctm-assessment\":\"$CTM_UMBRELLA_REF\"}"
+      - name: Check fixture and render all five candidate pages
+        run: |
+          set -o pipefail
+          python scripts/test-saving-quiz-candidate.py
+          mkdir -p acceptance-build
+          quarto render --profile saving-quiz 2>&1 | tee acceptance-build/render.log
+          python - <<'PY'
+          import hashlib, json, os, pathlib, re, subprocess
+          log = pathlib.Path('acceptance-build/render.log').read_text()
+          if re.search(r'\bwarning\b', log, re.IGNORECASE):
+              raise SystemExit('Candidate render must have zero warnings; see retained render.log')
+          record = pathlib.Path('.private-extensions/resolved-repos.json')
+          evidence = {
+              'course_head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+              'umbrella': os.environ['CTM_UMBRELLA_REF'],
+              'resolved_record_sha256': hashlib.sha256(record.read_bytes()).hexdigest(),
+              'html_sha256': {str(p): hashlib.sha256(p.read_bytes()).hexdigest()
+                              for p in sorted(pathlib.Path('_saving-quiz-site').rglob('*.html'))},
+          }
+          pathlib.Path('acceptance-build/source.json').write_text(json.dumps(evidence, indent=2) + '\n')
+          PY
+      - name: Retain rendered site and resolved dependency record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: demo-acceptance-site-${{ github.sha }}
+          path: |
+            _saving-quiz-site
+            .private-extensions/resolved-repos.json
+            acceptance-build
+          include-hidden-files: true
+  browsers:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: Erasmus-CTM/ctm-assessment
+          ref: ${{ env.CTM_UMBRELLA_REF }}
+          path: .acceptance-tooling
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: demo-acceptance-site-${{ github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned browser harness dependencies
+        working-directory: .acceptance-tooling
+        run: npm install --no-save --ignore-scripts playwright@1.62.1 jsdom@26.1.0 js-yaml@4.3.2
+      - name: Install the selected browser
+        working-directory: .acceptance-tooling
+        run: npx playwright install --with-deps ${{ matrix.browser }}
+      - name: Select the exact installed Playwright module
+        run: echo "CTM_PLAYWRIGHT_MODULE=file://$PWD/.acceptance-tooling/node_modules/playwright/index.mjs" >> "$GITHUB_ENV"
+      - name: Real grading and accessible boards at desktop and phone widths
+        run: |
+          node scripts/acceptance/test-demo-grading.mjs --browser ${{ matrix.browser }} --width 1280 --site _saving-quiz-site --tooling .acceptance-tooling --output acceptance/grading-1280.json
+          node scripts/acceptance/test-demo-grading.mjs --browser ${{ matrix.browser }} --width 390 --site _saving-quiz-site --tooling .acceptance-tooling --output acceptance/grading-390.json
+      - name: Saved answers and ordinary Python IDE
+        if: ${{ !cancelled() }}
+        run: node scripts/acceptance/test-demo-store.mjs --browser ${{ matrix.browser }} --site _saving-quiz-site --tooling .acceptance-tooling --output acceptance/store.json
+      - name: Links, history, focus, languages and print lifecycle
+        if: ${{ !cancelled() }}
+        run: node scripts/acceptance/test-demo-navigation.mjs --browser ${{ matrix.browser }} --site _saving-quiz-site --tooling .acceptance-tooling --output acceptance/navigation.json
+      - name: Preserve raw reports and screenshots even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: demo-acceptance-${{ matrix.browser }}-${{ github.sha }}
+          path: acceptance
