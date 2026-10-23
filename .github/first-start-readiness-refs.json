@@ -1,9 +1,9 @@
 {
-  "ctm-assessment": "d56af5a1259d896a6e1dcf1e210b42c7c13725bc",
+  "ctm-assessment": "8b46f20eed09e8b1e6a7d5faa45b6d0f0f859c8e",
   "ctm-checkers": "5976f1a97b78bd81d4d7a3a954ff2102df8c6e37",
-  "ctm-libs": "feba91b2d830f383427d257ee50e931f5c4a21d9",
+  "ctm-libs": "626b546604f51c9cb738210c56d054d421581e02",
   "math-exercise": "97a7dc5b1eb23adb398f789cb29e0266e1b256b0",
   "py-exercise": "18e6f1eb00713fdefbfc3d040c6a05eb88c6c314",
-  "pyodide-interaktiv": "807119f945e8d1653754d728cc1b361f23657990",
+  "pyodide-interaktiv": "5079500992d75fbfa9f8508a8a7c37c246e4cce7",
   "jsxgraph": "e4ad81d82e1b56f86765026a3dd26f6975d29d57"
 }
