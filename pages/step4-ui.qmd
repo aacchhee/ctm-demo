@@ -196,7 +196,7 @@ Open the reading step to typeset the same small diagram used by the canonical
 MathJax pre-loader fixture. Its native load handler waits for MathJax startup.
 
 ::: {.reading-step title="A formula on a diagram"}
-```{.jsxgraph #ui-mathjax-board width="480" height="280" unit="px"}
+```{.jsxgraph #ui-mathjax-board width="100" unit="%" aspect_ratio="12/7" style="max-width:480px"}
 var board = JXG.JSXGraph.initBoard(BOARDID, {boundingbox: [-5, 5, 5, -5], axis: true});
 var label = board.create('text', [-3, 3, '\\(x^2+1\\)'], {useMathJax: true, fontSize: 20});
 // MathJax is loaded asynchronously: have the board typeset its text once MathJax is ready

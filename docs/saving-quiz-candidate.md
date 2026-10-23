@@ -17,6 +17,10 @@ load/startup update are copied from the
 [canonical upstream hook fixture](https://github.com/jsxgraph/jsxgraph-quarto/blob/e4ad81d82e1b56f86765026a3dd26f6975d29d57/tests/mathjax-preload.browser.test.mjs#L68).
 It uses the frozen umbrella's board/hook configuration without a local loader or
 pre-loader override.
+The board uses the extension's percentage sizing with a 480 px maximum and the
+original 12:7 aspect ratio, so it also fits a 390 px viewport. A fixed 480 px
+width overflowed the phone viewport in the first Chromium and WebKit checks;
+the authored JavaScript and runtime assets stay unchanged.
 An ordinary labelled `pyodide-python` IDE also sits in its own reading step outside
 the quiz. It saves edited code with `save: true` and explicitly disables autorun;
 real Run, edit, save and passive reopen checks cover the IDE consumer separately

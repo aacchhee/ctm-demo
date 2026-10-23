@@ -105,7 +105,8 @@ class CandidateSource(unittest.TestCase):
         self.assertGreater(start, page.index('quiz=step4-ui-quiz'))
         board = page[start:page.index('## Also new,', start)]
         self.assertIn('::: {.reading-step', board)
-        self.assertIn('```{.jsxgraph #ui-mathjax-board width="480" height="280" unit="px"}', board)
+        self.assertIn('```{.jsxgraph #ui-mathjax-board width="100" unit="%" '
+                      'aspect_ratio="12/7" style="max-width:480px"}', board)
         self.assertIn('JXG.JSXGraph.initBoard(BOARDID', board)
         self.assertIn('x^2+1', board)
         self.assertIn('useMathJax: true', board)
