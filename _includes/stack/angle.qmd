@@ -2,40 +2,29 @@
 #| label: stack-angle
 #| context: stack-conventions, stack-angle-context
 #| mode: numeric
-#| tolerance: '0.015'
+#| tolerance: 0.015
 #| field-labels: Vinkel v i radianer
-#| parameters:
-#|   k:
-#|     start: 1
-#|     stop: 71
-#| derived:
-#|   angle: k*pi/36
-#|   degrees: 5*k
-#|   sine: round(sin(angle),2)+0
-#|   cosine: round(cos(angle),2)+0
-#| solution-target: stack-angle-solution
-#| variant-context: Sinus {{sine:.2f}}, cosinus {{cosine:.2f}}. Finn v i [0,2*pi).
-#| solution: |
-#|   Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $({{cosine:.2f}},{{sine:.2f}})$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.
-#|   
-#|   For denne varianten er vinkelen $v=\frac{{{k}}}{36}\pi\approx {{angle:.3f}}$ rad, eller ${{degrees}}^\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.
-#| tests:
-#| - name: model answers
-#|   answers:
-#|   - '{{k}}*pi/36'
-#|   expected:
-#|   - correct
-#| - name: unit offset error
-#|   answers:
-#|   - ({{k}}*pi/36)+1
-#|   expected:
-#|   - wrong
+#| variables: |
+#|   k = pick(1, 71)
+#|   angle = k*pi/36
+#|   degrees = 5*k
+#|   sine = round(sin(angle), 2) + 0
+#|   cosine = round(cos(angle), 2) + 0
+#| boards: stack-angle-board
+#| board-title: Enhetssirkel for å finne vinkelen
+#| note: Sinus {@dispdp(sine, 2)@}, cosinus {@dispdp(cosine, 2)@}. Finn v i [0,2*pi).
 
 Vinkelen $v$ ligger i første omløp: $0\leq v<2\pi$.
-Vi har $\sin v\approx {{sine:.2f}}$ og $\cos v\approx {{cosine:.2f}}$ (avrundede verdier).
+Vi har $\sin v\approx {@dispdp(sine, 2)@}$ og $\cos v\approx {@dispdp(cosine, 2)@}$ (avrundede verdier).
 Flytt A slik at koordinatene stemmer så godt som mulig, og les av vinkelen.
 
 Svar i **radianer med 3 desimaler**. Avvik inntil 0.015 rad godtas.
 
-$v\approx$ _[{{k}}*pi/36] rad.
+$v\approx$ _[{@k@}*pi/36] rad.
+
+#| solution
+
+Cosinus gir x-koordinaten og sinus gir y-koordinaten. Flytt derfor A nær $({@dispdp(cosine, 2)@},{@dispdp(sine, 2)@})$. Koordinatene er avrundet; punktet skal fortsatt ligge på sirkelen.
+
+For denne varianten er vinkelen $v=\frac{{@k@}}{36}\pi\approx {@dispdp(angle, 3)@}$ rad, eller ${@degrees@}^\circ$. Vinkelen måles mot klokka fra positiv x-akse. Begge fortegnene trengs for å velge riktig kvadrant.
 ```

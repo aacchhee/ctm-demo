@@ -1,0 +1,54 @@
+name: Native variants authoring fixture (artifacts only)
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  authoring:
+    if: github.head_ref == 'consolidation/2026-10-demo-native-authoring'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: '1.8.27'
+      - name: Read exact review tuple
+        env:
+          REVIEW_COMMIT: ${{ github.event.pull_request.head.sha }}
+        run: python .github/review-dependencies.py
+      - name: Install canonical reviewed tuple
+        run: |
+          python -m pip install -r requirements.txt sympy==1.13.3
+          python scripts/setup.py --review-refs "$CTM_REVIEW_REFS"
+      - name: Verify maintained figure embedding and generic transport
+        run: |
+          python scripts/generate-stack-figures.py
+          git diff --exit-code -- _includes/stack/*-figure.md
+          node scripts/test-stack-figure-transport.cjs
+      - name: Revalidate saved proposals without decisions
+        run: |
+          mkdir -p work/native-review
+          for kind in triangles values angle tangent; do
+            python _extensions/math-exercise/question-variants.py --project . --file "_includes/stack/$kind.qmd" --label "stack-$kind" review --html "work/native-review/$kind.html" > "work/native-review/$kind.json"
+          done
+          git diff --exit-code -- _variants
+      - name: Render explicit nonstudent review
+        env:
+          CTM_VARIANTS: review
+        run: |
+          quarto render pages/stack-oppgaver.qmd --profile variants-review
+          python scripts/check-stack-native-authoring.py _variants-review-site/pages/stack-oppgaver.html
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-variants-authoring-review
+          path: |
+            work/native-review
+            _variants-review-site

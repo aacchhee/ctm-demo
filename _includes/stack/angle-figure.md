@@ -36,14 +36,16 @@ function setParameters(key,next) {
   toolbar.replaceChildren();configure();fitBoard();
 }
 window.addEventListener('message',function(e){
-  if(e.source!==window.parent || !e.data || e.data.protocol!=='ctm-stack-figure')return;
-  if(e.data.type==='variant' && e.data.kind===kind)setParameters(e.data.key,e.data.params);
-  if(e.data.type==='layout')fitBoard();
+  if(e.source!==window.parent || !e.data)return;
+  if(e.data.protocol==='ctm-variant' && e.data.label==='stack-'+kind && typeof e.data.id==='string' && e.data.values && typeof e.data.values==='object') {
+    setParameters(e.data.id,e.data.values);
+  }
+  if(e.data.protocol==='jsxgraph-quarto-assessment' && e.data.type==='layout' && e.data.assessmentId==='stack-'+kind+'-board')fitBoard();
 });
 if(typeof ResizeObserver!=='undefined')new ResizeObserver(fitBoard).observe(box);
 window.addEventListener('resize',fitBoard);
 window.addEventListener('pageshow',fitBoard);
-window.parent.postMessage({protocol:'ctm-stack-figure',type:'ready',kind:kind},'*');
+window.parent.postMessage({protocol:'ctm-variant',type:'ready',label:'stack-'+kind},'*');
 
 var A, readout;
 function configure(){ bounds=[-1.42,1.42,1.42,-1.42]; }

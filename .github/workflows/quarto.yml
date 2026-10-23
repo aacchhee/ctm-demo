@@ -17,7 +17,7 @@ jobs:
   build:
     # This isolated candidate has its own source checks and artifact-only render.
     # The existing manual build (including STACK) and main publication stay available.
-    if: github.event_name != 'pull_request' || github.head_ref != 'consolidation/2026-10-saving-quiz-candidate'
+    if: github.ref != 'refs/heads/consolidation/2026-10-demo-native-authoring' && github.head_ref != 'consolidation/2026-10-demo-native-authoring' && (github.event_name != 'pull_request' || github.head_ref != 'consolidation/2026-10-saving-quiz-candidate')
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -50,16 +50,18 @@ jobs:
       - name: Build the standalone STACK question audit
         run: python scripts/build-stack-audit.py
       - name: Render optional STACK review
-        run: quarto render --profile review
+        env:
+          CTM_VARIANTS: review
+        run: quarto render pages/stack-oppgaver.qmd --profile variants-review
       - name: Verify generated STACK variants
-        run: python scripts/check-stack-variants.py
+        run: python scripts/check-stack-native-authoring.py _variants-review-site/pages/stack-oppgaver.html
       - name: Save rendered website
         uses: actions/upload-artifact@v4
         with:
           name: ctm-demo-site
           path: _site
   publish:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && github.head_ref != 'consolidation/2026-10-demo-native-authoring'
     needs: build
     runs-on: ubuntu-latest
     permissions:
