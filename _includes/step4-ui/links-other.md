@@ -7,3 +7,4 @@
 - Into reveals: [a heading in a closed reading step](step4-ui.qmd#ui-target-reading), [a hint by its id](step4-ui.qmd#ui-target-hint), [an anchor in a solution](step4-ui.qmd#ui-target-solution), [four blocks deep](step4-ui.qmd#ui-target-nested), [a heading inside a reveal](step4-ui.qmd#ui-heading-in-reveal)
 - Into a collapsed callout: [the anchor](step4-ui.qmd#ui-target-callout)
 - Far down the page: [Far tab 2](step4-ui.qmd#ui-far-2), [a heading in the second far tab](step4-ui.qmd#ui-far-heading)
+- Mixed quiz: [the mathematics answer in a reading step](step4-ui.qmd#ui-quiz-math-answer), [the Python answer in another tab](step4-ui.qmd#ui-quiz-python-answer)

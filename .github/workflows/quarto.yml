@@ -15,6 +15,9 @@ concurrency:
 
 jobs:
   build:
+    # This isolated candidate has its own source checks and artifact-only render.
+    # The existing manual build (including STACK) and main publication stay available.
+    if: github.event_name != 'pull_request' || github.head_ref != 'consolidation/2026-10-saving-quiz-candidate'
     runs-on: ubuntu-latest
     permissions:
       contents: read

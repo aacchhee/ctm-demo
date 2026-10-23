@@ -1,0 +1,38 @@
+project:
+  output-dir: _saving-quiz-site
+  render:
+    - pages/step4-ui.qmd
+    - pages/step4-ui-links.qmd
+    - pages/step4-ui-nb.qmd
+    - pages/step4-ui-nn.qmd
+    - pages/step4-ui-de.qmd
+    # Profiles union arrays with the base; explicitly remove every other target.
+    - "!index.qmd"
+    - "!pages/experiments.qmd"
+    - "!pages/gaussian-elimination.qmd"
+    - "!pages/physics.qmd"
+    - "!pages/fysikk-forkurs.qmd"
+    - "!pages/bevegelse-ii.qmd"
+    - "!pages/stack-oppgaver.qmd"
+    - "!pages/help.qmd"
+
+website:
+  title: "CTM demo: saving and quiz candidate"
+  sidebar: false
+  navbar:
+    title: false
+    left:
+      - href: pages/step4-ui.qmd
+        text: "Saving and mixed quiz"
+      - href: pages/step4-ui-links.qmd
+        text: "Links"
+      - href: pages/step4-ui-nb.qmd
+        text: "nb"
+      - href: pages/step4-ui-nn.qmd
+        text: "nn"
+      - href: pages/step4-ui-de.qmd
+        text: "de"
+
+ctm-assessment:
+  storage-key: ctm-demo-saving-quiz-candidate
+  progress: true

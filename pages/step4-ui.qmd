@@ -160,7 +160,12 @@ Tabsets with the same `group=` switch together, and Quarto remembers the choice.
 
 ## Saved answers {#ui-autosave}
 
-Write some code in the Python exercise and reload the page: py-exercise puts your code back. It keeps it in this browser only. **Reset** brings back the starter code and deletes what was saved. The mathematics exercise is not saved yet: CTM Assessment's store for saved answers (on by default, with a bar to delete them or to stop saving) is a later part of step 4. When it is in the package, this site gets it, and this section then tests it.
+Write code and a mathematics answer, then reload or leave and reopen this page.
+The candidate restores both answers in this browser without running Python or
+checking the mathematics again. **Reset** brings back the Python starter and
+deletes that exercise's saved answer; the mathematics answer stays independent.
+The page bar can clear saved answers or stop saving. The candidate profile enables
+the page progress panel for these exercises outside the quiz below.
 
 `````markdown
 {{< include ../_includes/step4-ui/autosave.md >}}
@@ -169,6 +174,36 @@ Write some code in the Python exercise and reload the page: py-exercise puts you
 **Result:**
 
 {{< include ../_includes/step4-ui/autosave.md >}}
+
+## Mixed quiz and progress {#ui-quiz quiz=step4-ui-quiz}
+
+These are two ordinary exercises in one quiz: mathematics inside a reading step,
+and Python in another tab. Check an answer and run the program to update the quiz
+tiles and total. A tile opens the tab or reading step hiding its exercise.
+The [links page](step4-ui-links.qmd) also links directly to both answers.
+
+`````markdown
+{{< include ../_includes/step4-ui/quiz.md >}}
+`````
+
+**Result:**
+
+{{< include ../_includes/step4-ui/quiz.md >}}
+
+## MathJax board in a reading step {#ui-board}
+
+Open the reading step to typeset the same small diagram used by the canonical
+MathJax pre-loader fixture. Its native load handler waits for MathJax startup.
+
+::: {.reading-step title="A formula on a diagram"}
+```{.jsxgraph #ui-mathjax-board width="480px" height="280px"}
+var board = JXG.JSXGraph.initBoard(BOARDID, {boundingbox: [-5, 5, 5, -5], axis: true});
+var label = board.create('text', [-3, 3, '\\(x^2+1\\)'], {useMathJax: true, fontSize: 20});
+// MathJax is loaded asynchronously: have the board typeset its text once MathJax is ready
+window.addEventListener('load', function () { MathJax.startup.promise.then(function () { label.needsUpdate = true; board.update(); }); });
+```
+:::
+
 
 ## Also new, without a section of its own {#ui-other}
 
@@ -181,8 +216,9 @@ Write some code in the Python exercise and reload the page: py-exercise puts you
 - **Settings:** `ctm-assessment: modes: false` hides the switch (the
   [de page](step4-ui-de.qmd) uses it), `tab-links: false` turns the links
   into tabs off.
-- **Not in the package yet:** saved answers for all exercises, progress
-  panels and quizzes, exercise text per language.
+- **This candidate:** saved Python and mathematics answers, page progress and
+  the mixed quiz above. Variant approval and exercise text per language remain
+  separate work.
 
 ## Tabs far down the page {#ui-far}
 
