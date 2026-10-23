@@ -77,7 +77,7 @@ try{
     const sw=self===top?navigator.serviceWorker:null;
     const meta=()=>({eventAt:Date.now(),eventPerformanceNow:performance.now(),documentId:String(performance.timeOrigin),url:location.href,top:self===top,isolated:crossOriginIsolated});
     const send=(kind,value)=>window.__firstVisitObserve(kind,{...meta(),...value});
-    window.__firstVisitResults=[];addEventListener('ctm:result',event=>{window.__firstVisitResults.push(event.detail);send('resultEvents',{detail:event.detail});});
+    window.__firstVisitResults=[];document.addEventListener('ctm:result',event=>{window.__firstVisitResults.push(event.detail);send('resultEvents',{detail:event.detail});});
     send('documentEvents',{event:'document-start',navigationType:performance.getEntriesByType('navigation')[0]?.type});
     for(const event of ['DOMContentLoaded','load','pageshow','pagehide','coi-sw-ready','coi-unavailable'])addEventListener(event,()=>send('documentEvents',{event,controller:sw?.controller?.scriptURL||null}),true);
     sw?.addEventListener('controllerchange',()=>send('documentEvents',{event:'controllerchange',controller:sw.controller?.scriptURL||null}));
