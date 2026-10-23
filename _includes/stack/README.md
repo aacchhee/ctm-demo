@@ -20,8 +20,18 @@ python _extensions/math-exercise/question-variants.py --project . \
 
 Use the corresponding file and label for the other three exercises. Generate
 another tested batch only when wanted, using `generate25more` instead of `review`.
-The HTML is a disconnected resolved-Markdown review, not a live Check/figure
-preview. Its downloaded decision request can be applied with the same trusted
+This CLI HTML export is the disconnected review route. For the installed rendered
+student preview and immediate native decision saving, use the local helper:
+
+```sh
+python _extensions/math-exercise/variants-review.py --project . \
+  --file _includes/stack/triangles.qmd --label stack-triangles
+```
+
+The helper serves a random-token loopback URL; save source edits before rebuilding
+its view and stop it with Ctrl-C. This authoring preview is not student publishing
+clearance. The disconnected export's downloaded decision request can still be
+applied with the same trusted
 source selection and `apply work/downloaded-request.json`. The CLI rebuilds
 current source and checks the saved manifest lease and exact candidate hashes.
 No approval is performed by the build or the scripts in this fixture.
@@ -34,7 +44,15 @@ CTM_VARIANTS=review quarto render pages/stack-oppgaver.qmd --profile variants-re
 
 Required student mode intentionally refuses these unapproved proposals. Explicit
 `CTM_VARIANTS=optional` is OPEN and emits a warning; it is not approval. Ordinary
-preview command behavior must not be inferred from the authoring profile.
+preview command behavior must not be inferred from the authoring profile. The
+single-page command above is exercised by native-authoring CI. Normal main setup
+ignores review trailers and uses the upstream default pack: before activating
+student publishing, deliberately select the reviewed native pack through explicit
+course publishing configuration or later approved package activation; teachers
+must explicitly approve current candidates and the ordinary required-mode build
+must pass. Parent PR19 and existing courses retain legacy-compatible defaults.
+The current legacy route fails native verification before artifact upload; this
+zero-approval authoring fixture grants no deployment authorization.
 
 Each question declares its board iframe and title. The maintained figure sources
 consume the generic `ctm-variant` public `values` projection. Regenerate embedded
