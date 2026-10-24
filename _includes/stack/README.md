@@ -1,65 +1,62 @@
-# STACK conversion
+# Native variants authoring fixture
 
-`pages/stack-oppgaver.qmd` converts the four user-supplied Moodle XML questions
-into native math-exercise pools and JSXGraph figures. It needs no Moodle server.
+The four questions use Python/SymPy `variables`, `pick`/`require`, display
+placeholders, named answer fields, and body `#| solution` sections. They keep
+the original mathematics and explicit numeric tolerances. Mandatory teacher
+checks replace the old duplicate model-answer test tables.
 
-| Original question | Pool | Checking |
-|---|---:|---|
-| vinkler formlike trekanter a) | All 24 side-length pairs | Standard numeric, absolute tolerance 0.0005 (3 decimal places); exact expressions and more decimals accepted |
-| Trigonometriske verdier i enhetssirkelen | 71 valid combinations covering the original angle grid | Standard numeric, original absolute tolerance 0.02 |
-| Vinkel i enhetssirkelen | All 71 angles, 5°–355° | Standard numeric, absolute tolerance 0.015 rad |
-| Derivasjon og tangent rasjonal funksjon | All 159 valid parameter triples | Standard algebraic equivalence |
+The checked-in `_variants/stack-*.yml` files contain 99 tested proposals:
+24 triangles (the full finite space), and 25 each for values, angle and tangent.
+**None is approved.** Stable positive numbers are assigned only by an explicit
+review decision. This branch is an authoring fixture, not a cleared student site.
 
-STACK's LMS-specific partial-credit trees are replaced by ordinary field feedback
-(and averaging for multi-field exercises). In particular, the original secondary
-"approximately correct" tolerances and unequal derivative weights are not copied.
-The page states the acceptance precision. The triangle ratio accepts an absolute
-deviation of 0.0005, so a correctly rounded three-decimal answer, an exact
-expression or more correct decimals all pass. The inverse-angle question asks
-for three decimal places and accepts a deviation of 0.015 rad: the given sine
-and cosine are rounded to two decimals, and STACK's original 1% relative
-tolerance rejected correct readings for the smallest angles. The trigonometric
-reading keys preserve STACK's two-significant-figure rounding.
+With the reviewed CTM installation, inspect the current candidates:
 
-The native ↻ button selects a generated stable variant ID. `assets/stack/page.js`
-uses `cell.mathExercise.getVariant()` and `math-exercise:variant-change` to send
-that record's parameters to the corresponding iframe. The extension renders the
-matching Markdown solution and context. Pool changes close solutions and reset
-figures; ordinary resizing does not reset figures.
+```sh
+python _extensions/math-exercise/question-variants.py --project . \
+  --file _includes/stack/triangles.qmd --label stack-triangles \
+  review --html work/stack-triangles.html
+```
 
-Circle points are actual gliders. Angle readouts use atan2 normalized to [0,2π).
-Figures wait for visible dimensions, preserve equal scales in geometric diagrams, and respond
-to nested tabs and collapsed solutions. The rational graph is split at its pole;
-the tangent slider stays in the connected domain containing the given point.
+Use the corresponding file and label for the other three exercises. Generate
+another tested batch only when wanted, using `generate25more` instead of `review`.
+This CLI HTML export is the disconnected review route. For the installed rendered
+student preview and immediate native decision saving, use the local helper:
 
-## Compact authoring and optional review
+```sh
+python _extensions/math-exercise/variants-review.py --project . \
+  --file _includes/stack/triangles.qmd --label stack-triangles
+```
 
-Edit `triangles.qmd`, `values.qmd`, `angle.qmd` or `tangent.qmd` in this folder.
-Each contains one parameter definition, question and Markdown solution. Quarto
-expands these at build time; no pool-generation command or variant catalogue is
-needed. Run `quarto render pages/stack-oppgaver.qmd` as usual.
+The helper serves a random-token loopback URL; save source edits before rebuilding
+its view and stop it with Ctrl-C. This authoring preview is not student publishing
+clearance. The disconnected export's downloaded decision request can still be
+applied with the same trusted
+source selection and `apply work/downloaded-request.json`. The CLI rebuilds
+current source and checks the saved manifest lease and exact candidate hashes.
+No approval is performed by the build or the scripts in this fixture.
 
-For optional review run `quarto render --profile review`. The review profile writes to `_review-site` and does not change the normal
-student build. Inspect candidates in
-the same interactive figures and use **Copy selection**. Replace the selection
-options in the corresponding QMD file, then render the student page normally.
-There is no separate selection file or student-side parameter generation.
+For a nonstudent page preview:
 
-Figure source remains in `scripts/generate-stack-figures.py`; run that script
-only when editing the figures. Solutions remain native collapsed Quarto callouts.
+```sh
+CTM_VARIANTS=review quarto render pages/stack-oppgaver.qmd --profile variants-review
+```
 
-Each topic uses a native `.ai-feedback` fenced Div for an ungraded explanation,
-with Markdown prompts and hidden `.feedback-criteria`. The math-exercise shared
-feedback integration and ai-feedback use one settings dialog. Existing legacy
-math-exercise settings can be imported explicitly in that dialog.
+Required student mode intentionally refuses these unapproved proposals. Explicit
+`CTM_VARIANTS=optional` is OPEN and emits a warning; it is not approval. Ordinary
+preview command behavior must not be inferred from the authoring profile. The
+single-page command above is exercised by native-authoring CI. Normal main setup
+ignores review trailers and uses the upstream default pack: before activating
+student publishing, deliberately select the reviewed native pack through explicit
+course publishing configuration or later approved package activation; teachers
+must explicitly approve current candidates and the ordinary required-mode build
+must pass. Parent PR19 and existing courses retain legacy-compatible defaults.
+The current legacy route fails native verification before artifact upload; this
+zero-approval authoring fixture grants no deployment authorization.
 
-The page assigns an explicit context ID to the active question element. The
-shared extractor reads its visible prose and mathematical notation, excluding
-input values, answer keys and worked solutions. Topic
-context and conventions are explicitly referenced as well. Changing variants
-clears the explanation and feedback and closes the solution. Editing clears old
-feedback; the shared client's snapshot check rejects replies for changed input
-or context. API calls and prompt-copy mode are provided by the shared extension.
-
-The CTM Assessment manifest pins math-exercise, ai-feedback and the upstream
-JSXGraph extension by commit, like every other component.
+Each question declares its board iframe and title. The maintained figure sources
+consume the generic `ctm-variant` public `values` projection. Regenerate embedded
+blocks after figure changes with `python scripts/generate-stack-figures.py`.
+AI explanations reference `<label>-question` and clear on the generic accepted
+variant event through `reset-on-variant`. Figure/AI failures must not disable
+ordinary Check; missing speech and Maxima readiness remain independent.

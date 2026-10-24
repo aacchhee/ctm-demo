@@ -20,7 +20,6 @@ lang: en
 filters:
   - path: _extensions/ctm-assessment/tab-ids.lua
     at: pre-ast
-  - _filters/stack-content.lua
   - ctm-assessment
 
 website:
