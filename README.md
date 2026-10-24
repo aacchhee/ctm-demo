@@ -35,7 +35,8 @@ Expected URL: <https://aacchhee.github.io/ctm-demo/>.
 ## Structure
 
 Content lives in `.qmd` wrappers and `_includes/*.md`; `_quarto.yml` configures
-the site. `quarto-extensions.yml` names only `ctm-assessment` at `main`.
+the site. `quarto-extensions.yml` names only `ctm-assessment` at the reviewed
+immutable commit recorded in that file.
 `scripts/setup.py` is shared by local development and GitHub Actions. It fetches
 that umbrella source, runs its builder, and installs the assembled distribution.
 The full suite is enabled through the `ctm-assessment` filter. Component sources
@@ -61,13 +62,20 @@ native pack, render their nonstudent authoring preview explicitly:
 CTM_VARIANTS=review quarto render pages/stack-oppgaver.qmd --profile variants-review
 ```
 
-This is the single-page command exercised by native-authoring CI. It grants no
-approvals. Main ignores review trailers; publishing this migrated source requires
-deliberately selecting the reviewed native pack through explicit course publishing
-configuration or later approved package activation, explicit real teaching
-approvals, and a successful ordinary required-mode build. Existing courses and
-parent PR19 retain legacy-compatible defaults. Until then the normal build must
-fail before publication. See
+This single-page command is exercised by native-authoring CI and grants no
+approvals. All 99 saved proposals remain undecided. The ordinary site therefore
+omits this authoring page from its render list and sidebar; the other 12 pages
+remain in the normal build. The explicit review command remains available and
+continues to check all four question contexts and 99 proposals.
+
+Always pass the filename and this profile: Quarto merges project/profile render
+arrays, and a bare file excluded from the normal project can be treated as a
+standalone document without the project filters. The same explicit command with
+`CTM_VARIANTS` unset is required mode and must still refuse publication until
+teachers approve current candidates. Adding it to the public site requires
+those real teaching decisions, a successful required-mode render, and a reviewed
+change restoring its render target and navigation. An optional approval setting
+is not a substitute. See
 [_includes/stack/README.md](_includes/stack/README.md) for the selection workflow.
 
 ## Coordinated dependency reviews

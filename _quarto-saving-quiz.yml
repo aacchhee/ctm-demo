@@ -13,7 +13,6 @@ project:
     - "!pages/physics.qmd"
     - "!pages/fysikk-forkurs.qmd"
     - "!pages/bevegelse-ii.qmd"
-    - "!pages/stack-oppgaver.qmd"
     - "!pages/help.qmd"
 
 website:

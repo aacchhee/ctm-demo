@@ -1,2 +1,5 @@
 project:
   output-dir: _variants-review-site
+  # Explicit filename selection keeps this review command to one page.
+  render:
+    - pages/stack-oppgaver.qmd

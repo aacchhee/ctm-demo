@@ -44,15 +44,18 @@ CTM_VARIANTS=review quarto render pages/stack-oppgaver.qmd --profile variants-re
 
 Required student mode intentionally refuses these unapproved proposals. Explicit
 `CTM_VARIANTS=optional` is OPEN and emits a warning; it is not approval. Ordinary
-preview command behavior must not be inferred from the authoring profile. The
-single-page command above is exercised by native-authoring CI. Normal main setup
-ignores review trailers and uses the upstream default pack: before activating
-student publishing, deliberately select the reviewed native pack through explicit
-course publishing configuration or later approved package activation; teachers
-must explicitly approve current candidates and the ordinary required-mode build
-must pass. Parent PR19 and existing courses retain legacy-compatible defaults.
-The current legacy route fails native verification before artifact upload; this
-zero-approval authoring fixture grants no deployment authorization.
+preview behavior must not be inferred from the authoring profile.
+
+The ordinary site excludes this review-only page from its render list and
+sidebar while all 99 proposals remain undecided. The 12 other site pages and the
+five-page saving/quiz profile remain available. The single-page review command
+above remains an explicit nonstudent artifact check in CI; it does not publish
+the STACK page. Always pass its filename and `--profile variants-review` so that
+the page belongs to the project and uses its filters. With `CTM_VARIANTS` unset,
+that same command must still fail at the required-approval guard. A bare excluded
+file may be treated as an unfiltered standalone document and is not this test. Restore its public render target and navigation
+only after explicit teaching approvals and a successful required-mode build.
+No build, script or test in this fixture grants those decisions.
 
 Each question declares its board iframe and title. The maintained figure sources
 consume the generic `ctm-variant` public `values` projection. Regenerate embedded
