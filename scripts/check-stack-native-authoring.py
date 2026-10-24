@@ -19,15 +19,24 @@ class Exercises(HTMLParser):
 parser = Exercises()
 parser.feed(Path(sys.argv[1]).read_text())
 assert set(parser.records) == set(EXPECTED)
+approved_total = 0
 for label, count in EXPECTED.items():
     data = parser.records[label]
     assert data['native'] is True and data['renderMode'] == 'review', label
     rows = data['variants']
     assert len(rows) == count, (label, len(rows))
     assert len({row['id'] for row in rows}) == count, label
-    assert all(row['n'] is None and row['proposal'] for row in rows), label
-    assert all(row['status'] != 'approved' for row in rows), label
+    manifest = json.loads((Path('_variants') / (label + '.yml')).read_text())
+    decisions = {row['id']: row for row in manifest['decisions']}
+    for row in rows:
+        decision = decisions.get(row['id'])
+        if decision is None:
+            assert row['n'] is None and row['proposal'] and row['status'] == 'undecided', label
+        else:
+            assert row['n'] == decision['n'] and not row['proposal'], label
+            assert row['status'] == decision['status'] and row['hash'] == decision['hash'], label
+            approved_total += row['status'] == 'approved'
     assert all('{@' not in row['question'] and '{#' not in row['question'] for row in rows), label
     assert label + '-question' in parser.ids, label
     assert label + '-board' in parser.frames, label
-print('Explicit review render: 99 distinct undecided proposals, four live question contexts and board iframes. No student clearance.')
+print(f'Explicit review render: 99 distinct candidates, {approved_total} recorded approvals, four live question contexts and board iframes. Review itself records no decisions.')
