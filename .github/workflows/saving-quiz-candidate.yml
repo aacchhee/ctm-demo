@@ -148,6 +148,7 @@ jobs:
           python scripts/test-merged-package.py
           python scripts/test-saving-quiz-candidate.py
           python -m py_compile scripts/check-stack-native-authoring.py scripts/check-merged-authoring.py
+          python scripts/diagnostics/test-first-visit-publication.py
           node --check scripts/diagnostics/test-demo-first-visit.mjs
           node --check scripts/diagnostics/test-demo-first-visit-network.mjs
           cmp scripts/diagnostics/test-demo-first-visit.mjs scripts/diagnostics/test-demo-first-visit-network.mjs
@@ -257,8 +258,13 @@ jobs:
       - name: Missing speech preserves Python and ordinary Check
         if: ${{ !cancelled() }}
         run: node scripts/diagnostics/test-demo-first-visit.mjs --site _saving-quiz-site --browser ${{ matrix.browser }} --fault speech --output merged-package-browser/missing-speech.json
+      - name: Project outcomes and byte provenance without diagnostic streams
+        if: always()
+        run: python scripts/diagnostics/project-first-visit-results.py --input merged-package-browser --output merged-package-summary
       - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: merged-package-${{ matrix.browser }}-${{ github.sha }}
-          path: merged-package-browser
+          path: |
+            merged-package-summary/*.json
+            merged-package-browser/*-failure.png
