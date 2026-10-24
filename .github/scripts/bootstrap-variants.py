@@ -14,7 +14,7 @@ REVIEW_REPOSITORY = 'Erasmus-CTM/math-exercise'
 
 
 def validate_review_override(manifest, verified, refs):
-    """A v2 archive is the complete canonical base plus one native review file."""
+    """v2 adds one exporter; v3 adds only the exporter and GitHub bot."""
     if set(manifest) != {'version', 'sources', 'archive', 'files', 'nativeReviewOverrides'}:
         raise ValueError('Unexpected native review manifest schema')
     names = {'ctm-assessment', 'ctm-checkers', 'ctm-libs', 'math-exercise',
@@ -22,21 +22,32 @@ def validate_review_override(manifest, verified, refs):
     if (set(refs) != names or not all(isinstance(value, str) and re.fullmatch('[a-f0-9]{40}', value)
                                      for value in refs.values())):
         raise ValueError('Native review requires the seven immutable base sources')
+    allowed = {REVIEW_TARGET: ('math-exercise', REVIEW_TARGET)}
+    if manifest['version'] == 3:
+        allowed['_extensions/ctm-checkers/native-authoring/ctm_variants/github_bot.py'] = (
+            'ctm-checkers', 'authoring/ctm_variants/github_bot.py')
     overrides = manifest['nativeReviewOverrides']
     fields = {'target', 'repository', 'commit', 'sourcePath', 'gitBlob',
               'baseCommit', 'baseSha256', 'replacementSha256'}
-    if not isinstance(overrides, list) or len(overrides) != 1 or not isinstance(overrides[0], dict) or set(overrides[0]) != fields:
-        raise ValueError('Exactly one explicit native review override is required')
-    override = overrides[0]
-    if (override['target'] != REVIEW_TARGET or override['sourcePath'] != REVIEW_TARGET
-            or override['repository'] != REVIEW_REPOSITORY
-            or override['baseCommit'] != refs.get('math-exercise')
-            or not all(isinstance(override[key], str) and re.fullmatch('[a-f0-9]{40}', override[key])
-                       for key in ('commit', 'gitBlob', 'baseCommit'))
-            or override['commit'] == override['baseCommit']
-            or not all(isinstance(override[key], str) and re.fullmatch('[a-f0-9]{64}', override[key])
-                       for key in ('baseSha256', 'replacementSha256'))):
-        raise ValueError('Invalid immutable native review source provenance')
+    if (not isinstance(overrides, list) or len(overrides) != len(allowed)
+            or any(not isinstance(item, dict) or set(item) != fields for item in overrides)):
+        raise ValueError('Exact allowlisted native review overrides are required')
+    indexed = {}
+    for override in overrides:
+        target = override['target']
+        if not isinstance(target, str) or target not in allowed or target in indexed:
+            raise ValueError('Invalid or duplicate native review override target')
+        component, source_path = allowed[target]
+        if (override['sourcePath'] != source_path
+                or override['repository'] != 'Erasmus-CTM/' + component
+                or override['baseCommit'] != refs.get(component)
+                or not all(isinstance(override[key], str) and re.fullmatch('[a-f0-9]{40}', override[key])
+                           for key in ('commit', 'gitBlob', 'baseCommit'))
+                or override['commit'] == override['baseCommit']
+                or not all(isinstance(override[key], str) and re.fullmatch('[a-f0-9]{64}', override[key])
+                           for key in ('baseSha256', 'replacementSha256'))):
+            raise ValueError('Invalid immutable native review source provenance')
+        indexed[target] = override
     receipt_name = '_extensions/ctm-assessment/resolved-repos.json'
     try:
         record = json.loads(verified[receipt_name])
@@ -49,27 +60,28 @@ def validate_review_override(manifest, verified, refs):
             for name, digest in record['extension_sha256'][component].items():
                 target = '_extensions/' + component + '/' + name
                 expected.add(target)
-                if target == REVIEW_TARGET:
-                    if digest != override['baseSha256']:
+                if target in indexed:
+                    if digest != indexed[target]['baseSha256']:
                         raise ValueError('Native review base digest mismatch')
                 elif hashlib.sha256(verified[target]).hexdigest() != digest:
                     raise ValueError('Canonical native review base changed: ' + target)
-        if expected != set(verified) or REVIEW_TARGET not in verified:
+        if expected != set(verified) or not set(indexed).issubset(verified):
             raise ValueError('Native review base inventory mismatch')
     except (KeyError, TypeError, json.JSONDecodeError) as error:
         raise ValueError('Invalid canonical native review base receipt') from error
-    replacement = verified[REVIEW_TARGET]
-    blob = hashlib.sha1(b'blob ' + str(len(replacement)).encode() + b'\0' + replacement).hexdigest()
-    if (hashlib.sha256(replacement).hexdigest() != override['replacementSha256']
-            or blob != override['gitBlob'] or override['baseSha256'] == override['replacementSha256']):
-        raise ValueError('Native review replacement source digest mismatch')
+    for target, override in indexed.items():
+        replacement = verified[target]
+        blob = hashlib.sha1(b'blob ' + str(len(replacement)).encode() + b'\0' + replacement).hexdigest()
+        if (hashlib.sha256(replacement).hexdigest() != override['replacementSha256']
+                or blob != override['gitBlob'] or override['baseSha256'] == override['replacementSha256']):
+            raise ValueError('Native review replacement source digest mismatch')
 
 
 def materialize(root=ROOT):
     bundle = root / '.github/variants-tooling'
     manifest = json.loads((bundle / 'package.json').read_text())
     refs = json.loads((root / '.github/merged-package-refs.json').read_text())
-    if manifest['version'] not in (1, 2) or manifest['sources'] != refs:
+    if manifest['version'] not in (1, 2, 3) or manifest['sources'] != refs:
         raise ValueError('Review tooling must match the frozen course tuple')
     if manifest['version'] == 1 and 'nativeReviewOverrides' in manifest:
         raise ValueError('Native review overrides require manifest version 2')
@@ -103,7 +115,7 @@ def materialize(root=ROOT):
             verified[name] = value
     if set(verified) != set(files):
         raise ValueError('Tooling inventory is incomplete')
-    if manifest['version'] == 2:
+    if manifest['version'] in (2, 3):
         validate_review_override(manifest, verified, refs)
     # Validate the complete archive and all destinations before writing anything.
     for name in verified:
