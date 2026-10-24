@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "sources": {
     "ctm-assessment": "503c8688eaf556ff23af0fc629ca60f71833ea73",
     "ctm-checkers": "cf6570b13f92d17a437fe5a61cd103c84adf7f1e",
@@ -10,8 +10,8 @@
     "jsxgraph": "e4ad81d82e1b56f86765026a3dd26f6975d29d57"
   },
   "archive": {
-    "bytes": 683815,
-    "sha256": "c66fb27d2e04079d22c20bff106c04bb5c8ebe49035c26e40231bb95a4ea4cb4"
+    "bytes": 684069,
+    "sha256": "b84e6a3d7e3fad5580aa9c2257b88be85025b35827b1b581128a482703c87bc9"
   },
   "files": {
     "LICENSE": {
@@ -459,8 +459,20 @@
       "sha256": "cf2b1420da0bfc656b200dfd8dcebd0e3678ade2fb1286d1228e4c2f926e663a"
     },
     "_extensions/math-exercise/variants-review.py": {
-      "bytes": 25522,
-      "sha256": "d5227195f1b3e9af7c79ccd46e18bb33b021612709e88834f4e2e15f3c624bcf"
+      "bytes": 26581,
+      "sha256": "95a89ce707cbf00ee3988857a906b19856e072afbd863858964a9057eaa4f013"
     }
-  }
+  },
+  "nativeReviewOverrides": [
+    {
+      "target": "_extensions/math-exercise/variants-review.py",
+      "repository": "Erasmus-CTM/math-exercise",
+      "commit": "c2ad38ea9fd26e03dc21c57f9f56a1a9305b9466",
+      "sourcePath": "_extensions/math-exercise/variants-review.py",
+      "gitBlob": "0c3326882ee7d08dbc819516fabb736fbe7c3817",
+      "baseCommit": "792dcfa913696b61db1289fd066c78a078d9a0d0",
+      "baseSha256": "d5227195f1b3e9af7c79ccd46e18bb33b021612709e88834f4e2e15f3c624bcf",
+      "replacementSha256": "95a89ce707cbf00ee3988857a906b19856e072afbd863858964a9057eaa4f013"
+    }
+  ]
 }
