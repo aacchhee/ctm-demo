@@ -26,3 +26,4 @@ Trekantene er formlike fordi to par vinkler er like. Siden $EF$ svarer til $BC$ 
 $$\frac{EF}{DF}=\frac{BC}{AC}=\frac{{@bc@}}{\sqrt{{@ab@}^2+{@bc@}^2}}\approx {@dispdp(ratio, 3)@}.$$
 En endring av størrelsen på trekant $DEF$ endrer ikke forholdet.
 ```
+
