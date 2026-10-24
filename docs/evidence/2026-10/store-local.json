@@ -1,0 +1,200 @@
+{
+  "sourceSummary": "work/resize-local/demo-store-acceptance.json",
+  "sourceSummarySha256": "cc12233b2576d11cc5129bf2dacc1e31ce00551dcd6ce6913c96c9daadfc44ca",
+  "scope": "saved-answer desktop1280x900 local acceptance only; separate board/navigation and finalCI evidence remains external",
+  "courseHead": "f33150e2da944bf202d187cf384031ef362fd0fb",
+  "courseTree": "be8ec3de73b5413f2b5aef5b08a25622a2ef951d",
+  "umbrella": "95b6a6a5c16b0f96c1dc0e13dd1e3af308475e31",
+  "componentOverrides": {},
+  "quarto": "1.8.27",
+  "installedRecordSha256": "777d862bc5304fbe28dd59193a1cf1937c8e735dcb82c2d36e08b337bef56ac4",
+  "siteArchiveSha256": "59348168f08dcd98a3ec945f4b7f28b57fd436624189c83c0614cb3d9e890926",
+  "pageSha256": "e22988069c141f414b63f5e3493e2903c49f707ff3e28b9972dc5490afbb1869",
+  "currentHarnessSha256": "b74c7d2b929b4eed5596d46b4e401addeb7fab6aac353d89470e98206f6b4a96",
+  "caseHarnessDifference": "Firefox uses reviewed real-tab foregrounding/active-textarea preconditions; persistence/race/assertion logic unchanged from WebKit/Chromium5a source. FinalCI must select currentb74 source for all3.",
+  "clockPolicy": {
+    "scope": "two main documents, after the complete real-runtime proof",
+    "userTiming": "original bound native methods and native entries",
+    "preservedMethods": [
+      "mark",
+      "measure",
+      "clearMarks",
+      "clearMeasures",
+      "getEntries",
+      "getEntriesByName",
+      "getEntriesByType"
+    ],
+    "fake": [
+      "Date",
+      "timers",
+      "requestAnimationFrame",
+      "performance.now"
+    ],
+    "fabricatedEntries": false,
+    "reason": "Playwright1.62 fakePerformance entry queries return []; Monaco0.46 input-latency timer requires its measured entry"
+  },
+  "preservedFailedAttempts": [
+    "demo-store-webkit-attempt1: all-frame diagnostic capture timeout",
+    "demo-store-webkit-attempt2: Playwright fakePerformance empty-entry query incompatibility",
+    "demo-store-firefox-attempt1: background-tab IDE key routed to prior editor"
+  ],
+  "allThreeCasesPassed": true,
+  "cases": [
+    {
+      "engine": "webkit",
+      "browser": "26.5",
+      "passed": true,
+      "harnessSha256": "5a1ee9df826358fe1adcadb0eb1a8e73a17fc3b8ea69068fd6224147333be617",
+      "reportSha256": "9427563ea3f82246441deeb65ec25fa5bc89774b82e9dd8ab192c3ad91cdeab9",
+      "logSha256": "310fa46bd54deef04c9fe663fbbf8718ebb41ab2a17e1fcb8e345fc50856c348",
+      "contextCount": 1,
+      "actualPageLoads": 4,
+      "capturedStates": 7,
+      "rawCounts": {
+        "pageErrors": 0,
+        "windowErrors": 0,
+        "unhandledRejections": 0,
+        "observerErrors": 0,
+        "consoleErrors": 0,
+        "failedRequests": 0,
+        "badResponses": 0
+      },
+      "passiveReopen": {
+        "totalStartupRPC": 11,
+        "learnerOrCheckRPC": 0,
+        "freshResults": 0
+      },
+      "resetReload": {
+        "totalStartupRPC": 11,
+        "learnerOrCheckRPC": 0,
+        "freshResults": 0
+      },
+      "positiveAfterReopen": {
+        "runCell": 1,
+        "privateCheck": 1
+      },
+      "raceCheckpoints": [
+        "recordless pending edit cancelled by another tab exercise reset; math unchanged",
+        "page clear cancels pending edit without a late write",
+        "save-off/on preserves live code, cancels late writes, new edit saves exactly at250ms",
+        "course clear cancels pending edits and preserves the other course sentinel"
+      ],
+      "focusActions": 0,
+      "nativeFocusFallbacks": 0,
+      "exportDownloads": [
+        {
+          "filename": "my-answers.md",
+          "sha256": "8aa3f2ffd65ef9651992906c31be145103cb9e4efb80a5a9e92309e296962de2"
+        },
+        {
+          "filename": "my-answers.html",
+          "sha256": "07ad4cf0010c2ce47a2f30731984cb6e5674a8b6caa79a13105811509b639b31"
+        }
+      ]
+    },
+    {
+      "engine": "chromium",
+      "browser": "151.0.7922.34",
+      "passed": true,
+      "harnessSha256": "5a1ee9df826358fe1adcadb0eb1a8e73a17fc3b8ea69068fd6224147333be617",
+      "reportSha256": "5150a76045e44c522014bb1cbef1523a6e4e70c0e5c8ab2378d8f56851bfb2fe",
+      "logSha256": "0d27dd8572f84a45128d6be9b0450104efcada2518e3027b3be97aedb722d226",
+      "contextCount": 1,
+      "actualPageLoads": 4,
+      "capturedStates": 7,
+      "rawCounts": {
+        "pageErrors": 0,
+        "windowErrors": 0,
+        "unhandledRejections": 0,
+        "observerErrors": 0,
+        "consoleErrors": 0,
+        "failedRequests": 0,
+        "badResponses": 0
+      },
+      "passiveReopen": {
+        "totalStartupRPC": 11,
+        "learnerOrCheckRPC": 0,
+        "freshResults": 0
+      },
+      "resetReload": {
+        "totalStartupRPC": 11,
+        "learnerOrCheckRPC": 0,
+        "freshResults": 0
+      },
+      "positiveAfterReopen": {
+        "runCell": 1,
+        "privateCheck": 1
+      },
+      "raceCheckpoints": [
+        "recordless pending edit cancelled by another tab exercise reset; math unchanged",
+        "page clear cancels pending edit without a late write",
+        "save-off/on preserves live code, cancels late writes, new edit saves exactly at250ms",
+        "course clear cancels pending edits and preserves the other course sentinel"
+      ],
+      "focusActions": 0,
+      "nativeFocusFallbacks": 0,
+      "exportDownloads": [
+        {
+          "filename": "my-answers.md",
+          "sha256": "7d55eca71656d0891f60342ff63ee1857ca794d66e01c8a67199b0def7874220"
+        },
+        {
+          "filename": "my-answers.html",
+          "sha256": "542bd78d7be6cc19293d97e4a38a5ba00c730fec25ca7ac8a97acaa85aa005f8"
+        }
+      ]
+    },
+    {
+      "engine": "firefox",
+      "browser": "153.0",
+      "passed": true,
+      "harnessSha256": "b74c7d2b929b4eed5596d46b4e401addeb7fab6aac353d89470e98206f6b4a96",
+      "reportSha256": "73cc3d21f6e17fa04ea878d68fdc99c123c2c7cd5b2279677a681ead5df34ce0",
+      "logSha256": "0b52b7e4104bf404050494dfd2e8b233f21c93328110cbdaca24ee5cc7d8bcd5",
+      "contextCount": 1,
+      "actualPageLoads": 4,
+      "capturedStates": 7,
+      "rawCounts": {
+        "pageErrors": 0,
+        "windowErrors": 0,
+        "unhandledRejections": 0,
+        "observerErrors": 0,
+        "consoleErrors": 0,
+        "failedRequests": 0,
+        "badResponses": 0
+      },
+      "passiveReopen": {
+        "totalStartupRPC": 11,
+        "learnerOrCheckRPC": 0,
+        "freshResults": 0
+      },
+      "resetReload": {
+        "totalStartupRPC": 11,
+        "learnerOrCheckRPC": 0,
+        "freshResults": 0
+      },
+      "positiveAfterReopen": {
+        "runCell": 1,
+        "privateCheck": 1
+      },
+      "raceCheckpoints": [
+        "recordless pending edit cancelled by another tab exercise reset; math unchanged",
+        "page clear cancels pending edit without a late write",
+        "save-off/on preserves live code, cancels late writes, new edit saves exactly at250ms",
+        "course clear cancels pending edits and preserves the other course sentinel"
+      ],
+      "focusActions": 12,
+      "nativeFocusFallbacks": 1,
+      "exportDownloads": [
+        {
+          "filename": "my-answers.md",
+          "sha256": "497ce513c4dfa4a3b1532e07535a31843804ec623e4579e6e71601b930a00c63"
+        },
+        {
+          "filename": "my-answers.html",
+          "sha256": "c11bba06c2616f4eef60cb95f37262eecfffaad358377a1660c37e9604c09a82"
+        }
+      ]
+    }
+  ]
+}

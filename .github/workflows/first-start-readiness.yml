@@ -1,0 +1,106 @@
+name: Parent first-start readiness (artifacts only)
+on:
+  pull_request:
+    paths:
+      - .github/workflows/first-start-readiness.yml
+      - .github/first-start-readiness-refs.json
+      - scripts/diagnostics/test-demo-first-visit.mjs
+      - _quarto-saving-quiz.yml
+      - pages/step4-ui.qmd
+      - _includes/step4-ui/**
+permissions:
+  contents: read
+concurrency:
+  group: first-start-readiness-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  build:
+    if: github.head_ref == 'consolidation/2026-10-saving-quiz-candidate'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Validate the exact component tuple
+        env:
+          EXPECTED_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          python - <<'PY'
+          import json, os, pathlib, re, subprocess
+          refs = json.loads(pathlib.Path('.github/first-start-readiness-refs.json').read_text())
+          expected = {'ctm-assessment','ctm-libs','ctm-checkers','math-exercise','py-exercise','pyodide-interaktiv','jsxgraph'}
+          assert set(refs) == expected and all(re.fullmatch('[0-9a-f]{40}', x) for x in refs.values())
+          assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip() == os.environ['EXPECTED_HEAD']
+          with open(os.environ['GITHUB_ENV'],'a') as out:
+              out.write('CTM_FIRST_START_REFS=' + json.dumps(refs,sort_keys=True) + '\n')
+          PY
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: '1.8.27'
+      - name: Install the frozen canonical pack
+        run: |
+          python -m pip install -r requirements.txt sympy==1.13.3
+          python scripts/setup.py --review-refs "$CTM_FIRST_START_REFS"
+      - name: Render only the original first-visit page
+        run: |
+          set -o pipefail
+          mkdir -p first-start-build
+          quarto render pages/step4-ui.qmd --profile saving-quiz 2>&1 | tee first-start-build/render.log
+          python - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          site=pathlib.Path('_saving-quiz-site')
+          files={str(p.relative_to(site)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(site.rglob('*')) if p.is_file()}
+          assert 'pages/step4-ui.html' in files and 'coi-serviceworker.js' in files
+          pathlib.Path('first-start-build/record.json').write_text(json.dumps({'sourceHead':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'refs':json.loads(pathlib.Path('.github/first-start-readiness-refs.json').read_text()),'files':files},indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: first-start-readiness-site-${{ github.event.pull_request.head.sha }}
+          include-hidden-files: true
+          path: |
+            _saving-quiz-site
+            .private-extensions/resolved-repos.json
+            first-start-build
+  browser:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: first-start-readiness-site-${{ github.event.pull_request.head.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install the exact browser harness
+        run: |
+          npm install --prefix .first-start-tooling --no-save --ignore-scripts playwright@1.62.1
+          .first-start-tooling/node_modules/.bin/playwright install --with-deps ${{ matrix.browser }}
+          echo "CTM_PLAYWRIGHT_MODULE=file://$PWD/.first-start-tooling/node_modules/playwright/index.mjs" >> "$GITHUB_ENV"
+      - name: Original static first visit, real runtime and opaque board
+        run: node scripts/diagnostics/test-demo-first-visit.mjs --site _saving-quiz-site --browser ${{ matrix.browser }} --output first-start/baseline.json
+      - name: Missing JSXGraph leaves Python and ordinary Check usable
+        if: ${{ !cancelled() }}
+        run: node scripts/diagnostics/test-demo-first-visit.mjs --site _saving-quiz-site --browser ${{ matrix.browser }} --fault jsxgraph --output first-start/missing-jsxgraph.json
+      - name: Missing speech leaves Python and ordinary Check usable
+        if: ${{ !cancelled() }}
+        run: node scripts/diagnostics/test-demo-first-visit.mjs --site _saving-quiz-site --browser ${{ matrix.browser }} --fault speech --output first-start/missing-speech.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: first-start-readiness-${{ matrix.browser }}-${{ github.event.pull_request.head.sha }}
+          path: first-start

@@ -12,7 +12,7 @@ assert double(-3) == -6, "double(-3) should be -6."
 
 ```{math-exercise}
 #| label: step4-ui-autosave-math
-#| caption: Not saved yet
+#| caption: Saved in this browser
 #| mode: equivalent
 
 $2+2=$ __[4]

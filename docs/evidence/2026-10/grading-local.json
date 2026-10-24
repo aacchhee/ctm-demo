@@ -1,0 +1,170 @@
+{
+  "sourceSummary": "work/hook-probe/demo-responsive-grading-quiz-board-summary.json",
+  "sourceSummarySha256": "fea941efa1b4fbe7a1fb27402c1f80c5a3a12ebd683dfe8f83a63aa3d7bb7335",
+  "passed": true,
+  "scope": "actual real graders, mixed quiz and opaque MathJax board; headered require-corp; six browser/viewport cases; extended store/navigation evidence separate; no offline/static claim",
+  "courseHead": "f33150e2da944bf202d187cf384031ef362fd0fb",
+  "courseTree": "be8ec3de73b5413f2b5aef5b08a25622a2ef951d",
+  "umbrella": "95b6a6a5c16b0f96c1dc0e13dd1e3af308475e31",
+  "quarto": "1.8.27",
+  "siteArchiveSha256": "59348168f08dcd98a3ec945f4b7f28b57fd436624189c83c0614cb3d9e890926",
+  "harnessSha256": "cb81bd46d6694b12cade08ae9ec50171e9e8edfaf2a4fb1c4b695939cf4b7206",
+  "cases": [
+    {
+      "engine": "chromium",
+      "browser": "151.0.7922.34",
+      "width": 1280,
+      "passed": true,
+      "report": "work/hook-probe/demo-responsive-chromium-1280.json",
+      "reportSha256": "dbbe96dbc19ad7ec847c8b1505b1718ede16215313178490e8ca9397458349f0",
+      "logSha256": "1fe2468e69d579573bef72f2ba7842e19d7444f45c2c35db1d03511bf482f1b7",
+      "pageSha256": "e22988069c141f414b63f5e3493e2903c49f707ff3e28b9972dc5490afbb1869",
+      "rawCounts": {
+        "pageErrors": 0,
+        "windowErrors": 0,
+        "unhandledRejections": 0,
+        "consoleErrors": 0,
+        "failedRequests": 0,
+        "badResponses": 0
+      },
+      "boardBounds": {
+        "left": 188,
+        "right": 668,
+        "width": 480,
+        "height": 280,
+        "viewport": 1280
+      },
+      "restoredWithoutAutomaticResults": true
+    },
+    {
+      "engine": "chromium",
+      "browser": "151.0.7922.34",
+      "width": 390,
+      "passed": true,
+      "report": "work/hook-probe/demo-responsive-chromium-390.json",
+      "reportSha256": "0b9579ee9e60fd20d222b701d9471dbc25e4444b5fc1e6df89be0d643b54cada",
+      "logSha256": "c9b40b5a53d07625b9265e2c2599baca75a03b06a137d07061f1531ab149d8fa",
+      "pageSha256": "e22988069c141f414b63f5e3493e2903c49f707ff3e28b9972dc5490afbb1869",
+      "rawCounts": {
+        "pageErrors": 0,
+        "windowErrors": 0,
+        "unhandledRejections": 0,
+        "consoleErrors": 0,
+        "failedRequests": 0,
+        "badResponses": 0
+      },
+      "boardBounds": {
+        "left": 45.5,
+        "right": 347.5,
+        "width": 302,
+        "height": 176.15625,
+        "viewport": 390
+      },
+      "restoredWithoutAutomaticResults": true
+    },
+    {
+      "engine": "firefox",
+      "browser": "153.0",
+      "width": 1280,
+      "passed": true,
+      "report": "work/hook-probe/demo-responsive-firefox-1280.json",
+      "reportSha256": "5c4f9bb67deed7ea50f1492578975a7522bdb415febeee92ff8ff3aec4fcd3ae",
+      "logSha256": "233cca5d5d792105d60cca59c428336f6d252712e96314d1b618fa54537e10d9",
+      "pageSha256": "e22988069c141f414b63f5e3493e2903c49f707ff3e28b9972dc5490afbb1869",
+      "rawCounts": {
+        "pageErrors": 0,
+        "windowErrors": 0,
+        "unhandledRejections": 0,
+        "consoleErrors": 0,
+        "failedRequests": 0,
+        "badResponses": 0
+      },
+      "boardBounds": {
+        "left": 188,
+        "right": 668,
+        "width": 480,
+        "height": 280,
+        "viewport": 1280
+      },
+      "restoredWithoutAutomaticResults": true
+    },
+    {
+      "engine": "firefox",
+      "browser": "153.0",
+      "width": 390,
+      "passed": true,
+      "report": "work/hook-probe/demo-responsive-firefox-390.json",
+      "reportSha256": "e6e106b8c8e797a31ea7dbbf1a205c4f83a0e5c9030244814a9d97343d3fed30",
+      "logSha256": "34b3b8aa57803e6b35dff4699f05e1f04bbee6862c5be346a7bfe6d67b95fc6d",
+      "pageSha256": "e22988069c141f414b63f5e3493e2903c49f707ff3e28b9972dc5490afbb1869",
+      "rawCounts": {
+        "pageErrors": 0,
+        "windowErrors": 0,
+        "unhandledRejections": 0,
+        "consoleErrors": 0,
+        "failedRequests": 0,
+        "badResponses": 0
+      },
+      "boardBounds": {
+        "left": 45.5,
+        "right": 347.5,
+        "width": 302,
+        "height": 176.1666717529297,
+        "viewport": 390
+      },
+      "restoredWithoutAutomaticResults": true
+    },
+    {
+      "engine": "webkit",
+      "browser": "26.5",
+      "width": 1280,
+      "passed": true,
+      "report": "work/hook-probe/demo-responsive-webkit-1280.json",
+      "reportSha256": "8aa85ddc6562c9b3aff691121f8667ee69c8c067765bfc70e7c8134106ee829b",
+      "logSha256": "6f756e243bb7052e09a3bfa5f6186acc4c2b7e9e589abc876ef5a14b6dd4a753",
+      "pageSha256": "e22988069c141f414b63f5e3493e2903c49f707ff3e28b9972dc5490afbb1869",
+      "rawCounts": {
+        "pageErrors": 0,
+        "windowErrors": 0,
+        "unhandledRejections": 0,
+        "consoleErrors": 0,
+        "failedRequests": 0,
+        "badResponses": 0
+      },
+      "boardBounds": {
+        "left": 188,
+        "right": 668,
+        "width": 480,
+        "height": 279.984375,
+        "viewport": 1280
+      },
+      "restoredWithoutAutomaticResults": true
+    },
+    {
+      "engine": "webkit",
+      "browser": "26.5",
+      "width": 390,
+      "passed": true,
+      "report": "work/hook-probe/demo-responsive-webkit-390.json",
+      "reportSha256": "58d553240714fa870cc459753631d28d12188f6a8fe7565aaaeb7e0883f822af",
+      "logSha256": "680a0ebd29c1a11b774d479ce92bcbffee54f432df540f877836d347be28935c",
+      "pageSha256": "e22988069c141f414b63f5e3493e2903c49f707ff3e28b9972dc5490afbb1869",
+      "rawCounts": {
+        "pageErrors": 0,
+        "windowErrors": 0,
+        "unhandledRejections": 0,
+        "consoleErrors": 0,
+        "failedRequests": 0,
+        "badResponses": 0
+      },
+      "boardBounds": {
+        "left": 45.5,
+        "right": 347.5,
+        "width": 302,
+        "height": 176.15625,
+        "viewport": 390
+      },
+      "restoredWithoutAutomaticResults": true
+    }
+  ]
+}

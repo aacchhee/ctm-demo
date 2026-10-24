@@ -1,0 +1,357 @@
+{
+  "sourceSummary": "work/hook-probe/demo-first-visit-baseline-summary.json",
+  "sourceSummarySha256": "f898a007f6b026b67671aee5af767e76970cac6ae2862644d9c62eb0edfb86a0",
+  "passed": false,
+  "scope": "first-visit diagnostics; actual functionality all3 passes, raw/active-network baseline blocked; original strict failure preserved; no static SABall3/Stopinteraction/offline claim",
+  "courseHead": "f33150e2da944bf202d187cf384031ef362fd0fb",
+  "siteArchiveSha256": "59348168f08dcd98a3ec945f4b7f28b57fd436624189c83c0614cb3d9e890926",
+  "pageSha256": "e22988069c141f414b63f5e3493e2903c49f707ff3e28b9972dc5490afbb1869",
+  "harnessSha256": "9ac83804608b89abe558a75f19a65f7e305ac6e90eea8b3c86ca51278f117e20",
+  "automaticPrimaryGate": false,
+  "courseStaticAcceptance": "HOLD",
+  "cases": [
+    {
+      "engine": "chromium",
+      "browser": "151.0.7922.34",
+      "report": "work/hook-probe/demo-first-visit-baseline-chromium.json",
+      "reportSha256": "190aa4499f4c09991dd8132a024af54b49fa116ff4b861cd3cee5f870b45ae4f",
+      "logSha256": "55ea8f6b161dcbf6fb04ec59b5aee00c9e6faa2c0907174ca4c88e025314e93c",
+      "passed": false,
+      "functionalPassed": true,
+      "functionalBaselinePassed": false,
+      "rawPassed": false,
+      "strictAllRequestLifecyclesObserved": false,
+      "activePending": [
+        {
+          "url": "https://fonts.gstatic.com/s/sourcesanspro/v24/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7l.woff2",
+          "originPhase": "initial-document",
+          "frameDetached": false,
+          "lifecycleStatus": "unknown-no-terminal-event",
+          "successfulTransferProven": false,
+          "receivedBytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/sourcesanspro/v24/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdu.woff2",
+          "originPhase": "initial-document",
+          "frameDetached": false,
+          "lifecycleStatus": "unknown-no-terminal-event",
+          "successfulTransferProven": false,
+          "receivedBytes": null
+        }
+      ],
+      "retiredUnknown": [],
+      "rawCountsByPhase": {
+        "initial-document": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "service-worker-reload": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "setup-before-run": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 1,
+          "badResponses": 0
+        },
+        "ide-run": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "opaque-board": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "setup-before-teardown": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "final-settle": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "teardown": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        }
+      },
+      "failedRequests": [
+        {
+          "at": 1792766483014,
+          "elapsedMs": 7870,
+          "executionPhase": "setup-before-run",
+          "phase": "setup-before-run",
+          "originPhase": "setup-before-run",
+          "url": "https://cdn.jsdelivr.net/pyodide/v0.28.3/full/matplotlib-3.8.4-cp313-cp313-pyodide_2025_0_wasm32.whl",
+          "error": {
+            "errorText": "net::ERR_ABORTED"
+          }
+        }
+      ],
+      "isolationOutcome": "ready",
+      "ideOutput": "42",
+      "boardOpaque": true,
+      "error": "Error: current active-frame HTTP requests finished and quiet did not complete within 30000ms\n    at poll (file:///C:/Users/andreyac/Documents/Codex/2026-10-23/read-erasmus-ctm-ctm-assessment-branch/work/hook-probe/test-demo-first-visit.mjs:22:321)\n    at async settle (file:///C:/Users/andreyac/Documents/Codex/2026-10-23/read-erasmus-ctm-ctm-assessment-branch/work/hook-probe/test-demo-first-visit.mjs:23:25)\n    at async file:///C:/Users/andreyac/Documents/Codex/2026-10-23/read-erasmus-ctm-ctm-assessment-branch/work/hook-probe/test-demo-first-visit.mjs:104:102"
+    },
+    {
+      "engine": "firefox",
+      "browser": "153.0",
+      "report": "work/hook-probe/demo-first-visit-baseline-firefox.json",
+      "reportSha256": "eaca24c8c9acd588238461bc242dbbcc3ed88f630f53ede432c9e565a6bc1e94",
+      "logSha256": "e06723e7695d0049b32f42be2ade3585121961277614cc48369224b98da28b2d",
+      "passed": false,
+      "functionalPassed": true,
+      "functionalBaselinePassed": false,
+      "rawPassed": false,
+      "strictAllRequestLifecyclesObserved": true,
+      "activePending": [],
+      "retiredUnknown": [],
+      "rawCountsByPhase": {
+        "initial-document": {
+          "pageErrors": 1,
+          "webErrors": 1,
+          "windowErrors": 0,
+          "unhandledRejections": 1,
+          "consoleErrors": 2,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "service-worker-reload": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 1,
+          "badResponses": 0
+        },
+        "setup-before-run": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "ide-run": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "opaque-board": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "setup-before-teardown": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "final-settle": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "teardown": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        }
+      },
+      "failedRequests": [
+        {
+          "at": 1792766483542,
+          "elapsedMs": 6679,
+          "executionPhase": "service-worker-reload",
+          "phase": "service-worker-reload",
+          "originPhase": "service-worker-reload",
+          "url": "https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs/editor/editor.main.nls.js",
+          "error": {
+            "errorText": "NS_BINDING_ABORTED"
+          }
+        }
+      ],
+      "isolationOutcome": "ready",
+      "ideOutput": "42",
+      "boardOpaque": true,
+      "error": null
+    },
+    {
+      "engine": "webkit",
+      "browser": "26.5",
+      "report": "work/hook-probe/demo-first-visit-baseline-webkit.json",
+      "reportSha256": "03ebd712e9d791caaf9def36fd5484dfcc0bc455c1333ab866e6c0473645d526",
+      "logSha256": "51537c56bc7e20f3511a9a3dcd016d1d1f9cbf1ea0017e66fea68d15c17063bb",
+      "passed": false,
+      "functionalPassed": true,
+      "functionalBaselinePassed": false,
+      "rawPassed": false,
+      "strictAllRequestLifecyclesObserved": true,
+      "activePending": [],
+      "retiredUnknown": [],
+      "rawCountsByPhase": {
+        "initial-document": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 2,
+          "badResponses": 0
+        },
+        "service-worker-reload": {
+          "pageErrors": 3,
+          "webErrors": 3,
+          "windowErrors": 0,
+          "unhandledRejections": 3,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "setup-before-run": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "ide-run": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "opaque-board": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "setup-before-teardown": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "final-settle": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        },
+        "teardown": {
+          "pageErrors": 0,
+          "webErrors": 0,
+          "windowErrors": 0,
+          "unhandledRejections": 0,
+          "consoleErrors": 0,
+          "failedRequests": 0,
+          "badResponses": 0
+        }
+      },
+      "failedRequests": [
+        {
+          "at": 1792766481800,
+          "elapsedMs": 5197,
+          "executionPhase": "initial-document",
+          "phase": "initial-document",
+          "originPhase": "initial-document",
+          "url": "https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/contrib/auto-render.mjs",
+          "error": {
+            "errorText": "Load request cancelled"
+          }
+        },
+        {
+          "at": 1792766481800,
+          "elapsedMs": 5197,
+          "executionPhase": "initial-document",
+          "phase": "initial-document",
+          "originPhase": "initial-document",
+          "url": "http://127.0.0.1:58651/candidate/site_libs/bootstrap/bootstrap-icons.woff?e34853135f9e39acf64315236852cd5a",
+          "error": {
+            "errorText": "Load request cancelled"
+          }
+        }
+      ],
+      "isolationOutcome": "unavailable",
+      "ideOutput": "42",
+      "boardOpaque": true,
+      "error": null
+    }
+  ]
+}
