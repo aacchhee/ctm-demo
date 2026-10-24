@@ -13,48 +13,77 @@ import tarfile
 ROOT = Path(__file__).resolve().parents[2]
 COMPONENTS = ('ctm-assessment', 'ctm-checkers', 'ctm-libs', 'math-exercise')
 REVIEW_TARGET = '_extensions/math-exercise/variants-review.py'
+BOT_TARGET = '_extensions/ctm-checkers/native-authoring/ctm_variants/github_bot.py'
+BOT_SOURCE = 'authoring/ctm_variants/github_bot.py'
+NATIVE_RECEIPT = '_extensions/ctm-checkers/native-authoring/native.json'
+BOT_MEMBER = 'ctm_variants/github_bot.py'
 
 
-def review_override(files, refs, source, commit):
-    """Read the one reviewed exporter from an exact upstream Git commit."""
+def native_override(files, refs, source, commit, *, component, target, source_path):
+    """Read one allowlisted native tool from an exact upstream Git commit."""
     if not isinstance(commit, str) or not re.fullmatch('[a-f0-9]{40}', commit):
         raise ValueError('Native review source requires a full immutable commit')
     if source.is_symlink():
         raise ValueError('Native review source must be a Git checkout')
     def git(*args):
         return subprocess.check_output(['git', '-C', str(source), *args])
+    repository = 'Erasmus-CTM/' + component
     origin = git('remote', 'get-url', 'origin').decode().strip()
-    if origin not in ('https://github.com/Erasmus-CTM/math-exercise.git',
-                      'https://github.com/Erasmus-CTM/math-exercise',
-                      'git@github.com:Erasmus-CTM/math-exercise.git'):
+    if origin not in ('https://github.com/' + repository + '.git',
+                      'https://github.com/' + repository,
+                      'git@github.com:' + repository + '.git'):
         raise ValueError('Unexpected native review source repository')
     if git('rev-parse', '--verify', commit + '^{commit}').decode().strip() != commit:
         raise ValueError('Native review source is not the exact commit')
     subprocess.run(['git', '-C', str(source), 'merge-base', '--is-ancestor',
-                    refs['math-exercise'], commit], check=True)
-    base = files[REVIEW_TARGET]
-    if (git('show', refs['math-exercise'] + ':' + REVIEW_TARGET) != base
-            or git('show', commit + '^:' + REVIEW_TARGET) != base):
-        raise ValueError('Native review exporter does not patch the canonical base bytes')
-    replacement = git('show', commit + ':' + REVIEW_TARGET)
+                    refs[component], commit], check=True)
+    base = files[target]
+    if (git('show', refs[component] + ':' + source_path) != base
+            or git('show', commit + '^:' + source_path) != base):
+        raise ValueError('Native tool does not patch the canonical base bytes')
+    replacement = git('show', commit + ':' + source_path)
     if replacement == base:
-        raise ValueError('Native review exporter override must change the file')
-    blob = git('rev-parse', commit + ':' + REVIEW_TARGET).decode().strip()
-    if git('ls-tree', commit, '--', REVIEW_TARGET).decode().strip() != '100644 blob ' + blob + '\t' + REVIEW_TARGET:
-        raise ValueError('Native review exporter must be an ordinary non-executable Git file')
+        raise ValueError('Native tool override must change the file')
+    blob = git('rev-parse', commit + ':' + source_path).decode().strip()
+    if git('ls-tree', commit, '--', source_path).decode().strip() != '100644 blob ' + blob + '\t' + source_path:
+        raise ValueError('Native tool must be an ordinary non-executable Git file')
     if blob != hashlib.sha1(b'blob ' + str(len(replacement)).encode() + b'\0' + replacement).hexdigest():
-        raise ValueError('Native review exporter Git blob mismatch')
-    files[REVIEW_TARGET] = replacement
-    return {'target': REVIEW_TARGET, 'repository': 'Erasmus-CTM/math-exercise',
-            'commit': commit, 'sourcePath': REVIEW_TARGET, 'gitBlob': blob,
-            'baseCommit': refs['math-exercise'],
+        raise ValueError('Native tool Git blob mismatch')
+    files[target] = replacement
+    provenance = {'target': target, 'repository': repository,
+            'commit': commit, 'sourcePath': source_path, 'gitBlob': blob,
+            'baseCommit': refs[component],
             'baseSha256': hashlib.sha256(base).hexdigest(),
             'replacementSha256': hashlib.sha256(replacement).hexdigest()}
+    if target == BOT_TARGET:
+        provenance['baseBytes'] = len(base)
+    return provenance
 
 
-def build(package, root=ROOT, *, native_review_source=None, native_review_commit=None):
+def derive_native_receipt(files, override):
+    """Refresh only the bot entry of the verified canonical native inventory."""
+    original = files[NATIVE_RECEIPT]
+    receipt = json.loads(original)
+    if (set(receipt) != {'version', 'kind', 'files'} or receipt['version'] != 1
+            or receipt['kind'] != 'native-authoring'
+            or receipt['files'].get(BOT_MEMBER) != {
+                'bytes': override['baseBytes'], 'sha256': override['baseSha256']}
+            or original != (json.dumps(receipt, indent=2) + '\n').encode()):
+        raise ValueError('Invalid canonical native inventory for bot correction')
+    replacement = files[BOT_TARGET]
+    receipt['files'][BOT_MEMBER] = {
+        'bytes': len(replacement), 'sha256': hashlib.sha256(replacement).hexdigest()}
+    files[NATIVE_RECEIPT] = (json.dumps(receipt, indent=2) + '\n').encode()
+
+
+def build(package, root=ROOT, *, native_review_source=None, native_review_commit=None,
+          native_bot_source=None, native_bot_commit=None):
     if bool(native_review_source) != bool(native_review_commit):
         raise ValueError('Native review override requires both source checkout and commit')
+    if bool(native_bot_source) != bool(native_bot_commit):
+        raise ValueError('Native bot override requires both source checkout and commit')
+    if native_bot_source and not native_review_source:
+        raise ValueError('Native bot correction must retain the reviewed exporter correction')
     record = json.loads((package / 'resolved-repos.json').read_text())
     refs = json.loads((root / '.github/merged-package-refs.json').read_text())
     for name, sha in refs.items():
@@ -80,8 +109,15 @@ def build(package, root=ROOT, *, native_review_source=None, native_review_commit
             files['_extensions/' + component + '/' + name] = data
     files['_extensions/ctm-assessment/resolved-repos.json'] = (package / 'resolved-repos.json').read_bytes()
     files['LICENSE'] = (package / 'LICENSE').read_bytes()
-    # Verify every canonical base byte before applying the sole review-only delta.
-    override = review_override(files, refs, native_review_source, native_review_commit) if native_review_source else None
+    # Verify every canonical base byte before applying allowlisted native-only deltas.
+    overrides = []
+    if native_review_source:
+        overrides.append(native_override(files, refs, native_review_source, native_review_commit,
+            component='math-exercise', target=REVIEW_TARGET, source_path=REVIEW_TARGET))
+    if native_bot_source:
+        overrides.append(native_override(files, refs, native_bot_source, native_bot_commit,
+            component='ctm-checkers', target=BOT_TARGET, source_path=BOT_SOURCE))
+        derive_native_receipt(files, overrides[-1])
     output = root / '.github/variants-tooling'
     output.mkdir(parents=True, exist_ok=True)
     buffer = io.BytesIO()
@@ -93,12 +129,12 @@ def build(package, root=ROOT, *, native_review_source=None, native_review_commit
                 archive.addfile(entry, io.BytesIO(data))
     data = buffer.getvalue()
     (output / 'package.tar.gz').write_bytes(data)
-    manifest = {'version': 2 if override else 1, 'sources': refs,
+    manifest = {'version': 3 if native_bot_source else 2 if overrides else 1, 'sources': refs,
                 'archive': {'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()},
                 'files': {name: {'bytes': len(value), 'sha256': hashlib.sha256(value).hexdigest()}
                           for name, value in sorted(files.items())}}
-    if override:
-        manifest['nativeReviewOverrides'] = [override]
+    if overrides:
+        manifest['nativeReviewOverrides'] = overrides
     (output / 'package.json').write_text(json.dumps(manifest, indent=2) + '\n')
     return manifest
 
@@ -110,7 +146,10 @@ if __name__ == '__main__':
                         help='Local canonical math-exercise Git checkout; review tooling only')
     parser.add_argument('--native-review-commit',
                         help='Full reviewed immutable upstream exporter-fix commit; never a branch')
+    parser.add_argument('--native-bot-source', type=Path, help='Canonical ctm-checkers Git checkout; native tooling only')
+    parser.add_argument('--native-bot-commit', help='Full immutable upstream GitHub bot-fix commit')
     args = parser.parse_args()
     result = build(args.package, native_review_source=args.native_review_source,
-                   native_review_commit=args.native_review_commit)
+                   native_review_commit=args.native_review_commit, native_bot_source=args.native_bot_source,
+                   native_bot_commit=args.native_bot_commit)
     print(json.dumps({'files': len(result['files']), 'archive': result['archive']}))

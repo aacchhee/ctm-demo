@@ -89,6 +89,18 @@ class Installation(unittest.TestCase):
                 data = (root / name).read_bytes()
                 self.assertEqual(expected, {'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()})
             self.assertEqual(bootstrap.materialize(root), manifest, 'identical installation is repeatable')
+            # Exercise the real component entrypoint's nested source verification,
+            # rather than accepting only the outer archive inventory.
+            adapter_spec = importlib.util.spec_from_file_location(
+                'installed_question_variants', root / '_extensions/math-exercise/question-variants.py')
+            adapter = importlib.util.module_from_spec(adapter_spec)
+            adapter_spec.loader.exec_module(adapter)
+            native = root / '_extensions/ctm-checkers/native-authoring'
+            self.assertEqual(adapter._verify_native(native), native.resolve())
+            bot = native / 'ctm_variants/github_bot.py'
+            bot.write_bytes(bot.read_bytes() + b'\n# unrecorded change\n')
+            with self.assertRaisesRegex(ValueError, 'source differs from its manifest'):
+                adapter._verify_native(native)
 
 
 class NativeReviewOverride(unittest.TestCase):
@@ -247,6 +259,144 @@ class NativeReviewOverride(unittest.TestCase):
                     commit = subprocess.check_output(['git', '-C', str(source), 'rev-parse', 'HEAD']).decode().strip()
                 with self.assertRaises(ValueError):
                     self.build(package, course, source, commit)
+                self.assertFalse((course / '.github/variants-tooling').exists())
+
+
+class NativeBotOverride(unittest.TestCase):
+    def fixture(self, root):
+        review, package, course, review_commit = NativeReviewOverride().fixture(root)
+        source = root / 'bot-source'
+        source.mkdir()
+        def git(*args):
+            return subprocess.check_output(['git', '-C', str(source), *args], stderr=subprocess.DEVNULL).decode().strip()
+        git('init', '-q')
+        git('config', 'user.name', 'Fixture')
+        git('config', 'user.email', 'fixture@example.invalid')
+        git('remote', 'add', 'origin', 'https://github.com/Erasmus-CTM/ctm-checkers.git')
+        target = source / builder.BOT_SOURCE
+        target.parent.mkdir(parents=True)
+        base = b'# canonical GitHub bot\n'
+        target.write_bytes(base)
+        git('add', '.')
+        git('commit', '-qm', 'Canonical bot fixture')
+        base_commit = git('rev-parse', 'HEAD')
+        target.write_bytes(b'# bounded post-CAS consistency correction\n')
+        git('commit', '-qam', 'Reviewed bot fixture')
+        commit = git('rev-parse', 'HEAD')
+        refs_path = course / '.github/merged-package-refs.json'
+        refs = json.loads(refs_path.read_text())
+        refs['ctm-checkers'] = base_commit
+        refs_path.write_text(json.dumps(refs))
+        record_path = package / 'resolved-repos.json'
+        record = json.loads(record_path.read_text())
+        record['repositories']['ctm-checkers']['commit'] = base_commit
+        relative = builder.BOT_TARGET.removeprefix('_extensions/ctm-checkers/')
+        record['extension_sha256']['ctm-checkers'][relative] = hashlib.sha256(base).hexdigest()
+        record_path.write_text(json.dumps(record))
+        canonical = package / builder.BOT_TARGET
+        canonical.parent.mkdir(parents=True)
+        canonical.write_bytes(base)
+        helper = b'# canonical unrelated native helper\n'
+        helper_target = package / '_extensions/ctm-checkers/native-authoring/helper.py'
+        helper_target.write_bytes(helper)
+        record['extension_sha256']['ctm-checkers']['native-authoring/helper.py'] = hashlib.sha256(helper).hexdigest()
+        native_receipt = {'version': 1, 'kind': 'native-authoring', 'files': {
+            builder.BOT_MEMBER: {'bytes': len(base), 'sha256': hashlib.sha256(base).hexdigest()},
+            'helper.py': {'bytes': len(helper), 'sha256': hashlib.sha256(helper).hexdigest()}}}
+        data = (json.dumps(native_receipt, indent=2) + '\n').encode()
+        (package / builder.NATIVE_RECEIPT).write_bytes(data)
+        record['extension_sha256']['ctm-checkers']['native-authoring/native.json'] = hashlib.sha256(data).hexdigest()
+        record_path.write_text(json.dumps(record))
+        return package, course, dict(native_review_source=review, native_review_commit=review_commit,
+                                    native_bot_source=source, native_bot_commit=commit)
+
+    def test_v3_preserves_all_base_bytes_except_two_explicit_native_tools(self):
+        with tempfile.TemporaryDirectory() as temp:
+            package, course, options = self.fixture(Path(temp))
+            baseline = builder.build(package, course)
+            manifest = builder.build(package, course, **options)
+            self.assertEqual(manifest['version'], 3)
+            self.assertEqual(manifest['sources'], baseline['sources'])
+            changed = {name for name in manifest['files'] if manifest['files'][name] != baseline['files'][name]}
+            self.assertEqual(changed, {builder.REVIEW_TARGET, builder.BOT_TARGET, builder.NATIVE_RECEIPT})
+            archive = (course / '.github/variants-tooling/package.tar.gz').read_bytes()
+            self.assertEqual(builder.build(package, course, **options), manifest)
+            self.assertEqual((course / '.github/variants-tooling/package.tar.gz').read_bytes(), archive)
+            self.assertEqual(bootstrap.materialize(course), manifest)
+            self.assertEqual(bootstrap.materialize(course), manifest)
+
+    def test_v3_bot_provenance_and_complete_inventory_fail_closed(self):
+        faults = ('target', 'sourcePath', 'repository', 'commit', 'gitBlob', 'baseCommit',
+                  'baseSha256', 'replacementSha256', 'duplicate', 'missing_bot', 'missing_exporter',
+                  'downgrade', 'canonical_payload', 'missing_payload', 'extra_payload', 'unlisted',
+                  'baseBytes', 'base_bytes_changed', 'stale_native', 'native_extra_entry',
+                  'native_wrong_entry', 'native_removed_entry', 'native_unrelated_consistent')
+        for fault in faults:
+            with self.subTest(fault=fault), tempfile.TemporaryDirectory() as temp:
+                package, course, options = self.fixture(Path(temp))
+                manifest = builder.build(package, course, **options)
+                override = manifest['nativeReviewOverrides'][1]
+                if fault in override:
+                    override[fault] = '0' * (64 if fault in ('baseSha256', 'replacementSha256') else 40) if fault in ('gitBlob', 'baseSha256', 'replacementSha256') else 'invalid'
+                elif fault == 'base_bytes_changed':
+                    override['baseBytes'] += 1
+                elif fault == 'duplicate':
+                    manifest['nativeReviewOverrides'][0] = dict(override)
+                elif fault == 'missing_bot':
+                    manifest['nativeReviewOverrides'].pop()
+                elif fault == 'missing_exporter':
+                    manifest['nativeReviewOverrides'].pop(0)
+                elif fault == 'downgrade':
+                    manifest['version'] = 2
+                elif fault == 'unlisted':
+                    manifest['nativeReviewOverrides'].append(dict(override, target='_extensions/ctm-checkers/ctm-checkers.js'))
+                def transform(files):
+                    if fault == 'canonical_payload':
+                        files['_extensions/ctm-checkers/canonical.txt'] = b'changed student runtime'
+                    elif fault == 'missing_payload':
+                        del files[builder.BOT_TARGET]
+                    elif fault == 'extra_payload':
+                        files['_extensions/ctm-checkers/native-authoring/unreviewed.py'] = b'pass\n'
+                    elif fault.startswith('native_') or fault == 'stale_native':
+                        native = json.loads(files[builder.NATIVE_RECEIPT])
+                        if fault == 'stale_native':
+                            native['files'][builder.BOT_MEMBER] = {
+                                'bytes': override['baseBytes'], 'sha256': override['baseSha256']}
+                        elif fault == 'native_extra_entry':
+                            native['files']['unreviewed.py'] = {'bytes': 0, 'sha256': hashlib.sha256(b'').hexdigest()}
+                        elif fault == 'native_wrong_entry':
+                            native['files'][builder.BOT_MEMBER]['sha256'] = '0' * 64
+                        elif fault == 'native_unrelated_consistent':
+                            data = b'# self-consistent but unauthorized helper change\n'
+                            files['_extensions/ctm-checkers/native-authoring/helper.py'] = data
+                            native['files']['helper.py'] = {'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()}
+                        else:
+                            del native['files'][builder.BOT_MEMBER]
+                        files[builder.NATIVE_RECEIPT] = (json.dumps(native, indent=2) + '\n').encode()
+                NativeReviewOverride().rewrite(course, manifest, transform)
+                with self.assertRaises(ValueError):
+                    bootstrap.materialize(course)
+                self.assertFalse((course / '_extensions').exists())
+
+    def test_bot_builder_requires_immutable_canonical_source_and_exporter(self):
+        for fault in ('missing_exporter', 'missing_commit', 'wrong_origin', 'branch', 'parent_changed'):
+            with self.subTest(fault=fault), tempfile.TemporaryDirectory() as temp:
+                package, course, options = self.fixture(Path(temp))
+                source = options['native_bot_source']
+                if fault == 'missing_exporter':
+                    options.update(native_review_source=None, native_review_commit=None)
+                elif fault == 'missing_commit':
+                    options['native_bot_commit'] = None
+                elif fault == 'wrong_origin':
+                    subprocess.run(['git', '-C', str(source), 'remote', 'set-url', 'origin', 'https://example.invalid/fork'], check=True)
+                elif fault == 'branch':
+                    options['native_bot_commit'] = 'HEAD'
+                else:
+                    (source / builder.BOT_SOURCE).write_bytes(b'# unrelated second bot change\n')
+                    subprocess.run(['git', '-C', str(source), 'commit', '-qam', 'Second bot change'], check=True)
+                    options['native_bot_commit'] = subprocess.check_output(['git', '-C', str(source), 'rev-parse', 'HEAD']).decode().strip()
+                with self.assertRaises(ValueError):
+                    builder.build(package, course, **options)
                 self.assertFalse((course / '.github/variants-tooling').exists())
 
 
