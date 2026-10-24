@@ -5127,6 +5127,3241 @@
       }
     }
   ],
-  "decisions": [],
-  "events": []
+  "decisions": [
+    {
+      "n": 1,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"4\"]]],\"version\":1}",
+      "hash": "87aa32f6c3bfe1c3",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"ABC\"]",
+          "[\"math\",\"DEF\"]",
+          "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+          "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+          "[\"math\",\"AB={6}\"]",
+          "[\"math\",\"BC={10}\"]",
+          "[\"math\",\"EF/DF\"]",
+          "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+          "[\"raw\",\"10\"]",
+          "[\"raw\",\"6\"]",
+          "[\"raw\",\"10\"]",
+          "[\"math\",\"EF\"]",
+          "[\"math\",\"BC\"]",
+          "[\"math\",\"DF\"]",
+          "[\"math\",\"AC\"]",
+          "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{10}}{\\\\sqrt{{6}^2+{10}^2}}\\\\approx {0.857}.\"]",
+          "[\"math\",\"DEF\"]"
+        ],
+        "teacher": [
+          [
+            "Lengdeforholdet EF/DF",
+            "5*sqrt(34)/34"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.0005",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": false,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "ab": "6",
+          "offset": "4",
+          "bc": "10",
+          "ratio": "5*sqrt(34)/34"
+        },
+        "checksum": "b3814b3588efc8c18171997e31312a1baac8b02738bd79e2500337eb9794b229"
+      },
+      "note": "AB=$6$, BC=$10$. Rettvinklede, formlike trekanter.",
+      "by": "automation:AC-authorized",
+      "date": ""
+    },
+    {
+      "n": 2,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"1\"]]],\"version\":1}",
+      "hash": "caee00001b58456f",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"ABC\"]",
+          "[\"math\",\"DEF\"]",
+          "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+          "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+          "[\"math\",\"AB={6}\"]",
+          "[\"math\",\"BC={7}\"]",
+          "[\"math\",\"EF/DF\"]",
+          "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+          "[\"raw\",\"7\"]",
+          "[\"raw\",\"6\"]",
+          "[\"raw\",\"7\"]",
+          "[\"math\",\"EF\"]",
+          "[\"math\",\"BC\"]",
+          "[\"math\",\"DF\"]",
+          "[\"math\",\"AC\"]",
+          "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{7}}{\\\\sqrt{{6}^2+{7}^2}}\\\\approx {0.759}.\"]",
+          "[\"math\",\"DEF\"]"
+        ],
+        "teacher": [
+          [
+            "Lengdeforholdet EF/DF",
+            "7*sqrt(85)/85"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.0005",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": false,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "ab": "6",
+          "offset": "1",
+          "bc": "7",
+          "ratio": "7*sqrt(85)/85"
+        },
+        "checksum": "45bb374eb841bece9d151aa2533edcdc80ca633c5209234a05a039a9bb49b0aa"
+      },
+      "note": "AB=$6$, BC=$7$. Rettvinklede, formlike trekanter.",
+      "by": "automation:AC-authorized",
+      "date": ""
+    },
+    {
+      "n": 3,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"2\"]]],\"version\":1}",
+      "hash": "7ac1915fdb7aae29",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"ABC\"]",
+          "[\"math\",\"DEF\"]",
+          "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+          "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+          "[\"math\",\"AB={6}\"]",
+          "[\"math\",\"BC={8}\"]",
+          "[\"math\",\"EF/DF\"]",
+          "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+          "[\"raw\",\"8\"]",
+          "[\"raw\",\"6\"]",
+          "[\"raw\",\"8\"]",
+          "[\"math\",\"EF\"]",
+          "[\"math\",\"BC\"]",
+          "[\"math\",\"DF\"]",
+          "[\"math\",\"AC\"]",
+          "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{8}}{\\\\sqrt{{6}^2+{8}^2}}\\\\approx {0.800}.\"]",
+          "[\"math\",\"DEF\"]"
+        ],
+        "teacher": [
+          [
+            "Lengdeforholdet EF/DF",
+            "4/5"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.0005",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": false,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "ab": "6",
+          "offset": "2",
+          "bc": "8",
+          "ratio": "4/5"
+        },
+        "checksum": "0c1f03fb443b54532049fc46f256324f3e88de70eef8f98838ebdb1786f3b8aa"
+      },
+      "note": "AB=$6$, BC=$8$. Rettvinklede, formlike trekanter.",
+      "by": "automation:AC-authorized",
+      "date": ""
+    },
+    {
+      "n": 4,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"3\"]]],\"version\":1}",
+      "hash": "b7b15056d05b23bd",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"ABC\"]",
+          "[\"math\",\"DEF\"]",
+          "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+          "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+          "[\"math\",\"AB={6}\"]",
+          "[\"math\",\"BC={9}\"]",
+          "[\"math\",\"EF/DF\"]",
+          "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+          "[\"raw\",\"9\"]",
+          "[\"raw\",\"6\"]",
+          "[\"raw\",\"9\"]",
+          "[\"math\",\"EF\"]",
+          "[\"math\",\"BC\"]",
+          "[\"math\",\"DF\"]",
+          "[\"math\",\"AC\"]",
+          "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{9}}{\\\\sqrt{{6}^2+{9}^2}}\\\\approx {0.832}.\"]",
+          "[\"math\",\"DEF\"]"
+        ],
+        "teacher": [
+          [
+            "Lengdeforholdet EF/DF",
+            "3*sqrt(13)/13"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.0005",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": false,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "ab": "6",
+          "offset": "3",
+          "bc": "9",
+          "ratio": "3*sqrt(13)/13"
+        },
+        "checksum": "5391d48c953d0ffdab0e3885cde54e4a288f2d7ff064a39c385de118df7c32cf"
+      },
+      "note": "AB=$6$, BC=$9$. Rettvinklede, formlike trekanter.",
+      "by": "automation:AC-authorized",
+      "date": ""
+    },
+    {
+      "n": 5,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"7\"],[\"integer\",\"1\"]]],\"version\":1}",
+      "hash": "9ab73e71e540a321",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"ABC\"]",
+          "[\"math\",\"DEF\"]",
+          "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+          "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+          "[\"math\",\"AB={7}\"]",
+          "[\"math\",\"BC={8}\"]",
+          "[\"math\",\"EF/DF\"]",
+          "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+          "[\"raw\",\"8\"]",
+          "[\"raw\",\"7\"]",
+          "[\"raw\",\"8\"]",
+          "[\"math\",\"EF\"]",
+          "[\"math\",\"BC\"]",
+          "[\"math\",\"DF\"]",
+          "[\"math\",\"AC\"]",
+          "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{8}}{\\\\sqrt{{7}^2+{8}^2}}\\\\approx {0.753}.\"]",
+          "[\"math\",\"DEF\"]"
+        ],
+        "teacher": [
+          [
+            "Lengdeforholdet EF/DF",
+            "8*sqrt(113)/113"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.0005",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": false,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "ab": "7",
+          "offset": "1",
+          "bc": "8",
+          "ratio": "8*sqrt(113)/113"
+        },
+        "checksum": "c95de8431732a79c2b6d8c37e1123ddba42c29d7f46b8b8fb0d975374d36c13e"
+      },
+      "note": "AB=$7$, BC=$8$. Rettvinklede, formlike trekanter.",
+      "by": "automation:AC-authorized",
+      "date": ""
+    },
+    {
+      "n": 6,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"7\"],[\"integer\",\"4\"]]],\"version\":1}",
+      "hash": "a9c0d951a3377abd",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"ABC\"]",
+          "[\"math\",\"DEF\"]",
+          "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+          "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+          "[\"math\",\"AB={7}\"]",
+          "[\"math\",\"BC={11}\"]",
+          "[\"math\",\"EF/DF\"]",
+          "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+          "[\"raw\",\"11\"]",
+          "[\"raw\",\"7\"]",
+          "[\"raw\",\"11\"]",
+          "[\"math\",\"EF\"]",
+          "[\"math\",\"BC\"]",
+          "[\"math\",\"DF\"]",
+          "[\"math\",\"AC\"]",
+          "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{11}}{\\\\sqrt{{7}^2+{11}^2}}\\\\approx {0.844}.\"]",
+          "[\"math\",\"DEF\"]"
+        ],
+        "teacher": [
+          [
+            "Lengdeforholdet EF/DF",
+            "11*sqrt(170)/170"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.0005",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": false,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "ab": "7",
+          "offset": "4",
+          "bc": "11",
+          "ratio": "11*sqrt(170)/170"
+        },
+        "checksum": "1be6c3bcc2e7bf3df4fb4e4fb12048b03043e565e83ed6a8c2cd90ee614a65ca"
+      },
+      "note": "AB=$7$, BC=$11$. Rettvinklede, formlike trekanter.",
+      "by": "automation:AC-authorized",
+      "date": ""
+    },
+    {
+      "n": 7,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"7\"],[\"integer\",\"3\"]]],\"version\":1}",
+      "hash": "d3b0bfa7bc026da1",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"ABC\"]",
+          "[\"math\",\"DEF\"]",
+          "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+          "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+          "[\"math\",\"AB={7}\"]",
+          "[\"math\",\"BC={10}\"]",
+          "[\"math\",\"EF/DF\"]",
+          "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+          "[\"raw\",\"10\"]",
+          "[\"raw\",\"7\"]",
+          "[\"raw\",\"10\"]",
+          "[\"math\",\"EF\"]",
+          "[\"math\",\"BC\"]",
+          "[\"math\",\"DF\"]",
+          "[\"math\",\"AC\"]",
+          "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{10}}{\\\\sqrt{{7}^2+{10}^2}}\\\\approx {0.819}.\"]",
+          "[\"math\",\"DEF\"]"
+        ],
+        "teacher": [
+          [
+            "Lengdeforholdet EF/DF",
+            "10*sqrt(149)/149"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.0005",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": false,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "ab": "7",
+          "offset": "3",
+          "bc": "10",
+          "ratio": "10*sqrt(149)/149"
+        },
+        "checksum": "d844f5564d204408189be63ce3868bb07e718241d5245b7e3f2afe9aded93040"
+      },
+      "note": "AB=$7$, BC=$10$. Rettvinklede, formlike trekanter.",
+      "by": "automation:AC-authorized",
+      "date": ""
+    }
+  ],
+  "events": [
+    {
+      "before": [],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "87aa32f6c3bfe1c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={10}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"10\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"10\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{10}}{\\\\sqrt{{6}^2+{10}^2}}\\\\approx {0.857}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "5*sqrt(34)/34"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "4",
+              "bc": "10",
+              "ratio": "5*sqrt(34)/34"
+            },
+            "checksum": "b3814b3588efc8c18171997e31312a1baac8b02738bd79e2500337eb9794b229"
+          },
+          "note": "AB=$6$, BC=$10$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "before": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "87aa32f6c3bfe1c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={10}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"10\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"10\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{10}}{\\\\sqrt{{6}^2+{10}^2}}\\\\approx {0.857}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "5*sqrt(34)/34"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "4",
+              "bc": "10",
+              "ratio": "5*sqrt(34)/34"
+            },
+            "checksum": "b3814b3588efc8c18171997e31312a1baac8b02738bd79e2500337eb9794b229"
+          },
+          "note": "AB=$6$, BC=$10$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "87aa32f6c3bfe1c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={10}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"10\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"10\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{10}}{\\\\sqrt{{6}^2+{10}^2}}\\\\approx {0.857}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "5*sqrt(34)/34"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "4",
+              "bc": "10",
+              "ratio": "5*sqrt(34)/34"
+            },
+            "checksum": "b3814b3588efc8c18171997e31312a1baac8b02738bd79e2500337eb9794b229"
+          },
+          "note": "AB=$6$, BC=$10$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"1\"]]],\"version\":1}",
+          "hash": "caee00001b58456f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={7}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"7\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{7}}{\\\\sqrt{{6}^2+{7}^2}}\\\\approx {0.759}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "7*sqrt(85)/85"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "1",
+              "bc": "7",
+              "ratio": "7*sqrt(85)/85"
+            },
+            "checksum": "45bb374eb841bece9d151aa2533edcdc80ca633c5209234a05a039a9bb49b0aa"
+          },
+          "note": "AB=$6$, BC=$7$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "before": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "87aa32f6c3bfe1c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={10}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"10\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"10\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{10}}{\\\\sqrt{{6}^2+{10}^2}}\\\\approx {0.857}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "5*sqrt(34)/34"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "4",
+              "bc": "10",
+              "ratio": "5*sqrt(34)/34"
+            },
+            "checksum": "b3814b3588efc8c18171997e31312a1baac8b02738bd79e2500337eb9794b229"
+          },
+          "note": "AB=$6$, BC=$10$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"1\"]]],\"version\":1}",
+          "hash": "caee00001b58456f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={7}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"7\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{7}}{\\\\sqrt{{6}^2+{7}^2}}\\\\approx {0.759}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "7*sqrt(85)/85"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "1",
+              "bc": "7",
+              "ratio": "7*sqrt(85)/85"
+            },
+            "checksum": "45bb374eb841bece9d151aa2533edcdc80ca633c5209234a05a039a9bb49b0aa"
+          },
+          "note": "AB=$6$, BC=$7$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "87aa32f6c3bfe1c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={10}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"10\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"10\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{10}}{\\\\sqrt{{6}^2+{10}^2}}\\\\approx {0.857}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "5*sqrt(34)/34"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "4",
+              "bc": "10",
+              "ratio": "5*sqrt(34)/34"
+            },
+            "checksum": "b3814b3588efc8c18171997e31312a1baac8b02738bd79e2500337eb9794b229"
+          },
+          "note": "AB=$6$, BC=$10$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"1\"]]],\"version\":1}",
+          "hash": "caee00001b58456f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={7}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"7\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{7}}{\\\\sqrt{{6}^2+{7}^2}}\\\\approx {0.759}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "7*sqrt(85)/85"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "1",
+              "bc": "7",
+              "ratio": "7*sqrt(85)/85"
+            },
+            "checksum": "45bb374eb841bece9d151aa2533edcdc80ca633c5209234a05a039a9bb49b0aa"
+          },
+          "note": "AB=$6$, BC=$7$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"2\"]]],\"version\":1}",
+          "hash": "7ac1915fdb7aae29",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={8}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"8\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{8}}{\\\\sqrt{{6}^2+{8}^2}}\\\\approx {0.800}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "4/5"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "2",
+              "bc": "8",
+              "ratio": "4/5"
+            },
+            "checksum": "0c1f03fb443b54532049fc46f256324f3e88de70eef8f98838ebdb1786f3b8aa"
+          },
+          "note": "AB=$6$, BC=$8$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "before": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "87aa32f6c3bfe1c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={10}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"10\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"10\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{10}}{\\\\sqrt{{6}^2+{10}^2}}\\\\approx {0.857}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "5*sqrt(34)/34"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "4",
+              "bc": "10",
+              "ratio": "5*sqrt(34)/34"
+            },
+            "checksum": "b3814b3588efc8c18171997e31312a1baac8b02738bd79e2500337eb9794b229"
+          },
+          "note": "AB=$6$, BC=$10$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"1\"]]],\"version\":1}",
+          "hash": "caee00001b58456f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={7}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"7\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{7}}{\\\\sqrt{{6}^2+{7}^2}}\\\\approx {0.759}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "7*sqrt(85)/85"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "1",
+              "bc": "7",
+              "ratio": "7*sqrt(85)/85"
+            },
+            "checksum": "45bb374eb841bece9d151aa2533edcdc80ca633c5209234a05a039a9bb49b0aa"
+          },
+          "note": "AB=$6$, BC=$7$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"2\"]]],\"version\":1}",
+          "hash": "7ac1915fdb7aae29",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={8}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"8\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{8}}{\\\\sqrt{{6}^2+{8}^2}}\\\\approx {0.800}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "4/5"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "2",
+              "bc": "8",
+              "ratio": "4/5"
+            },
+            "checksum": "0c1f03fb443b54532049fc46f256324f3e88de70eef8f98838ebdb1786f3b8aa"
+          },
+          "note": "AB=$6$, BC=$8$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "87aa32f6c3bfe1c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={10}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"10\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"10\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{10}}{\\\\sqrt{{6}^2+{10}^2}}\\\\approx {0.857}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "5*sqrt(34)/34"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "4",
+              "bc": "10",
+              "ratio": "5*sqrt(34)/34"
+            },
+            "checksum": "b3814b3588efc8c18171997e31312a1baac8b02738bd79e2500337eb9794b229"
+          },
+          "note": "AB=$6$, BC=$10$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"1\"]]],\"version\":1}",
+          "hash": "caee00001b58456f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={7}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"7\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{7}}{\\\\sqrt{{6}^2+{7}^2}}\\\\approx {0.759}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "7*sqrt(85)/85"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "1",
+              "bc": "7",
+              "ratio": "7*sqrt(85)/85"
+            },
+            "checksum": "45bb374eb841bece9d151aa2533edcdc80ca633c5209234a05a039a9bb49b0aa"
+          },
+          "note": "AB=$6$, BC=$7$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"2\"]]],\"version\":1}",
+          "hash": "7ac1915fdb7aae29",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={8}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"8\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{8}}{\\\\sqrt{{6}^2+{8}^2}}\\\\approx {0.800}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "4/5"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "2",
+              "bc": "8",
+              "ratio": "4/5"
+            },
+            "checksum": "0c1f03fb443b54532049fc46f256324f3e88de70eef8f98838ebdb1786f3b8aa"
+          },
+          "note": "AB=$6$, BC=$8$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 4,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"3\"]]],\"version\":1}",
+          "hash": "b7b15056d05b23bd",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={9}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"9\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"9\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{9}}{\\\\sqrt{{6}^2+{9}^2}}\\\\approx {0.832}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "3*sqrt(13)/13"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "3",
+              "bc": "9",
+              "ratio": "3*sqrt(13)/13"
+            },
+            "checksum": "5391d48c953d0ffdab0e3885cde54e4a288f2d7ff064a39c385de118df7c32cf"
+          },
+          "note": "AB=$6$, BC=$9$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "before": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "87aa32f6c3bfe1c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={10}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"10\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"10\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{10}}{\\\\sqrt{{6}^2+{10}^2}}\\\\approx {0.857}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "5*sqrt(34)/34"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "4",
+              "bc": "10",
+              "ratio": "5*sqrt(34)/34"
+            },
+            "checksum": "b3814b3588efc8c18171997e31312a1baac8b02738bd79e2500337eb9794b229"
+          },
+          "note": "AB=$6$, BC=$10$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"1\"]]],\"version\":1}",
+          "hash": "caee00001b58456f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={7}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"7\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{7}}{\\\\sqrt{{6}^2+{7}^2}}\\\\approx {0.759}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "7*sqrt(85)/85"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "1",
+              "bc": "7",
+              "ratio": "7*sqrt(85)/85"
+            },
+            "checksum": "45bb374eb841bece9d151aa2533edcdc80ca633c5209234a05a039a9bb49b0aa"
+          },
+          "note": "AB=$6$, BC=$7$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"2\"]]],\"version\":1}",
+          "hash": "7ac1915fdb7aae29",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={8}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"8\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{8}}{\\\\sqrt{{6}^2+{8}^2}}\\\\approx {0.800}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "4/5"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "2",
+              "bc": "8",
+              "ratio": "4/5"
+            },
+            "checksum": "0c1f03fb443b54532049fc46f256324f3e88de70eef8f98838ebdb1786f3b8aa"
+          },
+          "note": "AB=$6$, BC=$8$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 4,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"3\"]]],\"version\":1}",
+          "hash": "b7b15056d05b23bd",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={9}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"9\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"9\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{9}}{\\\\sqrt{{6}^2+{9}^2}}\\\\approx {0.832}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "3*sqrt(13)/13"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "3",
+              "bc": "9",
+              "ratio": "3*sqrt(13)/13"
+            },
+            "checksum": "5391d48c953d0ffdab0e3885cde54e4a288f2d7ff064a39c385de118df7c32cf"
+          },
+          "note": "AB=$6$, BC=$9$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "87aa32f6c3bfe1c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={10}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"10\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"10\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{10}}{\\\\sqrt{{6}^2+{10}^2}}\\\\approx {0.857}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "5*sqrt(34)/34"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "4",
+              "bc": "10",
+              "ratio": "5*sqrt(34)/34"
+            },
+            "checksum": "b3814b3588efc8c18171997e31312a1baac8b02738bd79e2500337eb9794b229"
+          },
+          "note": "AB=$6$, BC=$10$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"1\"]]],\"version\":1}",
+          "hash": "caee00001b58456f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={7}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"7\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{7}}{\\\\sqrt{{6}^2+{7}^2}}\\\\approx {0.759}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "7*sqrt(85)/85"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "1",
+              "bc": "7",
+              "ratio": "7*sqrt(85)/85"
+            },
+            "checksum": "45bb374eb841bece9d151aa2533edcdc80ca633c5209234a05a039a9bb49b0aa"
+          },
+          "note": "AB=$6$, BC=$7$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"2\"]]],\"version\":1}",
+          "hash": "7ac1915fdb7aae29",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={8}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"8\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{8}}{\\\\sqrt{{6}^2+{8}^2}}\\\\approx {0.800}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "4/5"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "2",
+              "bc": "8",
+              "ratio": "4/5"
+            },
+            "checksum": "0c1f03fb443b54532049fc46f256324f3e88de70eef8f98838ebdb1786f3b8aa"
+          },
+          "note": "AB=$6$, BC=$8$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 4,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"3\"]]],\"version\":1}",
+          "hash": "b7b15056d05b23bd",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={9}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"9\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"9\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{9}}{\\\\sqrt{{6}^2+{9}^2}}\\\\approx {0.832}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "3*sqrt(13)/13"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "3",
+              "bc": "9",
+              "ratio": "3*sqrt(13)/13"
+            },
+            "checksum": "5391d48c953d0ffdab0e3885cde54e4a288f2d7ff064a39c385de118df7c32cf"
+          },
+          "note": "AB=$6$, BC=$9$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 5,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"],[\"integer\",\"1\"]]],\"version\":1}",
+          "hash": "9ab73e71e540a321",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={7}\"]",
+              "[\"math\",\"BC={8}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"8\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{8}}{\\\\sqrt{{7}^2+{8}^2}}\\\\approx {0.753}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "8*sqrt(113)/113"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "7",
+              "offset": "1",
+              "bc": "8",
+              "ratio": "8*sqrt(113)/113"
+            },
+            "checksum": "c95de8431732a79c2b6d8c37e1123ddba42c29d7f46b8b8fb0d975374d36c13e"
+          },
+          "note": "AB=$7$, BC=$8$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "before": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "87aa32f6c3bfe1c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={10}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"10\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"10\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{10}}{\\\\sqrt{{6}^2+{10}^2}}\\\\approx {0.857}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "5*sqrt(34)/34"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "4",
+              "bc": "10",
+              "ratio": "5*sqrt(34)/34"
+            },
+            "checksum": "b3814b3588efc8c18171997e31312a1baac8b02738bd79e2500337eb9794b229"
+          },
+          "note": "AB=$6$, BC=$10$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"1\"]]],\"version\":1}",
+          "hash": "caee00001b58456f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={7}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"7\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{7}}{\\\\sqrt{{6}^2+{7}^2}}\\\\approx {0.759}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "7*sqrt(85)/85"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "1",
+              "bc": "7",
+              "ratio": "7*sqrt(85)/85"
+            },
+            "checksum": "45bb374eb841bece9d151aa2533edcdc80ca633c5209234a05a039a9bb49b0aa"
+          },
+          "note": "AB=$6$, BC=$7$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"2\"]]],\"version\":1}",
+          "hash": "7ac1915fdb7aae29",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={8}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"8\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{8}}{\\\\sqrt{{6}^2+{8}^2}}\\\\approx {0.800}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "4/5"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "2",
+              "bc": "8",
+              "ratio": "4/5"
+            },
+            "checksum": "0c1f03fb443b54532049fc46f256324f3e88de70eef8f98838ebdb1786f3b8aa"
+          },
+          "note": "AB=$6$, BC=$8$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 4,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"3\"]]],\"version\":1}",
+          "hash": "b7b15056d05b23bd",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={9}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"9\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"9\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{9}}{\\\\sqrt{{6}^2+{9}^2}}\\\\approx {0.832}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "3*sqrt(13)/13"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "3",
+              "bc": "9",
+              "ratio": "3*sqrt(13)/13"
+            },
+            "checksum": "5391d48c953d0ffdab0e3885cde54e4a288f2d7ff064a39c385de118df7c32cf"
+          },
+          "note": "AB=$6$, BC=$9$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 5,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"],[\"integer\",\"1\"]]],\"version\":1}",
+          "hash": "9ab73e71e540a321",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={7}\"]",
+              "[\"math\",\"BC={8}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"8\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{8}}{\\\\sqrt{{7}^2+{8}^2}}\\\\approx {0.753}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "8*sqrt(113)/113"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "7",
+              "offset": "1",
+              "bc": "8",
+              "ratio": "8*sqrt(113)/113"
+            },
+            "checksum": "c95de8431732a79c2b6d8c37e1123ddba42c29d7f46b8b8fb0d975374d36c13e"
+          },
+          "note": "AB=$7$, BC=$8$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "87aa32f6c3bfe1c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={10}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"10\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"10\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{10}}{\\\\sqrt{{6}^2+{10}^2}}\\\\approx {0.857}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "5*sqrt(34)/34"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "4",
+              "bc": "10",
+              "ratio": "5*sqrt(34)/34"
+            },
+            "checksum": "b3814b3588efc8c18171997e31312a1baac8b02738bd79e2500337eb9794b229"
+          },
+          "note": "AB=$6$, BC=$10$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"1\"]]],\"version\":1}",
+          "hash": "caee00001b58456f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={7}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"7\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{7}}{\\\\sqrt{{6}^2+{7}^2}}\\\\approx {0.759}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "7*sqrt(85)/85"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "1",
+              "bc": "7",
+              "ratio": "7*sqrt(85)/85"
+            },
+            "checksum": "45bb374eb841bece9d151aa2533edcdc80ca633c5209234a05a039a9bb49b0aa"
+          },
+          "note": "AB=$6$, BC=$7$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"2\"]]],\"version\":1}",
+          "hash": "7ac1915fdb7aae29",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={8}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"8\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{8}}{\\\\sqrt{{6}^2+{8}^2}}\\\\approx {0.800}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "4/5"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "2",
+              "bc": "8",
+              "ratio": "4/5"
+            },
+            "checksum": "0c1f03fb443b54532049fc46f256324f3e88de70eef8f98838ebdb1786f3b8aa"
+          },
+          "note": "AB=$6$, BC=$8$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 4,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"3\"]]],\"version\":1}",
+          "hash": "b7b15056d05b23bd",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={9}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"9\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"9\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{9}}{\\\\sqrt{{6}^2+{9}^2}}\\\\approx {0.832}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "3*sqrt(13)/13"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "3",
+              "bc": "9",
+              "ratio": "3*sqrt(13)/13"
+            },
+            "checksum": "5391d48c953d0ffdab0e3885cde54e4a288f2d7ff064a39c385de118df7c32cf"
+          },
+          "note": "AB=$6$, BC=$9$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 5,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"],[\"integer\",\"1\"]]],\"version\":1}",
+          "hash": "9ab73e71e540a321",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={7}\"]",
+              "[\"math\",\"BC={8}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"8\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{8}}{\\\\sqrt{{7}^2+{8}^2}}\\\\approx {0.753}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "8*sqrt(113)/113"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "7",
+              "offset": "1",
+              "bc": "8",
+              "ratio": "8*sqrt(113)/113"
+            },
+            "checksum": "c95de8431732a79c2b6d8c37e1123ddba42c29d7f46b8b8fb0d975374d36c13e"
+          },
+          "note": "AB=$7$, BC=$8$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 6,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"],[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "a9c0d951a3377abd",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={7}\"]",
+              "[\"math\",\"BC={11}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"11\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"11\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{11}}{\\\\sqrt{{7}^2+{11}^2}}\\\\approx {0.844}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "11*sqrt(170)/170"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "7",
+              "offset": "4",
+              "bc": "11",
+              "ratio": "11*sqrt(170)/170"
+            },
+            "checksum": "1be6c3bcc2e7bf3df4fb4e4fb12048b03043e565e83ed6a8c2cd90ee614a65ca"
+          },
+          "note": "AB=$7$, BC=$11$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "before": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "87aa32f6c3bfe1c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={10}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"10\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"10\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{10}}{\\\\sqrt{{6}^2+{10}^2}}\\\\approx {0.857}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "5*sqrt(34)/34"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "4",
+              "bc": "10",
+              "ratio": "5*sqrt(34)/34"
+            },
+            "checksum": "b3814b3588efc8c18171997e31312a1baac8b02738bd79e2500337eb9794b229"
+          },
+          "note": "AB=$6$, BC=$10$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"1\"]]],\"version\":1}",
+          "hash": "caee00001b58456f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={7}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"7\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{7}}{\\\\sqrt{{6}^2+{7}^2}}\\\\approx {0.759}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "7*sqrt(85)/85"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "1",
+              "bc": "7",
+              "ratio": "7*sqrt(85)/85"
+            },
+            "checksum": "45bb374eb841bece9d151aa2533edcdc80ca633c5209234a05a039a9bb49b0aa"
+          },
+          "note": "AB=$6$, BC=$7$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"2\"]]],\"version\":1}",
+          "hash": "7ac1915fdb7aae29",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={8}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"8\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{8}}{\\\\sqrt{{6}^2+{8}^2}}\\\\approx {0.800}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "4/5"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "2",
+              "bc": "8",
+              "ratio": "4/5"
+            },
+            "checksum": "0c1f03fb443b54532049fc46f256324f3e88de70eef8f98838ebdb1786f3b8aa"
+          },
+          "note": "AB=$6$, BC=$8$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 4,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"3\"]]],\"version\":1}",
+          "hash": "b7b15056d05b23bd",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={9}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"9\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"9\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{9}}{\\\\sqrt{{6}^2+{9}^2}}\\\\approx {0.832}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "3*sqrt(13)/13"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "3",
+              "bc": "9",
+              "ratio": "3*sqrt(13)/13"
+            },
+            "checksum": "5391d48c953d0ffdab0e3885cde54e4a288f2d7ff064a39c385de118df7c32cf"
+          },
+          "note": "AB=$6$, BC=$9$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 5,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"],[\"integer\",\"1\"]]],\"version\":1}",
+          "hash": "9ab73e71e540a321",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={7}\"]",
+              "[\"math\",\"BC={8}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"8\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{8}}{\\\\sqrt{{7}^2+{8}^2}}\\\\approx {0.753}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "8*sqrt(113)/113"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "7",
+              "offset": "1",
+              "bc": "8",
+              "ratio": "8*sqrt(113)/113"
+            },
+            "checksum": "c95de8431732a79c2b6d8c37e1123ddba42c29d7f46b8b8fb0d975374d36c13e"
+          },
+          "note": "AB=$7$, BC=$8$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 6,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"],[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "a9c0d951a3377abd",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={7}\"]",
+              "[\"math\",\"BC={11}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"11\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"11\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{11}}{\\\\sqrt{{7}^2+{11}^2}}\\\\approx {0.844}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "11*sqrt(170)/170"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "7",
+              "offset": "4",
+              "bc": "11",
+              "ratio": "11*sqrt(170)/170"
+            },
+            "checksum": "1be6c3bcc2e7bf3df4fb4e4fb12048b03043e565e83ed6a8c2cd90ee614a65ca"
+          },
+          "note": "AB=$7$, BC=$11$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "87aa32f6c3bfe1c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={10}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"10\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"10\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{10}}{\\\\sqrt{{6}^2+{10}^2}}\\\\approx {0.857}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "5*sqrt(34)/34"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "4",
+              "bc": "10",
+              "ratio": "5*sqrt(34)/34"
+            },
+            "checksum": "b3814b3588efc8c18171997e31312a1baac8b02738bd79e2500337eb9794b229"
+          },
+          "note": "AB=$6$, BC=$10$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"1\"]]],\"version\":1}",
+          "hash": "caee00001b58456f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={7}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"7\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{7}}{\\\\sqrt{{6}^2+{7}^2}}\\\\approx {0.759}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "7*sqrt(85)/85"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "1",
+              "bc": "7",
+              "ratio": "7*sqrt(85)/85"
+            },
+            "checksum": "45bb374eb841bece9d151aa2533edcdc80ca633c5209234a05a039a9bb49b0aa"
+          },
+          "note": "AB=$6$, BC=$7$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"2\"]]],\"version\":1}",
+          "hash": "7ac1915fdb7aae29",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={8}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"8\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{8}}{\\\\sqrt{{6}^2+{8}^2}}\\\\approx {0.800}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "4/5"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "2",
+              "bc": "8",
+              "ratio": "4/5"
+            },
+            "checksum": "0c1f03fb443b54532049fc46f256324f3e88de70eef8f98838ebdb1786f3b8aa"
+          },
+          "note": "AB=$6$, BC=$8$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 4,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"],[\"integer\",\"3\"]]],\"version\":1}",
+          "hash": "b7b15056d05b23bd",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={6}\"]",
+              "[\"math\",\"BC={9}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"9\"]",
+              "[\"raw\",\"6\"]",
+              "[\"raw\",\"9\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{9}}{\\\\sqrt{{6}^2+{9}^2}}\\\\approx {0.832}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "3*sqrt(13)/13"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "6",
+              "offset": "3",
+              "bc": "9",
+              "ratio": "3*sqrt(13)/13"
+            },
+            "checksum": "5391d48c953d0ffdab0e3885cde54e4a288f2d7ff064a39c385de118df7c32cf"
+          },
+          "note": "AB=$6$, BC=$9$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 5,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"],[\"integer\",\"1\"]]],\"version\":1}",
+          "hash": "9ab73e71e540a321",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={7}\"]",
+              "[\"math\",\"BC={8}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"8\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{8}}{\\\\sqrt{{7}^2+{8}^2}}\\\\approx {0.753}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "8*sqrt(113)/113"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "7",
+              "offset": "1",
+              "bc": "8",
+              "ratio": "8*sqrt(113)/113"
+            },
+            "checksum": "c95de8431732a79c2b6d8c37e1123ddba42c29d7f46b8b8fb0d975374d36c13e"
+          },
+          "note": "AB=$7$, BC=$8$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 6,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"],[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "a9c0d951a3377abd",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={7}\"]",
+              "[\"math\",\"BC={11}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"11\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"11\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{11}}{\\\\sqrt{{7}^2+{11}^2}}\\\\approx {0.844}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "11*sqrt(170)/170"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "7",
+              "offset": "4",
+              "bc": "11",
+              "ratio": "11*sqrt(170)/170"
+            },
+            "checksum": "1be6c3bcc2e7bf3df4fb4e4fb12048b03043e565e83ed6a8c2cd90ee614a65ca"
+          },
+          "note": "AB=$7$, BC=$11$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 7,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"],[\"integer\",\"3\"]]],\"version\":1}",
+          "hash": "d3b0bfa7bc026da1",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"ABC\"]",
+              "[\"math\",\"DEF\"]",
+              "[\"math\",\"\\\\angle B=\\\\angle E=90^\\\\circ\"]",
+              "[\"math\",\"\\\\angle C=\\\\angle F\"]",
+              "[\"math\",\"AB={7}\"]",
+              "[\"math\",\"BC={10}\"]",
+              "[\"math\",\"EF/DF\"]",
+              "[\"math\",\"\\\\displaystyle\\\\frac{EF}{DF}=\"]",
+              "[\"raw\",\"10\"]",
+              "[\"raw\",\"7\"]",
+              "[\"raw\",\"10\"]",
+              "[\"math\",\"EF\"]",
+              "[\"math\",\"BC\"]",
+              "[\"math\",\"DF\"]",
+              "[\"math\",\"AC\"]",
+              "[\"math\",\"\\\\frac{EF}{DF}=\\\\frac{BC}{AC}=\\\\frac{{10}}{\\\\sqrt{{7}^2+{10}^2}}\\\\approx {0.819}.\"]",
+              "[\"math\",\"DEF\"]"
+            ],
+            "teacher": [
+              [
+                "Lengdeforholdet EF/DF",
+                "10*sqrt(149)/149"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.0005",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "ab": "7",
+              "offset": "3",
+              "bc": "10",
+              "ratio": "10*sqrt(149)/149"
+            },
+            "checksum": "d844f5564d204408189be63ce3868bb07e718241d5245b7e3f2afe9aded93040"
+          },
+          "note": "AB=$7$, BC=$10$. Rettvinklede, formlike trekanter.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    }
+  ]
 }

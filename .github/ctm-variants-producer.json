@@ -1,0 +1,14 @@
+[
+  ".github/ctm-variants-producer.json",
+  ".github/ctm-variants-requirements.txt",
+  ".github/ctm-variants.json",
+  ".github/merged-package-refs.json",
+  ".github/scripts/bootstrap-variants.py",
+  ".github/scripts/build-variants-tooling.py",
+  ".github/scripts/ctm-variants-records.py",
+  ".github/variants-tooling/package.json",
+  ".github/variants-tooling/package.tar.gz",
+  ".github/workflows/variants-decide.yml",
+  ".github/workflows/variants-preview.yml",
+  ".github/workflows/variants.yml"
+]

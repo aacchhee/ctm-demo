@@ -1,0 +1,466 @@
+{
+  "version": 1,
+  "sources": {
+    "ctm-assessment": "503c8688eaf556ff23af0fc629ca60f71833ea73",
+    "ctm-checkers": "cf6570b13f92d17a437fe5a61cd103c84adf7f1e",
+    "ctm-libs": "d8d1daff98625269c518079dcf5a703dd558d1a1",
+    "math-exercise": "792dcfa913696b61db1289fd066c78a078d9a0d0",
+    "py-exercise": "0d485669c3d206e3277ad246cbf85b667e785f1c",
+    "pyodide-interaktiv": "f16c7668c6da2fa5ff4ef80691c2a56743cdca7d",
+    "jsxgraph": "e4ad81d82e1b56f86765026a3dd26f6975d29d57"
+  },
+  "archive": {
+    "bytes": 683815,
+    "sha256": "c66fb27d2e04079d22c20bff106c04bb5c8ebe49035c26e40231bb95a4ea4cb4"
+  },
+  "files": {
+    "LICENSE": {
+      "bytes": 34523,
+      "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+    },
+    "_extensions/ctm-assessment/_extension.yml": {
+      "bytes": 381,
+      "sha256": "bb8c49053dba50c2bb96d14a0bcee995917f805858ab602838bd8ee643d053ec"
+    },
+    "_extensions/ctm-assessment/author-imports-end.lua": {
+      "bytes": 215,
+      "sha256": "23a454371bd7a296a4e851304c5e1f242f175f7a5cc015b24f12155bc4b7e622"
+    },
+    "_extensions/ctm-assessment/author-imports.lua": {
+      "bytes": 2658,
+      "sha256": "ed198390369d1d7dda1f593ca8d95e6dbbc0d3a689b1fec1c8920b88ad969eba"
+    },
+    "_extensions/ctm-assessment/author-imports.py": {
+      "bytes": 12894,
+      "sha256": "37a80b818509c2a8945d6b6a3ce4bd5dc16d690d8787868ecb7719d364ee958d"
+    },
+    "_extensions/ctm-assessment/ctm-assessment.lua": {
+      "bytes": 3058,
+      "sha256": "a9d211afec6cb338ff41a907e29c75659662307af696991268e1eb5134e9afba"
+    },
+    "_extensions/ctm-assessment/jsxgraph-pins.yml": {
+      "bytes": 539,
+      "sha256": "68b51902932f8c4146de7478e4c6355196c45c940133abfab2d3c0968883f156"
+    },
+    "_extensions/ctm-assessment/licenses/ctm-assessment.txt": {
+      "bytes": 34523,
+      "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+    },
+    "_extensions/ctm-assessment/licenses/ctm-checkers.txt": {
+      "bytes": 34523,
+      "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+    },
+    "_extensions/ctm-assessment/licenses/ctm-libs.txt": {
+      "bytes": 34523,
+      "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+    },
+    "_extensions/ctm-assessment/licenses/math-exercise.txt": {
+      "bytes": 34523,
+      "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+    },
+    "_extensions/ctm-assessment/licenses/py-exercise.txt": {
+      "bytes": 34523,
+      "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+    },
+    "_extensions/ctm-assessment/licenses/pyodide-interaktiv.txt": {
+      "bytes": 34523,
+      "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+    },
+    "_extensions/ctm-assessment/offline-system.scss": {
+      "bytes": 196,
+      "sha256": "c7c39422f6c29ecb2e64ff43cb190a3305609ca79221e1d347ab1b94bd16e8a9"
+    },
+    "_extensions/ctm-assessment/offline.scss": {
+      "bytes": 168,
+      "sha256": "6fea85d094fc49eb1247ad6247f8f0006e802516f3cf454f0cc3f73996986ddd"
+    },
+    "_extensions/ctm-assessment/resolved-repos.json": {
+      "bytes": 16831,
+      "sha256": "f34333632627c356a88dbeb78bd8100d77f73f6a3d7999776121dcf5780d9e4b"
+    },
+    "_extensions/ctm-assessment/tab-ids.lua": {
+      "bytes": 4679,
+      "sha256": "044b9e6f4ebceb5c6b59fa398710bd04528a48bebc5a1a7c439f8b3e3ec95fc2"
+    },
+    "_extensions/ctm-checkers/_extension.yml": {
+      "bytes": 361,
+      "sha256": "3bb13739966afccaa5810ffb1d4a5c06ea246327ef6832cfcf99138adcc3fde8"
+    },
+    "_extensions/ctm-checkers/checkers.json": {
+      "bytes": 615,
+      "sha256": "b788af786abcf6f7bdea9900cf62eb994cf0ab5b4f56e1006e34a9fb0a309503"
+    },
+    "_extensions/ctm-checkers/ctm-checkers-stack.js": {
+      "bytes": 150142,
+      "sha256": "38f1f9e36a92a7816775de31d1aaf8946d43988b0d09393de804695018f3ced3"
+    },
+    "_extensions/ctm-checkers/ctm-checkers.js": {
+      "bytes": 55727,
+      "sha256": "f325c05abdf1065a77e8bf2271f2bda80637d21878e4ba796e4be5d3815b9d9f"
+    },
+    "_extensions/ctm-checkers/ctm_checkers-0.10.1.dev0-py3-none-any.whl": {
+      "bytes": 39290,
+      "sha256": "d15a8a0173b315b2343a8aaa1d46430602ddc1397f81187941a196f10bc4d52b"
+    },
+    "_extensions/ctm-checkers/ctm_checkers_stack-0.10.1.dev0-py3-none-any.whl": {
+      "bytes": 109064,
+      "sha256": "62e599c5c9435f2b0b42105616661bdb0b92c9f748c2660330204e40132721aa"
+    },
+    "_extensions/ctm-checkers/native-authoring/LICENSE": {
+      "bytes": 34523,
+      "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm-variants-artifact.py": {
+      "bytes": 397,
+      "sha256": "51cebe10dc4d357964d180dd87dff1eb8b7d7c167b62f7bb12e8e5587e2b6a2c"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm-variants-bot.py": {
+      "bytes": 400,
+      "sha256": "18c0858c2cd99b487ef8a5471340072c877b5764d89b2e7a13bef0c67841df53"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm-variants.py": {
+      "bytes": 396,
+      "sha256": "17a83d220c48d6b9a46fcd65d04d74c0606d6676abfe521afd196d35084121e7"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/__init__.py": {
+      "bytes": 69,
+      "sha256": "55e8fbd008018a91926faa6c8930fa19c2fd05122d9191b6a52b1110f2c43be6"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/batches.py": {
+      "bytes": 10732,
+      "sha256": "6dd773eff13cf8eb61a7b6c95a7937d7f681a5f6b5d7faa605e82e6424d5faee"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/bot.py": {
+      "bytes": 11853,
+      "sha256": "d14701fbb25b0edb5a86361f5f02f48c8cabe4cec0e9bc607d58cabb118f2466"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/browser_manifest.py": {
+      "bytes": 6539,
+      "sha256": "b7585e989a2475ab71346a039a0a7f063a9cf2b1d6c1e127c19648054bca79b7"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/checklist.py": {
+      "bytes": 10436,
+      "sha256": "cd18e5e93aafd02f3d3fee5cc9728d0e2282f0dabc0da09b24a81f8af9aa1390"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/cli.py": {
+      "bytes": 1106,
+      "sha256": "e4c8d137a094d57a1e0c964d64a7f2bc650fa73e85919ef05b743d26d4097719"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/enumeration.py": {
+      "bytes": 11283,
+      "sha256": "2be2f9da0f687a441ec7f07b9490f7e241cc73e15a16a017b1021069417ec251"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/generation.py": {
+      "bytes": 24181,
+      "sha256": "984ea1b3a62d7c934b29bbb43705a66385372beeca889baa139b572b2cd234ca"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/github_bot.py": {
+      "bytes": 35508,
+      "sha256": "e7e8b5972d76cb9f24b742bb2621947ec275aada6f32cbc7abf0f7a2d11c5f37"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/history.py": {
+      "bytes": 8400,
+      "sha256": "895f5fed5acf56ce61b0848b80a99a442c95a2e4539d6c3f961959c6af76f38c"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/model.py": {
+      "bytes": 10453,
+      "sha256": "2d79fa150f8d35a2b1c82cb1b1eb5e181deed1089762d6b9653788cfa5d47b42"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/orchestration.py": {
+      "bytes": 7171,
+      "sha256": "30359fb3c0c887a3e402c42ed97cdc23f33d7e85af84dd2648705104855aa16a"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/placeholders.py": {
+      "bytes": 20911,
+      "sha256": "7ff645228839b1ad932df472a1f3c13f269bbbc8f82b41afed5bc76d70f16f63"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/preview_assets.py": {
+      "bytes": 7352,
+      "sha256": "5363abc35d3615237f80985228920e067825f63b5647902a050da4c9d64d0005"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/producer.py": {
+      "bytes": 26214,
+      "sha256": "685f1a15887b2971f3b722254029ac5ca685e1d1c2d87598404b0ba02f36c0e6"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/project_report.py": {
+      "bytes": 9849,
+      "sha256": "ef3c17bd4ac850a43ab0ef067bd9be57ac483b27e38df543d717afea7ae2d8b7"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/rejection_hint.py": {
+      "bytes": 2115,
+      "sha256": "13243afd33be117db3769a788fdcae433fab7c2f5c3bafbab5abf9105e65a149"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/review.py": {
+      "bytes": 35837,
+      "sha256": "10aac5b10dea28849dd328b30dd2aff3334216872d84be510dd2301c60029525"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/streaming.py": {
+      "bytes": 15774,
+      "sha256": "0816f272f171eaade67d49b4e68b265ab5192da7b5010ac0cb9853a2169cf110"
+    },
+    "_extensions/ctm-checkers/native-authoring/ctm_variants/validation.py": {
+      "bytes": 3249,
+      "sha256": "f68ca6ef8dec094cc693fa4ac8c87a063a9c8b4ae53cc956178ae1cf504f0856"
+    },
+    "_extensions/ctm-checkers/native-authoring/native.json": {
+      "bytes": 3551,
+      "sha256": "044526b73502f6c4e3a2398ed80d58a2f076dedb4abffe4ced6315b41b8e9c22"
+    },
+    "_extensions/ctm-libs/_extension.yml": {
+      "bytes": 124,
+      "sha256": "df5183a0b60759dd702614fe67bca69ce6ddfe1d707ce3a576bdad1dd77491de"
+    },
+    "_extensions/ctm-libs/assets.js": {
+      "bytes": 1063,
+      "sha256": "c3696f2a24426e320c78bee5df9f2f32717beb166d72163fb30e9558f51d3b79"
+    },
+    "_extensions/ctm-libs/assets.json": {
+      "bytes": 1080,
+      "sha256": "002d989e94490e4ef5e6d47186b82ff40fbab2ff0ea743653141c0459ad65b51"
+    },
+    "_extensions/ctm-libs/ctm-libs-end.lua": {
+      "bytes": 1062,
+      "sha256": "099b446bf747e37dfbe38775c11d44cb14a1446ccd9490218e8764528302d93b"
+    },
+    "_extensions/ctm-libs/ctm-libs.lua": {
+      "bytes": 302,
+      "sha256": "24cff3bd2d15b5ab3fa26b5b812ebbf67c59e6b309a08cee4bedda218271654b"
+    },
+    "_extensions/ctm-libs/deno.json": {
+      "bytes": 39,
+      "sha256": "6587432d2e8a0b5578b1589646abab33b81e1eb841f71a8ec677882399f0cc4f"
+    },
+    "_extensions/ctm-libs/feedback/ai-feedback.css": {
+      "bytes": 3163,
+      "sha256": "b1c871609ede5da616aaa2d9602ce8747a9e2947171531485716fc0b34eb6fab"
+    },
+    "_extensions/ctm-libs/feedback/ai-feedback.js": {
+      "bytes": 24232,
+      "sha256": "c7afbbadb7f967f8e37e60c7c2b8b3ad71e77b0797af7cfc71b4e9506c5cc7ed"
+    },
+    "_extensions/ctm-libs/feedback/feedback-core.js": {
+      "bytes": 30893,
+      "sha256": "d6923a6c212a66b07ae98552cd34483be8a597473713f0240597a943360af4af"
+    },
+    "_extensions/ctm-libs/feedback/feedback-defaults.yml": {
+      "bytes": 4206,
+      "sha256": "875441bdcdcff6472a961a4ab96bde023de871b3073d0a30d7bb9e2a8d47d0d1"
+    },
+    "_extensions/ctm-libs/feedback/feedback-dom.js": {
+      "bytes": 18773,
+      "sha256": "d93f7365a8ceefdd578b20964807aab1388054ac27b393f5c198c98fa8f2b8d0"
+    },
+    "_extensions/ctm-libs/locales/common.js": {
+      "bytes": 1116,
+      "sha256": "2a5d0e4ccb009622fc0abff76d6b6e5682cf13103d260e2a5f5ef48619530212"
+    },
+    "_extensions/ctm-libs/locales/ctm-locale.js": {
+      "bytes": 5414,
+      "sha256": "5b2ee62f190946d985ac8e5e33f0b8ee0540a10989370830538e9b9eb09e9361"
+    },
+    "_extensions/ctm-libs/locales/feedback.js": {
+      "bytes": 5382,
+      "sha256": "b57264876dd988976dfcea5871c0ffbd802a9e9e738f9b6441ba6f0844305e8d"
+    },
+    "_extensions/ctm-libs/locales/math-exercise.js": {
+      "bytes": 13250,
+      "sha256": "50437381d5d7e492874910ac607e65edc12583744249f61ae00aea3313290fa9"
+    },
+    "_extensions/ctm-libs/locales/py-exercise.js": {
+      "bytes": 8100,
+      "sha256": "26e8269032b82f1407ddb9fcf88d925721b5e2fbb7e5358a3dae65a1bb7d2ad8"
+    },
+    "_extensions/ctm-libs/locales/pyodide-interaktiv.js": {
+      "bytes": 44877,
+      "sha256": "66cd58c8ee1f402b2364bc4e75c38c28bdb789db00daf748393a3e7bfaa353bd"
+    },
+    "_extensions/ctm-libs/locales/ui.js": {
+      "bytes": 12034,
+      "sha256": "55be4181ae5327b347695bcf10cb66cd6e8ca8bc88e4a93d980d601c93eef6ed"
+    },
+    "_extensions/ctm-libs/lua/assets.lua": {
+      "bytes": 7328,
+      "sha256": "1b307ca27c5f685b6f7c841cc96159d2f7d19285d0f76b7259df5a87d6ef55dd"
+    },
+    "_extensions/ctm-libs/lua/checkers.lua": {
+      "bytes": 6749,
+      "sha256": "71aff018057524ae44ad96addcc44513e3a29ab81420ea1feccc155dc9945fd6"
+    },
+    "_extensions/ctm-libs/lua/ctm.lua": {
+      "bytes": 3417,
+      "sha256": "e70ac6d368e4010b547847c294b533f01a43e2327d6356787517d984e249b262"
+    },
+    "_extensions/ctm-libs/lua/deps.lua": {
+      "bytes": 4316,
+      "sha256": "711df6c9d05ede9c42e4a61c30df48cd3302cad807b4b85bd408e6b62f6966df"
+    },
+    "_extensions/ctm-libs/lua/feedback.lua": {
+      "bytes": 20214,
+      "sha256": "e27b73e911d544d97b3d0a2073816894cda3761e1e8b2e6f8180aca48b389bf6"
+    },
+    "_extensions/ctm-libs/lua/layout.lua": {
+      "bytes": 1086,
+      "sha256": "5fabead5da737c3fd83af86682a370049fc0299b7fda2ba92f56d74aa67772e8"
+    },
+    "_extensions/ctm-libs/lua/locale.lua": {
+      "bytes": 7255,
+      "sha256": "7e2c0bd77fe253384f3801da32d93e189e1e95966fd4393e8df83711a9237950"
+    },
+    "_extensions/ctm-libs/lua/policy.lua": {
+      "bytes": 8450,
+      "sha256": "af335eae2019f0833e4018f2d47275335fe4209d06ec03ed466485f00690ec70"
+    },
+    "_extensions/ctm-libs/lua/progress.lua": {
+      "bytes": 6279,
+      "sha256": "95a3736002a4c799f6eca4114a18823793205c3c26f38cc6e12a7e397035e9d7"
+    },
+    "_extensions/ctm-libs/lua/runtime.lua": {
+      "bytes": 3247,
+      "sha256": "3dab6735eecdfe4c559ef855a1e760ff748a115cdff6906d378ab7eae584a08a"
+    },
+    "_extensions/ctm-libs/lua/sections.lua": {
+      "bytes": 5760,
+      "sha256": "3b8deb60940d296cbd1c148d2fc1d7103b7f70d00845029d0932fc89546821bf"
+    },
+    "_extensions/ctm-libs/lua/settings.lua": {
+      "bytes": 10778,
+      "sha256": "908d837cd231aed46796d4cbe1f340b8543f9c797a7728b50b0f5231c45c3184"
+    },
+    "_extensions/ctm-libs/lua/source.lua": {
+      "bytes": 7726,
+      "sha256": "584fcd4c8d0120382464fc92f6b903b67bd6531e7feb08c51fb2ec1df474adfe"
+    },
+    "_extensions/ctm-libs/lua/store.lua": {
+      "bytes": 7338,
+      "sha256": "32c71a6d4f7b8608bc93879f154df9bce8b83804c98ec392f6ee3fb8a5a633ba"
+    },
+    "_extensions/ctm-libs/lua/ui.lua": {
+      "bytes": 17852,
+      "sha256": "6cabe2f798550779776a2afa7e00a07c1cd02ed076110ff64aff4b6d2e242cad"
+    },
+    "_extensions/ctm-libs/lua/variants.lua": {
+      "bytes": 1163,
+      "sha256": "eb75bdac202e171a968d07a8969d7ef687c8abb8a2ff476ea1177be5934c5283"
+    },
+    "_extensions/ctm-libs/read-settings.ts": {
+      "bytes": 26059,
+      "sha256": "a20829d75b49c234978d9758934b7c18e596f93d8c1b5bdcdfa5a9025a6922fd"
+    },
+    "_extensions/ctm-libs/runtime/coi-frame-startup.js": {
+      "bytes": 1905,
+      "sha256": "86afe3e21377635e6d00a6160dca51e96d4653b6e1af003e8213535ce8013381"
+    },
+    "_extensions/ctm-libs/runtime/coi-serviceworker.js": {
+      "bytes": 7458,
+      "sha256": "081ecc70e5813a71b8be982444889654b4ca6ce3641db86d5766496587f56c29"
+    },
+    "_extensions/ctm-libs/runtime/mathjax-opaque-adaptor.js": {
+      "bytes": 3534,
+      "sha256": "d407d203703a3e130086e241ffb52a2c605b12d6f06ffaf3340fa0a3090dbd08"
+    },
+    "_extensions/ctm-libs/runtime/pyodide-runtime.js": {
+      "bytes": 26618,
+      "sha256": "55a51ab3c8fed6a759024e7dd0bc18e19200b70e29fb8130dbe9619f318f1154"
+    },
+    "_extensions/ctm-libs/runtime/pyodide-worker.js": {
+      "bytes": 39728,
+      "sha256": "48be72f9cf1ded86eaec9e0cdb11d4475a2760102a4ea901c4e34b8b8c8bf3c3"
+    },
+    "_extensions/ctm-libs/ui/ctm-copy.js": {
+      "bytes": 3141,
+      "sha256": "bc1cd11f4dd78857fb500bc95c10e3f2630493d3265541a3f461d56ad37dfe17"
+    },
+    "_extensions/ctm-libs/ui/ctm-export.js": {
+      "bytes": 6747,
+      "sha256": "ea122314df376f16b4bccf97075fb8c2a62c2e553a3f44ab04abebdb8e043b81"
+    },
+    "_extensions/ctm-libs/ui/ctm-layout.js": {
+      "bytes": 4489,
+      "sha256": "25af51724621b92159c47422ac62f9f971df6f7aada89effc4879fb1e334c888"
+    },
+    "_extensions/ctm-libs/ui/ctm-nav.js": {
+      "bytes": 23087,
+      "sha256": "bacdf393784c065ef168930ba1830651c565871ec6f388d1fd83f6e5646ec8bf"
+    },
+    "_extensions/ctm-libs/ui/ctm-progress.js": {
+      "bytes": 8023,
+      "sha256": "bc27225b8b57d9eba9f876069f446e3597417da4ffcbb804f4a777ebe81ded53"
+    },
+    "_extensions/ctm-libs/ui/ctm-reveal.js": {
+      "bytes": 4728,
+      "sha256": "ed6906d0bc5c9e2e1c458f9b615dc6af287d0257c0db4ada20ed98077070eeac"
+    },
+    "_extensions/ctm-libs/ui/ctm-store.js": {
+      "bytes": 26531,
+      "sha256": "8ba4077e1516e7f30689e90b8cf5b75b4152f0c45bdbc7f2b985eb2af81e2a66"
+    },
+    "_extensions/ctm-libs/ui/ctm-ui.css": {
+      "bytes": 6121,
+      "sha256": "25e6fc73cd6696212e62816f8d4a089c9e2df612f8278a466fa76a45fc58fb3e"
+    },
+    "_extensions/ctm-libs/ui/variants.js": {
+      "bytes": 5529,
+      "sha256": "d7fef66fc048e6c706b517db4dd2e4e97ab0989804ba93ae7053699601ce9921"
+    },
+    "_extensions/math-exercise/_extension.yml": {
+      "bytes": 130,
+      "sha256": "1373c4cf52c0dc997886a63e8b11d2f2e1f8c45b9bdda5fa4223809613766450"
+    },
+    "_extensions/math-exercise/author-imports.lua": {
+      "bytes": 1316,
+      "sha256": "9105a6d61ea91e9e40b28561dc16804ff8cf6de80252d75b5fdaec538b90ffb5"
+    },
+    "_extensions/math-exercise/ctm-bootstrap.lua": {
+      "bytes": 3260,
+      "sha256": "8bf7da5740a05ea90771ab22af4e96282bb1547a99d95e47507476d1fea5e585"
+    },
+    "_extensions/math-exercise/math-exercise.css": {
+      "bytes": 6901,
+      "sha256": "c66787ee5287255af8f6ddf8a74b82787b5c68a0f09ff3e656fde4a89efc56e3"
+    },
+    "_extensions/math-exercise/math-exercise.js": {
+      "bytes": 87918,
+      "sha256": "430321101fbf22eaf3ac21d0546dc712ca531de3d192d1aa0a60134e4687d5be"
+    },
+    "_extensions/math-exercise/math-exercise.lua": {
+      "bytes": 52957,
+      "sha256": "4b7a86cdb138cbe0930277331d71128dad43b2bce5ff488b412c6d24864a4487"
+    },
+    "_extensions/math-exercise/math-store.js": {
+      "bytes": 9470,
+      "sha256": "a58972d483e86bac4102fd93868acc0de46c27882c0354267be136c89fc72737"
+    },
+    "_extensions/math-exercise/matrix-input.css": {
+      "bytes": 4224,
+      "sha256": "c993df3dad24323fe73159c326c447ec03442bc1579a84a3920e8a3838bfdd95"
+    },
+    "_extensions/math-exercise/matrix-input.js": {
+      "bytes": 13748,
+      "sha256": "dff9b175a5f34aae3de37994892fcb7705e079effd5de89fd5f0272d800f370e"
+    },
+    "_extensions/math-exercise/native-variants.lua": {
+      "bytes": 7193,
+      "sha256": "997e72e3d6ce8d0fb55165c54b879d9faead6597f7ee5d1cd632d2f7b0574a33"
+    },
+    "_extensions/math-exercise/question-tests.py": {
+      "bytes": 2604,
+      "sha256": "fd6f5b63fe49346de62d05b84a32ee237099a829fda201dcc9a2c2f36ca00e1c"
+    },
+    "_extensions/math-exercise/question-variants.py": {
+      "bytes": 27760,
+      "sha256": "7b6bed412f8b1c42336340fddaa500c0c9b9147afc2d353fa9c7c764a08fefd8"
+    },
+    "_extensions/math-exercise/variant_resolver.py": {
+      "bytes": 12686,
+      "sha256": "8d81d2fdc69afc2c1cd6e1636337cde680a332f5824ad0bf6140707fbba5c1c0"
+    },
+    "_extensions/math-exercise/variants-board.js": {
+      "bytes": 5632,
+      "sha256": "cf2b1420da0bfc656b200dfd8dcebd0e3678ade2fb1286d1228e4c2f926e663a"
+    },
+    "_extensions/math-exercise/variants-review.py": {
+      "bytes": 25522,
+      "sha256": "d5227195f1b3e9af7c79ccd46e18bb33b021612709e88834f4e2e15f3c624bcf"
+    }
+  }
+}
