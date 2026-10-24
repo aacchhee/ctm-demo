@@ -40,6 +40,27 @@ class VariantMarkup(HTMLParser):
 
 
 class Pipeline(unittest.TestCase):
+    def test_variant_free_course_never_requires_approval(self):
+        with tempfile.TemporaryDirectory(prefix='ctm-no-variants-') as temporary:
+            project = Path(temporary)
+            (project / 'ordinary.qmd').write_text(
+                '```{math-exercise}\n#| label: ordinary\nCompute 1+1.\n_[2]\n```\n'
+                '\n```{py-exercise}\n#| label: code\nprint("ordinary Python")\n```\n')
+            definitions = producer.discover(project, ['**/*.qmd'], component.parse_source)
+            self.assertEqual(definitions, [])
+            context = dict(headSha='a' * 40, producerSha='b' * 40, event='pull_request',
+                           expectedHead='a' * 40, runId=1, repositoryId=1, pullRequest=1)
+            def unexpected_resolution(payload):
+                self.fail('A variant-free project must not invoke native variant generation or approvals')
+            envelope, pages = producer.produce(project, context,
+                {'previewBase': 'https://example.invalid/previews/variants-{pullRequest}/review'},
+                definitions=definitions, resolve=unexpected_resolution)
+            self.assertEqual(envelope['questions'], [])
+            self.assertEqual(pages, {})
+            self.assertEqual(producer.check(envelope), [])
+            self.assertFalse((project / '_variants').exists())
+            print('Variant-free course: approval gate passes with no generator, manifests or decisions.', flush=True)
+
     def test_real_25_candidate_pipeline_and_approval_guards(self):
         with tempfile.TemporaryDirectory(prefix='ctm-variants-pipeline-') as temporary:
             project = Path(temporary)
@@ -125,7 +146,8 @@ class Pipeline(unittest.TestCase):
             envelope['questions'][0]['manifest'] = approved['manifest']
             self.assertEqual(producer.check(envelope), [])
             persisted = manifest.read_bytes()
-            request('apply', str(decision_file), success=False)
+            stale = request('apply', str(decision_file), success=False)
+            self.assertRegex(stale.stderr.lower(), r'manifest.*changed|stale|reload')
             self.assertEqual(manifest.read_bytes(), persisted, 'a stale lease must not rewrite approvals')
             native = {r['id']: r['n'] for r in approved['manifest']['decisions']}
             rerender = subprocess.run([quarto, 'render', 'question.qmd'], cwd=project,

@@ -30,6 +30,12 @@ renders the approved student payload, rejects stale or unauthenticated decisions
 and generates another batch without changing the existing approvals. It needs
 no manual approvals and does not edit the course's manifests.
 
+A course with no native variant questions has no approval requirement. The
+regression also discovers a variant-free course with ordinary mathematics and
+Python exercises and verifies that generation is never called, no manifest is
+created and the approval check passes. This keeps ordinary Ingmat3a CI independent
+of the variants authoring flow.
+
 The repeatable regression uses the real native generator, checklist planner,
 leased writer, approval gate and Quarto renderer. It does not call GitHub to make
 teaching decisions. Live comment recording and exact-head workflow dispatch are
