@@ -39,7 +39,7 @@ jobs:
           name: stack-audit-report
           path: _stack-audit/_site
   publish:
-    if: github.ref == 'refs/heads/stack-question-audit'
+    if: github.ref == 'refs/heads/stack-question-audit' && github.head_ref != 'consolidation/2026-10-demo-native-authoring'
     needs: build
     runs-on: ubuntu-latest
     permissions:

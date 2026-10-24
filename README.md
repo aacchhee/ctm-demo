@@ -54,8 +54,20 @@ without replacing the learner's typed answer.
 
 See [pages/help.qmd](pages/help.qmd) for the ingredient list and authoring workflow.
 
-The four STACK definitions live in `_includes/stack/*.qmd`. Optional review:
-`quarto render --profile review`. See
+The four STACK definitions live in `_includes/stack/*.qmd`. With the reviewed
+native pack, render their nonstudent authoring preview explicitly:
+
+```sh
+CTM_VARIANTS=review quarto render pages/stack-oppgaver.qmd --profile variants-review
+```
+
+This is the single-page command exercised by native-authoring CI. It grants no
+approvals. Main ignores review trailers; publishing this migrated source requires
+deliberately selecting the reviewed native pack through explicit course publishing
+configuration or later approved package activation, explicit real teaching
+approvals, and a successful ordinary required-mode build. Existing courses and
+parent PR19 retain legacy-compatible defaults. Until then the normal build must
+fail before publication. See
 [_includes/stack/README.md](_includes/stack/README.md) for the selection workflow.
 
 ## Coordinated dependency reviews

@@ -4,12 +4,11 @@ lang: nb
 toc: false
 math-exercise:
   lang: nb
-stack-page: true
 ---
 
 Fire oppgaver om formlikhet, enhetssirkelen og derivasjon, omarbeidet fra
-STACK-oppgaver i Moodle. Velg en fane. Knappen **↻** i oppgaven trekker en ny
-variant; figuren og løsningsforslaget følger med.
+STACK-oppgaver i Moodle. Velg en fane. Bruk variantknappen i oppgaven for å
+velge en ny variant; figuren og løsningsforslaget følger med.
 
 ::: {#stack-conventions .math-exercise-context}
 
@@ -42,7 +41,7 @@ Endre størrelsen på den grønne trekanten. Hvilke forhold holder seg like?
 
 {{< include ../_includes/stack/triangles.qmd >}}
 
-::::: {.ai-feedback #stack-triangles-explanation profile="mathematics" context="stack-conventions, stack-triangles-context, stack-triangles-question-context" ui-language="nb" feedback-language="nb" response-language="nb"}
+::::: {.ai-feedback #stack-triangles-explanation reset-on-variant="stack-triangles" profile="mathematics" context="stack-conventions, stack-triangles-context, stack-triangles-question" ui-language="nb" feedback-language="nb" response-language="nb"}
 
 **Forklar med egne ord**
 
@@ -57,11 +56,7 @@ skriv et fullstendig løsningsforslag. Still gjerne ett oppfølgingsspørsmål.
 :::::
 
 
-::::: {.callout-tip .ai-feedback-ignore collapse="true" title="Løsningsforslag"}
 
-::: {#stack-triangles-solution .stack-solution}
-:::
-:::::
 
 ## Sinus og cosinus
 
@@ -84,7 +79,7 @@ vises under figuren, også på små skjermer.
 
 {{< include ../_includes/stack/values.qmd >}}
 
-::::: {.ai-feedback #stack-values-explanation profile="mathematics" context="stack-conventions, stack-values-context, stack-values-question-context" ui-language="nb" feedback-language="nb" response-language="nb"}
+::::: {.ai-feedback #stack-values-explanation reset-on-variant="stack-values" profile="mathematics" context="stack-conventions, stack-values-context, stack-values-question" ui-language="nb" feedback-language="nb" response-language="nb"}
 
 **Forklar med egne ord**
 
@@ -99,11 +94,7 @@ skriv et fullstendig løsningsforslag. Still gjerne ett oppfølgingsspørsmål.
 :::::
 
 
-::::: {.callout-tip .ai-feedback-ignore collapse="true" title="Løsningsforslag"}
 
-::: {#stack-values-solution .stack-solution}
-:::
-:::::
 
 ## Finn vinkelen
 
@@ -126,7 +117,7 @@ oppgaven. Les vinkelen i radianer.
 
 {{< include ../_includes/stack/angle.qmd >}}
 
-::::: {.ai-feedback #stack-angle-explanation profile="mathematics" context="stack-conventions, stack-angle-context, stack-angle-question-context" ui-language="nb" feedback-language="nb" response-language="nb"}
+::::: {.ai-feedback #stack-angle-explanation reset-on-variant="stack-angle" profile="mathematics" context="stack-conventions, stack-angle-context, stack-angle-question" ui-language="nb" feedback-language="nb" response-language="nb"}
 
 **Forklar med egne ord**
 
@@ -141,11 +132,7 @@ skriv et fullstendig løsningsforslag. Still gjerne ett oppfølgingsspørsmål.
 :::::
 
 
-::::: {.callout-tip .ai-feedback-ignore collapse="true" title="Løsningsforslag"}
 
-::: {#stack-angle-solution .stack-solution}
-:::
-:::::
 
 ## Derivasjon og tangent
 
@@ -163,7 +150,7 @@ uttrykk. Algebraisk likeverdige former godtas.
 
 {{< include ../_includes/stack/tangent.qmd >}}
 
-::::: {.ai-feedback #stack-tangent-explanation profile="mathematics" context="stack-conventions, stack-tangent-context, stack-tangent-question-context" ui-language="nb" feedback-language="nb" response-language="nb"}
+::::: {.ai-feedback #stack-tangent-explanation reset-on-variant="stack-tangent" profile="mathematics" context="stack-conventions, stack-tangent-context, stack-tangent-question" ui-language="nb" feedback-language="nb" response-language="nb"}
 
 **Forklar med egne ord**
 
@@ -178,12 +165,12 @@ skriv et fullstendig løsningsforslag. Still gjerne ett oppfølgingsspørsmål.
 :::::
 
 
-::::: {.callout-tip .ai-feedback-ignore collapse="true" title="Løsningsforslag"}
+::::: {#stack-tangent-figure .callout-tip .ai-feedback-ignore collapse="true" title="Utforsk tangenten"}
+
+{{< include ../_includes/stack/tangent-figure.md >}}
 
 ::: {#stack-tangent-solution .stack-solution}
 :::
-
-{{< include ../_includes/stack/tangent-figure.md >}}
 
 Blå kurve er funksjonen, rød linje er tangenten. De stiplede linjene er
 asymptotene. Knappen **Til oppgavens punkt** gjenoppretter tangentpunktet
