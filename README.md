@@ -35,7 +35,8 @@ Expected URL: <https://aacchhee.github.io/ctm-demo/>.
 ## Structure
 
 Content lives in `.qmd` wrappers and `_includes/*.md`; `_quarto.yml` configures
-the site. `quarto-extensions.yml` names only `ctm-assessment` at `main`.
+the site. `quarto-extensions.yml` names only `ctm-assessment` at immutable
+commit `503c8688eaf556ff23af0fc629ca60f71833ea73`.
 `scripts/setup.py` is shared by local development and GitHub Actions. It fetches
 that umbrella source, runs its builder, and installs the assembled distribution.
 The full suite is enabled through the `ctm-assessment` filter. Component sources
@@ -61,16 +62,45 @@ native pack, render their nonstudent authoring preview explicitly:
 CTM_VARIANTS=review quarto render pages/stack-oppgaver.qmd --profile variants-review
 ```
 
-This is the single-page command exercised by native-authoring CI. It grants no
-approvals. Main ignores review trailers; publishing this migrated source requires
-deliberately selecting the reviewed native pack through explicit course publishing
-configuration or later approved package activation, explicit real teaching
-approvals, and a successful ordinary required-mode build. Existing courses and
-parent PR19 retain legacy-compatible defaults. Until then the normal build must
-fail before publication. See
-[_includes/stack/README.md](_includes/stack/README.md) for the selection workflow.
+This optional local preview grants no approvals. Main retains all 99 proposals
+and 25 explicit teaching approvals: seven triangles and six each for values,
+angle and tangent. Its ordinary required-mode build succeeds with those approved
+candidates; the remaining proposals require further explicit decisions. Reviewers
+use the bot's browser review links, without a CLI requirement. Hosted student
+previews are not yet verified: the exporter correction must first land in the
+trusted default-branch tooling and the producer must run again. Main ignores
+review trailers. See [_includes/stack/README.md](_includes/stack/README.md) for the
+authoring sources.
 
 ## Coordinated dependency reviews
+
+The trusted variants package is a native review tool, separately inventoried in
+`.github/variants-tooling/package.json`. Its `sources` always retain the seven
+frozen student-package commits. Version 1 contains that canonical package;
+version 2 may replace only `math-exercise/variants-review.py` for a reviewed
+native exporter correction. `nativeReviewOverrides` records its immutable
+upstream commit, Git blob, source path, canonical base commit/digest and replacement
+digest. The embedded resolved record describes the canonical **base**, with the
+one explicit review override recorded separately; it does not describe a full
+component upgrade. Runtime files, wheels and ordinary site pins stay unchanged.
+
+Rebuilding version 2 requires `build-variants-tooling.py --package BASE_PACKAGE
+--native-review-source MATH_GIT_CHECKOUT --native-review-commit FULL_REVIEWED_SHA`.
+The builder verifies the complete base before reading the exact upstream commit;
+the bootstrap verifies the complete final inventory and the single override
+before writing any file. Merge the reviewed course change before running the
+default-branch trusted producer. Do not load tooling from an authored PR, edit
+saved proposals/history, or treat generated review output as teaching approval.
+The trusted default-branch producer fingerprint is the security anchor: archive
+schema checks reject inconsistent metadata, rather than authenticating arbitrary
+replacement manifests supplied by an attacker.
+
+24 October: native review tooling uses the exporter-only correction from
+[math-exercise PR35](https://github.com/Erasmus-CTM/math-exercise/pull/35), immutable
+commit `c2ad38ea9fd26e03dc21c57f9f56a1a9305b9466`. Exactly one of the 112 archived
+files changes; all seven base pins, the other 111 files and saved course records
+remain unchanged. This review-tool correction does not upgrade student package
+`503c868` or grant teaching approvals.
 
 Normal builds use the component commits pinned in the manifest of
 `ctm-assessment` at `main`. A non-main review commit can declare exact dependency
