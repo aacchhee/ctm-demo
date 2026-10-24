@@ -12,6 +12,9 @@ on:
       - .github/merged-package-refs.json
       - quarto-extensions.yml
       - .github/workflows/saving-quiz-candidate.yml
+      - .github/workflows/combined-demo-acceptance.yml
+      - scripts/acceptance/project-demo-results.py
+      - scripts/acceptance/test-project-demo-results.py
       - .github/workflows/quarto.yml
   workflow_dispatch:
     inputs:
@@ -149,6 +152,7 @@ jobs:
           python scripts/test-saving-quiz-candidate.py
           python -m py_compile scripts/check-stack-native-authoring.py scripts/check-merged-authoring.py
           python scripts/diagnostics/test-first-visit-publication.py
+          python scripts/acceptance/test-project-demo-results.py
           node --check scripts/diagnostics/test-demo-first-visit.mjs
           node --check scripts/diagnostics/test-demo-first-visit-network.mjs
           cmp scripts/diagnostics/test-demo-first-visit.mjs scripts/diagnostics/test-demo-first-visit-network.mjs
