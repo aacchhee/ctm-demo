@@ -9,7 +9,8 @@
 // (pyodide_http, micropip, matplotlib) in the background, without getting in
 // the way of other components' checks. This extension's cells wait for both:
 // Run buttons, the "ready" status and the startup cells follow the second
-// stage, so the learner sees what she saw before.
+// stage, so the learner sees what she saw before. With preload-packages:
+// false the second stage has no automatic packages; readiness still follows it.
 //
 // Global interfaces for other modules/extensions (set by CTMWorker):
 //   qpyodideReady    – Promise that resolves with the Pyodide proxy (the
@@ -74,6 +75,11 @@ async function qpyodideFollowWorker(started, afterRestart) {
     await proxy.whenSetup;
   } catch (err) {
     if (qpyodideRestarted(err)) return;
+    if (err && err.workerFailed) {
+      qpyodideSetInteractiveButtonState(QP_L.runLoading, false);
+      qpyodideUpdateStatusHeader(QP_L.engineFailed(err.message));
+      return;
+    }
     failure = err;
     console.warn("qpyodide: the extra packages could not be loaded", err);
   }
@@ -97,13 +103,14 @@ async function qpyodideFollowWorker(started, afterRestart) {
   }
 }
 
-qpyodideFollowWorker(CTMWorker.start({
+function qpyodideStartWorker() {
+  return CTMWorker.start({
   indexURL: qpyodideCustomizedPyodideOptions.indexURL,
   // MPLBACKEND: a check that imports matplotlib before the plot setup gets
   // the backend the plot setup would set.
   env: { ...qpyodideCustomizedPyodideOptions.env, MPLBACKEND: "AGG" },
   packages: qpyodideSetupPythonPackages ? qpyodideInstallPythonPackagesList : [],
-  background: {
+  background: globalThis.qpyodidePreloadPackages === false ? {} : {
     packages: ["pyodide_http", "micropip", "matplotlib"],
     // Shim requests/urllib3 (synchronous XHR is allowed in the worker)
     run: "import pyodide_http\npyodide_http.patch_all()"
@@ -121,4 +128,17 @@ qpyodideFollowWorker(CTMWorker.start({
     qpyodideFollowWorker(again, true).catch((err) => console.error("qpyodide: restart failed", err));
   },
   publish: true
-}), false).catch((err) => console.error("qpyodide: start-up failed", err));
+  });
+}
+// Publish before any async wait so other components reuse this worker's
+// promise instead of starting a fallback interpreter. COI can reload the
+// initial document without starting packages or authored startup cells there.
+const qpyodideStarted = globalThis.qpyodideCoiCanStart
+  ? qpyodideStartWorker()
+  : globalThis.qpyodideCoiSettled.then(qpyodideStartWorker);
+if (!globalThis.qpyodideCoiCanStart) {
+  globalThis.qpyodideReady = globalThis.qpyodideInstance = qpyodideStarted;
+  globalThis._qpyodideGetInstance = () => globalThis.qpyodideInstance;
+}
+qpyodideFollowWorker(qpyodideStarted, false)
+  .catch((err) => console.error("qpyodide: start-up failed", err));
