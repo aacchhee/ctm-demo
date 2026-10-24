@@ -12132,6 +12132,4831 @@
       }
     }
   ],
-  "decisions": [],
-  "events": []
+  "decisions": [
+    {
+      "n": 1,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+      "hash": "6459888256bb1672",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"\\\\sin({8/5})\\\\approx\"]",
+          "[\"raw\",\"1\"]",
+          "[\"math\",\"\\\\cos({8/5})\\\\approx\"]",
+          "[\"raw\",\"-29/1000\"]",
+          "[\"math\",\"\\\\sin({9/2})\\\\approx\"]",
+          "[\"raw\",\"-49/50\"]",
+          "[\"math\",\"\\\\cos({9/2})\\\\approx\"]",
+          "[\"raw\",\"-21/100\"]",
+          "[\"math\",\"\\\\sin({40}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"16/25\"]",
+          "[\"math\",\"\\\\cos({40}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"77/100\"]",
+          "[\"math\",\"\\\\sin({160}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"17/50\"]",
+          "[\"math\",\"\\\\cos({160}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"-47/50\"]",
+          "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+          "[\"math\",\"{8/5}\"]",
+          "[\"math\",\"{1.00}\"]",
+          "[\"math\",\"{-0.03}\"]",
+          "[\"math\",\"{9/2}\"]",
+          "[\"math\",\"{-0.98}\"]",
+          "[\"math\",\"{-0.21}\"]",
+          "[\"math\",\"{40}^\\\\circ\"]",
+          "[\"math\",\"{0.64}\"]",
+          "[\"math\",\"{0.77}\"]",
+          "[\"math\",\"{160}^\\\\circ\"]",
+          "[\"math\",\"{0.34}\"]",
+          "[\"math\",\"{-0.94}\"]"
+        ],
+        "teacher": [
+          [
+            "Sinus til første radianvinkel",
+            "1"
+          ],
+          [
+            "Cosinus til første radianvinkel",
+            "-29/1000"
+          ],
+          [
+            "Sinus til andre radianvinkel",
+            "-49/50"
+          ],
+          [
+            "Cosinus til andre radianvinkel",
+            "-21/100"
+          ],
+          [
+            "Sinus til første gradvinkel",
+            "16/25"
+          ],
+          [
+            "Cosinus til første gradvinkel",
+            "77/100"
+          ],
+          [
+            "Sinus til andre gradvinkel",
+            "17/50"
+          ],
+          [
+            "Cosinus til andre gradvinkel",
+            "-47/50"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.02",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": true,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "k": "8",
+          "r1": "8/5",
+          "r2": "9/2",
+          "d1": "40",
+          "d2": "160",
+          "s1": "1",
+          "c1": "-3/100",
+          "s2": "-49/50",
+          "c2": "-21/100",
+          "s3": "16/25",
+          "c3": "77/100",
+          "s4": "17/50",
+          "c4": "-47/50",
+          "t1": "1",
+          "t2": "-29/1000",
+          "t3": "-49/50",
+          "t4": "-21/100",
+          "t5": "16/25",
+          "t6": "77/100",
+          "t7": "17/50",
+          "t8": "-47/50"
+        },
+        "checksum": "c05ce537969b06836716b36860c4df660ec881465bff377772cfa8b2644ec298"
+      },
+      "note": "Radianer $\\frac{8}{5}$, $\\frac{9}{2}$; grader $40$, $160$. Avlesningstoleranse 0.02.",
+      "by": "automation:AC-authorized",
+      "date": ""
+    },
+    {
+      "n": 2,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"7\"]]],\"version\":1}",
+      "hash": "36164650eb2c889c",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"\\\\sin({3/2})\\\\approx\"]",
+          "[\"raw\",\"1\"]",
+          "[\"math\",\"\\\\cos({3/2})\\\\approx\"]",
+          "[\"raw\",\"71/1000\"]",
+          "[\"math\",\"\\\\sin({22/5})\\\\approx\"]",
+          "[\"raw\",\"-19/20\"]",
+          "[\"math\",\"\\\\cos({22/5})\\\\approx\"]",
+          "[\"raw\",\"-31/100\"]",
+          "[\"math\",\"\\\\sin({35}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"57/100\"]",
+          "[\"math\",\"\\\\cos({35}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"41/50\"]",
+          "[\"math\",\"\\\\sin({155}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"21/50\"]",
+          "[\"math\",\"\\\\cos({155}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"-91/100\"]",
+          "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+          "[\"math\",\"{3/2}\"]",
+          "[\"math\",\"{1.00}\"]",
+          "[\"math\",\"{0.07}\"]",
+          "[\"math\",\"{22/5}\"]",
+          "[\"math\",\"{-0.95}\"]",
+          "[\"math\",\"{-0.31}\"]",
+          "[\"math\",\"{35}^\\\\circ\"]",
+          "[\"math\",\"{0.57}\"]",
+          "[\"math\",\"{0.82}\"]",
+          "[\"math\",\"{155}^\\\\circ\"]",
+          "[\"math\",\"{0.42}\"]",
+          "[\"math\",\"{-0.91}\"]"
+        ],
+        "teacher": [
+          [
+            "Sinus til første radianvinkel",
+            "1"
+          ],
+          [
+            "Cosinus til første radianvinkel",
+            "71/1000"
+          ],
+          [
+            "Sinus til andre radianvinkel",
+            "-19/20"
+          ],
+          [
+            "Cosinus til andre radianvinkel",
+            "-31/100"
+          ],
+          [
+            "Sinus til første gradvinkel",
+            "57/100"
+          ],
+          [
+            "Cosinus til første gradvinkel",
+            "41/50"
+          ],
+          [
+            "Sinus til andre gradvinkel",
+            "21/50"
+          ],
+          [
+            "Cosinus til andre gradvinkel",
+            "-91/100"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.02",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": true,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "k": "7",
+          "r1": "3/2",
+          "r2": "22/5",
+          "d1": "35",
+          "d2": "155",
+          "s1": "1",
+          "c1": "7/100",
+          "s2": "-19/20",
+          "c2": "-31/100",
+          "s3": "57/100",
+          "c3": "41/50",
+          "s4": "21/50",
+          "c4": "-91/100",
+          "t1": "1",
+          "t2": "71/1000",
+          "t3": "-19/20",
+          "t4": "-31/100",
+          "t5": "57/100",
+          "t6": "41/50",
+          "t7": "21/50",
+          "t8": "-91/100"
+        },
+        "checksum": "35d761e9c8a0cb7e4947aaa9296b836fad3183cfb2565d294efe63fd966bf41e"
+      },
+      "note": "Radianer $\\frac{3}{2}$, $\\frac{22}{5}$; grader $35$, $155$. Avlesningstoleranse 0.02.",
+      "by": "automation:AC-authorized",
+      "date": ""
+    },
+    {
+      "n": 3,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"6\"]]],\"version\":1}",
+      "hash": "a05dd17dec39184a",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"\\\\sin({7/5})\\\\approx\"]",
+          "[\"raw\",\"99/100\"]",
+          "[\"math\",\"\\\\cos({7/5})\\\\approx\"]",
+          "[\"raw\",\"17/100\"]",
+          "[\"math\",\"\\\\sin({43/10})\\\\approx\"]",
+          "[\"raw\",\"-23/25\"]",
+          "[\"math\",\"\\\\cos({43/10})\\\\approx\"]",
+          "[\"raw\",\"-2/5\"]",
+          "[\"math\",\"\\\\sin({30}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"1/2\"]",
+          "[\"math\",\"\\\\cos({30}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"87/100\"]",
+          "[\"math\",\"\\\\sin({150}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"1/2\"]",
+          "[\"math\",\"\\\\cos({150}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"-87/100\"]",
+          "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+          "[\"math\",\"{7/5}\"]",
+          "[\"math\",\"{0.99}\"]",
+          "[\"math\",\"{0.17}\"]",
+          "[\"math\",\"{43/10}\"]",
+          "[\"math\",\"{-0.92}\"]",
+          "[\"math\",\"{-0.40}\"]",
+          "[\"math\",\"{30}^\\\\circ\"]",
+          "[\"math\",\"{0.50}\"]",
+          "[\"math\",\"{0.87}\"]",
+          "[\"math\",\"{150}^\\\\circ\"]",
+          "[\"math\",\"{0.50}\"]",
+          "[\"math\",\"{-0.87}\"]"
+        ],
+        "teacher": [
+          [
+            "Sinus til første radianvinkel",
+            "99/100"
+          ],
+          [
+            "Cosinus til første radianvinkel",
+            "17/100"
+          ],
+          [
+            "Sinus til andre radianvinkel",
+            "-23/25"
+          ],
+          [
+            "Cosinus til andre radianvinkel",
+            "-2/5"
+          ],
+          [
+            "Sinus til første gradvinkel",
+            "1/2"
+          ],
+          [
+            "Cosinus til første gradvinkel",
+            "87/100"
+          ],
+          [
+            "Sinus til andre gradvinkel",
+            "1/2"
+          ],
+          [
+            "Cosinus til andre gradvinkel",
+            "-87/100"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.02",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": true,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "k": "6",
+          "r1": "7/5",
+          "r2": "43/10",
+          "d1": "30",
+          "d2": "150",
+          "s1": "99/100",
+          "c1": "17/100",
+          "s2": "-23/25",
+          "c2": "-2/5",
+          "s3": "1/2",
+          "c3": "87/100",
+          "s4": "1/2",
+          "c4": "-87/100",
+          "t1": "99/100",
+          "t2": "17/100",
+          "t3": "-23/25",
+          "t4": "-2/5",
+          "t5": "1/2",
+          "t6": "87/100",
+          "t7": "1/2",
+          "t8": "-87/100"
+        },
+        "checksum": "9b42369047dec6fc8e9c943fb5b9a5c1da24c85840b5dcc640cc78eda3fe4280"
+      },
+      "note": "Radianer $\\frac{7}{5}$, $\\frac{43}{10}$; grader $30$, $150$. Avlesningstoleranse 0.02.",
+      "by": "automation:AC-authorized",
+      "date": ""
+    },
+    {
+      "n": 4,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"5\"]]],\"version\":1}",
+      "hash": "1167ae515ca75aa0",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"\\\\sin({13/10})\\\\approx\"]",
+          "[\"raw\",\"24/25\"]",
+          "[\"math\",\"\\\\cos({13/10})\\\\approx\"]",
+          "[\"raw\",\"27/100\"]",
+          "[\"math\",\"\\\\sin({21/5})\\\\approx\"]",
+          "[\"raw\",\"-87/100\"]",
+          "[\"math\",\"\\\\cos({21/5})\\\\approx\"]",
+          "[\"raw\",\"-49/100\"]",
+          "[\"math\",\"\\\\sin({25}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"21/50\"]",
+          "[\"math\",\"\\\\cos({25}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"91/100\"]",
+          "[\"math\",\"\\\\sin({145}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"57/100\"]",
+          "[\"math\",\"\\\\cos({145}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"-41/50\"]",
+          "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+          "[\"math\",\"{13/10}\"]",
+          "[\"math\",\"{0.96}\"]",
+          "[\"math\",\"{0.27}\"]",
+          "[\"math\",\"{21/5}\"]",
+          "[\"math\",\"{-0.87}\"]",
+          "[\"math\",\"{-0.49}\"]",
+          "[\"math\",\"{25}^\\\\circ\"]",
+          "[\"math\",\"{0.42}\"]",
+          "[\"math\",\"{0.91}\"]",
+          "[\"math\",\"{145}^\\\\circ\"]",
+          "[\"math\",\"{0.57}\"]",
+          "[\"math\",\"{-0.82}\"]"
+        ],
+        "teacher": [
+          [
+            "Sinus til første radianvinkel",
+            "24/25"
+          ],
+          [
+            "Cosinus til første radianvinkel",
+            "27/100"
+          ],
+          [
+            "Sinus til andre radianvinkel",
+            "-87/100"
+          ],
+          [
+            "Cosinus til andre radianvinkel",
+            "-49/100"
+          ],
+          [
+            "Sinus til første gradvinkel",
+            "21/50"
+          ],
+          [
+            "Cosinus til første gradvinkel",
+            "91/100"
+          ],
+          [
+            "Sinus til andre gradvinkel",
+            "57/100"
+          ],
+          [
+            "Cosinus til andre gradvinkel",
+            "-41/50"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.02",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": true,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "k": "5",
+          "r1": "13/10",
+          "r2": "21/5",
+          "d1": "25",
+          "d2": "145",
+          "s1": "24/25",
+          "c1": "27/100",
+          "s2": "-87/100",
+          "c2": "-49/100",
+          "s3": "21/50",
+          "c3": "91/100",
+          "s4": "57/100",
+          "c4": "-41/50",
+          "t1": "24/25",
+          "t2": "27/100",
+          "t3": "-87/100",
+          "t4": "-49/100",
+          "t5": "21/50",
+          "t6": "91/100",
+          "t7": "57/100",
+          "t8": "-41/50"
+        },
+        "checksum": "68fbee854d5f4d70f569441545e5bebab085c4fc85f30b147ac906672cbf79d2"
+      },
+      "note": "Radianer $\\frac{13}{10}$, $\\frac{21}{5}$; grader $25$, $145$. Avlesningstoleranse 0.02.",
+      "by": "automation:AC-authorized",
+      "date": ""
+    },
+    {
+      "n": 5,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"4\"]]],\"version\":1}",
+      "hash": "e769b6c2edd0f89c",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"\\\\sin({6/5})\\\\approx\"]",
+          "[\"raw\",\"93/100\"]",
+          "[\"math\",\"\\\\cos({6/5})\\\\approx\"]",
+          "[\"raw\",\"9/25\"]",
+          "[\"math\",\"\\\\sin({41/10})\\\\approx\"]",
+          "[\"raw\",\"-41/50\"]",
+          "[\"math\",\"\\\\cos({41/10})\\\\approx\"]",
+          "[\"raw\",\"-57/100\"]",
+          "[\"math\",\"\\\\sin({20}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"17/50\"]",
+          "[\"math\",\"\\\\cos({20}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"47/50\"]",
+          "[\"math\",\"\\\\sin({140}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"16/25\"]",
+          "[\"math\",\"\\\\cos({140}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"-77/100\"]",
+          "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+          "[\"math\",\"{6/5}\"]",
+          "[\"math\",\"{0.93}\"]",
+          "[\"math\",\"{0.36}\"]",
+          "[\"math\",\"{41/10}\"]",
+          "[\"math\",\"{-0.82}\"]",
+          "[\"math\",\"{-0.57}\"]",
+          "[\"math\",\"{20}^\\\\circ\"]",
+          "[\"math\",\"{0.34}\"]",
+          "[\"math\",\"{0.94}\"]",
+          "[\"math\",\"{140}^\\\\circ\"]",
+          "[\"math\",\"{0.64}\"]",
+          "[\"math\",\"{-0.77}\"]"
+        ],
+        "teacher": [
+          [
+            "Sinus til første radianvinkel",
+            "93/100"
+          ],
+          [
+            "Cosinus til første radianvinkel",
+            "9/25"
+          ],
+          [
+            "Sinus til andre radianvinkel",
+            "-41/50"
+          ],
+          [
+            "Cosinus til andre radianvinkel",
+            "-57/100"
+          ],
+          [
+            "Sinus til første gradvinkel",
+            "17/50"
+          ],
+          [
+            "Cosinus til første gradvinkel",
+            "47/50"
+          ],
+          [
+            "Sinus til andre gradvinkel",
+            "16/25"
+          ],
+          [
+            "Cosinus til andre gradvinkel",
+            "-77/100"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.02",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": true,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "k": "4",
+          "r1": "6/5",
+          "r2": "41/10",
+          "d1": "20",
+          "d2": "140",
+          "s1": "93/100",
+          "c1": "9/25",
+          "s2": "-41/50",
+          "c2": "-57/100",
+          "s3": "17/50",
+          "c3": "47/50",
+          "s4": "16/25",
+          "c4": "-77/100",
+          "t1": "93/100",
+          "t2": "9/25",
+          "t3": "-41/50",
+          "t4": "-57/100",
+          "t5": "17/50",
+          "t6": "47/50",
+          "t7": "16/25",
+          "t8": "-77/100"
+        },
+        "checksum": "edd962b4579da2da640f8af91d850241aba817f5505e4f75e0d21fe6e1d9a345"
+      },
+      "note": "Radianer $\\frac{6}{5}$, $\\frac{41}{10}$; grader $20$, $140$. Avlesningstoleranse 0.02.",
+      "by": "automation:AC-authorized",
+      "date": ""
+    },
+    {
+      "n": 6,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"3\"]]],\"version\":1}",
+      "hash": "e3ad5f39d7090372",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"\\\\sin({11/10})\\\\approx\"]",
+          "[\"raw\",\"89/100\"]",
+          "[\"math\",\"\\\\cos({11/10})\\\\approx\"]",
+          "[\"raw\",\"9/20\"]",
+          "[\"math\",\"\\\\sin({4})\\\\approx\"]",
+          "[\"raw\",\"-19/25\"]",
+          "[\"math\",\"\\\\cos({4})\\\\approx\"]",
+          "[\"raw\",\"-13/20\"]",
+          "[\"math\",\"\\\\sin({15}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"13/50\"]",
+          "[\"math\",\"\\\\cos({15}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"97/100\"]",
+          "[\"math\",\"\\\\sin({135}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"71/100\"]",
+          "[\"math\",\"\\\\cos({135}^\\\\circ)\\\\approx\"]",
+          "[\"raw\",\"-71/100\"]",
+          "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+          "[\"math\",\"{11/10}\"]",
+          "[\"math\",\"{0.89}\"]",
+          "[\"math\",\"{0.45}\"]",
+          "[\"math\",\"{4}\"]",
+          "[\"math\",\"{-0.76}\"]",
+          "[\"math\",\"{-0.65}\"]",
+          "[\"math\",\"{15}^\\\\circ\"]",
+          "[\"math\",\"{0.26}\"]",
+          "[\"math\",\"{0.97}\"]",
+          "[\"math\",\"{135}^\\\\circ\"]",
+          "[\"math\",\"{0.71}\"]",
+          "[\"math\",\"{-0.71}\"]"
+        ],
+        "teacher": [
+          [
+            "Sinus til første radianvinkel",
+            "89/100"
+          ],
+          [
+            "Cosinus til første radianvinkel",
+            "9/20"
+          ],
+          [
+            "Sinus til andre radianvinkel",
+            "-19/25"
+          ],
+          [
+            "Cosinus til andre radianvinkel",
+            "-13/20"
+          ],
+          [
+            "Sinus til første gradvinkel",
+            "13/50"
+          ],
+          [
+            "Cosinus til første gradvinkel",
+            "97/100"
+          ],
+          [
+            "Sinus til andre gradvinkel",
+            "71/100"
+          ],
+          [
+            "Cosinus til andre gradvinkel",
+            "-71/100"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.02",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": true,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "k": "3",
+          "r1": "11/10",
+          "r2": "4",
+          "d1": "15",
+          "d2": "135",
+          "s1": "89/100",
+          "c1": "9/20",
+          "s2": "-19/25",
+          "c2": "-13/20",
+          "s3": "13/50",
+          "c3": "97/100",
+          "s4": "71/100",
+          "c4": "-71/100",
+          "t1": "89/100",
+          "t2": "9/20",
+          "t3": "-19/25",
+          "t4": "-13/20",
+          "t5": "13/50",
+          "t6": "97/100",
+          "t7": "71/100",
+          "t8": "-71/100"
+        },
+        "checksum": "133d4714aeec6dfc07bbd639988364f2ce2f0f3a8cedc01c775cc7ea91efffd0"
+      },
+      "note": "Radianer $\\frac{11}{10}$, $4$; grader $15$, $135$. Avlesningstoleranse 0.02.",
+      "by": "automation:AC-authorized",
+      "date": ""
+    }
+  ],
+  "events": [
+    {
+      "before": [],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "6459888256bb1672",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({8/5})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({8/5})\\\\approx\"]",
+              "[\"raw\",\"-29/1000\"]",
+              "[\"math\",\"\\\\sin({9/2})\\\\approx\"]",
+              "[\"raw\",\"-49/50\"]",
+              "[\"math\",\"\\\\cos({9/2})\\\\approx\"]",
+              "[\"raw\",\"-21/100\"]",
+              "[\"math\",\"\\\\sin({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"16/25\"]",
+              "[\"math\",\"\\\\cos({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"77/100\"]",
+              "[\"math\",\"\\\\sin({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"17/50\"]",
+              "[\"math\",\"\\\\cos({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-47/50\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{8/5}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{-0.03}\"]",
+              "[\"math\",\"{9/2}\"]",
+              "[\"math\",\"{-0.98}\"]",
+              "[\"math\",\"{-0.21}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]",
+              "[\"math\",\"{0.64}\"]",
+              "[\"math\",\"{0.77}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]",
+              "[\"math\",\"{0.34}\"]",
+              "[\"math\",\"{-0.94}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "-29/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-49/50"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-21/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "16/25"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "77/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "17/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-47/50"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "r1": "8/5",
+              "r2": "9/2",
+              "d1": "40",
+              "d2": "160",
+              "s1": "1",
+              "c1": "-3/100",
+              "s2": "-49/50",
+              "c2": "-21/100",
+              "s3": "16/25",
+              "c3": "77/100",
+              "s4": "17/50",
+              "c4": "-47/50",
+              "t1": "1",
+              "t2": "-29/1000",
+              "t3": "-49/50",
+              "t4": "-21/100",
+              "t5": "16/25",
+              "t6": "77/100",
+              "t7": "17/50",
+              "t8": "-47/50"
+            },
+            "checksum": "c05ce537969b06836716b36860c4df660ec881465bff377772cfa8b2644ec298"
+          },
+          "note": "Radianer $\\frac{8}{5}$, $\\frac{9}{2}$; grader $40$, $160$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "before": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "6459888256bb1672",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({8/5})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({8/5})\\\\approx\"]",
+              "[\"raw\",\"-29/1000\"]",
+              "[\"math\",\"\\\\sin({9/2})\\\\approx\"]",
+              "[\"raw\",\"-49/50\"]",
+              "[\"math\",\"\\\\cos({9/2})\\\\approx\"]",
+              "[\"raw\",\"-21/100\"]",
+              "[\"math\",\"\\\\sin({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"16/25\"]",
+              "[\"math\",\"\\\\cos({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"77/100\"]",
+              "[\"math\",\"\\\\sin({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"17/50\"]",
+              "[\"math\",\"\\\\cos({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-47/50\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{8/5}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{-0.03}\"]",
+              "[\"math\",\"{9/2}\"]",
+              "[\"math\",\"{-0.98}\"]",
+              "[\"math\",\"{-0.21}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]",
+              "[\"math\",\"{0.64}\"]",
+              "[\"math\",\"{0.77}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]",
+              "[\"math\",\"{0.34}\"]",
+              "[\"math\",\"{-0.94}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "-29/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-49/50"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-21/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "16/25"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "77/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "17/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-47/50"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "r1": "8/5",
+              "r2": "9/2",
+              "d1": "40",
+              "d2": "160",
+              "s1": "1",
+              "c1": "-3/100",
+              "s2": "-49/50",
+              "c2": "-21/100",
+              "s3": "16/25",
+              "c3": "77/100",
+              "s4": "17/50",
+              "c4": "-47/50",
+              "t1": "1",
+              "t2": "-29/1000",
+              "t3": "-49/50",
+              "t4": "-21/100",
+              "t5": "16/25",
+              "t6": "77/100",
+              "t7": "17/50",
+              "t8": "-47/50"
+            },
+            "checksum": "c05ce537969b06836716b36860c4df660ec881465bff377772cfa8b2644ec298"
+          },
+          "note": "Radianer $\\frac{8}{5}$, $\\frac{9}{2}$; grader $40$, $160$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "6459888256bb1672",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({8/5})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({8/5})\\\\approx\"]",
+              "[\"raw\",\"-29/1000\"]",
+              "[\"math\",\"\\\\sin({9/2})\\\\approx\"]",
+              "[\"raw\",\"-49/50\"]",
+              "[\"math\",\"\\\\cos({9/2})\\\\approx\"]",
+              "[\"raw\",\"-21/100\"]",
+              "[\"math\",\"\\\\sin({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"16/25\"]",
+              "[\"math\",\"\\\\cos({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"77/100\"]",
+              "[\"math\",\"\\\\sin({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"17/50\"]",
+              "[\"math\",\"\\\\cos({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-47/50\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{8/5}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{-0.03}\"]",
+              "[\"math\",\"{9/2}\"]",
+              "[\"math\",\"{-0.98}\"]",
+              "[\"math\",\"{-0.21}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]",
+              "[\"math\",\"{0.64}\"]",
+              "[\"math\",\"{0.77}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]",
+              "[\"math\",\"{0.34}\"]",
+              "[\"math\",\"{-0.94}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "-29/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-49/50"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-21/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "16/25"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "77/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "17/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-47/50"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "r1": "8/5",
+              "r2": "9/2",
+              "d1": "40",
+              "d2": "160",
+              "s1": "1",
+              "c1": "-3/100",
+              "s2": "-49/50",
+              "c2": "-21/100",
+              "s3": "16/25",
+              "c3": "77/100",
+              "s4": "17/50",
+              "c4": "-47/50",
+              "t1": "1",
+              "t2": "-29/1000",
+              "t3": "-49/50",
+              "t4": "-21/100",
+              "t5": "16/25",
+              "t6": "77/100",
+              "t7": "17/50",
+              "t8": "-47/50"
+            },
+            "checksum": "c05ce537969b06836716b36860c4df660ec881465bff377772cfa8b2644ec298"
+          },
+          "note": "Radianer $\\frac{8}{5}$, $\\frac{9}{2}$; grader $40$, $160$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"]]],\"version\":1}",
+          "hash": "36164650eb2c889c",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({3/2})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({3/2})\\\\approx\"]",
+              "[\"raw\",\"71/1000\"]",
+              "[\"math\",\"\\\\sin({22/5})\\\\approx\"]",
+              "[\"raw\",\"-19/20\"]",
+              "[\"math\",\"\\\\cos({22/5})\\\\approx\"]",
+              "[\"raw\",\"-31/100\"]",
+              "[\"math\",\"\\\\sin({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"57/100\"]",
+              "[\"math\",\"\\\\cos({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"41/50\"]",
+              "[\"math\",\"\\\\sin({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"21/50\"]",
+              "[\"math\",\"\\\\cos({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-91/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{3/2}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{0.07}\"]",
+              "[\"math\",\"{22/5}\"]",
+              "[\"math\",\"{-0.95}\"]",
+              "[\"math\",\"{-0.31}\"]",
+              "[\"math\",\"{35}^\\\\circ\"]",
+              "[\"math\",\"{0.57}\"]",
+              "[\"math\",\"{0.82}\"]",
+              "[\"math\",\"{155}^\\\\circ\"]",
+              "[\"math\",\"{0.42}\"]",
+              "[\"math\",\"{-0.91}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "71/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-19/20"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-31/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "57/100"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "41/50"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "21/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-91/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "7",
+              "r1": "3/2",
+              "r2": "22/5",
+              "d1": "35",
+              "d2": "155",
+              "s1": "1",
+              "c1": "7/100",
+              "s2": "-19/20",
+              "c2": "-31/100",
+              "s3": "57/100",
+              "c3": "41/50",
+              "s4": "21/50",
+              "c4": "-91/100",
+              "t1": "1",
+              "t2": "71/1000",
+              "t3": "-19/20",
+              "t4": "-31/100",
+              "t5": "57/100",
+              "t6": "41/50",
+              "t7": "21/50",
+              "t8": "-91/100"
+            },
+            "checksum": "35d761e9c8a0cb7e4947aaa9296b836fad3183cfb2565d294efe63fd966bf41e"
+          },
+          "note": "Radianer $\\frac{3}{2}$, $\\frac{22}{5}$; grader $35$, $155$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "before": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "6459888256bb1672",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({8/5})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({8/5})\\\\approx\"]",
+              "[\"raw\",\"-29/1000\"]",
+              "[\"math\",\"\\\\sin({9/2})\\\\approx\"]",
+              "[\"raw\",\"-49/50\"]",
+              "[\"math\",\"\\\\cos({9/2})\\\\approx\"]",
+              "[\"raw\",\"-21/100\"]",
+              "[\"math\",\"\\\\sin({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"16/25\"]",
+              "[\"math\",\"\\\\cos({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"77/100\"]",
+              "[\"math\",\"\\\\sin({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"17/50\"]",
+              "[\"math\",\"\\\\cos({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-47/50\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{8/5}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{-0.03}\"]",
+              "[\"math\",\"{9/2}\"]",
+              "[\"math\",\"{-0.98}\"]",
+              "[\"math\",\"{-0.21}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]",
+              "[\"math\",\"{0.64}\"]",
+              "[\"math\",\"{0.77}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]",
+              "[\"math\",\"{0.34}\"]",
+              "[\"math\",\"{-0.94}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "-29/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-49/50"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-21/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "16/25"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "77/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "17/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-47/50"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "r1": "8/5",
+              "r2": "9/2",
+              "d1": "40",
+              "d2": "160",
+              "s1": "1",
+              "c1": "-3/100",
+              "s2": "-49/50",
+              "c2": "-21/100",
+              "s3": "16/25",
+              "c3": "77/100",
+              "s4": "17/50",
+              "c4": "-47/50",
+              "t1": "1",
+              "t2": "-29/1000",
+              "t3": "-49/50",
+              "t4": "-21/100",
+              "t5": "16/25",
+              "t6": "77/100",
+              "t7": "17/50",
+              "t8": "-47/50"
+            },
+            "checksum": "c05ce537969b06836716b36860c4df660ec881465bff377772cfa8b2644ec298"
+          },
+          "note": "Radianer $\\frac{8}{5}$, $\\frac{9}{2}$; grader $40$, $160$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"]]],\"version\":1}",
+          "hash": "36164650eb2c889c",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({3/2})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({3/2})\\\\approx\"]",
+              "[\"raw\",\"71/1000\"]",
+              "[\"math\",\"\\\\sin({22/5})\\\\approx\"]",
+              "[\"raw\",\"-19/20\"]",
+              "[\"math\",\"\\\\cos({22/5})\\\\approx\"]",
+              "[\"raw\",\"-31/100\"]",
+              "[\"math\",\"\\\\sin({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"57/100\"]",
+              "[\"math\",\"\\\\cos({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"41/50\"]",
+              "[\"math\",\"\\\\sin({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"21/50\"]",
+              "[\"math\",\"\\\\cos({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-91/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{3/2}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{0.07}\"]",
+              "[\"math\",\"{22/5}\"]",
+              "[\"math\",\"{-0.95}\"]",
+              "[\"math\",\"{-0.31}\"]",
+              "[\"math\",\"{35}^\\\\circ\"]",
+              "[\"math\",\"{0.57}\"]",
+              "[\"math\",\"{0.82}\"]",
+              "[\"math\",\"{155}^\\\\circ\"]",
+              "[\"math\",\"{0.42}\"]",
+              "[\"math\",\"{-0.91}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "71/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-19/20"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-31/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "57/100"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "41/50"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "21/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-91/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "7",
+              "r1": "3/2",
+              "r2": "22/5",
+              "d1": "35",
+              "d2": "155",
+              "s1": "1",
+              "c1": "7/100",
+              "s2": "-19/20",
+              "c2": "-31/100",
+              "s3": "57/100",
+              "c3": "41/50",
+              "s4": "21/50",
+              "c4": "-91/100",
+              "t1": "1",
+              "t2": "71/1000",
+              "t3": "-19/20",
+              "t4": "-31/100",
+              "t5": "57/100",
+              "t6": "41/50",
+              "t7": "21/50",
+              "t8": "-91/100"
+            },
+            "checksum": "35d761e9c8a0cb7e4947aaa9296b836fad3183cfb2565d294efe63fd966bf41e"
+          },
+          "note": "Radianer $\\frac{3}{2}$, $\\frac{22}{5}$; grader $35$, $155$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "6459888256bb1672",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({8/5})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({8/5})\\\\approx\"]",
+              "[\"raw\",\"-29/1000\"]",
+              "[\"math\",\"\\\\sin({9/2})\\\\approx\"]",
+              "[\"raw\",\"-49/50\"]",
+              "[\"math\",\"\\\\cos({9/2})\\\\approx\"]",
+              "[\"raw\",\"-21/100\"]",
+              "[\"math\",\"\\\\sin({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"16/25\"]",
+              "[\"math\",\"\\\\cos({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"77/100\"]",
+              "[\"math\",\"\\\\sin({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"17/50\"]",
+              "[\"math\",\"\\\\cos({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-47/50\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{8/5}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{-0.03}\"]",
+              "[\"math\",\"{9/2}\"]",
+              "[\"math\",\"{-0.98}\"]",
+              "[\"math\",\"{-0.21}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]",
+              "[\"math\",\"{0.64}\"]",
+              "[\"math\",\"{0.77}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]",
+              "[\"math\",\"{0.34}\"]",
+              "[\"math\",\"{-0.94}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "-29/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-49/50"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-21/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "16/25"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "77/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "17/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-47/50"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "r1": "8/5",
+              "r2": "9/2",
+              "d1": "40",
+              "d2": "160",
+              "s1": "1",
+              "c1": "-3/100",
+              "s2": "-49/50",
+              "c2": "-21/100",
+              "s3": "16/25",
+              "c3": "77/100",
+              "s4": "17/50",
+              "c4": "-47/50",
+              "t1": "1",
+              "t2": "-29/1000",
+              "t3": "-49/50",
+              "t4": "-21/100",
+              "t5": "16/25",
+              "t6": "77/100",
+              "t7": "17/50",
+              "t8": "-47/50"
+            },
+            "checksum": "c05ce537969b06836716b36860c4df660ec881465bff377772cfa8b2644ec298"
+          },
+          "note": "Radianer $\\frac{8}{5}$, $\\frac{9}{2}$; grader $40$, $160$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"]]],\"version\":1}",
+          "hash": "36164650eb2c889c",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({3/2})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({3/2})\\\\approx\"]",
+              "[\"raw\",\"71/1000\"]",
+              "[\"math\",\"\\\\sin({22/5})\\\\approx\"]",
+              "[\"raw\",\"-19/20\"]",
+              "[\"math\",\"\\\\cos({22/5})\\\\approx\"]",
+              "[\"raw\",\"-31/100\"]",
+              "[\"math\",\"\\\\sin({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"57/100\"]",
+              "[\"math\",\"\\\\cos({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"41/50\"]",
+              "[\"math\",\"\\\\sin({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"21/50\"]",
+              "[\"math\",\"\\\\cos({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-91/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{3/2}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{0.07}\"]",
+              "[\"math\",\"{22/5}\"]",
+              "[\"math\",\"{-0.95}\"]",
+              "[\"math\",\"{-0.31}\"]",
+              "[\"math\",\"{35}^\\\\circ\"]",
+              "[\"math\",\"{0.57}\"]",
+              "[\"math\",\"{0.82}\"]",
+              "[\"math\",\"{155}^\\\\circ\"]",
+              "[\"math\",\"{0.42}\"]",
+              "[\"math\",\"{-0.91}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "71/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-19/20"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-31/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "57/100"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "41/50"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "21/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-91/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "7",
+              "r1": "3/2",
+              "r2": "22/5",
+              "d1": "35",
+              "d2": "155",
+              "s1": "1",
+              "c1": "7/100",
+              "s2": "-19/20",
+              "c2": "-31/100",
+              "s3": "57/100",
+              "c3": "41/50",
+              "s4": "21/50",
+              "c4": "-91/100",
+              "t1": "1",
+              "t2": "71/1000",
+              "t3": "-19/20",
+              "t4": "-31/100",
+              "t5": "57/100",
+              "t6": "41/50",
+              "t7": "21/50",
+              "t8": "-91/100"
+            },
+            "checksum": "35d761e9c8a0cb7e4947aaa9296b836fad3183cfb2565d294efe63fd966bf41e"
+          },
+          "note": "Radianer $\\frac{3}{2}$, $\\frac{22}{5}$; grader $35$, $155$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"]]],\"version\":1}",
+          "hash": "a05dd17dec39184a",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({7/5})\\\\approx\"]",
+              "[\"raw\",\"99/100\"]",
+              "[\"math\",\"\\\\cos({7/5})\\\\approx\"]",
+              "[\"raw\",\"17/100\"]",
+              "[\"math\",\"\\\\sin({43/10})\\\\approx\"]",
+              "[\"raw\",\"-23/25\"]",
+              "[\"math\",\"\\\\cos({43/10})\\\\approx\"]",
+              "[\"raw\",\"-2/5\"]",
+              "[\"math\",\"\\\\sin({30}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"1/2\"]",
+              "[\"math\",\"\\\\cos({30}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"87/100\"]",
+              "[\"math\",\"\\\\sin({150}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"1/2\"]",
+              "[\"math\",\"\\\\cos({150}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-87/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{7/5}\"]",
+              "[\"math\",\"{0.99}\"]",
+              "[\"math\",\"{0.17}\"]",
+              "[\"math\",\"{43/10}\"]",
+              "[\"math\",\"{-0.92}\"]",
+              "[\"math\",\"{-0.40}\"]",
+              "[\"math\",\"{30}^\\\\circ\"]",
+              "[\"math\",\"{0.50}\"]",
+              "[\"math\",\"{0.87}\"]",
+              "[\"math\",\"{150}^\\\\circ\"]",
+              "[\"math\",\"{0.50}\"]",
+              "[\"math\",\"{-0.87}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "99/100"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "17/100"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-23/25"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-2/5"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "1/2"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "87/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "1/2"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-87/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "6",
+              "r1": "7/5",
+              "r2": "43/10",
+              "d1": "30",
+              "d2": "150",
+              "s1": "99/100",
+              "c1": "17/100",
+              "s2": "-23/25",
+              "c2": "-2/5",
+              "s3": "1/2",
+              "c3": "87/100",
+              "s4": "1/2",
+              "c4": "-87/100",
+              "t1": "99/100",
+              "t2": "17/100",
+              "t3": "-23/25",
+              "t4": "-2/5",
+              "t5": "1/2",
+              "t6": "87/100",
+              "t7": "1/2",
+              "t8": "-87/100"
+            },
+            "checksum": "9b42369047dec6fc8e9c943fb5b9a5c1da24c85840b5dcc640cc78eda3fe4280"
+          },
+          "note": "Radianer $\\frac{7}{5}$, $\\frac{43}{10}$; grader $30$, $150$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "before": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "6459888256bb1672",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({8/5})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({8/5})\\\\approx\"]",
+              "[\"raw\",\"-29/1000\"]",
+              "[\"math\",\"\\\\sin({9/2})\\\\approx\"]",
+              "[\"raw\",\"-49/50\"]",
+              "[\"math\",\"\\\\cos({9/2})\\\\approx\"]",
+              "[\"raw\",\"-21/100\"]",
+              "[\"math\",\"\\\\sin({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"16/25\"]",
+              "[\"math\",\"\\\\cos({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"77/100\"]",
+              "[\"math\",\"\\\\sin({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"17/50\"]",
+              "[\"math\",\"\\\\cos({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-47/50\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{8/5}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{-0.03}\"]",
+              "[\"math\",\"{9/2}\"]",
+              "[\"math\",\"{-0.98}\"]",
+              "[\"math\",\"{-0.21}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]",
+              "[\"math\",\"{0.64}\"]",
+              "[\"math\",\"{0.77}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]",
+              "[\"math\",\"{0.34}\"]",
+              "[\"math\",\"{-0.94}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "-29/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-49/50"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-21/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "16/25"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "77/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "17/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-47/50"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "r1": "8/5",
+              "r2": "9/2",
+              "d1": "40",
+              "d2": "160",
+              "s1": "1",
+              "c1": "-3/100",
+              "s2": "-49/50",
+              "c2": "-21/100",
+              "s3": "16/25",
+              "c3": "77/100",
+              "s4": "17/50",
+              "c4": "-47/50",
+              "t1": "1",
+              "t2": "-29/1000",
+              "t3": "-49/50",
+              "t4": "-21/100",
+              "t5": "16/25",
+              "t6": "77/100",
+              "t7": "17/50",
+              "t8": "-47/50"
+            },
+            "checksum": "c05ce537969b06836716b36860c4df660ec881465bff377772cfa8b2644ec298"
+          },
+          "note": "Radianer $\\frac{8}{5}$, $\\frac{9}{2}$; grader $40$, $160$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"]]],\"version\":1}",
+          "hash": "36164650eb2c889c",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({3/2})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({3/2})\\\\approx\"]",
+              "[\"raw\",\"71/1000\"]",
+              "[\"math\",\"\\\\sin({22/5})\\\\approx\"]",
+              "[\"raw\",\"-19/20\"]",
+              "[\"math\",\"\\\\cos({22/5})\\\\approx\"]",
+              "[\"raw\",\"-31/100\"]",
+              "[\"math\",\"\\\\sin({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"57/100\"]",
+              "[\"math\",\"\\\\cos({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"41/50\"]",
+              "[\"math\",\"\\\\sin({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"21/50\"]",
+              "[\"math\",\"\\\\cos({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-91/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{3/2}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{0.07}\"]",
+              "[\"math\",\"{22/5}\"]",
+              "[\"math\",\"{-0.95}\"]",
+              "[\"math\",\"{-0.31}\"]",
+              "[\"math\",\"{35}^\\\\circ\"]",
+              "[\"math\",\"{0.57}\"]",
+              "[\"math\",\"{0.82}\"]",
+              "[\"math\",\"{155}^\\\\circ\"]",
+              "[\"math\",\"{0.42}\"]",
+              "[\"math\",\"{-0.91}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "71/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-19/20"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-31/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "57/100"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "41/50"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "21/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-91/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "7",
+              "r1": "3/2",
+              "r2": "22/5",
+              "d1": "35",
+              "d2": "155",
+              "s1": "1",
+              "c1": "7/100",
+              "s2": "-19/20",
+              "c2": "-31/100",
+              "s3": "57/100",
+              "c3": "41/50",
+              "s4": "21/50",
+              "c4": "-91/100",
+              "t1": "1",
+              "t2": "71/1000",
+              "t3": "-19/20",
+              "t4": "-31/100",
+              "t5": "57/100",
+              "t6": "41/50",
+              "t7": "21/50",
+              "t8": "-91/100"
+            },
+            "checksum": "35d761e9c8a0cb7e4947aaa9296b836fad3183cfb2565d294efe63fd966bf41e"
+          },
+          "note": "Radianer $\\frac{3}{2}$, $\\frac{22}{5}$; grader $35$, $155$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"]]],\"version\":1}",
+          "hash": "a05dd17dec39184a",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({7/5})\\\\approx\"]",
+              "[\"raw\",\"99/100\"]",
+              "[\"math\",\"\\\\cos({7/5})\\\\approx\"]",
+              "[\"raw\",\"17/100\"]",
+              "[\"math\",\"\\\\sin({43/10})\\\\approx\"]",
+              "[\"raw\",\"-23/25\"]",
+              "[\"math\",\"\\\\cos({43/10})\\\\approx\"]",
+              "[\"raw\",\"-2/5\"]",
+              "[\"math\",\"\\\\sin({30}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"1/2\"]",
+              "[\"math\",\"\\\\cos({30}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"87/100\"]",
+              "[\"math\",\"\\\\sin({150}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"1/2\"]",
+              "[\"math\",\"\\\\cos({150}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-87/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{7/5}\"]",
+              "[\"math\",\"{0.99}\"]",
+              "[\"math\",\"{0.17}\"]",
+              "[\"math\",\"{43/10}\"]",
+              "[\"math\",\"{-0.92}\"]",
+              "[\"math\",\"{-0.40}\"]",
+              "[\"math\",\"{30}^\\\\circ\"]",
+              "[\"math\",\"{0.50}\"]",
+              "[\"math\",\"{0.87}\"]",
+              "[\"math\",\"{150}^\\\\circ\"]",
+              "[\"math\",\"{0.50}\"]",
+              "[\"math\",\"{-0.87}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "99/100"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "17/100"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-23/25"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-2/5"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "1/2"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "87/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "1/2"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-87/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "6",
+              "r1": "7/5",
+              "r2": "43/10",
+              "d1": "30",
+              "d2": "150",
+              "s1": "99/100",
+              "c1": "17/100",
+              "s2": "-23/25",
+              "c2": "-2/5",
+              "s3": "1/2",
+              "c3": "87/100",
+              "s4": "1/2",
+              "c4": "-87/100",
+              "t1": "99/100",
+              "t2": "17/100",
+              "t3": "-23/25",
+              "t4": "-2/5",
+              "t5": "1/2",
+              "t6": "87/100",
+              "t7": "1/2",
+              "t8": "-87/100"
+            },
+            "checksum": "9b42369047dec6fc8e9c943fb5b9a5c1da24c85840b5dcc640cc78eda3fe4280"
+          },
+          "note": "Radianer $\\frac{7}{5}$, $\\frac{43}{10}$; grader $30$, $150$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "6459888256bb1672",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({8/5})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({8/5})\\\\approx\"]",
+              "[\"raw\",\"-29/1000\"]",
+              "[\"math\",\"\\\\sin({9/2})\\\\approx\"]",
+              "[\"raw\",\"-49/50\"]",
+              "[\"math\",\"\\\\cos({9/2})\\\\approx\"]",
+              "[\"raw\",\"-21/100\"]",
+              "[\"math\",\"\\\\sin({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"16/25\"]",
+              "[\"math\",\"\\\\cos({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"77/100\"]",
+              "[\"math\",\"\\\\sin({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"17/50\"]",
+              "[\"math\",\"\\\\cos({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-47/50\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{8/5}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{-0.03}\"]",
+              "[\"math\",\"{9/2}\"]",
+              "[\"math\",\"{-0.98}\"]",
+              "[\"math\",\"{-0.21}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]",
+              "[\"math\",\"{0.64}\"]",
+              "[\"math\",\"{0.77}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]",
+              "[\"math\",\"{0.34}\"]",
+              "[\"math\",\"{-0.94}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "-29/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-49/50"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-21/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "16/25"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "77/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "17/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-47/50"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "r1": "8/5",
+              "r2": "9/2",
+              "d1": "40",
+              "d2": "160",
+              "s1": "1",
+              "c1": "-3/100",
+              "s2": "-49/50",
+              "c2": "-21/100",
+              "s3": "16/25",
+              "c3": "77/100",
+              "s4": "17/50",
+              "c4": "-47/50",
+              "t1": "1",
+              "t2": "-29/1000",
+              "t3": "-49/50",
+              "t4": "-21/100",
+              "t5": "16/25",
+              "t6": "77/100",
+              "t7": "17/50",
+              "t8": "-47/50"
+            },
+            "checksum": "c05ce537969b06836716b36860c4df660ec881465bff377772cfa8b2644ec298"
+          },
+          "note": "Radianer $\\frac{8}{5}$, $\\frac{9}{2}$; grader $40$, $160$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"]]],\"version\":1}",
+          "hash": "36164650eb2c889c",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({3/2})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({3/2})\\\\approx\"]",
+              "[\"raw\",\"71/1000\"]",
+              "[\"math\",\"\\\\sin({22/5})\\\\approx\"]",
+              "[\"raw\",\"-19/20\"]",
+              "[\"math\",\"\\\\cos({22/5})\\\\approx\"]",
+              "[\"raw\",\"-31/100\"]",
+              "[\"math\",\"\\\\sin({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"57/100\"]",
+              "[\"math\",\"\\\\cos({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"41/50\"]",
+              "[\"math\",\"\\\\sin({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"21/50\"]",
+              "[\"math\",\"\\\\cos({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-91/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{3/2}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{0.07}\"]",
+              "[\"math\",\"{22/5}\"]",
+              "[\"math\",\"{-0.95}\"]",
+              "[\"math\",\"{-0.31}\"]",
+              "[\"math\",\"{35}^\\\\circ\"]",
+              "[\"math\",\"{0.57}\"]",
+              "[\"math\",\"{0.82}\"]",
+              "[\"math\",\"{155}^\\\\circ\"]",
+              "[\"math\",\"{0.42}\"]",
+              "[\"math\",\"{-0.91}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "71/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-19/20"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-31/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "57/100"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "41/50"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "21/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-91/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "7",
+              "r1": "3/2",
+              "r2": "22/5",
+              "d1": "35",
+              "d2": "155",
+              "s1": "1",
+              "c1": "7/100",
+              "s2": "-19/20",
+              "c2": "-31/100",
+              "s3": "57/100",
+              "c3": "41/50",
+              "s4": "21/50",
+              "c4": "-91/100",
+              "t1": "1",
+              "t2": "71/1000",
+              "t3": "-19/20",
+              "t4": "-31/100",
+              "t5": "57/100",
+              "t6": "41/50",
+              "t7": "21/50",
+              "t8": "-91/100"
+            },
+            "checksum": "35d761e9c8a0cb7e4947aaa9296b836fad3183cfb2565d294efe63fd966bf41e"
+          },
+          "note": "Radianer $\\frac{3}{2}$, $\\frac{22}{5}$; grader $35$, $155$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"]]],\"version\":1}",
+          "hash": "a05dd17dec39184a",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({7/5})\\\\approx\"]",
+              "[\"raw\",\"99/100\"]",
+              "[\"math\",\"\\\\cos({7/5})\\\\approx\"]",
+              "[\"raw\",\"17/100\"]",
+              "[\"math\",\"\\\\sin({43/10})\\\\approx\"]",
+              "[\"raw\",\"-23/25\"]",
+              "[\"math\",\"\\\\cos({43/10})\\\\approx\"]",
+              "[\"raw\",\"-2/5\"]",
+              "[\"math\",\"\\\\sin({30}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"1/2\"]",
+              "[\"math\",\"\\\\cos({30}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"87/100\"]",
+              "[\"math\",\"\\\\sin({150}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"1/2\"]",
+              "[\"math\",\"\\\\cos({150}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-87/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{7/5}\"]",
+              "[\"math\",\"{0.99}\"]",
+              "[\"math\",\"{0.17}\"]",
+              "[\"math\",\"{43/10}\"]",
+              "[\"math\",\"{-0.92}\"]",
+              "[\"math\",\"{-0.40}\"]",
+              "[\"math\",\"{30}^\\\\circ\"]",
+              "[\"math\",\"{0.50}\"]",
+              "[\"math\",\"{0.87}\"]",
+              "[\"math\",\"{150}^\\\\circ\"]",
+              "[\"math\",\"{0.50}\"]",
+              "[\"math\",\"{-0.87}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "99/100"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "17/100"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-23/25"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-2/5"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "1/2"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "87/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "1/2"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-87/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "6",
+              "r1": "7/5",
+              "r2": "43/10",
+              "d1": "30",
+              "d2": "150",
+              "s1": "99/100",
+              "c1": "17/100",
+              "s2": "-23/25",
+              "c2": "-2/5",
+              "s3": "1/2",
+              "c3": "87/100",
+              "s4": "1/2",
+              "c4": "-87/100",
+              "t1": "99/100",
+              "t2": "17/100",
+              "t3": "-23/25",
+              "t4": "-2/5",
+              "t5": "1/2",
+              "t6": "87/100",
+              "t7": "1/2",
+              "t8": "-87/100"
+            },
+            "checksum": "9b42369047dec6fc8e9c943fb5b9a5c1da24c85840b5dcc640cc78eda3fe4280"
+          },
+          "note": "Radianer $\\frac{7}{5}$, $\\frac{43}{10}$; grader $30$, $150$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 4,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"5\"]]],\"version\":1}",
+          "hash": "1167ae515ca75aa0",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({13/10})\\\\approx\"]",
+              "[\"raw\",\"24/25\"]",
+              "[\"math\",\"\\\\cos({13/10})\\\\approx\"]",
+              "[\"raw\",\"27/100\"]",
+              "[\"math\",\"\\\\sin({21/5})\\\\approx\"]",
+              "[\"raw\",\"-87/100\"]",
+              "[\"math\",\"\\\\cos({21/5})\\\\approx\"]",
+              "[\"raw\",\"-49/100\"]",
+              "[\"math\",\"\\\\sin({25}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"21/50\"]",
+              "[\"math\",\"\\\\cos({25}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"91/100\"]",
+              "[\"math\",\"\\\\sin({145}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"57/100\"]",
+              "[\"math\",\"\\\\cos({145}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-41/50\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{13/10}\"]",
+              "[\"math\",\"{0.96}\"]",
+              "[\"math\",\"{0.27}\"]",
+              "[\"math\",\"{21/5}\"]",
+              "[\"math\",\"{-0.87}\"]",
+              "[\"math\",\"{-0.49}\"]",
+              "[\"math\",\"{25}^\\\\circ\"]",
+              "[\"math\",\"{0.42}\"]",
+              "[\"math\",\"{0.91}\"]",
+              "[\"math\",\"{145}^\\\\circ\"]",
+              "[\"math\",\"{0.57}\"]",
+              "[\"math\",\"{-0.82}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "24/25"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "27/100"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-87/100"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-49/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "21/50"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "91/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "57/100"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-41/50"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "5",
+              "r1": "13/10",
+              "r2": "21/5",
+              "d1": "25",
+              "d2": "145",
+              "s1": "24/25",
+              "c1": "27/100",
+              "s2": "-87/100",
+              "c2": "-49/100",
+              "s3": "21/50",
+              "c3": "91/100",
+              "s4": "57/100",
+              "c4": "-41/50",
+              "t1": "24/25",
+              "t2": "27/100",
+              "t3": "-87/100",
+              "t4": "-49/100",
+              "t5": "21/50",
+              "t6": "91/100",
+              "t7": "57/100",
+              "t8": "-41/50"
+            },
+            "checksum": "68fbee854d5f4d70f569441545e5bebab085c4fc85f30b147ac906672cbf79d2"
+          },
+          "note": "Radianer $\\frac{13}{10}$, $\\frac{21}{5}$; grader $25$, $145$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "before": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "6459888256bb1672",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({8/5})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({8/5})\\\\approx\"]",
+              "[\"raw\",\"-29/1000\"]",
+              "[\"math\",\"\\\\sin({9/2})\\\\approx\"]",
+              "[\"raw\",\"-49/50\"]",
+              "[\"math\",\"\\\\cos({9/2})\\\\approx\"]",
+              "[\"raw\",\"-21/100\"]",
+              "[\"math\",\"\\\\sin({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"16/25\"]",
+              "[\"math\",\"\\\\cos({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"77/100\"]",
+              "[\"math\",\"\\\\sin({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"17/50\"]",
+              "[\"math\",\"\\\\cos({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-47/50\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{8/5}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{-0.03}\"]",
+              "[\"math\",\"{9/2}\"]",
+              "[\"math\",\"{-0.98}\"]",
+              "[\"math\",\"{-0.21}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]",
+              "[\"math\",\"{0.64}\"]",
+              "[\"math\",\"{0.77}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]",
+              "[\"math\",\"{0.34}\"]",
+              "[\"math\",\"{-0.94}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "-29/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-49/50"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-21/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "16/25"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "77/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "17/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-47/50"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "r1": "8/5",
+              "r2": "9/2",
+              "d1": "40",
+              "d2": "160",
+              "s1": "1",
+              "c1": "-3/100",
+              "s2": "-49/50",
+              "c2": "-21/100",
+              "s3": "16/25",
+              "c3": "77/100",
+              "s4": "17/50",
+              "c4": "-47/50",
+              "t1": "1",
+              "t2": "-29/1000",
+              "t3": "-49/50",
+              "t4": "-21/100",
+              "t5": "16/25",
+              "t6": "77/100",
+              "t7": "17/50",
+              "t8": "-47/50"
+            },
+            "checksum": "c05ce537969b06836716b36860c4df660ec881465bff377772cfa8b2644ec298"
+          },
+          "note": "Radianer $\\frac{8}{5}$, $\\frac{9}{2}$; grader $40$, $160$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"]]],\"version\":1}",
+          "hash": "36164650eb2c889c",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({3/2})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({3/2})\\\\approx\"]",
+              "[\"raw\",\"71/1000\"]",
+              "[\"math\",\"\\\\sin({22/5})\\\\approx\"]",
+              "[\"raw\",\"-19/20\"]",
+              "[\"math\",\"\\\\cos({22/5})\\\\approx\"]",
+              "[\"raw\",\"-31/100\"]",
+              "[\"math\",\"\\\\sin({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"57/100\"]",
+              "[\"math\",\"\\\\cos({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"41/50\"]",
+              "[\"math\",\"\\\\sin({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"21/50\"]",
+              "[\"math\",\"\\\\cos({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-91/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{3/2}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{0.07}\"]",
+              "[\"math\",\"{22/5}\"]",
+              "[\"math\",\"{-0.95}\"]",
+              "[\"math\",\"{-0.31}\"]",
+              "[\"math\",\"{35}^\\\\circ\"]",
+              "[\"math\",\"{0.57}\"]",
+              "[\"math\",\"{0.82}\"]",
+              "[\"math\",\"{155}^\\\\circ\"]",
+              "[\"math\",\"{0.42}\"]",
+              "[\"math\",\"{-0.91}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "71/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-19/20"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-31/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "57/100"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "41/50"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "21/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-91/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "7",
+              "r1": "3/2",
+              "r2": "22/5",
+              "d1": "35",
+              "d2": "155",
+              "s1": "1",
+              "c1": "7/100",
+              "s2": "-19/20",
+              "c2": "-31/100",
+              "s3": "57/100",
+              "c3": "41/50",
+              "s4": "21/50",
+              "c4": "-91/100",
+              "t1": "1",
+              "t2": "71/1000",
+              "t3": "-19/20",
+              "t4": "-31/100",
+              "t5": "57/100",
+              "t6": "41/50",
+              "t7": "21/50",
+              "t8": "-91/100"
+            },
+            "checksum": "35d761e9c8a0cb7e4947aaa9296b836fad3183cfb2565d294efe63fd966bf41e"
+          },
+          "note": "Radianer $\\frac{3}{2}$, $\\frac{22}{5}$; grader $35$, $155$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"]]],\"version\":1}",
+          "hash": "a05dd17dec39184a",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({7/5})\\\\approx\"]",
+              "[\"raw\",\"99/100\"]",
+              "[\"math\",\"\\\\cos({7/5})\\\\approx\"]",
+              "[\"raw\",\"17/100\"]",
+              "[\"math\",\"\\\\sin({43/10})\\\\approx\"]",
+              "[\"raw\",\"-23/25\"]",
+              "[\"math\",\"\\\\cos({43/10})\\\\approx\"]",
+              "[\"raw\",\"-2/5\"]",
+              "[\"math\",\"\\\\sin({30}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"1/2\"]",
+              "[\"math\",\"\\\\cos({30}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"87/100\"]",
+              "[\"math\",\"\\\\sin({150}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"1/2\"]",
+              "[\"math\",\"\\\\cos({150}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-87/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{7/5}\"]",
+              "[\"math\",\"{0.99}\"]",
+              "[\"math\",\"{0.17}\"]",
+              "[\"math\",\"{43/10}\"]",
+              "[\"math\",\"{-0.92}\"]",
+              "[\"math\",\"{-0.40}\"]",
+              "[\"math\",\"{30}^\\\\circ\"]",
+              "[\"math\",\"{0.50}\"]",
+              "[\"math\",\"{0.87}\"]",
+              "[\"math\",\"{150}^\\\\circ\"]",
+              "[\"math\",\"{0.50}\"]",
+              "[\"math\",\"{-0.87}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "99/100"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "17/100"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-23/25"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-2/5"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "1/2"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "87/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "1/2"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-87/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "6",
+              "r1": "7/5",
+              "r2": "43/10",
+              "d1": "30",
+              "d2": "150",
+              "s1": "99/100",
+              "c1": "17/100",
+              "s2": "-23/25",
+              "c2": "-2/5",
+              "s3": "1/2",
+              "c3": "87/100",
+              "s4": "1/2",
+              "c4": "-87/100",
+              "t1": "99/100",
+              "t2": "17/100",
+              "t3": "-23/25",
+              "t4": "-2/5",
+              "t5": "1/2",
+              "t6": "87/100",
+              "t7": "1/2",
+              "t8": "-87/100"
+            },
+            "checksum": "9b42369047dec6fc8e9c943fb5b9a5c1da24c85840b5dcc640cc78eda3fe4280"
+          },
+          "note": "Radianer $\\frac{7}{5}$, $\\frac{43}{10}$; grader $30$, $150$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 4,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"5\"]]],\"version\":1}",
+          "hash": "1167ae515ca75aa0",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({13/10})\\\\approx\"]",
+              "[\"raw\",\"24/25\"]",
+              "[\"math\",\"\\\\cos({13/10})\\\\approx\"]",
+              "[\"raw\",\"27/100\"]",
+              "[\"math\",\"\\\\sin({21/5})\\\\approx\"]",
+              "[\"raw\",\"-87/100\"]",
+              "[\"math\",\"\\\\cos({21/5})\\\\approx\"]",
+              "[\"raw\",\"-49/100\"]",
+              "[\"math\",\"\\\\sin({25}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"21/50\"]",
+              "[\"math\",\"\\\\cos({25}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"91/100\"]",
+              "[\"math\",\"\\\\sin({145}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"57/100\"]",
+              "[\"math\",\"\\\\cos({145}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-41/50\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{13/10}\"]",
+              "[\"math\",\"{0.96}\"]",
+              "[\"math\",\"{0.27}\"]",
+              "[\"math\",\"{21/5}\"]",
+              "[\"math\",\"{-0.87}\"]",
+              "[\"math\",\"{-0.49}\"]",
+              "[\"math\",\"{25}^\\\\circ\"]",
+              "[\"math\",\"{0.42}\"]",
+              "[\"math\",\"{0.91}\"]",
+              "[\"math\",\"{145}^\\\\circ\"]",
+              "[\"math\",\"{0.57}\"]",
+              "[\"math\",\"{-0.82}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "24/25"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "27/100"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-87/100"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-49/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "21/50"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "91/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "57/100"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-41/50"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "5",
+              "r1": "13/10",
+              "r2": "21/5",
+              "d1": "25",
+              "d2": "145",
+              "s1": "24/25",
+              "c1": "27/100",
+              "s2": "-87/100",
+              "c2": "-49/100",
+              "s3": "21/50",
+              "c3": "91/100",
+              "s4": "57/100",
+              "c4": "-41/50",
+              "t1": "24/25",
+              "t2": "27/100",
+              "t3": "-87/100",
+              "t4": "-49/100",
+              "t5": "21/50",
+              "t6": "91/100",
+              "t7": "57/100",
+              "t8": "-41/50"
+            },
+            "checksum": "68fbee854d5f4d70f569441545e5bebab085c4fc85f30b147ac906672cbf79d2"
+          },
+          "note": "Radianer $\\frac{13}{10}$, $\\frac{21}{5}$; grader $25$, $145$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "6459888256bb1672",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({8/5})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({8/5})\\\\approx\"]",
+              "[\"raw\",\"-29/1000\"]",
+              "[\"math\",\"\\\\sin({9/2})\\\\approx\"]",
+              "[\"raw\",\"-49/50\"]",
+              "[\"math\",\"\\\\cos({9/2})\\\\approx\"]",
+              "[\"raw\",\"-21/100\"]",
+              "[\"math\",\"\\\\sin({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"16/25\"]",
+              "[\"math\",\"\\\\cos({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"77/100\"]",
+              "[\"math\",\"\\\\sin({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"17/50\"]",
+              "[\"math\",\"\\\\cos({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-47/50\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{8/5}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{-0.03}\"]",
+              "[\"math\",\"{9/2}\"]",
+              "[\"math\",\"{-0.98}\"]",
+              "[\"math\",\"{-0.21}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]",
+              "[\"math\",\"{0.64}\"]",
+              "[\"math\",\"{0.77}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]",
+              "[\"math\",\"{0.34}\"]",
+              "[\"math\",\"{-0.94}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "-29/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-49/50"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-21/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "16/25"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "77/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "17/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-47/50"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "r1": "8/5",
+              "r2": "9/2",
+              "d1": "40",
+              "d2": "160",
+              "s1": "1",
+              "c1": "-3/100",
+              "s2": "-49/50",
+              "c2": "-21/100",
+              "s3": "16/25",
+              "c3": "77/100",
+              "s4": "17/50",
+              "c4": "-47/50",
+              "t1": "1",
+              "t2": "-29/1000",
+              "t3": "-49/50",
+              "t4": "-21/100",
+              "t5": "16/25",
+              "t6": "77/100",
+              "t7": "17/50",
+              "t8": "-47/50"
+            },
+            "checksum": "c05ce537969b06836716b36860c4df660ec881465bff377772cfa8b2644ec298"
+          },
+          "note": "Radianer $\\frac{8}{5}$, $\\frac{9}{2}$; grader $40$, $160$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"]]],\"version\":1}",
+          "hash": "36164650eb2c889c",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({3/2})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({3/2})\\\\approx\"]",
+              "[\"raw\",\"71/1000\"]",
+              "[\"math\",\"\\\\sin({22/5})\\\\approx\"]",
+              "[\"raw\",\"-19/20\"]",
+              "[\"math\",\"\\\\cos({22/5})\\\\approx\"]",
+              "[\"raw\",\"-31/100\"]",
+              "[\"math\",\"\\\\sin({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"57/100\"]",
+              "[\"math\",\"\\\\cos({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"41/50\"]",
+              "[\"math\",\"\\\\sin({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"21/50\"]",
+              "[\"math\",\"\\\\cos({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-91/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{3/2}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{0.07}\"]",
+              "[\"math\",\"{22/5}\"]",
+              "[\"math\",\"{-0.95}\"]",
+              "[\"math\",\"{-0.31}\"]",
+              "[\"math\",\"{35}^\\\\circ\"]",
+              "[\"math\",\"{0.57}\"]",
+              "[\"math\",\"{0.82}\"]",
+              "[\"math\",\"{155}^\\\\circ\"]",
+              "[\"math\",\"{0.42}\"]",
+              "[\"math\",\"{-0.91}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "71/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-19/20"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-31/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "57/100"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "41/50"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "21/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-91/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "7",
+              "r1": "3/2",
+              "r2": "22/5",
+              "d1": "35",
+              "d2": "155",
+              "s1": "1",
+              "c1": "7/100",
+              "s2": "-19/20",
+              "c2": "-31/100",
+              "s3": "57/100",
+              "c3": "41/50",
+              "s4": "21/50",
+              "c4": "-91/100",
+              "t1": "1",
+              "t2": "71/1000",
+              "t3": "-19/20",
+              "t4": "-31/100",
+              "t5": "57/100",
+              "t6": "41/50",
+              "t7": "21/50",
+              "t8": "-91/100"
+            },
+            "checksum": "35d761e9c8a0cb7e4947aaa9296b836fad3183cfb2565d294efe63fd966bf41e"
+          },
+          "note": "Radianer $\\frac{3}{2}$, $\\frac{22}{5}$; grader $35$, $155$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"]]],\"version\":1}",
+          "hash": "a05dd17dec39184a",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({7/5})\\\\approx\"]",
+              "[\"raw\",\"99/100\"]",
+              "[\"math\",\"\\\\cos({7/5})\\\\approx\"]",
+              "[\"raw\",\"17/100\"]",
+              "[\"math\",\"\\\\sin({43/10})\\\\approx\"]",
+              "[\"raw\",\"-23/25\"]",
+              "[\"math\",\"\\\\cos({43/10})\\\\approx\"]",
+              "[\"raw\",\"-2/5\"]",
+              "[\"math\",\"\\\\sin({30}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"1/2\"]",
+              "[\"math\",\"\\\\cos({30}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"87/100\"]",
+              "[\"math\",\"\\\\sin({150}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"1/2\"]",
+              "[\"math\",\"\\\\cos({150}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-87/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{7/5}\"]",
+              "[\"math\",\"{0.99}\"]",
+              "[\"math\",\"{0.17}\"]",
+              "[\"math\",\"{43/10}\"]",
+              "[\"math\",\"{-0.92}\"]",
+              "[\"math\",\"{-0.40}\"]",
+              "[\"math\",\"{30}^\\\\circ\"]",
+              "[\"math\",\"{0.50}\"]",
+              "[\"math\",\"{0.87}\"]",
+              "[\"math\",\"{150}^\\\\circ\"]",
+              "[\"math\",\"{0.50}\"]",
+              "[\"math\",\"{-0.87}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "99/100"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "17/100"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-23/25"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-2/5"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "1/2"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "87/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "1/2"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-87/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "6",
+              "r1": "7/5",
+              "r2": "43/10",
+              "d1": "30",
+              "d2": "150",
+              "s1": "99/100",
+              "c1": "17/100",
+              "s2": "-23/25",
+              "c2": "-2/5",
+              "s3": "1/2",
+              "c3": "87/100",
+              "s4": "1/2",
+              "c4": "-87/100",
+              "t1": "99/100",
+              "t2": "17/100",
+              "t3": "-23/25",
+              "t4": "-2/5",
+              "t5": "1/2",
+              "t6": "87/100",
+              "t7": "1/2",
+              "t8": "-87/100"
+            },
+            "checksum": "9b42369047dec6fc8e9c943fb5b9a5c1da24c85840b5dcc640cc78eda3fe4280"
+          },
+          "note": "Radianer $\\frac{7}{5}$, $\\frac{43}{10}$; grader $30$, $150$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 4,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"5\"]]],\"version\":1}",
+          "hash": "1167ae515ca75aa0",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({13/10})\\\\approx\"]",
+              "[\"raw\",\"24/25\"]",
+              "[\"math\",\"\\\\cos({13/10})\\\\approx\"]",
+              "[\"raw\",\"27/100\"]",
+              "[\"math\",\"\\\\sin({21/5})\\\\approx\"]",
+              "[\"raw\",\"-87/100\"]",
+              "[\"math\",\"\\\\cos({21/5})\\\\approx\"]",
+              "[\"raw\",\"-49/100\"]",
+              "[\"math\",\"\\\\sin({25}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"21/50\"]",
+              "[\"math\",\"\\\\cos({25}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"91/100\"]",
+              "[\"math\",\"\\\\sin({145}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"57/100\"]",
+              "[\"math\",\"\\\\cos({145}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-41/50\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{13/10}\"]",
+              "[\"math\",\"{0.96}\"]",
+              "[\"math\",\"{0.27}\"]",
+              "[\"math\",\"{21/5}\"]",
+              "[\"math\",\"{-0.87}\"]",
+              "[\"math\",\"{-0.49}\"]",
+              "[\"math\",\"{25}^\\\\circ\"]",
+              "[\"math\",\"{0.42}\"]",
+              "[\"math\",\"{0.91}\"]",
+              "[\"math\",\"{145}^\\\\circ\"]",
+              "[\"math\",\"{0.57}\"]",
+              "[\"math\",\"{-0.82}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "24/25"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "27/100"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-87/100"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-49/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "21/50"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "91/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "57/100"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-41/50"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "5",
+              "r1": "13/10",
+              "r2": "21/5",
+              "d1": "25",
+              "d2": "145",
+              "s1": "24/25",
+              "c1": "27/100",
+              "s2": "-87/100",
+              "c2": "-49/100",
+              "s3": "21/50",
+              "c3": "91/100",
+              "s4": "57/100",
+              "c4": "-41/50",
+              "t1": "24/25",
+              "t2": "27/100",
+              "t3": "-87/100",
+              "t4": "-49/100",
+              "t5": "21/50",
+              "t6": "91/100",
+              "t7": "57/100",
+              "t8": "-41/50"
+            },
+            "checksum": "68fbee854d5f4d70f569441545e5bebab085c4fc85f30b147ac906672cbf79d2"
+          },
+          "note": "Radianer $\\frac{13}{10}$, $\\frac{21}{5}$; grader $25$, $145$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 5,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "e769b6c2edd0f89c",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({6/5})\\\\approx\"]",
+              "[\"raw\",\"93/100\"]",
+              "[\"math\",\"\\\\cos({6/5})\\\\approx\"]",
+              "[\"raw\",\"9/25\"]",
+              "[\"math\",\"\\\\sin({41/10})\\\\approx\"]",
+              "[\"raw\",\"-41/50\"]",
+              "[\"math\",\"\\\\cos({41/10})\\\\approx\"]",
+              "[\"raw\",\"-57/100\"]",
+              "[\"math\",\"\\\\sin({20}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"17/50\"]",
+              "[\"math\",\"\\\\cos({20}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"47/50\"]",
+              "[\"math\",\"\\\\sin({140}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"16/25\"]",
+              "[\"math\",\"\\\\cos({140}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-77/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{6/5}\"]",
+              "[\"math\",\"{0.93}\"]",
+              "[\"math\",\"{0.36}\"]",
+              "[\"math\",\"{41/10}\"]",
+              "[\"math\",\"{-0.82}\"]",
+              "[\"math\",\"{-0.57}\"]",
+              "[\"math\",\"{20}^\\\\circ\"]",
+              "[\"math\",\"{0.34}\"]",
+              "[\"math\",\"{0.94}\"]",
+              "[\"math\",\"{140}^\\\\circ\"]",
+              "[\"math\",\"{0.64}\"]",
+              "[\"math\",\"{-0.77}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "93/100"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "9/25"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-41/50"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-57/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "17/50"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "47/50"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "16/25"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-77/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "4",
+              "r1": "6/5",
+              "r2": "41/10",
+              "d1": "20",
+              "d2": "140",
+              "s1": "93/100",
+              "c1": "9/25",
+              "s2": "-41/50",
+              "c2": "-57/100",
+              "s3": "17/50",
+              "c3": "47/50",
+              "s4": "16/25",
+              "c4": "-77/100",
+              "t1": "93/100",
+              "t2": "9/25",
+              "t3": "-41/50",
+              "t4": "-57/100",
+              "t5": "17/50",
+              "t6": "47/50",
+              "t7": "16/25",
+              "t8": "-77/100"
+            },
+            "checksum": "edd962b4579da2da640f8af91d850241aba817f5505e4f75e0d21fe6e1d9a345"
+          },
+          "note": "Radianer $\\frac{6}{5}$, $\\frac{41}{10}$; grader $20$, $140$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "before": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "6459888256bb1672",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({8/5})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({8/5})\\\\approx\"]",
+              "[\"raw\",\"-29/1000\"]",
+              "[\"math\",\"\\\\sin({9/2})\\\\approx\"]",
+              "[\"raw\",\"-49/50\"]",
+              "[\"math\",\"\\\\cos({9/2})\\\\approx\"]",
+              "[\"raw\",\"-21/100\"]",
+              "[\"math\",\"\\\\sin({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"16/25\"]",
+              "[\"math\",\"\\\\cos({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"77/100\"]",
+              "[\"math\",\"\\\\sin({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"17/50\"]",
+              "[\"math\",\"\\\\cos({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-47/50\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{8/5}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{-0.03}\"]",
+              "[\"math\",\"{9/2}\"]",
+              "[\"math\",\"{-0.98}\"]",
+              "[\"math\",\"{-0.21}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]",
+              "[\"math\",\"{0.64}\"]",
+              "[\"math\",\"{0.77}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]",
+              "[\"math\",\"{0.34}\"]",
+              "[\"math\",\"{-0.94}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "-29/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-49/50"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-21/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "16/25"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "77/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "17/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-47/50"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "r1": "8/5",
+              "r2": "9/2",
+              "d1": "40",
+              "d2": "160",
+              "s1": "1",
+              "c1": "-3/100",
+              "s2": "-49/50",
+              "c2": "-21/100",
+              "s3": "16/25",
+              "c3": "77/100",
+              "s4": "17/50",
+              "c4": "-47/50",
+              "t1": "1",
+              "t2": "-29/1000",
+              "t3": "-49/50",
+              "t4": "-21/100",
+              "t5": "16/25",
+              "t6": "77/100",
+              "t7": "17/50",
+              "t8": "-47/50"
+            },
+            "checksum": "c05ce537969b06836716b36860c4df660ec881465bff377772cfa8b2644ec298"
+          },
+          "note": "Radianer $\\frac{8}{5}$, $\\frac{9}{2}$; grader $40$, $160$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"]]],\"version\":1}",
+          "hash": "36164650eb2c889c",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({3/2})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({3/2})\\\\approx\"]",
+              "[\"raw\",\"71/1000\"]",
+              "[\"math\",\"\\\\sin({22/5})\\\\approx\"]",
+              "[\"raw\",\"-19/20\"]",
+              "[\"math\",\"\\\\cos({22/5})\\\\approx\"]",
+              "[\"raw\",\"-31/100\"]",
+              "[\"math\",\"\\\\sin({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"57/100\"]",
+              "[\"math\",\"\\\\cos({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"41/50\"]",
+              "[\"math\",\"\\\\sin({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"21/50\"]",
+              "[\"math\",\"\\\\cos({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-91/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{3/2}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{0.07}\"]",
+              "[\"math\",\"{22/5}\"]",
+              "[\"math\",\"{-0.95}\"]",
+              "[\"math\",\"{-0.31}\"]",
+              "[\"math\",\"{35}^\\\\circ\"]",
+              "[\"math\",\"{0.57}\"]",
+              "[\"math\",\"{0.82}\"]",
+              "[\"math\",\"{155}^\\\\circ\"]",
+              "[\"math\",\"{0.42}\"]",
+              "[\"math\",\"{-0.91}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "71/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-19/20"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-31/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "57/100"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "41/50"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "21/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-91/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "7",
+              "r1": "3/2",
+              "r2": "22/5",
+              "d1": "35",
+              "d2": "155",
+              "s1": "1",
+              "c1": "7/100",
+              "s2": "-19/20",
+              "c2": "-31/100",
+              "s3": "57/100",
+              "c3": "41/50",
+              "s4": "21/50",
+              "c4": "-91/100",
+              "t1": "1",
+              "t2": "71/1000",
+              "t3": "-19/20",
+              "t4": "-31/100",
+              "t5": "57/100",
+              "t6": "41/50",
+              "t7": "21/50",
+              "t8": "-91/100"
+            },
+            "checksum": "35d761e9c8a0cb7e4947aaa9296b836fad3183cfb2565d294efe63fd966bf41e"
+          },
+          "note": "Radianer $\\frac{3}{2}$, $\\frac{22}{5}$; grader $35$, $155$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"]]],\"version\":1}",
+          "hash": "a05dd17dec39184a",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({7/5})\\\\approx\"]",
+              "[\"raw\",\"99/100\"]",
+              "[\"math\",\"\\\\cos({7/5})\\\\approx\"]",
+              "[\"raw\",\"17/100\"]",
+              "[\"math\",\"\\\\sin({43/10})\\\\approx\"]",
+              "[\"raw\",\"-23/25\"]",
+              "[\"math\",\"\\\\cos({43/10})\\\\approx\"]",
+              "[\"raw\",\"-2/5\"]",
+              "[\"math\",\"\\\\sin({30}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"1/2\"]",
+              "[\"math\",\"\\\\cos({30}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"87/100\"]",
+              "[\"math\",\"\\\\sin({150}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"1/2\"]",
+              "[\"math\",\"\\\\cos({150}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-87/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{7/5}\"]",
+              "[\"math\",\"{0.99}\"]",
+              "[\"math\",\"{0.17}\"]",
+              "[\"math\",\"{43/10}\"]",
+              "[\"math\",\"{-0.92}\"]",
+              "[\"math\",\"{-0.40}\"]",
+              "[\"math\",\"{30}^\\\\circ\"]",
+              "[\"math\",\"{0.50}\"]",
+              "[\"math\",\"{0.87}\"]",
+              "[\"math\",\"{150}^\\\\circ\"]",
+              "[\"math\",\"{0.50}\"]",
+              "[\"math\",\"{-0.87}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "99/100"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "17/100"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-23/25"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-2/5"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "1/2"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "87/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "1/2"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-87/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "6",
+              "r1": "7/5",
+              "r2": "43/10",
+              "d1": "30",
+              "d2": "150",
+              "s1": "99/100",
+              "c1": "17/100",
+              "s2": "-23/25",
+              "c2": "-2/5",
+              "s3": "1/2",
+              "c3": "87/100",
+              "s4": "1/2",
+              "c4": "-87/100",
+              "t1": "99/100",
+              "t2": "17/100",
+              "t3": "-23/25",
+              "t4": "-2/5",
+              "t5": "1/2",
+              "t6": "87/100",
+              "t7": "1/2",
+              "t8": "-87/100"
+            },
+            "checksum": "9b42369047dec6fc8e9c943fb5b9a5c1da24c85840b5dcc640cc78eda3fe4280"
+          },
+          "note": "Radianer $\\frac{7}{5}$, $\\frac{43}{10}$; grader $30$, $150$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 4,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"5\"]]],\"version\":1}",
+          "hash": "1167ae515ca75aa0",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({13/10})\\\\approx\"]",
+              "[\"raw\",\"24/25\"]",
+              "[\"math\",\"\\\\cos({13/10})\\\\approx\"]",
+              "[\"raw\",\"27/100\"]",
+              "[\"math\",\"\\\\sin({21/5})\\\\approx\"]",
+              "[\"raw\",\"-87/100\"]",
+              "[\"math\",\"\\\\cos({21/5})\\\\approx\"]",
+              "[\"raw\",\"-49/100\"]",
+              "[\"math\",\"\\\\sin({25}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"21/50\"]",
+              "[\"math\",\"\\\\cos({25}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"91/100\"]",
+              "[\"math\",\"\\\\sin({145}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"57/100\"]",
+              "[\"math\",\"\\\\cos({145}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-41/50\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{13/10}\"]",
+              "[\"math\",\"{0.96}\"]",
+              "[\"math\",\"{0.27}\"]",
+              "[\"math\",\"{21/5}\"]",
+              "[\"math\",\"{-0.87}\"]",
+              "[\"math\",\"{-0.49}\"]",
+              "[\"math\",\"{25}^\\\\circ\"]",
+              "[\"math\",\"{0.42}\"]",
+              "[\"math\",\"{0.91}\"]",
+              "[\"math\",\"{145}^\\\\circ\"]",
+              "[\"math\",\"{0.57}\"]",
+              "[\"math\",\"{-0.82}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "24/25"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "27/100"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-87/100"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-49/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "21/50"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "91/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "57/100"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-41/50"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "5",
+              "r1": "13/10",
+              "r2": "21/5",
+              "d1": "25",
+              "d2": "145",
+              "s1": "24/25",
+              "c1": "27/100",
+              "s2": "-87/100",
+              "c2": "-49/100",
+              "s3": "21/50",
+              "c3": "91/100",
+              "s4": "57/100",
+              "c4": "-41/50",
+              "t1": "24/25",
+              "t2": "27/100",
+              "t3": "-87/100",
+              "t4": "-49/100",
+              "t5": "21/50",
+              "t6": "91/100",
+              "t7": "57/100",
+              "t8": "-41/50"
+            },
+            "checksum": "68fbee854d5f4d70f569441545e5bebab085c4fc85f30b147ac906672cbf79d2"
+          },
+          "note": "Radianer $\\frac{13}{10}$, $\\frac{21}{5}$; grader $25$, $145$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 5,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "e769b6c2edd0f89c",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({6/5})\\\\approx\"]",
+              "[\"raw\",\"93/100\"]",
+              "[\"math\",\"\\\\cos({6/5})\\\\approx\"]",
+              "[\"raw\",\"9/25\"]",
+              "[\"math\",\"\\\\sin({41/10})\\\\approx\"]",
+              "[\"raw\",\"-41/50\"]",
+              "[\"math\",\"\\\\cos({41/10})\\\\approx\"]",
+              "[\"raw\",\"-57/100\"]",
+              "[\"math\",\"\\\\sin({20}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"17/50\"]",
+              "[\"math\",\"\\\\cos({20}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"47/50\"]",
+              "[\"math\",\"\\\\sin({140}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"16/25\"]",
+              "[\"math\",\"\\\\cos({140}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-77/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{6/5}\"]",
+              "[\"math\",\"{0.93}\"]",
+              "[\"math\",\"{0.36}\"]",
+              "[\"math\",\"{41/10}\"]",
+              "[\"math\",\"{-0.82}\"]",
+              "[\"math\",\"{-0.57}\"]",
+              "[\"math\",\"{20}^\\\\circ\"]",
+              "[\"math\",\"{0.34}\"]",
+              "[\"math\",\"{0.94}\"]",
+              "[\"math\",\"{140}^\\\\circ\"]",
+              "[\"math\",\"{0.64}\"]",
+              "[\"math\",\"{-0.77}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "93/100"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "9/25"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-41/50"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-57/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "17/50"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "47/50"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "16/25"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-77/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "4",
+              "r1": "6/5",
+              "r2": "41/10",
+              "d1": "20",
+              "d2": "140",
+              "s1": "93/100",
+              "c1": "9/25",
+              "s2": "-41/50",
+              "c2": "-57/100",
+              "s3": "17/50",
+              "c3": "47/50",
+              "s4": "16/25",
+              "c4": "-77/100",
+              "t1": "93/100",
+              "t2": "9/25",
+              "t3": "-41/50",
+              "t4": "-57/100",
+              "t5": "17/50",
+              "t6": "47/50",
+              "t7": "16/25",
+              "t8": "-77/100"
+            },
+            "checksum": "edd962b4579da2da640f8af91d850241aba817f5505e4f75e0d21fe6e1d9a345"
+          },
+          "note": "Radianer $\\frac{6}{5}$, $\\frac{41}{10}$; grader $20$, $140$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "6459888256bb1672",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({8/5})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({8/5})\\\\approx\"]",
+              "[\"raw\",\"-29/1000\"]",
+              "[\"math\",\"\\\\sin({9/2})\\\\approx\"]",
+              "[\"raw\",\"-49/50\"]",
+              "[\"math\",\"\\\\cos({9/2})\\\\approx\"]",
+              "[\"raw\",\"-21/100\"]",
+              "[\"math\",\"\\\\sin({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"16/25\"]",
+              "[\"math\",\"\\\\cos({40}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"77/100\"]",
+              "[\"math\",\"\\\\sin({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"17/50\"]",
+              "[\"math\",\"\\\\cos({160}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-47/50\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{8/5}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{-0.03}\"]",
+              "[\"math\",\"{9/2}\"]",
+              "[\"math\",\"{-0.98}\"]",
+              "[\"math\",\"{-0.21}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]",
+              "[\"math\",\"{0.64}\"]",
+              "[\"math\",\"{0.77}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]",
+              "[\"math\",\"{0.34}\"]",
+              "[\"math\",\"{-0.94}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "-29/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-49/50"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-21/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "16/25"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "77/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "17/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-47/50"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "r1": "8/5",
+              "r2": "9/2",
+              "d1": "40",
+              "d2": "160",
+              "s1": "1",
+              "c1": "-3/100",
+              "s2": "-49/50",
+              "c2": "-21/100",
+              "s3": "16/25",
+              "c3": "77/100",
+              "s4": "17/50",
+              "c4": "-47/50",
+              "t1": "1",
+              "t2": "-29/1000",
+              "t3": "-49/50",
+              "t4": "-21/100",
+              "t5": "16/25",
+              "t6": "77/100",
+              "t7": "17/50",
+              "t8": "-47/50"
+            },
+            "checksum": "c05ce537969b06836716b36860c4df660ec881465bff377772cfa8b2644ec298"
+          },
+          "note": "Radianer $\\frac{8}{5}$, $\\frac{9}{2}$; grader $40$, $160$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"7\"]]],\"version\":1}",
+          "hash": "36164650eb2c889c",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({3/2})\\\\approx\"]",
+              "[\"raw\",\"1\"]",
+              "[\"math\",\"\\\\cos({3/2})\\\\approx\"]",
+              "[\"raw\",\"71/1000\"]",
+              "[\"math\",\"\\\\sin({22/5})\\\\approx\"]",
+              "[\"raw\",\"-19/20\"]",
+              "[\"math\",\"\\\\cos({22/5})\\\\approx\"]",
+              "[\"raw\",\"-31/100\"]",
+              "[\"math\",\"\\\\sin({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"57/100\"]",
+              "[\"math\",\"\\\\cos({35}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"41/50\"]",
+              "[\"math\",\"\\\\sin({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"21/50\"]",
+              "[\"math\",\"\\\\cos({155}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-91/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{3/2}\"]",
+              "[\"math\",\"{1.00}\"]",
+              "[\"math\",\"{0.07}\"]",
+              "[\"math\",\"{22/5}\"]",
+              "[\"math\",\"{-0.95}\"]",
+              "[\"math\",\"{-0.31}\"]",
+              "[\"math\",\"{35}^\\\\circ\"]",
+              "[\"math\",\"{0.57}\"]",
+              "[\"math\",\"{0.82}\"]",
+              "[\"math\",\"{155}^\\\\circ\"]",
+              "[\"math\",\"{0.42}\"]",
+              "[\"math\",\"{-0.91}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "1"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "71/1000"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-19/20"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-31/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "57/100"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "41/50"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "21/50"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-91/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "7",
+              "r1": "3/2",
+              "r2": "22/5",
+              "d1": "35",
+              "d2": "155",
+              "s1": "1",
+              "c1": "7/100",
+              "s2": "-19/20",
+              "c2": "-31/100",
+              "s3": "57/100",
+              "c3": "41/50",
+              "s4": "21/50",
+              "c4": "-91/100",
+              "t1": "1",
+              "t2": "71/1000",
+              "t3": "-19/20",
+              "t4": "-31/100",
+              "t5": "57/100",
+              "t6": "41/50",
+              "t7": "21/50",
+              "t8": "-91/100"
+            },
+            "checksum": "35d761e9c8a0cb7e4947aaa9296b836fad3183cfb2565d294efe63fd966bf41e"
+          },
+          "note": "Radianer $\\frac{3}{2}$, $\\frac{22}{5}$; grader $35$, $155$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"6\"]]],\"version\":1}",
+          "hash": "a05dd17dec39184a",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({7/5})\\\\approx\"]",
+              "[\"raw\",\"99/100\"]",
+              "[\"math\",\"\\\\cos({7/5})\\\\approx\"]",
+              "[\"raw\",\"17/100\"]",
+              "[\"math\",\"\\\\sin({43/10})\\\\approx\"]",
+              "[\"raw\",\"-23/25\"]",
+              "[\"math\",\"\\\\cos({43/10})\\\\approx\"]",
+              "[\"raw\",\"-2/5\"]",
+              "[\"math\",\"\\\\sin({30}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"1/2\"]",
+              "[\"math\",\"\\\\cos({30}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"87/100\"]",
+              "[\"math\",\"\\\\sin({150}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"1/2\"]",
+              "[\"math\",\"\\\\cos({150}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-87/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{7/5}\"]",
+              "[\"math\",\"{0.99}\"]",
+              "[\"math\",\"{0.17}\"]",
+              "[\"math\",\"{43/10}\"]",
+              "[\"math\",\"{-0.92}\"]",
+              "[\"math\",\"{-0.40}\"]",
+              "[\"math\",\"{30}^\\\\circ\"]",
+              "[\"math\",\"{0.50}\"]",
+              "[\"math\",\"{0.87}\"]",
+              "[\"math\",\"{150}^\\\\circ\"]",
+              "[\"math\",\"{0.50}\"]",
+              "[\"math\",\"{-0.87}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "99/100"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "17/100"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-23/25"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-2/5"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "1/2"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "87/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "1/2"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-87/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "6",
+              "r1": "7/5",
+              "r2": "43/10",
+              "d1": "30",
+              "d2": "150",
+              "s1": "99/100",
+              "c1": "17/100",
+              "s2": "-23/25",
+              "c2": "-2/5",
+              "s3": "1/2",
+              "c3": "87/100",
+              "s4": "1/2",
+              "c4": "-87/100",
+              "t1": "99/100",
+              "t2": "17/100",
+              "t3": "-23/25",
+              "t4": "-2/5",
+              "t5": "1/2",
+              "t6": "87/100",
+              "t7": "1/2",
+              "t8": "-87/100"
+            },
+            "checksum": "9b42369047dec6fc8e9c943fb5b9a5c1da24c85840b5dcc640cc78eda3fe4280"
+          },
+          "note": "Radianer $\\frac{7}{5}$, $\\frac{43}{10}$; grader $30$, $150$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 4,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"5\"]]],\"version\":1}",
+          "hash": "1167ae515ca75aa0",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({13/10})\\\\approx\"]",
+              "[\"raw\",\"24/25\"]",
+              "[\"math\",\"\\\\cos({13/10})\\\\approx\"]",
+              "[\"raw\",\"27/100\"]",
+              "[\"math\",\"\\\\sin({21/5})\\\\approx\"]",
+              "[\"raw\",\"-87/100\"]",
+              "[\"math\",\"\\\\cos({21/5})\\\\approx\"]",
+              "[\"raw\",\"-49/100\"]",
+              "[\"math\",\"\\\\sin({25}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"21/50\"]",
+              "[\"math\",\"\\\\cos({25}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"91/100\"]",
+              "[\"math\",\"\\\\sin({145}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"57/100\"]",
+              "[\"math\",\"\\\\cos({145}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-41/50\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{13/10}\"]",
+              "[\"math\",\"{0.96}\"]",
+              "[\"math\",\"{0.27}\"]",
+              "[\"math\",\"{21/5}\"]",
+              "[\"math\",\"{-0.87}\"]",
+              "[\"math\",\"{-0.49}\"]",
+              "[\"math\",\"{25}^\\\\circ\"]",
+              "[\"math\",\"{0.42}\"]",
+              "[\"math\",\"{0.91}\"]",
+              "[\"math\",\"{145}^\\\\circ\"]",
+              "[\"math\",\"{0.57}\"]",
+              "[\"math\",\"{-0.82}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "24/25"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "27/100"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-87/100"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-49/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "21/50"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "91/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "57/100"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-41/50"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "5",
+              "r1": "13/10",
+              "r2": "21/5",
+              "d1": "25",
+              "d2": "145",
+              "s1": "24/25",
+              "c1": "27/100",
+              "s2": "-87/100",
+              "c2": "-49/100",
+              "s3": "21/50",
+              "c3": "91/100",
+              "s4": "57/100",
+              "c4": "-41/50",
+              "t1": "24/25",
+              "t2": "27/100",
+              "t3": "-87/100",
+              "t4": "-49/100",
+              "t5": "21/50",
+              "t6": "91/100",
+              "t7": "57/100",
+              "t8": "-41/50"
+            },
+            "checksum": "68fbee854d5f4d70f569441545e5bebab085c4fc85f30b147ac906672cbf79d2"
+          },
+          "note": "Radianer $\\frac{13}{10}$, $\\frac{21}{5}$; grader $25$, $145$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 5,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"4\"]]],\"version\":1}",
+          "hash": "e769b6c2edd0f89c",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({6/5})\\\\approx\"]",
+              "[\"raw\",\"93/100\"]",
+              "[\"math\",\"\\\\cos({6/5})\\\\approx\"]",
+              "[\"raw\",\"9/25\"]",
+              "[\"math\",\"\\\\sin({41/10})\\\\approx\"]",
+              "[\"raw\",\"-41/50\"]",
+              "[\"math\",\"\\\\cos({41/10})\\\\approx\"]",
+              "[\"raw\",\"-57/100\"]",
+              "[\"math\",\"\\\\sin({20}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"17/50\"]",
+              "[\"math\",\"\\\\cos({20}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"47/50\"]",
+              "[\"math\",\"\\\\sin({140}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"16/25\"]",
+              "[\"math\",\"\\\\cos({140}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-77/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{6/5}\"]",
+              "[\"math\",\"{0.93}\"]",
+              "[\"math\",\"{0.36}\"]",
+              "[\"math\",\"{41/10}\"]",
+              "[\"math\",\"{-0.82}\"]",
+              "[\"math\",\"{-0.57}\"]",
+              "[\"math\",\"{20}^\\\\circ\"]",
+              "[\"math\",\"{0.34}\"]",
+              "[\"math\",\"{0.94}\"]",
+              "[\"math\",\"{140}^\\\\circ\"]",
+              "[\"math\",\"{0.64}\"]",
+              "[\"math\",\"{-0.77}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "93/100"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "9/25"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-41/50"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-57/100"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "17/50"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "47/50"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "16/25"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-77/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "4",
+              "r1": "6/5",
+              "r2": "41/10",
+              "d1": "20",
+              "d2": "140",
+              "s1": "93/100",
+              "c1": "9/25",
+              "s2": "-41/50",
+              "c2": "-57/100",
+              "s3": "17/50",
+              "c3": "47/50",
+              "s4": "16/25",
+              "c4": "-77/100",
+              "t1": "93/100",
+              "t2": "9/25",
+              "t3": "-41/50",
+              "t4": "-57/100",
+              "t5": "17/50",
+              "t6": "47/50",
+              "t7": "16/25",
+              "t8": "-77/100"
+            },
+            "checksum": "edd962b4579da2da640f8af91d850241aba817f5505e4f75e0d21fe6e1d9a345"
+          },
+          "note": "Radianer $\\frac{6}{5}$, $\\frac{41}{10}$; grader $20$, $140$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 6,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"3\"]]],\"version\":1}",
+          "hash": "e3ad5f39d7090372",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"\\\\sin({11/10})\\\\approx\"]",
+              "[\"raw\",\"89/100\"]",
+              "[\"math\",\"\\\\cos({11/10})\\\\approx\"]",
+              "[\"raw\",\"9/20\"]",
+              "[\"math\",\"\\\\sin({4})\\\\approx\"]",
+              "[\"raw\",\"-19/25\"]",
+              "[\"math\",\"\\\\cos({4})\\\\approx\"]",
+              "[\"raw\",\"-13/20\"]",
+              "[\"math\",\"\\\\sin({15}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"13/50\"]",
+              "[\"math\",\"\\\\cos({15}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"97/100\"]",
+              "[\"math\",\"\\\\sin({135}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"71/100\"]",
+              "[\"math\",\"\\\\cos({135}^\\\\circ)\\\\approx\"]",
+              "[\"raw\",\"-71/100\"]",
+              "[\"math\",\"A=(\\\\cos v,\\\\sin v)\"]",
+              "[\"math\",\"{11/10}\"]",
+              "[\"math\",\"{0.89}\"]",
+              "[\"math\",\"{0.45}\"]",
+              "[\"math\",\"{4}\"]",
+              "[\"math\",\"{-0.76}\"]",
+              "[\"math\",\"{-0.65}\"]",
+              "[\"math\",\"{15}^\\\\circ\"]",
+              "[\"math\",\"{0.26}\"]",
+              "[\"math\",\"{0.97}\"]",
+              "[\"math\",\"{135}^\\\\circ\"]",
+              "[\"math\",\"{0.71}\"]",
+              "[\"math\",\"{-0.71}\"]"
+            ],
+            "teacher": [
+              [
+                "Sinus til første radianvinkel",
+                "89/100"
+              ],
+              [
+                "Cosinus til første radianvinkel",
+                "9/20"
+              ],
+              [
+                "Sinus til andre radianvinkel",
+                "-19/25"
+              ],
+              [
+                "Cosinus til andre radianvinkel",
+                "-13/20"
+              ],
+              [
+                "Sinus til første gradvinkel",
+                "13/50"
+              ],
+              [
+                "Cosinus til første gradvinkel",
+                "97/100"
+              ],
+              [
+                "Sinus til andre gradvinkel",
+                "71/100"
+              ],
+              [
+                "Cosinus til andre gradvinkel",
+                "-71/100"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.02",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": true,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "3",
+              "r1": "11/10",
+              "r2": "4",
+              "d1": "15",
+              "d2": "135",
+              "s1": "89/100",
+              "c1": "9/20",
+              "s2": "-19/25",
+              "c2": "-13/20",
+              "s3": "13/50",
+              "c3": "97/100",
+              "s4": "71/100",
+              "c4": "-71/100",
+              "t1": "89/100",
+              "t2": "9/20",
+              "t3": "-19/25",
+              "t4": "-13/20",
+              "t5": "13/50",
+              "t6": "97/100",
+              "t7": "71/100",
+              "t8": "-71/100"
+            },
+            "checksum": "133d4714aeec6dfc07bbd639988364f2ce2f0f3a8cedc01c775cc7ea91efffd0"
+          },
+          "note": "Radianer $\\frac{11}{10}$, $4$; grader $15$, $135$. Avlesningstoleranse 0.02.",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    }
+  ]
 }

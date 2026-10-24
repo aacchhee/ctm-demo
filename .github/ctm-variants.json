@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "sourceGlobs": [
+    "**/*.qmd"
+  ],
+  "wrapper": "_extensions/math-exercise/question-variants.py",
+  "previewBase": "https://aacchhee.github.io/ctm-demo/previews/variants-{pullRequest}/review"
+}

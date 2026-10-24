@@ -4826,6 +4826,2143 @@
       }
     }
   ],
-  "decisions": [],
-  "events": []
+  "decisions": [
+    {
+      "n": 1,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"55\"]]],\"version\":1}",
+      "hash": "7b8bf19d52caa8c3",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"v\"]",
+          "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+          "[\"math\",\"\\\\sin v\\\\approx {-1.00}\"]",
+          "[\"math\",\"\\\\cos v\\\\approx {0.09}\"]",
+          "[\"math\",\"v\\\\approx\"]",
+          "[\"raw\",\"55\"]",
+          "[\"math\",\"({0.09},{-1.00})\"]",
+          "[\"math\",\"v=\\\\frac{{55}}{36}\\\\pi\\\\approx {4.800}\"]",
+          "[\"math\",\"{275}^\\\\circ\"]"
+        ],
+        "teacher": [
+          [
+            "Vinkel v i radianer",
+            "55*pi/36"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.015",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": false,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "k": "55",
+          "angle": "55*pi/36",
+          "degrees": "275",
+          "sine": "-1",
+          "cosine": "9/100"
+        },
+        "checksum": "bed3bdcc73b2b05e6e488125e8566c0028e7f7ffede0bb7908b079944b6112f7"
+      },
+      "note": "Sinus $-1.00$, cosinus $0.09$. Finn v i [0,2*pi).",
+      "by": "automation:AC-authorized",
+      "date": ""
+    },
+    {
+      "n": 2,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+      "hash": "2bc4bb96e4a42a5e",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"v\"]",
+          "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+          "[\"math\",\"\\\\sin v\\\\approx {0.64}\"]",
+          "[\"math\",\"\\\\cos v\\\\approx {0.77}\"]",
+          "[\"math\",\"v\\\\approx\"]",
+          "[\"raw\",\"8\"]",
+          "[\"math\",\"({0.77},{0.64})\"]",
+          "[\"math\",\"v=\\\\frac{{8}}{36}\\\\pi\\\\approx {0.698}\"]",
+          "[\"math\",\"{40}^\\\\circ\"]"
+        ],
+        "teacher": [
+          [
+            "Vinkel v i radianer",
+            "2*pi/9"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.015",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": false,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "k": "8",
+          "angle": "2*pi/9",
+          "degrees": "40",
+          "sine": "16/25",
+          "cosine": "77/100"
+        },
+        "checksum": "947b9321b77ef7734041d0896010977c958d193ac06d230de9de518108e39e1c"
+      },
+      "note": "Sinus $0.64$, cosinus $0.77$. Finn v i [0,2*pi).",
+      "by": "automation:AC-authorized",
+      "date": ""
+    },
+    {
+      "n": 3,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"32\"]]],\"version\":1}",
+      "hash": "93235f66ec418a2f",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"v\"]",
+          "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+          "[\"math\",\"\\\\sin v\\\\approx {0.34}\"]",
+          "[\"math\",\"\\\\cos v\\\\approx {-0.94}\"]",
+          "[\"math\",\"v\\\\approx\"]",
+          "[\"raw\",\"32\"]",
+          "[\"math\",\"({-0.94},{0.34})\"]",
+          "[\"math\",\"v=\\\\frac{{32}}{36}\\\\pi\\\\approx {2.793}\"]",
+          "[\"math\",\"{160}^\\\\circ\"]"
+        ],
+        "teacher": [
+          [
+            "Vinkel v i radianer",
+            "8*pi/9"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.015",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": false,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "k": "32",
+          "angle": "8*pi/9",
+          "degrees": "160",
+          "sine": "17/50",
+          "cosine": "-47/50"
+        },
+        "checksum": "4a1835a07ad2aa341d4374f0697141af58950ffa4f2f2de7ef3b2ca53dffe72d"
+      },
+      "note": "Sinus $0.34$, cosinus $-0.94$. Finn v i [0,2*pi).",
+      "by": "automation:AC-authorized",
+      "date": ""
+    },
+    {
+      "n": 4,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"56\"]]],\"version\":1}",
+      "hash": "bbb6963e4945bbc4",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"v\"]",
+          "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+          "[\"math\",\"\\\\sin v\\\\approx {-0.98}\"]",
+          "[\"math\",\"\\\\cos v\\\\approx {0.17}\"]",
+          "[\"math\",\"v\\\\approx\"]",
+          "[\"raw\",\"56\"]",
+          "[\"math\",\"({0.17},{-0.98})\"]",
+          "[\"math\",\"v=\\\\frac{{56}}{36}\\\\pi\\\\approx {4.887}\"]",
+          "[\"math\",\"{280}^\\\\circ\"]"
+        ],
+        "teacher": [
+          [
+            "Vinkel v i radianer",
+            "14*pi/9"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.015",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": false,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "k": "56",
+          "angle": "14*pi/9",
+          "degrees": "280",
+          "sine": "-49/50",
+          "cosine": "17/100"
+        },
+        "checksum": "3ffcf44b5017b6eef44568d7dbe9cbfb2458057803ce5622e63d9864883ac76f"
+      },
+      "note": "Sinus $-0.98$, cosinus $0.17$. Finn v i [0,2*pi).",
+      "by": "automation:AC-authorized",
+      "date": ""
+    },
+    {
+      "n": 5,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"9\"]]],\"version\":1}",
+      "hash": "3c0c7953278301a0",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"v\"]",
+          "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+          "[\"math\",\"\\\\sin v\\\\approx {0.71}\"]",
+          "[\"math\",\"\\\\cos v\\\\approx {0.71}\"]",
+          "[\"math\",\"v\\\\approx\"]",
+          "[\"raw\",\"9\"]",
+          "[\"math\",\"({0.71},{0.71})\"]",
+          "[\"math\",\"v=\\\\frac{{9}}{36}\\\\pi\\\\approx {0.785}\"]",
+          "[\"math\",\"{45}^\\\\circ\"]"
+        ],
+        "teacher": [
+          [
+            "Vinkel v i radianer",
+            "pi/4"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.015",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": false,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "k": "9",
+          "angle": "pi/4",
+          "degrees": "45",
+          "sine": "71/100",
+          "cosine": "71/100"
+        },
+        "checksum": "42fad54336231d2fa5bcf9a03a0d4150b2e499b1afd36ec000c30358de0166aa"
+      },
+      "note": "Sinus $0.71$, cosinus $0.71$. Finn v i [0,2*pi).",
+      "by": "automation:AC-authorized",
+      "date": ""
+    },
+    {
+      "n": 6,
+      "id": "{\"value\":[\"list\",[[\"integer\",\"33\"]]],\"version\":1}",
+      "hash": "99945d4efbcd4ffe",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"v\"]",
+          "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+          "[\"math\",\"\\\\sin v\\\\approx {0.26}\"]",
+          "[\"math\",\"\\\\cos v\\\\approx {-0.97}\"]",
+          "[\"math\",\"v\\\\approx\"]",
+          "[\"raw\",\"33\"]",
+          "[\"math\",\"({-0.97},{0.26})\"]",
+          "[\"math\",\"v=\\\\frac{{33}}{36}\\\\pi\\\\approx {2.880}\"]",
+          "[\"math\",\"{165}^\\\\circ\"]"
+        ],
+        "teacher": [
+          [
+            "Vinkel v i radianer",
+            "11*pi/12"
+          ]
+        ],
+        "grading": {
+          "mode": "numeric",
+          "vars": "",
+          "reject": "",
+          "tolerance": "0.015",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": false,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "variables": {
+          "k": "33",
+          "angle": "11*pi/12",
+          "degrees": "165",
+          "sine": "13/50",
+          "cosine": "-97/100"
+        },
+        "checksum": "7029788b6a848d43490b4d109147643b5b87729177b0417266737e133546a92b"
+      },
+      "note": "Sinus $0.26$, cosinus $-0.97$. Finn v i [0,2*pi).",
+      "by": "automation:AC-authorized",
+      "date": ""
+    }
+  ],
+  "events": [
+    {
+      "before": [],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"55\"]]],\"version\":1}",
+          "hash": "7b8bf19d52caa8c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {-1.00}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.09}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"55\"]",
+              "[\"math\",\"({0.09},{-1.00})\"]",
+              "[\"math\",\"v=\\\\frac{{55}}{36}\\\\pi\\\\approx {4.800}\"]",
+              "[\"math\",\"{275}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "55*pi/36"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "55",
+              "angle": "55*pi/36",
+              "degrees": "275",
+              "sine": "-1",
+              "cosine": "9/100"
+            },
+            "checksum": "bed3bdcc73b2b05e6e488125e8566c0028e7f7ffede0bb7908b079944b6112f7"
+          },
+          "note": "Sinus $-1.00$, cosinus $0.09$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "before": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"55\"]]],\"version\":1}",
+          "hash": "7b8bf19d52caa8c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {-1.00}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.09}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"55\"]",
+              "[\"math\",\"({0.09},{-1.00})\"]",
+              "[\"math\",\"v=\\\\frac{{55}}{36}\\\\pi\\\\approx {4.800}\"]",
+              "[\"math\",\"{275}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "55*pi/36"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "55",
+              "angle": "55*pi/36",
+              "degrees": "275",
+              "sine": "-1",
+              "cosine": "9/100"
+            },
+            "checksum": "bed3bdcc73b2b05e6e488125e8566c0028e7f7ffede0bb7908b079944b6112f7"
+          },
+          "note": "Sinus $-1.00$, cosinus $0.09$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"55\"]]],\"version\":1}",
+          "hash": "7b8bf19d52caa8c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {-1.00}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.09}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"55\"]",
+              "[\"math\",\"({0.09},{-1.00})\"]",
+              "[\"math\",\"v=\\\\frac{{55}}{36}\\\\pi\\\\approx {4.800}\"]",
+              "[\"math\",\"{275}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "55*pi/36"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "55",
+              "angle": "55*pi/36",
+              "degrees": "275",
+              "sine": "-1",
+              "cosine": "9/100"
+            },
+            "checksum": "bed3bdcc73b2b05e6e488125e8566c0028e7f7ffede0bb7908b079944b6112f7"
+          },
+          "note": "Sinus $-1.00$, cosinus $0.09$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "2bc4bb96e4a42a5e",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.64}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.77}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"({0.77},{0.64})\"]",
+              "[\"math\",\"v=\\\\frac{{8}}{36}\\\\pi\\\\approx {0.698}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "2*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "angle": "2*pi/9",
+              "degrees": "40",
+              "sine": "16/25",
+              "cosine": "77/100"
+            },
+            "checksum": "947b9321b77ef7734041d0896010977c958d193ac06d230de9de518108e39e1c"
+          },
+          "note": "Sinus $0.64$, cosinus $0.77$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "before": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"55\"]]],\"version\":1}",
+          "hash": "7b8bf19d52caa8c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {-1.00}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.09}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"55\"]",
+              "[\"math\",\"({0.09},{-1.00})\"]",
+              "[\"math\",\"v=\\\\frac{{55}}{36}\\\\pi\\\\approx {4.800}\"]",
+              "[\"math\",\"{275}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "55*pi/36"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "55",
+              "angle": "55*pi/36",
+              "degrees": "275",
+              "sine": "-1",
+              "cosine": "9/100"
+            },
+            "checksum": "bed3bdcc73b2b05e6e488125e8566c0028e7f7ffede0bb7908b079944b6112f7"
+          },
+          "note": "Sinus $-1.00$, cosinus $0.09$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "2bc4bb96e4a42a5e",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.64}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.77}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"({0.77},{0.64})\"]",
+              "[\"math\",\"v=\\\\frac{{8}}{36}\\\\pi\\\\approx {0.698}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "2*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "angle": "2*pi/9",
+              "degrees": "40",
+              "sine": "16/25",
+              "cosine": "77/100"
+            },
+            "checksum": "947b9321b77ef7734041d0896010977c958d193ac06d230de9de518108e39e1c"
+          },
+          "note": "Sinus $0.64$, cosinus $0.77$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"55\"]]],\"version\":1}",
+          "hash": "7b8bf19d52caa8c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {-1.00}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.09}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"55\"]",
+              "[\"math\",\"({0.09},{-1.00})\"]",
+              "[\"math\",\"v=\\\\frac{{55}}{36}\\\\pi\\\\approx {4.800}\"]",
+              "[\"math\",\"{275}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "55*pi/36"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "55",
+              "angle": "55*pi/36",
+              "degrees": "275",
+              "sine": "-1",
+              "cosine": "9/100"
+            },
+            "checksum": "bed3bdcc73b2b05e6e488125e8566c0028e7f7ffede0bb7908b079944b6112f7"
+          },
+          "note": "Sinus $-1.00$, cosinus $0.09$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "2bc4bb96e4a42a5e",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.64}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.77}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"({0.77},{0.64})\"]",
+              "[\"math\",\"v=\\\\frac{{8}}{36}\\\\pi\\\\approx {0.698}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "2*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "angle": "2*pi/9",
+              "degrees": "40",
+              "sine": "16/25",
+              "cosine": "77/100"
+            },
+            "checksum": "947b9321b77ef7734041d0896010977c958d193ac06d230de9de518108e39e1c"
+          },
+          "note": "Sinus $0.64$, cosinus $0.77$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"32\"]]],\"version\":1}",
+          "hash": "93235f66ec418a2f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.34}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {-0.94}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"32\"]",
+              "[\"math\",\"({-0.94},{0.34})\"]",
+              "[\"math\",\"v=\\\\frac{{32}}{36}\\\\pi\\\\approx {2.793}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "8*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "32",
+              "angle": "8*pi/9",
+              "degrees": "160",
+              "sine": "17/50",
+              "cosine": "-47/50"
+            },
+            "checksum": "4a1835a07ad2aa341d4374f0697141af58950ffa4f2f2de7ef3b2ca53dffe72d"
+          },
+          "note": "Sinus $0.34$, cosinus $-0.94$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "before": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"55\"]]],\"version\":1}",
+          "hash": "7b8bf19d52caa8c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {-1.00}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.09}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"55\"]",
+              "[\"math\",\"({0.09},{-1.00})\"]",
+              "[\"math\",\"v=\\\\frac{{55}}{36}\\\\pi\\\\approx {4.800}\"]",
+              "[\"math\",\"{275}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "55*pi/36"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "55",
+              "angle": "55*pi/36",
+              "degrees": "275",
+              "sine": "-1",
+              "cosine": "9/100"
+            },
+            "checksum": "bed3bdcc73b2b05e6e488125e8566c0028e7f7ffede0bb7908b079944b6112f7"
+          },
+          "note": "Sinus $-1.00$, cosinus $0.09$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "2bc4bb96e4a42a5e",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.64}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.77}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"({0.77},{0.64})\"]",
+              "[\"math\",\"v=\\\\frac{{8}}{36}\\\\pi\\\\approx {0.698}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "2*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "angle": "2*pi/9",
+              "degrees": "40",
+              "sine": "16/25",
+              "cosine": "77/100"
+            },
+            "checksum": "947b9321b77ef7734041d0896010977c958d193ac06d230de9de518108e39e1c"
+          },
+          "note": "Sinus $0.64$, cosinus $0.77$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"32\"]]],\"version\":1}",
+          "hash": "93235f66ec418a2f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.34}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {-0.94}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"32\"]",
+              "[\"math\",\"({-0.94},{0.34})\"]",
+              "[\"math\",\"v=\\\\frac{{32}}{36}\\\\pi\\\\approx {2.793}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "8*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "32",
+              "angle": "8*pi/9",
+              "degrees": "160",
+              "sine": "17/50",
+              "cosine": "-47/50"
+            },
+            "checksum": "4a1835a07ad2aa341d4374f0697141af58950ffa4f2f2de7ef3b2ca53dffe72d"
+          },
+          "note": "Sinus $0.34$, cosinus $-0.94$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"55\"]]],\"version\":1}",
+          "hash": "7b8bf19d52caa8c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {-1.00}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.09}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"55\"]",
+              "[\"math\",\"({0.09},{-1.00})\"]",
+              "[\"math\",\"v=\\\\frac{{55}}{36}\\\\pi\\\\approx {4.800}\"]",
+              "[\"math\",\"{275}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "55*pi/36"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "55",
+              "angle": "55*pi/36",
+              "degrees": "275",
+              "sine": "-1",
+              "cosine": "9/100"
+            },
+            "checksum": "bed3bdcc73b2b05e6e488125e8566c0028e7f7ffede0bb7908b079944b6112f7"
+          },
+          "note": "Sinus $-1.00$, cosinus $0.09$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "2bc4bb96e4a42a5e",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.64}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.77}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"({0.77},{0.64})\"]",
+              "[\"math\",\"v=\\\\frac{{8}}{36}\\\\pi\\\\approx {0.698}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "2*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "angle": "2*pi/9",
+              "degrees": "40",
+              "sine": "16/25",
+              "cosine": "77/100"
+            },
+            "checksum": "947b9321b77ef7734041d0896010977c958d193ac06d230de9de518108e39e1c"
+          },
+          "note": "Sinus $0.64$, cosinus $0.77$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"32\"]]],\"version\":1}",
+          "hash": "93235f66ec418a2f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.34}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {-0.94}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"32\"]",
+              "[\"math\",\"({-0.94},{0.34})\"]",
+              "[\"math\",\"v=\\\\frac{{32}}{36}\\\\pi\\\\approx {2.793}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "8*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "32",
+              "angle": "8*pi/9",
+              "degrees": "160",
+              "sine": "17/50",
+              "cosine": "-47/50"
+            },
+            "checksum": "4a1835a07ad2aa341d4374f0697141af58950ffa4f2f2de7ef3b2ca53dffe72d"
+          },
+          "note": "Sinus $0.34$, cosinus $-0.94$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 4,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"56\"]]],\"version\":1}",
+          "hash": "bbb6963e4945bbc4",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {-0.98}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.17}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"56\"]",
+              "[\"math\",\"({0.17},{-0.98})\"]",
+              "[\"math\",\"v=\\\\frac{{56}}{36}\\\\pi\\\\approx {4.887}\"]",
+              "[\"math\",\"{280}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "14*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "56",
+              "angle": "14*pi/9",
+              "degrees": "280",
+              "sine": "-49/50",
+              "cosine": "17/100"
+            },
+            "checksum": "3ffcf44b5017b6eef44568d7dbe9cbfb2458057803ce5622e63d9864883ac76f"
+          },
+          "note": "Sinus $-0.98$, cosinus $0.17$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "before": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"55\"]]],\"version\":1}",
+          "hash": "7b8bf19d52caa8c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {-1.00}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.09}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"55\"]",
+              "[\"math\",\"({0.09},{-1.00})\"]",
+              "[\"math\",\"v=\\\\frac{{55}}{36}\\\\pi\\\\approx {4.800}\"]",
+              "[\"math\",\"{275}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "55*pi/36"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "55",
+              "angle": "55*pi/36",
+              "degrees": "275",
+              "sine": "-1",
+              "cosine": "9/100"
+            },
+            "checksum": "bed3bdcc73b2b05e6e488125e8566c0028e7f7ffede0bb7908b079944b6112f7"
+          },
+          "note": "Sinus $-1.00$, cosinus $0.09$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "2bc4bb96e4a42a5e",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.64}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.77}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"({0.77},{0.64})\"]",
+              "[\"math\",\"v=\\\\frac{{8}}{36}\\\\pi\\\\approx {0.698}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "2*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "angle": "2*pi/9",
+              "degrees": "40",
+              "sine": "16/25",
+              "cosine": "77/100"
+            },
+            "checksum": "947b9321b77ef7734041d0896010977c958d193ac06d230de9de518108e39e1c"
+          },
+          "note": "Sinus $0.64$, cosinus $0.77$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"32\"]]],\"version\":1}",
+          "hash": "93235f66ec418a2f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.34}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {-0.94}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"32\"]",
+              "[\"math\",\"({-0.94},{0.34})\"]",
+              "[\"math\",\"v=\\\\frac{{32}}{36}\\\\pi\\\\approx {2.793}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "8*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "32",
+              "angle": "8*pi/9",
+              "degrees": "160",
+              "sine": "17/50",
+              "cosine": "-47/50"
+            },
+            "checksum": "4a1835a07ad2aa341d4374f0697141af58950ffa4f2f2de7ef3b2ca53dffe72d"
+          },
+          "note": "Sinus $0.34$, cosinus $-0.94$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 4,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"56\"]]],\"version\":1}",
+          "hash": "bbb6963e4945bbc4",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {-0.98}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.17}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"56\"]",
+              "[\"math\",\"({0.17},{-0.98})\"]",
+              "[\"math\",\"v=\\\\frac{{56}}{36}\\\\pi\\\\approx {4.887}\"]",
+              "[\"math\",\"{280}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "14*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "56",
+              "angle": "14*pi/9",
+              "degrees": "280",
+              "sine": "-49/50",
+              "cosine": "17/100"
+            },
+            "checksum": "3ffcf44b5017b6eef44568d7dbe9cbfb2458057803ce5622e63d9864883ac76f"
+          },
+          "note": "Sinus $-0.98$, cosinus $0.17$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"55\"]]],\"version\":1}",
+          "hash": "7b8bf19d52caa8c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {-1.00}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.09}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"55\"]",
+              "[\"math\",\"({0.09},{-1.00})\"]",
+              "[\"math\",\"v=\\\\frac{{55}}{36}\\\\pi\\\\approx {4.800}\"]",
+              "[\"math\",\"{275}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "55*pi/36"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "55",
+              "angle": "55*pi/36",
+              "degrees": "275",
+              "sine": "-1",
+              "cosine": "9/100"
+            },
+            "checksum": "bed3bdcc73b2b05e6e488125e8566c0028e7f7ffede0bb7908b079944b6112f7"
+          },
+          "note": "Sinus $-1.00$, cosinus $0.09$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "2bc4bb96e4a42a5e",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.64}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.77}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"({0.77},{0.64})\"]",
+              "[\"math\",\"v=\\\\frac{{8}}{36}\\\\pi\\\\approx {0.698}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "2*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "angle": "2*pi/9",
+              "degrees": "40",
+              "sine": "16/25",
+              "cosine": "77/100"
+            },
+            "checksum": "947b9321b77ef7734041d0896010977c958d193ac06d230de9de518108e39e1c"
+          },
+          "note": "Sinus $0.64$, cosinus $0.77$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"32\"]]],\"version\":1}",
+          "hash": "93235f66ec418a2f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.34}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {-0.94}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"32\"]",
+              "[\"math\",\"({-0.94},{0.34})\"]",
+              "[\"math\",\"v=\\\\frac{{32}}{36}\\\\pi\\\\approx {2.793}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "8*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "32",
+              "angle": "8*pi/9",
+              "degrees": "160",
+              "sine": "17/50",
+              "cosine": "-47/50"
+            },
+            "checksum": "4a1835a07ad2aa341d4374f0697141af58950ffa4f2f2de7ef3b2ca53dffe72d"
+          },
+          "note": "Sinus $0.34$, cosinus $-0.94$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 4,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"56\"]]],\"version\":1}",
+          "hash": "bbb6963e4945bbc4",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {-0.98}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.17}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"56\"]",
+              "[\"math\",\"({0.17},{-0.98})\"]",
+              "[\"math\",\"v=\\\\frac{{56}}{36}\\\\pi\\\\approx {4.887}\"]",
+              "[\"math\",\"{280}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "14*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "56",
+              "angle": "14*pi/9",
+              "degrees": "280",
+              "sine": "-49/50",
+              "cosine": "17/100"
+            },
+            "checksum": "3ffcf44b5017b6eef44568d7dbe9cbfb2458057803ce5622e63d9864883ac76f"
+          },
+          "note": "Sinus $-0.98$, cosinus $0.17$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 5,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"9\"]]],\"version\":1}",
+          "hash": "3c0c7953278301a0",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.71}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.71}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"9\"]",
+              "[\"math\",\"({0.71},{0.71})\"]",
+              "[\"math\",\"v=\\\\frac{{9}}{36}\\\\pi\\\\approx {0.785}\"]",
+              "[\"math\",\"{45}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "pi/4"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "9",
+              "angle": "pi/4",
+              "degrees": "45",
+              "sine": "71/100",
+              "cosine": "71/100"
+            },
+            "checksum": "42fad54336231d2fa5bcf9a03a0d4150b2e499b1afd36ec000c30358de0166aa"
+          },
+          "note": "Sinus $0.71$, cosinus $0.71$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "before": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"55\"]]],\"version\":1}",
+          "hash": "7b8bf19d52caa8c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {-1.00}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.09}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"55\"]",
+              "[\"math\",\"({0.09},{-1.00})\"]",
+              "[\"math\",\"v=\\\\frac{{55}}{36}\\\\pi\\\\approx {4.800}\"]",
+              "[\"math\",\"{275}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "55*pi/36"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "55",
+              "angle": "55*pi/36",
+              "degrees": "275",
+              "sine": "-1",
+              "cosine": "9/100"
+            },
+            "checksum": "bed3bdcc73b2b05e6e488125e8566c0028e7f7ffede0bb7908b079944b6112f7"
+          },
+          "note": "Sinus $-1.00$, cosinus $0.09$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "2bc4bb96e4a42a5e",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.64}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.77}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"({0.77},{0.64})\"]",
+              "[\"math\",\"v=\\\\frac{{8}}{36}\\\\pi\\\\approx {0.698}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "2*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "angle": "2*pi/9",
+              "degrees": "40",
+              "sine": "16/25",
+              "cosine": "77/100"
+            },
+            "checksum": "947b9321b77ef7734041d0896010977c958d193ac06d230de9de518108e39e1c"
+          },
+          "note": "Sinus $0.64$, cosinus $0.77$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"32\"]]],\"version\":1}",
+          "hash": "93235f66ec418a2f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.34}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {-0.94}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"32\"]",
+              "[\"math\",\"({-0.94},{0.34})\"]",
+              "[\"math\",\"v=\\\\frac{{32}}{36}\\\\pi\\\\approx {2.793}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "8*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "32",
+              "angle": "8*pi/9",
+              "degrees": "160",
+              "sine": "17/50",
+              "cosine": "-47/50"
+            },
+            "checksum": "4a1835a07ad2aa341d4374f0697141af58950ffa4f2f2de7ef3b2ca53dffe72d"
+          },
+          "note": "Sinus $0.34$, cosinus $-0.94$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 4,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"56\"]]],\"version\":1}",
+          "hash": "bbb6963e4945bbc4",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {-0.98}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.17}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"56\"]",
+              "[\"math\",\"({0.17},{-0.98})\"]",
+              "[\"math\",\"v=\\\\frac{{56}}{36}\\\\pi\\\\approx {4.887}\"]",
+              "[\"math\",\"{280}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "14*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "56",
+              "angle": "14*pi/9",
+              "degrees": "280",
+              "sine": "-49/50",
+              "cosine": "17/100"
+            },
+            "checksum": "3ffcf44b5017b6eef44568d7dbe9cbfb2458057803ce5622e63d9864883ac76f"
+          },
+          "note": "Sinus $-0.98$, cosinus $0.17$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 5,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"9\"]]],\"version\":1}",
+          "hash": "3c0c7953278301a0",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.71}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.71}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"9\"]",
+              "[\"math\",\"({0.71},{0.71})\"]",
+              "[\"math\",\"v=\\\\frac{{9}}{36}\\\\pi\\\\approx {0.785}\"]",
+              "[\"math\",\"{45}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "pi/4"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "9",
+              "angle": "pi/4",
+              "degrees": "45",
+              "sine": "71/100",
+              "cosine": "71/100"
+            },
+            "checksum": "42fad54336231d2fa5bcf9a03a0d4150b2e499b1afd36ec000c30358de0166aa"
+          },
+          "note": "Sinus $0.71$, cosinus $0.71$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"55\"]]],\"version\":1}",
+          "hash": "7b8bf19d52caa8c3",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {-1.00}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.09}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"55\"]",
+              "[\"math\",\"({0.09},{-1.00})\"]",
+              "[\"math\",\"v=\\\\frac{{55}}{36}\\\\pi\\\\approx {4.800}\"]",
+              "[\"math\",\"{275}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "55*pi/36"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "55",
+              "angle": "55*pi/36",
+              "degrees": "275",
+              "sine": "-1",
+              "cosine": "9/100"
+            },
+            "checksum": "bed3bdcc73b2b05e6e488125e8566c0028e7f7ffede0bb7908b079944b6112f7"
+          },
+          "note": "Sinus $-1.00$, cosinus $0.09$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 2,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"8\"]]],\"version\":1}",
+          "hash": "2bc4bb96e4a42a5e",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.64}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.77}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"8\"]",
+              "[\"math\",\"({0.77},{0.64})\"]",
+              "[\"math\",\"v=\\\\frac{{8}}{36}\\\\pi\\\\approx {0.698}\"]",
+              "[\"math\",\"{40}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "2*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "8",
+              "angle": "2*pi/9",
+              "degrees": "40",
+              "sine": "16/25",
+              "cosine": "77/100"
+            },
+            "checksum": "947b9321b77ef7734041d0896010977c958d193ac06d230de9de518108e39e1c"
+          },
+          "note": "Sinus $0.64$, cosinus $0.77$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 3,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"32\"]]],\"version\":1}",
+          "hash": "93235f66ec418a2f",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.34}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {-0.94}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"32\"]",
+              "[\"math\",\"({-0.94},{0.34})\"]",
+              "[\"math\",\"v=\\\\frac{{32}}{36}\\\\pi\\\\approx {2.793}\"]",
+              "[\"math\",\"{160}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "8*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "32",
+              "angle": "8*pi/9",
+              "degrees": "160",
+              "sine": "17/50",
+              "cosine": "-47/50"
+            },
+            "checksum": "4a1835a07ad2aa341d4374f0697141af58950ffa4f2f2de7ef3b2ca53dffe72d"
+          },
+          "note": "Sinus $0.34$, cosinus $-0.94$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 4,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"56\"]]],\"version\":1}",
+          "hash": "bbb6963e4945bbc4",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {-0.98}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.17}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"56\"]",
+              "[\"math\",\"({0.17},{-0.98})\"]",
+              "[\"math\",\"v=\\\\frac{{56}}{36}\\\\pi\\\\approx {4.887}\"]",
+              "[\"math\",\"{280}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "14*pi/9"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "56",
+              "angle": "14*pi/9",
+              "degrees": "280",
+              "sine": "-49/50",
+              "cosine": "17/100"
+            },
+            "checksum": "3ffcf44b5017b6eef44568d7dbe9cbfb2458057803ce5622e63d9864883ac76f"
+          },
+          "note": "Sinus $-0.98$, cosinus $0.17$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 5,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"9\"]]],\"version\":1}",
+          "hash": "3c0c7953278301a0",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.71}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {0.71}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"9\"]",
+              "[\"math\",\"({0.71},{0.71})\"]",
+              "[\"math\",\"v=\\\\frac{{9}}{36}\\\\pi\\\\approx {0.785}\"]",
+              "[\"math\",\"{45}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "pi/4"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "9",
+              "angle": "pi/4",
+              "degrees": "45",
+              "sine": "71/100",
+              "cosine": "71/100"
+            },
+            "checksum": "42fad54336231d2fa5bcf9a03a0d4150b2e499b1afd36ec000c30358de0166aa"
+          },
+          "note": "Sinus $0.71$, cosinus $0.71$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        },
+        {
+          "n": 6,
+          "id": "{\"value\":[\"list\",[[\"integer\",\"33\"]]],\"version\":1}",
+          "hash": "99945d4efbcd4ffe",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"v\"]",
+              "[\"math\",\"0\\\\leq v<2\\\\pi\"]",
+              "[\"math\",\"\\\\sin v\\\\approx {0.26}\"]",
+              "[\"math\",\"\\\\cos v\\\\approx {-0.97}\"]",
+              "[\"math\",\"v\\\\approx\"]",
+              "[\"raw\",\"33\"]",
+              "[\"math\",\"({-0.97},{0.26})\"]",
+              "[\"math\",\"v=\\\\frac{{33}}{36}\\\\pi\\\\approx {2.880}\"]",
+              "[\"math\",\"{165}^\\\\circ\"]"
+            ],
+            "teacher": [
+              [
+                "Vinkel v i radianer",
+                "11*pi/12"
+              ]
+            ],
+            "grading": {
+              "mode": "numeric",
+              "vars": "",
+              "reject": "",
+              "tolerance": "0.015",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "variables": {
+              "k": "33",
+              "angle": "11*pi/12",
+              "degrees": "165",
+              "sine": "13/50",
+              "cosine": "-97/100"
+            },
+            "checksum": "7029788b6a848d43490b4d109147643b5b87729177b0417266737e133546a92b"
+          },
+          "note": "Sinus $0.26$, cosinus $-0.97$. Finn v i [0,2*pi).",
+          "by": "automation:AC-authorized",
+          "date": ""
+        }
+      ]
+    }
+  ]
 }
