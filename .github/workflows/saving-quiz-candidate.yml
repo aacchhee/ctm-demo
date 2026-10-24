@@ -6,9 +6,23 @@ on:
       - _includes/step4-ui/**
       - _quarto-saving-quiz.yml
       - scripts/test-saving-quiz-candidate.py
+      - scripts/check-merged-package.py
+      - scripts/check-merged-authoring.py
+      - scripts/test-merged-package.py
+      - .github/merged-package-refs.json
+      - quarto-extensions.yml
       - .github/workflows/saving-quiz-candidate.yml
+      - .github/workflows/combined-demo-acceptance.yml
+      - scripts/acceptance/project-demo-results.py
+      - scripts/acceptance/test-project-demo-results.py
       - .github/workflows/quarto.yml
   workflow_dispatch:
+    inputs:
+      confirmation:
+        description: 'For the merged-package branch enter merged package acceptance'
+        required: false
+        default: ''
+        type: string
 permissions:
   contents: read
 concurrency:
@@ -16,7 +30,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   source:
-    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'consolidation/2026-10-saving-quiz-candidate'
+    if: (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/consolidation/2026-10-saving-quiz-candidate') || github.head_ref == 'consolidation/2026-10-saving-quiz-candidate'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -98,3 +112,163 @@ jobs:
             .private-extensions/resolved-repos.json
             .private-extensions/saving-quiz-candidate.json
             _quarto-saving-quiz.yml
+
+  # New merged-only acceptance retains the original frozen candidate jobs above.
+  merged_manual_scope:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail closed before candidate work on an incorrect manual ref or choice
+        env:
+          CANDIDATE_REF: ${{ github.ref }}
+          CONFIRMATION: ${{ inputs.confirmation }}
+        run: |
+          test "$CANDIDATE_REF" = 'refs/heads/consolidation/2026-10-merged-package-demo'
+          test "$CONFIRMATION" = 'merged package acceptance'
+  merged_source:
+    if: github.head_ref == 'consolidation/2026-10-merged-package-demo' || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/consolidation/2026-10-merged-package-demo')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require the explicit bounded acceptance choice on a manual run
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          CONFIRMATION: ${{ inputs.confirmation }}
+        run: test "$CONFIRMATION" = 'merged package acceptance'
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - run: python -m pip install PyYAML==6.0.3
+      - name: Check the ordinary immutable package and maintained harness sources
+        run: |
+          git diff --check
+          python scripts/check-merged-package.py
+          python scripts/test-merged-package.py
+          python scripts/test-saving-quiz-candidate.py
+          python -m py_compile scripts/check-stack-native-authoring.py scripts/check-merged-authoring.py
+          python scripts/diagnostics/test-first-visit-publication.py
+          python scripts/acceptance/test-project-demo-results.py
+          node --check scripts/diagnostics/test-demo-first-visit.mjs
+          node --check scripts/diagnostics/test-demo-first-visit-network.mjs
+          cmp scripts/diagnostics/test-demo-first-visit.mjs scripts/diagnostics/test-demo-first-visit-network.mjs
+  merged_build:
+    outputs:
+      first_visit_ready: ${{ steps.first_visit.outcome == 'success' }}
+    needs: merged_source
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/consolidation/2026-10-merged-package-demo' && inputs.confirmation == 'merged package acceptance'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: '1.8.27'
+      - name: Install the ordinary merged package without overrides
+        run: |
+          python -m pip install -r requirements.txt sympy==1.13.3
+          python scripts/setup.py
+          python scripts/check-merged-package.py --record .private-extensions/resolved-repos.json
+      - name: Render the one first-visit page
+        id: first_visit
+        run: |
+          set -o pipefail
+          mkdir -p merged-package-build
+          quarto render pages/step4-ui.qmd --profile saving-quiz 2>&1 | tee merged-package-build/first-visit-render.log
+      - name: Revalidate maintained native proposals without decisions
+        if: ${{ !cancelled() }}
+        run: |
+          python scripts/generate-stack-figures.py
+          git diff --exit-code -- _includes/stack/*-figure.md
+          node scripts/test-stack-figure-transport.cjs
+          mkdir -p merged-package-build/native-review
+          for kind in triangles values angle tangent; do
+            python _extensions/math-exercise/question-variants.py --project . --file "_includes/stack/$kind.qmd" --label "stack-$kind" review --html "merged-package-build/native-review/$kind.html" > "merged-package-build/native-review/$kind.json"
+          done
+          git diff --exit-code -- _variants
+          python scripts/check-merged-authoring.py merged-package-build/native-review
+      - name: Render and verify only the native authoring page
+        if: ${{ !cancelled() }}
+        env:
+          CTM_VARIANTS: review
+        run: |
+          set -o pipefail
+          quarto render pages/stack-oppgaver.qmd --profile variants-review 2>&1 | tee merged-package-build/native-render.log
+          python scripts/check-stack-native-authoring.py _variants-review-site/pages/stack-oppgaver.html
+      - name: Record exact source, manifest and output bytes
+        if: always()
+        run: |
+          python - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          roots=[pathlib.Path('_saving-quiz-site'),pathlib.Path('_variants-review-site')]
+          files={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for root in roots if root.exists() for p in sorted(root.rglob('*')) if p.is_file()}
+          pathlib.Path('merged-package-build').mkdir(exist_ok=True)
+          record={'sourceHead':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'refs':json.loads(pathlib.Path('.github/merged-package-refs.json').read_text()),'files':files,'scope':'one first-visit page plus one native-authoring page; no deployment or approval changes'}
+          pathlib.Path('merged-package-build/record.json').write_text(json.dumps(record,indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: merged-package-site-${{ github.sha }}
+          include-hidden-files: true
+          path: |
+            _saving-quiz-site
+            _variants-review-site
+            .private-extensions/resolved-repos.json
+            merged-package-build/record.json
+            merged-package-build/native-review/*.json
+            merged-package-build/native-review/*.html
+  merged_browsers:
+    needs: merged_build
+    if: ${{ !cancelled() && needs.merged_build.outputs.first_visit_ready == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v7
+        with:
+          name: merged-package-site-${{ github.sha }}
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - name: Install the maintained exact browser harness
+        run: |
+          npm install --prefix .first-start-tooling --no-save --ignore-scripts playwright@1.62.1
+          .first-start-tooling/node_modules/.bin/playwright install --with-deps ${{ matrix.browser }}
+          echo "CTM_PLAYWRIGHT_MODULE=file://$PWD/.first-start-tooling/node_modules/playwright/index.mjs" >> "$GITHUB_ENV"
+      - name: Byte-preserving first visit with strict network lifecycle accounting
+        run: node scripts/diagnostics/test-demo-first-visit.mjs --site _saving-quiz-site --browser ${{ matrix.browser }} --output merged-package-browser/baseline.json
+      - name: Missing JSXGraph preserves Python and ordinary Check
+        if: ${{ !cancelled() }}
+        run: node scripts/diagnostics/test-demo-first-visit.mjs --site _saving-quiz-site --browser ${{ matrix.browser }} --fault jsxgraph --output merged-package-browser/missing-jsxgraph.json
+      - name: Missing speech preserves Python and ordinary Check
+        if: ${{ !cancelled() }}
+        run: node scripts/diagnostics/test-demo-first-visit.mjs --site _saving-quiz-site --browser ${{ matrix.browser }} --fault speech --output merged-package-browser/missing-speech.json
+      - name: Project outcomes and byte provenance without diagnostic streams
+        if: always()
+        run: python scripts/diagnostics/project-first-visit-results.py --input merged-package-browser --output merged-package-summary
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: merged-package-${{ matrix.browser }}-${{ github.sha }}
+          path: |
+            merged-package-summary/*.json
+            merged-package-browser/*-failure.png
