@@ -89,6 +89,18 @@ class Installation(unittest.TestCase):
                 data = (root / name).read_bytes()
                 self.assertEqual(expected, {'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()})
             self.assertEqual(bootstrap.materialize(root), manifest, 'identical installation is repeatable')
+            # Exercise the real component entrypoint's nested source verification,
+            # rather than accepting only the outer archive inventory.
+            adapter_spec = importlib.util.spec_from_file_location(
+                'installed_question_variants', root / '_extensions/math-exercise/question-variants.py')
+            adapter = importlib.util.module_from_spec(adapter_spec)
+            adapter_spec.loader.exec_module(adapter)
+            native = root / '_extensions/ctm-checkers/native-authoring'
+            self.assertEqual(adapter._verify_native(native), native.resolve())
+            bot = native / 'ctm_variants/github_bot.py'
+            bot.write_bytes(bot.read_bytes() + b'\n# unrecorded change\n')
+            with self.assertRaisesRegex(ValueError, 'source differs from its manifest'):
+                adapter._verify_native(native)
 
 
 class NativeReviewOverride(unittest.TestCase):
@@ -284,6 +296,17 @@ class NativeBotOverride(unittest.TestCase):
         canonical = package / builder.BOT_TARGET
         canonical.parent.mkdir(parents=True)
         canonical.write_bytes(base)
+        helper = b'# canonical unrelated native helper\n'
+        helper_target = package / '_extensions/ctm-checkers/native-authoring/helper.py'
+        helper_target.write_bytes(helper)
+        record['extension_sha256']['ctm-checkers']['native-authoring/helper.py'] = hashlib.sha256(helper).hexdigest()
+        native_receipt = {'version': 1, 'kind': 'native-authoring', 'files': {
+            builder.BOT_MEMBER: {'bytes': len(base), 'sha256': hashlib.sha256(base).hexdigest()},
+            'helper.py': {'bytes': len(helper), 'sha256': hashlib.sha256(helper).hexdigest()}}}
+        data = (json.dumps(native_receipt, indent=2) + '\n').encode()
+        (package / builder.NATIVE_RECEIPT).write_bytes(data)
+        record['extension_sha256']['ctm-checkers']['native-authoring/native.json'] = hashlib.sha256(data).hexdigest()
+        record_path.write_text(json.dumps(record))
         return package, course, dict(native_review_source=review, native_review_commit=review_commit,
                                     native_bot_source=source, native_bot_commit=commit)
 
@@ -295,7 +318,7 @@ class NativeBotOverride(unittest.TestCase):
             self.assertEqual(manifest['version'], 3)
             self.assertEqual(manifest['sources'], baseline['sources'])
             changed = {name for name in manifest['files'] if manifest['files'][name] != baseline['files'][name]}
-            self.assertEqual(changed, {builder.REVIEW_TARGET, builder.BOT_TARGET})
+            self.assertEqual(changed, {builder.REVIEW_TARGET, builder.BOT_TARGET, builder.NATIVE_RECEIPT})
             archive = (course / '.github/variants-tooling/package.tar.gz').read_bytes()
             self.assertEqual(builder.build(package, course, **options), manifest)
             self.assertEqual((course / '.github/variants-tooling/package.tar.gz').read_bytes(), archive)
@@ -305,7 +328,9 @@ class NativeBotOverride(unittest.TestCase):
     def test_v3_bot_provenance_and_complete_inventory_fail_closed(self):
         faults = ('target', 'sourcePath', 'repository', 'commit', 'gitBlob', 'baseCommit',
                   'baseSha256', 'replacementSha256', 'duplicate', 'missing_bot', 'missing_exporter',
-                  'downgrade', 'canonical_payload', 'missing_payload', 'extra_payload', 'unlisted')
+                  'downgrade', 'canonical_payload', 'missing_payload', 'extra_payload', 'unlisted',
+                  'baseBytes', 'base_bytes_changed', 'stale_native', 'native_extra_entry',
+                  'native_wrong_entry', 'native_removed_entry', 'native_unrelated_consistent')
         for fault in faults:
             with self.subTest(fault=fault), tempfile.TemporaryDirectory() as temp:
                 package, course, options = self.fixture(Path(temp))
@@ -313,6 +338,8 @@ class NativeBotOverride(unittest.TestCase):
                 override = manifest['nativeReviewOverrides'][1]
                 if fault in override:
                     override[fault] = '0' * (64 if fault in ('baseSha256', 'replacementSha256') else 40) if fault in ('gitBlob', 'baseSha256', 'replacementSha256') else 'invalid'
+                elif fault == 'base_bytes_changed':
+                    override['baseBytes'] += 1
                 elif fault == 'duplicate':
                     manifest['nativeReviewOverrides'][0] = dict(override)
                 elif fault == 'missing_bot':
@@ -330,6 +357,22 @@ class NativeBotOverride(unittest.TestCase):
                         del files[builder.BOT_TARGET]
                     elif fault == 'extra_payload':
                         files['_extensions/ctm-checkers/native-authoring/unreviewed.py'] = b'pass\n'
+                    elif fault.startswith('native_') or fault == 'stale_native':
+                        native = json.loads(files[builder.NATIVE_RECEIPT])
+                        if fault == 'stale_native':
+                            native['files'][builder.BOT_MEMBER] = {
+                                'bytes': override['baseBytes'], 'sha256': override['baseSha256']}
+                        elif fault == 'native_extra_entry':
+                            native['files']['unreviewed.py'] = {'bytes': 0, 'sha256': hashlib.sha256(b'').hexdigest()}
+                        elif fault == 'native_wrong_entry':
+                            native['files'][builder.BOT_MEMBER]['sha256'] = '0' * 64
+                        elif fault == 'native_unrelated_consistent':
+                            data = b'# self-consistent but unauthorized helper change\n'
+                            files['_extensions/ctm-checkers/native-authoring/helper.py'] = data
+                            native['files']['helper.py'] = {'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()}
+                        else:
+                            del native['files'][builder.BOT_MEMBER]
+                        files[builder.NATIVE_RECEIPT] = (json.dumps(native, indent=2) + '\n').encode()
                 NativeReviewOverride().rewrite(course, manifest, transform)
                 with self.assertRaises(ValueError):
                     bootstrap.materialize(course)

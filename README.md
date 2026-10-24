@@ -81,9 +81,14 @@ frozen student-package commits. Version 1 contains that canonical package;
 version 2 may replace only `math-exercise/variants-review.py` for a reviewed
 native exporter correction. Version 3 retains that exporter correction and adds
 only `ctm-checkers/native-authoring/ctm_variants/github_bot.py` for the bot's
-post-commit head-readiness check. `nativeReviewOverrides` records each immutable
+post-commit head-readiness check, plus the mechanically derived `native.json`
+inventory entry for that file. `nativeReviewOverrides` records each immutable
 upstream commit, Git blob, source path, canonical base commit/digest and replacement
-digest. The embedded resolved record describes the canonical **base**, with the
+digest. The bot override also records its canonical base byte length. The
+bootstrap reconstructs the original native inventory using the base length and
+digest, checks its hash against the canonical receipt, and verifies the complete
+native source closure before installation. The embedded resolved record
+describes the canonical **base**, with the
 explicit native overrides recorded separately; it does not describe a full
 component upgrade. Runtime files, wheels and ordinary site pins stay unchanged.
 
@@ -107,7 +112,8 @@ correction from [ctm-checkers PR33](https://github.com/Erasmus-CTM/ctm-checkers/
 immutable commit `efab7ad96bedb405ed3a71862018b0bc9cda628f`. The bot retries only a
 brief stale PR-head projection after its atomic commit, then requires the exact
 new branch ref before dispatching validation. Relative to the exporter-only
-package, exactly one of the 112 archived files changes; the other 111 files,
+package, exactly two of the 112 archived files change: the bot and its derived
+native inventory. The other 110 files,
 all seven base pins and saved course records remain unchanged. These native-tool
 corrections do not upgrade student package `503c868` or grant teaching approvals.
 

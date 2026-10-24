@@ -15,6 +15,8 @@ COMPONENTS = ('ctm-assessment', 'ctm-checkers', 'ctm-libs', 'math-exercise')
 REVIEW_TARGET = '_extensions/math-exercise/variants-review.py'
 BOT_TARGET = '_extensions/ctm-checkers/native-authoring/ctm_variants/github_bot.py'
 BOT_SOURCE = 'authoring/ctm_variants/github_bot.py'
+NATIVE_RECEIPT = '_extensions/ctm-checkers/native-authoring/native.json'
+BOT_MEMBER = 'ctm_variants/github_bot.py'
 
 
 def native_override(files, refs, source, commit, *, component, target, source_path):
@@ -48,11 +50,30 @@ def native_override(files, refs, source, commit, *, component, target, source_pa
     if blob != hashlib.sha1(b'blob ' + str(len(replacement)).encode() + b'\0' + replacement).hexdigest():
         raise ValueError('Native tool Git blob mismatch')
     files[target] = replacement
-    return {'target': target, 'repository': repository,
+    provenance = {'target': target, 'repository': repository,
             'commit': commit, 'sourcePath': source_path, 'gitBlob': blob,
             'baseCommit': refs[component],
             'baseSha256': hashlib.sha256(base).hexdigest(),
             'replacementSha256': hashlib.sha256(replacement).hexdigest()}
+    if target == BOT_TARGET:
+        provenance['baseBytes'] = len(base)
+    return provenance
+
+
+def derive_native_receipt(files, override):
+    """Refresh only the bot entry of the verified canonical native inventory."""
+    original = files[NATIVE_RECEIPT]
+    receipt = json.loads(original)
+    if (set(receipt) != {'version', 'kind', 'files'} or receipt['version'] != 1
+            or receipt['kind'] != 'native-authoring'
+            or receipt['files'].get(BOT_MEMBER) != {
+                'bytes': override['baseBytes'], 'sha256': override['baseSha256']}
+            or original != (json.dumps(receipt, indent=2) + '\n').encode()):
+        raise ValueError('Invalid canonical native inventory for bot correction')
+    replacement = files[BOT_TARGET]
+    receipt['files'][BOT_MEMBER] = {
+        'bytes': len(replacement), 'sha256': hashlib.sha256(replacement).hexdigest()}
+    files[NATIVE_RECEIPT] = (json.dumps(receipt, indent=2) + '\n').encode()
 
 
 def build(package, root=ROOT, *, native_review_source=None, native_review_commit=None,
@@ -96,6 +117,7 @@ def build(package, root=ROOT, *, native_review_source=None, native_review_commit
     if native_bot_source:
         overrides.append(native_override(files, refs, native_bot_source, native_bot_commit,
             component='ctm-checkers', target=BOT_TARGET, source_path=BOT_SOURCE))
+        derive_native_receipt(files, overrides[-1])
     output = root / '.github/variants-tooling'
     output.mkdir(parents=True, exist_ok=True)
     buffer = io.BytesIO()

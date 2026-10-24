@@ -10,8 +10,8 @@
     "jsxgraph": "e4ad81d82e1b56f86765026a3dd26f6975d29d57"
   },
   "archive": {
-    "bytes": 684360,
-    "sha256": "3cb1ea6b37a37a124724fbf9963fdb3d2e323408ce70e59b6c2e2ef5522b0476"
+    "bytes": 684362,
+    "sha256": "27e8886f923961864e48d29570b0077b30a3a1b0611df739602e4202a734ec55"
   },
   "files": {
     "LICENSE": {
@@ -204,7 +204,7 @@
     },
     "_extensions/ctm-checkers/native-authoring/native.json": {
       "bytes": 3551,
-      "sha256": "044526b73502f6c4e3a2398ed80d58a2f076dedb4abffe4ced6315b41b8e9c22"
+      "sha256": "969278ac8643ac7b9f32d270e97226e0d18822086d31d2895fd25995ed0afaf7"
     },
     "_extensions/ctm-libs/_extension.yml": {
       "bytes": 124,
@@ -482,7 +482,8 @@
       "gitBlob": "a6a233a49bea94bc7bb76f247cdc39824b9a2f9f",
       "baseCommit": "cf6570b13f92d17a437fe5a61cd103c84adf7f1e",
       "baseSha256": "e7e8b5972d76cb9f24b742bb2621947ec275aada6f32cbc7abf0f7a2d11c5f37",
-      "replacementSha256": "0997aca9be70d9480a48aa6e3ea2c8ba2874888ea2cc637641fbbd6ee9c5eed3"
+      "replacementSha256": "0997aca9be70d9480a48aa6e3ea2c8ba2874888ea2cc637641fbbd6ee9c5eed3",
+      "baseBytes": 35508
     }
   ]
 }
