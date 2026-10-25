@@ -111,7 +111,14 @@ CTMLocales.add("ui",
     "similarMore": "More",
     "similarCopyAnswers": "Copy answers",
     "similarCopyAnswersLabel": "Copy answers including generated practice",
-    "similarKeepFlagged": "Your reported problem will be kept."
+    "similarKeepFlagged": "Your reported problem will be kept.",
+    "settings": "Settings",
+    "answersStorage": "Answers & storage",
+    "savingLocal": "Saving in this browser",
+    "savedLocal": "Saved in this browser",
+    "notSaving": "Answers aren’t being saved",
+    "answered": "Answered, not graded",
+    "confirmClearPage": "Delete all saved answers on this page?"
   },
   "de": {
     "readingStep": "Vertiefung",
@@ -214,7 +221,14 @@ CTMLocales.add("ui",
     "similarMore": "Mehr",
     "similarCopyAnswers": "Antworten kopieren",
     "similarCopyAnswersLabel": "Antworten einschließlich erzeugter Übungen kopieren",
-    "similarKeepFlagged": "Deine gemeldete Aufgabe bleibt erhalten."
+    "similarKeepFlagged": "Deine gemeldete Aufgabe bleibt erhalten.",
+    "settings": "Einstellungen",
+    "answersStorage": "Antworten & Speicherung",
+    "savingLocal": "Speichern in diesem Browser",
+    "savedLocal": "In diesem Browser gespeichert",
+    "notSaving": "Antworten werden nicht gespeichert",
+    "answered": "Beantwortet, noch nicht bewertet",
+    "confirmClearPage": "Alle gespeicherten Antworten auf dieser Seite löschen?"
   },
   "nb": {
     "readingStep": "Gå i dybden",
@@ -317,7 +331,14 @@ CTMLocales.add("ui",
     "similarMore": "Mer",
     "similarCopyAnswers": "Kopier svar",
     "similarCopyAnswersLabel": "Kopier svar, inkludert genererte øvingsoppgaver",
-    "similarKeepFlagged": "Oppgaven du meldte fra om, beholdes."
+    "similarKeepFlagged": "Oppgaven du meldte fra om, beholdes.",
+    "settings": "Innstillinger",
+    "answersStorage": "Svar og lagring",
+    "savingLocal": "Lagrer i denne nettleseren",
+    "savedLocal": "Lagret i denne nettleseren",
+    "notSaving": "Svar blir ikke lagret",
+    "answered": "Besvart, ikke vurdert",
+    "confirmClearPage": "Slett alle lagrede svar på denne siden?"
   },
   "nn": {
     "readingStep": "Gå i djupna",
@@ -420,7 +441,14 @@ CTMLocales.add("ui",
     "similarMore": "Meir",
     "similarCopyAnswers": "Kopier svar",
     "similarCopyAnswersLabel": "Kopier svar, inkludert genererte øvingsoppgåver",
-    "similarKeepFlagged": "Oppgåva du melde frå om, blir teken vare på."
+    "similarKeepFlagged": "Oppgåva du melde frå om, blir teken vare på.",
+    "settings": "Innstillingar",
+    "answersStorage": "Svar og lagring",
+    "savingLocal": "Lagrar i denne nettlesaren",
+    "savedLocal": "Lagra i denne nettlesaren",
+    "notSaving": "Svar blir ikkje lagra",
+    "answered": "Svart på, ikkje vurdert",
+    "confirmClearPage": "Slett alle lagra svar på denne sida?"
   }
 }
 /*END-JSON*/
