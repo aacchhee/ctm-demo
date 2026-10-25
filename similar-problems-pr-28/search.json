@@ -34,7 +34,7 @@
     "href": "pages/similar-problems.html#linear-independence-with-an-authored-check",
     "title": "Similar problems — practice testbox",
     "section": "3. Linear independence with an authored check",
-    "text": "3. Linear independence with an authored check\nThe vectors are the columns of \\(A\\). Enter 1 for independent and 0 for dependent. This fixed scalar response permits different vector families without resizable answer inputs. The checker also rejects vectors longer than five coordinates, even if a candidate’s independence answer happens to be correct.\n\nNot approved for students.\n↻\n\n\n\n  ✓ Check\n  ⓘ Input help\n  \n    💬 Feedback\n    ⚙",
+    "text": "3. Linear independence with an authored check\nThe vectors are the columns of \\(A\\). Enter 1 for independent and 0 for dependent. This fixed scalar response permits different vector families without resizable answer inputs. The checker also rejects vectors longer than five coordinates, even if a candidate’s independence answer happens to be correct.\n\n↻\n\n\n\n  ✓ Check\n  ⓘ Input help\n  \n    💬 Feedback\n    ⚙",
     "crumbs": [
       "Similar problems testbox"
     ]
