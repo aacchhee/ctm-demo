@@ -35,7 +35,7 @@
       "repository": "Erasmus-CTM/math-exercise",
       "branch": "main",
       "requested_ref": "main",
-      "commit": "b9e4547cf56a2259d3cfe8269ca2255462abcf25",
+      "commit": "0933d6266a023acafdbabae9a5ddfeedefd2fcec",
       "ref_override": false,
       "pinned": true,
       "local_override": false,
@@ -48,7 +48,7 @@
       "repository": "Erasmus-CTM/ctm-checkers",
       "branch": "main",
       "requested_ref": "main",
-      "commit": "d3b1f5b887e0eb1b50b4558f32a66520536c368d",
+      "commit": "16de388a85b5762948995a688aafec1bc6ff78ee",
       "ref_override": false,
       "pinned": true,
       "local_override": false,
@@ -87,7 +87,7 @@
       "repository": "Erasmus-CTM/ctm-assessment",
       "branch": "main",
       "requested_ref": "main",
-      "commit": "49e7c57d6ad9536ea8c0f8fea02d0173a9d44f55",
+      "commit": "83787d45d59f00c9d2f478864561eb3c142abf0c",
       "ref_override": false,
       "pinned": false,
       "local_override": true,
@@ -166,9 +166,9 @@
       "author-imports.lua": "9105a6d61ea91e9e40b28561dc16804ff8cf6de80252d75b5fdaec538b90ffb5",
       "ctm-bootstrap.lua": "8bf7da5740a05ea90771ab22af4e96282bb1547a99d95e47507476d1fea5e585",
       "math-exercise.css": "14a3f8403c0c6a66ab0354662b6713caec018d37efa0d7683a502b224c076bb8",
-      "math-exercise.js": "1e19f6b31e571a201a062a5a69b21bf5703c5b4bea4823a67f5e308fd601ee94",
+      "math-exercise.js": "4aa338115629ec442264e03a34014d7099ff421be80bb9e63cae9eed36736b98",
       "math-exercise.lua": "2c9c891e5258d438cbee7e500c4be1219c3b4be7347e62476160da1cd5f4b1cb",
-      "math-similar.js": "00fce94e3ef899e26a4765a972f427b0d7cfb714954f3a56599ac6adc7c0bc42",
+      "math-similar.js": "db53c38ca25658701b7c6ce7bda3f57d69d9355419a3f6542e628dc0a6c4cc88",
       "math-store.js": "adf9c1df0917459fe1dfefcc03b49bf024fcde12a2f22c8b1c4e446a1a5daaf3",
       "native-variants.lua": "997e72e3d6ce8d0fb55165c54b879d9faead6597f7ee5d1cd632d2f7b0574a33",
       "question-tests.py": "fd6f5b63fe49346de62d05b84a32ee237099a829fda201dcc9a2c2f36ca00e1c",
@@ -179,10 +179,10 @@
     },
     "ctm-checkers": {
       "_extension.yml": "9554e06aec50915ed0dfa4b7b0076ccf054c13409af6e4bd2a0d04aa74ba374d",
-      "checkers.json": "36a9fec546c1a09c6ff6e35d51d9af2722807c8029bc7b881dbf8b2942f35106",
+      "checkers.json": "8e18a8584e1b7a9984ff2d51bb3fe7063ca9465f09bc6eb13c01e2f073881620",
       "ctm-checkers-stack.js": "66d90b5f592a1c70f8065d565232f1a1802378495cd4e4ef9fbad4095a111bd7",
-      "ctm-checkers.js": "df32db3570eb0dd95061d153999a0956699b62a05d4fac5c12b3251a1b664530",
-      "ctm_checkers-0.11.0.dev0-py3-none-any.whl": "faa9c705099f034faac19a6d34a82b8811c4d8b72e009060ed84566b0307ca40",
+      "ctm-checkers.js": "afeed68b6522c60c2f8af445b13d56daad086f1556b525b9e681c79f7e361e0c",
+      "ctm_checkers-0.11.0.dev0-py3-none-any.whl": "aa1c0dd53924384efe3c7d77fcd798196a18c9f7af2788e8ed65a6063044aefa",
       "ctm_checkers_stack-0.11.0.dev0-py3-none-any.whl": "e4a1824936c5c6eba9602833d089c072a0493ec20141889e7d38206fd1b0ad2d",
       "native-authoring/LICENSE": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
       "native-authoring/ctm-variants-artifact.py": "51cebe10dc4d357964d180dd87dff1eb8b7d7c167b62f7bb12e8e5587e2b6a2c",
@@ -254,5 +254,5 @@
       "licenses/ctm-assessment.txt": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
     }
   },
-  "previewSourceHead": "88fd61605459e815351e36cb065a13a813d45288"
+  "previewSourceHead": "874e405be88c5c22a201e94b8c31ad351376ed81"
 }
