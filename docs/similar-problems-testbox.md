@@ -35,3 +35,10 @@ installer verified identical extension SHA-256 maps before and after the re-pin.
 
 The generation model now has the same fetched-model dropdown as feedback.
 One Fetch models request populates both lists; selections are saved independently.
+
+After the implementation review, AC explicitly requested an openly published
+GitHub Actions preview. `Publish Similar problems preview` builds this page from
+the feature branch's exact package pin and publishes only the
+`similar-problems-pr-28` subtree, preserving the existing course site. The preview
+includes `similar-problems-build.json` with its source head and component pins.
+No feature branch is merged and no tag is created by this workflow.
