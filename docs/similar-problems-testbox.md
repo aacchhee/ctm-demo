@@ -6,8 +6,8 @@ linear-independence checker with a hard five-coordinate limit.
 
 25 October 2026: installed through the normal ctm-assessment installer, without
 source or review overrides, from package head
-`e9d7fbeb65bc206666854f5e73aa84ce1b78d1f7`.
-Component pins: ctm-libs `06a44d9`, math-exercise `3740041`, ctm-checkers `d3b1f5b`.
+`49e7c57d6ad9536ea8c0f8fea02d0173a9d44f55`.
+Component pins: ctm-libs `06a44d9`, math-exercise `b9e4547`, ctm-checkers `d3b1f5b`.
 
 The page rendered with Quarto 1.8.27. Its explicit optional-variant setting permits
 the authored matrix test fixture; production approval defaults remain unchanged.
@@ -42,3 +42,10 @@ the feature branch's exact package pin and publishes only the
 `similar-problems-pr-28` subtree, preserving the existing course site. The preview
 includes `similar-problems-build.json` with its source head and component pins.
 No feature branch is merged and no tag is created by this workflow.
+
+The format-repair update accepts JSON fences, numeric answers and variable arrays,
+provides explicit scalar/matrix schemas and returns precise format failures for
+repair. Final rejection reasons appear under Details. The mathematical checks
+remain required. The original 21 browser cases plus five format cases passed
+locally (24-case run, then five final targeted cases after the shared JSON parser
+was applied to independent solving).
