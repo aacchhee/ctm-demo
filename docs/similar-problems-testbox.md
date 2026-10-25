@@ -1,65 +1,33 @@
-# Similar problems phase-1 testbox
+# Similar problems combined testbox
 
-The course page is `pages/similar-problems.qmd`, linked from the sidebar.
-It covers a symbolic derivative, a fixed 2-by-2 matrix inverse, and a trusted
-linear-independence checker with a hard five-coordinate limit.
+`pages/similar-problems.qmd` contains a symbolic derivative, fixed matrix inverse,
+and trusted independence checker with a hard five-coordinate limit. Progress is
+enabled so the combined Settings and question-navigation UI can be reviewed.
+Optional variant approval is explicit and confined to this testbox.
 
-25 October 2026: installed through the normal ctm-assessment installer, without
-source or review overrides, from package head
-`6e6bcfdf2e3342271066a5772db352a0148a093d`.
-Component pins: ctm-libs `4e58599`, math-exercise `a98100d`, ctm-checkers `16de388`.
+Package pin: `d55a37a0f204a62ce8a752998c10345e5efc4d2f`.
+Components: ctm-libs `b7c8e50`, math-exercise `0f8291d`, ctm-checkers `16de388`.
+G2 is based directly on ctm-libs PR48 head `53579c8`; this preview includes its
+complete saved-answer Settings panel and compact navigator. PR46 targets PR48's
+branch, keeping its diff focused. AC merges PR48 before G2; then retarget/rebaseline
+and compare the resulting tree to the tested head before merging the next PR.
 
-The page rendered with Quarto 1.8.27. Its explicit optional-variant setting permits
-the authored matrix test fixture; production approval defaults remain unchanged.
-Four mocked-provider Playwright checks passed against the actual course HTML:
+The dedicated GitHub Actions workflow installs the exact package pin with the
+normal installer, builds this page with Quarto 1.8.27, and publishes only the
+`similar-problems-pr-28` subtree. Existing course pages are preserved. Provenance
+is published as `similar-problems-build.json`. No feature branch is merged and no
+tag is created by this workflow. AC explicitly authorized public publication.
 
-- computed-key generation, Check, score isolation, copy, and reload restoration;
-- fixed matrix component recipes;
-- rejection of six-coordinate givens by the original authored checker;
-- real browser Pyodide key computation and grading.
+The actual combined sources pass all 33 practice browser tests, including real
+Pyodide, checking/feedback, restore without AI/Python, cancel, reports/disputes,
+copy/export, keyboard/mobile controls, and exam/AI-off gates. New combined-page
+cases verify that saved-answer controls are inside shared Settings, practice saves
+preserve original navigation credit, and practice-only work leaves the original
+unattempted after reload. The shared Settings Chromium fixture and DOM/store suites
+also pass. The key/notation/hostile native suite has 96 passing checks.
 
-The checks use the pinned math-exercise `tests/browser/similar-problems.spec.mjs`
-with `CTM_SIMILAR_PAGE=/pages/similar-problems.html`, a server rooted at this
-course's `_site`, and a filter selecting the four cases above. The provider is
-mocked; the fourth case runs production Python/WASM and the packaged checker.
-The complete 21-case suite and exact package hashes are recorded by the
-ctm-assessment Similar problems pinned-stack workflow.
-
-For manual use, select Direct API in Feedback settings and configure a reasoning
-generation model plus an everyday feedback model. Try Harder, Easier and Another
-one like this; check an answer, reload, copy/export, and flag a key. Flags remain
-local. No merge, tag, deployment or central collection was performed.
-
-The final parity-manifest update changes no packaged extension bytes: the normal
-installer verified identical extension SHA-256 maps before and after the re-pin.
-
-The generation model now has the same fetched-model dropdown as feedback.
-One Fetch models request populates both lists; selections are saved independently.
-
-After the implementation review, AC explicitly requested an openly published
-GitHub Actions preview. `Publish Similar problems preview` builds this page from
-the feature branch's exact package pin and publishes only the
-`similar-problems-pr-28` subtree, preserving the existing course site. The preview
-includes `similar-problems-build.json` with its source head and component pins.
-No feature branch is merged and no tag is created by this workflow.
-
-The format-repair update accepts JSON fences, numeric answers and variable arrays,
-provides explicit scalar/matrix schemas and returns precise format failures for
-repair. Final rejection reasons appear under Details. The mathematical checks
-remain required. The original 21 browser cases plus five format cases passed
-locally (24-case run, then five final targeted cases after the shared JSON parser
-was applied to independent solving).
-
-Generated learner checks now use ordinary exercise notation (including `21x`,
-`3x^2`, implicit function application and factorial notation), while model keys
-and recipes remain strictly admitted. Grading mode and authored restrictions
-come from the original problem. Native notation/grading parity and hostile-input
-cases pass (96 checks); real browser Pyodide confirms wrong and correct implicit
-answers and feedback without a spurious invalid saved status.
-
-The compact UI uses one Similar problem disclosure, quiet help/copy utilities,
-and More on generated cards. Reporting says “I think the expected answer is wrong”.
-All 30 focused browser cases pass, including keyboard/mobile disclosure behavior
-and real Pyodide. Compatibility with ctm-libs PR48 head 53579c8 is documented and
-tested on a combined snapshot; the public preview uses the normal pinned G2 head
-and its standalone Settings fallback until PR48 is merged and re-baselined.
+For manual use, configure Direct API and the two fetched-model dropdowns through
+Settings. Open Similar problem, choose a direction, check an answer and request
+feedback. More contains “I think the expected answer is wrong” and Remove.
+Reports are local; creating another problem retains the reported one. Generated
+practice follows the original grading rules and does not count toward its score.
