@@ -6,8 +6,8 @@ linear-independence checker with a hard five-coordinate limit.
 
 25 October 2026: installed through the normal ctm-assessment installer, without
 source or review overrides, from package head
-`1dbbc5f068b834aa705433b4a82984f91bd439e1`.
-Component pins: ctm-libs `055b597`, math-exercise `bb6181d`, ctm-checkers `d3b1f5b`.
+`e9d7fbeb65bc206666854f5e73aa84ce1b78d1f7`.
+Component pins: ctm-libs `06a44d9`, math-exercise `3740041`, ctm-checkers `d3b1f5b`.
 
 The page rendered with Quarto 1.8.27. Its explicit optional-variant setting permits
 the authored matrix test fixture; production approval defaults remain unchanged.
@@ -32,3 +32,6 @@ local. No merge, tag, deployment or central collection was performed.
 
 The final parity-manifest update changes no packaged extension bytes: the normal
 installer verified identical extension SHA-256 maps before and after the re-pin.
+
+The generation model now has the same fetched-model dropdown as feedback.
+One Fetch models request populates both lists; selections are saved independently.
