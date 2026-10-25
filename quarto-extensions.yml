@@ -2,5 +2,5 @@
 plugins:
 - name: ctm-assessment
   repo: https://github.com/Erasmus-CTM/ctm-assessment.git
-  ref: 49e7c57d6ad9536ea8c0f8fea02d0173a9d44f55
+  ref: 83787d45d59f00c9d2f478864561eb3c142abf0c
   path: _extensions/ctm-assessment

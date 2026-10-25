@@ -6,8 +6,8 @@ linear-independence checker with a hard five-coordinate limit.
 
 25 October 2026: installed through the normal ctm-assessment installer, without
 source or review overrides, from package head
-`49e7c57d6ad9536ea8c0f8fea02d0173a9d44f55`.
-Component pins: ctm-libs `06a44d9`, math-exercise `b9e4547`, ctm-checkers `d3b1f5b`.
+`83787d45d59f00c9d2f478864561eb3c142abf0c`.
+Component pins: ctm-libs `06a44d9`, math-exercise `0933d62`, ctm-checkers `16de388`.
 
 The page rendered with Quarto 1.8.27. Its explicit optional-variant setting permits
 the authored matrix test fixture; production approval defaults remain unchanged.
@@ -49,3 +49,10 @@ repair. Final rejection reasons appear under Details. The mathematical checks
 remain required. The original 21 browser cases plus five format cases passed
 locally (24-case run, then five final targeted cases after the shared JSON parser
 was applied to independent solving).
+
+Generated learner checks now use ordinary exercise notation (including `21x`,
+`3x^2`, implicit function application and factorial notation), while model keys
+and recipes remain strictly admitted. Grading mode and authored restrictions
+come from the original problem. Native notation/grading parity and hostile-input
+cases pass (96 checks); real browser Pyodide confirms wrong and correct implicit
+answers and feedback without a spurious invalid saved status.
