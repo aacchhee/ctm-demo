@@ -87,7 +87,7 @@
       "repository": "Erasmus-CTM/ctm-assessment",
       "branch": "main",
       "requested_ref": "main",
-      "commit": "839c18379db5478c9796a588c62d4ad83eafb985",
+      "commit": "88ecb779ba3a953d533a6438b6ff07e9f2a6283e",
       "ref_override": false,
       "pinned": false,
       "local_override": true,
@@ -100,7 +100,7 @@
       "repository": "Erasmus-CTM/ctm-stack",
       "branch": "main",
       "requested_ref": "main",
-      "commit": "a9f90c52cfad2d4ace0e09dd38c46c6a1812c8a6",
+      "commit": "0eed11f57c14c4714f0bacbd37205b9c231e3838",
       "ref_override": false,
       "pinned": true,
       "local_override": false,
@@ -284,5 +284,5 @@
       "variants-review.py": "d6116f025579cbc57e12fc8a16fae82a1824015067a69b02dd69e31a80aabfb5"
     }
   },
-  "previewSourceHead": "6b508593191ef089706c8cd1e9bb980180af0276"
+  "previewSourceHead": "7898d2c1cd6faf57fdbb1681e12d4f924346e107"
 }
