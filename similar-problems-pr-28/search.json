@@ -1,0 +1,42 @@
+[
+  {
+    "objectID": "pages/similar-problems.html",
+    "href": "pages/similar-problems.html",
+    "title": "Similar problems — practice testbox",
+    "section": "",
+    "text": "Your answers are saved only in this browser.Delete answers on this page\nDelete all your answers in this course\nDo not save on this device\nExport my answers\nUse Feedback settings to choose Direct API and a reasoning model for generating problems. The three examples exercise symbolic keys, fixed matrix inputs and a trusted authored checker. Generated work is practice and does not count toward course scores. Reload to check saved answers; use Key looks wrong to test the local report and independent re-check.",
+    "crumbs": [
+      "Similar problems testbox"
+    ]
+  },
+  {
+    "objectID": "pages/similar-problems.html#a-derivative",
+    "href": "pages/similar-problems.html#a-derivative",
+    "title": "Similar problems — practice testbox",
+    "section": "1. A derivative",
+    "text": "1. A derivative\n\nDifferentiate \\(f(x)=x^2\\). \\(f'(x)=\\) .\n\n\n  ✓ Check\n  ⓘ Input help\n  \n    💬 Feedback\n    ⚙",
+    "crumbs": [
+      "Similar problems testbox"
+    ]
+  },
+  {
+    "objectID": "pages/similar-problems.html#a-fixed-matrix-calculation",
+    "href": "pages/similar-problems.html#a-fixed-matrix-calculation",
+    "title": "Similar problems — practice testbox",
+    "section": "2. A fixed matrix calculation",
+    "text": "2. A fixed matrix calculation\n\nFind the inverse of \\(A=\\begin{pmatrix}1&2\\\\0&1\\end{pmatrix}\\).\n\\(A^{-1}=\\) .\n\n\n  ✓ Check\n  ⓘ Input help\n  \n    💬 Feedback\n    ⚙",
+    "crumbs": [
+      "Similar problems testbox"
+    ]
+  },
+  {
+    "objectID": "pages/similar-problems.html#linear-independence-with-an-authored-check",
+    "href": "pages/similar-problems.html#linear-independence-with-an-authored-check",
+    "title": "Similar problems — practice testbox",
+    "section": "3. Linear independence with an authored check",
+    "text": "3. Linear independence with an authored check\nThe vectors are the columns of \\(A\\). Enter 1 for independent and 0 for dependent. This fixed scalar response permits different vector families without resizable answer inputs. The checker also rejects vectors longer than five coordinates, even if a candidate’s independence answer happens to be correct.\n\nNot approved for students.\n↻\n\n\n\n  ✓ Check\n  ⓘ Input help\n  \n    💬 Feedback\n    ⚙",
+    "crumbs": [
+      "Similar problems testbox"
+    ]
+  }
+]
