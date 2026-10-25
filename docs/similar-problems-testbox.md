@@ -37,3 +37,10 @@ answers. Row-major recipe coordinates can normalize flattened numbered slots
 to a proper grid, including a saved 3-by-3 answer without AI/Python or lost cell
 values. Ambiguous historical work stays readable; new ambiguous layouts trigger
 a format repair. The full 35-case browser suite passes.
+
+The merge-readiness pin includes the complete step-6 package before Similar problems.
+Nested shared includes use project-root paths so Quarto resolves code cells and
+student review exports from the same files. AC merges step 6 first, then ctm-libs
+#48, #46, math-exercise #37, ctm-assessment #69, and this PR #28. Compare the
+proposed merged tree to its CI-tested head before every merge. AC permits demo
+publication; other deployment, tags and branch deletion remain excluded.
