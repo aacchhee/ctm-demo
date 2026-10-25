@@ -6,8 +6,8 @@ linear-independence checker with a hard five-coordinate limit.
 
 25 October 2026: installed through the normal ctm-assessment installer, without
 source or review overrides, from package head
-`fabcf5846b729f33b041447ca8061566daddc74b`.
-Component pins: ctm-libs `055b597`, math-exercise `57c7dc9`, ctm-checkers `d3b1f5b`.
+`1dbbc5f068b834aa705433b4a82984f91bd439e1`.
+Component pins: ctm-libs `055b597`, math-exercise `bb6181d`, ctm-checkers `d3b1f5b`.
 
 The page rendered with Quarto 1.8.27. Its explicit optional-variant setting permits
 the authored matrix test fixture; production approval defaults remain unchanged.
@@ -29,3 +29,6 @@ For manual use, select Direct API in Feedback settings and configure a reasoning
 generation model plus an everyday feedback model. Try Harder, Easier and Another
 one like this; check an answer, reload, copy/export, and flag a key. Flags remain
 local. No merge, tag, deployment or central collection was performed.
+
+The final parity-manifest update changes no packaged extension bytes: the normal
+installer verified identical extension SHA-256 maps before and after the re-pin.
