@@ -35,7 +35,7 @@
       "repository": "Erasmus-CTM/math-exercise",
       "branch": "main",
       "requested_ref": "main",
-      "commit": "374004140c9ad9d8d5f6614c9efbf44f5415c070",
+      "commit": "b9e4547cf56a2259d3cfe8269ca2255462abcf25",
       "ref_override": false,
       "pinned": true,
       "local_override": false,
@@ -87,7 +87,7 @@
       "repository": "Erasmus-CTM/ctm-assessment",
       "branch": "main",
       "requested_ref": "main",
-      "commit": "e9d7fbeb65bc206666854f5e73aa84ce1b78d1f7",
+      "commit": "49e7c57d6ad9536ea8c0f8fea02d0173a9d44f55",
       "ref_override": false,
       "pinned": false,
       "local_override": true,
@@ -168,7 +168,7 @@
       "math-exercise.css": "14a3f8403c0c6a66ab0354662b6713caec018d37efa0d7683a502b224c076bb8",
       "math-exercise.js": "1e19f6b31e571a201a062a5a69b21bf5703c5b4bea4823a67f5e308fd601ee94",
       "math-exercise.lua": "2c9c891e5258d438cbee7e500c4be1219c3b4be7347e62476160da1cd5f4b1cb",
-      "math-similar.js": "6a1090f9ceadf913b78049d183db040f1bab019d565a8d045a4ea11bcdb63f4d",
+      "math-similar.js": "00fce94e3ef899e26a4765a972f427b0d7cfb714954f3a56599ac6adc7c0bc42",
       "math-store.js": "adf9c1df0917459fe1dfefcc03b49bf024fcde12a2f22c8b1c4e446a1a5daaf3",
       "native-variants.lua": "997e72e3d6ce8d0fb55165c54b879d9faead6597f7ee5d1cd632d2f7b0574a33",
       "question-tests.py": "fd6f5b63fe49346de62d05b84a32ee237099a829fda201dcc9a2c2f36ca00e1c",
@@ -254,5 +254,5 @@
       "licenses/ctm-assessment.txt": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
     }
   },
-  "previewSourceHead": "38bf8463d06a0f7faa9cdc1b5bd4b725b4e1115b"
+  "previewSourceHead": "88fd61605459e815351e36cb065a13a813d45288"
 }
