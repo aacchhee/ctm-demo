@@ -6,8 +6,8 @@ linear-independence checker with a hard five-coordinate limit.
 
 25 October 2026: installed through the normal ctm-assessment installer, without
 source or review overrides, from package head
-`83787d45d59f00c9d2f478864561eb3c142abf0c`.
-Component pins: ctm-libs `06a44d9`, math-exercise `0933d62`, ctm-checkers `16de388`.
+`6e6bcfdf2e3342271066a5772db352a0148a093d`.
+Component pins: ctm-libs `4e58599`, math-exercise `a98100d`, ctm-checkers `16de388`.
 
 The page rendered with Quarto 1.8.27. Its explicit optional-variant setting permits
 the authored matrix test fixture; production approval defaults remain unchanged.
@@ -56,3 +56,10 @@ and recipes remain strictly admitted. Grading mode and authored restrictions
 come from the original problem. Native notation/grading parity and hostile-input
 cases pass (96 checks); real browser Pyodide confirms wrong and correct implicit
 answers and feedback without a spurious invalid saved status.
+
+The compact UI uses one Similar problem disclosure, quiet help/copy utilities,
+and More on generated cards. Reporting says “I think the expected answer is wrong”.
+All 30 focused browser cases pass, including keyboard/mobile disclosure behavior
+and real Pyodide. Compatibility with ctm-libs PR48 head 53579c8 is documented and
+tested on a combined snapshot; the public preview uses the normal pinned G2 head
+and its standalone Settings fallback until PR48 is merged and re-baselined.
