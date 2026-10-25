@@ -9,7 +9,7 @@
       "repository": "Erasmus-CTM/ctm-libs",
       "branch": "main",
       "requested_ref": "main",
-      "commit": "b7c8e503ddd6f25cee42617356986be2dcc1bd7e",
+      "commit": "18bfbfded7978b4fc36f49b5d144bd20ddc39002",
       "ref_override": false,
       "pinned": true,
       "local_override": false,
@@ -35,7 +35,7 @@
       "repository": "Erasmus-CTM/math-exercise",
       "branch": "main",
       "requested_ref": "main",
-      "commit": "a94dc047787fd1c9fc182ba4e48c0eb2b230606e",
+      "commit": "b6ac7be10bce548c49cfcf3660f1238194f995be",
       "ref_override": false,
       "pinned": true,
       "local_override": false,
@@ -48,7 +48,7 @@
       "repository": "Erasmus-CTM/ctm-checkers",
       "branch": "main",
       "requested_ref": "main",
-      "commit": "16de388a85b5762948995a688aafec1bc6ff78ee",
+      "commit": "406df5883357499b73293e0e97ee63503d490ca8",
       "ref_override": false,
       "pinned": true,
       "local_override": false,
@@ -71,10 +71,10 @@
       ]
     },
     "jsxgraph": {
-      "repository": "jsxgraph/jsxgraph-quarto",
-      "branch": "main",
-      "requested_ref": "main",
-      "commit": "e4ad81d82e1b56f86765026a3dd26f6975d29d57",
+      "repository": "aacchhee/jsxgraph-quarto",
+      "branch": "fix/2026-10-jsxgraph-115-runtime",
+      "requested_ref": "fix/2026-10-jsxgraph-115-runtime",
+      "commit": "e31b5d19cb7f282e220634c0e21304067910efff",
       "ref_override": false,
       "pinned": true,
       "local_override": false,
@@ -87,13 +87,26 @@
       "repository": "Erasmus-CTM/ctm-assessment",
       "branch": "main",
       "requested_ref": "main",
-      "commit": "61f157f90a889be723685228a9b669e56d52c988",
+      "commit": "260f3b50fc9bb1927a11a20cc1f123f3fb2725cb",
       "ref_override": false,
       "pinned": false,
       "local_override": true,
       "dirty_files": [],
       "extensions": [
         "ctm-assessment"
+      ]
+    },
+    "ctm-stack": {
+      "repository": "Erasmus-CTM/ctm-stack",
+      "branch": "main",
+      "requested_ref": "main",
+      "commit": "a9f90c52cfad2d4ace0e09dd38c46c6a1812c8a6",
+      "ref_override": false,
+      "pinned": true,
+      "local_override": false,
+      "dirty_files": [],
+      "extensions": [
+        "ctm-stack"
       ]
     }
   },
@@ -112,13 +125,13 @@
       "feedback/feedback-dom.js": "04091a3821ffe046a4a2560a3608a86d9bb61def981244136a1504a4ce637567",
       "locales/common.js": "2a5d0e4ccb009622fc0abff76d6b6e5682cf13103d260e2a5f5ef48619530212",
       "locales/ctm-locale.js": "3548274f47bfc0c79e83604d25621d2ab39a090d664f3a825001b6798f789b7f",
-      "locales/ctm-stack.js": "e726297fcbca355001a8f3e8e88791798d9aa23ed336013c82f9c22cad0f8782",
+      "locales/ctm-stack.js": "4d1def491ac30ef9a5bb1195cc7aafc128843e54c98895574643ed8fcc39b93e",
       "locales/feedback.js": "25630b2463a51b4e8d92230d29155e7cc65ac545a920cebd4267eefce3fadb12",
       "locales/math-exercise.js": "41b24252ea47959d2106f57039cf922309273660fee74097bb400729886dc580",
       "locales/py-exercise.js": "26e8269032b82f1407ddb9fcf88d925721b5e2fbb7e5358a3dae65a1bb7d2ad8",
       "locales/pyodide-interaktiv.js": "66cd58c8ee1f402b2364bc4e75c38c28bdb789db00daf748393a3e7bfaa353bd",
       "locales/ui.js": "581035af6205bb8e43f5ba52f62a43b2afb42ef60ba0aef57b25dbb61b21b0e7",
-      "lua/assets.lua": "1b307ca27c5f685b6f7c841cc96159d2f7d19285d0f76b7259df5a87d6ef55dd",
+      "lua/assets.lua": "e339faeb17d6db0797b000336b9fdbb5389d4490aaec51c3f6e5b1b0eabdc61c",
       "lua/checkers.lua": "71aff018057524ae44ad96addcc44513e3a29ab81420ea1feccc155dc9945fd6",
       "lua/ctm.lua": "e70ac6d368e4010b547847c294b533f01a43e2327d6356787517d984e249b262",
       "lua/deps.lua": "711df6c9d05ede9c42e4a61c30df48cd3302cad807b4b85bd408e6b62f6966df",
@@ -173,18 +186,18 @@
       "math-store.js": "b67077d868a21575e4c980d0e732086fc0c9e43f4ab9e45842bdd8110cda7b98",
       "native-variants.lua": "997e72e3d6ce8d0fb55165c54b879d9faead6597f7ee5d1cd632d2f7b0574a33",
       "question-tests.py": "fd6f5b63fe49346de62d05b84a32ee237099a829fda201dcc9a2c2f36ca00e1c",
-      "question-variants.py": "7b6bed412f8b1c42336340fddaa500c0c9b9147afc2d353fa9c7c764a08fefd8",
+      "question-variants.py": "897efe4b2d7417802069fd0356a6d5e277423c8532ae8b4b0cf6f61b446aa95d",
       "variant_resolver.py": "8d81d2fdc69afc2c1cd6e1636337cde680a332f5824ad0bf6140707fbba5c1c0",
       "variants-board.js": "cf2b1420da0bfc656b200dfd8dcebd0e3678ade2fb1286d1228e4c2f926e663a",
       "variants-review.py": "95a89ce707cbf00ee3988857a906b19856e072afbd863858964a9057eaa4f013"
     },
     "ctm-checkers": {
-      "_extension.yml": "9554e06aec50915ed0dfa4b7b0076ccf054c13409af6e4bd2a0d04aa74ba374d",
-      "checkers.json": "8e18a8584e1b7a9984ff2d51bb3fe7063ca9465f09bc6eb13c01e2f073881620",
-      "ctm-checkers-stack.js": "66d90b5f592a1c70f8065d565232f1a1802378495cd4e4ef9fbad4095a111bd7",
-      "ctm-checkers.js": "afeed68b6522c60c2f8af445b13d56daad086f1556b525b9e681c79f7e361e0c",
-      "ctm_checkers-0.11.0.dev0-py3-none-any.whl": "aa1c0dd53924384efe3c7d77fcd798196a18c9f7af2788e8ed65a6063044aefa",
-      "ctm_checkers_stack-0.11.0.dev0-py3-none-any.whl": "e4a1824936c5c6eba9602833d089c072a0493ec20141889e7d38206fd1b0ad2d",
+      "_extension.yml": "1f368ed8038b506e891f94e2ddfbdfc265f4acf1c4e09b4fdf2db7ca1cab18e3",
+      "checkers.json": "12f7cc1302e3ac871a009c3540e64736ab569b52e57df6d705c61bc3a0882976",
+      "ctm-checkers-stack.js": "c2f19a6af0d44a1a7a1bc560cac1e4f70c90416d9946f21568540bf19d918caa",
+      "ctm-checkers.js": "d482f7806fab9aed6cad24ec1c0ea9a03aa81fd9acdebab12b6f1d742c53de03",
+      "ctm_checkers-0.12.0.dev0-py3-none-any.whl": "21ac0fe77726c9a2bee8a0d51ab2acedb932305b49d724d8bcfd7ac4eb307b68",
+      "ctm_checkers_stack-0.12.0.dev0-py3-none-any.whl": "9d910b897bb303337da8beb4dcef0d44cec6e4e24c13f3dcbd0ff931c82e5a55",
       "native-authoring/LICENSE": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
       "native-authoring/ctm-variants-artifact.py": "51cebe10dc4d357964d180dd87dff1eb8b7d7c167b62f7bb12e8e5587e2b6a2c",
       "native-authoring/ctm-variants-bot.py": "18c0858c2cd99b487ef8a5471340072c877b5764d89b2e7a13bef0c67841df53",
@@ -198,18 +211,19 @@
       "native-authoring/ctm_variants/enumeration.py": "2be2f9da0f687a441ec7f07b9490f7e241cc73e15a16a017b1021069417ec251",
       "native-authoring/ctm_variants/generation.py": "984ea1b3a62d7c934b29bbb43705a66385372beeca889baa139b572b2cd234ca",
       "native-authoring/ctm_variants/github_bot.py": "0997aca9be70d9480a48aa6e3ea2c8ba2874888ea2cc637641fbbd6ee9c5eed3",
-      "native-authoring/ctm_variants/history.py": "895f5fed5acf56ce61b0848b80a99a442c95a2e4539d6c3f961959c6af76f38c",
-      "native-authoring/ctm_variants/model.py": "2d79fa150f8d35a2b1c82cb1b1eb5e181deed1089762d6b9653788cfa5d47b42",
+      "native-authoring/ctm_variants/history.py": "fcbafa5cf0de6a5302f482ee4202f9d8257305818a29d50b91204ed10a7ff0fc",
+      "native-authoring/ctm_variants/model.py": "b1794c18e45519b9c4ca2f684b9a6fc09f2f79a9767c19afe0c6bf9467f67bda",
       "native-authoring/ctm_variants/orchestration.py": "30359fb3c0c887a3e402c42ed97cdc23f33d7e85af84dd2648705104855aa16a",
       "native-authoring/ctm_variants/placeholders.py": "7ff645228839b1ad932df472a1f3c13f269bbbc8f82b41afed5bc76d70f16f63",
       "native-authoring/ctm_variants/preview_assets.py": "5363abc35d3615237f80985228920e067825f63b5647902a050da4c9d64d0005",
-      "native-authoring/ctm_variants/producer.py": "685f1a15887b2971f3b722254029ac5ca685e1d1c2d87598404b0ba02f36c0e6",
+      "native-authoring/ctm_variants/producer.py": "1831b886c76f951250ecb163c66f95a907c17fa8013681c2c499249d66c5f893",
       "native-authoring/ctm_variants/project_report.py": "ef3c17bd4ac850a43ab0ef067bd9be57ac483b27e38df543d717afea7ae2d8b7",
       "native-authoring/ctm_variants/rejection_hint.py": "13243afd33be117db3769a788fdcae433fab7c2f5c3bafbab5abf9105e65a149",
       "native-authoring/ctm_variants/review.py": "10aac5b10dea28849dd328b30dd2aff3334216872d84be510dd2301c60029525",
+      "native-authoring/ctm_variants/stack_component.py": "48645f32dbcf1071bc81a18516d671f5b9c6a3eff1a2de9b04d2b36728bb597f",
       "native-authoring/ctm_variants/streaming.py": "0816f272f171eaade67d49b4e68b265ab5192da7b5010ac0cb9853a2169cf110",
       "native-authoring/ctm_variants/validation.py": "f68ca6ef8dec094cc693fa4ac8c87a063a9c8b4ae53cc956178ae1cf504f0856",
-      "native-authoring/native.json": "969278ac8643ac7b9f32d270e97226e0d18822086d31d2895fd25995ed0afaf7"
+      "native-authoring/native.json": "2631546afedf97eddc52e62577640a5660e9686e3b968cbbfa7f57971420be64"
     },
     "pyodide-interaktiv": {
       "_extension.yml": "da56b196f6c546b58d02b5fa95c777290c2005585a8121c3699af14c86512bb3",
@@ -231,19 +245,23 @@
     },
     "jsxgraph": {
       "LICENSE": "136f019405aea96f272faa75e84345030531db597e10bc5ff208dbcbb5212a05",
-      "_extension.yml": "c4c55756fdaee8174731c766dc9202e84abd0aec2b5989183506ccb23cd04318",
+      "_extension.yml": "8efa516809de8eb5d9e02a59a2af091d2c834255a071f63c6938419718dedcb7",
       "graph-editor.js": "3aa43338142a78eca94a91efdc55ef32abe7081464b8905d743e418d8bfecf2e",
-      "lua/jsxgraph.lua": "f7c234ba4e3a778f7362af702040cbc4adef39776c1abb34fd159d6bbdd9e5d4",
+      "lua/jsxgraph.lua": "e134658ae4cddfa543567e787fa9df7cc40afdc0c9ec2968f6a4a82e5eecaecf",
       "resources/css/jsxgraph.css": "58ff5704eb9bb8db66e8b002d01c44a6ddfe0ced7f887ab2ef602feff2f3c0f6",
-      "resources/js/jsxgraphcore.js": "b6ebd07421e560431b888efeb472cfb7f2cfc495a853200963f97d2c28e6e474"
+      "resources/js/jsxgraphcore.js": "143da46b60b0d97b97bc26579c2705c7ee2d113a70716a10eebfcc225599c9b7",
+      "resources/upstream/COPYRIGHT": "ad5ddf359c14c9b84872d2cc7008b5e98dd2ab9186883119d48d14eb59175ef6",
+      "resources/upstream/LICENSE.LGPL": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+      "resources/upstream/LICENSE.MIT": "43e325001487de7f09745fbe086b054bb1b70d4ab58060e87153849365b23ff1",
+      "upstream-runtime.json": "56c53e680162f886c28ee147709965cee923c1d6ef909e30df43e9b53ce49e69"
     },
     "ctm-assessment": {
-      "_extension.yml": "bb8c49053dba50c2bb96d14a0bcee995917f805858ab602838bd8ee643d053ec",
+      "_extension.yml": "b2c2f0cf7c6c25ed2c348d284a08cee08654256ca3a76f7bb3309bcc204c8ed7",
       "author-imports-end.lua": "23a454371bd7a296a4e851304c5e1f242f175f7a5cc015b24f12155bc4b7e622",
       "author-imports.lua": "ed198390369d1d7dda1f593ca8d95e6dbbc0d3a689b1fec1c8920b88ad969eba",
       "author-imports.py": "37a80b818509c2a8945d6b6a3ce4bd5dc16d690d8787868ecb7719d364ee958d",
       "ctm-assessment.lua": "a9d211afec6cb338ff41a907e29c75659662307af696991268e1eb5134e9afba",
-      "jsxgraph-pins.yml": "68b51902932f8c4146de7478e4c6355196c45c940133abfab2d3c0968883f156",
+      "jsxgraph-pins.yml": "3317e62ea6a8d177f24a898f55f6079e62583f7ac5ab90a91125c81b7365543c",
       "offline-system.scss": "c7c39422f6c29ecb2e64ff43cb190a3305609ca79221e1d347ab1b94bd16e8a9",
       "offline.scss": "6fea85d094fc49eb1247ad6247f8f0006e802516f3cf454f0cc3f73996986ddd",
       "tab-ids.lua": "044b9e6f4ebceb5c6b59fa398710bd04528a48bebc5a1a7c439f8b3e3ec95fc2",
@@ -252,8 +270,19 @@
       "licenses/math-exercise.txt": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
       "licenses/ctm-checkers.txt": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
       "licenses/pyodide-interaktiv.txt": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
-      "licenses/ctm-assessment.txt": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+      "licenses/ctm-assessment.txt": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
+      "licenses/ctm-stack.txt": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+    },
+    "ctm-stack": {
+      "_extension.yml": "121493fd922cb243b6bc5c852d11cef269a021247c844773f28963cc11d59fca",
+      "backends/sympy.js": "f6103cea210a3fac26305ae9414ad0c5a490f97393acf34ed720d6056326a9fa",
+      "ctm-bootstrap.lua": "8bf7da5740a05ea90771ab22af4e96282bb1547a99d95e47507476d1fea5e585",
+      "ctm-stack.css": "fa1ceecb168a544c3c32e6d3006d3157c581681b0016b5b0112b9e92e1a2c7cc",
+      "ctm-stack.js": "f38ef67a696ba47c22889494c3a7daf824bc26dfe441f3eb1b0523e9572bed1b",
+      "ctm-stack.lua": "2c126c4ecb38994fa26d33f3a70b3d8762a5033cf9ac8fa59638b20c42e374d5",
+      "question-variants.py": "c2bb8f85663ac2c7040029e2baa0056c8490bc874d08220fd853ae405eb76543",
+      "variants-review.py": "d6116f025579cbc57e12fc8a16fae82a1824015067a69b02dd69e31a80aabfb5"
     }
   },
-  "previewSourceHead": "888c56895142d1b0a88177a8e9b958f980a05433"
+  "previewSourceHead": "b6518fd065f7250bd78c085c039b74e6ab94c64f"
 }
