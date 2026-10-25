@@ -9,7 +9,7 @@
       "repository": "Erasmus-CTM/ctm-libs",
       "branch": "main",
       "requested_ref": "main",
-      "commit": "18bfbfded7978b4fc36f49b5d144bd20ddc39002",
+      "commit": "13aedaac07403bfdc6eddf58834454fd54271461",
       "ref_override": false,
       "pinned": true,
       "local_override": false,
@@ -35,7 +35,7 @@
       "repository": "Erasmus-CTM/math-exercise",
       "branch": "main",
       "requested_ref": "main",
-      "commit": "b6ac7be10bce548c49cfcf3660f1238194f995be",
+      "commit": "1c8b2e0b5441428e01b45ecc97f9086eff01e92a",
       "ref_override": false,
       "pinned": true,
       "local_override": false,
@@ -87,7 +87,7 @@
       "repository": "Erasmus-CTM/ctm-assessment",
       "branch": "main",
       "requested_ref": "main",
-      "commit": "260f3b50fc9bb1927a11a20cc1f123f3fb2725cb",
+      "commit": "839c18379db5478c9796a588c62d4ad83eafb985",
       "ref_override": false,
       "pinned": false,
       "local_override": true,
@@ -284,5 +284,5 @@
       "variants-review.py": "d6116f025579cbc57e12fc8a16fae82a1824015067a69b02dd69e31a80aabfb5"
     }
   },
-  "previewSourceHead": "b6518fd065f7250bd78c085c039b74e6ab94c64f"
+  "previewSourceHead": "6b508593191ef089706c8cd1e9bb980180af0276"
 }
