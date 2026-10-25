@@ -1,0 +1,284 @@
+{
+  "version": 1,
+  "question": "similar-independence",
+  "proposals": [
+    {
+      "record": {
+        "id": "{\"value\":[\"list\",[]],\"version\":1}",
+        "hash": "20d3d64c880fdc18",
+        "note": "Are the columns of $A={{\"value\":[\"matrix\",3,3,[[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"1\"],[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"0\"],[\"integer\",\"1\"]]],\"version\":1}}$ linearly independent? _[1]",
+        "snapshot": {
+          "math": [
+            "[\"math\",\"A={{\\\"value\\\":[\\\"matrix\\\",3,3,[[\\\"integer\\\",\\\"1\\\"],[\\\"integer\\\",\\\"0\\\"],[\\\"integer\\\",\\\"1\\\"],[\\\"integer\\\",\\\"0\\\"],[\\\"integer\\\",\\\"1\\\"],[\\\"integer\\\",\\\"1\\\"],[\\\"integer\\\",\\\"0\\\"],[\\\"integer\\\",\\\"0\\\"],[\\\"integer\\\",\\\"1\\\"]]],\\\"version\\\":1}}\"]"
+          ],
+          "teacher": [
+            [
+              "Independent",
+              "1"
+            ]
+          ],
+          "grading": {
+            "mode": "custom",
+            "vars": "",
+            "reject": "",
+            "tolerance": "",
+            "decplaces": "",
+            "sigfigs": "",
+            "form": "",
+            "partial-credit": false,
+            "form-credit": "0.5",
+            "response": "",
+            "packages": [],
+            "checker": "6798da32178c92c3d53579c49fb6301ad623fa1673da091173240123eb631f2f"
+          },
+          "variables": {
+            "A": "{\"value\":[\"matrix\",3,3,[[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"1\"],[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"0\"],[\"integer\",\"1\"]]],\"version\":1}"
+          },
+          "checksum": "5184f7035f3e50b8f101b8448526185fb3fdf414cc77a4179b843e828d66fc17"
+        },
+        "data": {
+          "options": {
+            "label": "similar-independence",
+            "mode": "custom",
+            "field-labels": [
+              "Independent"
+            ],
+            "context": "none",
+            "harder": "Give more vectors or less obvious dependencies. Never exceed five coordinates per vector.",
+            "simpler": "Give fewer vectors with an obvious relation or clear independence.",
+            "checker": "def check(response, symbols):\n    A = response['variables']['A']\n    if not 1 <= A.rows <= 5 or A.cols < 1:\n        return {'score': 0, 'feedback': 'Vector length must be between one and five.'}\n    answer = response['expressions'][0]\n    return {'correct': answer == Integer(A.rank() == A.cols)}",
+            "tests": [
+              {
+                "name": "independent columns",
+                "answers": [
+                  1
+                ],
+                "expect": "correct"
+              },
+              {
+                "name": "incorrect dependence answer",
+                "answers": [
+                  0
+                ],
+                "expect": "wrong"
+              }
+            ],
+            "question": "Are the columns of $A={\\left[\\begin{matrix}1 & 0 & 1\\\\0 & 1 & 1\\\\0 & 0 & 1\\end{matrix}\\right]}$ linearly independent? _[1]"
+          },
+          "context": {
+            "version": 1,
+            "fields": [
+              "Independent"
+            ],
+            "variables": {
+              "version": 1,
+              "value": [
+                "dict",
+                [
+                  [
+                    "A",
+                    [
+                      "matrix",
+                      3,
+                      3,
+                      [
+                        [
+                          "integer",
+                          "1"
+                        ],
+                        [
+                          "integer",
+                          "0"
+                        ],
+                        [
+                          "integer",
+                          "1"
+                        ],
+                        [
+                          "integer",
+                          "0"
+                        ],
+                        [
+                          "integer",
+                          "1"
+                        ],
+                        [
+                          "integer",
+                          "1"
+                        ],
+                        [
+                          "integer",
+                          "0"
+                        ],
+                        [
+                          "integer",
+                          "0"
+                        ],
+                        [
+                          "integer",
+                          "1"
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            "teacher": {
+              "version": 1,
+              "value": [
+                "dict",
+                [
+                  [
+                    "Independent",
+                    [
+                      "integer",
+                      "1"
+                    ]
+                  ]
+                ]
+              ]
+            },
+            "variant": null
+          },
+          "teacher_inputs": {
+            "Independent": "1"
+          }
+        },
+        "tests": {
+          "passed": true,
+          "teacher": {
+            "name": "teacher answers",
+            "actual": {
+              "status": "correct",
+              "score": 1.0,
+              "show_score": true,
+              "feedback": "",
+              "assessment": {},
+              "fields": {}
+            },
+            "passed": true
+          },
+          "tests": [
+            {
+              "name": "independent columns",
+              "actual": {
+                "status": "correct",
+                "score": 1.0,
+                "show_score": true,
+                "feedback": "",
+                "assessment": {},
+                "fields": {}
+              },
+              "passed": true
+            },
+            {
+              "name": "incorrect dependence answer",
+              "actual": {
+                "status": "wrong",
+                "score": 0.0,
+                "show_score": true,
+                "feedback": "",
+                "assessment": {},
+                "fields": {}
+              },
+              "passed": true
+            }
+          ]
+        }
+      },
+      "tape": {
+        "version": 1,
+        "value": [
+          "list",
+          []
+        ]
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "n": 1,
+      "id": "{\"value\":[\"list\",[]],\"version\":1}",
+      "hash": "20d3d64c880fdc18",
+      "status": "approved",
+      "snapshot": {
+        "math": [
+          "[\"math\",\"A={{\\\"value\\\":[\\\"matrix\\\",3,3,[[\\\"integer\\\",\\\"1\\\"],[\\\"integer\\\",\\\"0\\\"],[\\\"integer\\\",\\\"1\\\"],[\\\"integer\\\",\\\"0\\\"],[\\\"integer\\\",\\\"1\\\"],[\\\"integer\\\",\\\"1\\\"],[\\\"integer\\\",\\\"0\\\"],[\\\"integer\\\",\\\"0\\\"],[\\\"integer\\\",\\\"1\\\"]]],\\\"version\\\":1}}\"]"
+        ],
+        "teacher": [
+          [
+            "Independent",
+            "1"
+          ]
+        ],
+        "grading": {
+          "mode": "custom",
+          "vars": "",
+          "reject": "",
+          "tolerance": "",
+          "decplaces": "",
+          "sigfigs": "",
+          "form": "",
+          "partial-credit": false,
+          "form-credit": "0.5",
+          "response": "",
+          "packages": [],
+          "checker": "6798da32178c92c3d53579c49fb6301ad623fa1673da091173240123eb631f2f"
+        },
+        "variables": {
+          "A": "{\"value\":[\"matrix\",3,3,[[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"1\"],[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"0\"],[\"integer\",\"1\"]]],\"version\":1}"
+        },
+        "checksum": "5184f7035f3e50b8f101b8448526185fb3fdf414cc77a4179b843e828d66fc17"
+      },
+      "note": "Are the columns of $A={{\"value\":[\"matrix\",3,3,[[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"1\"],[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"0\"],[\"integer\",\"1\"]]],\"version\":1}}$ linearly independent? _[1]",
+      "by": "aacchhee",
+      "date": ""
+    }
+  ],
+  "events": [
+    {
+      "before": [],
+      "after": [
+        {
+          "n": 1,
+          "id": "{\"value\":[\"list\",[]],\"version\":1}",
+          "hash": "20d3d64c880fdc18",
+          "status": "approved",
+          "snapshot": {
+            "math": [
+              "[\"math\",\"A={{\\\"value\\\":[\\\"matrix\\\",3,3,[[\\\"integer\\\",\\\"1\\\"],[\\\"integer\\\",\\\"0\\\"],[\\\"integer\\\",\\\"1\\\"],[\\\"integer\\\",\\\"0\\\"],[\\\"integer\\\",\\\"1\\\"],[\\\"integer\\\",\\\"1\\\"],[\\\"integer\\\",\\\"0\\\"],[\\\"integer\\\",\\\"0\\\"],[\\\"integer\\\",\\\"1\\\"]]],\\\"version\\\":1}}\"]"
+            ],
+            "teacher": [
+              [
+                "Independent",
+                "1"
+              ]
+            ],
+            "grading": {
+              "mode": "custom",
+              "vars": "",
+              "reject": "",
+              "tolerance": "",
+              "decplaces": "",
+              "sigfigs": "",
+              "form": "",
+              "partial-credit": false,
+              "form-credit": "0.5",
+              "response": "",
+              "packages": [],
+              "checker": "6798da32178c92c3d53579c49fb6301ad623fa1673da091173240123eb631f2f"
+            },
+            "variables": {
+              "A": "{\"value\":[\"matrix\",3,3,[[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"1\"],[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"0\"],[\"integer\",\"1\"]]],\"version\":1}"
+            },
+            "checksum": "5184f7035f3e50b8f101b8448526185fb3fdf414cc77a4179b843e828d66fc17"
+          },
+          "note": "Are the columns of $A={{\"value\":[\"matrix\",3,3,[[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"1\"],[\"integer\",\"1\"],[\"integer\",\"0\"],[\"integer\",\"0\"],[\"integer\",\"1\"]]],\"version\":1}}$ linearly independent? _[1]",
+          "by": "aacchhee",
+          "date": ""
+        }
+      ]
+    }
+  ]
+}
