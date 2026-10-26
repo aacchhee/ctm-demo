@@ -72,9 +72,9 @@
     },
     "jsxgraph": {
       "repository": "aacchhee/jsxgraph-quarto",
-      "branch": "fix/2026-10-jsxgraph-115-runtime",
-      "requested_ref": "fix/2026-10-jsxgraph-115-runtime",
-      "commit": "e31b5d19cb7f282e220634c0e21304067910efff",
+      "branch": "audit/2026-10",
+      "requested_ref": "audit/2026-10",
+      "commit": "49a1c7d575e08b2133e39098e8f9deda61567287",
       "ref_override": false,
       "pinned": true,
       "local_override": false,
@@ -87,7 +87,7 @@
       "repository": "Erasmus-CTM/ctm-assessment",
       "branch": "main",
       "requested_ref": "main",
-      "commit": "6eec16fb58c8bf25f8f85a8b90d11472fc7a1526",
+      "commit": "ac10e6a72841c162df3fb9cf9b787028927f8e78",
       "ref_override": false,
       "pinned": false,
       "local_override": true,
@@ -245,15 +245,14 @@
     },
     "jsxgraph": {
       "LICENSE": "136f019405aea96f272faa75e84345030531db597e10bc5ff208dbcbb5212a05",
-      "_extension.yml": "8efa516809de8eb5d9e02a59a2af091d2c834255a071f63c6938419718dedcb7",
+      "_extension.yml": "3398b38685ed67c828dc99beefb8c49b2258a007bf39d127f07a387cc65a7be2",
       "graph-editor.js": "3aa43338142a78eca94a91efdc55ef32abe7081464b8905d743e418d8bfecf2e",
-      "lua/jsxgraph.lua": "e134658ae4cddfa543567e787fa9df7cc40afdc0c9ec2968f6a4a82e5eecaecf",
-      "resources/css/jsxgraph.css": "58ff5704eb9bb8db66e8b002d01c44a6ddfe0ced7f887ab2ef602feff2f3c0f6",
-      "resources/js/jsxgraphcore.js": "143da46b60b0d97b97bc26579c2705c7ee2d113a70716a10eebfcc225599c9b7",
-      "resources/upstream/COPYRIGHT": "ad5ddf359c14c9b84872d2cc7008b5e98dd2ab9186883119d48d14eb59175ef6",
+      "lua/jsxgraph.lua": "4bf685cfb02a831b362f0b580ae8fac9854ebb228c2168a6b6b48785f6fd6581",
+      "resources/css/jsxgraph.css": "6b2ec1a1f794afbfe0677a921b2314765f0e5fc9773196ac4a4f8f6cc257fc3f",
+      "resources/js/jsxgraphcore.js": "7cd005c139b63c5e2562df08dc5fe7c813b0c40438054941564a3453b4edd9b0",
       "resources/upstream/LICENSE.LGPL": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
       "resources/upstream/LICENSE.MIT": "43e325001487de7f09745fbe086b054bb1b70d4ab58060e87153849365b23ff1",
-      "upstream-runtime.json": "56c53e680162f886c28ee147709965cee923c1d6ef909e30df43e9b53ce49e69"
+      "upstream-runtime.json": "945faf137c5c30cc5963749f7362c48f33b5a7ab7e9c16ebdbef7cbcb9776554"
     },
     "ctm-assessment": {
       "_extension.yml": "b2c2f0cf7c6c25ed2c348d284a08cee08654256ca3a76f7bb3309bcc204c8ed7",
@@ -261,7 +260,7 @@
       "author-imports.lua": "ed198390369d1d7dda1f593ca8d95e6dbbc0d3a689b1fec1c8920b88ad969eba",
       "author-imports.py": "37a80b818509c2a8945d6b6a3ce4bd5dc16d690d8787868ecb7719d364ee958d",
       "ctm-assessment.lua": "a9d211afec6cb338ff41a907e29c75659662307af696991268e1eb5134e9afba",
-      "jsxgraph-pins.yml": "3317e62ea6a8d177f24a898f55f6079e62583f7ac5ab90a91125c81b7365543c",
+      "jsxgraph-pins.yml": "d293d0871c0b6c388369b1a6267271d447819021ba5430c69c847afcfe911f92",
       "offline-system.scss": "c7c39422f6c29ecb2e64ff43cb190a3305609ca79221e1d347ab1b94bd16e8a9",
       "offline.scss": "6fea85d094fc49eb1247ad6247f8f0006e802516f3cf454f0cc3f73996986ddd",
       "tab-ids.lua": "044b9e6f4ebceb5c6b59fa398710bd04528a48bebc5a1a7c439f8b3e3ec95fc2",
@@ -284,7 +283,7 @@
       "variants-review.py": "d6116f025579cbc57e12fc8a16fae82a1824015067a69b02dd69e31a80aabfb5"
     }
   },
-  "previewSourceHead": "49dd8b539ef37778bf2434316bf2b16a1b72c314",
+  "previewSourceHead": "9b7e45793188e27c8e5f940cbc41a5db237bdc4d",
   "guidePages": [
     "pages/similar-problems.qmd",
     "pages/similar-problems-authoring.qmd",
