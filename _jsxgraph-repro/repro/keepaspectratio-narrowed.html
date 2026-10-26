@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSXGraph: narrowed keepaspectratio board is cropped</title>
+<style>
+  body { font-family: system-ui, sans-serif; line-height: 1.45; margin: 1rem; max-width: 760px; }
+  .status { font-family: monospace; white-space: pre-wrap; background: #f4f4f4; padding: 0.5rem; font-size: 0.8rem; }
+  .wrong { color: #b00020; font-weight: bold; }
+  .frame { height: 150px; border: 1px solid #888; }
+  button { font-size: 1rem; }
+  h2 { font-size: 1rem; margin: 0.5rem 0; }
+</style>
+<script>
+  var V = (/[?&]v=([0-9.]+)/.exec(location.search) || [])[1] || '1.14.2';
+  var CDN = 'https://cdn.jsdelivr.net/npm/jsxgraph@' + V + '/distrib/';
+  document.write('<link rel="stylesheet" href="' + CDN + 'jsxgraph.css"><script src="' + CDN + 'jsxgraphcore.js"><\/script>');
+</script>
+</head>
+<body>
+<h1>keepaspectratio board narrowed below the box's aspect ratio: sides cropped</h1>
+<p>JSXGraph version: <strong id="version"></strong>. Other versions:
+<a href="?v=1.12.2">1.12.2</a> · <a href="?v=1.13.3">1.13.3</a> ·
+<a href="?v=1.14.0">1.14.0</a> · <a href="?v=1.14.1">1.14.1</a> ·
+<a href="?v=1.14.2">1.14.2</a> · <a href="../index.html#p5">overview</a></p>
+<p>Press <strong>Narrow A</strong> and compare (A) with (B).</p>
+<p><button type="button" id="narrow">Narrow A to 273 px</button></p>
+<h2>(A) Created 600 px wide, then narrowed</h2>
+<div id="outer-a" style="width:600px"><div id="box-a" class="jxgbox frame" style="width:100%"></div></div>
+<p class="status" id="status-a"></p>
+<h2>(B) Created 273 px wide (reference)</h2>
+<div style="width:273px"><div id="box-b" class="jxgbox frame" style="width:100%"></div></div>
+<p class="status" id="status-b"></p>
+<p>The same board twice: <code>boundingbox: [0, 6, 14, 0]</code> (14 wide,
+6 high), <code>keepaspectratio: true</code>, in a div 150 px high. The grey
+rectangle is the bounding box. (B) is created at 273 px: initBoard fits the
+whole box (x 0…14). (A) is created at 600 px, where the box is widened to x
+−5…19, and is then narrowed to 273 px by its container, as on a phone or a
+narrower window. Nothing else happens; JSXGraph's ResizeObserver does the
+resize.</p>
+<p><strong>Expected:</strong> after narrowing, (A) shows the whole grey
+rectangle, as (B) does.<br>
+<strong>Seen (1.12.2 to 1.14.2, Chromium):</strong> (A) shows x 1.54…12.46
+and y 0…6: the left and right parts of the box are cut off (all five
+versions linked above). With 1.14.1 and 1.14.2 we also checked that widening
+(A) again restores the earlier view, and that a board zoomed in first is
+cropped the same way.</p>
+<p><strong>Cause</strong> (v1.14.2): <code>resizeContainer</code>
+re-applies the current box with <code>setBoundingBox(box, keepaspectratio,
+'keep')</code>
+(<a href="https://github.com/jsxgraph/jsxgraph/blob/v1.14.2/src/base/board.js#L5863-L5864">board.js 5863–5864</a>).
+For a container wider than high, <code>setBoundingBox</code> keeps the
+vertical extent (<code>unitY = h / dy</code>) whatever the box's horizontal
+extent then needs
+(<a href="https://github.com/jsxgraph/jsxgraph/blob/v1.14.2/src/base/board.js#L6550-L6560">board.js 6550–6560</a>),
+so the rule follows the container's orientation, not whether the box still
+fits. The "switch dominating interval" branch only applies when the box
+itself is higher than wide. initBoard instead fits the whole box with one
+scale (min of w/dx and h/dy).</p>
+<p><strong>Possible fix:</strong> on resize, fit the whole intended box with
+one scale, as initBoard does; this needs the board to remember the intended
+box (the one its code, initBoard or the user's zoom and pan set). The
+jsxgraph-quarto extension does this for <code>keepaspectratio</code> boards
+defined by a <code>boundingbox</code>.</p>
+
+<script>
+  document.getElementById('version').textContent = V;
+  function makeBoard(id) {
+    var board = JXG.JSXGraph.initBoard(id, {boundingbox: [0, 6, 14, 0], keepaspectratio: true,
+      axis: false, showNavigation: false, showCopyright: false});
+    board.create('polygon', [[0, 0], [14, 0], [14, 6], [0, 6]],
+      {fillColor: '#dddddd', fillOpacity: 0.6, borders: {strokeColor: '#555555'}, vertices: {visible: false}, fixed: true});
+    board.create('text', [7, 3, 'bounding box'], {anchorX: 'middle', anchorY: 'middle', fontSize: 16, fixed: true});
+    return board;
+  }
+  var boardA = makeBoard('box-a'), boardB = makeBoard('box-b');
+  function round(box) { return box.map(function (v) { return Math.round(v * 100) / 100; }); }
+  function whole(box) { return box[0] <= 0.005 && box[1] >= 5.995 && box[2] >= 13.995 && box[3] <= 0.005; }
+  function report(id, board) {
+    var box = round(board.getBoundingBox()), ok = whole(box), el = document.getElementById('status-' + id);
+    window.RESULT = window.RESULT || {};
+    window.RESULT[id] = {width: board.canvasWidth, bbox: box, whole: ok};
+    el.textContent = 'Board ' + board.canvasWidth + '×' + board.canvasHeight + ' px, bounding box ' + JSON.stringify(box) +
+      (ok ? '\nWhole box [0, 6, 14, 0] visible.' : '\nCROPPED: the box [0, 6, 14, 0] is not fully visible.');
+    el.className = 'status' + (ok ? '' : ' wrong');
+  }
+  function update() { report('a', boardA); report('b', boardB); }
+  document.getElementById('narrow').onclick = function () {
+    document.getElementById('outer-a').style.width = '273px';
+    setTimeout(update, 500);
+  };
+  update();
+</script>
+</body>
+</html>
