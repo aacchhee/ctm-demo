@@ -23,7 +23,7 @@
 <p>JSXGraph version: <strong id="version"></strong>. Other versions:
 <a href="?v=1.12.2">1.12.2</a> · <a href="?v=1.13.3">1.13.3</a> ·
 <a href="?v=1.14.0">1.14.0</a> · <a href="?v=1.14.1">1.14.1</a> ·
-<a href="?v=1.14.2">1.14.2</a> · <a href="../index.html#p5">overview</a></p>
+<a href="?v=1.14.2">1.14.2</a></p>
 <p>Press <strong>Narrow A</strong> and compare (A) with (B).</p>
 <p><button type="button" id="narrow">Narrow A to 273 px</button></p>
 <h2>(A) Created 600 px wide, then narrowed</h2>
@@ -43,9 +43,9 @@ resize.</p>
 rectangle, as (B) does.<br>
 <strong>Seen (1.12.2 to 1.14.2, Chromium):</strong> (A) shows x 1.54…12.46
 and y 0…6: the left and right parts of the box are cut off (all five
-versions linked above). With 1.14.1 and 1.14.2 we also checked that widening
-(A) again restores the earlier view, and that a board zoomed in first is
-cropped the same way.</p>
+versions linked above). With 1.14.1 and 1.14.2, widening (A)
+again restores the earlier view, and a board zoomed in first is cropped the
+same way.</p>
 <p>A board created at the narrow width, such as (B), is not cropped: the
 problem appears only when a board is narrowed after it was created (a
 narrower window, a phone rotated from landscape to portrait).</p>
@@ -63,9 +63,7 @@ itself is higher than wide. initBoard instead fits the whole box with one
 scale (min of w/dx and h/dy).</p>
 <p><strong>Possible fix:</strong> on resize, fit the whole intended box with
 one scale, as initBoard does; this needs the board to remember the intended
-box (the one its code, initBoard or the user's zoom and pan set). The
-jsxgraph-quarto extension does this for <code>keepaspectratio</code> boards
-defined by a <code>boundingbox</code>.</p>
+box (the one its code, initBoard or the user's zoom and pan set).</p>
 
 <script>
   document.getElementById('version').textContent = V;
