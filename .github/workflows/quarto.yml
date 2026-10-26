@@ -22,7 +22,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 2
       - name: Select explicit review dependencies (main keeps normal defaults)
@@ -33,7 +33,7 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: "1.8.27"
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       # SymPy: the version Pyodide ships, so that build-time checks (STACK variants) match the browser (audit F-11).
@@ -58,7 +58,7 @@ jobs:
       - name: Verify generated STACK variants
         run: python scripts/check-stack-native-authoring.py _variants-review-site/pages/stack-oppgaver.html
       - name: Save rendered website
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ctm-demo-site
           path: _site
@@ -73,7 +73,7 @@ jobs:
       contents: write
     steps:
       - name: Download the read-only build output
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: ctm-demo-site
           path: _site

@@ -33,10 +33,10 @@ jobs:
     if: (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/consolidation/2026-10-saving-quiz-candidate') || github.head_ref == 'consolidation/2026-10-saving-quiz-candidate'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Check authored fixture and candidate boundaries without a render
@@ -71,10 +71,10 @@ jobs:
           with open(os.environ['GITHUB_ENV'], 'a') as target:
               target.write('CTM_REVIEW_REFS=' + json.dumps(refs, sort_keys=True) + '\n')
           PY
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - uses: quarto-dev/quarto-actions/setup@v2
@@ -104,7 +104,7 @@ jobs:
           print(json.dumps(evidence, sort_keys=True))
           PY
       - name: Preserve the rendered candidate and exact dependency record
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ctm-demo-saving-quiz-${{ github.sha }}
           path: |
@@ -134,10 +134,10 @@ jobs:
         env:
           CONFIRMATION: ${{ inputs.confirmation }}
         run: test "$CONFIRMATION" = 'merged package acceptance'
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - uses: actions/setup-node@v7
@@ -164,10 +164,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - uses: actions/setup-node@v7
@@ -240,7 +240,7 @@ jobs:
       matrix:
         browser: [chromium, firefox, webkit]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
       - uses: actions/download-artifact@v7

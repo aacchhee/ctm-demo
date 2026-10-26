@@ -29,10 +29,10 @@ jobs:
           test "$EVENT" = workflow_dispatch
           test "$REF" = 'refs/heads/consolidation/2026-10-merged-package-demo'
           test "$CONFIRMATION" = 'broad testing campaign'
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - uses: quarto-dev/quarto-actions/setup@v2
@@ -89,10 +89,10 @@ jobs:
       matrix:
         browser: [chromium, firefox, webkit]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           repository: Erasmus-CTM/ctm-assessment
           ref: ${{ env.CTM_UMBRELLA_REF }}
