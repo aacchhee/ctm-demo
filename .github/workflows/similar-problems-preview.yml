@@ -1,21 +1,21 @@
-name: Publish Similar problems preview
+name: Build Similar problems guide
 
 on:
+  # No path filters: every PR must rebuild the complete three-page guide.
+  pull_request:
   push:
-    branches: [similar-problems/testbox]
-    paths:
-      - pages/similar-problems.qmd
-      - feedback/similar-problems.yml
-      - quarto-extensions.yml
-      - .github/workflows/similar-problems-preview.yml
+    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: similar-problems-build-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
-    if: github.repository == 'aacchhee/ctm-demo' && github.ref == 'refs/heads/similar-problems/testbox'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -32,23 +32,21 @@ jobs:
         run: python -m pip install -r requirements.txt sympy==1.13.3
       - name: Install the exact package pin
         run: python scripts/setup.py
-      - name: Build the three-exercise public testbox
-        run: quarto render pages/similar-problems.qmd
-      - name: Record the published source and component pins
-        run: |
-          python - <<'PY'
-          import json,pathlib,subprocess
-          record=json.loads(pathlib.Path('.private-extensions/resolved-repos.json').read_text())
-          record['previewSourceHead']=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
-          pathlib.Path('_site/similar-problems-build.json').write_text(json.dumps(record,indent=2)+'\n')
-          PY
+      - name: Build all three pages and record provenance
+        run: python scripts/build-similar-problems.py
       - uses: actions/upload-artifact@v4
         with:
-          name: similar-problems-public-preview
+          name: similar-problems-guide
           path: _site
+      - name: Link the rendered artifact
+        env:
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: echo "All three pages rebuilt. Download the similar-problems-guide artifact from [this run]($RUN_URL). PR builds do not publish." >> "$GITHUB_STEP_SUMMARY"
   publish:
     needs: build
-    if: github.repository == 'aacchhee/ctm-demo' && github.ref == 'refs/heads/similar-problems/testbox'
+    # Never give PR code a publishing token. Manual branch publication is an
+    # explicit maintainer action; main publication follows a reviewed merge.
+    if: github.repository == 'aacchhee/ctm-demo' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency:
@@ -59,13 +57,17 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: similar-problems-public-preview
+          name: similar-problems-guide
           path: preview
-      - name: Publish the preview subtree while preserving the existing site
+      - name: Publish the guide while preserving existing course pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./preview
-          destination_dir: similar-problems-pr-28
+          destination_dir: ${{ github.ref == 'refs/heads/main' && 'similar-problems' || 'similar-problems-preview' }}
           publish_branch: gh-pages
           keep_files: true
+      - name: Link the public guide
+        env:
+          GUIDE_DIR: ${{ github.ref == 'refs/heads/main' && 'similar-problems' || 'similar-problems-preview' }}
+        run: echo "[Open the three-page guide](https://aacchhee.github.io/ctm-demo/$GUIDE_DIR/pages/similar-problems.html)" >> "$GITHUB_STEP_SUMMARY"

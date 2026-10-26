@@ -1,0 +1,16 @@
+project:
+  render:
+    - pages/similar-problems.qmd
+    - pages/similar-problems-authoring.qmd
+    - pages/similar-problems-workflow.qmd
+
+website:
+  title: "Similar problems"
+  sidebar:
+    contents:
+      - text: "Examples and code"
+        file: pages/similar-problems.qmd
+      - text: "Authoring guide"
+        file: pages/similar-problems-authoring.qmd
+      - text: "Workflow and phase 2"
+        file: pages/similar-problems-workflow.qmd

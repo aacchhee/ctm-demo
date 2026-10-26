@@ -1,5 +1,9 @@
 ---
-title: "Similar problems — practice testbox"
+title: "Similar problems — examples"
+format:
+  html:
+    code-tools: true
+    toc: true
 ctm-assessment:
   progress: true
   variants:
@@ -11,11 +15,33 @@ ai-feedback:
   generation-policy: {default: similar-practice}
 ---
 
-Use **Feedback settings** to choose Direct API and a reasoning model for generating
-problems. The three examples exercise symbolic keys, fixed matrix inputs and a
-trusted authored checker. Generated work is practice and does not count toward
-course scores. Reload to check saved answers; use **More → I think the expected answer is wrong** to test the
-local report and independent re-check.
+**Examples** · [Authoring guide](similar-problems-authoring.qmd) · [Workflow](similar-problems-workflow.qmd)
+
+Create extra practice from an authored exercise, with an easier, harder or
+same-difficulty version. These three examples cover symbolic differentiation,
+a matrix answer and an authored checker for linear independence.
+
+## Try it
+
+1. Open the exercise's **Settings** (gear), choose **Direct API**, and enter your
+   provider's API base URL and personal API key.
+2. Click **Fetch models**. Choose a fast model for feedback and independent
+   solving, and a reasoning model under **Model for generating problems**.
+   Save settings. The browser contacts that provider directly; its API usage may
+   incur charges. Do not put API keys in the QMD or policy file.
+3. Open **Similar problem**, then choose **Easier**, **Another one like this** or
+   **Harder**. Wait for the checked problem, or use **Cancel**.
+4. Enter an answer and use **Check** or **Feedback**. Every new problem starts
+   from the original exercise; repeated Harder clicks create siblings, rather
+   than an increasingly difficult chain.
+
+Generated practice does not count toward course scores. Reload to try restoring
+saved work. Use **More → I think the expected answer is wrong** to flag a problem
+and request its one independent re-check. Reports stay on this device and are
+included in copy/export. Agreement between models is not proof of correctness.
+
+Each example has its exact authoring code below it. The page's **Code** menu also
+shows the complete QMD, including its settings.
 
 ## 1. A derivative
 
@@ -28,6 +54,21 @@ local report and independent re-check.
 Differentiate $f(x)=x^2$. $f'(x)=$ _[2*x].
 ```
 
+::: {.callout-note collapse="true"}
+## Show authoring code
+
+````markdown
+```{math-exercise}
+#| label: similar-derivative
+#| vars: x
+#| context: none
+#| harder: Introduce a product or chain rule while keeping the function manageable.
+#| simpler: Use a single power function.
+Differentiate $f(x)=x^2$. $f'(x)=$ _[2*x].
+```
+````
+:::
+
 ## 2. A fixed matrix calculation
 
 ```{math-exercise}
@@ -38,6 +79,21 @@ Differentiate $f(x)=x^2$. $f'(x)=$ _[2*x].
 Find the inverse of $A=\begin{pmatrix}1&2\\0&1\end{pmatrix}$.
 $A^{-1}=$ mat[1,-2;0,1].
 ```
+
+::: {.callout-note collapse="true"}
+## Show authoring code
+
+````markdown
+```{math-exercise}
+#| label: similar-matrix
+#| context: none
+#| harder: Use a different invertible 2 by 2 matrix with small exact entries.
+#| simpler: Use a diagonal 2 by 2 matrix.
+Find the inverse of $A=\begin{pmatrix}1&2\\0&1\end{pmatrix}$.
+$A^{-1}=$ mat[1,-2;0,1].
+```
+````
+:::
 
 ## 3. Linear independence with an authored check
 
@@ -71,3 +127,35 @@ coordinates, even if a candidate's independence answer happens to be correct.
 #|     expect: wrong
 Are the columns of $A={@A@}$ linearly independent? _[1]
 ```
+
+::: {.callout-note collapse="true"}
+## Show authoring code
+
+````markdown
+```{math-exercise}
+#| label: similar-independence
+#| variables: |
+#|   A = Matrix([[1, 0, 1], [0, 1, 1], [0, 0, 1]])
+#| mode: custom
+#| field-labels: Independent
+#| context: none
+#| harder: Give more vectors or less obvious dependencies. Never exceed five coordinates per vector.
+#| simpler: Give fewer vectors with an obvious relation or clear independence.
+#| checker: |
+#|   def check(response, symbols):
+#|       A = response['variables']['A']
+#|       if not 1 <= A.rows <= 5 or A.cols < 1:
+#|           return {'score': 0, 'feedback': 'Vector length must be between one and five.'}
+#|       answer = response['expressions'][0]
+#|       return {'correct': answer == Integer(A.rank() == A.cols)}
+#| tests:
+#|   - name: independent columns
+#|     answers: [1]
+#|     expect: correct
+#|   - name: incorrect dependence answer
+#|     answers: [0]
+#|     expect: wrong
+Are the columns of $A={@A@}$ linearly independent? _[1]
+```
+````
+:::
