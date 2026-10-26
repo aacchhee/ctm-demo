@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           persist-credentials: false
@@ -37,7 +37,7 @@ jobs:
           with open(os.environ['GITHUB_ENV'],'a') as out:
               out.write('CTM_FIRST_START_REFS=' + json.dumps(refs,sort_keys=True) + '\n')
           PY
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - uses: quarto-dev/quarto-actions/setup@v2
@@ -59,7 +59,7 @@ jobs:
           assert 'pages/step4-ui.html' in files and 'coi-serviceworker.js' in files
           pathlib.Path('first-start-network-build/record.json').write_text(json.dumps({'sourceHead':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'refs':json.loads(pathlib.Path('.github/first-start-network-refs.json').read_text()),'files':files},indent=2)+'\n')
           PY
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: first-start-network-site-${{ github.event.pull_request.head.sha }}
@@ -73,18 +73,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           persist-credentials: false
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         with:
           name: first-start-network-site-${{ github.event.pull_request.head.sha }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: '22'
+          node-version: '24'
       - name: Check out the retained original transport for the negative control
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: Erasmus-CTM/ctm-libs
           ref: 272d2cd38cda46b02433455bed13759b86c91eb4
@@ -116,7 +116,7 @@ jobs:
           assert all(row['method'] == 'HEAD' and row['url'] == probe['wheel'] and row.get('failure', {}).get('errorText') == 'net::ERR_ABORTED' for row in original['failedRequests']), 'The retained original control may only reproduce its named HEAD cancellation'
           assert all(value == 0 for name, value in original['beforeTeardownRawCounts'].items() if name != 'failedRequests'), 'Other original-control failures remain errors'
           PY
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: first-start-network-chromium-${{ github.event.pull_request.head.sha }}

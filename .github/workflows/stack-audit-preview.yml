@@ -20,8 +20,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - uses: quarto-dev/quarto-actions/setup@v2
@@ -34,7 +34,7 @@ jobs:
       - name: Build and validate the standalone report
         run: python scripts/build-stack-audit.py
       - name: Preserve rendered report and validation
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: stack-audit-report
           path: _stack-audit/_site
@@ -46,7 +46,7 @@ jobs:
       contents: write
     steps:
       - name: Download rendered report
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: stack-audit-report
           path: report
