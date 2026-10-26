@@ -88,7 +88,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#p2" id="toc-p2" class="nav-link" data-scroll-target="#p2">2. Library: boards with unitX/originX created hidden are broken</a></li>
   <li><a href="#p3" id="toc-p3" class="nav-link" data-scroll-target="#p3">3. Library: a keepaspectratio board created at 0×0 shows the wrong region</a></li>
   <li><a href="#p4" id="toc-p4" class="nav-link" data-scroll-target="#p4">4. Library: one exception during a resize stops all later resizing</a></li>
-  <li><a href="#p5" id="toc-p5" class="nav-link" data-scroll-target="#p5">5. Library: a keepaspectratio board that gets narrower than high is cropped</a></li>
+  <li><a href="#p5" id="toc-p5" class="nav-link" data-scroll-target="#p5">5. Library: a keepaspectratio board narrowed below its box’s aspect ratio is cropped</a></li>
   <li><a href="#p6r" id="toc-p6r" class="nav-link" data-scroll-target="#p6r">6. Library: possible endless loop in the SVG renderer (found by reading, not run)</a></li>
   <li><a href="#p6" id="toc-p6" class="nav-link" data-scroll-target="#p6">7. Extension: after the first resize, boards no longer follow the window</a></li>
   <li><a href="#p7" id="toc-p7" class="nav-link" data-scroll-target="#p7">8. Extension: boards in hidden tabs can stay blank (library problem 1)</a></li>
@@ -123,6 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Problems 1, 2 and 4, the <code>functiongraph</code> crash listed at the end, and the extension measurements were checked by an independent verification (fresh downloads, its own test pages and drivers); the numbers given are from it unless a section says otherwise. Problems 3 and 5 and the two plain-div pages under problem 1 were found and measured for this page, not by the verification; the div page and the iframe page of problem 1 were also checked by hand in Chrome 152 on Windows. Problem 6 was found by reading the code.</p>
 <p>The pages in <code>repro/</code> load JSXGraph from jsDelivr; add <code>?v=1.9.1</code> (or another version) to a page’s address to load that version. Source locations are from our investigation of tag v1.14.0; the resize code is unchanged on <code>main</code> (55a2035, 19 October 2026).</p>
 <p><strong>Browsers.</strong> On 19 October 2026 the maintainers’ desktop setting was checked by hand in Chrome 152.0.7977.149 on Windows: problem 1 reproduces there in a normal, visible window with the div page (blank in 4 of 4 loads with JSXGraph 1.14.0, drawn with 1.9.1), and with the iframe page only while Chrome is not painting the window (see problem 1). All other measurements on this page were made in Chromium 141.0.7390.37 on Linux, the full browser that Chrome is built from, under automation, with a window (under Xvfb) and in headless mode, except where a section says “checked by hand on Windows Chrome 152”: the repro pages of problems 1 to 4 and the <code>functiongraph</code> page were also opened there in a visible window in front, and each showed the problem as described. Problem 5 was not checked there. Chromium’s separate “headless shell” never shows problem 1 in iframes. Firefox and Safari were not available to us, so this page says nothing about them.</p>
+<p><strong>Update, 26 October 2026: JSXGraph 1.14.2.</strong> Measured in automated Chromium with the pages and drivers used for this update. Problem 2 is fixed in 1.14.2: a board with <code>unitX</code>/<code>unitY</code>/<code>originX</code>/<code>originY</code> created hidden gets its units and origin when shown, and a bounding box set while a board is hidden is kept (afe77cfe, 3e5ea5ff, 1096eb30; 1.14.1 still loses both). Problem 3 is fixed in 1.14.1 and 1.14.2: a hidden <code>keepaspectratio</code> board shows the fitted view when shown. <strong>Problem 5 is still open in 1.14.2</strong>, and it is wider than first described: the box is cropped whenever the container gets narrower than the box’s aspect ratio, also while the container stays wider than high. It now has a minimal page, <a href="repro/keepaspectratio-narrowed.html">keepaspectratio-narrowed.html</a>. Problems 1, 4 and 6 are listed as fixed in 1.14.1 in the jsxgraph-quarto extension’s notes; they were not measured again for this update. The rest of this page is the report as of 19 October (JSXGraph 1.14.0).</p>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>Library (JSXGraph 1.14.0):</p>
@@ -163,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td><a href="#p5">5</a></td>
-<td>A <code>keepaspectratio</code> board that gets narrower than high is cropped</td>
+<td>A <code>keepaspectratio</code> board narrowed below its box’s aspect ratio is cropped (still open in 1.14.2)</td>
 <td>1.5.0</td>
 <td>visible boards too; may be intended</td>
 </tr>
@@ -461,13 +462,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 </section>
 <section id="p5" class="level2">
-<h2 class="anchored" data-anchor-id="p5">5. Library: a keepaspectratio board that gets narrower than high is cropped</h2>
+<h2 class="anchored" data-anchor-id="p5">5. Library: a keepaspectratio board narrowed below its box’s aspect ratio is cropped</h2>
 <p>This one concerns visible boards and may be intended. It is listed because it looks like a defect on phones. Measured for this page (15 of 15 loads), not part of the independent verification.</p>
-<p><strong>What goes wrong.</strong> A <code>keepaspectratio</code> board whose container changes from wider-than-high to higher-than-wide keeps the box’s vertical extent and crops it at the sides. Example: <code>boundingbox: [-1, 7, 13, -1]</code> visible in a 718×388 px div, narrowed to 356×388 px, shows x 2…10 instead of the whole x −1…13; the left and right parts of the figure are cut off. Widening restores it.</p>
-<p><strong>Versions:</strong> measured in 1.12.2, 1.13.3 and 1.14.0 (automated Chromium; not checked on Windows); the code is from 1.5.0.</p>
-<p><strong>Reproduce:</strong> <a href="library/jsxgraph-1.14.0.html">JSXGraph 1.14.0 page with the course figures</a>, pendulum in (a): open the page in a wide window, then make it narrow (about 390 px).</p>
-<p><strong>Cause</strong> (source location from our investigation): the “switch dominating interval” branch of <code>setBoundingBox</code>’s keep-aspect logic, <a href="https://github.com/jsxgraph/jsxgraph/blob/v1.14.0/src/base/board.js#L6461-L6479">board.js 6461–6479</a> (83ec5a4e5, 1.5.0).</p>
+<p><strong>What goes wrong.</strong> A <code>keepaspectratio</code> board whose container changes from wider-than-high to higher-than-wide keeps the box’s vertical extent and crops it at the sides. Example: <code>boundingbox: [-1, 7, 13, -1]</code> visible in a 718×388 px div, narrowed to 356×388 px, shows x 2…10 instead of the whole x −1…13; the left and right parts of the figure are cut off. Widening restores it. The container need not become higher than wide: as long as it is wider than high, the vertical extent is kept, so the box is cropped as soon as the container is narrower than the box’s aspect ratio (example below, 26 October).</p>
+<p><strong>Versions:</strong> measured in 1.12.2, 1.13.3 and 1.14.0 (automated Chromium; not checked on Windows), and with the minimal page below also in 1.14.1 and 1.14.2; the code is from 1.5.0.</p>
+<p><strong>Reproduce:</strong> <a href="repro/keepaspectratio-narrowed.html">keepaspectratio-narrowed.html</a> (opens with 1.14.2; press <strong>Narrow A</strong>). It is a minimal page: <code>boundingbox: [0, 6, 14, 0]</code> in a div 150 px high, created 600 px wide and narrowed to 273 px, against the same board created at 273 px. A is cropped to x 1.54…12.46 in 1.12.2, 1.13.3, 1.14.0, 1.14.1 and 1.14.2 (automated Chromium, 26 October); the container stays wider than high throughout. <strong>Only after narrowing.</strong> A board created at the narrow width is not cropped: initBoard fits the whole box. Loaded directly at 430 or 340 px, the pendulum figure (<code>boundingbox: [-1, 7, 13, -1]</code>, frame 390 px high) shows x −1…13 in 1.14.0 and 1.14.2; created at 720 px and then narrowed to the same widths, it shows x 1.59…10.41 and 2…10, with or without the figure’s own resize code, and the drawn figure (x 0…12) is cut. So a page opened on a narrow screen is fine; the problem appears when the window is narrowed or a phone is rotated after loading. Earlier page: <a href="library/jsxgraph-1.14.0.html">JSXGraph 1.14.0 page with the course figures</a>, pendulum in (a): open the page in a wide window, then make it narrow (about 390 px).</p>
+<p><strong>Cause</strong> in 1.14.2: on every resize <code>resizeContainer</code> re-applies the current box with <code>setBoundingBox(box, keepaspectratio, 'keep')</code> (<a href="https://github.com/jsxgraph/jsxgraph/blob/v1.14.2/src/base/board.js#L5863-L5864">board.js 5863–5864</a>), and for a container wider than high <code>setBoundingBox</code> keeps the vertical extent (<code>unitY = h / dy</code>) whatever the horizontal extent then needs (<a href="https://github.com/jsxgraph/jsxgraph/blob/v1.14.2/src/base/board.js#L6550-L6560">board.js 6550–6560</a>). Earlier location (from our investigation of 1.14.0): the “switch dominating interval” branch of <code>setBoundingBox</code>’s keep-aspect logic, <a href="https://github.com/jsxgraph/jsxgraph/blob/v1.14.0/src/base/board.js#L6461-L6479">board.js 6461–6479</a> (83ec5a4e5, 1.5.0).</p>
 <p><strong>Possible fixes.</strong> If cropping is not intended: fit the whole intended box on resize (the rule initBoard uses), which needs the board to remember its intended box. If it is intended: nothing; authors can size such boards with <code>aspect-ratio</code> so the frame keeps its shape.</p>
+<div class="table-responsive">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>You should see: (B), created at 273 px</th>
+<th>You see (1.14.2): (A), narrowed to 273 px</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="img/narrowed-expected.png" class="img-fluid" alt="Whole box"></td>
+<td><img src="img/narrowed-seen.png" class="img-fluid" alt="Sides cropped"></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="p6r" class="level2">
 <h2 class="anchored" data-anchor-id="p6r">6. Library: possible endless loop in the SVG renderer (found by reading, not run)</h2>
