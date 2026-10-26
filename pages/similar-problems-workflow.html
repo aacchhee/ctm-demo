@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Similar problems — workflow and phase 2 – CTM demo</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b6dc9e813fb09d2bbff48e8f9eb94b8d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/ctm-coi-frame-startup-1/coi-frame-startup.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-assets-0.9.0/assets.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-locale-0.9.0/ctm-locale.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-locale-0.9.0/common.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-locale-ui-0.9.0/ui.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-layout-0.9.0/ctm-layout.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-layout-0.9.0/ctm-settings.js"></script>
+<link href="../site_libs/quarto-contrib/ctm-layout-0.9.0/ctm-ui.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/feedback-core.js"></script>
+<script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/feedback-dom.js"></script>
+<script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/ai-feedback.js"></script>
+<link href="../site_libs/quarto-contrib/ai-feedback-0.9.0/ai-feedback.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<script>globalThis.CTM_ASSETS={"bases":{"font-awesome":"https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/","jsxgraph":"https://cdn.jsdelivr.net/gh/aacchhee/jsxgraph-quarto@5a1847cbcdd22b1f167f5bb9a901d47cb43e3a23/","katex":"https://cdn.jsdelivr.net/npm/katex@0.16.47/","mathjax-newcm-font":"https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/","mathjax3":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/","mathjax4":"https://cdn.jsdelivr.net/npm/mathjax@4.1.3/","monaco-editor":"https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/","pyodide":"https://cdn.jsdelivr.net/pyodide/v0.28.3/full/","source-sans-pro":"https://cdn.jsdelivr.net/npm/@fontsource/source-sans-pro@5.3.0/"},"mode":"cdn","v":1};</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="similar-problems-guide.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/similar-problems.html">Similar problems</a></li><li class="breadcrumb-item"><a href="../pages/similar-problems-workflow.html">Workflow and phase 2</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CTM demo</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interactive mathematics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/experiments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Your experiments here</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Similar problems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Examples and code</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems-authoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Authoring guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems-workflow.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Workflow and phase 2</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/gaussian-elimination.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gaussian elimination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/physics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fysikk</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/fysikk-forkurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fysikk-forkurs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/bevegelse-ii.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bevegelse II</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/stack-oppgaver.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STACK-oppgaver</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/help.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Help</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#where-the-page-comes-from" id="toc-where-the-page-comes-from" class="nav-link active" data-scroll-target="#where-the-page-comes-from">Where the page comes from</a></li>
+  <li><a href="#from-yaml-to-two-chat-messages" id="toc-from-yaml-to-two-chat-messages" class="nav-link" data-scroll-target="#from-yaml-to-two-chat-messages">From YAML to two chat messages</a></li>
+  <li><a href="#after-the-learner-chooses-harder" id="toc-after-the-learner-chooses-harder" class="nav-link" data-scroll-target="#after-the-learner-chooses-harder">After the learner chooses Harder</a>
+  <ul class="collapse">
+  <li><a href="#remote-api-calls" id="toc-remote-api-calls" class="nav-link" data-scroll-target="#remote-api-calls">Remote API calls</a></li>
+  <li><a href="#local-computation-and-admission" id="toc-local-computation-and-admission" class="nav-link" data-scroll-target="#local-computation-and-admission">Local computation and admission</a></li>
+  </ul></li>
+  <li><a href="#rendering-checking-and-saved-work" id="toc-rendering-checking-and-saved-work" class="nav-link" data-scroll-target="#rendering-checking-and-saved-work">Rendering, checking and saved work</a></li>
+  <li><a href="#phase-2-design-rag-and-a-course-relay" id="toc-phase-2-design-rag-and-a-course-relay" class="nav-link" data-scroll-target="#phase-2-design-rag-and-a-course-relay">Phase 2 design: RAG and a course relay</a></li>
+  <li><a href="#rebuilding-and-sharing-this-guide" id="toc-rebuilding-and-sharing-this-guide" class="nav-link" data-scroll-target="#rebuilding-and-sharing-this-guide">Rebuilding and sharing this guide</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<script>window.__aiFeedbackPolicies = {"layers":[],"pageLayers":[]};</script>
+<script>window.__aiFeedbackConfig = {"baseUrl":"","mode":"api","model":""};</script>
+<script>window.__mathExerciseConfig = {"lang":"en","stopAfter":20};</script>
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/similar-problems.html">Similar problems</a></li><li class="breadcrumb-item"><a href="../pages/similar-problems-workflow.html">Workflow and phase 2</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Similar problems — workflow and phase 2</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><a href="../pages/similar-problems.html">Examples</a> · <a href="../pages/similar-problems-authoring.html">Authoring guide</a> · <strong>Workflow</strong></p>
+<p>Phase 1 is implemented: the browser assembles a generation request and calls the learner’s configured provider. Local checkers validate the expected answers before the problem appears. Phase 2 will add course retrieval and a server-side AI relay; it is a design, not an enabled feature of this demo.</p>
+<section id="where-the-page-comes-from" class="level2">
+<h2 class="anchored" data-anchor-id="where-the-page-comes-from">Where the page comes from</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Demo <code>_quarto.yml</code> and page front matter</td>
+<td>Enable the feature, select policies, set language and context.</td>
+</tr>
+<tr class="even">
+<td><code>feedback/similar-problems.yml</code></td>
+<td>Shared named policy dictionaries and difficulty guidance.</td>
+</tr>
+<tr class="odd">
+<td>Exercise <code>#|</code> directives</td>
+<td>Stable label, original grading rules, local guidance and optional trusted checker.</td>
+</tr>
+<tr class="even">
+<td>Demo <code>quarto-extensions.yml</code></td>
+<td>Pin an exact reviewed CTM Assessment package commit.</td>
+</tr>
+<tr class="odd">
+<td>CTM Assessment <code>integration/feedback/repos.json</code></td>
+<td>Pin the component repositories installed by the normal setup script.</td>
+</tr>
+<tr class="even">
+<td><code>ctm-libs</code></td>
+<td>Policy parsing/resolution, shipped prompts, settings, model catalogue, API client, shared UI and store.</td>
+</tr>
+<tr class="odd">
+<td><code>math-exercise</code></td>
+<td>Build-time exercise metadata; browser generation, admission flow, rendering, feedback and parent-owned practice storage.</td>
+</tr>
+<tr class="even">
+<td><code>ctm-checkers</code></td>
+<td>SymPy recipe computation, expression admission and mathematical checking inside Pyodide.</td>
+</tr>
+</tbody>
+</table>
+<p><code>python scripts/setup.py</code> installs the package and its pinned components. Quarto’s Lua filters turn authored content and resolved configuration into HTML metadata and browser assets. Neither setup nor rendering sends a generation request. The <a href="../similar-problems-build.json">build provenance</a> records the exact installed commits and source revision for this published guide. Repository links below point to current source; consult that provenance when comparing a particular build.</p>
+</section>
+<section id="from-yaml-to-two-chat-messages" class="level2">
+<h2 class="anchored" data-anchor-id="from-yaml-to-two-chat-messages">From YAML to two chat messages</h2>
+<p><code>math-similar.js</code> resolves the generation policy for integration <code>math-exercise</code> and the <strong>original authored label</strong>. The generation baseline, selected common and integration instructions, matching exercise overrides and explicit exercise policy use the shared policy resolver. It then appends the chosen direction’s guidance and the exercise’s <code>harder</code>, <code>simpler</code> or <code>same</code> addon. It ignores teaching steps.</p>
+<p>The generator receives two messages:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Message</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>system</code></td>
+<td>Resolved author guidance plus the fixed JSON protocol, admitted maths/recipe operations, fixed-input requirements and prohibition on model-written code.</td>
+</tr>
+<tr class="even">
+<td><code>user</code></td>
+<td>JSON containing the original question without answer keys, resolved learning context, mode, symbols, field/input shape, direction, language, previous generated question/change, output-format examples and applicable trusted checker contracts.</td>
+</tr>
+</tbody>
+</table>
+<p>The previous generated question discourages repetition. The reference exercise is always the original: Harder means harder than that original, not harder than the last generated child. The model cannot make the grading mode more lenient.</p>
+</section>
+<section id="after-the-learner-chooses-harder" class="level2">
+<h2 class="anchored" data-anchor-id="after-the-learner-chooses-harder">After the learner chooses Harder</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    participant Learner
+    participant JS as Browser JavaScript
+    participant API as Configured AI provider
+    participant PY as Pyodide / SymPy
+    Learner-&gt;&gt;JS: Similar problem → Harder
+    JS-&gt;&gt;JS: Resolve policy, guidance and original context
+    JS-&gt;&gt;API: POST /chat/completions (generation model)
+    API--&gt;&gt;JS: Candidate problem JSON
+    JS-&gt;&gt;JS: Validate schema, slots, input shape and restrictions
+    alt A supported recipe is present
+        JS-&gt;&gt;PY: math_exercise.compute_key
+        PY--&gt;&gt;JS: Computed answer, compared with model answer
+    else A field has no recipe
+        JS-&gt;&gt;API: POST /chat/completions (independent solve)
+        API--&gt;&gt;JS: Answers without seeing the proposed key
+        JS-&gt;&gt;PY: math_exercise.check comparison
+        PY--&gt;&gt;JS: Agreement or rejection
+    end
+    JS-&gt;&gt;PY: Admit answers and run applicable original checker
+    PY--&gt;&gt;JS: Candidate accepted or rejected
+    JS-&gt;&gt;JS: Save under original record and render escaped text
+    JS--&gt;&gt;Learner: Practice question, proper inputs and Check
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>The diagram shows one successful candidate. A mixed problem can need both recipe computation and an independent solve. A rejected candidate gets one further generation attempt with the rejection reason; two failed candidates end with a retry message. The shared client can also make one corrective response retry for malformed output, and can negotiate provider request compatibility. Therefore two candidate attempts do not imply at most two HTTP requests.</p>
+<section id="remote-api-calls" class="level3">
+<h3 class="anchored" data-anchor-id="remote-api-calls">Remote API calls</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Call</th>
+<th>When and what it carries</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>GET &lt;base-url&gt;/models</code></td>
+<td>When the learner presses <strong>Fetch models</strong> in settings. The same catalogue fills the feedback and generation dropdowns.</td>
+</tr>
+<tr class="even">
+<td><code>POST &lt;base-url&gt;/chat/completions</code></td>
+<td>Generation: the messages above, the chosen generation model and a larger output budget.</td>
+</tr>
+<tr class="odd">
+<td><code>POST &lt;base-url&gt;/chat/completions</code></td>
+<td>Independent solving, if needed: a fresh prompt with the generated question, mode, variables and number of answers, without the proposed key or learner answer. Uses the everyday feedback model.</td>
+</tr>
+<tr class="even">
+<td><code>POST &lt;base-url&gt;/chat/completions</code></td>
+<td>Later feedback: the generated task, learner response, checker evidence, resolved teaching policy and current hint step.</td>
+</tr>
+</tbody>
+</table>
+<p>The base URL, API key and two model selections come from settings. The shared client sends OpenAI-compatible chat requests; it uses an authorization header when a key is configured. Generation has a 180-second per-call limit and a default 16,384-token output budget. Closed reasoning blocks are stripped before JSON validation. Feedback keeps its own defaults. Cancel aborts the active request and prevents a late result from being mounted.</p>
+<p>For example, the generation HTTP body has this shape (angle-bracketed text is an explanatory placeholder):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-ai-feedback-context="Remote API calls
+CallWhen and what it carriesGET <base-url>/modelsWhen the learner presses Fetch models in settings. The same catalogue fills the feedback and generation dropdowns.POST <base-url>/chat/completionsGeneration: the messages above, the chosen generation model and a larger output budget.POST <base-url>/chat/completionsIndependent solving, if needed: a fresh prompt with the generated question, mode, variables and number of answers, without the proposed key or learner answer. Uses the everyday feedback model.POST <base-url>/chat/completionsLater feedback: the generated task, learner response, checker evidence, resolved teaching policy and current hint step.
+The base URL, API key and two model selections come from settings. The shared client sends OpenAI-compatible chat requests; it uses an authorization header when a key is configured. Generation has a 180-second per-call limit and a default 16,384-token output budget. Closed reasoning blocks are stripped before JSON validation. Feedback keeps its own defaults. Cancel aborts the active request and prevents a late result from being mounted.
+For example, the generation HTTP body has this shape (angle-bracketed text is an explanatory placeholder):"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"model"</span><span class="fu">:</span> <span class="st">"&lt;selected generation model&gt;"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"messages"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span><span class="dt">"role"</span><span class="fu">:</span> <span class="st">"system"</span><span class="fu">,</span> <span class="dt">"content"</span><span class="fu">:</span> <span class="st">"&lt;resolved instructions and fixed protocol&gt;"</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span><span class="dt">"role"</span><span class="fu">:</span> <span class="st">"user"</span><span class="fu">,</span> <span class="dt">"content"</span><span class="fu">:</span> <span class="st">"&lt;serialized original/context/format/direction JSON&gt;"</span><span class="fu">}</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"max_tokens"</span><span class="fu">:</span> <span class="dv">16384</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The client can switch to <code>max_completion_tokens</code> if the provider requires it. A minimal candidate reply for a derivative is:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-ai-feedback-context="Remote API calls
+CallWhen and what it carriesGET <base-url>/modelsWhen the learner presses Fetch models in settings. The same catalogue fills the feedback and generation dropdowns.POST <base-url>/chat/completionsGeneration: the messages above, the chosen generation model and a larger output budget.POST <base-url>/chat/completionsIndependent solving, if needed: a fresh prompt with the generated question, mode, variables and number of answers, without the proposed key or learner answer. Uses the everyday feedback model.POST <base-url>/chat/completionsLater feedback: the generated task, learner response, checker evidence, resolved teaching policy and current hint step.
+The base URL, API key and two model selections come from settings. The shared client sends OpenAI-compatible chat requests; it uses an authorization header when a key is configured. Generation has a 180-second per-call limit and a default 16,384-token output budget. Closed reasoning blocks are stripped before JSON validation. Feedback keeps its own defaults. Cancel aborts the active request and prevents a late result from being mounted.
+For example, the generation HTTP body has this shape (angle-bracketed text is an explanatory placeholder):
+The client can switch to max_completion_tokens if the provider requires it. A minimal candidate reply for a derivative is:"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"question"</span><span class="fu">:</span> <span class="st">"Differentiate $f(x)=x^3$. $f'(x)=$ _[1]"</span><span class="fu">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"fields"</span><span class="fu">:</span> <span class="ot">[</span><span class="fu">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"answer"</span><span class="fu">:</span> <span class="st">"3*x^2"</span><span class="fu">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"recipe"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"op"</span><span class="fu">:</span> <span class="st">"diff"</span><span class="fu">,</span> <span class="dt">"expr"</span><span class="fu">:</span> <span class="st">"x^3"</span><span class="fu">,</span> <span class="dt">"var"</span><span class="fu">:</span> <span class="st">"x"</span><span class="fu">}</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"mode"</span><span class="fu">:</span> <span class="st">"equivalent"</span><span class="fu">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"vars"</span><span class="fu">:</span> <span class="st">"x"</span><span class="fu">,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"solution"</span><span class="fu">:</span> <span class="st">"Apply the power rule."</span><span class="fu">,</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"change"</span><span class="fu">:</span> <span class="st">"A different power."</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>No network call is needed just to press <strong>Check</strong> once the local Python runtime and its packages have loaded. Those initial assets may need downloading.</p>
+</section>
+<section id="local-computation-and-admission" class="level3">
+<h3 class="anchored" data-anchor-id="local-computation-and-admission">Local computation and admission</h3>
+<p><code>math_exercise.compute_key</code> admits mathematical expressions and executes a fixed operation, such as <code>diff</code>, <code>inv</code>, <code>solve</code> or <code>rank</code>. It rejects attribute access, dunder names and non-admitted Python constructs. Model text never executes as Python. Recipe results must agree with the model’s proposed answers through the existing checker. A failed recipe cannot silently fall back to an unverified key.</p>
+<p>For example, an inverse matrix uses <code>inv</code> plus a component selector <code>[row, col]</code> for each cell. The question uses numbered <code>mat[...]</code> slots and the browser mounts the normal fixed matrix editor. Complete row-major recipe coordinates can repair flattened slots into a grid; ambiguous new layouts are rejected for correction.</p>
+<p>An independent solve that agrees produces an <strong>unverified expected answer</strong>. Two models can make the same mistake. Even a matching computed answer does not prove the recipe answers the question’s wording, so author constraints and useful test cases remain important.</p>
+<p>When an original has a supported trusted checker, the model may select its supplied contract and admitted data. It cannot supply new checker source. The independence example binds a rational matrix <code>A</code> and runs the original checker before display, including its five-coordinate bound.</p>
+</section>
+</section>
+<section id="rendering-checking-and-saved-work" class="level2">
+<h2 class="anchored" data-anchor-id="rendering-checking-and-saved-work">Rendering, checking and saved work</h2>
+<p>Accepted text uses the escaped plain-text rendering path, with mathematical typesetting and the normal exercise input setup. Model HTML is never inserted as executable markup. Each generated child inherits the original grading rules and teaching/context settings, with its own practice state.</p>
+<p>The child’s <strong>Check</strong> uses the existing mathematical checker in Pyodide. <strong>Feedback</strong> asks AI to explain using the checker evidence; AI does not replace the checker’s grading. Generated work is labelled unscored and emits no scored <code>ctm:result</code> for the original.</p>
+<p><code>math-store.js</code> stores children in <code>inputs.generated</code> inside the original exercise’s record, through the shared store. There are at most ten per original, within its 64 KB record limit. Reload restores text, input values and saved status without calling AI or Python. Auxiliary practice saves preserve the original’s score and answered marker. Copy/export includes generated work and local reports.</p>
+<p><strong>I think the expected answer is wrong</strong> saves a stable versioned local report and triggers one independent re-check. Disagreement marks the expected answer disputed: mismatches read <strong>Can’t confirm against the generated key</strong>, and the learner can create another problem while retaining the report. Agreement is shown as a re-check, and the learner may keep the flag. Nothing is sent to a central report collector or created as a GitHub issue.</p>
+</section>
+<section id="phase-2-design-rag-and-a-course-relay" class="level2">
+<h2 class="anchored" data-anchor-id="phase-2-design-rag-and-a-course-relay">Phase 2 design: RAG and a course relay</h2>
+<p>Phase 2 waits for explicit authorization. It keeps the same browser prompt assembly, JSON format, mathematical admission and checks. The proposed <code>rag_app</code> services add two capabilities:</p>
+<ol type="1">
+<li><strong>Retrieve course passages:</strong> <code>/retrieve</code> takes the course and a query based on the original task, returning relevant note passages and their sources. The browser adds these as another learning-context block. This is the RAG (retrieval-augmented generation) part; retrieved text supplies context, not instructions that override author policy.</li>
+<li><strong>Relay AI requests:</strong> an OpenAI-compatible <code>/chat/completions</code> forwards to configured models using the server’s key. The existing client points at the relay, so learners need no personal key. Feedback may use it too. Generation and independent solving should use different models by default.</li>
+</ol>
+<p><strong>R1</strong> covers the <code>rag_app</code> retrieval/relay services and their hardening. Before student use this needs course-origin CORS rules, rate limits, model allowlists, output-token caps, generation-compatible timeouts and a review of request logging, especially because feedback can carry learner responses. <strong>R2</strong> adds retrieval as a context provider in <code>ctm-libs</code>/<code>math-exercise</code>, its configuration and documentation. The direct-provider phase 1 route remains available to courses without RAG.</p>
+<p>A later rate-limited <code>/report</code> relay is intended to receive only the problem spec and course, with <strong>no learner answer or identity</strong>. The local report format stays stable for that future integration. Central collection is not active; GitHub issues are never the student-report route. The historical <code>rag_app</code> <code>/problem</code> and <code>/calculate-answer</code> prototypes are not the proposed phase 2 API.</p>
+<p>See the <a href="https://github.com/Erasmus-CTM/ctm-assessment/blob/main/docs/similar-problems.md#9-phase-2-rag_app">binding design and R1/R2 scope</a>. This guide documents phase 2 without implementing or enabling it.</p>
+</section>
+<section id="rebuilding-and-sharing-this-guide" class="level2">
+<h2 class="anchored" data-anchor-id="rebuilding-and-sharing-this-guide">Rebuilding and sharing this guide</h2>
+<p>Every pull request in <code>ctm-demo</code> rebuilds all three pages, without path or branch filters. PR builds use read-only permissions and upload the rendered site as an Actions artifact. They do not publish automatically with a write token.</p>
+<p>An upstream component PR does not silently change this guide’s dependencies. After review, update the exact package/component pins and the demo’s package pin; that demo PR rebuilds the guide with the newly selected sources.</p>
+<p>Pushes to <code>main</code> rebuild and publish the guide under <code>/similar-problems/</code>. A maintainer can run <strong>Build Similar problems guide → Run workflow</strong> on a branch to publish <code>/similar-problems-preview/</code> before merging. That preview address is shared between manual runs; the provenance file identifies the published revision. The regular full-site action also renders these pages at their normal course addresses. Publication jobs share the site’s concurrency group and preserve existing course pages. No workflow merges a PR or creates a tag.</p>
+<p>Source: <a href="https://github.com/aacchhee/ctm-demo">demo pages and action</a>, <a href="https://github.com/Erasmus-CTM/math-exercise/blob/main/_extensions/math-exercise/math-similar.js">generation flow</a>, <a href="https://github.com/Erasmus-CTM/ctm-libs/tree/main/_extensions/ctm-libs/feedback">policy/client implementation</a>, <a href="https://github.com/Erasmus-CTM/ctm-checkers">checker implementation</a>.</p>
+
+
+<!--ctm-layout-generated--><span id="ctm-layout-ready" hidden=""></span>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/aacchhee\.github\.io\/ctm-demo\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
