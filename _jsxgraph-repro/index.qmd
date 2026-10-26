@@ -475,6 +475,14 @@ checked on Windows), and with the minimal page below also in 1.14.1 and
 273 px, against the same board created at 273 px. A is cropped to x
 1.54…12.46 in 1.12.2, 1.13.3, 1.14.0, 1.14.1 and 1.14.2 (automated
 Chromium, 26 October); the container stays wider than high throughout.
+**Only after narrowing.** A board created at the narrow width is not
+cropped: initBoard fits the whole box. Loaded directly at 430 or 340 px, the
+pendulum figure (`boundingbox: [-1, 7, 13, -1]`, frame 390 px high) shows x
+−1…13 in 1.14.0 and 1.14.2; created at 720 px and then narrowed to the same
+widths, it shows x 1.59…10.41 and 2…10, with or without the figure's own
+resize code, and the drawn figure (x 0…12) is cut. So a page opened on a
+narrow screen is fine; the problem appears when the window is narrowed or a
+phone is rotated after loading.
 Earlier page: [JSXGraph 1.14.0 page with the course figures](library/jsxgraph-1.14.0.html),
 pendulum in (a): open the page in a wide window, then make it narrow (about
 390 px).

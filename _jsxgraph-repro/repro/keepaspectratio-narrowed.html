@@ -46,6 +46,9 @@ and y 0…6: the left and right parts of the box are cut off (all five
 versions linked above). With 1.14.1 and 1.14.2 we also checked that widening
 (A) again restores the earlier view, and that a board zoomed in first is
 cropped the same way.</p>
+<p>A board created at the narrow width, such as (B), is not cropped: the
+problem appears only when a board is narrowed after it was created (a
+narrower window, a phone rotated from landscape to portrait).</p>
 <p><strong>Cause</strong> (v1.14.2): <code>resizeContainer</code>
 re-applies the current box with <code>setBoundingBox(box, keepaspectratio,
 'keep')</code>
