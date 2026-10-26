@@ -1,46 +1,33 @@
-# Similar problems combined testbox
+# Similar problems guide
 
-`pages/similar-problems.qmd` contains a symbolic derivative, fixed matrix inverse,
-and trusted independence checker with a hard five-coordinate limit. Progress is
-enabled so the combined Settings and question-navigation UI can be reviewed.
-Optional variant approval is explicit and confined to this testbox.
+The merged testbox is now a three-page guide for colleagues:
 
-Package pin: `61f157f90a889be723685228a9b669e56d52c988`.
-Components: ctm-libs `b7c8e50`, math-exercise `a94dc04`, ctm-checkers `16de388`.
-G2 is based directly on ctm-libs PR48 head `53579c8`; this preview includes its
-complete saved-answer Settings panel and compact navigator. PR46 targets PR48's
-branch, keeping its diff focused. AC merges PR48 before G2; then retarget/rebaseline
-and compare the resulting tree to the tested head before merging the next PR.
+- `pages/similar-problems.qmd`: three interactive examples and their exact QMD.
+- `pages/similar-problems-authoring.qmd`: opt-in, shared YAML, exercise addons,
+  original grading rules and trusted checker constraints.
+- `pages/similar-problems-workflow.qmd`: component ownership, policy resolution,
+  prompts, API calls, local admission/checking, storage and the planned R1/R2 RAG
+  services. Phase 2 is documented only; it is not enabled.
 
-The dedicated GitHub Actions workflow installs the exact package pin with the
-normal installer, builds this page with Quarto 1.8.27, and publishes only the
-`similar-problems-pr-28` subtree. Existing course pages are preserved. Provenance
-is published as `similar-problems-build.json`. No feature branch is merged and no
-tag is created by this workflow. AC explicitly authorized public publication.
+The examples retain their original labels and questions so saved work remains
+associated with the same exercises. The exact reviewed package pin remains in
+`quarto-extensions.yml`. `python scripts/setup.py` installs it normally, with no
+review overrides. `python scripts/build-similar-problems.py` renders all three
+pages and writes source/component provenance to `_site/similar-problems-build.json`.
 
-The actual combined sources pass all 35 practice browser tests, including real
-Pyodide, checking/feedback, restore without AI/Python, cancel, reports/disputes,
-copy/export, keyboard/mobile controls, and exam/AI-off gates. New combined-page
-cases verify that saved-answer controls are inside shared Settings, practice saves
-preserve original navigation credit, and practice-only work leaves the original
-unattempted after reload. The shared Settings Chromium fixture and DOM/store suites
-also pass. The key/notation/hostile native suite has 96 passing checks.
+`.github/workflows/similar-problems-preview.yml` rebuilds all three pages on every
+pull request (including forks), without path/branch filters. Its PR jobs have
+read-only permissions and upload `similar-problems-guide` as an Actions artifact.
+The action does not use `pull_request_target` or publish PR code with a write token.
 
-For manual use, configure Direct API and the two fetched-model dropdowns through
-Settings. Open Similar problem, choose a direction, check an answer and request
-feedback. More contains “I think the expected answer is wrong” and Remove.
-Reports are local; creating another problem retains the reported one. Generated
-practice follows the original grading rules and does not count toward its score.
+Pushes to `main` publish the dedicated guide at:
+https://aacchhee.github.io/ctm-demo/similar-problems/pages/similar-problems.html
 
-Matrix-response originals now require the fixed matrix widget in generated
-answers. Row-major recipe coordinates can normalize flattened numbered slots
-to a proper grid, including a saved 3-by-3 answer without AI/Python or lost cell
-values. Ambiguous historical work stays readable; new ambiguous layouts trigger
-a format repair. The full 35-case browser suite passes.
+To publish a branch before merge, manually run **Build Similar problems guide**
+on that branch. The shared manual preview is:
+https://aacchhee.github.io/ctm-demo/similar-problems-preview/pages/similar-problems.html
 
-The merge-readiness pin includes the complete step-6 package before Similar problems.
-Nested shared includes use project-root paths so Quarto resolves code cells and
-student review exports from the same files. AC merges step 6 first, then ctm-libs
-#48, #46, math-exercise #37, ctm-assessment #69, and this PR #28. Compare the
-proposed merged tree to its CI-tested head before every merge. AC permits demo
-publication; other deployment, tags and branch deletion remain excluded.
+The full-site action also renders these pages and records provenance. Both
+publishing jobs share the existing Pages concurrency group and preserve other
+course content. The historical `/similar-problems-pr-28/` publication is retained,
+but is no longer the maintained preview address. No workflow merges or tags.

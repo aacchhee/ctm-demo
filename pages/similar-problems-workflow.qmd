@@ -1,0 +1,205 @@
+---
+title: "Similar problems — workflow and phase 2"
+format:
+  html:
+    toc: true
+---
+
+[Examples](similar-problems.qmd) · [Authoring guide](similar-problems-authoring.qmd) · **Workflow**
+
+Phase 1 is implemented: the browser assembles a generation request and calls the
+learner's configured provider. Local checkers validate the expected answers before
+the problem appears. Phase 2 will add course retrieval and a server-side AI relay;
+it is a design, not an enabled feature of this demo.
+
+## Where the page comes from
+
+| Source | Responsibility |
+|---|---|
+| Demo `_quarto.yml` and page front matter | Enable the feature, select policies, set language and context. |
+| `feedback/similar-problems.yml` | Shared named policy dictionaries and difficulty guidance. |
+| Exercise `#|` directives | Stable label, original grading rules, local guidance and optional trusted checker. |
+| Demo `quarto-extensions.yml` | Pin an exact reviewed CTM Assessment package commit. |
+| CTM Assessment `integration/feedback/repos.json` | Pin the component repositories installed by the normal setup script. |
+| `ctm-libs` | Policy parsing/resolution, shipped prompts, settings, model catalogue, API client, shared UI and store. |
+| `math-exercise` | Build-time exercise metadata; browser generation, admission flow, rendering, feedback and parent-owned practice storage. |
+| `ctm-checkers` | SymPy recipe computation, expression admission and mathematical checking inside Pyodide. |
+
+`python scripts/setup.py` installs the package and its pinned components. Quarto's
+Lua filters turn authored content and resolved configuration into HTML metadata
+and browser assets. Neither setup nor rendering sends a generation request.
+The [build provenance](../similar-problems-build.json) records the exact installed
+commits and source revision for this published guide. Repository links below point
+to current source; consult that provenance when comparing a particular build.
+
+## From YAML to two chat messages
+
+`math-similar.js` resolves the generation policy for integration `math-exercise`
+and the **original authored label**. The generation baseline, selected common and
+integration instructions, matching exercise overrides and explicit exercise policy
+use the shared policy resolver. It then appends the chosen direction's guidance
+and the exercise's `harder`, `simpler` or `same` addon. It ignores teaching steps.
+
+The generator receives two messages:
+
+| Message | Contents |
+|---|---|
+| `system` | Resolved author guidance plus the fixed JSON protocol, admitted maths/recipe operations, fixed-input requirements and prohibition on model-written code. |
+| `user` | JSON containing the original question without answer keys, resolved learning context, mode, symbols, field/input shape, direction, language, previous generated question/change, output-format examples and applicable trusted checker contracts. |
+
+The previous generated question discourages repetition. The reference exercise is
+always the original: Harder means harder than that original, not harder than the
+last generated child. The model cannot make the grading mode more lenient.
+
+## After the learner chooses Harder
+
+```{mermaid}
+sequenceDiagram
+    participant Learner
+    participant JS as Browser JavaScript
+    participant API as Configured AI provider
+    participant PY as Pyodide / SymPy
+    Learner->>JS: Similar problem → Harder
+    JS->>JS: Resolve policy, guidance and original context
+    JS->>API: POST /chat/completions (generation model)
+    API-->>JS: Candidate problem JSON
+    JS->>JS: Validate schema, slots, input shape and restrictions
+    alt A supported recipe is present
+        JS->>PY: math_exercise.compute_key
+        PY-->>JS: Computed answer, compared with model answer
+    else A field has no recipe
+        JS->>API: POST /chat/completions (independent solve)
+        API-->>JS: Answers without seeing the proposed key
+        JS->>PY: math_exercise.check comparison
+        PY-->>JS: Agreement or rejection
+    end
+    JS->>PY: Admit answers; run applicable original checker
+    PY-->>JS: Candidate accepted or rejected
+    JS->>JS: Save under original record and render escaped text
+    JS-->>Learner: Practice question, proper inputs and Check
+```
+
+The diagram shows one successful candidate. A mixed problem can need both recipe
+computation and an independent solve. A rejected candidate gets one further
+generation attempt with the rejection reason; two failed candidates end with a
+retry message. The shared client can also make one corrective response retry for
+malformed output, and can negotiate provider request compatibility. Therefore two
+candidate attempts do not imply at most two HTTP requests.
+
+### Remote API calls
+
+| Call | When and what it carries |
+|---|---|
+| `GET <base-url>/models` | When the learner presses **Fetch models** in settings. The same catalogue fills the feedback and generation dropdowns. |
+| `POST <base-url>/chat/completions` | Generation: the messages above, the chosen generation model and a larger output budget. |
+| `POST <base-url>/chat/completions` | Independent solving, if needed: a fresh prompt with the generated question, mode, variables and number of answers, without the proposed key or learner answer. Uses the everyday feedback model. |
+| `POST <base-url>/chat/completions` | Later feedback: the generated task, learner response, checker evidence, resolved teaching policy and current hint step. |
+
+The base URL, API key and two model selections come from settings. The shared
+client sends OpenAI-compatible chat requests; it uses an authorization header when
+a key is configured. Generation has a 180-second per-call limit and a default
+16,384-token output budget. Closed reasoning blocks are stripped before JSON
+validation. Feedback keeps its own defaults. Cancel aborts the active request and
+prevents a late result from being mounted.
+
+No network call is needed just to press **Check** once the local Python runtime
+and its packages have loaded. Those initial assets may need downloading.
+
+### Local computation and admission
+
+`math_exercise.compute_key` admits mathematical expressions and executes a fixed
+operation, such as `diff`, `inv`, `solve` or `rank`. It rejects attribute access,
+dunder names and non-admitted Python constructs. Model text never executes as
+Python. Recipe results must agree with the model's proposed answers through the
+existing checker. A failed recipe cannot silently fall back to an unverified key.
+
+For example, an inverse matrix uses `inv` plus a component selector `[row, col]`
+for each cell. The question uses numbered `mat[...]` slots and the browser mounts
+the normal fixed matrix editor. Complete row-major recipe coordinates can repair
+flattened slots into a grid; ambiguous new layouts are rejected for correction.
+
+An independent solve that agrees produces an **unverified expected answer**.
+Two models can make the same mistake. Even a matching computed answer does not
+prove the recipe answers the question's wording, so author constraints and useful
+test cases remain important.
+
+When an original has a supported trusted checker, the model may select its
+supplied contract and admitted data. It cannot supply new checker source. The
+independence example binds a rational matrix `A` and runs the original checker
+before display, including its five-coordinate bound.
+
+## Rendering, checking and saved work
+
+Accepted text uses the escaped plain-text rendering path, with mathematical
+typesetting and the normal exercise input setup. Model HTML is never inserted
+as executable markup. Each generated child inherits the original grading rules
+and teaching/context settings, with its own practice state.
+
+The child's **Check** uses the existing mathematical checker in Pyodide.
+**Feedback** asks AI to explain using the checker evidence; AI does not replace
+the checker's grading. Generated work is labelled unscored and emits no scored
+`ctm:result` for the original.
+
+`math-store.js` stores children in `inputs.generated` inside the original exercise's
+record, through the shared store. There are at most ten per original, within its
+64 KB record limit. Reload restores text, input values and saved status without
+calling AI or Python. Auxiliary practice saves preserve the original's score and
+answered marker. Copy/export includes generated work and local reports.
+
+**I think the expected answer is wrong** saves a stable versioned local report
+and triggers one independent re-check. Disagreement marks the expected answer
+disputed: mismatches read **Can't confirm against the generated key**, and the
+learner can create another problem while retaining the report. Agreement is shown
+as a re-check, and the learner may keep the flag. Nothing is sent to a central
+report collector or created as a GitHub issue.
+
+## Phase 2 design: RAG and a course relay
+
+Phase 2 waits for explicit authorization. It keeps the same browser prompt
+assembly, JSON format, mathematical admission and checks. The proposed `rag_app`
+services add two capabilities:
+
+1. **Retrieve course passages:** `/retrieve` takes the course and a query based on
+   the original task, returning relevant note passages and their sources. The
+   browser adds these as another learning-context block. This is the RAG
+   (retrieval-augmented generation) part; retrieved text supplies context, not
+   instructions that override author policy.
+2. **Relay AI requests:** an OpenAI-compatible `/chat/completions` forwards to
+   configured models using the server's key. The existing client points at the
+   relay, so learners need no personal key. Feedback may use it too. Generation
+   and independent solving should use different models by default.
+
+**R1** covers the `rag_app` retrieval/relay services and their hardening. Before
+student use this needs course-origin CORS rules, rate limits, model allowlists,
+output-token caps, generation-compatible timeouts and a review of request logging,
+especially because feedback can carry learner responses. **R2** adds retrieval as
+a context provider in `ctm-libs`/`math-exercise`, its configuration and documentation.
+The direct-provider phase 1 route remains available to courses without RAG.
+
+A later rate-limited `/report` relay is intended to receive only the problem spec
+and course, with **no learner answer or identity**. The local report format stays
+stable for that future integration. Central collection is not active; GitHub
+issues are never the student-report route. The historical `rag_app` `/problem`
+and `/calculate-answer` prototypes are not the proposed phase 2 API.
+
+See the [binding design and R1/R2 scope](https://github.com/Erasmus-CTM/ctm-assessment/blob/main/docs/similar-problems.md#9-phase-2-rag_app).
+This guide documents phase 2 without implementing or enabling it.
+
+## Rebuilding and sharing this guide
+
+Every pull request in `ctm-demo` rebuilds all three pages, without path or branch
+filters. PR builds use read-only permissions and upload the rendered site as an
+Actions artifact. They do not publish automatically with a write token.
+
+Pushes to `main` rebuild and publish the guide under `/similar-problems/`.
+A maintainer can run **Build Similar problems guide → Run workflow** on a branch
+to publish `/similar-problems-preview/` before merging. That preview address is
+shared between manual runs; the provenance file identifies the published revision.
+The regular full-site action also renders these pages at their normal course
+addresses. Publication jobs share the site's concurrency group and preserve
+existing course pages. No workflow merges a PR or creates a tag.
+
+Source: [demo pages and action](https://github.com/aacchhee/ctm-demo),
+[generation flow](https://github.com/Erasmus-CTM/math-exercise/blob/main/_extensions/math-exercise/math-similar.js),
+[policy/client implementation](https://github.com/Erasmus-CTM/ctm-libs/tree/main/_extensions/ctm-libs/feedback),
+[checker implementation](https://github.com/Erasmus-CTM/ctm-checkers).

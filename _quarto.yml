@@ -4,6 +4,8 @@ project:
     - index.qmd
     - pages/experiments.qmd
     - pages/similar-problems.qmd
+    - pages/similar-problems-authoring.qmd
+    - pages/similar-problems-workflow.qmd
     - pages/gaussian-elimination.qmd
     - pages/physics.qmd
     - pages/fysikk-forkurs.qmd
@@ -33,8 +35,14 @@ website:
         file: index.qmd
       - text: "Your experiments here"
         file: pages/experiments.qmd
-      - text: "Similar problems testbox"
-        file: pages/similar-problems.qmd
+      - section: "Similar problems"
+        contents:
+          - text: "Examples and code"
+            file: pages/similar-problems.qmd
+          - text: "Authoring guide"
+            file: pages/similar-problems-authoring.qmd
+          - text: "Workflow and phase 2"
+            file: pages/similar-problems-workflow.qmd
       - text: "Gaussian elimination"
         file: pages/gaussian-elimination.qmd
       - text: "Fysikk"

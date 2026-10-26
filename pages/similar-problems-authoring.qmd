@@ -1,0 +1,129 @@
+---
+title: "Similar problems — authoring guide"
+format:
+  html:
+    toc: true
+---
+
+[Examples](similar-problems.qmd) · **Authoring guide** · [Workflow](similar-problems-workflow.qmd)
+
+Start with a working `math-exercise`, enable generation, and describe what a useful
+variation should change. Shared YAML supplies the course guidance; a one-line
+exercise directive supplies the exception. No separate quiz configuration is needed.
+
+## Enable it explicitly
+
+Similar problems is **off by default**. Enable it in `_quarto.yml` for a course,
+or in the front matter of one page:
+
+```yaml
+ai-feedback:
+  similar: true
+  policy-files: feedback/similar-problems.yml
+  policy: {default: similar-practice}
+  generation-policy: {default: similar-practice}
+```
+
+This is the configuration used on the [examples page](similar-problems.qmd).
+`policy` selects teaching feedback; `generation-policy` selects generation
+instructions. Here the same dictionary serves both purposes. They may also select
+different names. Loading a policy file alone neither selects it nor enables
+generation. An omitted `generation-policy` uses the shipped generation baseline;
+it does not automatically select the teaching policy.
+
+Use `#| similar: true` to enable one exercise, or `#| similar: false` to switch
+one off even when the course enables it. The exam profile and builds without AI
+keep generation off. Copy-prompt mode cannot generate a checked practice problem;
+the learner must use Direct API.
+
+## Define course guidance once
+
+Create `feedback/similar-problems.yml`, relative to the project root:
+
+```yaml
+ai-feedback:
+  policies:
+    similar-practice:
+      base-prompt: >-
+        Use the notation and methods in the original exercise. Keep problems
+        self-contained and nontrivial. Use exact rational or integer givens.
+        For vector problems keep the coordinate count at most five; change
+        the number of vectors or their dependencies to change difficulty.
+      harder: Increase the reasoning required by one natural step.
+      easier: Reduce the number of steps or provide more guidance.
+      same: Give a fresh problem requiring the same method and effort.
+```
+
+Policies use the same flat dictionary, parser and inheritance rules for teaching
+and generation. A policy may contain hint `steps` as well as direction guidance.
+Generation ignores the hint steps and does not advance the hint counter;
+teaching feedback ignores `harder`, `easier` and `same`.
+
+The `{default: ...}` selection adds common instructions while retaining the
+shipped integration baseline. A scalar selection, such as
+`generation-policy: similar-practice`, replaces its integration base instructions.
+Use the map form above when you want to retain the shipped starting prompt.
+
+`policy-files` accumulate from project to page, while the nearest policy selector
+wins. Named policies may use `extends`; omitted fields inherit and supplied strings
+replace inherited strings. Exercise-ID overrides and explicit exercise selections
+apply afterward. See the [full policy reference](https://github.com/Erasmus-CTM/ctm-libs/blob/main/docs/feedback-policies.md)
+for the complete rules.
+
+## Refine a single exercise
+
+````markdown
+```{math-exercise}
+#| label: derivative-practice
+#| vars: x
+#| harder: Introduce a product or chain rule, with small integer coefficients.
+#| simpler: Use a single power function.
+#| same: Change the power and coefficient; keep the power rule sufficient.
+Differentiate $f(x)=x^2$. $f'(x)=$ _[2*x].
+```
+````
+
+The existing `#|` directive syntax is used throughout. In a policy the direction is
+`easier`; in an exercise `#| simpler:` supplies that direction's addon. Only the
+chosen direction's addon is appended to the resolved policy. These directives
+do not enable generation by themselves.
+
+Select a different generation policy on one exercise with
+`#| generation-policy: another-policy`; use `#| feedback-policy:` for its teaching
+policy. Keep exercise labels stable so that overrides and saved work keep their
+intended identity.
+
+## Choose a response and enforce important constraints
+
+| Response | Authoring approach |
+|---|---|
+| Symbolic expression | Start with ordinary `_[answer]` fields and the intended grading mode. |
+| Fixed vector or matrix | Use `vec[...]` or `mat[...;...]`. Generated matrix answers use the same fixed grid widget. |
+| A mathematical property | Reuse a trusted authored checker, as in the independence example. The model receives a compact contract, never permission to write checker code. |
+
+Generated practice follows the original grading rules, including form restrictions,
+precision/tolerance and partial credit. A new problem should exercise the same
+mathematical skill rather than escape those rules.
+
+Prompt guidance helps steer generation; it is not an enforced mathematical bound.
+For an important restriction, supply a checker that rejects violations. The
+[independence example](similar-problems.qmd#linear-independence-with-an-authored-check)
+limits vectors to five coordinates in both the prompt and the trusted checker.
+Its admitted matrix `A` can vary, while its checker code remains fixed. Arbitrary
+new checker programs, JSXGraph responses and resizable matrices are outside phase 1.
+
+Computed answers are preferred. Where no supported recipe fits, an independent
+solve is required and the expected answer remains labelled unverified. Even a
+computed answer can match an inappropriate recipe: authors should test whether
+the resulting questions are clear, worthwhile and within the intended syllabus.
+
+## Review before sharing
+
+Try all three directions and several repetitions. Check the question, its expected
+answer, input widget and feedback, including a deliberately wrong answer. Reload
+to confirm saved work, and test the local report flow. Verify that an exercise
+with `#| similar: false` stays off.
+
+Students generate their own practice at runtime. A Quarto build does not call an
+LLM or pre-generate the questions. Your colleagues need a configured provider to
+try generation; the ordinary authored questions can be checked without one.
