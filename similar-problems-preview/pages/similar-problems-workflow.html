@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Similar problems — workflow and phase 2 – CTM demo</title>
+<title>Similar problems — workflow and phase 2 – Similar problems</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -87,6 +122,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="similar-problems-guide.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -113,7 +149,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">CTM demo</a> 
+      <a href="../">Similar problems</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -198,6 +234,24 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../pages/help.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Help</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Examples and code</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems-authoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Authoring guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workflow and phase 2</span></a>
   </div>
 </li>
     </ul>
@@ -354,7 +408,7 @@ ul.task-list li input[type="checkbox"] {
         JS-&gt;&gt;PY: math_exercise.check comparison
         PY--&gt;&gt;JS: Agreement or rejection
     end
-    JS-&gt;&gt;PY: Admit answers; run applicable original checker
+    JS-&gt;&gt;PY: Admit answers and run applicable original checker
     PY--&gt;&gt;JS: Candidate accepted or rejected
     JS-&gt;&gt;JS: Save under original record and render escaped text
     JS--&gt;&gt;Learner: Practice question, proper inputs and Check
@@ -398,6 +452,34 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <p>The base URL, API key and two model selections come from settings. The shared client sends OpenAI-compatible chat requests; it uses an authorization header when a key is configured. Generation has a 180-second per-call limit and a default 16,384-token output budget. Closed reasoning blocks are stripped before JSON validation. Feedback keeps its own defaults. Cancel aborts the active request and prevents a late result from being mounted.</p>
+<p>For example, the generation HTTP body has this shape (angle-bracketed text is an explanatory placeholder):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-ai-feedback-context="Remote API calls
+CallWhen and what it carriesGET <base-url>/modelsWhen the learner presses Fetch models in settings. The same catalogue fills the feedback and generation dropdowns.POST <base-url>/chat/completionsGeneration: the messages above, the chosen generation model and a larger output budget.POST <base-url>/chat/completionsIndependent solving, if needed: a fresh prompt with the generated question, mode, variables and number of answers, without the proposed key or learner answer. Uses the everyday feedback model.POST <base-url>/chat/completionsLater feedback: the generated task, learner response, checker evidence, resolved teaching policy and current hint step.
+The base URL, API key and two model selections come from settings. The shared client sends OpenAI-compatible chat requests; it uses an authorization header when a key is configured. Generation has a 180-second per-call limit and a default 16,384-token output budget. Closed reasoning blocks are stripped before JSON validation. Feedback keeps its own defaults. Cancel aborts the active request and prevents a late result from being mounted.
+For example, the generation HTTP body has this shape (angle-bracketed text is an explanatory placeholder):"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"model"</span><span class="fu">:</span> <span class="st">"&lt;selected generation model&gt;"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"messages"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span><span class="dt">"role"</span><span class="fu">:</span> <span class="st">"system"</span><span class="fu">,</span> <span class="dt">"content"</span><span class="fu">:</span> <span class="st">"&lt;resolved instructions and fixed protocol&gt;"</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span><span class="dt">"role"</span><span class="fu">:</span> <span class="st">"user"</span><span class="fu">,</span> <span class="dt">"content"</span><span class="fu">:</span> <span class="st">"&lt;serialized original/context/format/direction JSON&gt;"</span><span class="fu">}</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"max_tokens"</span><span class="fu">:</span> <span class="dv">16384</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The client can switch to <code>max_completion_tokens</code> if the provider requires it. A minimal candidate reply for a derivative is:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-ai-feedback-context="Remote API calls
+CallWhen and what it carriesGET <base-url>/modelsWhen the learner presses Fetch models in settings. The same catalogue fills the feedback and generation dropdowns.POST <base-url>/chat/completionsGeneration: the messages above, the chosen generation model and a larger output budget.POST <base-url>/chat/completionsIndependent solving, if needed: a fresh prompt with the generated question, mode, variables and number of answers, without the proposed key or learner answer. Uses the everyday feedback model.POST <base-url>/chat/completionsLater feedback: the generated task, learner response, checker evidence, resolved teaching policy and current hint step.
+The base URL, API key and two model selections come from settings. The shared client sends OpenAI-compatible chat requests; it uses an authorization header when a key is configured. Generation has a 180-second per-call limit and a default 16,384-token output budget. Closed reasoning blocks are stripped before JSON validation. Feedback keeps its own defaults. Cancel aborts the active request and prevents a late result from being mounted.
+For example, the generation HTTP body has this shape (angle-bracketed text is an explanatory placeholder):
+The client can switch to max_completion_tokens if the provider requires it. A minimal candidate reply for a derivative is:"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"question"</span><span class="fu">:</span> <span class="st">"Differentiate $f(x)=x^3$. $f'(x)=$ _[1]"</span><span class="fu">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"fields"</span><span class="fu">:</span> <span class="ot">[</span><span class="fu">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"answer"</span><span class="fu">:</span> <span class="st">"3*x^2"</span><span class="fu">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"recipe"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"op"</span><span class="fu">:</span> <span class="st">"diff"</span><span class="fu">,</span> <span class="dt">"expr"</span><span class="fu">:</span> <span class="st">"x^3"</span><span class="fu">,</span> <span class="dt">"var"</span><span class="fu">:</span> <span class="st">"x"</span><span class="fu">}</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"mode"</span><span class="fu">:</span> <span class="st">"equivalent"</span><span class="fu">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"vars"</span><span class="fu">:</span> <span class="st">"x"</span><span class="fu">,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"solution"</span><span class="fu">:</span> <span class="st">"Apply the power rule."</span><span class="fu">,</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"change"</span><span class="fu">:</span> <span class="st">"A different power."</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>No network call is needed just to press <strong>Check</strong> once the local Python runtime and its packages have loaded. Those initial assets may need downloading.</p>
 </section>
 <section id="local-computation-and-admission" class="level3">
@@ -429,6 +511,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="rebuilding-and-sharing-this-guide" class="level2">
 <h2 class="anchored" data-anchor-id="rebuilding-and-sharing-this-guide">Rebuilding and sharing this guide</h2>
 <p>Every pull request in <code>ctm-demo</code> rebuilds all three pages, without path or branch filters. PR builds use read-only permissions and upload the rendered site as an Actions artifact. They do not publish automatically with a write token.</p>
+<p>An upstream component PR does not silently change this guide’s dependencies. After review, update the exact package/component pins and the demo’s package pin; that demo PR rebuilds the guide with the newly selected sources.</p>
 <p>Pushes to <code>main</code> rebuild and publish the guide under <code>/similar-problems/</code>. A maintainer can run <strong>Build Similar problems guide → Run workflow</strong> on a branch to publish <code>/similar-problems-preview/</code> before merging. That preview address is shared between manual runs; the provenance file identifies the published revision. The regular full-site action also renders these pages at their normal course addresses. Publication jobs share the site’s concurrency group and preserve existing course pages. No workflow merges a PR or creates a tag.</p>
 <p>Source: <a href="https://github.com/aacchhee/ctm-demo">demo pages and action</a>, <a href="https://github.com/Erasmus-CTM/math-exercise/blob/main/_extensions/math-exercise/math-similar.js">generation flow</a>, <a href="https://github.com/Erasmus-CTM/ctm-libs/tree/main/_extensions/ctm-libs/feedback">policy/client implementation</a>, <a href="https://github.com/Erasmus-CTM/ctm-checkers">checker implementation</a>.</p>
 
