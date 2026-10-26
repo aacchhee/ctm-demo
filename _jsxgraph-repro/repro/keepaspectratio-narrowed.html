@@ -33,16 +33,17 @@
 <div style="width:273px"><div id="box-b" class="jxgbox frame" style="width:100%"></div></div>
 <p class="status" id="status-b"></p>
 <p>The same board twice: <code>boundingbox: [0, 6, 14, 0]</code> (14 wide,
-6 high), <code>keepaspectratio: true</code>, in a div 150 px high. The grey
-rectangle is the bounding box. (B) is created at 273 px: initBoard fits the
+6 high), <code>keepaspectratio: true</code>, in a div 150 px high, with axes and a grid. The
+red lines and labels mark the box's left edge (x = 0) and right edge
+(x = 14); the blue curve runs from one to the other. (B) is created at 273 px: initBoard fits the
 whole box (x 0…14). (A) is created at 600 px, where the box is widened to x
 −5…19, and is then narrowed to 273 px by its container, as on a phone or a
 narrower window. Nothing else happens; JSXGraph's ResizeObserver does the
 resize.</p>
-<p><strong>Expected:</strong> after narrowing, (A) shows the whole grey
-rectangle, as (B) does.<br>
+<p><strong>Expected:</strong> after narrowing, (A) shows both red edges,
+both labels and the whole curve, as (B) does.<br>
 <strong>Seen (1.12.2 to 1.14.2, Chromium):</strong> (A) shows x 1.54…12.46
-and y 0…6: the left and right parts of the box are cut off (all five
+and y 0…6: both red edges, both labels and the curve's ends are cut off (all five
 versions linked above). With 1.14.1 and 1.14.2, widening (A)
 again restores the earlier view, and a board zoomed in first is cropped the
 same way.</p>
@@ -69,10 +70,16 @@ box (the one its code, initBoard or the user's zoom and pan set).</p>
   document.getElementById('version').textContent = V;
   function makeBoard(id) {
     var board = JXG.JSXGraph.initBoard(id, {boundingbox: [0, 6, 14, 0], keepaspectratio: true,
-      axis: false, showNavigation: false, showCopyright: false});
-    board.create('polygon', [[0, 0], [14, 0], [14, 6], [0, 6]],
-      {fillColor: '#dddddd', fillOpacity: 0.6, borders: {strokeColor: '#555555'}, vertices: {visible: false}, fixed: true});
-    board.create('text', [7, 3, 'bounding box'], {anchorX: 'middle', anchorY: 'middle', fontSize: 16, fixed: true});
+      axis: true, grid: true, showNavigation: false, showCopyright: false,
+      defaultAxes: {x: {ticks: {insertTicks: false, ticksDistance: 2, minorTicks: 1}},
+                    y: {ticks: {insertTicks: false, ticksDistance: 2, minorTicks: 1}}}});
+    // The box's left and right edges: red, labelled; a curve from x = 0 to x = 14.
+    board.create('segment', [[0, 0], [0, 6]], {strokeColor: '#c00000', strokeWidth: 4, fixed: true});
+    board.create('segment', [[14, 0], [14, 6]], {strokeColor: '#c00000', strokeWidth: 4, fixed: true});
+    board.create('text', [0.2, 5.3, 'x = 0'], {fontSize: 14, strokeColor: '#c00000', fixed: true});
+    board.create('text', [13.8, 5.3, 'x = 14'], {fontSize: 14, strokeColor: '#c00000', anchorX: 'right', fixed: true});
+    board.create('functiongraph', [function (x) { return 3 + 2 * Math.sin(Math.PI * x / 7); }, 0, 14],
+      {strokeColor: '#1f5fbf', strokeWidth: 3, fixed: true});
     return board;
   }
   var boardA = makeBoard('box-a'), boardB = makeBoard('box-b');
@@ -82,8 +89,9 @@ box (the one its code, initBoard or the user's zoom and pan set).</p>
     var box = round(board.getBoundingBox()), ok = whole(box), el = document.getElementById('status-' + id);
     window.RESULT = window.RESULT || {};
     window.RESULT[id] = {width: board.canvasWidth, bbox: box, whole: ok};
-    el.textContent = 'Board ' + board.canvasWidth + '×' + board.canvasHeight + ' px, bounding box ' + JSON.stringify(box) +
-      (ok ? '\nWhole box [0, 6, 14, 0] visible.' : '\nCROPPED: the box [0, 6, 14, 0] is not fully visible.');
+    el.textContent = 'Board ' + board.canvasWidth + '×' + board.canvasHeight + ' px: visible x ' + box[0] + ' … ' + box[2] +
+      ', y ' + box[3] + ' … ' + box[1] + ' (bounding box ' + JSON.stringify(box) + ')' +
+      (ok ? '\nWhole box x 0 … 14, y 0 … 6 visible.' : '\nCROPPED: the box needs x 0 … 14 and y 0 … 6.');
     el.className = 'status' + (ok ? '' : ' wrong');
   }
   function update() { report('a', boardA); report('b', boardB); }
