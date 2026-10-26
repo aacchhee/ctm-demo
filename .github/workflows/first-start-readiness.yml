@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           persist-credentials: false
@@ -36,7 +36,7 @@ jobs:
           with open(os.environ['GITHUB_ENV'],'a') as out:
               out.write('CTM_FIRST_START_REFS=' + json.dumps(refs,sort_keys=True) + '\n')
           PY
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - uses: quarto-dev/quarto-actions/setup@v2
@@ -58,7 +58,7 @@ jobs:
           assert 'pages/step4-ui.html' in files and 'coi-serviceworker.js' in files
           pathlib.Path('first-start-build/record.json').write_text(json.dumps({'sourceHead':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'refs':json.loads(pathlib.Path('.github/first-start-readiness-refs.json').read_text()),'files':files},indent=2)+'\n')
           PY
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: first-start-readiness-site-${{ github.event.pull_request.head.sha }}
@@ -76,16 +76,16 @@ jobs:
       matrix:
         browser: [chromium, firefox, webkit]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           persist-credentials: false
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         with:
           name: first-start-readiness-site-${{ github.event.pull_request.head.sha }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: '22'
+          node-version: '24'
       - name: Install the exact browser harness
         run: |
           npm install --prefix .first-start-tooling --no-save --ignore-scripts playwright@1.62.1
@@ -99,7 +99,7 @@ jobs:
       - name: Missing speech leaves Python and ordinary Check usable
         if: ${{ !cancelled() }}
         run: node scripts/diagnostics/test-demo-first-visit.mjs --site _saving-quiz-site --browser ${{ matrix.browser }} --fault speech --output first-start/missing-speech.json
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: first-start-readiness-${{ matrix.browser }}-${{ github.event.pull_request.head.sha }}
