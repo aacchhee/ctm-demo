@@ -14,6 +14,9 @@ associated with the same exercises. The exact reviewed package pin remains in
 `quarto-extensions.yml`. `python scripts/setup.py` installs it normally, with no
 review overrides. `python scripts/build-similar-problems.py` renders all three
 pages and writes source/component provenance to `_site/similar-problems-build.json`.
+Its `similar-problems` Quarto profile limits the standalone sidebar to these three
+pages and provides a working guide home link. The normal course sidebar is retained
+for full-site builds.
 
 `.github/workflows/similar-problems-preview.yml` rebuilds all three pages on every
 pull request (including forks), without path/branch filters. Its PR jobs have

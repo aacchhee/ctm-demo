@@ -1,0 +1,14 @@
+/* Let repository paths and API names wrap within the guide's comparison tables. */
+#quarto-document-content table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+#quarto-document-content td,
+#quarto-document-content th {
+  overflow-wrap: anywhere;
+}
+
+#quarto-document-content td code {
+  white-space: normal;
+}

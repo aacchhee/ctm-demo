@@ -23,7 +23,18 @@ def main() -> None:
     args = parser.parse_args()
     if not args.record_only:
         for page in PAGES:
-            subprocess.run(["quarto", "render", page], cwd=ROOT, check=True)
+            subprocess.run(
+                ["quarto", "render", page, "--profile", "similar-problems"],
+                cwd=ROOT, check=True,
+            )
+        # The standalone guide's sidebar title links to its own home page.
+        (ROOT / "_site/index.html").write_text(
+            '<!doctype html><html lang="en"><meta charset="utf-8">'
+            '<title>Similar problems</title>'
+            '<meta http-equiv="refresh" content="0;url=pages/similar-problems.html">'
+            '<a href="pages/similar-problems.html">Open the Similar problems guide</a>'
+            '</html>\n'
+        )
     for page in PAGES:
         rendered = ROOT / "_site" / Path(page).with_suffix(".html")
         if not rendered.is_file():

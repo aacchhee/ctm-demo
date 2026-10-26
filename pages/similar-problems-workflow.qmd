@@ -3,6 +3,7 @@ title: "Similar problems — workflow and phase 2"
 format:
   html:
     toc: true
+    css: similar-problems-guide.css
 ---
 
 [Examples](similar-problems.qmd) · [Authoring guide](similar-problems-authoring.qmd) · **Workflow**
@@ -73,7 +74,7 @@ sequenceDiagram
         JS->>PY: math_exercise.check comparison
         PY-->>JS: Agreement or rejection
     end
-    JS->>PY: Admit answers; run applicable original checker
+    JS->>PY: Admit answers and run applicable original checker
     PY-->>JS: Candidate accepted or rejected
     JS->>JS: Save under original record and render escaped text
     JS-->>Learner: Practice question, proper inputs and Check
@@ -101,6 +102,37 @@ a key is configured. Generation has a 180-second per-call limit and a default
 16,384-token output budget. Closed reasoning blocks are stripped before JSON
 validation. Feedback keeps its own defaults. Cancel aborts the active request and
 prevents a late result from being mounted.
+
+For example, the generation HTTP body has this shape (angle-bracketed text is
+an explanatory placeholder):
+
+```json
+{
+  "model": "<selected generation model>",
+  "messages": [
+    {"role": "system", "content": "<resolved instructions and fixed protocol>"},
+    {"role": "user", "content": "<serialized original/context/format/direction JSON>"}
+  ],
+  "max_tokens": 16384
+}
+```
+
+The client can switch to `max_completion_tokens` if the provider requires it.
+A minimal candidate reply for a derivative is:
+
+```json
+{
+  "question": "Differentiate $f(x)=x^3$. $f'(x)=$ _[1]",
+  "fields": [{
+    "answer": "3*x^2",
+    "recipe": {"op": "diff", "expr": "x^3", "var": "x"}
+  }],
+  "mode": "equivalent",
+  "vars": "x",
+  "solution": "Apply the power rule.",
+  "change": "A different power."
+}
+```
 
 No network call is needed just to press **Check** once the local Python runtime
 and its packages have loaded. Those initial assets may need downloading.
@@ -190,6 +222,10 @@ This guide documents phase 2 without implementing or enabling it.
 Every pull request in `ctm-demo` rebuilds all three pages, without path or branch
 filters. PR builds use read-only permissions and upload the rendered site as an
 Actions artifact. They do not publish automatically with a write token.
+
+An upstream component PR does not silently change this guide's dependencies.
+After review, update the exact package/component pins and the demo's package pin;
+that demo PR rebuilds the guide with the newly selected sources.
 
 Pushes to `main` rebuild and publish the guide under `/similar-problems/`.
 A maintainer can run **Build Similar problems guide → Run workflow** on a branch

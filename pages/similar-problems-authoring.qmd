@@ -3,6 +3,7 @@ title: "Similar problems — authoring guide"
 format:
   html:
     toc: true
+    css: similar-problems-guide.css
 ---
 
 [Examples](similar-problems.qmd) · **Authoring guide** · [Workflow](similar-problems-workflow.qmd)
