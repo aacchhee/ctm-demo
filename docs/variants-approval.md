@@ -16,6 +16,21 @@ question links to its review page and lists the candidates with their test resul
 - **Generate 25 more** opens GitHub's Actions form with the exact branch, pull
   request, head and question inputs to use. New candidates need their own approval.
 
+**Until the approval workflow is reworked (AC, 26 October), decisions can be
+lost.** Avoid it as follows:
+
+- Record decisions only on an open pull request; ticks on a merged pull
+  request are refused.
+- Tick one checklist at a time. Ticks in quick succession share one queue, and
+  a queued decision can be cancelled while the boxes stay ticked: after each
+  tick, wait for the bot's recording commit and a green **variants / check**
+  on that new head.
+- Merge only after the last recording commit is on the branch and its
+  **variants / check** is green. Merging earlier loses the decisions.
+- The checklists appear only when the pull request changes a `.qmd` file or
+  `_variants/`; otherwise start the **Variants** workflow by hand for the
+  exact head.
+
 Approvals apply only to the exact tested candidate and content hash. Changing a
 question may require another review; existing approvals are retained when their
 mathematics and rendered content stay current. Unapproved questions block student
