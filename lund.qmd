@@ -36,9 +36,8 @@ How can AI help with the mathematics students are **actually studying**?
 For the next ten years, the social contract still holds.
 :::
 
-- Universities **certify**: a degree says the candidate passed the exams.
-- Knowledge is **chunked**: a programme into courses, a course into topics.
-- AI or not, the lower-level chunks will most likely survive.
+Universities **certify**: a degree says the candidate passed the exams.
+Knowledge is **chunked**:
 
 ::: {.lund-nest}
 ::: {.lund-box}
@@ -56,11 +55,13 @@ For the next ten years, the social contract still holds.
 :::
 :::
 
+AI or not, these lower-level chunks will most likely survive.
+
 ::: {.lund-cols}
 ::: {.lund-card .lund-inside}
 ### Inside the course
 
-Our definitions, our notation, our examples, our methods, what is assessed.
+What we chose: this notation, these examples, these methods, and what is assessed.
 :::
 
 ::: {.lund-card .lund-outside}
@@ -153,7 +154,7 @@ nothing shows where the PDF ends and the model's own knowledge begins
 :::
 ::: {.lund-problem}
 **Somebody else's server**\
-course material and questions go to a commercial provider
+every question goes to a commercial provider
 :::
 :::
 
@@ -180,7 +181,7 @@ the model answers, course first, and names the sections it used
 flowchart LR
   S([Student asks]) --> L["Librarian<br/>finds the right passages"]
   L --> M["Language model<br/>writes the answer"]
-  M --> A([Answer + the sections it used])
+  M --> A([Answer])
   C[(The course,<br/>in short passages)] --- L
   classDef course fill:#fff8ec,stroke:#e8a33d
   classDef model fill:#eaf6ee,stroke:#2e8b57
@@ -212,7 +213,7 @@ only a web browser
 :::
 
 ::: {.lund-question}
-**Inside first**: the answer comes from the course passages, and names their sections.
+**Inside first**: the answer comes from the course passages.
 **Outside if needed**: anything else comes after, clearly labelled.
 :::
 
@@ -512,7 +513,7 @@ the teacher's knowledge, written into the course
 ## More practice, on request {#practice .lund-part data-part="5"}
 
 ::: {.lund-big}
-Easier, another one like this, harder: the model writes new problems.
+Easier, another one like this, harder: the teacher says what that means, the model writes new problems.
 :::
 
 ::: {.lund-nest .lund-space}
@@ -568,4 +569,8 @@ How it matches what **this** learner finds hard is an open question.
 - [3]{.lund-num} **Write it once, as plain text**: every view follows, many can work on it, no platform owns it.
 - [4]{.lund-num} **The check decides** the answer, the AI helps; what teachers know must be **written down**.
 - [5]{.lund-num} We **give away control** in exchange for a richer problem space.
+:::
+
+::: {.lund-big}
+The course, written down, is the frame for productive AI.
 :::
