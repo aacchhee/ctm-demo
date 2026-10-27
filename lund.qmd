@@ -94,7 +94,7 @@ The lecturer feels which one belongs. **Does the model?**
 ## Same model, two prompts {#one-button .lund-part .lund-sub data-part="1b"}
 
 ::: {.lund-big}
-Same question, same model. Both answers correct. Which one belongs in **this** course?
+Same question, same model.
 :::
 
 ::: {#lund-connection}
@@ -115,7 +115,7 @@ Prompt A from above, sent to a small and a large model.
 ::::: {.lund-steps}
 ::: {.lund-step}
 **The model**\
-small or large, thinking or not
+small or large
 :::
 ::: {.lund-step}
 **The prompt**\
@@ -158,29 +158,14 @@ every question goes to a commercial provider
 :::
 :::
 
-RAG: look up first, then answer. Answer A in [part 1](#course) did this by hand, with course passages handed over with the question; RAG finds them automatically.
-
-::::: {.lund-steps .lund-steps-compact}
-::: {.lund-step}
-**Retrieve**\
-find the passages of the course that fit the question
-:::
-::: {.lund-step}
-**Augment**\
-hand those passages to the model with the question
-:::
-::: {.lund-step}
-**Generate**\
-the model answers, course first, and names the sections it used
-:::
-:::::
+RAG: look up first, then answer. Answer A in [1b](#one-button) did this by hand.
 
 ```{mermaid}
 %%| fig-width: 9
 %%{init: {"themeVariables": {"fontSize": "18px"}}}%%
 flowchart LR
-  S([Student asks]) --> L["Librarian<br/>finds the right passages"]
-  L --> M["Language model<br/>writes the answer"]
+  S([Student asks]) --> L["Retrieve<br/>a librarian finds the right passages"]
+  L -->|"Augment: passages + question"| M["Generate<br/>the model answers, course first"]
   M --> A([Answer])
   C[(The course,<br/>in short passages)] --- L
   classDef course fill:#fff8ec,stroke:#e8a33d
@@ -234,7 +219,7 @@ Write what the mathematics **is**. Let the tools decide how it **looks**.
 ````markdown
 ```{math-exercise}
 #| label: lund-derivative-course
-#| caption: From the course
+#| caption: From the course (part 1)
 #| vars: x
 #| context: none
 #| similar: true
@@ -296,20 +281,9 @@ Copy the text out of our physics practice exam:
 
 The power of a star became 1026 watts: one microwave oven.
 
-::: {.lund-cols}
-::: {.lund-card .lund-outside}
-### Late: start from the PDF
-
-Special models exist just to guess the structure back (NTNU runs one).
-They help, and they still get the mathematics wrong.
-:::
-
-::: {.lund-card .lund-inside}
-### Early: start from plain text
-
-Write plain text from the start. The PDF becomes one more view,
-and the guessing step disappears.
-:::
+::: {.lund-question}
+Special models guess the structure back, and still get the mathematics wrong.
+Start from plain text, and there is nothing to guess.
 :::
 
 ## Many lecturers, one course {#lecturers .lund-part .lund-sub data-part="3c"}
@@ -357,7 +331,7 @@ between courses and between universities
 ## Assessment: deterministic and stochastic {#assessment .lund-part data-part="4a"}
 
 ::: {.lund-big}
-What students do has to be assessed.
+Inside the course is also what is assessed. What students do has to be assessed.
 :::
 
 ::: {.lund-question}
@@ -375,9 +349,7 @@ skills combined; any tool, AI included; explained to each other or to us
 :::
 :::::
 
-::: {.lund-big}
 Here: the core skills. Online, this is **formative**: it helps students through a constructive struggle.
-:::
 
 ::: {.lund-cols}
 ::: {.lund-card .lund-inside}
@@ -389,7 +361,7 @@ The same answer gives the same result, every time.
 ::: {.lund-card .lund-outside}
 ### Stochastic: the AI
 
-Reads the task, the student's work and the teacher's notes ([4c](#prompts)),
+Reads the task, the student's work and the teacher's prompt ([4c](#prompts)),
 then suggests the next step. It can vary, and it can be wrong.
 :::
 :::
@@ -413,11 +385,11 @@ The check decides whether the answer is right. The AI helps with the way there.
 ::: {#fyll-inn-verktoy}
 :::
 
-{{< include _includes/handwriting/problem-1.md >}}
+{{< include _includes/lund/ball-1a.md >}}
 
 :::
 
-## Paper and Python {#paper .lund-part .lund-sub data-part="4b"}
+## Paper and typed {#paper .lund-part .lund-sub data-part="4b"}
 
 The ball problem from the tab above, twice:
 
@@ -431,9 +403,9 @@ The ball problem from the tab above, twice:
 ::: {.lund-card}
 #### Typed: what the machine checks
 
-```python
-t = 6.0/9.81
-h = 1.5 + 6.0**2/(2*9.81)
+```text
+t = 0.61
+h = 3.3
 ```
 
 No units, no formula, no steps: only the numbers.
@@ -444,7 +416,7 @@ No units, no formula, no steps: only the numbers.
 The check needs it typed. Language models can now read the paper.
 :::
 
-<!-- Parked for later (left out to keep the focus on paper vs Python):
+<!-- Parked for later (left out to keep the focus on paper vs typed):
 "surrogate input" - drawing instead of typing. Example: sketch a
 non-decreasing function freehand on a JSXGraph board and have it checked.
 Source: Erasmus-CTM/math-exercise, examples.qmd, section "JSXGraph response -
@@ -464,7 +436,7 @@ or the [whole practice exam](pages/handwriting-ai.qmd).
 handwriting:
   language: English
   steps:
-    - Level 1, assessment: point to the mistake, do not give correct values.
+    - Level 1, find the mistake: point to it, do not give correct values.
     - Level 2, explanation: which law applies; no numbers, no final answer.
     - Level 3, method: numbered steps, stop before the numbers.
     - Level 4, worked solution.
@@ -513,7 +485,7 @@ the teacher's knowledge, written into the course
 ## More practice, on request {#practice .lund-part data-part="5"}
 
 ::: {.lund-big}
-Easier, another one like this, harder: the teacher says what that means, the model writes new problems.
+Easier, similar, harder: the model writes new problems.
 :::
 
 ::: {.lund-nest .lund-space}
@@ -521,7 +493,7 @@ Easier, another one like this, harder: the teacher says what that means, the mod
 **Everything a model can write**
 
 ::: {.lund-box .is-near}
-**Near the course**: with RAG, built from the course itself
+**Near the course**
 
 ::: {.lund-box .is-ours}
 **Written and checked by us**
@@ -540,14 +512,13 @@ Still, we **give away control** in exchange for a **richer problem space**.
 ### Is it relevant?
 
 - the teacher says what "harder" and "easier" mean
-- RAG keeps it to the course
 :::
 
 ::: {.lund-card}
 ### Is it solved correctly?
 
 - computer algebra works out the answer where it can
-- otherwise a second model checks it
+- otherwise it is marked unverified
 - it never counts toward grades
 :::
 :::

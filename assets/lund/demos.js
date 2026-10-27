@@ -7,7 +7,7 @@
 //   #lund-connection   API base URL, key, "Fetch models"
 //   #lund-two-frames   1b: one problem, one model, two hidden system prompts
 //   #lund-two-models   1c: prompt A from 1b on a small and a large model
-//   #lund-html-monster 3a: the page's own HTML for the part 1 exercise
+//   #lund-html-monster 3a: the page's own HTML for the course exercise in part 5
 (function () {
   'use strict';
 
@@ -390,7 +390,7 @@
 
   // ----------------------------------------------- 3a: Markdown versus HTML
 
-  // Shows the HTML the browser holds for the part 1 exercise, live from the page.
+  // Shows the HTML the browser holds for the course exercise (part 5), live from the page.
   function htmlMonster(host) {
     const show = button('Show the HTML', 'btn-outline-primary');
     const stats = el('p', 'lund-tf-meta');
