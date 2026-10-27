@@ -23,7 +23,8 @@ students. Colleagues should be able to
    **Fyll inn student 2**) instead of uploading it by hand;
 2. change the prompts in **YAML files in the repository**, without touching
    JavaScript or Lua;
-3. compare the AI's feedback with a teacher's own assessment of the same answer.
+3. compare the AI's feedback with a teacher's own assessment of the same answer
+   (kept in a benchmark sheet, not on the page).
 
 ## 2. What already exists (no framework work needed)
 
@@ -88,7 +89,6 @@ Prøveeksamen V2025 – tilbakemelding på håndskrift
            Svaret ditt [textarea]   Last opp bilder [file]
            [Fyll inn student 1] [Fyll inn student 2]   ← per subtask
            [Tilbakemelding] [⚙]
-           ▸ Lærerens vurdering (benchmark key; collapsed)
     b) ...
 ```
 
@@ -99,9 +99,8 @@ Prøveeksamen V2025 – tilbakemelding på håndskrift
 - **Fill** loads that student's photo into the activity, and (optionally, see
   Q3) types the final values the student wrote into the `math-exercise` fields.
   The toolbar at the top fills every subtask at once.
-- **Lærerens vurdering**: a collapsed box with the teacher's own assessment of
-  the sample that is currently loaded. It is shown only after a sample is filled
-  and is **never sent to the AI**.
+- The teacher's own assessment of each sample is **not** on the page. It lives in
+  `docs/handwritten-benchmark.md` (§7), so it can never leak into a request.
 
 ## 5. Architecture
 
@@ -113,15 +112,14 @@ pages/handwritten-feedback-prompts.qmd   "how to play with the prompts" guide
 _includes/handwritten/oppgave-{1..4}.md  problem text, math-exercise fields, activities
 feedback/handwritten/tutor.yml           ★ EDIT: tutor style, tone, structure, length (policies)
 feedback/handwritten/tasks.yml           ★ EDIT: per-subtask reference solution + typical mistakes
-feedback/handwritten/samples.yml         ★ EDIT: which photo belongs to which subtask + teacher assessment
 assets/handwritten/proveeksamen-v2025.pdf
-assets/handwritten/student1/1a.png …     renamed and checked (see §7)
+assets/handwritten/student1/1a.png …     renamed and checked (see §7); add a file = add a sample
 assets/handwritten/student2/1a.png …
-assets/handwritten/samples.js            fill buttons + teacher-assessment box
-_filters/handwritten-samples.lua         reads samples.yml at render time and hands it to samples.js as JSON
+assets/handwritten/fill-samples.js       ad-hoc test helper: the fill buttons
+docs/handwritten-benchmark.md            sample inventory, teacher assessments, results log
 ```
 
-Colleagues only edit the three ★ files. Problem text stays in the Markdown
+Colleagues only edit the two ★ YAML files. Problem text stays in the Markdown
 includes, because it is visible content, not a prompt.
 
 ### 5.2 How the prompt is put together (who controls what)
@@ -205,38 +203,28 @@ A `default` selection also reaches `math-exercise` feedback, where a "the image
 shows…" instruction would make no sense. That is why the answer fields' own
 Feedback button is off on this page (Q4).
 
-```yaml
-# feedback/handwritten/samples.yml   (read by our Lua filter, not by ctm-libs)
-students:
-  student1: {label: "Student 1"}
-  student2: {label: "Student 2"}
-samples:
-  v25-1a:
-    student1:
-      images: [student1/1a.png]
-      answers: {t: "0,6", h: "3,3"}          # for the math-exercise fields (optional)
-      teacher: >-
-        Riktig metode og riktige svar (0,6 s og 3,3 m). Tydelig oppsett.
-```
+### 5.4 The fill buttons (ad-hoc test helper)
 
-### 5.4 The fill buttons (page-local, about 80 lines of JS)
+This is for testing only, so it is a quick page script and no supported
+feature. It uses no manifest and no build step, only a naming convention:
+the photo for activity `#v25-1a` and student *N* is
+`assets/handwritten/studentN/1a.png`. Several photos for one subtask are
+`1a.png`, `1a-2.png`, `1a-3.png`. `fill-samples.js` (about 60 lines, loaded with
+`include-after-body` on this page only):
 
-`samples.js` reads the JSON that the Lua filter embedded from `samples.yml`
-and adds the buttons next to each `.ai-feedback` activity with a matching id.
-On click it:
+1. adds **Fyll inn student 1 / 2** next to every `.ai-feedback` activity whose
+   id starts with `v25-`, and the same buttons in the toolbar at the top (fills
+   every subtask);
+2. on click `fetch`es the photo(s). A missing file greys out the button for that
+   subtask; there is no 1b sample, for example;
+3. wraps them in `File` objects, puts them into the activity's
+   `<input type=file>` through a `DataTransfer` and fires `change`. The activity
+   then previews and validates them exactly as for a real upload;
+4. if Q3 is yes, it also types that student's final values into the
+   `math-exercise` fields from a small inline table in the script.
 
-1. `fetch`es the PNG(s) from `assets/handwritten/…` and wraps each in a `File`;
-2. puts them into the activity's `<input type=file>` with a `DataTransfer` and
-   fires `change`. The activity then reads, previews and validates the images
-   exactly as for a real upload, so the benchmark tests the real upload path;
-3. optionally fills the `math-exercise` fields and fires `input`;
-4. shows the matching **Lærerens vurdering**.
-
-This depends on the DOM of the ctm-libs upload widget (one `input[type=file]`
-per activity), which is the only fragile point. If this proves useful, phase 2
-moves it upstream as a supported attribute, e.g.
-`sample-images="Student 1=a.png; Student 2=b.png"` on `.ai-feedback`, which the
-Spanish example could use too.
+The script reaches into the ctm-libs upload widget's DOM. That is acceptable for
+a test helper; if a CTM update breaks it, we fix the script.
 
 ### 5.5 Provider
 
@@ -252,8 +240,8 @@ prompts without a key.
 For colleagues, not students:
 
 1. **Which file to edit for what**: a table (tone/structure → `tutor.yml`;
-   subtask key and typical mistakes → `tasks.yml`; samples and teacher
-   assessment → `samples.yml`; problem text → `_includes/handwritten/…`).
+   subtask key and typical mistakes → `tasks.yml`; new sample → drop a PNG into
+   `assets/handwritten/studentN/`; problem text → `_includes/handwritten/…`).
 2. **How the final prompt is assembled**: the table in §5.2, plus the fixed parts
    that YAML cannot change.
 3. **Recipes**: switch the default policy; add a variant; change the length;
@@ -264,7 +252,8 @@ For colleagues, not students:
    `quarto preview` locally. Use the policy box (`.ai-feedback-policy-summary`)
    that ctm-libs can render to check which instructions are actually active.
 6. **Benchmark routine**: for each sample, Fill → Tilbakemelding → compare with
-   Lærerens vurdering → note in a shared log (Q7).
+   the teacher's assessment in `docs/handwritten-benchmark.md` → note the result
+   there (Q7).
 
 ## 7. Sample inventory (needs checking by a teacher)
 
@@ -286,8 +275,8 @@ Our own reading of the 18 photos. Two **file names do not match the content**:
 | 4c | 2,8 m/s | ✘ stops at the speed 4,1 m/s, not the vertical component (file "Student 1/S2 4c") | ✔ 2,8 m/s |
 
 Each student has right, partly right and wrong answers, so the set is a good
-benchmark. The teacher assessments in `samples.yml` start from this table and
-must be checked by a teacher.
+benchmark. This table moves into `docs/handwritten-benchmark.md` as the
+teacher assessments, and must be checked by a teacher.
 
 **Privacy:** the repository is **public**, and so is the GitHub Pages site. Most
 Student 2 photos (and the left edge of "S1 1b") show a filled-in number grid
@@ -299,8 +288,7 @@ No photos are committed on this branch yet.
 
 | Phase | Content | Framework change |
 |---|---|---|
-| 1 | Page, prompt guide, 3 YAML files, fill buttons, teacher-assessment box, problems 1–4, cleaned photos | none |
-| 2a | `sample-images` (or similar) upstream in ctm-libs, replacing the DOM shim | ctm-libs |
+| 1 | Page, prompt guide, 2 YAML files, ad-hoc fill script, benchmark sheet, problems 1–4, cleaned photos | none |
 | 2b | Optional OCR arm ("Les av bildet" → editable transcript) | page script, or ctm-libs |
 | 2c | `image-upload` on `math-exercise`, so **one** Feedback sees the photo *and* the checker's verdict on the final answer (fewer made-up "your answer is wrong" claims) | math-exercise + ctm-libs |
 | 2d | Batch benchmark script: all samples × policy variants × models → Markdown report, using the same prompt builder as the page | ctm-demo script |
