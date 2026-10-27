@@ -105,7 +105,32 @@ The lecturer knows which one is relevant. **Does the model?**
 ::: {#lund-course-frame}
 :::
 
+### What we can turn
+
+::::: {.lund-steps}
+::: {.lund-step}
+**The model**\
+small or large, thinking or not
+:::
+::: {.lund-step}
+**The prompt**\
+what we ask, and how
+:::
+::: {.lund-step .lund-step-key}
+**The course**\
+what is inside, what is outside
+:::
+:::::
+
+::: {.lund-question}
+The first two are settings. The third we have to **define**, somehow.
+:::
+
 ## Retrieval-Augmented Generation {#rag .lund-part data-part="2"}
+
+::: {.lund-big}
+One way to define the course for a model: let it read the course.
+:::
 
 ::::: {.lund-steps}
 ::: {.lund-step}

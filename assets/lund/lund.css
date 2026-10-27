@@ -64,3 +64,5 @@ h2.lund-part, .lund-part > h2 {
 .lund-tf-verdict.is-right { color: #1e7e34; }
 .lund-tf-verdict.is-wrong { color: #b02a37; }
 .lund-tf-verdict.is-unknown { color: #6c757d; }
+.lund-step.lund-step-key { background: #2780e3; border-color: #2780e3; color: #fff; }
+.lund-step.lund-step-key strong { color: #fff; }
