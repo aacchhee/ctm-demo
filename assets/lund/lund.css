@@ -1,0 +1,107 @@
+/* Presentation page (lund.qmd): large type, little text, clear sections. */
+main.content { font-size: 1.2rem; }
+.lund-lead { font-size: 1.7rem; font-weight: 600; line-height: 1.3; margin: 1.5rem 0 2rem; }
+
+h2.lund-part, .lund-part > h2 {
+  font-size: 2.1rem; margin-top: 4.5rem; padding-top: 1rem; border-top: 3px solid #2780e3;
+}
+.lund-part[data-part] > h2::before, h2.lund-part[data-part]::before {
+  content: attr(data-part); display: inline-block; min-width: 2.6rem; margin-right: .7rem;
+  padding: .1rem .6rem; border-radius: .5rem; background: #2780e3; color: #fff; text-align: center;
+}
+
+.lund-big { font-size: 1.55rem; font-weight: 600; line-height: 1.35; margin: 1.2rem 0 1.5rem; }
+.lund-question {
+  font-size: 1.45rem; line-height: 1.4; margin: 2rem 0; padding: 1rem 1.3rem;
+  border-left: 6px solid #e8a33d; background: #fff8ec; border-radius: .4rem;
+}
+
+.lund-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.2rem; margin: 1.5rem 0; }
+.lund-card { padding: 1rem 1.2rem; border: 1px solid #d4dde5; border-radius: .8rem; background: #fff; min-width: 0; }
+.lund-card h3 { margin-top: 0; font-size: 1.3rem; }
+.lund-inside { border-color: #2780e3; background: #eef5fd; }
+.lund-outside { border-style: dashed; background: #f7f7f7; }
+
+.lund-nest { margin: 1.5rem 0; }
+.lund-box { padding: .8rem 1rem 1rem; border: 2px solid #2780e3; border-radius: .8rem; background: rgba(39, 128, 227, .06); }
+.lund-box .lund-box { margin-top: .6rem; }
+.lund-box p { margin-bottom: .4rem; }
+.lund-chip {
+  display: inline-block; margin: .2rem .3rem .2rem 0; padding: .2rem .7rem;
+  border-radius: 1rem; background: #2780e3; color: #fff; font-size: 1rem;
+}
+
+.lund-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: .8rem; margin: 1.5rem 0; }
+.lund-step { padding: 1rem; border-radius: .8rem; background: #eef5fd; border: 1px solid #b9d5f5; text-align: center; line-height: 1.4; }
+.lund-step strong { font-size: 1.3rem; color: #1a5fa8; }
+
+.lund-cta { margin: 1rem 0 1.5rem; }
+.lund-takeaways ul { list-style: none; padding-left: 0; }
+.lund-takeaways li { font-size: 1.45rem; margin: 1rem 0; padding: .8rem 1.2rem; border-left: 6px solid #2780e3; background: #eef5fd; border-radius: .4rem; }
+
+@media (max-width: 600px) {
+  main.content { font-size: 1.05rem; }
+  .lund-lead, .lund-big { font-size: 1.3rem; }
+  h2.lund-part, .lund-part > h2 { font-size: 1.6rem; }
+}
+
+/* One button, two frames */
+.lund-tf-problem { font-size: 1.45rem; font-weight: 600; margin: 1rem 0; }
+.lund-tf-bar { display: flex; gap: .6rem; margin-bottom: 1rem; }
+.lund-tf-meta { color: #6c757d; font-size: .95rem; margin-bottom: .5rem; }
+.lund-tf-body { font-size: 1.05rem; overflow-wrap: anywhere; }
+.lund-tf-body .katex-display { overflow-x: auto; overflow-y: hidden; }
+.lund-tf-error { color: #b02a37; }
+.lund-tf-prompts { margin: 1rem 0 2rem; }
+.lund-tf-prompts summary { cursor: pointer; color: #6c757d; }
+.lund-tf-prompts pre { white-space: pre-wrap; font-size: .85rem; background: #f7f7f7; padding: .8rem; border-radius: .4rem; }
+.lund-tf-body h1, .lund-tf-body h2, .lund-tf-body h3, .lund-tf-body h4 { font-size: 1.1rem; margin: .8rem 0 .4rem; border: 0; }
+.lund-tf-controls { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: end; margin: .5rem 0 1rem; font-size: 1rem; }
+.lund-tf-controls label { display: flex; flex-direction: column; gap: .2rem; color: #6c757d; }
+.lund-tf-controls .form-select { min-width: 12rem; }
+.lund-tf-verdict { font-weight: 700; font-size: 1.15rem; margin-bottom: .5rem; }
+.lund-tf-verdict:empty { display: none; }
+.lund-tf-verdict.is-right { color: #1e7e34; }
+.lund-tf-verdict.is-wrong { color: #b02a37; }
+.lund-tf-verdict.is-unknown { color: #6c757d; }
+.lund-step.lund-step-key { background: #2780e3; border-color: #2780e3; color: #fff; }
+.lund-step.lund-step-key strong { color: #fff; }
+
+/* Part 2: where things live */
+.lund-steps-compact .lund-step { padding: .6rem .8rem; }
+.lund-where { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: .8rem; margin: 1.2rem 0; }
+.lund-place { padding: .8rem 1rem; border-radius: .8rem; border: 2px solid; line-height: 1.4; font-size: 1.05rem; }
+.lund-place strong { font-size: 1.2rem; }
+.lund-place.is-browser { background: #eef5fd; border-color: #2780e3; }
+.lund-place.is-github { background: #f3f0fa; border-color: #6f42c1; }
+.lund-place.is-server { background: #fff8ec; border-color: #e8a33d; }
+.lund-place.is-cluster { background: #eaf6ee; border-color: #2e8b57; }
+
+/* Part 3: course history */
+.lund-history ul { list-style: none; padding-left: 0; margin: 1rem 0 1.5rem; border-left: 4px solid #6f42c1; }
+.lund-history li { position: relative; margin: 0 0 .9rem; padding-left: 1.4rem; font-size: 1.2rem; }
+.lund-history li::before { content: ""; position: absolute; left: -.6rem; top: .45rem; width: .9rem; height: .9rem; border-radius: 50%; background: #6f42c1; }
+.lund-history .who { display: inline-block; min-width: 7.5rem; font-weight: 700; color: #6f42c1; }
+.lund-history .who.is-done { color: #1e7e34; }
+.lund-small { color: #6c757d; font-size: .95rem; }
+.lund-data .lund-card h4 { margin-top: 0; font-size: 1.15rem; }
+.lund-data-source { border-color: #6f42c1; background: #f3f0fa; }
+.lund-data-source pre { font-size: .95rem; white-space: pre-wrap; }
+.lund-data .lund-card h4 { color: inherit; font-weight: 700; }
+.lund-html-box { max-height: 15rem; overflow: auto; font-size: .62rem; line-height: 1.25; white-space: pre-wrap; word-break: break-all; background: #fff; border: 1px solid #d4dde5; }
+.lund-soup table { font-size: 1rem; }
+.lund-soup td:nth-child(2) code { color: #b02a37; }
+.lund-soup td code { white-space: normal; overflow-wrap: anywhere; }
+main.content h4 { font-size: 1.3rem; font-weight: 700; color: inherit; margin-top: 1.5rem; }
+.lund-paper img { width: 100%; height: auto; border: 1px solid #d4dde5; border-radius: .4rem; }
+.lund-paper .lund-card h4 { margin-top: 0; }
+@media (min-width: 800px) { .lund-cols.lund-paper { grid-template-columns: 3fr 2fr; } }
+.lund-prompts pre { font-size: .9rem; }
+.lund-prompts .lund-card h4 { margin-top: 0; }
+.lund-prompts .lund-card { margin-bottom: 1rem; }
+
+/* Part 5: the problem space */
+.lund-space .lund-box.is-all { border: 2px dashed #adb5bd; background: #f7f7f7; }
+.lund-space .lund-box.is-near { border-color: #2780e3; background: #eef5fd; }
+.lund-space .lund-box.is-ours { border-color: #1a5fa8; background: #2780e3; color: #fff; }
+.lund-num { display: inline-block; min-width: 2.6rem; margin-right: .6rem; padding: 0 .4rem; border-radius: .4rem; background: #2780e3; color: #fff; font-size: 1rem; text-align: center; vertical-align: .15em; }
