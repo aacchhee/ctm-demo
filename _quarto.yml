@@ -59,16 +59,16 @@ website:
         file: pages/physics.qmd
       - text: "Fysikk-forkurs"
         file: pages/fysikk-forkurs.qmd
-      - section: "Håndskrift og KI / Handwriting and AI"
+      - section: "Handwriting and AI"
         contents:
-          - text: "Prøveeksamen V2025 (nb)"
-            file: pages/handskrift-ki.qmd
-          - text: "Spill med promptene (nb)"
-            file: pages/handskrift-ki-prompter.qmd
-          - text: "Practice exam V2025 (en)"
+          - text: "Practice exam V2025"
             file: pages/handwriting-ai.qmd
-          - text: "Playing with the prompts (en)"
+          - text: "Playing with the prompts"
             file: pages/handwriting-ai-prompts.qmd
+          - text: "Prøveeksamen V2025 (bokmål)"
+            file: pages/handskrift-ki.qmd
+          - text: "Spill med promptene (bokmål)"
+            file: pages/handskrift-ki-prompter.qmd
       - text: "Bevegelse II"
         file: pages/bevegelse-ii.qmd
       - text: "STACK-oppgaver"

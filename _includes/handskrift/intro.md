@@ -1,5 +1,5 @@
 ::: {.language-switch}
-🌐 **Norsk bokmål** · [English](handwriting-ai.qmd)
+🌐 [English](handwriting-ai.qmd) · **Norsk bokmål**
 :::
 
 Løs oppgavene i [oppgavesettet (PDF)](../assets/handskrift/proveeksamen-v2025.pdf)

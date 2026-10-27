@@ -1,5 +1,5 @@
 ::: {.language-switch}
-🌐 [Norsk bokmål](handskrift-ki.qmd) · **English**
+🌐 **English** · [Norsk bokmål](handskrift-ki.qmd)
 :::
 
 Solve the problems from the practice exam on paper. The problems are below;

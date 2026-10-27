@@ -6,7 +6,7 @@ toc: true
 ---
 
 ::: {.language-switch}
-🌐 [Norsk bokmål](handskrift-ki-prompter.qmd) · **English**
+🌐 **English** · [Norsk bokmål](handskrift-ki-prompter.qmd)
 :::
 
 ## In short
