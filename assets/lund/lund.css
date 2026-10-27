@@ -99,3 +99,8 @@ main.content h4 { font-size: 1.3rem; font-weight: 700; color: inherit; margin-to
 .lund-prompts pre { font-size: .9rem; }
 .lund-prompts .lund-card h4 { margin-top: 0; }
 .lund-prompts .lund-card { margin-bottom: 1rem; }
+
+/* Part 5: the problem space */
+.lund-space .lund-box.is-all { border: 2px dashed #adb5bd; background: #f7f7f7; }
+.lund-space .lund-box.is-near { border-color: #2780e3; background: #eef5fd; }
+.lund-space .lund-box.is-ours { border-color: #1a5fa8; background: #2780e3; color: #fff; }

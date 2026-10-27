@@ -490,20 +490,48 @@ the teacher's knowledge, made explicit
 
 ## More practice, on request {#practice .lund-part data-part="5"}
 
-::::: {.lund-steps}
-::: {.lund-step}
-**Easier**
+::: {.lund-big}
+Easier, another one like this, harder: the model writes new problems.
 :::
-::: {.lund-step}
-**Another one like this**
-:::
-::: {.lund-step}
-**Harder**
-:::
-:::::
 
-Use **Similar problem** on the derivatives [above](#course), or ask the
-assistant's quiz mode.
+::: {.lund-nest .lund-space}
+::: {.lund-box .is-all}
+**Everything a model can write**
+
+::: {.lund-box .is-near}
+**Near the course**: built from the original exercise and the retrieved course pages
+
+::: {.lund-box .is-ours}
+**Written and checked by us**
+:::
+:::
+:::
+:::
+
+::: {.lund-question}
+RAG shrinks the space the model draws from. Still, we **give away control**
+in exchange for a **richer problem space**.
+:::
+
+::: {.lund-cols}
+::: {.lund-card}
+### Is it relevant?
+
+- built from the original exercise and the nearby course pages
+- the teacher writes what "harder" and "easier" mean for this exercise
+- every new problem starts from the original, so there is no drift
+:::
+
+::: {.lund-card}
+### Is it solved correctly?
+
+- the model writes the problem; computer algebra computes the answer
+- otherwise a second, independent solve, or the label "unverified answer key"
+- students can flag a key; it never counts toward grades, and is off in exams
+:::
+:::
+
+Try **Similar problem** on the derivatives in [part 1](#course), or the assistant's quiz.
 
 [Open the quiz]({{< meta rag-quiz-url >}}){.btn .btn-outline-primary .btn-lg .lund-cta}
 
