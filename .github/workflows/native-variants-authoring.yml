@@ -1,6 +1,8 @@
 name: Native variants authoring fixture (artifacts only)
+# Paused: the variants pipeline is to be redone. Runs only when started by hand
+# (Actions -> Run workflow); restore the automatic triggers when it is redone.
 on:
-  pull_request:
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:

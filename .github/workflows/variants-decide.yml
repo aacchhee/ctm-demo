@@ -1,7 +1,7 @@
 name: Variants record decisions
+# Paused: the variants pipeline is to be redone. Runs only when started by hand
+# (Actions -> Run workflow); restore the automatic triggers when it is redone.
 on:
-  issue_comment:
-    types: [created, edited]
   workflow_dispatch:
     inputs:
       pull_request:
