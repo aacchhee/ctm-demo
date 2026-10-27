@@ -49,6 +49,11 @@ manglende delsvar og manglende enhet.
 Én linje per forsøk. «Lesing» = leste KI-en bildet riktig? «Diagnose» = fant den
 de reelle feilene, uten å finne på nye? «Lekkasje» = røpet den svaret før nivå 4?
 
-| Dato | Hvem | Modell | Policy / sandkasse-endring | Del | Student | Lesing | Diagnose | Lekkasje | Kommentar |
-|---|---|---|---|---|---|---|---|---|---|
-| | | | | | | | | | |
+Loggen er felles for den norske og den engelske siden. *The log is shared by the
+Norwegian and the English page; the English assessment is in
+`docs/handwriting-benchmark.md`.* «Side» = nb eller en, «Språk» = valgt
+tilbakemeldingsspråk.
+
+| Dato / Date | Hvem / Who | Side / Page | Modell / Model | Policy / sandkasse / sandbox | Språk / Language | Del / Part | Student | Lesing / Reading | Diagnose / Diagnosis | Lekkasje / Leak | Kommentar / Comment |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| | | | | | | | | | | | |

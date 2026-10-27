@@ -5,6 +5,10 @@ lang: nb
 toc: true
 ---
 
+::: {.language-switch}
+🌐 **Norsk bokmål** · [English](handwriting-ai-prompts.qmd)
+:::
+
 ## Kort fortalt
 
 All tekst KI-en får fra oss, ligger i to YAML-filer i repoet:
@@ -21,6 +25,10 @@ Andre filer du kan få bruk for:
 | `_includes/handskrift/oppgave-1.md` … `oppgave-9.md` | Oppgaveteksten, svarfeltene og opplastingsfeltene |
 | `assets/handskrift/student1/`, `student2/` | De ekte besvarelsene. Filnavnet er deloppgaven: `1a.png`, `4c.png` |
 | `docs/handskrift-benchmark.md` | Lærerens vurdering av hver besvarelse og loggen over forsøk |
+
+Den engelske siden ([Handwriting and AI](handwriting-ai.qmd)) har sine egne,
+engelske prompter i `feedback/handwriting/tutor.yml` og `tasks.yml`. En endring i
+de norske filene påvirker ikke den engelske siden, og omvendt.
 
 Arbeidsflyten anbefales i denne rekkefølgen:
 
@@ -73,6 +81,25 @@ Nederst på [Prøveeksamen V2025](handskrift-ki.qmd) ligger
 
 Sandkassen lagres i nettleseren din (localStorage). Den forsvinner ikke av seg
 selv, så husk å tilbakestille når du er ferdig. Andre ser aldri sandkassen din.
+
+## Tilbakemeldingsspråk
+
+Ved hvert opplastingsfelt er menyen **Språk for tilbakemeldingen** (engelsk,
+norsk bokmål, svensk, spansk, russisk, tysk). Den bytter språket KI-en svarer på
+for akkurat den deloppgaven, så du kan sammenligne kvaliteten på ulike språk med
+samme besvarelse. Promptene er de samme; bare språket i «skriv på *språk*» og
+`language` endres. Valget lagres i nettleseren din, og hintstigen for den
+deloppgaven starter på nytt når du bytter.
+
+Standardspråket er `language` i `veileder.yml`. Skal én deloppgave alltid ha et
+annet språk for alle, setter du `language` på deloppgaven i `oppgaver.yml`:
+
+```yaml
+      v25-4a:
+        language: Swedish
+        base-prompt: >-
+          ...
+```
 
 ## Lagre endringen i repoet
 
@@ -202,7 +229,8 @@ Skriv lærerens vurdering i `docs/handskrift-benchmark.md`.
 
 For hver besvarelse i benchmark-arket:
 
-1. Velg policy og eventuelle sandkasse-endringer, og skriv ned modellen du bruker.
+1. Velg policy, språk og eventuelle sandkasse-endringer, og skriv ned modellen
+   du bruker.
 2. **Fyll inn student N** → **Tilbakemelding** fire ganger (alle nivåer).
 3. Sammenlign med lærerens vurdering. Leste KI-en bildet riktig? Fant den feilen?
    Fant den på feil som ikke finnes? Røpet den svaret for tidlig? Var nivå 4

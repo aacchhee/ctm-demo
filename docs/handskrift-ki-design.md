@@ -26,7 +26,8 @@ kollegaer skal kunne
 | Fyll inn | Testverktøy i JavaScript, ad hoc. Laster bildet **og** studentens sluttsvar i svarfeltet |
 | Hvor KI-tilbakemeldingen sitter | Bare i bildefeltet. Svarfeltets egen Tilbakemelding-knapp er av. Én samlet tilbakemelding (fase 2c) kommer senere |
 | Tilbakemeldingsform | Hintstige med fire nivåer, der siste nivå er et fullstendig løsningsforslag. Svært lærerik |
-| Språk | Alt på bokmål |
+| Språk | Alt på bokmål, pluss en engelsk tvilling (se 5.5) |
+| Tilbakemeldingsspråk | Meny per deloppgave: engelsk, norsk bokmål, svensk, spansk, russisk, tysk (se 5.5) |
 | Hvordan kollegaer prøver endringer | Prompt-sandkasse i nettleseren (umiddelbart), deretter redigering av YAML-filen på GitHub |
 | Batchkjøring | Senere; først skal vi prøve oss fram med YAML |
 
@@ -141,7 +142,28 @@ sidens to policy-lag i `window.__aiFeedbackPolicies` og validerer med
 en varsellinje vises så lenge sandkassen er aktiv. Bygget validerer på samme
 måte: ukjente nøkler og nøkler som ligner hemmeligheter stopper bygget.
 
-### 5.5 Leverandør
+### 5.5 Engelsk versjon og språkmeny
+
+- **Språkbryter.** Øverst på alle fire sidene lenker `.language-switch` til
+  tvillingsiden: `handskrift-ki` ↔ `handwriting-ai` og `handskrift-ki-prompter` ↔
+  `handwriting-ai-prompts`. CTM-grensesnittet (knapper, meldinger) følger
+  sidens `lang`, som settes ved bygging, så en bryter i nettleseren ville ikke
+  kunne bytte det. Derfor er det to sider.
+- **Engelsk tvilling.** Egen oppgavetekst (`_includes/handwriting/`) og egne
+  engelske prompter (`feedback/handwriting/tutor.yml`, `tasks.yml`). Id-ene er
+  de samme, så bildene, fyll inn og svarsjekken deles. Bare håndskriften i
+  besvarelsene er norsk. Benchmark-arket finnes på engelsk
+  (`docs/handwriting-benchmark.md`), og loggen er felles.
+- **Språkmeny per deloppgave.** `fyll-inn.js` legger et ekstra lag med
+  `exercises: plain-text: <id>: {language: …}` oppå sidens policy-filer (eller
+  sandkassen) i `window.__aiFeedbackPolicies`. Da endres bare `language` for den
+  deloppgaven, og ctm-libs skriver «Write explanations in <språk>». Valget
+  lagres i `localStorage`, og hintstigen nullstilles fordi policyen endres.
+  Veilederteksten ber om at også overskriftene skrives på tilbakemeldingsspråket.
+  Kontrollert mot en lokal etterligning av API-et: svensk og russisk når fram,
+  og standardspråket gjelder for de andre deloppgavene.
+
+### 5.6 Leverandør
 
 ctm-demo har `ai-feedback: mode: api`. Hver bruker legger inn adresse, nøkkel og
 modell under ⚙. Modellen må kunne lese bilder, og leverandøren må tillate
@@ -151,7 +173,7 @@ nettleserkall (CORS). Modusen for å kopiere instruksjonen virker uten nøkkel.
 
 | Fase | Innhold | Endring i CTM |
 |---|---|---|
-| 1 ✔ | Side for oppgave 1–9, veiledning, to YAML-filer, hintstige med fire nivåer, fyll inn, prompt-sandkasse, benchmark-ark, rensede bilder | ingen |
+| 1 ✔ | Side for oppgave 1–9 (nb og en, med språkmeny), veiledning, to YAML-filer, hintstige med fire nivåer, fyll inn, prompt-sandkasse, benchmark-ark, rensede bilder | ingen |
 | 2b | Valgfri OCR-gren («Les av bildet» → redigerbar transkripsjon) | sideskript eller ctm-libs |
 | **2c** | `image-upload` på `math-exercise`, slik at **én** Tilbakemelding ser både bildet og svarsjekkens vurdering av sluttsvaret. Mindre risiko for at KI-en påstår feil om riktig svar | math-exercise + ctm-libs |
 | 2d | Batchkjøring: alle besvarelser × policyer × modeller → Markdown-rapport, med samme prompt-bygger som siden | skript i ctm-demo |

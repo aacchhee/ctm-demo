@@ -15,7 +15,7 @@ ai-feedback:
 include-after-body:
   - text: |
       <script src="../assets/handskrift/js-yaml.min.js"></script>
-      <script src="../assets/handskrift/fyll-inn.js"></script>
+      <script src="../assets/handskrift/fyll-inn.js" data-feedback-dir="feedback/handskrift/" data-files="veileder.yml,oppgaver.yml" data-guide="handskrift-ki-prompter.html"></script>
 ---
 
 {{< include ../_includes/handskrift/intro.md >}}
