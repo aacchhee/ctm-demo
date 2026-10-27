@@ -143,8 +143,8 @@ The simplest way: upload the course PDF to a chat. It works, more or less.
 formulas and figures get lost on the way ([3c](#pdf))
 :::
 ::: {.lund-problem}
-**No sources**\
-which page did the answer come from?
+**Everything, every time**\
+the whole course goes along with each question; slow, and details get lost
 :::
 ::: {.lund-problem}
 **A frozen copy**\
@@ -165,15 +165,15 @@ RAG does the reading for us, from clean course pages:
 ::::: {.lund-steps .lund-steps-compact}
 ::: {.lund-step}
 **Retrieve**\
-find the pages of the course that fit the question
+find the passages of the course that fit the question
 :::
 ::: {.lund-step}
 **Augment**\
-hand those pages to the model with the question
+hand those passages to the model with the question
 :::
 ::: {.lund-step}
 **Generate**\
-the model answers from them, and says which pages
+the model answers from them, and names the sections it used
 :::
 :::::
 
@@ -181,9 +181,9 @@ the model answers from them, and says which pages
 %%| fig-width: 9
 %%{init: {"themeVariables": {"fontSize": "18px"}}}%%
 flowchart LR
-  S([Student asks]) --> L["Librarian<br/>finds the right pages"]
+  S([Student asks]) --> L["Librarian<br/>finds the right passages"]
   L --> M["Language model<br/>writes the answer"]
-  M --> A([Answer + the pages it used])
+  M --> A([Answer + the sections it used])
   C[(The course,<br/>in short passages)] --- L
   classDef course fill:#fff8ec,stroke:#e8a33d
   classDef model fill:#eaf6ee,stroke:#2e8b57
@@ -215,7 +215,7 @@ only a web browser
 :::
 
 ::: {.lund-question}
-**Inside first**: the answer comes from the course pages, and names them.
+**Inside first**: the answer comes from the course passages, and names their sections.
 **Outside if needed**: anything else comes after, clearly labelled.
 :::
 
