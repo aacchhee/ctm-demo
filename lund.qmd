@@ -543,7 +543,9 @@ How it matches what **this** learner finds hard is an open question.
 ## The point {#point .lund-part}
 
 ::: {.lund-takeaways}
-- **The course** sets the frame: what is inside, what is outside.
-- **Checks** are explicit and reproducible.
-- **AI** works inside that frame, and says when it steps out.
+- **Define the course.** Model and prompt are settings; the course is the frame.
+- **Let the model read it.** RAG puts our pages in front of the model.
+- **Write data, not looks.** One plain source, many lecturers, many representations.
+- **Check, then help.** The check decides; the AI suggests, with the teacher's prompts.
+- **Trade with open eyes.** Generated practice is richer, and less controlled.
 :::
