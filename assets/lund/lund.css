@@ -56,3 +56,11 @@ h2.lund-part, .lund-part > h2 {
 .lund-tf-prompts summary { cursor: pointer; color: #6c757d; }
 .lund-tf-prompts pre { white-space: pre-wrap; font-size: .85rem; background: #f7f7f7; padding: .8rem; border-radius: .4rem; }
 .lund-tf-body h1, .lund-tf-body h2, .lund-tf-body h3, .lund-tf-body h4 { font-size: 1.1rem; margin: .8rem 0 .4rem; border: 0; }
+.lund-tf-controls { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: end; margin: .5rem 0 1rem; font-size: 1rem; }
+.lund-tf-controls label { display: flex; flex-direction: column; gap: .2rem; color: #6c757d; }
+.lund-tf-controls .form-select { min-width: 12rem; }
+.lund-tf-verdict { font-weight: 700; font-size: 1.15rem; margin-bottom: .5rem; }
+.lund-tf-verdict:empty { display: none; }
+.lund-tf-verdict.is-right { color: #1e7e34; }
+.lund-tf-verdict.is-wrong { color: #b02a37; }
+.lund-tf-verdict.is-unknown { color: #6c757d; }

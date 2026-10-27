@@ -22,7 +22,7 @@ ai-feedback:
 include-after-body:
   - text: |
       <script src="assets/handskrift/js-yaml.min.js"></script>
-      <script src="assets/lund/two-frames.js"></script>
+      <script src="assets/lund/demos.js"></script>
       <script src="assets/handskrift/fyll-inn.js" data-feedback-dir="feedback/handwriting/" data-files="tutor.yml,tasks.yml" data-guide="pages/handwriting-ai-prompts.html"></script>
 ---
 
@@ -93,6 +93,16 @@ The lecturer knows which one is relevant. **Does the model?**
 ### One problem, one button
 
 ::: {#lund-two-frames}
+:::
+
+### Same question, two models
+
+::: {#lund-two-models}
+:::
+
+### Same models, with the course
+
+::: {#lund-course-frame}
 :::
 
 ## Retrieval-Augmented Generation {#rag .lund-part data-part="2"}
