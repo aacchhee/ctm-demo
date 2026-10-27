@@ -1,0 +1,213 @@
+# Reference solution and typical mistakes for each subtask of the practice
+# exam V2025 (English page). The Norwegian page uses
+# feedback/handskrift/oppgaver.yml.
+#
+# This file controls WHAT the AI knows about each subtask. Tone, structure
+# and the hint ladder are in tutor.yml. Both texts go into every request.
+#
+# The key (v25-1a, v25-1b, …) is the id of the upload field on the page.
+# The text is private to the AI, but it is published in the page source, so
+# do not write anything here that students must not see.
+#
+# Values use g = 9.81 m/s², u = 1.66054·10⁻²⁷ kg, k = 1.381·10⁻²³ J/K,
+# σ = 5.67·10⁻⁸ W/(m²K⁴), Wien's constant 2.898·10⁻³ m·K,
+# h = 6.626·10⁻³⁴ J·s, c = 3.00·10⁸ m/s and c_water = 4180 J/(kg·K).
+# A subject teacher should check the reference solutions.
+
+ai-feedback:
+  exercises:
+    plain-text:
+
+      v25-1a:
+        base-prompt: >-
+          Reference: at the top the velocity is zero. t = v0/g = 6.0/9.81 =
+          0.61 s. The rise is v0²/(2g) = 1.83 m, so the height above the
+          ground is 1.5 m + 1.83 m = 3.3 m. Both questions (time and height)
+          must be answered. Typical mistakes: forgets the initial height
+          1.5 m; mixes up the signs of g and v0; answers only one of the
+          questions; rounds intermediate values too early.
+
+      v25-1b:
+        base-prompt: >-
+          Reference: v(t) = 6.0 m/s − 9.81 m/s² · t is a straight line with
+          slope −9.81 m/s². It starts at 6.0 m/s, crosses zero at t = 0.61 s
+          (the top) and ends when the ball lands at t ≈ 1.44 s with
+          v ≈ −8.1 m/s (landing from 1.5 m above the ground:
+          1.5 + 6.0t − 4.9t² = 0). The graph needs labelled axes with units.
+          Typical mistakes: draws the path (position) instead of the velocity;
+          a kink or V shape at the top (the signed velocity is what to show);
+          ends at v = −6.0 m/s as if the ball landed at the starting height;
+          missing axes or units.
+
+      v25-1c:
+        base-prompt: >-
+          Reference: after 1.0 s the displacement is s = v0·t − ½gt² =
+          6.0 − 4.905 = 1.095 m upwards (the ball is on its way down, but above
+          the starting point). ΔEp = mgΔh = 0.450 · 9.81 · 1.095 = 4.8 J. The
+          same answer follows from energy conservation: ΔEp = −ΔEk with
+          v(1.0 s) = −3.81 m/s. Typical mistakes: forgets that the mass is
+          450 g = 0.450 kg; uses the height at the top instead of the position
+          after 1 s; sign error in ½gt²; calculates kinetic energy instead of
+          the change in potential energy; different values in the working and
+          the answer sentence.
+
+      v25-2a:
+        base-prompt: >-
+          Reference: T = 6100 + 273 = 6373 K. Wien's displacement law:
+          λ_max = b/T = 2.898·10⁻³ m·K / 6373 K = 4.55·10⁻⁷ m = 455 nm.
+          Typical mistakes: uses the temperature in °C; calculates the
+          radiant exitance σT⁴ (that belongs to b) instead of the wavelength;
+          calculation or copying error between working and answer; claims
+          about the colour that were not asked for or are not right.
+
+      v25-2b:
+        base-prompt: >-
+          Reference: radiant exitance M = σT⁴ = 5.67·10⁻⁸ · 6373⁴ =
+          9.35·10⁷ W/m². Surface area A = P/M = 3.93·10²⁶ W / 9.35·10⁷ W/m² =
+          4.2·10¹⁸ m². Typical mistakes: wrong power of ten when 6373⁴ is
+          worked out (for example 10¹⁵ instead of 10⁷ in M); temperature in
+          °C; inverted fraction P·M or M/P; wrong prefix when the answer is
+          rewritten (G = 10⁹).
+
+      v25-3a:
+        base-prompt: >-
+          Reference: molecular mass 28.0 u = 4.65·10⁻²⁶ kg, total mass
+          m = N · 28.0 u = 4.50·10²³ · 4.65·10⁻²⁶ kg = 0.0209 kg.
+          V = πr²h = π · 0.120² · 0.200 = 9.05·10⁻³ m³.
+          Density ρ = m/V = 2.31 kg/m³. Temperature from pV = NkT:
+          T = pV/(Nk) = 120·10³ · 9.05·10⁻³ / (4.50·10²³ · 1.381·10⁻²³) =
+          175 K (−98 °C). Both quantities (temperature and density) must be
+          calculated. Use the gas pressure 120 kPa, not the air pressure.
+          Typical mistakes: forgets the temperature; rounds the mass to
+          0.02 kg so the density becomes 2.2 kg/m³; uses 101 kPa; cm not
+          converted to m.
+
+      v25-3b:
+        base-prompt: >-
+          Reference: the piston is in equilibrium. The gas pushes up with
+          p_gas·A, the air pushes down with p_air·A, and the weight is mg. So
+          mg = (p_gas − p_air)·A = (120 − 101)·10³ Pa · π · 0.120² m² =
+          859 N, and m = 859 N / 9.81 m/s² = 87.6 kg. Typical mistakes: uses
+          the whole gas pressure and forgets the air pressure above the lid;
+          uses hydrostatic pressure p = p0 + ρgh for the gas; uses the gas
+          law, which does not give the mass of the piston; wrong area because
+          r is not squared or not converted to metres.
+
+      v25-4a:
+        base-prompt: >-
+          Reference: the spring energy becomes kinetic energy:
+          ½kx² = ½mv², so k = mv²/x² = 0.0570 · 3.00² / 0.0500² = 205 N/m.
+          Typical mistakes: uses the weight mg as the spring force (the spring
+          is horizontal; the weight has nothing to do with the spring force);
+          uses Hooke's law F = kx with a force that is not the spring force;
+          forgets to square x or v; g and cm not converted; missing or wrong
+          unit (N/m).
+
+      v25-4b:
+        base-prompt: >-
+          Reference: horizontal projection. Vertically: h = ½gt², so
+          t = √(2h/g) = √(2 · 1.40 / 9.81) = 0.534 s. Horizontally at constant
+          speed: x = v·t = 3.00 · 0.534 = 1.60 m. Typical mistakes: wrong
+          rearrangement of h = ½gt² (for example t = √(h + ½g)); uses an
+          initial velocity in the vertical direction; uses a total speed
+          instead of the components; mixes up horizontal and vertical motion.
+
+      v25-4c:
+        base-prompt: >-
+          Reference: Ek = 480 mJ = 0.480 J gives the speed
+          v = √(2Ek/m) = √(2 · 0.480 / 0.0570) = 4.10 m/s. The horizontal
+          velocity is still 3.00 m/s, so the vertical velocity is
+          v_y = √(v² − v_x²) = √(4.10² − 3.00²) = 2.8 m/s. Typical mistakes:
+          stops at the total speed 4.10 m/s, which is not what is asked;
+          subtracts speeds instead of their squares; mJ not converted.
+
+      v25-5a:
+        base-prompt: >-
+          Reference: the block floats, so buoyancy = weight:
+          ρ_liquid · 0.80 · V · g = mg, and V = m / (0.80 · ρ_liquid) =
+          0.450 kg / (0.80 · 870 kg/m³) = 6.5·10⁻⁴ m³ = 0.65 dm³.
+          Typical mistakes: uses the whole volume in the buoyancy;
+          0.87 kg/dm³ not converted (or converted wrongly); answers with the
+          volume below the surface instead of the volume of the whole block.
+
+      v25-5b:
+        base-prompt: >-
+          Reference: the pressure has doubled when p = 2·p0, that is when
+          ρgh = p0: h = p0/(ρg) = 101·10³ Pa / (870 kg/m³ · 9.81 m/s²) =
+          11.8 m. Typical mistakes: sets ρgh = 2p0 and forgets the air
+          pressure at the surface; uses the density of water instead of
+          870 kg/m³.
+
+      v25-6a:
+        base-prompt: >-
+          Reference: in a series circuit the current is the same and the
+          voltages add up: U2 = 230 V − 150 V = 80 V, and
+          R2 = U2/I = 80 V / 10 A = 8.0 Ω. Typical mistakes: uses the whole
+          terminal voltage or 150 V across R2; finds only R1 or the total
+          resistance.
+
+      v25-6b:
+        base-prompt: >-
+          Reference: the power in R1 is P = U1·I = 150 V · 10 A = 1500 W.
+          The heat needed is Q = mcΔT = 0.50 kg · 4180 J/(kg·K) · 56.0 K =
+          1.17·10⁵ J, so t = Q/P = 78 s. Typical mistakes: uses the power of
+          the whole circuit (2300 W) instead of R1; 5.0 dl not converted to
+          0.50 kg; wrong temperature difference.
+
+      v25-6c:
+        base-prompt: >-
+          Reference: in series the same current flows through both, P = RI²,
+          so the larger power is in R1 (the larger resistance). In parallel
+          the voltage is the same, P = U²/R, so the larger power is in R2
+          (the smaller resistance). Both answers must be justified. Typical
+          mistakes: the same answer in both cases; right answer without
+          justification; uses P = UI without saying what is shared in each
+          circuit.
+
+      v25-7a:
+        base-prompt: >-
+          Reference: f = c/λ = 3.00·10⁸ / 560·10⁻⁹ = 5.36·10¹⁴ Hz and
+          E = hf = 6.626·10⁻³⁴ · 5.36·10¹⁴ = 3.55·10⁻¹⁹ J (2.22 eV). Both
+          quantities must be calculated. Typical mistakes: nm not converted;
+          E = h/λ or E = hλ.
+
+      v25-7b:
+        base-prompt: >-
+          Reference: photons per second N = P/E = 60 W / 3.55·10⁻¹⁹ J =
+          1.7·10²⁰ per second. Typical mistakes: multiplies instead of
+          dividing; uses the energy in eV without converting.
+
+      v25-8a:
+        base-prompt: >-
+          Reference: nucleon number and charge are conserved: 2 + 2 = 3 + A
+          gives A = 1, and 1 + 1 = 2 + B gives B = 0. The particle is a
+          neutron. The reaction is fusion because two light nuclei join into a
+          heavier one. Typical mistakes: mixes up nucleon number and atomic
+          number; calls the particle a proton; says fission; no
+          justification.
+
+      v25-8b:
+        base-prompt: >-
+          Reference: mass defect Δm = 2 · 2.014102 u − 3.016029 u −
+          1.008665 u = 0.003510 u. Energy released E = Δm·c² =
+          0.003510 · 931.5 MeV = 3.27 MeV = 5.24·10⁻¹³ J. Typical mistakes:
+          too few decimals in the masses so the mass defect is wrong; forgets
+          to multiply by 2 for the deuterium nuclei; u not converted to kg or
+          MeV.
+
+      v25-9a:
+        base-prompt: >-
+          Reference: the small block accelerates upwards at 2.0 m/s².
+          Newton's 2nd law for m: S − mg = ma, so S = m(g + a) =
+          5.15 · (9.81 + 2.0) = 60.8 N. Typical mistakes: S = mg (forgets the
+          acceleration); sign error, S = m(g − a); no force diagram.
+
+      v25-9b:
+        base-prompt: >-
+          Reference: for M along the incline (positive direction downwards):
+          Mg·sin45° − S − μMg·cos45° = Ma, so
+          M = S / (g·sin45° − μg·cos45° − a) =
+          60.8 / (6.94 − 0.94 − 2.0) = 15.2 kg. Typical mistakes: friction
+          with N = Mg instead of Mg·cos45°; forgets the tension or the
+          friction; wrong sign of the acceleration; treats the blocks as if
+          they were at rest.

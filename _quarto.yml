@@ -11,6 +11,8 @@ project:
     - pages/fysikk-forkurs.qmd
     - pages/handskrift-ki.qmd
     - pages/handskrift-ki-prompter.qmd
+    - pages/handwriting-ai.qmd
+    - pages/handwriting-ai-prompts.qmd
     - pages/bevegelse-ii.qmd
     - pages/stack-oppgaver.qmd
     - pages/help.qmd
@@ -24,6 +26,7 @@ project:
     - assets/handskrift/student1/*.png
     - assets/handskrift/student2/*.png
     - feedback/handskrift/*.yml
+    - feedback/handwriting/*.yml
 
 lang: en
 
@@ -56,11 +59,15 @@ website:
         file: pages/physics.qmd
       - text: "Fysikk-forkurs"
         file: pages/fysikk-forkurs.qmd
-      - section: "Håndskrift og KI"
+      - section: "Handwriting and AI"
         contents:
-          - text: "Prøveeksamen V2025"
+          - text: "Practice exam V2025"
+            file: pages/handwriting-ai.qmd
+          - text: "Playing with the prompts"
+            file: pages/handwriting-ai-prompts.qmd
+          - text: "Prøveeksamen V2025 (bokmål)"
             file: pages/handskrift-ki.qmd
-          - text: "Spill med promptene"
+          - text: "Spill med promptene (bokmål)"
             file: pages/handskrift-ki-prompter.qmd
       - text: "Bevegelse II"
         file: pages/bevegelse-ii.qmd

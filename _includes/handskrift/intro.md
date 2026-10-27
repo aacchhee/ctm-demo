@@ -1,3 +1,7 @@
+::: {.language-switch}
+🌐 [English](handwriting-ai.qmd) · **Norsk bokmål**
+:::
+
 Løs oppgavene i [oppgavesettet (PDF)](../assets/handskrift/proveeksamen-v2025.pdf)
 på papir. For hver deloppgave kan du
 
@@ -6,6 +10,9 @@ på papir. For hver deloppgave kan du
 2. ta et bilde av utregningen, laste det opp under **Last opp bilder** og velge
    **Tilbakemelding**. Hvert nytt klikk gir et dypere hint: først en vurdering,
    så en forklaring, så framgangsmåten og til slutt et løsningsforslag.
+   Menyen **Språk for tilbakemeldingen** ved hvert opplastingsfelt velger
+   språket KI-en svarer på (engelsk, norsk, svensk, spansk, russisk eller
+   tysk) for akkurat den deloppgaven.
 
 Tilbakemeldingen kommer fra en KI-modell du velger selv under tannhjulet ⚙
 (direkte API med egen nøkkel, eller «kopier instruksjon» til en KI-chat).

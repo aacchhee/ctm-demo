@@ -20,7 +20,7 @@ ai-feedback:
     # Standard: fire nivåer. Hvert klikk på «Tilbakemelding» går ett nivå opp;
     # etter nivå 4 gjentas nivå 4.
     handskrift:
-      language: norsk bokmål
+      language: norsk bokmål  # kan overstyres per deloppgave i menyen på siden
       max-words: 250          # nivå 1–3; nivå 4 har sin egen grense
       max-issues: 3
       allow-full-solution: false
@@ -37,7 +37,8 @@ ai-feedback:
         Ros det som er riktig og godt ført. Hvis noe på bildet er uleselig,
         si hva du ikke kan lese i stedet for å gjette. Fasiten i instruksjonene
         er privat: ikke oppgi riktige tall eller sluttsvar før det nåværende
-        nivået tillater det. Skriv i du-form, vennlig og direkte.
+        nivået tillater det. Skriv i du-form, vennlig og direkte. Skriv hele
+        tilbakemeldingen, også overskriftene, på tilbakemeldingsspråket.
       steps:
         - step-prompt: >-
             Nivå 1, vurdering. Svar i tre korte deler med overskriftene
@@ -87,7 +88,8 @@ ai-feedback:
         bildet er uleselig, si hva du ikke kan lese i stedet for å gjette.
         Fasiten i instruksjonene er privat: ikke oppgi riktige tall eller
         sluttsvar før det nåværende nivået tillater det. Skriv i du-form,
-        vennlig og direkte.
+        vennlig og direkte. Skriv hele tilbakemeldingen, også overskriftene,
+        på tilbakemeldingsspråket.
       max-words: 330          # plass til transkripsjonen (nivå 4 beholder 450)
 
     # Én samlet vurdering på hvert klikk i stedet for fire nivåer (det
