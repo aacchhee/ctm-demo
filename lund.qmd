@@ -268,7 +268,7 @@ There is no AI version of the course.
 A PDF keeps how the page looks, and loses what it is.
 :::
 
-Copy the text out of our physics practice exam:
+Copy the text out of a PDF of our physics exercises:
 
 ::: {.lund-soup}
 | On the page | Copied out of the PDF | In our plain text |
@@ -424,7 +424,7 @@ freehand drawing and polynomial approximation", label
 ex-jsxgraph-freehand-monotonicity. -->
 
 A photo of the working gets step-by-step hints: [try it above](#handwriting),
-or the [whole practice exam](pages/handwriting-ai.qmd).
+or [more physics exercises](pages/handwriting-ai.qmd).
 
 ## With AI, the teacher has to be explicit {#prompts .lund-part .lund-sub data-part="4c"}
 
@@ -460,8 +460,8 @@ v25-1a:
 :::
 :::
 
-[Shortened from the prompt files of the practice exam. Teachers can try their own
-changes in the prompt sandbox on the [practice exam page](pages/handwriting-ai.qmd).]{.lund-small}
+[Shortened from the prompt files of the physics exercises. Teachers can try their own
+changes in the prompt sandbox on the [physics exercises page](pages/handwriting-ai.qmd).]{.lund-small}
 
 ::: {.lund-big}
 Teachers always knew this. Now it has to be **written down**.
