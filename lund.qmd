@@ -388,7 +388,8 @@ students put those skills together; AI or anything else allowed, but they explai
 :::::
 
 ::: {.lund-big}
-We combine two kinds of assessment.
+Here we focus on the small chunks: the core, basic skills.
+For those we combine two kinds of assessment.
 :::
 
 ::: {.lund-cols}
