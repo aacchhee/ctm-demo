@@ -377,6 +377,10 @@ And any written product made at home is no longer authentic: a model may have wr
 :::
 
 ::: {.lund-big}
+So we split the work into small chunks, [as above](#frame), and assess those basic skills.
+:::
+
+::: {.lund-big}
 We combine two kinds of assessment.
 :::
 
