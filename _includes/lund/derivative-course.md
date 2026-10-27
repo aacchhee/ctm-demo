@@ -1,6 +1,6 @@
 ```{math-exercise}
 #| label: lund-derivative-course
-#| caption: From the course
+#| caption: From the course (part 1)
 #| vars: x
 #| context: none
 #| similar: true

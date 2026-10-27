@@ -1,6 +1,6 @@
 ```{py-exercise}
 #| label: lund-python-area
-#| caption: The rectangle again, in Python
+#| caption: Largest rectangle, in Python
 #| task: Complete largest_area(p) so that it returns the largest area of a rectangle with perimeter p.
 def largest_area(p):
     pass

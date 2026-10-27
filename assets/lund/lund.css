@@ -105,3 +105,22 @@ main.content h4 { font-size: 1.3rem; font-weight: 700; color: inherit; margin-to
 .lund-space .lund-box.is-near { border-color: #2780e3; background: #eef5fd; }
 .lund-space .lund-box.is-ours { border-color: #1a5fa8; background: #2780e3; color: #fff; }
 .lund-num { display: inline-block; min-width: 2.6rem; margin-right: .6rem; padding: 0 .4rem; border-radius: .4rem; background: #2780e3; color: #fff; font-size: 1rem; text-align: center; vertical-align: .15em; }
+
+/* Sub-parts (1b, 1c, ...): same badge, lighter divider */
+h2.lund-part.lund-sub, .lund-part.lund-sub > h2 { margin-top: 3rem; border-top: 1px solid #b9d5f5; font-size: 1.8rem; }
+.lund-part.lund-sub[data-part] > h2::before, h2.lund-part.lund-sub[data-part]::before { background: #6ea8ec; }
+.lund-connection { margin: .5rem 0 1rem; padding: .5rem .8rem; border: 1px dashed #adb5bd; border-radius: .5rem; font-size: 1rem; }
+.lund-connection summary { cursor: pointer; color: #6c757d; }
+.lund-connection .form-control { min-width: 16rem; }
+
+/* Part 2: problems with "just upload the PDF" */
+.lund-problems { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .7rem; margin: 1rem 0 1.5rem; }
+.lund-problem { padding: .7rem .9rem; border-radius: .6rem; border: 1px solid #f1b0b7; background: #fdf3f4; font-size: 1.02rem; line-height: 1.4; }
+.lund-problem strong { color: #b02a37; }
+.lund-problem strong::before { content: "✗ "; }
+.lund-paper pre code, .lund-paper pre code span { white-space: pre-wrap !important; }
+.lund-derivatives .lund-card { display: flex; align-items: center; justify-content: center; font-size: 1.3rem; min-height: 7rem; }
+.lund-test { margin-top: 1.5rem; padding-top: .8rem; border-top: 1px dashed #adb5bd; }
+.lund-test .form-control { width: 6rem; min-width: 0; }
+.lund-test-table { font-size: .85rem; }
+.lund-test-summary p { margin: .2rem 0; font-weight: 600; font-size: .95rem; }

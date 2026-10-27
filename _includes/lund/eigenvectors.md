@@ -1,7 +1,3 @@
-Find the eigenvalues of $A=\begin{bmatrix}2&1\\1&2\end{bmatrix}$ and an eigenvector
-for each. Any nonzero scaling of an eigenvector is accepted: the check tests
-$Av_i=\lambda_i v_i$, not one particular vector.
-
 ```{math-exercise}
 #| label: lund-eigenvectors
 #| caption: Two eigenvalues with corresponding eigenvectors
@@ -13,7 +9,7 @@ $Av_i=\lambda_i v_i$, not one particular vector.
 #|       if len(values) != 6:
 #|           return {"score": 0, "feedback": "Enter two eigenvalues and two coordinates for each eigenvector."}
 #|       if any(z.free_symbols or z.is_real is not True or z.is_finite is not True for z in values):
-#|           return {"score": 0, "feedback": "Use specific, finite real numbers. Describe parameter families in part c."}
+#|           return {"score": 0, "feedback": "Use specific, finite real numbers."}
 #|       A = Matrix([[2, 1], [1, 2]])
 #|       checks = []
 #|       messages = []
