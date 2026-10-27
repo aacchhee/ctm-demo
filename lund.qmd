@@ -5,9 +5,8 @@ lang: en
 sidebar: false
 toc: false
 css: assets/lund/lund.css
-# Address of the live RAG assistant and its quiz mode (rag_app).
-rag-url: "#rag"
-rag-quiz-url: "#rag"
+# Address of the live RAG assistant (rag_app); its quiz mode is inside it.
+rag-url: "https://andreyac.math.ntnu.no/rag2/"
 math-exercise:
   lang: en
 ai-feedback:
@@ -172,7 +171,7 @@ where the teacher writes them: GitHub
 :::
 ::: {.lund-place .is-server}
 **The librarian and the passages**\
-a small private server; updated whenever the course changes
+a small server at NTNU; updated whenever the course changes
 :::
 ::: {.lund-place .is-cluster}
 **The language model**\
@@ -189,7 +188,7 @@ only a web browser
 **Outside if needed**: anything else comes after, clearly labelled.
 :::
 
-[Open the course assistant]({{< meta rag-url >}}){.btn .btn-primary .btn-lg .lund-cta}
+[Open the course assistant]({{< meta rag-url >}}){.btn .btn-primary .btn-lg .lund-cta target="_blank"}
 
 ## One source, two uses {#source .lund-part data-part="3"}
 
@@ -531,9 +530,9 @@ in exchange for a **richer problem space**.
 :::
 :::
 
-Try **Similar problem** on the derivatives in [part 1](#course), or the assistant's quiz.
+Try **Similar problem** on the derivatives in [part 1](#course), or the quiz mode in the course assistant.
 
-[Open the quiz]({{< meta rag-quiz-url >}}){.btn .btn-outline-primary .btn-lg .lund-cta}
+[Open the course assistant]({{< meta rag-url >}}){.btn .btn-outline-primary .btn-lg .lund-cta target="_blank"}
 
 ::: {.lund-question}
 "Harder" is the model's reading of difficulty.
