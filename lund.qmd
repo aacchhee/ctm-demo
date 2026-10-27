@@ -515,8 +515,9 @@ v25-1a:
 live in the prompt sandbox at the [bottom of this page](#prompt-sandkasse).]{.lund-small}
 
 ::: {.lund-big}
-This is a new kind of knowledge about problems: what a good answer looks like,
-the typical mistakes, which hint comes first, and what must not be revealed.
+Teachers always knew this about their problems: what a good answer looks like,
+the typical mistakes, which hint comes first, what must not be revealed.
+Now it has to be **written down**.
 :::
 
 ::::: {.lund-steps}
