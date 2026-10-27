@@ -376,9 +376,16 @@ What students do has to be assessed.
 And any written product made at home is no longer authentic: a model may have written it.
 :::
 
-::: {.lund-big}
-So we split the work into small chunks, [as above](#frame), and assess those basic skills.
+::::: {.lund-steps}
+::: {.lund-step}
+**Small chunks**\
+basic skills, assessed one by one ([as in part 0](#frame))
 :::
+::: {.lund-step}
+**Larger projects**\
+students put those skills together
+:::
+:::::
 
 ::: {.lund-big}
 We combine two kinds of assessment.
