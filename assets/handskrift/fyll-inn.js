@@ -12,6 +12,7 @@
 //
 // <script src="…/fyll-inn.js" data-feedback-dir="feedback/handskrift/"
 //         data-files="veileder.yml,oppgaver.yml" data-guide="handskrift-ki-prompter.html">
+// Optional: data-sandbox="false" for a page without the prompt sandbox.
 (function () {
   'use strict';
 
@@ -352,7 +353,8 @@
   function start() {
     style();
     addControls();
-    addSandbox().catch(error => console.warn('handskrift: the prompt sandbox could not start.', error));
+    // data-sandbox="false" leaves the sandbox out (and ignores saved sandbox prompts).
+    if (script.dataset.sandbox !== 'false') addSandbox().catch(error => console.warn('handskrift: the prompt sandbox could not start.', error));
   }
   // ctm-libs builds the activities on DOMContentLoaded; wait until they exist.
   function ready() { if (activities().some(a => a.dataset.aiFeedbackReady)) start(); else setTimeout(ready, 100); }

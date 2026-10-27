@@ -23,7 +23,7 @@ include-after-body:
       <script src="assets/handskrift/js-yaml.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
       <script src="assets/lund/demos.js"></script>
-      <script src="assets/handskrift/fyll-inn.js" data-feedback-dir="feedback/handwriting/" data-files="tutor.yml,tasks.yml" data-guide="pages/handwriting-ai-prompts.html"></script>
+      <script src="assets/handskrift/fyll-inn.js" data-feedback-dir="feedback/handwriting/" data-files="tutor.yml,tasks.yml" data-guide="pages/handwriting-ai-prompts.html" data-sandbox="false"></script>
 ---
 
 ::: {.lund-lead}
@@ -513,8 +513,8 @@ v25-1a:
 :::
 :::
 
-[Shortened from the prompt files of the practice exam. Teachers can edit them
-live in the prompt sandbox at the [bottom of this page](#prompt-sandkasse).]{.lund-small}
+[Shortened from the prompt files of the practice exam. Teachers can try their own
+changes in the prompt sandbox on the [practice exam page](pages/handwriting-ai.qmd).]{.lund-small}
 
 ::: {.lund-big}
 Teachers always knew this about their problems: what a good answer looks like,
