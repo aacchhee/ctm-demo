@@ -383,7 +383,7 @@ basic skills, assessed one by one ([as in part 0](#frame))
 :::
 ::: {.lund-step}
 **Larger projects**\
-students put those skills together
+students put those skills together; AI or anything else allowed, but they explain it, to each other or to us
 :::
 :::::
 
