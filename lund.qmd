@@ -135,6 +135,33 @@ The first two are settings. The third we have to **define**, somehow.
 One way to define the course for a model: let it read the course.
 :::
 
+The simplest way: upload the course PDF to a chat. It works, more or less.
+
+::: {.lund-problems}
+::: {.lund-problem}
+**Soup**\
+formulas and figures get lost on the way ([3c](#pdf))
+:::
+::: {.lund-problem}
+**No sources**\
+which page did the answer come from?
+:::
+::: {.lund-problem}
+**A frozen copy**\
+change the course, and every uploaded copy is out of date
+:::
+::: {.lund-problem}
+**Inside and outside mixed**\
+nothing shows where the PDF ends and the model's own knowledge begins
+:::
+::: {.lund-problem}
+**Somebody else's server**\
+course material and questions go to a commercial provider
+:::
+:::
+
+RAG does the reading for us, from clean course pages:
+
 ::::: {.lund-steps .lund-steps-compact}
 ::: {.lund-step}
 **Retrieve**\

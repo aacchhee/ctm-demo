@@ -112,3 +112,9 @@ h2.lund-part.lund-sub, .lund-part.lund-sub > h2 { margin-top: 3rem; border-top: 
 .lund-connection { margin: .5rem 0 1rem; padding: .5rem .8rem; border: 1px dashed #adb5bd; border-radius: .5rem; font-size: 1rem; }
 .lund-connection summary { cursor: pointer; color: #6c757d; }
 .lund-connection .form-control { min-width: 16rem; }
+
+/* Part 2: problems with "just upload the PDF" */
+.lund-problems { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .7rem; margin: 1rem 0 1.5rem; }
+.lund-problem { padding: .7rem .9rem; border-radius: .6rem; border: 1px solid #f1b0b7; background: #fdf3f4; font-size: 1.02rem; line-height: 1.4; }
+.lund-problem strong { color: #b02a37; }
+.lund-problem strong::before { content: "✗ "; }
