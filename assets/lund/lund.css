@@ -93,3 +93,6 @@ h2.lund-part, .lund-part > h2 {
 .lund-soup td:nth-child(2) code { color: #b02a37; }
 .lund-soup td code { white-space: normal; overflow-wrap: anywhere; }
 main.content h4 { font-size: 1.3rem; font-weight: 700; color: inherit; margin-top: 1.5rem; }
+.lund-paper img { width: 100%; height: auto; border: 1px solid #d4dde5; border-radius: .4rem; }
+.lund-paper .lund-card h4 { margin-top: 0; }
+@media (min-width: 800px) { .lund-cols.lund-paper { grid-template-columns: 3fr 2fr; } }
