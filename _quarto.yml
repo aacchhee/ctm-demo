@@ -9,6 +9,8 @@ project:
     - pages/gaussian-elimination.qmd
     - pages/physics.qmd
     - pages/fysikk-forkurs.qmd
+    - pages/handskrift-ki.qmd
+    - pages/handskrift-ki-prompter.qmd
     - pages/bevegelse-ii.qmd
     - pages/stack-oppgaver.qmd
     - pages/help.qmd
@@ -17,6 +19,11 @@ project:
     - pages/step4-ui-nb.qmd
     - pages/step4-ui-nn.qmd
     - pages/step4-ui-de.qmd
+  # Hentes av skript på Håndskrift og KI-siden (fyll inn-knapper og prompt-sandkasse).
+  resources:
+    - assets/handskrift/student1/*.png
+    - assets/handskrift/student2/*.png
+    - feedback/handskrift/*.yml
 
 lang: en
 
@@ -49,6 +56,12 @@ website:
         file: pages/physics.qmd
       - text: "Fysikk-forkurs"
         file: pages/fysikk-forkurs.qmd
+      - section: "Håndskrift og KI"
+        contents:
+          - text: "Prøveeksamen V2025"
+            file: pages/handskrift-ki.qmd
+          - text: "Spill med promptene"
+            file: pages/handskrift-ki-prompter.qmd
       - text: "Bevegelse II"
         file: pages/bevegelse-ii.qmd
       - text: "STACK-oppgaver"

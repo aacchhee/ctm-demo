@@ -1,0 +1,61 @@
+---
+title: "Håndskrift og KI"
+subtitle: "Prøveeksamen V2025 i fysikk: regn på papir, last opp bildet, få tilbakemelding"
+lang: nb
+toc: false
+math-exercise:
+  lang: nb
+  feedback: false
+ai-feedback:
+  policy-files:
+    - feedback/handskrift/veileder.yml
+    - feedback/handskrift/oppgaver.yml
+  policy:
+    default: handskrift
+include-after-body:
+  - text: |
+      <script src="../assets/handskrift/js-yaml.min.js"></script>
+      <script src="../assets/handskrift/fyll-inn.js"></script>
+---
+
+{{< include ../_includes/handskrift/intro.md >}}
+
+::: {.panel-tabset}
+
+## Oppgave 1
+
+{{< include ../_includes/handskrift/oppgave-1.md >}}
+
+## 2
+
+{{< include ../_includes/handskrift/oppgave-2.md >}}
+
+## 3
+
+{{< include ../_includes/handskrift/oppgave-3.md >}}
+
+## 4
+
+{{< include ../_includes/handskrift/oppgave-4.md >}}
+
+## 5
+
+{{< include ../_includes/handskrift/oppgave-5.md >}}
+
+## 6
+
+{{< include ../_includes/handskrift/oppgave-6.md >}}
+
+## 7
+
+{{< include ../_includes/handskrift/oppgave-7.md >}}
+
+## 8
+
+{{< include ../_includes/handskrift/oppgave-8.md >}}
+
+## 9
+
+{{< include ../_includes/handskrift/oppgave-9.md >}}
+
+:::

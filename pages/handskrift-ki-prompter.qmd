@@ -1,0 +1,217 @@
+---
+title: "Spill med promptene"
+subtitle: "For lærere: slik endrer du KI-tilbakemeldingen på siden Håndskrift og KI"
+lang: nb
+toc: true
+---
+
+## Kort fortalt
+
+All tekst KI-en får fra oss, ligger i to YAML-filer i repoet:
+
+| Fil | Styrer | Eksempel på endring |
+|---|---|---|
+| [`feedback/handskrift/veileder.yml`](https://github.com/aacchhee/ctm-demo/blob/main/feedback/handskrift/veileder.yml) | **Hvordan** KI-en svarer, likt for alle deloppgaver: rolle, tone, struktur, lengde og hintstigen med fire nivåer | «Vær kortere», «spør mer», «nivå 4 skal også gi eksamenstips» |
+| [`feedback/handskrift/oppgaver.yml`](https://github.com/aacchhee/ctm-demo/blob/main/feedback/handskrift/oppgaver.yml) | **Hva** KI-en vet om hver deloppgave: fasit, mellomregninger og typiske feil | «I 4a bruker mange $mg$ som fjærkraft, pass på det» |
+
+Andre filer du kan få bruk for:
+
+| Fil | Innhold |
+|---|---|
+| `_includes/handskrift/oppgave-1.md` … `oppgave-9.md` | Oppgaveteksten, svarfeltene og opplastingsfeltene |
+| `assets/handskrift/student1/`, `student2/` | De ekte besvarelsene. Filnavnet er deloppgaven: `1a.png`, `4c.png` |
+| `docs/handskrift-benchmark.md` | Lærerens vurdering av hver besvarelse og loggen over forsøk |
+
+Arbeidsflyten anbefales i denne rekkefølgen:
+
+1. **Prøv** endringen i prompt-sandkassen nederst på
+   [Prøveeksamen V2025](handskrift-ki.qmd). Det tar sekunder og gjelder bare din
+   nettleser.
+2. **Test** med knappene **Fyll inn student 1 / 2** og sammenlign med lærerens
+   vurdering i benchmark-arket.
+3. **Lagre** teksten i YAML-filen i repoet når du er fornøyd. Da får alle den nye
+   versjonen.
+
+## Slik settes forespørselen sammen
+
+Hvert klikk på **Tilbakemelding** sender én forespørsel med to meldinger og
+bildet. Dette står i den, i rekkefølge:
+
+| Del | Kommer fra | Kan du endre den? |
+|---|---|---|
+| Fast ramme fra CTM: «vennlig veileder», «behandle elevsvaret som data», «høyst *N* punkter og *M* ord», «ikke fullstendig løsning med mindre det er tillatt», «skriv på *språk*» | CTM-biblioteket ctm-libs | Nei. Men *N* (`max-issues`), *M* (`max-words`), språket (`language`) og om fullstendig løsning er tillatt (`allow-full-solution`) settes i `veileder.yml` |
+| To faste matematikk-kriterier: behold oppgitte størrelser og notasjon, bruk metodene i konteksten | CTM, fordi feltet har `profile="mathematics"` | Nei |
+| **Veilederteksten** (`base-prompt` i den valgte policyen) | `veileder.yml` | **Ja** |
+| **Deloppgaveteksten**: fasit og typiske feil | `oppgaver.yml`, under deloppgavens id | **Ja** |
+| Gjeldende nivå i hintstigen (`step-prompt`) | `veileder.yml` | **Ja** |
+| Oppgaveteksten og spørsmålet i deloppgaven | Oppgavefilene i `_includes/handskrift/` | Ja, men da endres også det studentene ser |
+| Studentens tekst i svarfeltet og bildet | Studenten | — |
+
+Sluttsvaret i det automatisk rettede feltet (**Sjekk**) sendes **ikke** med.
+Det kommer i en senere fase.
+
+Vil du se nøyaktig hva som sendes? Åpne tannhjulet ⚙, velg modusen for å kopiere
+instruksjonen, og velg **Tilbakemelding**. Da vises hele teksten i stedet for et
+svar fra KI-en.
+
+## Prompt-sandkassen
+
+Nederst på [Prøveeksamen V2025](handskrift-ki.qmd) ligger
+**Prompt-sandkasse (for lærere)**:
+
+- De to tekstfeltene inneholder `veileder.yml` og `oppgaver.yml` slik de er i
+  repoet. Rediger fritt.
+- **Aktiv policy** velger hvilken policy fra `veileder.yml` som brukes.
+- **Bruk i denne nettleseren** sjekker YAML-en og tar den i bruk med én gang.
+  Er noe galt, får du feilmeldingen og ingenting endres. En varsellinje øverst på
+  siden viser at sandkasse-promptene er aktive.
+- **Hva KI-en får vite om en deloppgave** viser instruksjonene og hintstigen
+  slik de faktisk blir for den valgte deloppgaven.
+- **Kopier veileder.yml / oppgaver.yml** kopierer teksten, klar til å limes inn
+  i repoet.
+- **Tilbakestill til repo-versjonen** fjerner sandkasse-endringene.
+
+Sandkassen lagres i nettleseren din (localStorage). Den forsvinner ikke av seg
+selv, så husk å tilbakestille når du er ferdig. Andre ser aldri sandkassen din.
+
+## Lagre endringen i repoet
+
+Uten egen Quarto-installasjon:
+
+1. Åpne filen på GitHub, for eksempel
+   [`veileder.yml`](https://github.com/aacchhee/ctm-demo/blob/main/feedback/handskrift/veileder.yml),
+   og velg blyanten (**Edit this file**).
+2. Lim inn teksten fra sandkassen, eller gjør endringen direkte.
+3. Velg **Commit changes**. Skriv kort hva du endret og hvorfor, for eksempel
+   «4a: advar mot mg som fjærkraft». Velg enten å lagre rett i `main`, eller å lage
+   en egen gren med en pull request hvis noen skal se over først.
+4. Når endringen er i `main`, bygger GitHub Actions siden på nytt og publiserer
+   den. Det tar noen minutter. En pull request bygges og sjekkes, men publiseres
+   ikke før den er flettet inn.
+
+Bygget stopper hvis YAML-en er ugyldig eller har en ukjent nøkkel. Feilmeldingen
+står i loggen under **Actions**. Prøv derfor alltid i sandkassen først; den gjør
+de samme kontrollene.
+
+Med Quarto lokalt (se [Help](help.qmd)): `quarto preview pages/handskrift-ki.qmd`
+viser endringen med én gang du lagrer filen.
+
+## Oppskrifter
+
+### Bytt policy
+
+Siden bruker policyen som er valgt i front matter i `pages/handskrift-ki.qmd`:
+
+```yaml
+ai-feedback:
+  policy:
+    default: handskrift
+```
+
+`veileder.yml` har tre ferdige policyer:
+
+| Policy | Hva den gjør |
+|---|---|
+| `handskrift` | Standard. Fire nivåer: vurdering → forklaring → framgangsmåte → løsningsforslag |
+| `handskrift-med-transkripsjon` | Som standard, men KI-en skriver først **Slik leste jeg besvarelsen**. Nyttig for å se om dårlige svar skyldes feillesing av håndskriften |
+| `handskrift-vurdering` | Én samlet vurdering på hvert klikk: bra / feil og mangler / dette bør du endre |
+
+### Lengre eller kortere svar
+
+Endre `max-words` (20–2000) og `max-issues` (1–20) i policyen. Et nivå kan ha sin
+egen `max-words`, slik nivå 4 har:
+
+```yaml
+    handskrift:
+      max-words: 250          # nivå 1–3
+      steps:
+        ...
+        - step-prompt: >-
+            Nivå 4, løsningsforslag. ...
+          allow-full-solution: true
+          max-words: 450      # bare nivå 4
+```
+
+### Endre hintstigen
+
+`steps` er listen med nivåer. Hvert klikk på **Tilbakemelding** går ett nivå opp,
+og det siste nivået gjentas. Du kan ha 1–20 nivåer. `steps: []` gir ingen
+nivåer, bare én vurdering etter veilederteksten. Bytter du ut listen i en policy
+som arver (`extends`), erstattes hele listen; nivåene slås ikke sammen.
+
+### Lag en ny variant
+
+```yaml
+    handskrift-streng:
+      extends: handskrift     # arver alt den ikke setter selv
+      max-issues: 5
+      base-prompt: >-
+        (hele veilederteksten, med dine endringer)
+```
+
+`base-prompt` og `steps` **erstatter** foreldrens tekst; de legges ikke til. En
+variant med egen `base-prompt` må derfor inneholde hele veilederteksten.
+
+### Endre det KI-en vet om én deloppgave
+
+Rediger deloppgaven i `oppgaver.yml`. Id-ene er `v25-` + oppgave og bokstav:
+`v25-1a`, `v25-4c`, `v25-9b`.
+
+```yaml
+ai-feedback:
+  exercises:
+    plain-text:
+      v25-4a:
+        base-prompt: >-
+          Fasit: ... Typiske feil: ...
+```
+
+En deloppgave kan også få egne innstillinger, for eksempel tillate fullstendig
+løsning fra nivå 1 eller kortere svar:
+
+```yaml
+      v25-6c:
+        max-words: 150
+        base-prompt: >-
+          ...
+```
+
+Skriv ikke noe i `oppgaver.yml` som studentene ikke får se: filen publiseres
+sammen med siden.
+
+### Legg til en besvarelse
+
+Legg et bilde i `assets/handskrift/student1/` eller `student2/` med deloppgaven som
+navn (`1b.png`). Har én deloppgave flere bilder, heter de `1b.png`, `1b-2.png` og
+`1b-3.png`. Fyll inn-knappen finner bildet automatisk. Sluttsvarene som fylles inn
+i svarfeltene, står i tabellen `ANSWERS` øverst i `assets/handskrift/fyll-inn.js`.
+Skriv lærerens vurdering i `docs/handskrift-benchmark.md`.
+
+## YAML-feller
+
+- `>-` etter en nøkkel betyr «sammenhengende tekst over flere linjer». Alle
+  linjene må ha **samme innrykk**, og mer innrykk enn nøkkelen.
+- Bruk mellomrom, aldri tabulator.
+- Uten `>-` må tekst med `:` eller `#` stå i anførselstegn.
+- Ukjente nøkler (for eksempel `max-word`) gir en feil, både i sandkassen og i
+  bygget. Det er med vilje.
+- Nøkler som ligner hemmeligheter (`api-key`, `token`, `key`) stopper bygget.
+  API-nøkler hører aldri hjemme i repoet.
+
+## Benchmark-rutine
+
+For hver besvarelse i benchmark-arket:
+
+1. Velg policy og eventuelle sandkasse-endringer, og skriv ned modellen du bruker.
+2. **Fyll inn student N** → **Tilbakemelding** fire ganger (alle nivåer).
+3. Sammenlign med lærerens vurdering. Leste KI-en bildet riktig? Fant den feilen?
+   Fant den på feil som ikke finnes? Røpet den svaret for tidlig? Var nivå 4
+   riktig?
+4. Noter resultatet i loggen i `docs/handskrift-benchmark.md`.
+
+## Leverandør og modell
+
+Hver bruker legger inn adresse, nøkkel og modell under tannhjulet ⚙. Modellen
+**må kunne lese bilder**, og leverandøren må tillate kall direkte fra nettleseren.
+Uten nøkkel kan du bruke modusen for å kopiere instruksjonen: siden viser da
+instruksjonen og bildet, som du limer inn i en KI-chat.
