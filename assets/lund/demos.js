@@ -1,21 +1,52 @@
-// Live AI demos for the talk page (lund.qmd). All calls use the API base URL and
-// key saved under the page's AI feedback settings (⚙). Prompts live here, out of
-// sight, until the presenter opens "Behind the scenes".
+// Live AI demos for the talk page (lund.qmd), independent of CTM's AI feedback.
+// The page has its own connection (API base URL and key, saved in this browser),
+// its own model choice per demo, and calls the OpenAI-compatible
+// /chat/completions endpoint directly. Prompts live here, out of sight, until
+// the presenter opens "Behind the scenes".
 //
-//   #lund-two-frames   one problem, one model, two hidden system prompts
-//   #lund-two-models   one plain question, two models
-//   #lund-course-frame the same question and models, with course passages added
+//   #lund-connection   API base URL, key, "Fetch models"
+//   #lund-two-frames   1b: one problem, one model, two hidden system prompts
+//   #lund-two-models   1c: prompt A from 1b on a small and a large model
+//   #lund-html-monster 3a: the page's own HTML for the course exercise in part 5
 (function () {
   'use strict';
 
-  // ---------------------------------------------------------------- demo 1
+  // ------------------------------------------------------ models per demo
+
+  // Idun model ids, used until "Fetch models" loads the live list.
+  // Ids ending in -instant are the same models with reasoning off.
+  const KNOWN_MODELS = [
+    'NbAiLab/borealis-27b', 'norallm/normistral-11b-thinking', 'NorwAI/NorwAI-Magistral-24B-reasoning',
+    'Qwen/Qwen3.8-27B-FP8', 'mistralai/Mistral-Medium-3.5-128B', 'Inferact/GLM-5.3-NVFP4',
+    'deepseek-ai/DeepSeek-V4.1-Flash-1017', 'zai-org/GLM-5.3-Flash', 'openai/gpt-oss-120b', 'moonshotai/Kimi-K2.6'
+  ];
+
+  // Preselected models, tuned per demo. Each entry lists choices in order of
+  // preference; the first one that is available is selected.
+  const PRESETS = {
+    frames: [['openai/gpt-oss-120b', 'mistralai/Mistral-Medium-3.5-128B', 'moonshotai/Kimi-K2.6']],
+    models: [['NbAiLab/borealis-27b', 'norallm/normistral-11b-thinking', 'NorwAI/NorwAI-Magistral-24B-reasoning'],
+             ['openai/gpt-oss-120b', 'moonshotai/Kimi-K2.6', 'Inferact/GLM-5.3-NVFP4']]
+  };
+
+  // Answer length and waiting time per demo.
+  const LIMITS = {
+    frames: [{maxTokens: 4000, timeoutMs: 120000}, {maxTokens: 8000, timeoutMs: 180000}],
+    models: {maxTokens: 8000, timeoutMs: 180000}
+  };
+
+  const CONNECTION_KEY = 'lund-connection-v1';
+  const MODEL_LIST_KEY = 'lund-model-list-v1';
+  const CHOICE_KEY = 'lund-model-choice-v1';
+
+  // ------------------------------------------------------------ 1b prompts
 
   const RECTANGLE = 'A rectangle has perimeter 20 cm. Which rectangle has the largest area?';
 
   const FRAMES = [
     {
       title: 'Answer A',
-      reveal: 'Answer A: the course frame (retrieved passages)',
+      reveal: 'Answer A: course passages (typed by hand)',
       system: [
         'You are a teaching assistant in the first weeks of a first-year engineering mathematics course.',
         'Answer using only the methods in the course passages below.',
@@ -31,80 +62,16 @@
     },
     {
       title: 'Answer B',
-      reveal: 'Answer B: no course, "be as general as possible"',
+      reveal: 'Answer B: a research-level prompt',
       system: [
-        'You are a research mathematician writing for colleagues.',
-        'Give the most general and rigorous treatment you can, and do not simplify.',
-        'Formulate the problem as constrained optimisation, solve it with Lagrange multipliers,',
-        'and verify second-order sufficient conditions with the bordered Hessian.',
-        'Check the KKT conditions and a constraint qualification, and discuss the Lagrangian dual.',
-        'Then generalise to boxes in $\\mathbb{R}^n$ with a fixed sum of edge lengths, using AM-GM and Jensen\'s inequality,',
-        'and relate the result to the isoperimetric inequality.',
-        'Use headings. Write mathematics in LaTeX between $ signs.'
+        'You are a research mathematician writing for colleagues. Be rigorous and general.',
+        'Solve it as constrained optimisation with Lagrange multipliers, check second-order conditions',
+        'with the bordered Hessian and the KKT conditions, then generalise in one short paragraph',
+        'to boxes in $\\mathbb{R}^n$ via the inequality between arithmetic and geometric means. Use headings, at most 350 words.',
+        'Write mathematics in LaTeX between $ signs.'
       ].join('\n')
     }
   ];
-
-  // ------------------------------------------------------- demos 2 and 3
-
-  // Each problem has a tempting shortcut that gives a wrong value. `answer` is
-  // the correct final value, used for the automatic check on each card.
-  const PROBLEMS = [
-    {
-      name: 'A hidden AM-GM trap',
-      text: 'Find the smallest value of $\\dfrac{x^2+5}{\\sqrt{x^2+4}}$ for real $x$.',
-      ask: 'End your answer with one line: Final answer: <the smallest value>',
-      answer: 5 / 2  // AM-GM shortcut gives 2; equality would need sqrt(x^2+4)=1
-    },
-    {
-      name: 'AM-GM with a sine',
-      text: 'Find the smallest value of $\\sin^2 x+\\dfrac{4}{\\sin^2 x}$, where $\\sin x\\neq 0$.',
-      ask: 'End your answer with one line: Final answer: <the smallest value>',
-      answer: 5  // AM-GM shortcut gives 4; equality would need sin^2 x = 2
-    },
-    {
-      name: 'Rowing and walking',
-      text: 'A rower starts at point A on one bank of a straight river that is 300 m wide. ' +
-        'Point B is on the opposite bank, 400 m downstream from the point directly across from A. ' +
-        'She rows at 4.5 km/h and walks at 5 km/h; ignore the current. ' +
-        'Where should she land to reach B as quickly as possible, and what is the shortest time?',
-      ask: 'End your answer with one line: Final answer: <the shortest time in seconds>',
-      answer: 400  // the critical point (619 m downstream) lies beyond B; row straight to B
-    }
-  ];
-
-  // The fixed prompt for demo 3: what retrieval from the course would supply.
-  const COURSE_FRAME = [
-    'You are a teaching assistant in a first-year engineering mathematics course.',
-    'Solve the problem with the course methods below, step by step, in at most 15 short lines.',
-    'Write mathematics in LaTeX between $ signs.',
-    '',
-    'Course passages:',
-    '[S1] Optimisation recipe. (1) Name the variable and write down the set of allowed values. ' +
-      '(2) Find the candidates: critical points inside that set, and its end points. ' +
-      'Discard critical points outside the set. (3) Compare the values at all candidates. ' +
-      '(4) Check the result by substituting it back.',
-    '[S2] AM-GM. For $a,b>0$, $a+b\\ge 2\\sqrt{ab}$, with equality only when $a=b$. ' +
-      'The bound is the minimum only if $a=b$ is possible for the allowed values. ' +
-      'If it is not, use S1 instead.',
-    '[S3] Substitution. When an expression repeats, call it $t$ and find the set of values of $t$ first.',
-    '[S4] Units. Convert km/h to m/s by dividing by 3.6.'
-  ].join('\n');
-
-  // Shown when the model list cannot be fetched (Idun model ids).
-  // Ids ending in -instant are the same models with reasoning off.
-  const KNOWN_MODELS = [
-    'NbAiLab/borealis-27b', 'norallm/normistral-11b-thinking', 'NorwAI/NorwAI-Magistral-24B-reasoning',
-    'Qwen/Qwen3.8-27B-FP8', 'mistralai/Mistral-Medium-3.5-128B', 'Inferact/GLM-5.3-NVFP4',
-    'deepseek-ai/DeepSeek-V4.1-Flash-1017', 'zai-org/GLM-5.3-Flash', 'openai/gpt-oss-120b', 'moonshotai/Kimi-K2.6'
-  ];
-  // First available match becomes the default for each side: a small model
-  // without reasoning on the left, a large reasoning model on the right.
-  const PREFER = [
-    ['borealis', 'normistral', 'magistral'],
-    ['kimi-k2.6', 'gpt-oss-120b', 'glm-5.3-nvfp4']
-  ];
-  const MODELS_KEY = 'lund-demo-models-v1';
 
   // --------------------------------------------------------------- helpers
 
@@ -116,64 +83,176 @@
   }
   function button(text, cls) { const b = el('button', 'btn ' + cls, text); b.type = 'button'; return b; }
   function label(model) { return String(model).split('/').pop(); }
+  function load(key, fallback) { try { return JSON.parse(localStorage.getItem(key) || 'null') ?? fallback; } catch { return fallback; } }
+  function save(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch {} }
 
-  async function showMarkdown(F, node, text) {
-    node.innerHTML = F.renderMarkdown(text);
-    try { await F.typesetFeedback(node); } catch (error) { console.warn('lund demos: keeping readable TeX.', error); }
+  // Markdown with LaTeX: the mathematics is set aside before Markdown runs, then
+  // typeset by the page's MathJax. Without marked the text stays readable.
+  function escapeHtml(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function sanitize(node) {
+    node.querySelectorAll('script, style, iframe, object, embed, link, meta').forEach(n => n.remove());
+    node.querySelectorAll('*').forEach(n => [...n.attributes].forEach(a => {
+      if (/^on/i.test(a.name) || /^\s*javascript:/i.test(a.value)) n.removeAttribute(a.name);
+    }));
+  }
+  async function showMarkdown(node, text) {
+    const math = [];
+    const keep = (tex, display) => { math.push(display ? '\\[' + tex + '\\]' : '\\(' + tex + '\\)'); return 'LUNDMATH' + (math.length - 1) + 'X'; };
+    const source = String(text)
+      .replace(/\$\$([\s\S]+?)\$\$/g, (_, t) => keep(t, true))
+      .replace(/\\\[([\s\S]+?)\\\]/g, (_, t) => keep(t, true))
+      .replace(/\\\(([\s\S]+?)\\\)/g, (_, t) => keep(t, false))
+      .replace(/\$([^$\n]+?)\$/g, (_, t) => keep(t, false));
+    const html = window.marked ? window.marked.parse(source) : '<p>' + escapeHtml(source).replace(/\n/g, '<br>') + '</p>';
+    node.innerHTML = html.replace(/LUNDMATH(\d+)X/g, (_, i) => escapeHtml(math[Number(i)]));
+    sanitize(node);
+    try { if (window.MathJax?.typesetPromise) await window.MathJax.typesetPromise([node]); }
+    catch (error) { console.warn('lund demos: keeping readable TeX.', error); }
   }
 
-  // The value on the last "Final answer:" line: an integer, a decimal, a/b or \frac{a}{b}.
-  function finalValue(text) {
-    const line = [...String(text).matchAll(/final answer\s*[:：]\s*(.+)/gi)].pop();
-    if (!line) return null;
-    const s = line[1].replace(/[*$]/g, '').replace(/\\[dt]?frac\s*\{\s*([^{}]+?)\s*\}\s*\{\s*([^{}]+?)\s*\}/g, '$1/$2');
-    const m = s.match(/(-?\d+(?:\.\d+)?)(?:\s*\/\s*(\d+(?:\.\d+)?))?/);
-    if (!m) return null;
-    return {shown: m[0], value: m[2] ? Number(m[1]) / Number(m[2]) : Number(m[1])};
+  // ------------------------------------------------------------ connection
+
+  const connection = Object.assign({baseUrl: '', apiKey: ''}, load(CONNECTION_KEY, {}));
+  let modelList = load(MODEL_LIST_KEY, null) || KNOWN_MODELS;
+  const modelListeners = [];
+  let openConnection = () => {};
+
+  function base() { return connection.baseUrl.trim().replace(/\/+$/, ''); }
+  function headers() {
+    const h = {'Content-Type': 'application/json'};
+    if (connection.apiKey) h.Authorization = 'Bearer ' + connection.apiKey;
+    return h;
   }
+
+  async function fetchModels() {
+    const response = await fetch(base() + '/models', {headers: headers(), signal: AbortSignal.timeout(15000)});
+    if (!response.ok) throw new Error('API ' + response.status);
+    const ids = ((await response.json()).data || []).map(m => m.id).filter(id => !/embed|ocr|clef/i.test(id)).sort();
+    if (!ids.length) throw new Error('the API returned no chat models');
+    modelList = ids;
+    save(MODEL_LIST_KEY, ids);
+    modelListeners.forEach(fn => fn());
+    return ids.length;
+  }
+
+  // One chat completion. Reasoning blocks are removed; only the answer is kept.
+  async function chat(model, messages, {maxTokens, timeoutMs}) {
+    if (!base()) throw new Error('Set the API base URL under "AI connection" first.');
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const response = await fetch(base() + '/chat/completions', {
+        method: 'POST', headers: headers(), signal: controller.signal,
+        body: JSON.stringify({model, messages, max_tokens: maxTokens})
+      });
+      if (!response.ok) throw new Error('API ' + response.status + ': ' + (await response.text().catch(() => '')).slice(0, 300));
+      const choice = (await response.json())?.choices?.[0];
+      let text = choice?.message?.content;
+      if (Array.isArray(text)) text = text.filter(p => p.type === 'text').map(p => p.text).join('');
+      text = String(text || '').replace(/<(think|analysis|reasoning)(?:\s[^>]*)?>[\s\S]*?<\/\1\s*>/gi, '').trim();
+      if (!text) throw new Error(choice?.finish_reason === 'length' ? 'The answer was cut off (token limit).' : 'The model returned no answer.');
+      return {text, truncated: choice?.finish_reason === 'length'};
+    } catch (error) {
+      if (controller.signal.aborted) throw new Error('No answer within ' + Math.round(timeoutMs / 1000) + ' s.');
+      throw error;
+    } finally { clearTimeout(timer); }
+  }
+
+  function connectionPanel(host) {
+    const panel = el('details', 'lund-connection');
+    const summary = el('summary');
+    const url = el('input', 'form-control');
+    url.type = 'url'; url.placeholder = 'https://…/v1'; url.value = connection.baseUrl;
+    const key = el('input', 'form-control');
+    key.type = 'password'; key.autocomplete = 'off'; key.placeholder = 'API key'; key.value = connection.apiKey;
+    const saveButton = button('Save', 'btn-primary btn-sm');
+    const fetchButton = button('Fetch models', 'btn-outline-secondary btn-sm');
+    const status = el('p', 'lund-tf-meta');
+    const field = (text, input) => { const l = el('label', '', text); l.append(input); return l; };
+    const form = el('div', 'lund-tf-controls');
+    form.append(field('API base URL', url), field('API key', key), saveButton, fetchButton);
+    panel.append(summary, form, status,
+      el('p', 'lund-small', 'Saved in this browser only. The demos on this page call the API directly; the exercises keep their own AI settings (⚙).'));
+    host.append(panel);
+
+    function refresh() {
+      summary.textContent = 'AI connection: ' + (base() ? new URL(base()).host + ' · ' + modelList.length + ' models' : 'not set');
+      if (!base()) panel.open = true;
+    }
+    function store() {
+      connection.baseUrl = url.value.trim();
+      connection.apiKey = key.value.trim();
+      save(CONNECTION_KEY, connection);
+      refresh();
+    }
+    saveButton.onclick = () => { store(); status.textContent = 'Saved.'; };
+    fetchButton.onclick = async () => {
+      store();
+      status.textContent = 'Fetching models…';
+      try { status.textContent = (await fetchModels()) + ' models loaded.'; }
+      catch (error) { status.textContent = 'Could not fetch models: ' + error.message; }
+      refresh();
+    };
+    openConnection = () => { panel.open = true; panel.scrollIntoView({block: 'center'}); url.focus(); };
+    refresh();
+  }
+
+  // A model menu for one slot of one demo, kept in step with the model list.
+  const choices = load(CHOICE_KEY, {});
+  function modelSelect(demo, slot, onChange) {
+    const select = el('select', 'form-select');
+    function preferred() {
+      const saved = choices[demo]?.[slot];
+      if (saved && modelList.includes(saved)) return saved;
+      return PRESETS[demo][slot].find(id => modelList.includes(id)) || PRESETS[demo][slot][0];
+    }
+    function fill() {
+      const ids = [...new Set([...modelList, preferred()])];
+      select.replaceChildren(...ids.map(id => new Option(label(id), id)));
+      select.value = preferred();
+    }
+    select.onchange = () => {
+      choices[demo] = choices[demo] || [];
+      choices[demo][slot] = select.value;
+      save(CHOICE_KEY, choices);
+      onChange?.();
+    };
+    modelListeners.push(fill);
+    fill();
+    return select;
+  }
+
+  // ----------------------------------------------------------------- cards
 
   function card(title) {
     const node = el('div', 'lund-card lund-tf-answer');
     const head = el('h3', '', title);
     const meta = el('p', 'lund-tf-meta');
-    const verdict = el('p', 'lund-tf-verdict');
     const body = el('div', 'lund-tf-body');
-    node.append(head, meta, verdict, body);
-    return {node, head, meta, verdict, body};
+    node.append(head, meta, body);
+    return {node, head, meta, body};
   }
 
-  async function run(F, out, client, messages, opts) {
+  async function run(out, model, messages, opts) {
     out.body.replaceChildren();
-    out.verdict.replaceChildren();
-    out.verdict.className = 'lund-tf-verdict';
-    out.meta.textContent = 'Thinking…';
+    out.meta.textContent = label(model) + ' · thinking…';
     const start = performance.now();
     try {
-      // generation: strips reasoning blocks and allows up to 180 s.
-      const reply = await client.complete(messages, {generation: true, maxTokens: opts.maxTokens || 16000, timeoutMs: opts.timeoutMs || 180000});
+      const reply = await chat(model, messages, opts);
       const seconds = ((performance.now() - start) / 1000).toFixed(0);
       const words = reply.text.split(/\s+/).filter(Boolean).length;
-      out.meta.textContent = words + ' words · ' + seconds + ' s';
-      if (opts.answer !== undefined) {
-        const read = finalValue(reply.text);
-        if (!read) { out.verdict.textContent = '? no final answer found'; out.verdict.classList.add('is-unknown'); }
-        else {
-          const ok = Math.abs(read.value - opts.answer) <= 0.005 * Math.abs(opts.answer);
-          out.verdict.textContent = (ok ? '✓ ' : '✗ ') + 'Final answer: ' + read.shown;
-          out.verdict.classList.add(ok ? 'is-right' : 'is-wrong');
-        }
-      }
-      await showMarkdown(F, out.body, reply.text);
+      out.meta.textContent = label(model) + ' · ' + words + ' words · ' + seconds + ' s' + (reply.truncated ? ' · cut off' : '');
+      await showMarkdown(out.body, reply.text);
     } catch (error) {
-      out.meta.textContent = '';
+      out.meta.textContent = label(model);
       out.body.append(el('p', 'lund-tf-error', error.message || String(error)));
     }
   }
 
-  function configured(F) {
-    const config = F.loadConfig();
-    if (config.mode !== 'api' || !config.baseUrl) { F.openSettings(); return null; }
-    return config;
+  function ready() {
+    if (base()) return true;
+    openConnection();
+    return false;
   }
 
   function behindTheScenes(entries) {
@@ -183,131 +262,135 @@
     return reveal;
   }
 
-  // ---------------------------------------------------------------- demo 1
+  function controlsRow(...items) {
+    const row = el('div', 'lund-tf-controls');
+    items.forEach(([text, input]) => { if (!text) { row.append(input); return; } const l = el('label', '', text); l.append(input); row.append(l); });
+    return row;
+  }
 
-  function twoFrames(F, host) {
+  // --------------------------------------------------- test runs (presenter)
+
+  // Rough flag for "used derivatives" in an answer: words or notation.
+  const DERIVATIVE = /derivative|differentiat|d[A-Za-z]?\s*\/\s*d[a-z]|\\frac\s*\{\s*d|[A-Za-z]'\s*\(|[A-Za-z]\u2032|lagrange|\\nabla/i;
+
+  // Runs every job N times (one round at a time, the jobs of a round in parallel)
+  // and tallies time, length and whether derivatives were used. For choosing
+  // models before the talk, not for showing live.
+  function testPanel(jobs) {
+    const box = el('div', 'lund-test');
+    const count = el('input', 'form-control');
+    count.type = 'number'; count.min = '1'; count.max = '50'; count.value = '10';
+    const start = button('Test', 'btn-outline-secondary btn-sm');
+    const stop = button('Stop', 'btn-outline-secondary btn-sm');
+    stop.disabled = true;
+    const status = el('p', 'lund-tf-meta');
+    const summary = el('div', 'lund-test-summary');
+    const table = el('table', 'table table-sm lund-test-table');
+    box.append(el('h4', '', 'Test runs (for the presenter)'),
+      controlsRow(['Runs', count], ['', start], ['', stop]), status, summary, table);
+    let stopped = false;
+    stop.onclick = () => { stopped = true; status.textContent = 'Stopping after this round…'; };
+
+    start.onclick = async () => {
+      if (!ready()) return;
+      const n = Math.max(1, Math.min(50, Number(count.value) || 10));
+      const list = jobs();
+      const results = list.map(() => []);
+      stopped = false; start.disabled = true; stop.disabled = false;
+      table.replaceChildren();
+      const head = el('tr');
+      ['Run', 'Job', 'Model', 'Seconds', 'Words', 'Derivatives'].forEach(t => head.append(el('th', '', t)));
+      table.append(head);
+      const median = xs => { const v = [...xs].sort((a, b) => a - b); return v.length ? v[Math.floor((v.length - 1) / 2)] : NaN; };
+      function tally() {
+        summary.replaceChildren(...list.map((job, j) => {
+          const ok = results[j].filter(r => !r.error);
+          const without = ok.filter(r => !r.derivatives).length;
+          return el('p', '', job.name + ' (' + label(job.model) + '): ' + ok.length + ' answers, ' + without + ' without derivatives, median '
+            + median(ok.map(r => r.seconds)) + ' s and ' + median(ok.map(r => r.words)) + ' words'
+            + (results[j].length > ok.length ? ', ' + (results[j].length - ok.length) + ' errors' : ''));
+        }));
+      }
+      for (let round = 1; round <= n && !stopped; round++) {
+        status.textContent = 'Round ' + round + ' of ' + n + '…';
+        await Promise.all(list.map(async (job, j) => {
+          const t0 = performance.now();
+          let row;
+          try {
+            const reply = await chat(job.model, job.messages, job.limits);
+            row = {seconds: Math.round((performance.now() - t0) / 1000), words: reply.text.split(/\s+/).filter(Boolean).length,
+              derivatives: DERIVATIVE.test(reply.text)};
+          } catch (error) { row = {error: error.message}; }
+          results[j].push(row);
+          const tr = el('tr');
+          [String(round), job.name, label(job.model), row.error ? '–' : String(row.seconds), row.error ? '–' : String(row.words),
+           row.error ? row.error.slice(0, 60) : (row.derivatives ? 'yes' : 'no')].forEach(t => tr.append(el('td', '', t)));
+          table.append(tr);
+        }));
+        tally();
+      }
+      status.textContent = stopped ? 'Stopped.' : 'Done.';
+      start.disabled = false; stop.disabled = true;
+    };
+    return box;
+  }
+
+  // ------------------------------------------------------------------- 1b
+
+  function twoFrames(host) {
+    const model = modelSelect('frames', 0);
     const ask = button('Ask the model', 'btn-primary btn-lg');
-    const gear = button('⚙', 'btn-outline-secondary btn-lg');
-    gear.title = gear.ariaLabel = 'AI settings';
-    gear.onclick = () => F.openSettings();
     const bar = el('div', 'lund-tf-bar');
-    bar.append(ask, gear);
+    bar.append(ask);
     const cols = el('div', 'lund-cols');
     const outs = FRAMES.map(frame => { const c = card(frame.title); cols.append(c.node); return c; });
-    host.append(el('p', 'lund-tf-problem', RECTANGLE), bar, cols,
-      behindTheScenes(FRAMES.map(f => [f.reveal, 'System: ' + f.system + '\n\nUser: ' + RECTANGLE])));
+    const scenes = behindTheScenes(FRAMES.map(f => [f.reveal, 'System: ' + f.system + '\n\nUser: ' + RECTANGLE]));
+    scenes.append(testPanel(() => FRAMES.map((frame, i) => ({name: 'Prompt ' + 'AB'[i], model: model.value, limits: LIMITS.frames[i],
+      messages: [{role: 'system', content: frame.system}, {role: 'user', content: RECTANGLE}]}))));
+    host.append(controlsRow(['Model', model]), el('p', 'lund-tf-problem', RECTANGLE), bar, cols, scenes);
 
     ask.onclick = async () => {
-      const config = configured(F);
-      if (!config) return;
-      if (!config.model) { F.openSettings(); return; }
-      const client = F.getClient();
+      if (!ready()) return;
       ask.disabled = true;
-      await Promise.all(FRAMES.map((frame, i) => run(F, outs[i], client,
-        [{role: 'system', content: frame.system}, {role: 'user', content: RECTANGLE}], {maxTokens: 8000})));
+      await Promise.all(FRAMES.map((frame, i) => run(outs[i], model.value,
+        [{role: 'system', content: frame.system}, {role: 'user', content: RECTANGLE}], LIMITS.frames[i])));
       ask.disabled = false;
     };
   }
 
-  // ------------------------------------------------------- demos 2 and 3
+  // ------------------------------------------------------------------- 1c
 
-  // Shared by demos 2 and 3: the chosen problem and the two models.
-  const state = {problem: 0, models: ['', ''], listeners: []};
-  function changed() { state.listeners.forEach(fn => fn()); }
-  function saveModels() { try { localStorage.setItem(MODELS_KEY, JSON.stringify(state.models)); } catch {} }
-  function loadModels() { try { return JSON.parse(localStorage.getItem(MODELS_KEY) || 'null'); } catch { return null; } }
-
-  async function availableModels(F) {
-    const config = F.loadConfig();
-    if (config.mode !== 'api' || !config.baseUrl) return KNOWN_MODELS;
-    try {
-      const response = await fetch(config.baseUrl.replace(/\/+$/, '') + '/models', {
-        headers: config.apiKey ? {Authorization: 'Bearer ' + config.apiKey} : {}, signal: AbortSignal.timeout(15000)});
-      const ids = ((await response.json()).data || []).map(m => m.id).filter(id => !/embed|ocr|clef/i.test(id)).sort();
-      return ids.length ? ids : KNOWN_MODELS;
-    } catch { return KNOWN_MODELS; }
-  }
-
-  function userMessage(problem) { return problem.text + '\n\n' + problem.ask; }
-
-  function comparison(F, host, withCourse) {
-    const problemText = el('div', 'lund-tf-problem');
-    const ask = button(withCourse ? 'Ask both models again' : 'Ask both models', 'btn-primary btn-lg');
-    const gear = button('⚙', 'btn-outline-secondary btn-lg');
-    gear.title = gear.ariaLabel = 'AI settings';
-    gear.onclick = () => F.openSettings();
+  // Prompt A from 1b (the course frame), unchanged, on a small and a large model.
+  function twoModels(host) {
+    const frame = FRAMES[0];
+    const ask = button('Ask both models', 'btn-primary btn-lg');
     const bar = el('div', 'lund-tf-bar');
-    bar.append(ask, gear);
-
-    const controls = el('div', 'lund-tf-controls');
-    const selects = [];
-    if (!withCourse) {
-      const problemSelect = el('select', 'form-select');
-      PROBLEMS.forEach((p, i) => problemSelect.append(new Option(p.name, String(i))));
-      problemSelect.onchange = () => { state.problem = Number(problemSelect.value); changed(); };
-      const pl = el('label', '', 'Problem ');
-      pl.append(problemSelect);
-      controls.append(pl);
-      ['Model A ', 'Model B '].forEach((name, i) => {
-        const select = el('select', 'form-select');
-        select.onchange = () => { state.models[i] = select.value; saveModels(); changed(); };
-        const ml = el('label', '', name);
-        ml.append(select);
-        controls.append(ml);
-        selects.push(select);
-      });
-      const refresh = button('Load models', 'btn-outline-secondary btn-sm');
-      refresh.onclick = () => fill();
-      controls.append(refresh);
-    }
-
-    const cols = el('div', 'lund-cols');
+    bar.append(ask);
     const outs = [card(''), card('')];
+    const titles = () => outs.forEach((c, i) => { c.head.textContent = label(selects[i].value); });
+    const selects = [0, 1].map(slot => modelSelect('models', slot, titles));
+    const cols = el('div', 'lund-cols');
     outs.forEach(c => cols.append(c.node));
-    const reveal = el('div');
-    host.append(controls, problemText, bar, cols, reveal);
-
-    function render() {
-      const problem = PROBLEMS[state.problem];
-      showMarkdown(F, problemText, problem.text);
-      outs.forEach((c, i) => { c.head.textContent = label(state.models[i]) || (i ? 'Model B' : 'Model A'); });
-      reveal.replaceChildren(behindTheScenes(withCourse
-        ? [['The course frame (system prompt)', COURSE_FRAME], ['The question (unchanged)', userMessage(problem)]]
-        : [['The question, the only message sent', userMessage(problem)]]));
-    }
-    state.listeners.push(render);
-
-    async function fill() {
-      const ids = await availableModels(F);
-      const saved = loadModels() || [];
-      selects.forEach((select, i) => {
-        select.replaceChildren(...ids.map(id => new Option(label(id), id)));
-        const preferred = PREFER[i].map(p => ids.find(id => id.toLowerCase().includes(p) && !/-instant$/i.test(id))).find(Boolean);
-        state.models[i] = ids.includes(saved[i]) ? saved[i] : preferred || ids[i] || ids[0];
-        select.value = state.models[i];
-      });
-      changed();
-    }
-    if (!withCourse) fill();
-    render();
+    const scenes = behindTheScenes([['Both models get prompt A from 1b', 'System: ' + frame.system + '\n\nUser: ' + RECTANGLE]]);
+    scenes.append(testPanel(() => selects.map((select, i) => ({name: ['Small', 'Large'][i], model: select.value, limits: LIMITS.models,
+      messages: [{role: 'system', content: frame.system}, {role: 'user', content: RECTANGLE}]}))));
+    host.append(controlsRow(['Small model', selects[0]], ['Large model', selects[1]]),
+      el('p', 'lund-tf-problem', RECTANGLE), bar, cols, scenes);
+    modelListeners.push(titles);
+    titles();
 
     ask.onclick = async () => {
-      const config = configured(F);
-      if (!config || !state.models[0] || !state.models[1]) return;
-      const problem = PROBLEMS[state.problem];
-      const messages = withCourse
-        ? [{role: 'system', content: COURSE_FRAME}, {role: 'user', content: userMessage(problem)}]
-        : [{role: 'user', content: userMessage(problem)}];
+      if (!ready()) return;
       ask.disabled = true;
-      await Promise.all(state.models.map((model, i) => run(F, outs[i],
-        F.createClient({...config, model}, {storage: window.localStorage}), messages, {answer: problem.answer})));
+      await Promise.all(selects.map((select, i) => run(outs[i], select.value,
+        [{role: 'system', content: frame.system}, {role: 'user', content: RECTANGLE}], LIMITS.models)));
       ask.disabled = false;
     };
   }
 
-  // ----------------------------------------------- Markdown versus HTML
+  // ----------------------------------------------- 3a: Markdown versus HTML
 
-  // Shows the HTML the browser holds for the part 1 exercise, live from the page.
+  // Shows the HTML the browser holds for the course exercise (part 5), live from the page.
   function htmlMonster(host) {
     const show = button('Show the HTML', 'btn-outline-primary');
     const stats = el('p', 'lund-tf-meta');
@@ -325,16 +408,13 @@
     };
   }
 
+
   function init() {
-    const monster = document.getElementById('lund-html-monster');
-    if (monster) htmlMonster(monster);
-    const F = window.AIFeedback;
-    const hosts = ['lund-two-frames', 'lund-two-models', 'lund-course-frame'].map(id => document.getElementById(id));
-    if (!hosts.some(Boolean)) return;
-    if (!F || !F.getClient) { hosts.filter(Boolean).forEach(h => h.append(el('p', 'lund-tf-error', 'AI feedback is not available on this page.'))); return; }
-    if (hosts[0]) twoFrames(F, hosts[0]);
-    if (hosts[1]) comparison(F, hosts[1], false);
-    if (hosts[2]) comparison(F, hosts[2], true);
+    const byId = id => document.getElementById(id);
+    if (byId('lund-html-monster')) htmlMonster(byId('lund-html-monster'));
+    if (byId('lund-connection')) connectionPanel(byId('lund-connection'));
+    if (byId('lund-two-frames')) twoFrames(byId('lund-two-frames'));
+    if (byId('lund-two-models')) twoModels(byId('lund-two-models'));
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
