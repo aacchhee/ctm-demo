@@ -5,7 +5,7 @@ lang: en
 sidebar: false
 toc: false
 css: assets/lund/lund.css
-# Address of the live RAG assistant (rag_app); its quiz mode is inside it.
+# Address of the live RAG service (rag_app).
 rag-url: "https://andreyac.math.ntnu.no/rag2/"
 math-exercise:
   lang: en
@@ -219,7 +219,9 @@ only a web browser
 **Outside if needed**: anything else comes after, clearly labelled.
 :::
 
-[Open the course assistant]({{< meta rag-url >}}){.btn .btn-primary .btn-lg .lund-cta target="_blank"}
+Our RAG service for one course: ask a question, get an answer from the course with the sections it used.
+
+[Try the RAG service]({{< meta rag-url >}}){.btn .btn-primary .btn-lg .lund-cta target="_blank"}
 
 ## What it is, and how it looks {#source .lund-part data-part="3a"}
 
@@ -260,7 +262,7 @@ the exercise in [part 1](#course).
 flowchart LR
   T(["Lecturers"]) --> Q["The course, as plain text<br/>text · mathematics · code"]
   Q --> W(["Website<br/>for students"])
-  Q --> P(["Passages<br/>for the assistant"])
+  Q --> P(["Passages<br/>for the RAG service"])
   Q --> E(["Printed exam"])
   classDef people fill:#eef5fd,stroke:#2780e3
   classDef source fill:#f3f0fa,stroke:#6f42c1
@@ -342,7 +344,7 @@ to any earlier version, or last year's
 [In GitHub's words: commits, pull requests, history.]{.lund-small}
 
 ::: {.lund-question}
-Fix it once: a corrected sign reaches the website and the assistant together.
+Fix it once: a corrected sign reaches the website and the RAG service together.
 :::
 
 ## Open source {#open-source .lund-part .lund-sub data-part="3d"}
@@ -578,9 +580,7 @@ in exchange for a **richer problem space**.
 :::
 :::
 
-Try **Similar problem** on the derivatives in [part 1](#course), or the quiz mode in the course assistant.
-
-[Open the course assistant]({{< meta rag-url >}}){.btn .btn-outline-primary .btn-lg .lund-cta target="_blank"}
+Try **Similar problem** on the derivatives in [part 1](#course).
 
 ::: {.lund-question}
 "Harder" is the model's reading of difficulty.
