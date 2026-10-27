@@ -268,6 +268,73 @@
     return row;
   }
 
+  // --------------------------------------------------- test runs (presenter)
+
+  // Rough flag for "used derivatives" in an answer: words or notation.
+  const DERIVATIVE = /derivative|differentiat|d[A-Za-z]?\s*\/\s*d[a-z]|\\frac\s*\{\s*d|[A-Za-z]'\s*\(|[A-Za-z]\u2032|lagrange|\\nabla/i;
+
+  // Runs every job N times (one round at a time, the jobs of a round in parallel)
+  // and tallies time, length and whether derivatives were used. For choosing
+  // models before the talk, not for showing live.
+  function testPanel(jobs) {
+    const box = el('div', 'lund-test');
+    const count = el('input', 'form-control');
+    count.type = 'number'; count.min = '1'; count.max = '50'; count.value = '10';
+    const start = button('Test', 'btn-outline-secondary btn-sm');
+    const stop = button('Stop', 'btn-outline-secondary btn-sm');
+    stop.disabled = true;
+    const status = el('p', 'lund-tf-meta');
+    const summary = el('div', 'lund-test-summary');
+    const table = el('table', 'table table-sm lund-test-table');
+    box.append(el('h4', '', 'Test runs (for the presenter)'),
+      controlsRow(['Runs', count], ['', start], ['', stop]), status, summary, table);
+    let stopped = false;
+    stop.onclick = () => { stopped = true; status.textContent = 'Stopping after this round…'; };
+
+    start.onclick = async () => {
+      if (!ready()) return;
+      const n = Math.max(1, Math.min(50, Number(count.value) || 10));
+      const list = jobs();
+      const results = list.map(() => []);
+      stopped = false; start.disabled = true; stop.disabled = false;
+      table.replaceChildren();
+      const head = el('tr');
+      ['Run', 'Job', 'Model', 'Seconds', 'Words', 'Derivatives'].forEach(t => head.append(el('th', '', t)));
+      table.append(head);
+      const median = xs => { const v = [...xs].sort((a, b) => a - b); return v.length ? v[Math.floor((v.length - 1) / 2)] : NaN; };
+      function tally() {
+        summary.replaceChildren(...list.map((job, j) => {
+          const ok = results[j].filter(r => !r.error);
+          const without = ok.filter(r => !r.derivatives).length;
+          return el('p', '', job.name + ' (' + label(job.model) + '): ' + ok.length + ' answers, ' + without + ' without derivatives, median '
+            + median(ok.map(r => r.seconds)) + ' s and ' + median(ok.map(r => r.words)) + ' words'
+            + (results[j].length > ok.length ? ', ' + (results[j].length - ok.length) + ' errors' : ''));
+        }));
+      }
+      for (let round = 1; round <= n && !stopped; round++) {
+        status.textContent = 'Round ' + round + ' of ' + n + '…';
+        await Promise.all(list.map(async (job, j) => {
+          const t0 = performance.now();
+          let row;
+          try {
+            const reply = await chat(job.model, job.messages, job.limits);
+            row = {seconds: Math.round((performance.now() - t0) / 1000), words: reply.text.split(/\s+/).filter(Boolean).length,
+              derivatives: DERIVATIVE.test(reply.text)};
+          } catch (error) { row = {error: error.message}; }
+          results[j].push(row);
+          const tr = el('tr');
+          [String(round), job.name, label(job.model), row.error ? '–' : String(row.seconds), row.error ? '–' : String(row.words),
+           row.error ? row.error.slice(0, 60) : (row.derivatives ? 'yes' : 'no')].forEach(t => tr.append(el('td', '', t)));
+          table.append(tr);
+        }));
+        tally();
+      }
+      status.textContent = stopped ? 'Stopped.' : 'Done.';
+      start.disabled = false; stop.disabled = true;
+    };
+    return box;
+  }
+
   // ------------------------------------------------------------------- 1b
 
   function twoFrames(host) {
@@ -277,8 +344,10 @@
     bar.append(ask);
     const cols = el('div', 'lund-cols');
     const outs = FRAMES.map(frame => { const c = card(frame.title); cols.append(c.node); return c; });
-    host.append(controlsRow(['Model', model]), el('p', 'lund-tf-problem', RECTANGLE), bar, cols,
-      behindTheScenes(FRAMES.map(f => [f.reveal, 'System: ' + f.system + '\n\nUser: ' + RECTANGLE])));
+    const scenes = behindTheScenes(FRAMES.map(f => [f.reveal, 'System: ' + f.system + '\n\nUser: ' + RECTANGLE]));
+    scenes.append(testPanel(() => FRAMES.map((frame, i) => ({name: 'Prompt ' + 'AB'[i], model: model.value, limits: LIMITS.frames[i],
+      messages: [{role: 'system', content: frame.system}, {role: 'user', content: RECTANGLE}]}))));
+    host.append(controlsRow(['Model', model]), el('p', 'lund-tf-problem', RECTANGLE), bar, cols, scenes);
 
     ask.onclick = async () => {
       if (!ready()) return;
@@ -302,9 +371,11 @@
     const selects = [0, 1].map(slot => modelSelect('models', slot, titles));
     const cols = el('div', 'lund-cols');
     outs.forEach(c => cols.append(c.node));
+    const scenes = behindTheScenes([['Both models get prompt A from 1b', 'System: ' + frame.system + '\n\nUser: ' + RECTANGLE]]);
+    scenes.append(testPanel(() => selects.map((select, i) => ({name: ['Small', 'Large'][i], model: select.value, limits: LIMITS.models,
+      messages: [{role: 'system', content: frame.system}, {role: 'user', content: RECTANGLE}]}))));
     host.append(controlsRow(['Small model', selects[0]], ['Large model', selects[1]]),
-      el('p', 'lund-tf-problem', RECTANGLE), bar, cols,
-      behindTheScenes([['Both models get prompt A from 1b', 'System: ' + frame.system + '\n\nUser: ' + RECTANGLE]]));
+      el('p', 'lund-tf-problem', RECTANGLE), bar, cols, scenes);
     modelListeners.push(titles);
     titles();
 
