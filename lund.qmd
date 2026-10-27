@@ -1,0 +1,222 @@
+---
+title: "RAG as a possibility for productive AI usage"
+subtitle: "Retrieval-Augmented Generation in mathematics teaching"
+lang: en
+sidebar: false
+toc: false
+css: assets/lund/lund.css
+# Address of the live RAG assistant and its quiz mode (rag_app).
+rag-url: "#rag"
+rag-quiz-url: "#rag"
+math-exercise:
+  lang: en
+ai-feedback:
+  policy-files:
+    - feedback/handwriting/tutor.yml
+    - feedback/handwriting/tasks.yml
+    - feedback/similar-problems.yml
+  policy:
+    plain-text: handwriting
+  generation-policy:
+    default: similar-practice
+include-after-body:
+  - text: |
+      <script src="assets/handskrift/js-yaml.min.js"></script>
+      <script src="assets/lund/two-frames.js"></script>
+      <script src="assets/handskrift/fyll-inn.js" data-feedback-dir="feedback/handwriting/" data-files="tutor.yml,tasks.yml" data-guide="pages/handwriting-ai-prompts.html"></script>
+---
+
+::: {.lund-lead}
+How can AI help with the mathematics students are **actually studying**?
+:::
+
+## The frame {#frame .lund-part data-part="0"}
+
+::: {.lund-big}
+For the next ten years, the social contract still holds.
+:::
+
+- Universities **certify**: a degree says the candidate passed the exams.
+- Knowledge is **chunked**: a programme into courses, a course into topics.
+- AI or not, the lower-level chunks will most likely survive.
+
+::: {.lund-nest}
+::: {.lund-box}
+**Study programme**
+
+::: {.lund-box}
+**Course**
+
+::: {.lund-box}
+**Topic**
+
+[Definition]{.lund-chip} [Notation]{.lund-chip} [Example]{.lund-chip} [Method]{.lund-chip} [Exercise]{.lund-chip}
+:::
+:::
+:::
+:::
+
+::: {.lund-cols}
+::: {.lund-card .lund-inside}
+### Inside the course
+
+Our definitions, our notation, our examples, our methods, what is assessed.
+:::
+
+::: {.lund-card .lund-outside}
+### Outside the course
+
+Everything else: other books, other conventions, other levels.
+:::
+:::
+
+## The course knows what matters {#course .lund-part data-part="1"}
+
+::: {.lund-big}
+Two derivatives. Both correct mathematics. Which one belongs in **this** course?
+:::
+
+::: {.lund-cols}
+::: {.lund-card}
+{{< include _includes/lund/derivative-course.md >}}
+:::
+
+::: {.lund-card}
+{{< include _includes/lund/derivative-radicals.md >}}
+:::
+:::
+
+::: {.lund-question}
+The lecturer knows which one is relevant. **Does the model?**
+:::
+
+### One problem, one button
+
+::: {#lund-two-frames}
+:::
+
+## Retrieval-Augmented Generation {#rag .lund-part data-part="2"}
+
+::::: {.lund-steps}
+::: {.lund-step}
+**Retrieve**\
+find the relevant passages in the course
+:::
+::: {.lund-step}
+**Augment**\
+give them to the model with the question
+:::
+::: {.lund-step}
+**Generate**\
+answer from the course, with sources
+:::
+:::::
+
+```{mermaid}
+%%| fig-width: 8
+flowchart LR
+  Q([Student question]) --> R[Search the course material]
+  R --> P[Relevant passages]
+  P --> M[Language model]
+  Q --> M
+  M --> A([Answer from the course<br/>with sources])
+  M -.-> X([Beyond the course<br/>clearly marked])
+```
+
+::: {.lund-cols}
+::: {.lund-card .lund-inside}
+### Inside first
+
+The answer is built from the course passages and cites them.
+:::
+
+::: {.lund-card .lund-outside}
+### Outside, if asked
+
+General background comes after, labelled, and must not contradict the course.
+:::
+:::
+
+[Open the course assistant]({{< meta rag-url >}}){.btn .btn-primary .btn-lg .lund-cta}
+
+## One source, two uses {#source .lund-part data-part="3"}
+
+::: {.lund-big}
+The teacher writes the course once. Students read it; the assistant reads it too.
+:::
+
+```{mermaid}
+%%| fig-width: 8
+flowchart LR
+  T([Teacher]) --> Q["Course pages in Quarto<br/>text · mathematics · code"]
+  Q --> G[(GitHub repository)]
+  G --> W([Website<br/>students see])
+  G --> I([Course index<br/>the assistant reads])
+```
+
+- Change the notes, and both the website and the assistant follow.
+- No separate "AI version" of the course.
+
+## Assessment you can inspect {#assessment .lund-part data-part="4"}
+
+::::: {.lund-steps}
+::: {.lund-step}
+**Explicit checks**\
+criteria written down; same answer, same result
+:::
+::: {.lund-step}
+**In the browser**\
+Python runs on the student's machine
+:::
+::: {.lund-step}
+**AI feedback on top**\
+task + answer + course + check results
+:::
+:::::
+
+::: {.lund-big}
+The teacher decides the **language**, the **focus** and the **level** of help.
+:::
+
+### A course page
+
+{{< include _includes/demo.md >}}
+
+### Handwritten work, step-by-step hints
+
+::: {#fyll-inn-verktoy}
+:::
+
+{{< include _includes/handwriting/problem-1.md >}}
+
+## More practice, on request {#practice .lund-part data-part="5"}
+
+::::: {.lund-steps}
+::: {.lund-step}
+**Easier**
+:::
+::: {.lund-step}
+**Another one like this**
+:::
+::: {.lund-step}
+**Harder**
+:::
+:::::
+
+Use **Similar problem** on the derivatives [above](#course), or ask the
+assistant's quiz mode.
+
+[Open the quiz]({{< meta rag-quiz-url >}}){.btn .btn-outline-primary .btn-lg .lund-cta}
+
+::: {.lund-question}
+"Harder" is the model's reading of difficulty.
+How it matches what **this** learner finds hard is an open question.
+:::
+
+## The point {#point .lund-part}
+
+::: {.lund-takeaways}
+- **The course** sets the frame: what is inside, what is outside.
+- **Checks** are explicit and reproducible.
+- **AI** works inside that frame, and says when it steps out.
+:::
