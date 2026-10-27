@@ -492,6 +492,9 @@ handwriting:
     - Level 3, method: numbered steps, stop before the numbers.
     - Level 4, worked solution.
 ```
+
+The ladder keeps the struggle constructive: each click gives a little more help,
+and the solution comes last ([formative, as in 4a](#assessment)).
 :::
 
 ::: {.lund-card}
