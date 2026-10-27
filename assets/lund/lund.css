@@ -118,3 +118,4 @@ h2.lund-part.lund-sub, .lund-part.lund-sub > h2 { margin-top: 3rem; border-top: 
 .lund-problem { padding: .7rem .9rem; border-radius: .6rem; border: 1px solid #f1b0b7; background: #fdf3f4; font-size: 1.02rem; line-height: 1.4; }
 .lund-problem strong { color: #b02a37; }
 .lund-problem strong::before { content: "✗ "; }
+.lund-paper pre code, .lund-paper pre code span { white-space: pre-wrap !important; }
