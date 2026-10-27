@@ -231,18 +231,22 @@ Write what the mathematics **is**. Let the tools decide how it **looks**.
 
 ::: {.lund-cols .lund-data}
 ::: {.lund-card .lund-data-source}
-#### Markdown: what the lecturer writes
+#### Plain text (Markdown): what the lecturer writes
 
 ````markdown
 ```{math-exercise}
 #| label: lund-derivative-course
+#| caption: From the course
 #| vars: x
-Differentiate $f(x)=\sqrt{x^2+1}$.
-$f'(x)=$ __[x/sqrt(x^2+1)]
+#| context: none
+#| similar: true
+#| harder: Combine the chain rule with a product or a quotient, keeping the function short.
+#| simpler: Use a single power of a linear expression.
+Differentiate $f(x)=\sqrt{x^2+1}$. $f'(x)=$ __[x/sqrt(x^2+1)]
 ```
 ````
 
-A few lines: the task, the answer, the check. Nothing else.
+A few lines: the task, the answer, what "harder" means. Nothing about how it looks.
 :::
 
 ::: {.lund-card .lund-data-html}
@@ -271,7 +275,8 @@ flowchart LR
 ```
 
 ::: {.lund-question}
-There is no AI version of the course. There is only the course.
+Written once, as plain text. The website, the RAG service and the exam are views of it.
+There is no AI version of the course.
 :::
 
 ## PDF: only the looks {#pdf .lund-part .lund-sub data-part="3b"}
@@ -283,7 +288,7 @@ A PDF keeps how the page looks, and loses what it is.
 Copy the text out of our physics practice exam:
 
 ::: {.lund-soup}
-| On the page | Copied out of the PDF | In our Markdown |
+| On the page | Copied out of the PDF | In our plain text |
 |---|---|---|
 | $3{,}93\cdot10^{26}\,\mathrm{W}$ | `3,93 ⋅ 1026 W` | `$3{,}93\cdot10^{26}\,\mathrm{W}$` |
 | $4{,}50\cdot10^{23}$ molekyler | `4,50 ⋅ 1023 molekyler` | `$4{,}50\cdot10^{23}$ molekyler` |
@@ -298,48 +303,29 @@ The power of a star became 1026 watts: one microwave oven.
 ### Late: start from the PDF
 
 Special models exist just to guess the structure back (Idun runs one).
-They help, and they still slip in the mathematics.
+They help, and they still get the mathematics wrong.
 :::
 
 ::: {.lund-card .lund-inside}
-### Early: start from the data
+### Early: start from plain text
 
-Write Markdown from the start. The PDF becomes one more view,
+Write plain text from the start. The PDF becomes one more view,
 and the guessing step disappears.
 :::
-:::
-
-::: {.lund-question}
-Start early, and skip the guessing.
 :::
 
 ## Many lecturers, one course {#lecturers .lund-part .lund-sub data-part="3c"}
 
 ::: {.lund-big}
-Every change is saved, read before it goes live, and can be undone.
+Because it is plain text, every change is saved, read before it goes live, and can be undone.
 :::
 
 ::: {.lund-history}
 - [Lecturer A]{.who} changes the vector notation in week 3
 - [Lecturer B]{.who} adds an exercise on eigenvalues
 - [Lecturer C]{.who} reads both changes and approves them
-- [Published]{.who .is-done} the change goes live
+- [Published]{.who .is-done} both go live
 :::
-
-::::: {.lund-steps}
-::: {.lund-step}
-**Who changed what**\
-and when, for every line
-:::
-::: {.lund-step}
-**Propose, review, publish**\
-nothing goes live unread
-:::
-::: {.lund-step}
-**Go back**\
-to any earlier version, or last year's
-:::
-:::::
 
 [In GitHub's words: commits, pull requests, history.]{.lund-small}
 
@@ -349,10 +335,14 @@ Fix it once: a corrected sign reaches the website and the RAG service together.
 
 ## Open source {#open-source .lund-part .lund-sub data-part="3d"}
 
+::: {.lund-big}
+The text lasts; the views change. The course belongs to its lecturers, not to a platform.
+:::
+
 ::::: {.lund-steps}
 ::: {.lund-step}
-**Free tools**\
-Quarto, Pyodide, JSXGraph, CTM Assessment
+**Any server**\
+GitHub today, another place tomorrow
 :::
 ::: {.lund-step}
 **Plain text files**\
@@ -364,9 +354,7 @@ between courses and between universities
 :::
 :::::
 
-::: {.lund-question}
-The data lasts; the views change. The course belongs to its lecturers, not to a platform.
-:::
+[Free, open-source tools: Quarto, Pyodide, CTM Assessment.]{.lund-small}
 
 ## Assessment: deterministic and stochastic {#assessment .lund-part data-part="4a"}
 
@@ -381,44 +369,35 @@ And any written product made at home is no longer authentic: a model may have wr
 ::::: {.lund-steps}
 ::: {.lund-step}
 **Small chunks**\
-basic skills, assessed one by one ([as in part 0](#frame))
+basic skills, assessed one by one
 :::
 ::: {.lund-step}
 **Larger projects**\
-students put those skills together; AI or anything else allowed, but they explain it, to each other or to us
+skills combined; any tool, AI included; explained to each other or to us
 :::
 :::::
 
 ::: {.lund-big}
-Here we focus on the small chunks: the core, basic skills.
-:::
-
-::: {.lund-question}
-Online, this assessment is **formative**: it helps students through a constructive struggle.
-:::
-
-::: {.lund-big}
-For that we combine two kinds of assessment.
+Here: the core skills. Online, this is **formative**: it helps students through a constructive struggle.
 :::
 
 ::: {.lund-cols}
 ::: {.lund-card .lund-inside}
 ### Deterministic: the check
 
-Written down. The same answer gives the same result, every time.
-Runs in the student's browser, Python included.
+The same answer gives the same result, every time.
 :::
 
 ::: {.lund-card .lund-outside}
 ### Stochastic: the AI
 
-Reads the task, the answer, the course and the check result, then suggests
-the next step. It can vary, and it can be wrong.
+Reads the task, the student's work and the teacher's notes ([4c](#prompts)),
+then suggests the next step. It can vary, and it can be wrong.
 :::
 :::
 
 ::: {.lund-question}
-The check decides what is correct. The AI helps with what comes next.
+The check decides whether the answer is right. The AI helps with the way there.
 :::
 
 ::: {.panel-tabset}
@@ -442,8 +421,7 @@ The check decides what is correct. The AI helps with what comes next.
 
 ## Paper and Python {#paper .lund-part .lund-sub data-part="4b"}
 
-A human–machine problem: the same mathematics looks completely different on
-paper and typed. The ball problem from the *Handwritten work* tab above:
+The ball problem from the tab above, twice:
 
 ::: {.lund-cols .lund-paper}
 ::: {.lund-card}
@@ -460,12 +438,12 @@ t = 6.0/9.81
 h = 1.5 + 6.0**2/(2*9.81)
 ```
 
-No units, no sketch, no crossed-out first attempt.
+No units, no formula, no steps: only the numbers.
 :::
 :::
 
 ::: {.lund-big}
-Language models can now read the paper.
+The check needs it typed. Language models can now read the paper.
 :::
 
 <!-- Parked for later (left out to keep the focus on paper vs Python):
@@ -475,7 +453,7 @@ Source: Erasmus-CTM/math-exercise, examples.qmd, section "JSXGraph response -
 freehand drawing and polynomial approximation", label
 ex-jsxgraph-freehand-monotonicity. -->
 
-A photo of the working gets step-by-step hints: [try it above](#assessment),
+A photo of the working gets step-by-step hints: [try it above](#handwriting),
 or the [whole practice exam](pages/handwriting-ai.qmd).
 
 ## With AI, the teacher has to be explicit {#prompts .lund-part .lund-sub data-part="4c"}
@@ -487,7 +465,6 @@ or the [whole practice exam](pages/handwriting-ai.qmd).
 ```yaml
 handwriting:
   language: English
-  allow-full-solution: false
   steps:
     - Level 1, assessment: point to the mistake, do not give correct values.
     - Level 2, explanation: which law applies; no numbers, no final answer.
@@ -496,7 +473,7 @@ handwriting:
 ```
 
 The ladder keeps the struggle constructive: each click gives a little more help,
-and the solution comes last ([formative, as in 4a](#assessment)).
+and the solution comes last.
 :::
 
 ::: {.lund-card}
@@ -517,9 +494,7 @@ v25-1a:
 changes in the prompt sandbox on the [practice exam page](pages/handwriting-ai.qmd).]{.lund-small}
 
 ::: {.lund-big}
-Teachers always knew this about their problems: what a good answer looks like,
-the typical mistakes, which hint comes first, what must not be revealed.
-Now it has to be **written down**.
+Teachers always knew this. Now it has to be **written down**.
 :::
 
 ::::: {.lund-steps}
@@ -529,11 +504,11 @@ what the student sees
 :::
 ::: {.lund-step}
 **The check**\
-deterministic, written down
+decides whether the answer is right
 :::
 ::: {.lund-step .lund-step-key}
 **The prompt**\
-the teacher's knowledge, made explicit
+the teacher's knowledge, written into the course
 :::
 :::::
 
@@ -592,7 +567,7 @@ How it matches what **this** learner finds hard is an open question.
 ::: {.lund-takeaways}
 - [0–1]{.lund-num} Model and prompt are settings. **The course** we have to define.
 - [2]{.lund-num} **Let the model read the course**: inside first, outside clearly labelled.
-- [3]{.lund-num} **Write it once, as data**: every view follows, and no platform owns it.
-- [4]{.lund-num} **The check decides** what is correct; the AI helps with what comes next.
+- [3]{.lund-num} **Write it once, as plain text**: every view follows, many can work on it, no platform owns it.
+- [4]{.lund-num} **The check decides** the answer, the AI helps; what teachers know must be **written down**.
 - [5]{.lund-num} We **give away control** in exchange for a richer problem space.
 :::

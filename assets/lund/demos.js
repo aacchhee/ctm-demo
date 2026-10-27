@@ -8,7 +8,7 @@
 //   #lund-two-frames   1b: one problem, one model, two hidden system prompts
 //   #lund-two-models   1c: one plain question, two models
 //   #lund-course-frame 1d: the same question and models, with course passages
-//   #lund-html-monster 3b: the page's own HTML for the part 1 exercise
+//   #lund-html-monster 3a: the page's own HTML for the part 1 exercise
 (function () {
   'use strict';
 
@@ -449,7 +449,7 @@
   }
 
 
-  // ----------------------------------------------- 3b: Markdown versus HTML
+  // ----------------------------------------------- 3a: Markdown versus HTML
 
   // Shows the HTML the browser holds for the part 1 exercise, live from the page.
   function htmlMonster(host) {
