@@ -92,16 +92,17 @@
   ].join('\n');
 
   // Shown when the model list cannot be fetched (Idun model ids).
+  // Ids ending in -instant are the same models with reasoning off.
   const KNOWN_MODELS = [
-    'norallm/normistral-11b-thinking', 'NbAiLab/borealis-27b', 'NorwAI/NorwAI-Magistral-24B-reasoning',
-    'Qwen/Qwen3.6-27B-FP8', 'Qwen/Qwen3.5-122B-A10B-FP8', 'zai-org/GLM-4.7-FP8', 'nvidia/GLM-5.2-NVFP4',
-    'mistralai/Mistral-Medium-3.5-128B', 'mistralai/Mistral-Large-3-675B-Instruct-2512-NVFP4',
-    'MiniMaxAI/MiniMax-M3-MXFP8', 'openai/gpt-oss-120b', 'moonshotai/Kimi-K2.6'
+    'NbAiLab/borealis-27b', 'norallm/normistral-11b-thinking', 'NorwAI/NorwAI-Magistral-24B-reasoning',
+    'Qwen/Qwen3.8-27B-FP8', 'mistralai/Mistral-Medium-3.5-128B', 'Inferact/GLM-5.3-NVFP4',
+    'deepseek-ai/DeepSeek-V4.1-Flash-1017', 'zai-org/GLM-5.3-Flash', 'openai/gpt-oss-120b', 'moonshotai/Kimi-K2.6'
   ];
-  // First available match becomes the default for each side.
+  // First available match becomes the default for each side: a small model
+  // without reasoning on the left, a large reasoning model on the right.
   const PREFER = [
-    ['normistral', 'borealis', 'magistral', 'qwen3.6-27b'],
-    ['kimi-k2.6', 'gpt-oss-120b', 'glm-5.2']
+    ['borealis', 'normistral', 'magistral'],
+    ['kimi-k2.6', 'gpt-oss-120b', 'glm-5.3-nvfp4']
   ];
   const MODELS_KEY = 'lund-demo-models-v1';
 
@@ -222,7 +223,7 @@
     try {
       const response = await fetch(config.baseUrl.replace(/\/+$/, '') + '/models', {
         headers: config.apiKey ? {Authorization: 'Bearer ' + config.apiKey} : {}, signal: AbortSignal.timeout(15000)});
-      const ids = ((await response.json()).data || []).map(m => m.id).filter(id => !/embed/i.test(id)).sort();
+      const ids = ((await response.json()).data || []).map(m => m.id).filter(id => !/embed|ocr|clef/i.test(id)).sort();
       return ids.length ? ids : KNOWN_MODELS;
     } catch { return KNOWN_MODELS; }
   }
@@ -281,7 +282,7 @@
       const saved = loadModels() || [];
       selects.forEach((select, i) => {
         select.replaceChildren(...ids.map(id => new Option(label(id), id)));
-        const preferred = PREFER[i].map(p => ids.find(id => id.toLowerCase().includes(p))).find(Boolean);
+        const preferred = PREFER[i].map(p => ids.find(id => id.toLowerCase().includes(p) && !/-instant$/i.test(id))).find(Boolean);
         state.models[i] = ids.includes(saved[i]) ? saved[i] : preferred || ids[i] || ids[0];
         select.value = state.models[i];
       });
