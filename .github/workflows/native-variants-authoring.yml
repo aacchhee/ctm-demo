@@ -8,15 +8,15 @@ jobs:
     if: github.head_ref == 'consolidation/2026-10-demo-native-authoring'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 2
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: '22'
+          node-version: '24'
       - uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: '1.8.27'
@@ -46,7 +46,7 @@ jobs:
         run: |
           quarto render pages/stack-oppgaver.qmd --profile variants-review
           python scripts/check-stack-native-authoring.py _variants-review-site/pages/stack-oppgaver.html
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: native-variants-authoring-review
           path: |

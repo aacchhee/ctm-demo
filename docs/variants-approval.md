@@ -16,12 +16,23 @@ question links to its review page and lists the candidates with their test resul
 - **Generate 25 more** opens GitHub's Actions form with the exact branch, pull
   request, head and question inputs to use. New candidates need their own approval.
 
-Only ticks in the bot's comment on an **open** pull request record decisions. The
-review page previews and exports; it records nothing. Ticks on a merged or closed
-pull request are refused ("recording requires an open same-repository PR"), so
-questions still waiting for decisions get fresh checklists on the next open pull
-request: approve there, and merge it after **variants / check** passes on the
-bot's commit.
+**Until the approval workflow is reworked (AC, 26 October), decisions can be
+lost.** Avoid it as follows:
+
+- Only ticks in the bot's comment on an **open** pull request record
+  decisions. The review page previews and exports; it records nothing. Ticks
+  on a merged or closed pull request are refused ("recording requires an open
+  same-repository PR"), so questions still waiting for decisions get fresh
+  checklists on the next open pull request.
+- Tick one checklist at a time. Ticks in quick succession share one queue, and
+  a queued decision can be cancelled while the boxes stay ticked: after each
+  tick, wait for the bot's recording commit and a green **variants / check**
+  on that new head.
+- Merge only after the last recording commit is on the branch and its
+  **variants / check** is green. Merging earlier loses the decisions.
+- The checklists appear only when the pull request changes a `.qmd` file or
+  `_variants/`; otherwise start the **Variants** workflow by hand for the
+  exact head.
 
 Approvals apply only to the exact tested candidate and content hash. Changing a
 question may require another review; existing approvals are retained when their

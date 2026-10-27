@@ -19,13 +19,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
       - uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: '1.8.27'
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Install authoring dependencies
@@ -34,7 +34,7 @@ jobs:
         run: python scripts/setup.py
       - name: Build all three pages and record provenance
         run: python scripts/build-similar-problems.py
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: similar-problems-guide
           path: _site
@@ -55,7 +55,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         with:
           name: similar-problems-guide
           path: preview

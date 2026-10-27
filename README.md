@@ -35,13 +35,13 @@ Expected URL: <https://aacchhee.github.io/ctm-demo/>.
 ## Structure
 
 Content lives in `.qmd` wrappers and `_includes/*.md`; `_quarto.yml` configures
-the site. `quarto-extensions.yml` names only `ctm-assessment` at immutable
-commit `503c8688eaf556ff23af0fc629ca60f71833ea73`.
+the site. `quarto-extensions.yml` names only `ctm-assessment`, at the immutable commit
+in its `ref:`.
 `scripts/setup.py` is shared by local development and GitHub Actions. It fetches
 that umbrella source, runs its builder, and installs the assembled distribution.
 The full suite is enabled through the `ctm-assessment` filter. Component sources
 are selected only by CTM Assessment's manifest, which pins every component,
-including the upstream JSXGraph extension, by commit. The demo has no separate
+including the JSXGraph extension (a CTM fork of jsxgraph/jsxgraph-quarto), by commit. The demo has no separate
 component refs.
 Setup verifies installed files against the umbrella's hashes and copies its
 revision record to `.private-extensions/resolved-repos.json`.

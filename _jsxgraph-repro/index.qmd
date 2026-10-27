@@ -37,6 +37,21 @@ problem as described. Problem 5 was not checked there. Chromium's separate
 "headless shell" never shows problem 1 in iframes. Firefox and Safari were
 not available to us, so this page says nothing about them.
 
+**Update, 26 October 2026: JSXGraph 1.14.2.** Measured in automated
+Chromium with the pages and drivers used for this update. Problem 2 is fixed
+in 1.14.2: a board with `unitX`/`unitY`/`originX`/`originY` created hidden
+gets its units and origin when shown, and a bounding box set while a board is
+hidden is kept (afe77cfe, 3e5ea5ff, 1096eb30; 1.14.1 still loses both).
+Problem 3 is fixed in 1.14.1 and 1.14.2: a hidden `keepaspectratio` board
+shows the fitted view when shown. **Problem 5 is still open in 1.14.2**, and
+it is wider than first described: the box is cropped whenever the container
+gets narrower than the box's aspect ratio, also while the container stays
+wider than high. It now has a minimal page,
+[keepaspectratio-narrowed.html](repro/keepaspectratio-narrowed.html).
+Problems 1, 4 and 6 are listed as fixed in 1.14.1 in the jsxgraph-quarto
+extension's notes; they were not measured again for this update. The rest of
+this page is the report as of 19 October (JSXGraph 1.14.0).
+
 ## Summary
 
 Library (JSXGraph 1.14.0):
@@ -48,7 +63,7 @@ Library (JSXGraph 1.14.0):
 | [2](#p2) | Boards with `unitX/unitY/originX/originY` created hidden are broken after showing | 1.3.0 | containers without a CSS pixel size, 0 px wide at creation |
 | [3](#p3) | `keepaspectratio` boards created at 0×0 show the wrong region | 1.5.0 | relative sizes in a hidden parent; hidden iframes |
 | [4](#p4) | One exception during a resize stops all later resizing | 1.3.1 | any board |
-| [5](#p5) | A `keepaspectratio` board that gets narrower than high is cropped | 1.5.0 | visible boards too; may be intended |
+| [5](#p5) | A `keepaspectratio` board narrowed below its box's aspect ratio is cropped (still open in 1.14.2) | 1.5.0 | visible boards too; may be intended |
 | [6](#p6r) | Possible endless loop in the SVG renderer for cubic curves with an undefined point | 1.13.2 | found by reading the code, not run |
 :::
 
@@ -434,7 +449,7 @@ goes to 650 and 300 px.
 3. Keep stopping, but report it with `console.error` or a board event, so
    the author can see why the board no longer follows.
 
-## 5. Library: a keepaspectratio board that gets narrower than high is cropped {#p5}
+## 5. Library: a keepaspectratio board narrowed below its box's aspect ratio is cropped {#p5}
 
 This one concerns visible boards and may be intended. It is listed because
 it looks like a defect on phones. Measured for this page (15 of 15 loads),
@@ -445,16 +460,40 @@ wider-than-high to higher-than-wide keeps the box's vertical extent and
 crops it at the sides. Example: `boundingbox: [-1, 7, 13, -1]` visible in a
 718×388 px div, narrowed to 356×388 px, shows x 2…10 instead of the whole
 x −1…13; the left and right parts of the figure are cut off. Widening
-restores it.
+restores it. The container need not become higher than wide: as long as it
+is wider than high, the vertical extent is kept, so the box is cropped as
+soon as the container is narrower than the box's aspect ratio (example
+below, 26 October).
 
 **Versions:** measured in 1.12.2, 1.13.3 and 1.14.0 (automated Chromium; not
-checked on Windows); the code is from 1.5.0.
+checked on Windows), and with the minimal page below also in 1.14.1 and
+1.14.2; the code is from 1.5.0.
 
-**Reproduce:** [JSXGraph 1.14.0 page with the course figures](library/jsxgraph-1.14.0.html),
+**Reproduce:** [keepaspectratio-narrowed.html](repro/keepaspectratio-narrowed.html)
+(opens with 1.14.2; press **Narrow A**). It is a minimal page: `boundingbox:
+[0, 6, 14, 0]` in a div 150 px high, created 600 px wide and narrowed to
+273 px, against the same board created at 273 px. A is cropped to x
+1.54…12.46 in 1.12.2, 1.13.3, 1.14.0, 1.14.1 and 1.14.2 (automated
+Chromium, 26 October); the container stays wider than high throughout.
+**Only after narrowing.** A board created at the narrow width is not
+cropped: initBoard fits the whole box. Loaded directly at 430 or 340 px, the
+pendulum figure (`boundingbox: [-1, 7, 13, -1]`, frame 390 px high) shows x
+−1…13 in 1.14.0 and 1.14.2; created at 720 px and then narrowed to the same
+widths, it shows x 1.59…10.41 and 2…10, with or without the figure's own
+resize code, and the drawn figure (x 0…12) is cut. So a page opened on a
+narrow screen is fine; the problem appears when the window is narrowed or a
+phone is rotated after loading.
+Earlier page: [JSXGraph 1.14.0 page with the course figures](library/jsxgraph-1.14.0.html),
 pendulum in (a): open the page in a wide window, then make it narrow (about
 390 px).
 
-**Cause** (source location from our investigation): the "switch dominating
+**Cause** in 1.14.2: on every resize `resizeContainer` re-applies the
+current box with `setBoundingBox(box, keepaspectratio, 'keep')`
+([board.js 5863–5864](https://github.com/jsxgraph/jsxgraph/blob/v1.14.2/src/base/board.js#L5863-L5864)),
+and for a container wider than high `setBoundingBox` keeps the vertical
+extent (`unitY = h / dy`) whatever the horizontal extent then needs
+([board.js 6550–6560](https://github.com/jsxgraph/jsxgraph/blob/v1.14.2/src/base/board.js#L6550-L6560)).
+Earlier location (from our investigation of 1.14.0): the "switch dominating
 interval" branch of `setBoundingBox`'s keep-aspect logic,
 [board.js 6461–6479](https://github.com/jsxgraph/jsxgraph/blob/v1.14.0/src/base/board.js#L6461-L6479)
 (83ec5a4e5, 1.5.0).
@@ -463,6 +502,12 @@ interval" branch of `setBoundingBox`'s keep-aspect logic,
 on resize (the rule initBoard uses), which needs the board to remember its
 intended box. If it is intended: nothing; authors can size such boards with
 `aspect-ratio` so the frame keeps its shape.
+
+::: {.table-responsive}
+| You should see: (B), created at 273 px | You see (1.14.2): (A), narrowed to 273 px |
+|---|---|
+| ![Whole box](img/narrowed-expected.png) | ![Sides cropped](img/narrowed-seen.png) |
+:::
 
 ## 6. Library: possible endless loop in the SVG renderer (found by reading, not run) {#p6r}
 
