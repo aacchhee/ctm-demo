@@ -5,8 +5,8 @@
 // the presenter opens "Behind the scenes".
 //
 //   #lund-connection   API base URL, key, "Fetch models"
-//   #lund-two-frames   1a: one problem, one model, two hidden system prompts
-//   #lund-two-models   1b: prompt A from 1a on a small and a large model
+//   #lund-two-frames   1b: one problem, one model, two hidden system prompts
+//   #lund-two-models   1c: prompt A from 1b on a small and a large model
 //   #lund-html-monster 3a: the page's own HTML for the part 1 exercise
 (function () {
   'use strict';
@@ -39,7 +39,7 @@
   const MODEL_LIST_KEY = 'lund-model-list-v1';
   const CHOICE_KEY = 'lund-model-choice-v1';
 
-  // ------------------------------------------------------------ 1a prompts
+  // ------------------------------------------------------------ 1b prompts
 
   const RECTANGLE = 'A rectangle has perimeter 20 cm. Which rectangle has the largest area?';
 
@@ -268,7 +268,7 @@
     return row;
   }
 
-  // ------------------------------------------------------------------- 1a
+  // ------------------------------------------------------------------- 1b
 
   function twoFrames(host) {
     const model = modelSelect('frames', 0);
@@ -289,9 +289,9 @@
     };
   }
 
-  // ------------------------------------------------------------------- 1b
+  // ------------------------------------------------------------------- 1c
 
-  // Prompt A from 1a (the course frame), unchanged, on a small and a large model.
+  // Prompt A from 1b (the course frame), unchanged, on a small and a large model.
   function twoModels(host) {
     const frame = FRAMES[0];
     const ask = button('Ask both models', 'btn-primary btn-lg');
@@ -304,7 +304,7 @@
     outs.forEach(c => cols.append(c.node));
     host.append(controlsRow(['Small model', selects[0]], ['Large model', selects[1]]),
       el('p', 'lund-tf-problem', RECTANGLE), bar, cols,
-      behindTheScenes([['Both models get prompt A from 1a', 'System: ' + frame.system + '\n\nUser: ' + RECTANGLE]]));
+      behindTheScenes([['Both models get prompt A from 1b', 'System: ' + frame.system + '\n\nUser: ' + RECTANGLE]]));
     modelListeners.push(titles);
     titles();
 

@@ -70,7 +70,27 @@ Everything else: other books, other conventions, other levels.
 :::
 :::
 
-## Same model, two prompts {#course .lund-part data-part="1a"}
+## What belongs to the course? {#course .lund-part data-part="1a"}
+
+::: {.lund-big}
+Two derivatives. Both correct mathematics. Which one belongs in **this** course?
+:::
+
+::: {.lund-cols .lund-derivatives}
+::: {.lund-card}
+$$\frac{d}{dx}\,\sqrt{x^2+1}$$
+:::
+
+::: {.lund-card}
+$$\frac{d}{dx}\,\sqrt{x+\sqrt{x+\sqrt{x+\sqrt{x}}}}$$
+:::
+:::
+
+::: {.lund-question}
+The lecturer feels which one belongs. **Does the model?**
+:::
+
+## Same model, two prompts {#one-button .lund-part .lund-sub data-part="1b"}
 
 ::: {.lund-big}
 Same question, same model. Both answers correct. Which one belongs in **this** course?
@@ -82,18 +102,14 @@ Same question, same model. Both answers correct. Which one belongs in **this** c
 ::: {#lund-two-frames}
 :::
 
-::: {.lund-question}
-The lecturer knows which one is relevant. **Does the model?**
-:::
-
-## Same prompt, two models {#two-models .lund-part .lund-sub data-part="1b"}
+## Same prompt, two models {#two-models .lund-part .lund-sub data-part="1c"}
 
 Prompt A from above, sent to a small and a large model.
 
 ::: {#lund-two-models}
 :::
 
-## What we can turn {#turn .lund-part .lund-sub data-part="1c"}
+## What we can turn {#turn .lund-part .lund-sub data-part="1d"}
 
 ::::: {.lund-steps}
 ::: {.lund-step}
