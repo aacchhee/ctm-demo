@@ -66,3 +66,13 @@ h2.lund-part, .lund-part > h2 {
 .lund-tf-verdict.is-unknown { color: #6c757d; }
 .lund-step.lund-step-key { background: #2780e3; border-color: #2780e3; color: #fff; }
 .lund-step.lund-step-key strong { color: #fff; }
+
+/* Part 2: where things live */
+.lund-steps-compact .lund-step { padding: .6rem .8rem; }
+.lund-where { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: .8rem; margin: 1.2rem 0; }
+.lund-place { padding: .8rem 1rem; border-radius: .8rem; border: 2px solid; line-height: 1.4; font-size: 1.05rem; }
+.lund-place strong { font-size: 1.2rem; }
+.lund-place.is-browser { background: #eef5fd; border-color: #2780e3; }
+.lund-place.is-github { background: #f3f0fa; border-color: #6f42c1; }
+.lund-place.is-server { background: #fff8ec; border-color: #e8a33d; }
+.lund-place.is-cluster { background: #eaf6ee; border-color: #2e8b57; }

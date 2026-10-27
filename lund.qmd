@@ -132,44 +132,61 @@ The first two are settings. The third we have to **define**, somehow.
 One way to define the course for a model: let it read the course.
 :::
 
-::::: {.lund-steps}
+::::: {.lund-steps .lund-steps-compact}
 ::: {.lund-step}
 **Retrieve**\
-find the relevant passages in the course
+find the pages of the course that fit the question
 :::
 ::: {.lund-step}
 **Augment**\
-give them to the model with the question
+hand those pages to the model with the question
 :::
 ::: {.lund-step}
 **Generate**\
-answer from the course, with sources
+the model answers from them, and says which pages
 :::
 :::::
 
 ```{mermaid}
-%%| fig-width: 8
+%%| fig-width: 9
+%%{init: {"themeVariables": {"fontSize": "18px"}}}%%
 flowchart LR
-  Q([Student question]) --> R[Search the course material]
-  R --> P[Relevant passages]
-  P --> M[Language model]
-  Q --> M
-  M --> A([Answer from the course<br/>with sources])
-  M -.-> X([Beyond the course<br/>clearly marked])
+  S([Student asks]) --> L["Librarian<br/>finds the right pages"]
+  L --> M["Language model<br/>writes the answer"]
+  M --> A([Answer + the pages it used])
+  C[(The course,<br/>in short passages)] --- L
+  classDef course fill:#fff8ec,stroke:#e8a33d
+  classDef model fill:#eaf6ee,stroke:#2e8b57
+  classDef student fill:#eef5fd,stroke:#2780e3
+  class C,L course
+  class M model
+  class S,A student
 ```
 
-::: {.lund-cols}
-::: {.lund-card .lund-inside}
-### Inside first
+### What lives where
 
-The answer is built from the course passages and cites them.
+::: {.lund-where}
+::: {.lund-place .is-github}
+**The course pages**\
+where the teacher writes them: GitHub
+:::
+::: {.lund-place .is-server}
+**The librarian and the passages**\
+a small private server; updated whenever the course changes
+:::
+::: {.lund-place .is-cluster}
+**The language model**\
+Idun, NTNU's large computing cluster; nothing leaves NTNU
+:::
+::: {.lund-place .is-browser}
+**The student**\
+only a web browser
+:::
 :::
 
-::: {.lund-card .lund-outside}
-### Outside, if asked
-
-General background comes after, labelled, and must not contradict the course.
-:::
+::: {.lund-question}
+**Inside first**: the answer comes from the course pages, and names them.
+**Outside if needed**: anything else comes after, clearly labelled.
 :::
 
 [Open the course assistant]({{< meta rag-url >}}){.btn .btn-primary .btn-lg .lund-cta}

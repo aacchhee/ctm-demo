@@ -17,7 +17,7 @@
       title: 'Answer A',
       reveal: 'Answer A: the course frame (retrieved passages)',
       system: [
-        'You are a teaching assistant in a first-year course, Precalculus.',
+        'You are a teaching assistant in the first weeks of a first-year engineering mathematics course.',
         'Answer using only the methods in the course passages below.',
         'Derivatives have not been taught yet: do not use them.',
         'Write at most eight short lines for a first-year student.',
@@ -75,7 +75,7 @@
 
   // The fixed prompt for demo 3: what retrieval from the course would supply.
   const COURSE_FRAME = [
-    'You are a teaching assistant in a first-year calculus course.',
+    'You are a teaching assistant in a first-year engineering mathematics course.',
     'Solve the problem with the course methods below, step by step, in at most 15 short lines.',
     'Write mathematics in LaTeX between $ signs.',
     '',
