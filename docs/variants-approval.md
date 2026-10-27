@@ -19,8 +19,11 @@ question links to its review page and lists the candidates with their test resul
 **Until the approval workflow is reworked (AC, 26 October), decisions can be
 lost.** Avoid it as follows:
 
-- Record decisions only on an open pull request; ticks on a merged pull
-  request are refused.
+- Only ticks in the bot's comment on an **open** pull request record
+  decisions. The review page previews and exports; it records nothing. Ticks
+  on a merged or closed pull request are refused ("recording requires an open
+  same-repository PR"), so questions still waiting for decisions get fresh
+  checklists on the next open pull request.
 - Tick one checklist at a time. Ticks in quick succession share one queue, and
   a queued decision can be cancelled while the boxes stay ticked: after each
   tick, wait for the bot's recording commit and a green **variants / check**
