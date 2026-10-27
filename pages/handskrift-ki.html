@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nb" xml:lang="nb"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Håndskrift og KI – CTM demo</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b6dc9e813fb09d2bbff48e8f9eb94b8d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/ctm-coi-frame-startup-1/coi-frame-startup.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-assets-0.9.0/assets.js"></script>
+<link href="../site_libs/quarto-contrib/ctm-ui-0.9.0/ctm-ui.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/ctm-nav-0.9.0/ctm-nav.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-locale-0.9.0/ctm-locale.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-locale-0.9.0/common.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-locale-ui-0.9.0/ui.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-layout-0.9.0/ctm-layout.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-layout-0.9.0/ctm-settings.js"></script>
+<link href="../site_libs/quarto-contrib/ctm-layout-0.9.0/ctm-ui.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/feedback-core.js"></script>
+<script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/feedback-dom.js"></script>
+<script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/ai-feedback.js"></script>
+<link href="../site_libs/quarto-contrib/ai-feedback-0.9.0/ai-feedback.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/ctm-runtime-0.9.0/pyodide-runtime.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-checkers-0.12.0.dev0+21ac0fe7/ctm-checkers.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-locale-math-exercise-0.9.0/math-exercise.js"></script>
+<link href="../site_libs/quarto-contrib/ctm-matrix-input-0.9.0/ctm-matrix-input.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/math-exercise-0.11.0/math-exercise.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/ctm-copy-0.9.0/ctm-copy.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-store-0.9.0/ctm-store.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-export-0.9.0/ctm-export.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Ingen resultater",
+    "search-matching-documents-text": "Samsvarende dokumenter",
+    "search-copy-link-title": "Kopier link for å søke",
+    "search-hide-matches-text": "Skjul ytterlige resultater",
+    "search-more-match-text": "annet resultat i dette dokumentet",
+    "search-more-matches-text": "andre resultater i dette dokumentet",
+    "search-clear-button-title": "Tøm",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Send inn",
+    "search-label": "Søk"
+  }
+}</script>
+<script>globalThis.CTM_ASSETS={"bases":{"font-awesome":"https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/","jsxgraph":"https://cdn.jsdelivr.net/npm/jsxgraph@1.14.2/","katex":"https://cdn.jsdelivr.net/npm/katex@0.16.47/","mathjax-newcm-font":"https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/","mathjax3":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/","mathjax4":"https://cdn.jsdelivr.net/npm/mathjax@4.1.3/","monaco-editor":"https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/","pyodide":"https://cdn.jsdelivr.net/pyodide/v0.28.3/full/","source-sans-pro":"https://cdn.jsdelivr.net/npm/@fontsource/source-sans-pro@5.3.0/"},"mode":"cdn","v":1};</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Slå av eller på sidebarnavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/handskrift-ki.html">Håndskrift og KI</a></li><li class="breadcrumb-item"><a href="../pages/handskrift-ki.html">Prøveeksamen V2025</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Slå av eller på sidebarnavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Søk" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CTM demo</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Søk"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interactive mathematics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/experiments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Your experiments here</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Similar problems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Slå på delen">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Examples and code</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems-authoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Authoring guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workflow and phase 2</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/gaussian-elimination.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gaussian elimination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/physics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fysikk</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/fysikk-forkurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fysikk-forkurs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Håndskrift og KI</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Slå på delen">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/handskrift-ki.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Prøveeksamen V2025</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/handskrift-ki-prompter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spill med promptene</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/bevegelse-ii.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bevegelse II</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/stack-oppgaver.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STACK-oppgaver</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/help.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Help</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<script>window.__aiFeedbackPolicies = {"layers":[{"policies":{"handskrift":{"language":"norsk bokmål","max-words":250,"max-issues":3,"allow-full-solution":false,"base-prompt":"Du er en tålmodig og grundig fysikklærer på forkurs. Studenten har løst oppgaven for hånd på papir, og bildet viser utregningen. Les hele bildet nøye: formler, mellomregninger, figurer, overstrykninger og understreket sluttsvar. Teksten i svarfeltet er studentens egen kommentar eller sluttsvar. Tilbakemeldingen skal være lærerik: forklar fysikken, ikke bare om noe er riktig eller galt. Vær konkret og vis til linjen, formelen eller størrelsen det gjelder. Sjekk at svaret svarer på det oppgaven faktisk spør om, at alle delspørsmål er besvart, og at enheter, fortegn, omregninger og antall gjeldende siffer er riktige. Ros det som er riktig og godt ført. Hvis noe på bildet er uleselig, si hva du ikke kan lese i stedet for å gjette. Fasiten i instruksjonene er privat: ikke oppgi riktige tall eller sluttsvar før det nåværende nivået tillater det. Skriv i du-form, vennlig og direkte.","steps":[{"step-prompt":"Nivå 1, vurdering. Svar i tre korte deler med overskriftene **Dette er bra**, **Dette bør du se på** og **Neste steg**. Pek på hvor det er feil eller mangler, men ikke forklar hvordan det rettes, og ikke oppgi riktige verdier. Avslutt med ett spørsmål som hjelper studenten å finne feilen selv. Hvis alt er riktig, si det tydelig og gi ett råd om føringen (enheter, gjeldende siffer, svarsetning)."},{"step-prompt":"Nivå 2, forklaring. Forklar hvorfor det som er feil eller mangler er feil: hvilket begrep, hvilken lov eller hvilken antakelse som gjelder her, og hva studenten bør endre. Bruk gjerne en generell formel, men ikke sett inn tall og ikke oppgi sluttsvaret."},{"step-prompt":"Nivå 3, framgangsmåte. Beskriv riktig framgangsmåte i nummererte steg med generelle formler, og si hvilke størrelser som skal settes inn hvor. Stopp før tallene settes inn. Si hvilket steg i studentens løsning som må gjøres om."},{"step-prompt":"Nivå 4, løsningsforslag. Gi et fullstendig, gjennomregnet løsningsforslag med innsetting, enheter og sluttsvar med fornuftig antall gjeldende siffer. Avslutt med en kort sammenligning med studentens løsning: hvor skilte veiene lag, og hva bør studenten huske til eksamen?","allow-full-solution":true,"max-words":450}]},"handskrift-med-transkripsjon":{"extends":"handskrift","base-prompt":"Start alltid med overskriften **Slik leste jeg besvarelsen** og skriv de viktigste linjene og tallene slik du leser dem på bildet (høyst seks linjer, med LaTeX for matematikk). Fortsett deretter med tilbakemeldingen. Du er en tålmodig og grundig fysikklærer på forkurs. Studenten har løst oppgaven for hånd på papir, og bildet viser utregningen. Les hele bildet nøye: formler, mellomregninger, figurer, overstrykninger og understreket sluttsvar. Teksten i svarfeltet er studentens egen kommentar eller sluttsvar. Tilbakemeldingen skal være lærerik: forklar fysikken, ikke bare om noe er riktig eller galt. Vær konkret og vis til linjen, formelen eller størrelsen det gjelder. Sjekk at svaret svarer på det oppgaven faktisk spør om, at alle delspørsmål er besvart, og at enheter, fortegn, omregninger og antall gjeldende siffer er riktige. Ros det som er riktig og godt ført. Hvis noe på bildet er uleselig, si hva du ikke kan lese i stedet for å gjette. Fasiten i instruksjonene er privat: ikke oppgi riktige tall eller sluttsvar før det nåværende nivået tillater det. Skriv i du-form, vennlig og direkte.","max-words":330},"handskrift-vurdering":{"extends":"handskrift","max-words":300,"steps":[{"step-prompt":"Svar i tre deler med overskriftene **Dette er bra**, **Feil og mangler** og **Dette bør du endre**. Forklar kort hvorfor hver feil er en feil og hva som må endres, men ikke gi et fullstendig løsningsforslag."}]}}},{"exercises":{"plain-text":{"v25-1a":{"base-prompt":"Fasit: på toppen er farten null. t = v0/g = 6,0/9,81 = 0,61 s. Stigningen er v0²/(2g) = 1,83 m, så høyden over bakken er 1,5 m + 1,83 m = 3,3 m. Begge spørsmålene (tid og høyde) må besvares. Typiske feil: glemmer starthøyden 1,5 m; blander fortegn på g og v0; svarer bare på ett av spørsmålene; avrunder mellomsvar for tidlig."},"v25-1b":{"base-prompt":"Fasit: v(t) = 6,0 m/s − 9,81 m/s² · t er en rett linje med stigningstall −9,81 m/s². Den starter i 6,0 m/s, krysser null ved t = 0,61 s (toppunktet) og slutter når ballen lander ved t ≈ 1,44 s med v ≈ −8,1 m/s (landing fra 1,5 m over bakken: 1,5 + 6,0t − 4,9t² = 0). Grafen skal ha merkede akser med enheter. Typiske feil: tegner banen (posisjon) i stedet for farten; knekk eller V-form ved toppen (det er farten med fortegn som skal vises); slutter ved v = −6,0 m/s som om ballen landet i starthøyden; mangler akser eller enheter."},"v25-1c":{"base-prompt":"Fasit: etter 1,0 s er forflytningen s = v0·t − ½gt² = 6,0 − 4,905 = 1,095 m oppover (ballen er på vei ned igjen, men over startpunktet). ΔEp = mgΔh = 0,450 · 9,81 · 1,095 = 4,8 J. Samme svar fås via energibevaring: ΔEp = −ΔEk med v(1,0 s) = −3,81 m/s. Typiske feil: glemmer at massen er 450 g = 0,450 kg; bruker høyden på toppen i stedet for posisjonen etter 1 s; fortegnsfeil i ½gt²; regner ut kinetisk energi i stedet for endringen i potensiell energi; ulikt tall i utregning og svarsetning."},"v25-2a":{"base-prompt":"Fasit: T = 6100 + 273 = 6373 K. Wiens forskyvningslov: λ_maks = b/T = 2,898·10⁻³ m·K / 6373 K = 4,55·10⁻⁷ m = 455 nm. Typiske feil: bruker temperaturen i °C; regner ut utstrålingstettheten σT⁴ (det hører til b) i stedet for bølgelengden; regnefeil eller avskrivingsfeil mellom utregning og svar; påstander om fargen som ikke er spurt om eller ikke stemmer."},"v25-2b":{"base-prompt":"Fasit: utstrålingstetthet M = σT⁴ = 5,67·10⁻⁸ · 6373⁴ = 9,35·10⁷ W/m². Overflateareal A = P/M = 3,93·10²⁶ W / 9,35·10⁷ W/m² = 4,2·10¹⁸ m². Typiske feil: feil potens når 6373⁴ regnes ut (for eksempel 10¹⁵ i stedet for 10⁷ i M); temperatur i °C; omvendt brøk P·M eller M/P; feil prefiks når svaret skrives om (G = 10⁹)."},"v25-3a":{"base-prompt":"Fasit: molekylmasse 28,0 u = 4,65·10⁻²⁶ kg, total masse m = N · 28,0 u = 4,50·10²³ · 4,65·10⁻²⁶ kg = 0,0209 kg. V = πr²h = π · 0,120² · 0,200 = 9,05·10⁻³ m³. Massetetthet ρ = m/V = 2,31 kg/m³. Temperatur fra pV = NkT: T = pV/(Nk) = 120·10³ · 9,05·10⁻³ / (4,50·10²³ · 1,381·10⁻²³) = 175 K (−98 °C). Begge størrelsene (temperatur og massetetthet) skal beregnes. Bruk gasstrykket 120 kPa, ikke lufttrykket. Typiske feil: glemmer temperaturen; avrunder massen til 0,02 kg så tettheten blir 2,2 kg/m³; bruker 101 kPa; cm ikke regnet om til m."},"v25-3b":{"base-prompt":"Fasit: stempelet er i likevekt. Gassen presser opp med p_gass·A, lufta presser ned med p_luft·A, og tyngden er mg. Dermed mg = (p_gass − p_luft)·A = (120 − 101)·10³ Pa · π · 0,120² m² = 859 N, og m = 859 N / 9,81 m/s² = 87,6 kg. Typiske feil: bruker hele gasstrykket og glemmer lufttrykket over lokket; bruker hydrostatisk trykk p = p0 + ρgh for gassen; bruker gassloven, som ikke gir stempelets masse; arealet blir feil fordi r ikke er kvadrert eller ikke er regnet om til meter."},"v25-4a":{"base-prompt":"Fasit: fjærenergien blir kinetisk energi: ½kx² = ½mv², så k = mv²/x² = 0,0570 · 3,00² / 0,0500² = 205 N/m. Typiske feil: bruker tyngden mg som fjærkraft (fjæra er horisontal, tyngden har ingenting med fjærkraften å gjøre); bruker Hookes lov F = kx med en kraft som ikke er fjærkraften; glemmer å kvadrere x eller v; g og cm ikke regnet om; mangler eller feil enhet (N/m)."},"v25-4b":{"base-prompt":"Fasit: horisontalt kast. Vertikalt: h = ½gt², så t = √(2h/g) = √(2 · 1,40 / 9,81) = 0,534 s. Horisontalt med konstant fart: x = v·t = 3,00 · 0,534 = 1,60 m. Typiske feil: feil omforming av h = ½gt² (for eksempel t = √(h + ½g)); bruker startfart i vertikal retning; bruker en total fart i stedet for komponentene; blander horisontal og vertikal bevegelse."},"v25-4c":{"base-prompt":"Fasit: Ek = 480 mJ = 0,480 J gir farten v = √(2Ek/m) = √(2 · 0,480 / 0,0570) = 4,10 m/s. Den horisontale farten er fortsatt 3,00 m/s, så den vertikale farten er v_y = √(v² − v_x²) = √(4,10² − 3,00²) = 2,8 m/s. Typiske feil: stopper ved den totale farten 4,10 m/s, som ikke er det det spørres om; trekker fra farter i stedet for kvadratene; mJ ikke regnet om."},"v25-5a":{"base-prompt":"Fasit: klossen flyter, så oppdrift = tyngde: ρ_væske · 0,80 · V · g = mg, og V = m / (0,80 · ρ_væske) = 0,450 kg / (0,80 · 870 kg/m³) = 6,5·10⁻⁴ m³ = 0,65 dm³. Typiske feil: bruker hele volumet i oppdriften; 0,87 kg/dm³ ikke regnet om (eller regnet om feil); svarer med volumet under overflaten i stedet for hele klossens volum."},"v25-5b":{"base-prompt":"Fasit: trykket er doblet når p = 2·p0, altså når ρgh = p0: h = p0/(ρg) = 101·10³ Pa / (870 kg/m³ · 9,81 m/s²) = 11,8 m. Typiske feil: setter ρgh = 2p0 og glemmer lufttrykket ved overflaten; bruker tettheten til vann i stedet for 870 kg/m³."},"v25-6a":{"base-prompt":"Fasit: i seriekopling er strømmen lik, og spenningene summeres: U2 = 230 V − 150 V = 80 V, og R2 = U2/I = 80 V / 10 A = 8,0 Ω. Typiske feil: bruker hele polspenningen eller 150 V over R2; finner bare R1 eller den totale resistansen."},"v25-6b":{"base-prompt":"Fasit: effekten i R1 er P = U1·I = 150 V · 10 A = 1500 W. Varmen som trengs er Q = mcΔT = 0,50 kg · 4180 J/(kg·K) · 56,0 K = 1,17·10⁵ J, så t = Q/P = 78 s. Typiske feil: bruker effekten i hele kretsen (2300 W) i stedet for i R1; 5,0 dl ikke regnet om til 0,50 kg; feil temperaturdifferanse."},"v25-6c":{"base-prompt":"Fasit: i seriekopling går samme strøm gjennom begge, P = RI², så størst effekt i R1 (den største resistansen). I parallellkopling er spenningen lik, P = U²/R, så størst effekt i R2 (den minste resistansen). Begge svarene skal begrunnes. Typiske feil: samme svar i begge tilfeller; riktig svar uten begrunnelse; bruker P = UI uten å si hva som er felles i hver kopling."},"v25-7a":{"base-prompt":"Fasit: f = c/λ = 3,00·10⁸ / 560·10⁻⁹ = 5,36·10¹⁴ Hz og E = hf = 6,626·10⁻³⁴ · 5,36·10¹⁴ = 3,55·10⁻¹⁹ J (2,22 eV). Begge størrelsene skal beregnes. Typiske feil: nm ikke regnet om; E = h/λ eller E = hλ."},"v25-7b":{"base-prompt":"Fasit: antall fotoner per sekund N = P/E = 60 W / 3,55·10⁻¹⁹ J = 1,7·10²⁰ per sekund. Typiske feil: ganger i stedet for å dele; bruker energien i eV uten å regne om."},"v25-8a":{"base-prompt":"Fasit: nukleontall og ladning er bevart: 2 + 2 = 3 + A gir A = 1, og 1 + 1 = 2 + B gir B = 0. Partikkelen er et nøytron. Reaksjonen er fusjon fordi to lette kjerner smelter sammen til en tyngre. Typiske feil: blander nukleontall og atomnummer; kaller partikkelen et proton; sier fisjon; mangler begrunnelse."},"v25-8b":{"base-prompt":"Fasit: massesvinn Δm = 2 · 2,014102 u − 3,016029 u − 1,008665 u = 0,003510 u. Frigjort energi E = Δm·c² = 0,003510 · 931,5 MeV = 3,27 MeV = 5,24·10⁻¹³ J. Typiske feil: bruker for få desimaler i massene slik at massesvinnet blir feil; glemmer å gange med 2 for deuteriumkjernene; u ikke regnet om til kg eller MeV."},"v25-9a":{"base-prompt":"Fasit: den lille klossen akselererer oppover med 2,0 m/s². Newtons 2. lov for m: S − mg = ma, så S = m(g + a) = 5,15 · (9,81 + 2,0) = 60,8 N. Typiske feil: S = mg (glemmer akselerasjonen); fortegnsfeil, S = m(g − a); tegner ikke kreftene."},"v25-9b":{"base-prompt":"Fasit: for M langs skråplanet (positiv retning nedover): Mg·sin45° − S − μMg·cos45° = Ma, så M = S / (g·sin45° − μg·cos45° − a) = 60,8 / (6,94 − 0,94 − 2,0) = 15,2 kg. Typiske feil: friksjonen N = Mg i stedet for Mg·cos45°; glemmer snordraget eller friksjonen; feil fortegn på akselerasjonen; regner som om klossene sto i ro."}}}}],"pageLayers":[],"projectPolicy":{"default":"handskrift"}};</script>
+<script>window.__aiFeedbackConfig = {"baseUrl":"","mode":"api","model":""};</script>
+<script>window.__mathExerciseConfig = {"lang":"nb","stopAfter":20};</script>
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/handskrift-ki.html">Håndskrift og KI</a></li><li class="breadcrumb-item"><a href="../pages/handskrift-ki.html">Prøveeksamen V2025</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Håndskrift og KI</h1>
+<p class="subtitle lead">Prøveeksamen V2025 i fysikk: regn på papir, last opp bildet, få tilbakemelding</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!--ctm-save-generated--><div class="ctm-save-bar" role="region" aria-label="Lagrede svar" hidden=""><p class="ctm-save-notice">Svarene dine lagres bare i denne nettleseren.</p><div class="ctm-save-actions"><button type="button" data-ctm-save-toggle="">Ikke lagre på denne enheten</button>
+<button type="button" data-ctm-export="">Eksporter svarene mine</button>
+<button type="button" data-ctm-clear-page="">Slett svarene på denne siden</button>
+<button type="button" data-ctm-clear-course="">Slett alle svarene dine i dette emnet</button></div><span class="ctm-save-status" role="status" aria-live="polite"></span></div>
+<p>Løs oppgavene i <a href="../assets/handskrift/proveeksamen-v2025.pdf">oppgavesettet (PDF)</a> på papir. For hver deloppgave kan du</p>
+<ol type="1">
+<li>skrive sluttsvaret i svarfeltet og velge <strong>Sjekk</strong> (bruk desimalpunkt, og ikke skriv enheten i feltet);</li>
+<li>ta et bilde av utregningen, laste det opp under <strong>Last opp bilder</strong> og velge <strong>Tilbakemelding</strong>. Hvert nytt klikk gir et dypere hint: først en vurdering, så en forklaring, så framgangsmåten og til slutt et løsningsforslag.</li>
+</ol>
+<p>Tilbakemeldingen kommer fra en KI-modell du velger selv under tannhjulet ⚙ (direkte API med egen nøkkel, eller «kopier instruksjon» til en KI-chat). Modellen må kunne lese bilder. Bildet og oppgaveteksten sendes til leverandøren du velger. KI-en kan ta feil: les tilbakemeldingen kritisk.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>For lærere: test med ekte besvarelser
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Knappene <strong>Fyll inn student 1</strong> og <strong>Fyll inn student 2</strong> laster inn ekte, anonymiserte besvarelser fra to studenter på oppgave 1–4, med bilde og sluttsvar, så du slipper å laste opp selv. Knappene øverst fyller inn alle deloppgavene samtidig. Lærerens vurdering av hver besvarelse står i <a href="https://github.com/aacchhee/ctm-demo/blob/main/docs/handskrift-benchmark.md">benchmark-arket</a>. Promptene ligger i YAML-filer i repoet; se <a href="../pages/handskrift-ki-prompter.html">Spill med promptene</a>. Prompt-sandkassen nederst på siden lar deg prøve endringer uten å bygge siden på nytt.</p>
+</div>
+</div>
+</div>
+<div id="fyll-inn-verktoy">
+
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Oppgave 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">5</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false" href="">6</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" role="tab" aria-controls="tabset-1-7" aria-selected="false" href="">7</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-8-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-8" role="tab" aria-controls="tabset-1-8" aria-selected="false" href="">8</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-9-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-9" role="tab" aria-controls="tabset-1-9" aria-selected="false" href="">9</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div id="oppgave-1" class="ctm-tab-target">
+
+</div>
+<div id="v25-oppg1" class="ai-context">
+<p>En ball kastes rett opp fra en høyde <span data-ai-feedback-display="false" data-ai-feedback-tex="1{,}5\,\mathrm{m}"><span class="math inline">\(1{,}5\,\mathrm{m}\)</span></span> over bakken. Startfarten til ballen er <span data-ai-feedback-display="false" data-ai-feedback-tex="6{,}0\,\mathrm{m/s}"><span class="math inline">\(6{,}0\,\mathrm{m/s}\)</span></span>.</p>
+</div>
+<section id="a-toppunktet" class="level3">
+<h3 class="anchored" data-anchor-id="a-toppunktet">a) Toppunktet</h3>
+<p>Hvor lang tid tar det før ballen er på sitt høyeste punkt? Hvor høyt over bakken er den da?</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-1" data-label="v25-1a-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Tid i s&quot;,&quot;Høyde over bakken i m&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-1a-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;a) Toppunktet\nHvor lang tid tar det før ballen er på sitt høyeste punkt? Hvor høyt over bakken er den da?&quot;" data-context-text="&quot;&quot;" data-ctm-source="1f9640e5b3767a51" data-ctm-runtime-id="ctm-block-1" data-ctm-id="v25-1a-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-1-f1&quot;,&quot;math-exercise-1-f2&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="a · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>a · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-1a-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(t=\) <input type=&quot;text&quot; id=&quot;math-exercise-1-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> s, \(h=\) <input type=&quot;text&quot; id=&quot;math-exercise-1-f2&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> m">\(t=\) <input type="text" id="math-exercise-1-f1" data-answer="6.0/9.81" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> s, \(h=\) <input type="text" id="math-exercise-1-f2" data-answer="1.5+36/(2*9.81)" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> m</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-1a" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for a).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"a) Toppunktet\nHvor lang tid tar det før ballen er på sitt høyeste punkt? Hvor høyt over bakken er den da?","contextMode":"explicit","contextRefs":"v25-oppg1","feedbackLanguage":"nb","id":"v25-1a","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-1a","name":""},"profile":"mathematics","resetOnVariant":"v25-1a-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for a). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+<section id="b-fartsgrafen" class="level3">
+<h3 class="anchored" data-anchor-id="b-fartsgrafen">b) Fartsgrafen</h3>
+<p>Tegn fartsgrafen til ballen fra den forlater hånden til den lander.</p>
+<div id="v25-1b" class="ai-feedback-activity">
+<p><strong>Vis grafen din for b).</strong> Tegn grafen på papir og last opp et bilde av den.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"b) Fartsgrafen\nTegn fartsgrafen til ballen fra den forlater hånden til den lander.","contextMode":"explicit","contextRefs":"v25-oppg1","feedbackLanguage":"nb","id":"v25-1b","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-1b","name":""},"profile":"mathematics","resetOnVariant":"v25-1b-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis grafen din for b). Tegn grafen på papir og last opp et bilde av den.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+<section id="c-potensiell-energi" class="level3">
+<h3 class="anchored" data-anchor-id="c-potensiell-energi">c) Potensiell energi</h3>
+<p>Ballen har massen <span class="math inline">\(450\,\mathrm{g}\)</span>. Hvor stor er endringen i ballens potensielle energi i løpet av det første sekundet?</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-2" data-label="v25-1c-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Endring i potensiell energi i J&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-1c-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;c) Potensiell energi\nBallen har massen \\(450\\,\\mathrm{g}\\). Hvor stor er endringen i ballens potensielle energi i løpet av det første sekundet?&quot;" data-context-text="&quot;&quot;" data-ctm-source="1172d1bdfa6075e1" data-ctm-runtime-id="ctm-block-2" data-ctm-id="v25-1c-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-2-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="c · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>c · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-1c-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(\Delta E_p=\) <input type=&quot;text&quot; id=&quot;math-exercise-2-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> J">\(\Delta E_p=\) <input type="text" id="math-exercise-2-f1" data-answer="0.450*9.81*(6.0-9.81/2)" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> J</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-1c" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for c).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"c) Potensiell energi\nBallen har massen \\(450\\,\\mathrm{g}\\). Hvor stor er endringen i ballens potensielle energi i løpet av det første sekundet?","contextMode":"explicit","contextRefs":"v25-oppg1","feedbackLanguage":"nb","id":"v25-1c","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-1c","name":""},"profile":"mathematics","resetOnVariant":"v25-1c-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for c). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div id="section" class="ctm-tab-target">
+
+</div>
+<div id="v25-oppg2" class="ai-context">
+<p>Overflatetemperaturen til en stjerne er <span data-ai-feedback-display="false" data-ai-feedback-tex="6100\,^\circ\mathrm{C}"><span class="math inline">\(6100\,^\circ\mathrm{C}\)</span></span>, og den utstrålte effekten fra stjerna er <span data-ai-feedback-display="false" data-ai-feedback-tex="3{,}93\cdot10^{26}\,\mathrm{W}"><span class="math inline">\(3{,}93\cdot10^{26}\,\mathrm{W}\)</span></span>.</p>
+</div>
+<section id="a-bølgelengde" class="level3">
+<h3 class="anchored" data-anchor-id="a-bølgelengde">a) Bølgelengde</h3>
+<p>Ved hvilken bølgelengde er utstrålingstettheten fra stjerna størst?</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-3" data-label="v25-2a-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Bølgelengde i nm&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-2a-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;a) Bølgelengde\nVed hvilken bølgelengde er utstrålingstettheten fra stjerna størst?&quot;" data-context-text="&quot;&quot;" data-ctm-source="ce7b68135a547dbb" data-ctm-runtime-id="ctm-block-3" data-ctm-id="v25-2a-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-3-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="a · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>a · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-2a-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(\lambda_\mathrm{maks}=\) <input type=&quot;text&quot; id=&quot;math-exercise-3-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> nm">\(\lambda_\mathrm{maks}=\) <input type="text" id="math-exercise-3-f1" data-answer="2.898e-3/6373*1e9" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> nm</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-2a" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for a).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"a) Bølgelengde\nVed hvilken bølgelengde er utstrålingstettheten fra stjerna størst?","contextMode":"explicit","contextRefs":"v25-oppg2","feedbackLanguage":"nb","id":"v25-2a","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-2a","name":""},"profile":"mathematics","resetOnVariant":"v25-2a-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for a). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+<section id="b-overflateareal" class="level3">
+<h3 class="anchored" data-anchor-id="b-overflateareal">b) Overflateareal</h3>
+<p>Regn ut stjernas overflateareal.</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-4" data-label="v25-2b-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Overflateareal i m²&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-2b-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;b) Overflateareal\nRegn ut stjernas overflateareal.&quot;" data-context-text="&quot;&quot;" data-ctm-source="0f6c8b09c336c1ca" data-ctm-runtime-id="ctm-block-4" data-ctm-id="v25-2b-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-4-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="b · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>b · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-2b-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="Skriv for eksempel <code>4.5*10^12</code>. \(A=\) <input type=&quot;text&quot; id=&quot;math-exercise-4-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> m²">Skriv for eksempel <code>4.5*10^12</code>. \(A=\) <input type="text" id="math-exercise-4-f1" data-answer="3.93e26/(5.67e-8*6373**4)" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> m²</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-2b" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for b).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"b) Overflateareal\nRegn ut stjernas overflateareal.","contextMode":"explicit","contextRefs":"v25-oppg2","feedbackLanguage":"nb","id":"v25-2b","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-2b","name":""},"profile":"mathematics","resetOnVariant":"v25-2b-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for b). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div id="section-1" class="ctm-tab-target">
+
+</div>
+<div id="v25-oppg3" class="ai-context">
+<p>Massen til et gjennomsnittlig nitrogenmolekyl (<span data-ai-feedback-display="false" data-ai-feedback-tex="\mathrm{N_2}"><span class="math inline">\(\mathrm{N_2}\)</span></span>) er <span data-ai-feedback-display="false" data-ai-feedback-tex="28{,}0\,\mathrm{u}"><span class="math inline">\(28{,}0\,\mathrm{u}\)</span></span>. En mengde på <span data-ai-feedback-display="false" data-ai-feedback-tex="4{,}50\cdot10^{23}"><span class="math inline">\(4{,}50\cdot10^{23}\)</span></span> molekyler nitrogengass er innestengt i en sylinder med radius <span data-ai-feedback-display="false" data-ai-feedback-tex="12{,}0\,\mathrm{cm}"><span class="math inline">\(12{,}0\,\mathrm{cm}\)</span></span> og høyde <span data-ai-feedback-display="false" data-ai-feedback-tex="20{,}0\,\mathrm{cm}"><span class="math inline">\(20{,}0\,\mathrm{cm}\)</span></span>. Sylinderen oppbevares i et rom med normalt lufttrykk (<span data-ai-feedback-display="false" data-ai-feedback-tex="101\,\mathrm{kPa}"><span class="math inline">\(101\,\mathrm{kPa}\)</span></span>), og trykket til gassen er <span data-ai-feedback-display="false" data-ai-feedback-tex="120\,\mathrm{kPa}"><span class="math inline">\(120\,\mathrm{kPa}\)</span></span>.</p>
+</div>
+<section id="a-temperatur-og-massetetthet" class="level3">
+<h3 class="anchored" data-anchor-id="a-temperatur-og-massetetthet">a) Temperatur og massetetthet</h3>
+<p>Beregn temperaturen og massetettheten til gassen.</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-5" data-label="v25-3a-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Temperatur i K&quot;,&quot;Massetetthet i kg/m³&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-3a-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;a) Temperatur og massetetthet\nBeregn temperaturen og massetettheten til gassen.&quot;" data-context-text="&quot;&quot;" data-ctm-source="ffb54407137e57ac" data-ctm-runtime-id="ctm-block-5" data-ctm-id="v25-3a-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-5-f1&quot;,&quot;math-exercise-5-f2&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="a · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>a · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-3a-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(T=\) <input type=&quot;text&quot; id=&quot;math-exercise-5-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> K,<br>
+\(\rho=\) <input type=&quot;text&quot; id=&quot;math-exercise-5-f2&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> kg/m³">\(T=\) <input type="text" id="math-exercise-5-f1" data-answer="120e3*pi*0.12**2*0.2/(4.5e23*1.380649e-23)" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> K,<br>
+\(\rho=\) <input type="text" id="math-exercise-5-f2" data-answer="4.5e23*28*1.66054e-27/(pi*0.12**2*0.2)" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> kg/m³</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-3a" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for a).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"a) Temperatur og massetetthet\nBeregn temperaturen og massetettheten til gassen.","contextMode":"explicit","contextRefs":"v25-oppg3","feedbackLanguage":"nb","id":"v25-3a","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-3a","name":""},"profile":"mathematics","resetOnVariant":"v25-3a-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for a). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+<section id="b-stempelets-masse" class="level3">
+<h3 class="anchored" data-anchor-id="b-stempelets-masse">b) Stempelets masse</h3>
+<p>Sylinderens lokk er et stempel som kan skli friksjonsløst opp og ned. Hva er stempelets masse?</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-6" data-label="v25-3b-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Stempelets masse i kg&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-3b-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;b) Stempelets masse\nSylinderens lokk er et stempel som kan skli friksjonsløst opp og ned. Hva er stempelets masse?&quot;" data-context-text="&quot;&quot;" data-ctm-source="c753f9bd29360d3e" data-ctm-runtime-id="ctm-block-6" data-ctm-id="v25-3b-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-6-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="b · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>b · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-3b-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(m=\) <input type=&quot;text&quot; id=&quot;math-exercise-6-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> kg">\(m=\) <input type="text" id="math-exercise-6-f1" data-answer="(120e3-101e3)*pi*0.12**2/9.81" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> kg</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-3b" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for b).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"b) Stempelets masse\nSylinderens lokk er et stempel som kan skli friksjonsløst opp og ned. Hva er stempelets masse?","contextMode":"explicit","contextRefs":"v25-oppg3","feedbackLanguage":"nb","id":"v25-3b","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-3b","name":""},"profile":"mathematics","resetOnVariant":"v25-3b-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for b). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div id="section-2" class="ctm-tab-target">
+
+</div>
+<div id="v25-oppg4" class="ai-context">
+<p>En ball med masse <span data-ai-feedback-display="false" data-ai-feedback-tex="57{,}0\,\mathrm{g}"><span class="math inline">\(57{,}0\,\mathrm{g}\)</span></span> ligger på et bord og skytes ut med en horisontal fjær som vist på figuren. Bordplatas høyde over bakken er <span data-ai-feedback-display="false" data-ai-feedback-tex="h=1{,}40\,\mathrm{m}"><span class="math inline">\(h=1{,}40\,\mathrm{m}\)</span></span>. Før fjæra løses ut, er den presset sammen med <span data-ai-feedback-display="false" data-ai-feedback-tex="5{,}00\,\mathrm{cm}"><span class="math inline">\(5{,}00\,\mathrm{cm}\)</span></span>, og idet ballen forlater fjæra, har ballen en fart på <span data-ai-feedback-display="false" data-ai-feedback-tex="3{,}00\,\mathrm{m/s}"><span class="math inline">\(3{,}00\,\mathrm{m/s}\)</span></span>.</p>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/handskrift/oppgave4.png" class="img-fluid figure-img" alt="En ball ligger inntil en sammenpresset horisontal fjær ytterst til venstre på et bord. Bordets høyde over bakken er merket h." width="260"></p>
+<figcaption>Ballen ligger inntil en sammenpresset fjær på et bord med høyde h.</figcaption>
+</figure>
+</div>
+<section id="a-fjærkonstanten" class="level3">
+<h3 class="anchored" data-anchor-id="a-fjærkonstanten">a) Fjærkonstanten</h3>
+<p>Hvor stor er fjæras fjærkonstant?</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-7" data-label="v25-4a-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Fjærkonstant i N/m&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-4a-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;a) Fjærkonstanten\nHvor stor er fjæras fjærkonstant?&quot;" data-context-text="&quot;&quot;" data-ctm-source="b39110dc2ffbdd17" data-ctm-runtime-id="ctm-block-7" data-ctm-id="v25-4a-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-7-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="a · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>a · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-4a-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(k=\) <input type=&quot;text&quot; id=&quot;math-exercise-7-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> N/m">\(k=\) <input type="text" id="math-exercise-7-f1" data-answer="0.057*3**2/0.05**2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> N/m</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-4a" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for a).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"a) Fjærkonstanten\nHvor stor er fjæras fjærkonstant?","contextMode":"explicit","contextRefs":"v25-oppg4","feedbackLanguage":"nb","id":"v25-4a","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-4a","name":""},"profile":"mathematics","resetOnVariant":"v25-4a-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for a). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+<section id="b-kastlengden" class="level3">
+<h3 class="anchored" data-anchor-id="b-kastlengden">b) Kastlengden</h3>
+<p>Vi antar at ballen ruller uten fartsendring fra den forlater fjæra til den kommer til kanten av bordet. Hvor langt beveger ballen seg i horisontal retning fra bordkanten til den lander?</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-8" data-label="v25-4b-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Horisontal avstand i m&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-4b-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;b) Kastlengden\nVi antar at ballen ruller uten fartsendring fra den forlater fjæra til den kommer til kanten av bordet. Hvor langt beveger ballen seg i horisontal retning fra bordkanten til den lander?&quot;" data-context-text="&quot;&quot;" data-ctm-source="0a894d64885c47a1" data-ctm-runtime-id="ctm-block-8" data-ctm-id="v25-4b-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-8-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="b · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>b · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-4b-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(x=\) <input type=&quot;text&quot; id=&quot;math-exercise-8-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> m">\(x=\) <input type="text" id="math-exercise-8-f1" data-answer="3*sqrt(2*1.4/9.81)" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> m</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-4b" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for b).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"b) Kastlengden\nVi antar at ballen ruller uten fartsendring fra den forlater fjæra til den kommer til kanten av bordet. Hvor langt beveger ballen seg i horisontal retning fra bordkanten til den lander?","contextMode":"explicit","contextRefs":"v25-oppg4","feedbackLanguage":"nb","id":"v25-4b","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-4b","name":""},"profile":"mathematics","resetOnVariant":"v25-4b-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for b). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+<section id="c-vertikal-fart" class="level3">
+<h3 class="anchored" data-anchor-id="c-vertikal-fart">c) Vertikal fart</h3>
+<p>Hvor stor er farten i vertikal retning når ballens kinetiske energi er <span class="math inline">\(480\,\mathrm{mJ}\)</span>?</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-9" data-label="v25-4c-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Vertikal fart i m/s&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-4c-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;c) Vertikal fart\nHvor stor er farten i vertikal retning når ballens kinetiske energi er \\(480\\,\\mathrm{mJ}\\)?&quot;" data-context-text="&quot;&quot;" data-ctm-source="5ca13ac4040428d9" data-ctm-runtime-id="ctm-block-9" data-ctm-id="v25-4c-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-9-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="c · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>c · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-4c-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(v_y=\) <input type=&quot;text&quot; id=&quot;math-exercise-9-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> m/s">\(v_y=\) <input type="text" id="math-exercise-9-f1" data-answer="sqrt(2*0.48/0.057-9)" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> m/s</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-4c" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for c).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"c) Vertikal fart\nHvor stor er farten i vertikal retning når ballens kinetiske energi er \\(480\\,\\mathrm{mJ}\\)?","contextMode":"explicit","contextRefs":"v25-oppg4","feedbackLanguage":"nb","id":"v25-4c","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-4c","name":""},"profile":"mathematics","resetOnVariant":"v25-4c-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for c). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<div id="section-3" class="ctm-tab-target">
+
+</div>
+<div id="v25-oppg5" class="ai-context">
+<p>To studenter legger en kloss med masse <span data-ai-feedback-display="false" data-ai-feedback-tex="450\,\mathrm{g}"><span class="math inline">\(450\,\mathrm{g}\)</span></span> i en væske med tetthet <span data-ai-feedback-display="false" data-ai-feedback-tex="0{,}87\,\mathrm{kg/dm^3}"><span class="math inline">\(0{,}87\,\mathrm{kg/dm^3}\)</span></span>. Klossen flyter, og studentene anslår at <span data-ai-feedback-display="false" data-ai-feedback-tex="80\,\%"><span class="math inline">\(80\,\%\)</span></span> av klossen er under overflaten.</p>
+</div>
+<section id="a-klossens-volum" class="level3">
+<h3 class="anchored" data-anchor-id="a-klossens-volum">a) Klossens volum</h3>
+<p>Bruk disse verdiene til å beregne klossens volum.</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-10" data-label="v25-5a-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Volum i dm³&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-5a-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;a) Klossens volum\nBruk disse verdiene til å beregne klossens volum.&quot;" data-context-text="&quot;&quot;" data-ctm-source="afac0a2a692e530d" data-ctm-runtime-id="ctm-block-10" data-ctm-id="v25-5a-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-10-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="a · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>a · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-5a-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(V=\) <input type=&quot;text&quot; id=&quot;math-exercise-10-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> dm³">\(V=\) <input type="text" id="math-exercise-10-f1" data-answer="0.450/(0.8*0.87)" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> dm³</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-5a" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for a).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"a) Klossens volum\nBruk disse verdiene til å beregne klossens volum.","contextMode":"explicit","contextRefs":"v25-oppg5","feedbackLanguage":"nb","id":"v25-5a","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-5a","name":""},"profile":"mathematics","resetOnVariant":"v25-5a-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for a). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+<section id="b-dobbelt-trykk" class="level3">
+<h3 class="anchored" data-anchor-id="b-dobbelt-trykk">b) Dobbelt trykk</h3>
+<p>Ved hvilken dybde har trykket i væsken doblet seg, sammenlignet med normalt lufttrykk (<span class="math inline">\(101\,\mathrm{kPa}\)</span>) ved overflata av væska?</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-11" data-label="v25-5b-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Dybde i m&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-5b-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;b) Dobbelt trykk\nVed hvilken dybde har trykket i væsken doblet seg, sammenlignet med normalt lufttrykk (\\(101\\,\\mathrm{kPa}\\)) ved overflata av væska?&quot;" data-context-text="&quot;&quot;" data-ctm-source="51a1eabe8f446984" data-ctm-runtime-id="ctm-block-11" data-ctm-id="v25-5b-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-11-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="b · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>b · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-5b-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(h=\) <input type=&quot;text&quot; id=&quot;math-exercise-11-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> m">\(h=\) <input type="text" id="math-exercise-11-f1" data-answer="101e3/(870*9.81)" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> m</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-5b" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for b).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"b) Dobbelt trykk\nVed hvilken dybde har trykket i væsken doblet seg, sammenlignet med normalt lufttrykk (\\(101\\,\\mathrm{kPa}\\)) ved overflata av væska?","contextMode":"explicit","contextRefs":"v25-oppg5","feedbackLanguage":"nb","id":"v25-5b","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-5b","name":""},"profile":"mathematics","resetOnVariant":"v25-5b-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for b). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+</div>
+<div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
+<div id="section-4" class="ctm-tab-target">
+
+</div>
+<section id="a-resistansen-r₂" class="level3">
+<h3 class="anchored" data-anchor-id="a-resistansen-r₂">a) Resistansen R₂</h3>
+<div id="v25-oppg6a" class="ai-context">
+<p>Vi seriekopler to motstander til en spenningskilde med polspenning på <span data-ai-feedback-display="false" data-ai-feedback-tex="230\,\mathrm{V}"><span class="math inline">\(230\,\mathrm{V}\)</span></span>. Spenningen over <span data-ai-feedback-display="false" data-ai-feedback-tex="R_1"><span class="math inline">\(R_1\)</span></span> er <span data-ai-feedback-display="false" data-ai-feedback-tex="U_1=150\,\mathrm{V}"><span class="math inline">\(U_1=150\,\mathrm{V}\)</span></span>, og strømmen er <span data-ai-feedback-display="false" data-ai-feedback-tex="10\,\mathrm{A}"><span class="math inline">\(10\,\mathrm{A}\)</span></span>.</p>
+</div>
+<p>Hvor stor er resistansen <span class="math inline">\(R_2\)</span>?</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-12" data-label="v25-6a-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Resistansen R2 i ohm&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-6a-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;a) Resistansen R₂\nVi seriekopler to motstander til en spenningskilde med polspenning på \\(230\\,\\mathrm{V}\\). Spenningen over \\(R_1\\) er \\(U_1=150\\,\\mathrm{V}\\), og strømmen er \\(10\\,\\mathrm{A}\\).\nHvor stor er resistansen \\(R_2\\)?&quot;" data-context-text="&quot;&quot;" data-ctm-source="cff2677a2b295cb4" data-ctm-runtime-id="ctm-block-12" data-ctm-id="v25-6a-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-12-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="a · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>a · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-6a-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(R_2=\) <input type=&quot;text&quot; id=&quot;math-exercise-12-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> Ω">\(R_2=\) <input type="text" id="math-exercise-12-f1" data-answer="(230-150)/10" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> Ω</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-6a" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for a).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"a) Resistansen R₂\nHvor stor er resistansen \\(R_2\\)?","contextMode":"explicit","contextRefs":"v25-oppg6a","feedbackLanguage":"nb","id":"v25-6a","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-6a","name":""},"profile":"mathematics","resetOnVariant":"v25-6a-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for a). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+<section id="b-varme-opp-vann" class="level3">
+<h3 class="anchored" data-anchor-id="b-varme-opp-vann">b) Varme opp vann</h3>
+<div id="v25-oppg6b" class="ai-context">
+<p>Motstanden <span data-ai-feedback-display="false" data-ai-feedback-tex="R_1"><span class="math inline">\(R_1\)</span></span> i kretsen i a) brukes til å varme opp vann. (I a) er <span data-ai-feedback-display="false" data-ai-feedback-tex="U_1=150\,\mathrm{V}"><span class="math inline">\(U_1=150\,\mathrm{V}\)</span></span> og strømmen <span data-ai-feedback-display="false" data-ai-feedback-tex="10\,\mathrm{A}"><span class="math inline">\(10\,\mathrm{A}\)</span></span>.)</p>
+</div>
+<p>Hvor lang tid tar det å varme opp <span class="math inline">\(5{,}0\,\mathrm{dl}\)</span> vann fra <span class="math inline">\(4{,}0\,^\circ\mathrm{C}\)</span> til <span class="math inline">\(60{,}0\,^\circ\mathrm{C}\)</span>? Vi antar at det ikke går noe varme til omgivelsene.</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-13" data-label="v25-6b-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Tid i s&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-6b-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;b) Varme opp vann\nMotstanden \\(R_1\\) i kretsen i a) brukes til å varme opp vann. (I a) er \\(U_1=150\\,\\mathrm{V}\\) og strømmen \\(10\\,\\mathrm{A}\\).)\nHvor lang tid tar det å varme opp \\(5{,}0\\,\\mathrm{dl}\\) vann fra \\(4{,}0\\,^\\circ\\mathrm{C}\\) til \\(60{,}0\\,^\\circ\\mathrm{C}\\)? Vi antar at det ikke går noe varme til omgivelsene.&quot;" data-context-text="&quot;&quot;" data-ctm-source="f8cb3b8cf6c381e0" data-ctm-runtime-id="ctm-block-13" data-ctm-id="v25-6b-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-13-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="b · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>b · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-6b-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(t=\) <input type=&quot;text&quot; id=&quot;math-exercise-13-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> s">\(t=\) <input type="text" id="math-exercise-13-f1" data-answer="0.5*4180*56/1500" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> s</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-6b" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for b).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"b) Varme opp vann\nHvor lang tid tar det å varme opp \\(5{,}0\\,\\mathrm{dl}\\) vann fra \\(4{,}0\\,^\\circ\\mathrm{C}\\) til \\(60{,}0\\,^\\circ\\mathrm{C}\\)? Vi antar at det ikke går noe varme til omgivelsene.","contextMode":"explicit","contextRefs":"v25-oppg6b","feedbackLanguage":"nb","id":"v25-6b","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-6b","name":""},"profile":"mathematics","resetOnVariant":"v25-6b-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for b). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+<section id="c-størst-effekt" class="level3">
+<h3 class="anchored" data-anchor-id="c-størst-effekt">c) Størst effekt</h3>
+<div id="v25-oppg6c" class="ai-context">
+<p>I en annen krets med to motstander vet vi at <span data-ai-feedback-display="false" data-ai-feedback-tex="R_1>R_2"><span class="math inline">\(R_1&gt;R_2\)</span></span>.</p>
+</div>
+<p>I hvilken av motstandene er det størst effekt dersom de seriekoples til et batteri? I hvilken av motstandene er det størst effekt hvis de parallellkoples og koples til batteriet? Begrunn svarene dine.</p>
+<div id="v25-6c" class="ai-feedback-activity">
+<p><strong>Vis svaret og begrunnelsen din for c).</strong> Last opp et bilde, eller skriv begrunnelsen i feltet.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"c) Størst effekt\nI hvilken av motstandene er det størst effekt dersom de seriekoples til et batteri? I hvilken av motstandene er det størst effekt hvis de parallellkoples og koples til batteriet? Begrunn svarene dine.","contextMode":"explicit","contextRefs":"v25-oppg6c","feedbackLanguage":"nb","id":"v25-6c","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-6c","name":""},"profile":"mathematics","resetOnVariant":"v25-6c-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis svaret og begrunnelsen din for c). Last opp et bilde, eller skriv begrunnelsen i feltet.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+</div>
+<div id="tabset-1-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-7-tab">
+<div id="section-5" class="ctm-tab-target">
+
+</div>
+<div id="v25-oppg7" class="ai-context">
+<p>Et foton har bølgelengden <span data-ai-feedback-display="false" data-ai-feedback-tex="560\,\mathrm{nm}"><span class="math inline">\(560\,\mathrm{nm}\)</span></span>.</p>
+</div>
+<section id="a-frekvens-og-energi" class="level3">
+<h3 class="anchored" data-anchor-id="a-frekvens-og-energi">a) Frekvens og energi</h3>
+<p>Regn ut frekvensen og energien til et foton med bølgelengden <span class="math inline">\(560\,\mathrm{nm}\)</span>.</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-14" data-label="v25-7a-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Frekvens i Hz&quot;,&quot;Energi i J&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-7a-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;a) Frekvens og energi\nRegn ut frekvensen og energien til et foton med bølgelengden \\(560\\,\\mathrm{nm}\\).&quot;" data-context-text="&quot;&quot;" data-ctm-source="7747eceb69023424" data-ctm-runtime-id="ctm-block-14" data-ctm-id="v25-7a-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-14-f1&quot;,&quot;math-exercise-14-f2&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="a · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>a · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-7a-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="Skriv for eksempel <code>4.5*10^12</code>. \(f=\) <input type=&quot;text&quot; id=&quot;math-exercise-14-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> Hz,<br>
+\(E=\) <input type=&quot;text&quot; id=&quot;math-exercise-14-f2&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> J">Skriv for eksempel <code>4.5*10^12</code>. \(f=\) <input type="text" id="math-exercise-14-f1" data-answer="3.00e8/560e-9" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> Hz,<br>
+\(E=\) <input type="text" id="math-exercise-14-f2" data-answer="6.626e-34*3.00e8/560e-9" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> J</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-7a" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for a).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"a) Frekvens og energi\nRegn ut frekvensen og energien til et foton med bølgelengden \\(560\\,\\mathrm{nm}\\).","contextMode":"explicit","contextRefs":"v25-oppg7","feedbackLanguage":"nb","id":"v25-7a","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-7a","name":""},"profile":"mathematics","resetOnVariant":"v25-7a-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for a). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+<section id="b-fotoner-per-sekund" class="level3">
+<h3 class="anchored" data-anchor-id="b-fotoner-per-sekund">b) Fotoner per sekund</h3>
+<p>Ei lampe på <span class="math inline">\(60\,\mathrm{W}\)</span> sender ut ensfarget lys med bølgelengden <span class="math inline">\(560\,\mathrm{nm}\)</span>. Hvor mange fotoner sender lampa ut per sekund?</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-15" data-label="v25-7b-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Antall fotoner per sekund&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-7b-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;b) Fotoner per sekund\nEi lampe på \\(60\\,\\mathrm{W}\\) sender ut ensfarget lys med bølgelengden \\(560\\,\\mathrm{nm}\\). Hvor mange fotoner sender lampa ut per sekund?&quot;" data-context-text="&quot;&quot;" data-ctm-source="8021b31c57012efd" data-ctm-runtime-id="ctm-block-15" data-ctm-id="v25-7b-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-15-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="b · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>b · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-7b-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(N=\) <input type=&quot;text&quot; id=&quot;math-exercise-15-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> per sekund">\(N=\) <input type="text" id="math-exercise-15-f1" data-answer="60/(6.626e-34*3.00e8/560e-9)" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> per sekund</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-7b" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for b).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"b) Fotoner per sekund\nEi lampe på \\(60\\,\\mathrm{W}\\) sender ut ensfarget lys med bølgelengden \\(560\\,\\mathrm{nm}\\). Hvor mange fotoner sender lampa ut per sekund?","contextMode":"explicit","contextRefs":"v25-oppg7","feedbackLanguage":"nb","id":"v25-7b","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-7b","name":""},"profile":"mathematics","resetOnVariant":"v25-7b-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for b). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+</div>
+<div id="tabset-1-8" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-8-tab">
+<div id="section-6" class="ctm-tab-target">
+
+</div>
+<div id="v25-oppg8" class="ai-context">
+<p>I framtida kan det bli aktuelt å utnytte følgende kjernereaksjon i en atomreaktor:</p>
+<p><span data-ai-feedback-display="true" data-ai-feedback-tex="
+{}^{2}_{1}\mathrm{H}+{}^{2}_{1}\mathrm{H}\;\to\;{}^{3}_{2}\mathrm{He}+{}^{A}_{B}\mathrm{X}
+"><span class="math display">\[
+{}^{2}_{1}\mathrm{H}+{}^{2}_{1}\mathrm{H}\;\to\;{}^{3}_{2}\mathrm{He}+{}^{A}_{B}\mathrm{X}
+\]</span></span></p>
+</div>
+<section id="a-den-ukjente-partikkelen" class="level3">
+<h3 class="anchored" data-anchor-id="a-den-ukjente-partikkelen">a) Den ukjente partikkelen</h3>
+<p>Hva blir den ukjente partikkelen <span class="math inline">\({}^{A}_{B}\mathrm{X}\)</span>? Er reaksjonen en fusjon eller en fisjon? Begrunn svaret.</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-16" data-label="v25-8a-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Nukleontall A&quot;,&quot;Ladningstall B&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-8a-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;a) Den ukjente partikkelen\nHva blir den ukjente partikkelen \\({}^{A}_{B}\\mathrm{X}\\)? Er reaksjonen en fusjon eller en fisjon? Begrunn svaret.&quot;" data-context-text="&quot;&quot;" data-ctm-source="d507ecbf289d9295" data-ctm-runtime-id="ctm-block-16" data-ctm-id="v25-8a-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-16-f1&quot;,&quot;math-exercise-16-f2&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="a · Nukleontall og ladning" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>a · Nukleontall og ladning</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-8a-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(A=\) <input type=&quot;text&quot; id=&quot;math-exercise-16-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;>, \(B=\) <input type=&quot;text&quot; id=&quot;math-exercise-16-f2&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;>">\(A=\) <input type="text" id="math-exercise-16-f1" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium">, \(B=\) <input type="text" id="math-exercise-16-f2" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"></div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-8a" class="ai-feedback-activity">
+<p><strong>Vis svaret og begrunnelsen din for a).</strong> Last opp et bilde, eller skriv begrunnelsen i feltet.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"a) Den ukjente partikkelen\nHva blir den ukjente partikkelen \\({}^{A}_{B}\\mathrm{X}\\)? Er reaksjonen en fusjon eller en fisjon? Begrunn svaret.","contextMode":"explicit","contextRefs":"v25-oppg8","feedbackLanguage":"nb","id":"v25-8a","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-8a","name":""},"profile":"mathematics","resetOnVariant":"v25-8a-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis svaret og begrunnelsen din for a). Last opp et bilde, eller skriv begrunnelsen i feltet.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+<section id="b-frigjort-energi" class="level3">
+<h3 class="anchored" data-anchor-id="b-frigjort-energi">b) Frigjort energi</h3>
+<p>Hva blir den frigjorte energien fra én slik reaksjon?</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-17" data-label="v25-8b-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Frigjort energi i MeV&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-8b-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;b) Frigjort energi\nHva blir den frigjorte energien fra én slik reaksjon?&quot;" data-context-text="&quot;&quot;" data-ctm-source="3aa027341239ebc3" data-ctm-runtime-id="ctm-block-17" data-ctm-id="v25-8b-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-17-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="b · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>b · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-8b-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(E=\) <input type=&quot;text&quot; id=&quot;math-exercise-17-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> MeV">\(E=\) <input type="text" id="math-exercise-17-f1" data-answer="(2*2.014102-3.016029-1.008665)*931.494" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> MeV</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-8b" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for b).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"b) Frigjort energi\nHva blir den frigjorte energien fra én slik reaksjon?","contextMode":"explicit","contextRefs":"v25-oppg8","feedbackLanguage":"nb","id":"v25-8b","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-8b","name":""},"profile":"mathematics","resetOnVariant":"v25-8b-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for b). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+</div>
+<div id="tabset-1-9" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-9-tab">
+<div id="section-7" class="ctm-tab-target">
+
+</div>
+<div id="v25-oppg9" class="ai-context">
+<p>To klosser er festet til hverandre med ei stram snor som går over ei friksjonsfri trinse. Kloss <span data-ai-feedback-display="false" data-ai-feedback-tex="M"><span class="math inline">\(M\)</span></span> ligger på et skråplan med helningsvinkel <span data-ai-feedback-display="false" data-ai-feedback-tex="45^\circ"><span class="math inline">\(45^\circ\)</span></span>, og den lille klossen <span data-ai-feedback-display="false" data-ai-feedback-tex="m"><span class="math inline">\(m\)</span></span> henger loddrett. Friksjonskoeffisienten (friksjonstallet) mellom kloss <span data-ai-feedback-display="false" data-ai-feedback-tex="M"><span class="math inline">\(M\)</span></span> og underlaget er <span data-ai-feedback-display="false" data-ai-feedback-tex="0{,}135"><span class="math inline">\(0{,}135\)</span></span>. Massen til den lille klossen er <span data-ai-feedback-display="false" data-ai-feedback-tex="m=5{,}15\,\mathrm{kg}"><span class="math inline">\(m=5{,}15\,\mathrm{kg}\)</span></span>. Når klossene slippes, får den store klossen <span data-ai-feedback-display="false" data-ai-feedback-tex="M"><span class="math inline">\(M\)</span></span> en akselerasjon på <span data-ai-feedback-display="false" data-ai-feedback-tex="2{,}0\,\mathrm{m/s^2}"><span class="math inline">\(2{,}0\,\mathrm{m/s^2}\)</span></span> nedover skråplanet.</p>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/handskrift/oppgave9.png" class="img-fluid figure-img" alt="Et rettvinklet skråplan med vinkel 45 grader. Kloss M ligger på skråplanet, og en snor går fra M over en trinse på toppen ned til kloss m, som henger fritt langs den loddrette siden." width="300"></p>
+<figcaption>Kloss M på et skråplan på 45° er forbundet med en snor over en trinse til kloss m som henger loddrett.</figcaption>
+</figure>
+</div>
+<section id="a-snordraget" class="level3">
+<h3 class="anchored" data-anchor-id="a-snordraget">a) Snordraget</h3>
+<p>Regn ut snordraget.</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-18" data-label="v25-9a-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Snordrag i N&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-9a-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;a) Snordraget\nRegn ut snordraget.&quot;" data-context-text="&quot;&quot;" data-ctm-source="454b45c8e3e5cd6c" data-ctm-runtime-id="ctm-block-18" data-ctm-id="v25-9a-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-18-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="a · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>a · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-9a-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(S=\) <input type=&quot;text&quot; id=&quot;math-exercise-18-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> N">\(S=\) <input type="text" id="math-exercise-18-f1" data-answer="5.15*(9.81+2.0)" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> N</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-9a" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for a).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"a) Snordraget\nRegn ut snordraget.","contextMode":"explicit","contextRefs":"v25-oppg9","feedbackLanguage":"nb","id":"v25-9a","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-9a","name":""},"profile":"mathematics","resetOnVariant":"v25-9a-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for a). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+<section id="b-massen-m" class="level3">
+<h3 class="anchored" data-anchor-id="b-massen-m">b) Massen M</h3>
+<p>Beregn massen til den store klossen <span class="math inline">\(M\)</span>.</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-19" data-label="v25-9b-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Massen M i kg&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-9b-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="" data-context="&quot;b) Massen M\nBeregn massen til den store klossen \\(M\\).&quot;" data-context-text="&quot;&quot;" data-ctm-source="20ac4896588a1aca" data-ctm-runtime-id="ctm-block-19" data-ctm-id="v25-9b-svar" data-ctm-save="true" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-19-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="b · Sluttsvar" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>b · Sluttsvar</div>
+
+<div class="math-exercise-body" aria-hidden="true">
+<div id="v25-9b-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(M=\) <input type=&quot;text&quot; id=&quot;math-exercise-19-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> kg">\(M=\) <input type="text" id="math-exercise-19-f1" data-answer="5.15*(9.81+2.0)/(9.81*sin(pi/4)-0.135*9.81*cos(pi/4)-2.0)" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> kg</div>
+
+<div class="math-exercise-controls">
+  <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Sjekk</button>
+  <button type="button" class="btn btn-light math-legend-btn">ⓘ&nbsp;Inntastingshjelp</button>
+
+
+
+
+</div>
+<div class="math-legend-panel" style="display:none;"></div>
+<div class="math-feedback-area"></div>
+</div>
+</div>
+<div id="v25-9b" class="ai-feedback-activity">
+<p><strong>Vis utregningen din for b).</strong> Last opp et bilde av det du har skrevet på papir.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"b) Massen M\nBeregn massen til den store klossen \\(M\\).","contextMode":"explicit","contextRefs":"v25-oppg9","feedbackLanguage":"nb","id":"v25-9b","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-9b","name":""},"profile":"mathematics","resetOnVariant":"v25-9b-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Vis utregningen din for b). Last opp et bilde av det du har skrevet på papir.","uiLanguage":"nb"}</script>
+<noscript>Enable JavaScript to use this feedback activity.</noscript>
+</div>
+</section>
+</div>
+</div>
+</div>
+
+
+<!--ctm-save-generated--><script type="application/json" id="ctm-store-manifest">{"exercises":[{"component":"math-exercise","id":"v25-1a-svar","order":1,"runtimeId":"ctm-block-1","save":true,"source":"1f9640e5b3767a51"},{"component":"math-exercise","id":"v25-1c-svar","order":2,"runtimeId":"ctm-block-2","save":true,"source":"1172d1bdfa6075e1"},{"component":"math-exercise","id":"v25-2a-svar","order":3,"runtimeId":"ctm-block-3","save":true,"source":"ce7b68135a547dbb"},{"component":"math-exercise","id":"v25-2b-svar","order":4,"runtimeId":"ctm-block-4","save":true,"source":"0f6c8b09c336c1ca"},{"component":"math-exercise","id":"v25-3a-svar","order":5,"runtimeId":"ctm-block-5","save":true,"source":"ffb54407137e57ac"},{"component":"math-exercise","id":"v25-3b-svar","order":6,"runtimeId":"ctm-block-6","save":true,"source":"c753f9bd29360d3e"},{"component":"math-exercise","id":"v25-4a-svar","order":7,"runtimeId":"ctm-block-7","save":true,"source":"b39110dc2ffbdd17"},{"component":"math-exercise","id":"v25-4b-svar","order":8,"runtimeId":"ctm-block-8","save":true,"source":"0a894d64885c47a1"},{"component":"math-exercise","id":"v25-4c-svar","order":9,"runtimeId":"ctm-block-9","save":true,"source":"5ca13ac4040428d9"},{"component":"math-exercise","id":"v25-5a-svar","order":10,"runtimeId":"ctm-block-10","save":true,"source":"afac0a2a692e530d"},{"component":"math-exercise","id":"v25-5b-svar","order":11,"runtimeId":"ctm-block-11","save":true,"source":"51a1eabe8f446984"},{"component":"math-exercise","id":"v25-6a-svar","order":12,"runtimeId":"ctm-block-12","save":true,"source":"cff2677a2b295cb4"},{"component":"math-exercise","id":"v25-6b-svar","order":13,"runtimeId":"ctm-block-13","save":true,"source":"f8cb3b8cf6c381e0"},{"component":"math-exercise","id":"v25-7a-svar","order":14,"runtimeId":"ctm-block-14","save":true,"source":"7747eceb69023424"},{"component":"math-exercise","id":"v25-7b-svar","order":15,"runtimeId":"ctm-block-15","save":true,"source":"8021b31c57012efd"},{"component":"math-exercise","id":"v25-8a-svar","order":16,"runtimeId":"ctm-block-16","save":true,"source":"d507ecbf289d9295"},{"component":"math-exercise","id":"v25-8b-svar","order":17,"runtimeId":"ctm-block-17","save":true,"source":"3aa027341239ebc3"},{"component":"math-exercise","id":"v25-9a-svar","order":18,"runtimeId":"ctm-block-18","save":true,"source":"454b45c8e3e5cd6c"},{"component":"math-exercise","id":"v25-9b-svar","order":19,"runtimeId":"ctm-block-19","save":true,"source":"20ac4896588a1aca"}],"export":true,"messages":{"answered":"Besvart, ikke vurdert","answersStorage":"Svar og lagring","clearFailed":"Nettleserlagringen kunne ikke slettes eller oppdateres. Fjern emnedataene i nettleserinnstillingene.","confirmClearCourse":"Slett alle de lagrede svarene dine i dette emnet?","confirmClearPage":"Slett alle lagrede svar på denne siden?","confirmNewVariant":"Erstatt svarene du har fylt ut med en ny variant?","confirmSaveOff":"Dette sletter alle lagrede svar i dette emnet og slutter å lagre.","copyAll":"Kopier alt","correct":"✓ riktig","downloadHTML":"Last ned .html","downloadMarkdown":"Last ned .md","exercise":"Oppgave","exportClose":"Lukk","exportTitle":"Eksporter svarene mine","lastResult":"Siste resultat","locale":"nb","notSaving":"Svar blir ikke lagret","outdated":"Utdatert","partial":"½ delvis","progressTitle":"Fremdrift på siden","recordTooLarge":"Dette svaret er for stort til å lagres. Kopier det før du forlater siden.","saveOff":"Ikke lagre på denne enheten","saveOn":"Lagre igjen","savedLocal":"Lagret i denne nettleseren","savingDisabled":"Lagring er slått av for denne siden.","savingLocal":"Lagrer i denne nettleseren","savingNotice":"Svarene dine lagres bare i denne nettleseren.","savingOffNotice":"Lagring er slått av på denne enheten for dette emnet.","settings":"Innstillinger","showSaved":"Vis svaret ditt","sourceChanged":"Oppgaven er endret siden du svarte.","statusCorrect":"riktig","statusInvalid":"ugyldig","statusPartial":"delvis riktig","statusWrong":"feil","storageUnavailable":"Lagring er ikke tilgjengelig. Svarene dine beholdes bare i minnet på denne siden.","total":"{score} av {count}","unattempted":"– ikke prøvd","variantChanged":"Denne varianten er endret.","variantWithdrawn":"Denne varianten er trukket tilbake.","wrong":"✗ feil"},"progress":false,"quizzes":[],"save":true,"v":1}</script>
+<!--ctm-layout-generated--><span id="ctm-layout-ready" hidden=""></span>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/aacchhee\.github\.io\/ctm-demo\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<script src="../assets/handskrift/js-yaml.min.js"></script>
+<script src="../assets/handskrift/fyll-inn.js"></script>
+
+
+
+
+<script src="../site_libs/quarto-contrib/ctm-matrix-input-0.9.0/ctm-matrix-input.js"></script>
+<script src="../site_libs/quarto-contrib/math-exercise-0.11.0/math-store.js"></script>
+<script src="../site_libs/quarto-contrib/math-exercise-0.11.0/math-exercise.js"></script>
+</body></html>

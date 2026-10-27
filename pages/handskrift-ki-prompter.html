@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nb" xml:lang="nb"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Spill med promptene – CTM demo</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b6dc9e813fb09d2bbff48e8f9eb94b8d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/ctm-coi-frame-startup-1/coi-frame-startup.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-assets-0.9.0/assets.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-locale-0.9.0/ctm-locale.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-locale-0.9.0/common.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-locale-ui-0.9.0/ui.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-layout-0.9.0/ctm-layout.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-layout-0.9.0/ctm-settings.js"></script>
+<link href="../site_libs/quarto-contrib/ctm-layout-0.9.0/ctm-ui.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/feedback-core.js"></script>
+<script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/feedback-dom.js"></script>
+<script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/ai-feedback.js"></script>
+<link href="../site_libs/quarto-contrib/ai-feedback-0.9.0/ai-feedback.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Ingen resultater",
+    "search-matching-documents-text": "Samsvarende dokumenter",
+    "search-copy-link-title": "Kopier link for å søke",
+    "search-hide-matches-text": "Skjul ytterlige resultater",
+    "search-more-match-text": "annet resultat i dette dokumentet",
+    "search-more-matches-text": "andre resultater i dette dokumentet",
+    "search-clear-button-title": "Tøm",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Send inn",
+    "search-label": "Søk"
+  }
+}</script>
+<script>globalThis.CTM_ASSETS={"bases":{"font-awesome":"https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/","jsxgraph":"https://cdn.jsdelivr.net/npm/jsxgraph@1.14.2/","katex":"https://cdn.jsdelivr.net/npm/katex@0.16.47/","mathjax-newcm-font":"https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/","mathjax3":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/","mathjax4":"https://cdn.jsdelivr.net/npm/mathjax@4.1.3/","monaco-editor":"https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/","pyodide":"https://cdn.jsdelivr.net/pyodide/v0.28.3/full/","source-sans-pro":"https://cdn.jsdelivr.net/npm/@fontsource/source-sans-pro@5.3.0/"},"mode":"cdn","v":1};</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Slå av eller på sidebarnavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/handskrift-ki.html">Håndskrift og KI</a></li><li class="breadcrumb-item"><a href="../pages/handskrift-ki-prompter.html">Spill med promptene</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Slå av eller på sidebarnavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Søk" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CTM demo</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Søk"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interactive mathematics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/experiments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Your experiments here</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Similar problems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Slå på delen">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Examples and code</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems-authoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Authoring guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workflow and phase 2</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/gaussian-elimination.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gaussian elimination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/physics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fysikk</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/fysikk-forkurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fysikk-forkurs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Håndskrift og KI</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Slå på delen">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/handskrift-ki.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prøveeksamen V2025</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/handskrift-ki-prompter.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Spill med promptene</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/bevegelse-ii.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bevegelse II</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/stack-oppgaver.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STACK-oppgaver</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/help.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Help</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">På denne siden</h2>
+   
+  <ul>
+  <li><a href="#kort-fortalt" id="toc-kort-fortalt" class="nav-link active" data-scroll-target="#kort-fortalt">Kort fortalt</a></li>
+  <li><a href="#slik-settes-forespørselen-sammen" id="toc-slik-settes-forespørselen-sammen" class="nav-link" data-scroll-target="#slik-settes-forespørselen-sammen">Slik settes forespørselen sammen</a></li>
+  <li><a href="#prompt-sandkassen" id="toc-prompt-sandkassen" class="nav-link" data-scroll-target="#prompt-sandkassen">Prompt-sandkassen</a></li>
+  <li><a href="#lagre-endringen-i-repoet" id="toc-lagre-endringen-i-repoet" class="nav-link" data-scroll-target="#lagre-endringen-i-repoet">Lagre endringen i repoet</a></li>
+  <li><a href="#oppskrifter" id="toc-oppskrifter" class="nav-link" data-scroll-target="#oppskrifter">Oppskrifter</a>
+  <ul class="collapse">
+  <li><a href="#bytt-policy" id="toc-bytt-policy" class="nav-link" data-scroll-target="#bytt-policy">Bytt policy</a></li>
+  <li><a href="#lengre-eller-kortere-svar" id="toc-lengre-eller-kortere-svar" class="nav-link" data-scroll-target="#lengre-eller-kortere-svar">Lengre eller kortere svar</a></li>
+  <li><a href="#endre-hintstigen" id="toc-endre-hintstigen" class="nav-link" data-scroll-target="#endre-hintstigen">Endre hintstigen</a></li>
+  <li><a href="#lag-en-ny-variant" id="toc-lag-en-ny-variant" class="nav-link" data-scroll-target="#lag-en-ny-variant">Lag en ny variant</a></li>
+  <li><a href="#endre-det-ki-en-vet-om-én-deloppgave" id="toc-endre-det-ki-en-vet-om-én-deloppgave" class="nav-link" data-scroll-target="#endre-det-ki-en-vet-om-én-deloppgave">Endre det KI-en vet om én deloppgave</a></li>
+  <li><a href="#legg-til-en-besvarelse" id="toc-legg-til-en-besvarelse" class="nav-link" data-scroll-target="#legg-til-en-besvarelse">Legg til en besvarelse</a></li>
+  </ul></li>
+  <li><a href="#yaml-feller" id="toc-yaml-feller" class="nav-link" data-scroll-target="#yaml-feller">YAML-feller</a></li>
+  <li><a href="#benchmark-rutine" id="toc-benchmark-rutine" class="nav-link" data-scroll-target="#benchmark-rutine">Benchmark-rutine</a></li>
+  <li><a href="#leverandør-og-modell" id="toc-leverandør-og-modell" class="nav-link" data-scroll-target="#leverandør-og-modell">Leverandør og modell</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<script>window.__aiFeedbackPolicies = {"layers":[],"pageLayers":[]};</script>
+<script>window.__aiFeedbackConfig = {"baseUrl":"","mode":"api","model":""};</script>
+<script>window.__mathExerciseConfig = {"lang":"nb","stopAfter":20};</script>
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/handskrift-ki.html">Håndskrift og KI</a></li><li class="breadcrumb-item"><a href="../pages/handskrift-ki-prompter.html">Spill med promptene</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Spill med promptene</h1>
+<p class="subtitle lead">For lærere: slik endrer du KI-tilbakemeldingen på siden Håndskrift og KI</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="kort-fortalt" class="level2">
+<h2 class="anchored" data-anchor-id="kort-fortalt">Kort fortalt</h2>
+<p>All tekst KI-en får fra oss, ligger i to YAML-filer i repoet:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Fil</th>
+<th>Styrer</th>
+<th>Eksempel på endring</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://github.com/aacchhee/ctm-demo/blob/main/feedback/handskrift/veileder.yml"><code>feedback/handskrift/veileder.yml</code></a></td>
+<td><strong>Hvordan</strong> KI-en svarer, likt for alle deloppgaver: rolle, tone, struktur, lengde og hintstigen med fire nivåer</td>
+<td>«Vær kortere», «spør mer», «nivå 4 skal også gi eksamenstips»</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/aacchhee/ctm-demo/blob/main/feedback/handskrift/oppgaver.yml"><code>feedback/handskrift/oppgaver.yml</code></a></td>
+<td><strong>Hva</strong> KI-en vet om hver deloppgave: fasit, mellomregninger og typiske feil</td>
+<td>«I 4a bruker mange <span class="math inline">\(mg\)</span> som fjærkraft, pass på det»</td>
+</tr>
+</tbody>
+</table>
+<p>Andre filer du kan få bruk for:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fil</th>
+<th>Innhold</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>_includes/handskrift/oppgave-1.md</code> … <code>oppgave-9.md</code></td>
+<td>Oppgaveteksten, svarfeltene og opplastingsfeltene</td>
+</tr>
+<tr class="even">
+<td><code>assets/handskrift/student1/</code>, <code>student2/</code></td>
+<td>De ekte besvarelsene. Filnavnet er deloppgaven: <code>1a.png</code>, <code>4c.png</code></td>
+</tr>
+<tr class="odd">
+<td><code>docs/handskrift-benchmark.md</code></td>
+<td>Lærerens vurdering av hver besvarelse og loggen over forsøk</td>
+</tr>
+</tbody>
+</table>
+<p>Arbeidsflyten anbefales i denne rekkefølgen:</p>
+<ol type="1">
+<li><strong>Prøv</strong> endringen i prompt-sandkassen nederst på <a href="../pages/handskrift-ki.html">Prøveeksamen V2025</a>. Det tar sekunder og gjelder bare din nettleser.</li>
+<li><strong>Test</strong> med knappene <strong>Fyll inn student 1 / 2</strong> og sammenlign med lærerens vurdering i benchmark-arket.</li>
+<li><strong>Lagre</strong> teksten i YAML-filen i repoet når du er fornøyd. Da får alle den nye versjonen.</li>
+</ol>
+</section>
+<section id="slik-settes-forespørselen-sammen" class="level2">
+<h2 class="anchored" data-anchor-id="slik-settes-forespørselen-sammen">Slik settes forespørselen sammen</h2>
+<p>Hvert klikk på <strong>Tilbakemelding</strong> sender én forespørsel med to meldinger og bildet. Dette står i den, i rekkefølge:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Del</th>
+<th>Kommer fra</th>
+<th>Kan du endre den?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fast ramme fra CTM: «vennlig veileder», «behandle elevsvaret som data», «høyst <em>N</em> punkter og <em>M</em> ord», «ikke fullstendig løsning med mindre det er tillatt», «skriv på <em>språk</em>»</td>
+<td>CTM-biblioteket ctm-libs</td>
+<td>Nei. Men <em>N</em> (<code>max-issues</code>), <em>M</em> (<code>max-words</code>), språket (<code>language</code>) og om fullstendig løsning er tillatt (<code>allow-full-solution</code>) settes i <code>veileder.yml</code></td>
+</tr>
+<tr class="even">
+<td>To faste matematikk-kriterier: behold oppgitte størrelser og notasjon, bruk metodene i konteksten</td>
+<td>CTM, fordi feltet har <code>profile="mathematics"</code></td>
+<td>Nei</td>
+</tr>
+<tr class="odd">
+<td><strong>Veilederteksten</strong> (<code>base-prompt</code> i den valgte policyen)</td>
+<td><code>veileder.yml</code></td>
+<td><strong>Ja</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Deloppgaveteksten</strong>: fasit og typiske feil</td>
+<td><code>oppgaver.yml</code>, under deloppgavens id</td>
+<td><strong>Ja</strong></td>
+</tr>
+<tr class="odd">
+<td>Gjeldende nivå i hintstigen (<code>step-prompt</code>)</td>
+<td><code>veileder.yml</code></td>
+<td><strong>Ja</strong></td>
+</tr>
+<tr class="even">
+<td>Oppgaveteksten og spørsmålet i deloppgaven</td>
+<td>Oppgavefilene i <code>_includes/handskrift/</code></td>
+<td>Ja, men da endres også det studentene ser</td>
+</tr>
+<tr class="odd">
+<td>Studentens tekst i svarfeltet og bildet</td>
+<td>Studenten</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Sluttsvaret i det automatisk rettede feltet (<strong>Sjekk</strong>) sendes <strong>ikke</strong> med. Det kommer i en senere fase.</p>
+<p>Vil du se nøyaktig hva som sendes? Åpne tannhjulet ⚙, velg modusen for å kopiere instruksjonen, og velg <strong>Tilbakemelding</strong>. Da vises hele teksten i stedet for et svar fra KI-en.</p>
+</section>
+<section id="prompt-sandkassen" class="level2">
+<h2 class="anchored" data-anchor-id="prompt-sandkassen">Prompt-sandkassen</h2>
+<p>Nederst på <a href="../pages/handskrift-ki.html">Prøveeksamen V2025</a> ligger <strong>Prompt-sandkasse (for lærere)</strong>:</p>
+<ul>
+<li>De to tekstfeltene inneholder <code>veileder.yml</code> og <code>oppgaver.yml</code> slik de er i repoet. Rediger fritt.</li>
+<li><strong>Aktiv policy</strong> velger hvilken policy fra <code>veileder.yml</code> som brukes.</li>
+<li><strong>Bruk i denne nettleseren</strong> sjekker YAML-en og tar den i bruk med én gang. Er noe galt, får du feilmeldingen og ingenting endres. En varsellinje øverst på siden viser at sandkasse-promptene er aktive.</li>
+<li><strong>Hva KI-en får vite om en deloppgave</strong> viser instruksjonene og hintstigen slik de faktisk blir for den valgte deloppgaven.</li>
+<li><strong>Kopier veileder.yml / oppgaver.yml</strong> kopierer teksten, klar til å limes inn i repoet.</li>
+<li><strong>Tilbakestill til repo-versjonen</strong> fjerner sandkasse-endringene.</li>
+</ul>
+<p>Sandkassen lagres i nettleseren din (localStorage). Den forsvinner ikke av seg selv, så husk å tilbakestille når du er ferdig. Andre ser aldri sandkassen din.</p>
+</section>
+<section id="lagre-endringen-i-repoet" class="level2">
+<h2 class="anchored" data-anchor-id="lagre-endringen-i-repoet">Lagre endringen i repoet</h2>
+<p>Uten egen Quarto-installasjon:</p>
+<ol type="1">
+<li>Åpne filen på GitHub, for eksempel <a href="https://github.com/aacchhee/ctm-demo/blob/main/feedback/handskrift/veileder.yml"><code>veileder.yml</code></a>, og velg blyanten (<strong>Edit this file</strong>).</li>
+<li>Lim inn teksten fra sandkassen, eller gjør endringen direkte.</li>
+<li>Velg <strong>Commit changes</strong>. Skriv kort hva du endret og hvorfor, for eksempel «4a: advar mot mg som fjærkraft». Velg enten å lagre rett i <code>main</code>, eller å lage en egen gren med en pull request hvis noen skal se over først.</li>
+<li>Når endringen er i <code>main</code>, bygger GitHub Actions siden på nytt og publiserer den. Det tar noen minutter. En pull request bygges og sjekkes, men publiseres ikke før den er flettet inn.</li>
+</ol>
+<p>Bygget stopper hvis YAML-en er ugyldig eller har en ukjent nøkkel. Feilmeldingen står i loggen under <strong>Actions</strong>. Prøv derfor alltid i sandkassen først; den gjør de samme kontrollene.</p>
+<p>Med Quarto lokalt (se <a href="../pages/help.html">Help</a>): <code>quarto preview pages/handskrift-ki.qmd</code> viser endringen med én gang du lagrer filen.</p>
+</section>
+<section id="oppskrifter" class="level2">
+<h2 class="anchored" data-anchor-id="oppskrifter">Oppskrifter</h2>
+<section id="bytt-policy" class="level3">
+<h3 class="anchored" data-anchor-id="bytt-policy">Bytt policy</h3>
+<p>Siden bruker policyen som er valgt i front matter i <code>pages/handskrift-ki.qmd</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-ai-feedback-context="Bytt policy
+Siden bruker policyen som er valgt i front matter i pages/handskrift-ki.qmd:"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ai-feedback</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">policy</span><span class="kw">:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">default</span><span class="kw">:</span><span class="at"> handskrift</span></span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>veileder.yml</code> har tre ferdige policyer:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Policy</th>
+<th>Hva den gjør</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>handskrift</code></td>
+<td>Standard. Fire nivåer: vurdering → forklaring → framgangsmåte → løsningsforslag</td>
+</tr>
+<tr class="even">
+<td><code>handskrift-med-transkripsjon</code></td>
+<td>Som standard, men KI-en skriver først <strong>Slik leste jeg besvarelsen</strong>. Nyttig for å se om dårlige svar skyldes feillesing av håndskriften</td>
+</tr>
+<tr class="odd">
+<td><code>handskrift-vurdering</code></td>
+<td>Én samlet vurdering på hvert klikk: bra / feil og mangler / dette bør du endre</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="lengre-eller-kortere-svar" class="level3">
+<h3 class="anchored" data-anchor-id="lengre-eller-kortere-svar">Lengre eller kortere svar</h3>
+<p>Endre <code>max-words</code> (20–2000) og <code>max-issues</code> (1–20) i policyen. Et nivå kan ha sin egen <code>max-words</code>, slik nivå 4 har:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-ai-feedback-context="Lengre eller kortere svar
+Endre max-words (20–2000) og max-issues (1–20) i policyen. Et nivå kan ha sin egen max-words, slik nivå 4 har:"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">handskrift</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max-words</span><span class="kw">:</span><span class="at"> </span><span class="dv">250</span><span class="co">          # nivå 1–3</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">        ...</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">        - </span><span class="fu">step-prompt</span><span class="kw">:</span><span class="at"> </span><span class="ch">&gt;-</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            Nivå 4, løsningsforslag. ...</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">allow-full-solution</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">max-words</span><span class="kw">:</span><span class="at"> </span><span class="dv">450</span><span class="co">      # bare nivå 4</span></span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="endre-hintstigen" class="level3">
+<h3 class="anchored" data-anchor-id="endre-hintstigen">Endre hintstigen</h3>
+<p><code>steps</code> er listen med nivåer. Hvert klikk på <strong>Tilbakemelding</strong> går ett nivå opp, og det siste nivået gjentas. Du kan ha 1–20 nivåer. <code>steps: []</code> gir ingen nivåer, bare én vurdering etter veilederteksten. Bytter du ut listen i en policy som arver (<code>extends</code>), erstattes hele listen; nivåene slås ikke sammen.</p>
+</section>
+<section id="lag-en-ny-variant" class="level3">
+<h3 class="anchored" data-anchor-id="lag-en-ny-variant">Lag en ny variant</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-ai-feedback-context="Lag en ny variant"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">handskrift-streng</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">extends</span><span class="kw">:</span><span class="at"> handskrift</span><span class="co">     # arver alt den ikke setter selv</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max-issues</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">      base-prompt</span><span class="kw">: </span><span class="ch">&gt;-</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        (hele veilederteksten, med dine endringer)</span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>base-prompt</code> og <code>steps</code> <strong>erstatter</strong> foreldrens tekst; de legges ikke til. En variant med egen <code>base-prompt</code> må derfor inneholde hele veilederteksten.</p>
+</section>
+<section id="endre-det-ki-en-vet-om-én-deloppgave" class="level3">
+<h3 class="anchored" data-anchor-id="endre-det-ki-en-vet-om-én-deloppgave">Endre det KI-en vet om én deloppgave</h3>
+<p>Rediger deloppgaven i <code>oppgaver.yml</code>. Id-ene er <code>v25-</code> + oppgave og bokstav: <code>v25-1a</code>, <code>v25-4c</code>, <code>v25-9b</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-ai-feedback-context="Endre det KI-en vet om én deloppgave
+Rediger deloppgaven i oppgaver.yml. Id-ene er v25- + oppgave og bokstav: v25-1a, v25-4c, v25-9b."><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ai-feedback</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">exercises</span><span class="kw">:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">plain-text</span><span class="kw">:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">v25-4a</span><span class="kw">:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">        base-prompt</span><span class="kw">: </span><span class="ch">&gt;-</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>          Fasit: ... Typiske feil: ...</span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
+<p>En deloppgave kan også få egne innstillinger, for eksempel tillate fullstendig løsning fra nivå 1 eller kortere svar:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-ai-feedback-context="Endre det KI-en vet om én deloppgave
+Rediger deloppgaven i oppgaver.yml. Id-ene er v25- + oppgave og bokstav: v25-1a, v25-4c, v25-9b.
+En deloppgave kan også få egne innstillinger, for eksempel tillate fullstendig løsning fra nivå 1 eller kortere svar:"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">v25-6c</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">max-words</span><span class="kw">:</span><span class="at"> </span><span class="dv">150</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">        base-prompt</span><span class="kw">: </span><span class="ch">&gt;-</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>          ...</span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Skriv ikke noe i <code>oppgaver.yml</code> som studentene ikke får se: filen publiseres sammen med siden.</p>
+</section>
+<section id="legg-til-en-besvarelse" class="level3">
+<h3 class="anchored" data-anchor-id="legg-til-en-besvarelse">Legg til en besvarelse</h3>
+<p>Legg et bilde i <code>assets/handskrift/student1/</code> eller <code>student2/</code> med deloppgaven som navn (<code>1b.png</code>). Har én deloppgave flere bilder, heter de <code>1b.png</code>, <code>1b-2.png</code> og <code>1b-3.png</code>. Fyll inn-knappen finner bildet automatisk. Sluttsvarene som fylles inn i svarfeltene, står i tabellen <code>ANSWERS</code> øverst i <code>assets/handskrift/fyll-inn.js</code>. Skriv lærerens vurdering i <code>docs/handskrift-benchmark.md</code>.</p>
+</section>
+</section>
+<section id="yaml-feller" class="level2">
+<h2 class="anchored" data-anchor-id="yaml-feller">YAML-feller</h2>
+<ul>
+<li><code>&gt;-</code> etter en nøkkel betyr «sammenhengende tekst over flere linjer». Alle linjene må ha <strong>samme innrykk</strong>, og mer innrykk enn nøkkelen.</li>
+<li>Bruk mellomrom, aldri tabulator.</li>
+<li>Uten <code>&gt;-</code> må tekst med <code>:</code> eller <code>#</code> stå i anførselstegn.</li>
+<li>Ukjente nøkler (for eksempel <code>max-word</code>) gir en feil, både i sandkassen og i bygget. Det er med vilje.</li>
+<li>Nøkler som ligner hemmeligheter (<code>api-key</code>, <code>token</code>, <code>key</code>) stopper bygget. API-nøkler hører aldri hjemme i repoet.</li>
+</ul>
+</section>
+<section id="benchmark-rutine" class="level2">
+<h2 class="anchored" data-anchor-id="benchmark-rutine">Benchmark-rutine</h2>
+<p>For hver besvarelse i benchmark-arket:</p>
+<ol type="1">
+<li>Velg policy og eventuelle sandkasse-endringer, og skriv ned modellen du bruker.</li>
+<li><strong>Fyll inn student N</strong> → <strong>Tilbakemelding</strong> fire ganger (alle nivåer).</li>
+<li>Sammenlign med lærerens vurdering. Leste KI-en bildet riktig? Fant den feilen? Fant den på feil som ikke finnes? Røpet den svaret for tidlig? Var nivå 4 riktig?</li>
+<li>Noter resultatet i loggen i <code>docs/handskrift-benchmark.md</code>.</li>
+</ol>
+</section>
+<section id="leverandør-og-modell" class="level2">
+<h2 class="anchored" data-anchor-id="leverandør-og-modell">Leverandør og modell</h2>
+<p>Hver bruker legger inn adresse, nøkkel og modell under tannhjulet ⚙. Modellen <strong>må kunne lese bilder</strong>, og leverandøren må tillate kall direkte fra nettleseren. Uten nøkkel kan du bruke modusen for å kopiere instruksjonen: siden viser da instruksjonen og bildet, som du limer inn i en KI-chat.</p>
+
+
+<!--ctm-layout-generated--><span id="ctm-layout-ready" hidden=""></span>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/aacchhee\.github\.io\/ctm-demo\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

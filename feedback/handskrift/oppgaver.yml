@@ -1,0 +1,200 @@
+# Fasit og typiske feil for hver deloppgave i Prøveeksamen V2025.
+#
+# Denne filen styrer HVA KI-en vet om hver deloppgave. Tonen, strukturen og
+# hintstigen står i veileder.yml. Begge tekstene sendes med i hver forespørsel.
+#
+# Nøkkelen (v25-1a, v25-1b, …) er id-en til opplastingsfeltet på siden.
+# Teksten er privat for KI-en, men den publiseres i sidens kildekode, så ikke
+# skriv noe her som studentene ikke får se.
+#
+# Tall er regnet med g = 9,81 m/s², u = 1,66054·10⁻²⁷ kg,
+# k = 1,381·10⁻²³ J/K, σ = 5,67·10⁻⁸ W/(m²K⁴), Wiens konstant 2,898·10⁻³ m·K,
+# h = 6,626·10⁻³⁴ J·s, c = 3,00·10⁸ m/s og c_vann = 4180 J/(kg·K).
+# Fasiten bør kontrolleres av en faglærer.
+
+ai-feedback:
+  exercises:
+    plain-text:
+
+      v25-1a:
+        base-prompt: >-
+          Fasit: på toppen er farten null. t = v0/g = 6,0/9,81 = 0,61 s.
+          Stigningen er v0²/(2g) = 1,83 m, så høyden over bakken er
+          1,5 m + 1,83 m = 3,3 m. Begge spørsmålene (tid og høyde) må
+          besvares. Typiske feil: glemmer starthøyden 1,5 m; blander fortegn på
+          g og v0; svarer bare på ett av spørsmålene; avrunder mellomsvar for
+          tidlig.
+
+      v25-1b:
+        base-prompt: >-
+          Fasit: v(t) = 6,0 m/s − 9,81 m/s² · t er en rett linje med
+          stigningstall −9,81 m/s². Den starter i 6,0 m/s, krysser null ved
+          t = 0,61 s (toppunktet) og slutter når ballen lander ved t ≈ 1,44 s med
+          v ≈ −8,1 m/s (landing fra 1,5 m over bakken: 1,5 + 6,0t − 4,9t² = 0).
+          Grafen skal ha merkede akser med enheter. Typiske feil: tegner
+          banen (posisjon) i stedet for farten; knekk eller V-form ved toppen
+          (det er farten med fortegn som skal vises); slutter ved v = −6,0 m/s
+          som om ballen landet i starthøyden; mangler akser eller enheter.
+
+      v25-1c:
+        base-prompt: >-
+          Fasit: etter 1,0 s er forflytningen s = v0·t − ½gt² = 6,0 − 4,905 =
+          1,095 m oppover (ballen er på vei ned igjen, men over startpunktet).
+          ΔEp = mgΔh = 0,450 · 9,81 · 1,095 = 4,8 J. Samme svar fås via
+          energibevaring: ΔEp = −ΔEk med v(1,0 s) = −3,81 m/s. Typiske feil:
+          glemmer at massen er 450 g = 0,450 kg; bruker høyden på toppen i
+          stedet for posisjonen etter 1 s; fortegnsfeil i ½gt²; regner ut
+          kinetisk energi i stedet for endringen i potensiell energi; ulikt
+          tall i utregning og svarsetning.
+
+      v25-2a:
+        base-prompt: >-
+          Fasit: T = 6100 + 273 = 6373 K. Wiens forskyvningslov:
+          λ_maks = b/T = 2,898·10⁻³ m·K / 6373 K = 4,55·10⁻⁷ m = 455 nm.
+          Typiske feil: bruker temperaturen i °C; regner ut utstrålingstettheten
+          σT⁴ (det hører til b) i stedet for bølgelengden; regnefeil eller
+          avskrivingsfeil mellom utregning og svar; påstander om fargen som
+          ikke er spurt om eller ikke stemmer.
+
+      v25-2b:
+        base-prompt: >-
+          Fasit: utstrålingstetthet M = σT⁴ = 5,67·10⁻⁸ · 6373⁴ = 9,35·10⁷ W/m².
+          Overflateareal A = P/M = 3,93·10²⁶ W / 9,35·10⁷ W/m² = 4,2·10¹⁸ m².
+          Typiske feil: feil potens når 6373⁴ regnes ut (for eksempel 10¹⁵ i
+          stedet for 10⁷ i M); temperatur i °C; omvendt brøk P·M eller M/P;
+          feil prefiks når svaret skrives om (G = 10⁹).
+
+      v25-3a:
+        base-prompt: >-
+          Fasit: molekylmasse 28,0 u = 4,65·10⁻²⁶ kg, total masse
+          m = N · 28,0 u = 4,50·10²³ · 4,65·10⁻²⁶ kg = 0,0209 kg.
+          V = πr²h = π · 0,120² · 0,200 = 9,05·10⁻³ m³.
+          Massetetthet ρ = m/V = 2,31 kg/m³. Temperatur fra pV = NkT:
+          T = pV/(Nk) = 120·10³ · 9,05·10⁻³ / (4,50·10²³ · 1,381·10⁻²³) =
+          175 K (−98 °C). Begge størrelsene (temperatur og massetetthet) skal
+          beregnes. Bruk gasstrykket 120 kPa, ikke lufttrykket. Typiske feil:
+          glemmer temperaturen; avrunder massen til 0,02 kg så tettheten blir
+          2,2 kg/m³; bruker 101 kPa; cm ikke regnet om til m.
+
+      v25-3b:
+        base-prompt: >-
+          Fasit: stempelet er i likevekt. Gassen presser opp med p_gass·A, lufta
+          presser ned med p_luft·A, og tyngden er mg. Dermed
+          mg = (p_gass − p_luft)·A = (120 − 101)·10³ Pa · π · 0,120² m² =
+          859 N, og m = 859 N / 9,81 m/s² = 87,6 kg. Typiske feil: bruker hele
+          gasstrykket og glemmer lufttrykket over lokket; bruker hydrostatisk
+          trykk p = p0 + ρgh for gassen; bruker gassloven, som ikke gir
+          stempelets masse; arealet blir feil fordi r ikke er kvadrert eller
+          ikke er regnet om til meter.
+
+      v25-4a:
+        base-prompt: >-
+          Fasit: fjærenergien blir kinetisk energi:
+          ½kx² = ½mv², så k = mv²/x² = 0,0570 · 3,00² / 0,0500² = 205 N/m.
+          Typiske feil: bruker tyngden mg som fjærkraft (fjæra er horisontal,
+          tyngden har ingenting med fjærkraften å gjøre); bruker Hookes lov
+          F = kx med en kraft som ikke er fjærkraften; glemmer å kvadrere x
+          eller v; g og cm ikke regnet om; mangler eller feil enhet (N/m).
+
+      v25-4b:
+        base-prompt: >-
+          Fasit: horisontalt kast. Vertikalt: h = ½gt², så
+          t = √(2h/g) = √(2 · 1,40 / 9,81) = 0,534 s. Horisontalt med konstant
+          fart: x = v·t = 3,00 · 0,534 = 1,60 m. Typiske feil: feil
+          omforming av h = ½gt² (for eksempel t = √(h + ½g)); bruker startfart
+          i vertikal retning; bruker en total fart i stedet for komponentene;
+          blander horisontal og vertikal bevegelse.
+
+      v25-4c:
+        base-prompt: >-
+          Fasit: Ek = 480 mJ = 0,480 J gir farten
+          v = √(2Ek/m) = √(2 · 0,480 / 0,0570) = 4,10 m/s. Den horisontale
+          farten er fortsatt 3,00 m/s, så den vertikale farten er
+          v_y = √(v² − v_x²) = √(4,10² − 3,00²) = 2,8 m/s. Typiske feil:
+          stopper ved den totale farten 4,10 m/s, som ikke er det det spørres
+          om; trekker fra farter i stedet for kvadratene; mJ ikke regnet om.
+
+      v25-5a:
+        base-prompt: >-
+          Fasit: klossen flyter, så oppdrift = tyngde:
+          ρ_væske · 0,80 · V · g = mg, og V = m / (0,80 · ρ_væske) =
+          0,450 kg / (0,80 · 870 kg/m³) = 6,5·10⁻⁴ m³ = 0,65 dm³.
+          Typiske feil: bruker hele volumet i oppdriften; 0,87 kg/dm³ ikke
+          regnet om (eller regnet om feil); svarer med volumet under
+          overflaten i stedet for hele klossens volum.
+
+      v25-5b:
+        base-prompt: >-
+          Fasit: trykket er doblet når p = 2·p0, altså når ρgh = p0:
+          h = p0/(ρg) = 101·10³ Pa / (870 kg/m³ · 9,81 m/s²) = 11,8 m.
+          Typiske feil: setter ρgh = 2p0 og glemmer lufttrykket ved
+          overflaten; bruker tettheten til vann i stedet for 870 kg/m³.
+
+      v25-6a:
+        base-prompt: >-
+          Fasit: i seriekopling er strømmen lik, og spenningene summeres:
+          U2 = 230 V − 150 V = 80 V, og R2 = U2/I = 80 V / 10 A = 8,0 Ω.
+          Typiske feil: bruker hele polspenningen eller 150 V over R2; finner
+          bare R1 eller den totale resistansen.
+
+      v25-6b:
+        base-prompt: >-
+          Fasit: effekten i R1 er P = U1·I = 150 V · 10 A = 1500 W.
+          Varmen som trengs er Q = mcΔT = 0,50 kg · 4180 J/(kg·K) · 56,0 K =
+          1,17·10⁵ J, så t = Q/P = 78 s. Typiske feil: bruker effekten i hele
+          kretsen (2300 W) i stedet for i R1; 5,0 dl ikke regnet om til
+          0,50 kg; feil temperaturdifferanse.
+
+      v25-6c:
+        base-prompt: >-
+          Fasit: i seriekopling går samme strøm gjennom begge, P = RI², så
+          størst effekt i R1 (den største resistansen). I parallellkopling er
+          spenningen lik, P = U²/R, så størst effekt i R2 (den minste
+          resistansen). Begge svarene skal begrunnes. Typiske feil: samme svar
+          i begge tilfeller; riktig svar uten begrunnelse; bruker P = UI uten å
+          si hva som er felles i hver kopling.
+
+      v25-7a:
+        base-prompt: >-
+          Fasit: f = c/λ = 3,00·10⁸ / 560·10⁻⁹ = 5,36·10¹⁴ Hz og
+          E = hf = 6,626·10⁻³⁴ · 5,36·10¹⁴ = 3,55·10⁻¹⁹ J (2,22 eV). Begge
+          størrelsene skal beregnes. Typiske feil: nm ikke regnet om; E = h/λ
+          eller E = hλ.
+
+      v25-7b:
+        base-prompt: >-
+          Fasit: antall fotoner per sekund N = P/E = 60 W / 3,55·10⁻¹⁹ J =
+          1,7·10²⁰ per sekund. Typiske feil: ganger i stedet for å dele;
+          bruker energien i eV uten å regne om.
+
+      v25-8a:
+        base-prompt: >-
+          Fasit: nukleontall og ladning er bevart: 2 + 2 = 3 + A gir A = 1, og
+          1 + 1 = 2 + B gir B = 0. Partikkelen er et nøytron. Reaksjonen er
+          fusjon fordi to lette kjerner smelter sammen til en tyngre. Typiske
+          feil: blander nukleontall og atomnummer; kaller partikkelen et
+          proton; sier fisjon; mangler begrunnelse.
+
+      v25-8b:
+        base-prompt: >-
+          Fasit: massesvinn Δm = 2 · 2,014102 u − 3,016029 u − 1,008665 u =
+          0,003510 u. Frigjort energi E = Δm·c² = 0,003510 · 931,5 MeV =
+          3,27 MeV = 5,24·10⁻¹³ J. Typiske feil: bruker for få desimaler i
+          massene slik at massesvinnet blir feil; glemmer å gange med 2 for
+          deuteriumkjernene; u ikke regnet om til kg eller MeV.
+
+      v25-9a:
+        base-prompt: >-
+          Fasit: den lille klossen akselererer oppover med 2,0 m/s². Newtons
+          2. lov for m: S − mg = ma, så S = m(g + a) = 5,15 · (9,81 + 2,0) =
+          60,8 N. Typiske feil: S = mg (glemmer akselerasjonen); fortegnsfeil,
+          S = m(g − a); tegner ikke kreftene.
+
+      v25-9b:
+        base-prompt: >-
+          Fasit: for M langs skråplanet (positiv retning nedover):
+          Mg·sin45° − S − μMg·cos45° = Ma, så
+          M = S / (g·sin45° − μg·cos45° − a) =
+          60,8 / (6,94 − 0,94 − 2,0) = 15,2 kg. Typiske feil: friksjonen
+          N = Mg i stedet for Mg·cos45°; glemmer snordraget eller friksjonen;
+          feil fortegn på akselerasjonen; regner som om klossene sto i ro.
