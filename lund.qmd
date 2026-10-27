@@ -265,6 +265,38 @@ Representations of the same data:
 - a passage the assistant reads
 - a printed exam, or next year's new layout
 
+#### PDF: one big soup
+
+A PDF keeps only how the page **looks**. Text, formulas, figures and page
+numbers melt into one layer. Copy the text out of our physics practice exam:
+
+::: {.lund-soup}
+| On the page | Copied out of the PDF | In our Markdown |
+|---|---|---|
+| $3{,}93\cdot10^{26}\,\mathrm{W}$ | `3,93 ⋅ 1026 W` | `$3{,}93\cdot10^{26}\,\mathrm{W}$` |
+| $4{,}50\cdot10^{23}$ molekyler | `4,50 ⋅ 1023 molekyler` | `$4{,}50\cdot10^{23}$ molekyler` |
+| $U_1=150\,\mathrm{V}$ | `𝑈𝑈1 = 150 V` | `$U_1=150\,\mathrm{V}$` |
+| the figure | *(nothing)* | `![A ball against a spring](oppgave4.png)` |
+:::
+
+The power of a star became 1026 watts: one microwave oven.
+
+::: {.lund-cols}
+::: {.lund-card .lund-outside}
+### Late: start from the PDF
+
+Special models exist just to guess the structure back
+(Idun runs one, GLM-OCR). They help, and they still slip in the mathematics.
+:::
+
+::: {.lund-card .lund-inside}
+### Early: start from the data
+
+Write Markdown from the start. The PDF becomes one more representation,
+and the guessing step disappears.
+:::
+:::
+
 ::: {.lund-question}
 The data lasts; representations change. Keep the border clear,
 and no tool, platform or model owns the course.

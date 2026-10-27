@@ -89,3 +89,7 @@ h2.lund-part, .lund-part > h2 {
 .lund-data-source pre { font-size: .95rem; white-space: pre-wrap; }
 .lund-data .lund-card h4 { color: inherit; font-weight: 700; }
 .lund-html-box { max-height: 15rem; overflow: auto; font-size: .62rem; line-height: 1.25; white-space: pre-wrap; word-break: break-all; background: #fff; border: 1px solid #d4dde5; }
+.lund-soup table { font-size: 1rem; }
+.lund-soup td:nth-child(2) code { color: #b02a37; }
+.lund-soup td code { white-space: normal; overflow-wrap: anywhere; }
+main.content h4 { font-size: 1.3rem; font-weight: 700; color: inherit; margin-top: 1.5rem; }
