@@ -504,7 +504,7 @@ Easier, another one like this, harder: the model writes new problems.
 **Everything a model can write**
 
 ::: {.lund-box .is-near}
-**Near the course**: built from the original exercise and the teacher's instructions
+**Near the course**: with RAG, built from the course itself
 
 ::: {.lund-box .is-ours}
 **Written and checked by us**
@@ -514,24 +514,24 @@ Easier, another one like this, harder: the model writes new problems.
 :::
 
 ::: {.lund-question}
-The teacher's instructions shrink the space. Still, we **give away control**
-in exchange for a **richer problem space**.
+Today the button asks the model directly; RAG can take its place and keep it near the course.
+Still, we **give away control** in exchange for a **richer problem space**.
 :::
 
 ::: {.lund-cols}
 ::: {.lund-card}
 ### Is it relevant?
 
-- the teacher writes what "harder" and "easier" mean for this exercise
-- every new problem starts from the original exercise
+- the teacher says what "harder" and "easier" mean
+- RAG keeps it to the course
 :::
 
 ::: {.lund-card}
 ### Is it solved correctly?
 
-- the model writes the problem; computer algebra computes the answer when it can
-- otherwise a second, independent solve must agree, and the label says "Expected answer unverified"
-- students can flag a key; it never counts toward grades, and is off in exam builds
+- computer algebra works out the answer where it can
+- otherwise a second model checks it
+- it never counts toward grades
 :::
 :::
 
