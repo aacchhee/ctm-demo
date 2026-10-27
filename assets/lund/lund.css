@@ -96,3 +96,6 @@ main.content h4 { font-size: 1.3rem; font-weight: 700; color: inherit; margin-to
 .lund-paper img { width: 100%; height: auto; border: 1px solid #d4dde5; border-radius: .4rem; }
 .lund-paper .lund-card h4 { margin-top: 0; }
 @media (min-width: 800px) { .lund-cols.lund-paper { grid-template-columns: 3fr 2fr; } }
+.lund-prompts pre { font-size: .9rem; }
+.lund-prompts .lund-card h4 { margin-top: 0; }
+.lund-prompts .lund-card { margin-bottom: 1rem; }

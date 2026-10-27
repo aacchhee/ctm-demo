@@ -333,7 +333,7 @@ freehand drawing and polynomial approximation", label
 ex-jsxgraph-freehand-monotonicity. -->
 
 A photo of the working gets step-by-step hints:
-[try it in part 4](#handwriting), or the
+[try it in part 4](#assessment), or the
 [whole practice exam](pages/handwriting-ai.qmd).
 
 ::: {.lund-question}
@@ -388,37 +388,105 @@ between courses and between universities
 The course belongs to its lecturers, not to a platform.
 :::
 
-## Assessment you can inspect {#assessment .lund-part data-part="4"}
-
-::::: {.lund-steps}
-::: {.lund-step}
-**Explicit checks**\
-criteria written down; same answer, same result
-:::
-::: {.lund-step}
-**In the browser**\
-Python runs on the student's machine
-:::
-::: {.lund-step}
-**AI feedback on top**\
-task + answer + course + check results
-:::
-:::::
+## Assessment: deterministic and stochastic {#assessment .lund-part data-part="4"}
 
 ::: {.lund-big}
-The teacher decides the **language**, the **focus** and the **level** of help.
+We combine two kinds of assessment.
 :::
 
-### A course page
+::: {.lund-cols}
+::: {.lund-card .lund-inside}
+### Deterministic: the check
 
-{{< include _includes/demo.md >}}
+Written down. The same answer gives the same result, every time.
+Runs in the student's browser, Python included.
+:::
 
-### Handwritten work, step-by-step hints {#handwriting}
+::: {.lund-card .lund-outside}
+### Stochastic: the AI
+
+Reads the task, the answer, the course and the check result, then suggests
+the next step. It can vary, and it can be wrong.
+:::
+:::
+
+::: {.lund-question}
+The check decides what is correct. The AI helps with what comes next.
+:::
+
+::: {.panel-tabset}
+
+## A checked problem
+
+{{< include _includes/lund/eigenvectors.md >}}
+
+## Python with tests
+
+{{< include _includes/lund/python-area.md >}}
+
+## Handwritten work {#handwriting}
 
 ::: {#fyll-inn-verktoy}
 :::
 
 {{< include _includes/handwriting/problem-1.md >}}
+
+:::
+
+### With AI, the teacher has to be explicit
+
+::: {.lund-prompts}
+::: {.lund-card}
+#### How to help (every problem)
+
+```yaml
+handwriting:
+  language: English
+  allow-full-solution: false
+  steps:
+    - Level 1, assessment: point to the mistake, do not give correct values.
+    - Level 2, explanation: which law applies; no numbers, no final answer.
+    - Level 3, method: numbered steps, stop before the numbers.
+    - Level 4, worked solution.
+```
+:::
+
+::: {.lund-card}
+#### What to know (this problem)
+
+```yaml
+v25-1a:
+  base-prompt: >-
+    Reference: at the top the velocity is zero. t = v0/g = 0.61 s.
+    The rise is v0²/(2g) = 1.83 m, so the height is 1.5 m + 1.83 m = 3.3 m.
+    Typical mistakes: forgets the initial height; mixes up the signs of
+    g and v0; answers only one of the questions; rounds too early.
+```
+:::
+:::
+
+[Shortened from the prompt files of the practice exam. Teachers can edit them
+live in the prompt sandbox at the [bottom of this page](#prompt-sandkasse).]{.lund-small}
+
+::: {.lund-big}
+This is a new kind of knowledge about problems: what a good answer looks like,
+the typical mistakes, which hint comes first, and what must not be revealed.
+:::
+
+::::: {.lund-steps}
+::: {.lund-step}
+**The task**\
+what the student sees
+:::
+::: {.lund-step}
+**The check**\
+deterministic, written down
+:::
+::: {.lund-step .lund-step-key}
+**The prompt**\
+the teacher's knowledge, made explicit
+:::
+:::::
 
 ## More practice, on request {#practice .lund-part data-part="5"}
 
