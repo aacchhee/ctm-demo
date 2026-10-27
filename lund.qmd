@@ -325,6 +325,13 @@ No units, no sketch, no crossed-out first attempt.
 Language models can now read the paper.
 :::
 
+<!-- Parked for later (left out to keep the focus on paper vs Python):
+"surrogate input" - drawing instead of typing. Example: sketch a
+non-decreasing function freehand on a JSXGraph board and have it checked.
+Source: Erasmus-CTM/math-exercise, examples.qmd, section "JSXGraph response -
+freehand drawing and polynomial approximation", label
+ex-jsxgraph-freehand-monotonicity. -->
+
 A photo of the working gets step-by-step hints:
 [try it in part 4](#handwriting), or the
 [whole practice exam](pages/handwriting-ai.qmd).
