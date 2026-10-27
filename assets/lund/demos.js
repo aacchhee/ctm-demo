@@ -305,7 +305,29 @@
     };
   }
 
+  // ----------------------------------------------- Markdown versus HTML
+
+  // Shows the HTML the browser holds for the part 1 exercise, live from the page.
+  function htmlMonster(host) {
+    const show = button('Show the HTML', 'btn-outline-primary');
+    const stats = el('p', 'lund-tf-meta');
+    const box = el('pre', 'lund-html-box');
+    box.hidden = true;
+    host.append(show, stats, box);
+    show.onclick = () => {
+      const exercise = document.querySelector('[data-ctm-id="lund-derivative-course"]');
+      if (!exercise) { stats.textContent = 'The exercise is not on this page.'; return; }
+      const html = exercise.outerHTML.replace(/></g, '>\n<');
+      const lines = html.split('\n').length;
+      stats.textContent = lines.toLocaleString('en') + ' lines · ' + html.length.toLocaleString('en') + ' characters, for a few lines of Markdown';
+      box.textContent = html;
+      box.hidden = false;
+    };
+  }
+
   function init() {
+    const monster = document.getElementById('lund-html-monster');
+    if (monster) htmlMonster(monster);
     const F = window.AIFeedback;
     const hosts = ['lund-two-frames', 'lund-two-models', 'lund-course-frame'].map(id => document.getElementById(id));
     if (!hosts.some(Boolean)) return;

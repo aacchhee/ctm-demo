@@ -76,3 +76,16 @@ h2.lund-part, .lund-part > h2 {
 .lund-place.is-github { background: #f3f0fa; border-color: #6f42c1; }
 .lund-place.is-server { background: #fff8ec; border-color: #e8a33d; }
 .lund-place.is-cluster { background: #eaf6ee; border-color: #2e8b57; }
+
+/* Part 3: course history */
+.lund-history ul { list-style: none; padding-left: 0; margin: 1rem 0 1.5rem; border-left: 4px solid #6f42c1; }
+.lund-history li { position: relative; margin: 0 0 .9rem; padding-left: 1.4rem; font-size: 1.2rem; }
+.lund-history li::before { content: ""; position: absolute; left: -.6rem; top: .45rem; width: .9rem; height: .9rem; border-radius: 50%; background: #6f42c1; }
+.lund-history .who { display: inline-block; min-width: 7.5rem; font-weight: 700; color: #6f42c1; }
+.lund-history .who.is-done { color: #1e7e34; }
+.lund-small { color: #6c757d; font-size: .95rem; }
+.lund-data .lund-card h4 { margin-top: 0; font-size: 1.15rem; }
+.lund-data-source { border-color: #6f42c1; background: #f3f0fa; }
+.lund-data-source pre { font-size: .95rem; white-space: pre-wrap; }
+.lund-data .lund-card h4 { color: inherit; font-weight: 700; }
+.lund-html-box { max-height: 15rem; overflow: auto; font-size: .62rem; line-height: 1.25; white-space: pre-wrap; word-break: break-all; background: #fff; border: 1px solid #d4dde5; }

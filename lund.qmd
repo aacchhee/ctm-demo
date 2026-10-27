@@ -194,20 +194,128 @@ only a web browser
 ## One source, two uses {#source .lund-part data-part="3"}
 
 ::: {.lund-big}
-The teacher writes the course once. Students read it; the assistant reads it too.
+The lecturers write the course once. Students read it; the assistant reads it too.
 :::
 
 ```{mermaid}
-%%| fig-width: 8
+%%| fig-width: 9
+%%{init: {"themeVariables": {"fontSize": "18px"}}}%%
 flowchart LR
-  T([Teacher]) --> Q["Course pages in Quarto<br/>text · mathematics · code"]
-  Q --> G[(GitHub repository)]
-  G --> W([Website<br/>students see])
-  G --> I([Course index<br/>the assistant reads])
+  T(["Lecturers"]) --> Q["Course pages<br/>text · mathematics · code"]
+  Q --> G[("GitHub<br/>every change saved")]
+  G --> W(["Website<br/>for students"])
+  G --> P(["Passages<br/>for the assistant"])
+  classDef people fill:#eef5fd,stroke:#2780e3
+  classDef source fill:#f3f0fa,stroke:#6f42c1
+  class T,W,P people
+  class Q,G source
 ```
 
-- Change the notes, and both the website and the assistant follow.
-- No separate "AI version" of the course.
+::: {.lund-cols}
+::: {.lund-card}
+### No "AI version" of the course
+
+There is only the course.
+:::
+
+::: {.lund-card}
+### Fix it once
+
+A corrected sign or new notation reaches the website and the assistant together.
+:::
+:::
+
+### Data and its representation
+
+::: {.lund-big}
+Write what the mathematics **is**. Let the tools decide how it **looks**.
+:::
+
+::: {.lund-cols .lund-data}
+::: {.lund-card .lund-data-source}
+#### Markdown: what the lecturer writes
+
+````markdown
+```{math-exercise}
+#| label: lund-derivative-course
+#| vars: x
+Differentiate $f(x)=\sqrt{x^2+1}$.
+$f'(x)=$ __[x/sqrt(x^2+1)]
+```
+````
+
+A few lines: the task, the answer, the check. Nothing else.
+:::
+
+::: {.lund-card .lund-data-html}
+#### HTML: what the browser gets
+
+::: {#lund-html-monster}
+:::
+
+Messy, huge, never written by hand. Rendered, it looks good:
+the exercise in [part 1](#course).
+:::
+:::
+
+Representations of the same data:
+
+- the web page with an answer field and **Check**
+- feedback and similar problems from an AI model
+- a passage the assistant reads
+- a printed exam, or next year's new layout
+
+::: {.lund-question}
+The data lasts; representations change. Keep the border clear,
+and no tool, platform or model owns the course.
+:::
+
+### Many lecturers, one course
+
+::: {.lund-history}
+- [Lecturer A]{.who} changes the vector notation in week 3
+- [Lecturer B]{.who} adds an exercise on eigenvalues
+- [Lecturer C]{.who} reads both changes and approves them
+- [Published]{.who .is-done} the website and the assistant follow the same day
+:::
+
+::::: {.lund-steps}
+::: {.lund-step}
+**Who changed what**\
+and when, for every line
+:::
+::: {.lund-step}
+**Propose, review, publish**\
+nothing goes live unread
+:::
+::: {.lund-step}
+**Go back**\
+to any earlier version, or last year's
+:::
+:::::
+
+[In GitHub's words: commits, pull requests, history.]{.lund-small}
+
+### Open source
+
+::::: {.lund-steps}
+::: {.lund-step}
+**Free tools**\
+Quarto, Pyodide, JSXGraph, CTM Assessment
+:::
+::: {.lund-step}
+**Plain text files**\
+readable in ten years, by any tool and any model
+:::
+::: {.lund-step}
+**Share and reuse**\
+between courses and between universities
+:::
+:::::
+
+::: {.lund-question}
+The course belongs to its lecturers, not to a platform.
+:::
 
 ## Assessment you can inspect {#assessment .lund-part data-part="4"}
 
