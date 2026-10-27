@@ -21,6 +21,7 @@ ai-feedback:
 include-after-body:
   - text: |
       <script src="assets/handskrift/js-yaml.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
       <script src="assets/lund/demos.js"></script>
       <script src="assets/handskrift/fyll-inn.js" data-feedback-dir="feedback/handwriting/" data-files="tutor.yml,tasks.yml" data-guide="pages/handwriting-ai-prompts.html"></script>
 ---
@@ -90,6 +91,9 @@ The lecturer knows which one is relevant. **Does the model?**
 :::
 
 ## One problem, one button {#one-button .lund-part .lund-sub data-part="1b"}
+
+::: {#lund-connection}
+:::
 
 ::: {#lund-two-frames}
 :::

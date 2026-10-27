@@ -109,3 +109,6 @@ main.content h4 { font-size: 1.3rem; font-weight: 700; color: inherit; margin-to
 /* Sub-parts (1b, 1c, ...): same badge, lighter divider */
 h2.lund-part.lund-sub, .lund-part.lund-sub > h2 { margin-top: 3rem; border-top: 1px solid #b9d5f5; font-size: 1.8rem; }
 .lund-part.lund-sub[data-part] > h2::before, h2.lund-part.lund-sub[data-part]::before { background: #6ea8ec; }
+.lund-connection { margin: .5rem 0 1rem; padding: .5rem .8rem; border: 1px dashed #adb5bd; border-radius: .5rem; font-size: 1rem; }
+.lund-connection summary { cursor: pointer; color: #6c757d; }
+.lund-connection .form-control { min-width: 16rem; }
