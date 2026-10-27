@@ -105,3 +105,7 @@ main.content h4 { font-size: 1.3rem; font-weight: 700; color: inherit; margin-to
 .lund-space .lund-box.is-near { border-color: #2780e3; background: #eef5fd; }
 .lund-space .lund-box.is-ours { border-color: #1a5fa8; background: #2780e3; color: #fff; }
 .lund-num { display: inline-block; min-width: 2.6rem; margin-right: .6rem; padding: 0 .4rem; border-radius: .4rem; background: #2780e3; color: #fff; font-size: 1rem; text-align: center; vertical-align: .15em; }
+
+/* Sub-parts (1b, 1c, ...): same badge, lighter divider */
+h2.lund-part.lund-sub, .lund-part.lund-sub > h2 { margin-top: 3rem; border-top: 1px solid #b9d5f5; font-size: 1.8rem; }
+.lund-part.lund-sub[data-part] > h2::before, h2.lund-part.lund-sub[data-part]::before { background: #6ea8ec; }

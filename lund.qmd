@@ -69,7 +69,7 @@ Everything else: other books, other conventions, other levels.
 :::
 :::
 
-## The course knows what matters {#course .lund-part data-part="1"}
+## The course knows what matters {#course .lund-part data-part="1a"}
 
 ::: {.lund-big}
 Two derivatives. Both correct mathematics. Which one belongs in **this** course?
@@ -89,22 +89,22 @@ Two derivatives. Both correct mathematics. Which one belongs in **this** course?
 The lecturer knows which one is relevant. **Does the model?**
 :::
 
-### One problem, one button
+## One problem, one button {#one-button .lund-part .lund-sub data-part="1b"}
 
 ::: {#lund-two-frames}
 :::
 
-### Same question, two models
+## Same question, two models {#two-models .lund-part .lund-sub data-part="1c"}
 
 ::: {#lund-two-models}
 :::
 
-### Same models, with the course
+## Same models, with the course {#with-course .lund-part .lund-sub data-part="1d"}
 
 ::: {#lund-course-frame}
 :::
 
-### What we can turn
+## What we can turn {#turn .lund-part .lund-sub data-part="1e"}
 
 ::::: {.lund-steps}
 ::: {.lund-step}
@@ -190,7 +190,7 @@ only a web browser
 
 [Open the course assistant]({{< meta rag-url >}}){.btn .btn-primary .btn-lg .lund-cta target="_blank"}
 
-## One source, two uses {#source .lund-part data-part="3"}
+## One source, two uses {#source .lund-part data-part="3a"}
 
 ::: {.lund-big}
 The lecturers write the course once. Students read it; the assistant reads it too.
@@ -224,7 +224,7 @@ A corrected sign or new notation reaches the website and the assistant together.
 :::
 :::
 
-### Data and its representation
+## Data and its representation {#data .lund-part .lund-sub data-part="3b"}
 
 ::: {.lund-big}
 Write what the mathematics **is**. Let the tools decide how it **looks**.
@@ -264,7 +264,7 @@ Representations of the same data:
 - a passage the assistant reads
 - a printed exam, or next year's new layout
 
-#### PDF: one big soup
+## PDF: one big soup {#pdf .lund-part .lund-sub data-part="3c"}
 
 A PDF keeps only how the page **looks**. Text, formulas, figures and page
 numbers melt into one layer. Copy the text out of our physics practice exam:
@@ -296,7 +296,7 @@ and the guessing step disappears.
 :::
 :::
 
-#### Paper and Python
+## Paper and Python {#paper .lund-part .lund-sub data-part="3d"}
 
 Here we touch a human–machine problem: the same mathematics looks completely
 different on paper and in Python. The ball problem from our practice exam:
@@ -340,7 +340,7 @@ The data lasts; representations change. Keep the border clear,
 and no tool, platform or model owns the course.
 :::
 
-### Many lecturers, one course
+## Many lecturers, one course {#lecturers .lund-part .lund-sub data-part="3e"}
 
 ::: {.lund-history}
 - [Lecturer A]{.who} changes the vector notation in week 3
@@ -366,7 +366,7 @@ to any earlier version, or last year's
 
 [In GitHub's words: commits, pull requests, history.]{.lund-small}
 
-### Open source
+## Open source {#open-source .lund-part .lund-sub data-part="3f"}
 
 ::::: {.lund-steps}
 ::: {.lund-step}
@@ -387,7 +387,7 @@ between courses and between universities
 The course belongs to its lecturers, not to a platform.
 :::
 
-## Assessment: deterministic and stochastic {#assessment .lund-part data-part="4"}
+## Assessment: deterministic and stochastic {#assessment .lund-part data-part="4a"}
 
 ::: {.lund-big}
 We combine two kinds of assessment.
@@ -432,7 +432,7 @@ The check decides what is correct. The AI helps with what comes next.
 
 :::
 
-### With AI, the teacher has to be explicit
+## With AI, the teacher has to be explicit {#prompts .lund-part .lund-sub data-part="4b"}
 
 ::: {.lund-prompts}
 ::: {.lund-card}
