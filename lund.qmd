@@ -250,7 +250,7 @@ flowchart LR
   T(["Lecturers"]) --> Q["The course, as plain text<br/>text · mathematics · code"]
   Q --> W(["Website<br/>for students"])
   Q --> P(["Passages<br/>for the RAG service"])
-  Q --> E(["Printed exam"])
+  Q --> E(["Printed matter"])
   classDef people fill:#eef5fd,stroke:#2780e3
   classDef source fill:#f3f0fa,stroke:#6f42c1
   class T,W,P,E people
@@ -258,7 +258,7 @@ flowchart LR
 ```
 
 ::: {.lund-question}
-Written once, as plain text. The website, the RAG service and the exam are views of it.
+Written once, as plain text. The website, the RAG service and printed matter are views of it.
 There is no AI version of the course.
 :::
 
