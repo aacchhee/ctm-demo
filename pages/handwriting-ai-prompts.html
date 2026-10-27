@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Playing with the prompts – CTM demo</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b6dc9e813fb09d2bbff48e8f9eb94b8d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/ctm-coi-frame-startup-1/coi-frame-startup.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-assets-0.9.0/assets.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-locale-0.9.0/ctm-locale.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-locale-0.9.0/common.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-locale-ui-0.9.0/ui.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-layout-0.9.0/ctm-layout.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-layout-0.9.0/ctm-settings.js"></script>
+<link href="../site_libs/quarto-contrib/ctm-layout-0.9.0/ctm-ui.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/feedback-core.js"></script>
+<script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/feedback-dom.js"></script>
+<script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/ai-feedback.js"></script>
+<link href="../site_libs/quarto-contrib/ai-feedback-0.9.0/ai-feedback.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>globalThis.CTM_ASSETS={"bases":{"font-awesome":"https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/","jsxgraph":"https://cdn.jsdelivr.net/npm/jsxgraph@1.14.2/","katex":"https://cdn.jsdelivr.net/npm/katex@0.16.47/","mathjax-newcm-font":"https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/","mathjax3":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/","mathjax4":"https://cdn.jsdelivr.net/npm/mathjax@4.1.3/","monaco-editor":"https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/","pyodide":"https://cdn.jsdelivr.net/pyodide/v0.28.3/full/","source-sans-pro":"https://cdn.jsdelivr.net/npm/@fontsource/source-sans-pro@5.3.0/"},"mode":"cdn","v":1};</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/handwriting-ai.html">Handwriting and AI</a></li><li class="breadcrumb-item"><a href="../pages/handwriting-ai-prompts.html">Playing with the prompts</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CTM demo</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interactive mathematics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/experiments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Your experiments here</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Similar problems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Examples and code</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems-authoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Authoring guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workflow and phase 2</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/gaussian-elimination.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gaussian elimination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/physics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fysikk</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/fysikk-forkurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fysikk-forkurs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Handwriting and AI</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/handwriting-ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice exam V2025</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/handwriting-ai-prompts.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Playing with the prompts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/handskrift-ki.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prøveeksamen V2025 (bokmål)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/handskrift-ki-prompter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spill med promptene (bokmål)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/bevegelse-ii.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bevegelse II</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/stack-oppgaver.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STACK-oppgaver</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/help.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Help</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#in-short" id="toc-in-short" class="nav-link active" data-scroll-target="#in-short">In short</a></li>
+  <li><a href="#how-the-request-is-put-together" id="toc-how-the-request-is-put-together" class="nav-link" data-scroll-target="#how-the-request-is-put-together">How the request is put together</a></li>
+  <li><a href="#the-prompt-sandbox" id="toc-the-prompt-sandbox" class="nav-link" data-scroll-target="#the-prompt-sandbox">The prompt sandbox</a></li>
+  <li><a href="#feedback-language" id="toc-feedback-language" class="nav-link" data-scroll-target="#feedback-language">Feedback language</a></li>
+  <li><a href="#save-the-change-in-the-repository" id="toc-save-the-change-in-the-repository" class="nav-link" data-scroll-target="#save-the-change-in-the-repository">Save the change in the repository</a></li>
+  <li><a href="#recipes" id="toc-recipes" class="nav-link" data-scroll-target="#recipes">Recipes</a>
+  <ul class="collapse">
+  <li><a href="#switch-policy" id="toc-switch-policy" class="nav-link" data-scroll-target="#switch-policy">Switch policy</a></li>
+  <li><a href="#longer-or-shorter-answers" id="toc-longer-or-shorter-answers" class="nav-link" data-scroll-target="#longer-or-shorter-answers">Longer or shorter answers</a></li>
+  <li><a href="#change-the-hint-ladder" id="toc-change-the-hint-ladder" class="nav-link" data-scroll-target="#change-the-hint-ladder">Change the hint ladder</a></li>
+  <li><a href="#create-a-new-variant" id="toc-create-a-new-variant" class="nav-link" data-scroll-target="#create-a-new-variant">Create a new variant</a></li>
+  <li><a href="#change-what-the-ai-knows-about-one-subtask" id="toc-change-what-the-ai-knows-about-one-subtask" class="nav-link" data-scroll-target="#change-what-the-ai-knows-about-one-subtask">Change what the AI knows about one subtask</a></li>
+  <li><a href="#add-an-answer" id="toc-add-an-answer" class="nav-link" data-scroll-target="#add-an-answer">Add an answer</a></li>
+  </ul></li>
+  <li><a href="#yaml-pitfalls" id="toc-yaml-pitfalls" class="nav-link" data-scroll-target="#yaml-pitfalls">YAML pitfalls</a></li>
+  <li><a href="#benchmark-routine" id="toc-benchmark-routine" class="nav-link" data-scroll-target="#benchmark-routine">Benchmark routine</a></li>
+  <li><a href="#provider-and-model" id="toc-provider-and-model" class="nav-link" data-scroll-target="#provider-and-model">Provider and model</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<script>window.__aiFeedbackPolicies = {"layers":[],"pageLayers":[]};</script>
+<script>window.__aiFeedbackConfig = {"baseUrl":"","mode":"api","model":""};</script>
+<script>window.__mathExerciseConfig = {"lang":"en","stopAfter":20};</script>
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/handwriting-ai.html">Handwriting and AI</a></li><li class="breadcrumb-item"><a href="../pages/handwriting-ai-prompts.html">Playing with the prompts</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Playing with the prompts</h1>
+<p class="subtitle lead">For teachers: how to change the AI feedback on the Handwriting and AI page</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="language-switch">
+<p>🌐 <strong>English</strong> · <a href="../pages/handskrift-ki-prompter.html">Norsk bokmål</a></p>
+</div>
+<section id="in-short" class="level2">
+<h2 class="anchored" data-anchor-id="in-short">In short</h2>
+<p>All text the AI gets from us is in two YAML files in the repository:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Controls</th>
+<th>Example of a change</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://github.com/aacchhee/ctm-demo/blob/main/feedback/handwriting/tutor.yml"><code>feedback/handwriting/tutor.yml</code></a></td>
+<td><strong>How</strong> the AI answers, the same for every subtask: role, tone, structure, length and the four-level hint ladder</td>
+<td>“Be shorter”, “ask more”, “level 4 should also give exam tips”</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/aacchhee/ctm-demo/blob/main/feedback/handwriting/tasks.yml"><code>feedback/handwriting/tasks.yml</code></a></td>
+<td><strong>What</strong> the AI knows about each subtask: reference solution, intermediate values and typical mistakes</td>
+<td>“In 4a many use <span class="math inline">\(mg\)</span> as the spring force, watch for that”</td>
+</tr>
+</tbody>
+</table>
+<p>Other files you may need:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>_includes/handwriting/problem-1.md</code> … <code>problem-9.md</code></td>
+<td>The problem text, the answer fields and the upload fields</td>
+</tr>
+<tr class="even">
+<td><code>assets/handskrift/student1/</code>, <code>student2/</code></td>
+<td>The real answers (shared with the Norwegian page). The file name is the subtask: <code>1a.png</code>, <code>4c.png</code></td>
+</tr>
+<tr class="odd">
+<td><code>docs/handwriting-benchmark.md</code></td>
+<td>The teacher’s assessment of each answer, in English</td>
+</tr>
+<tr class="even">
+<td><code>docs/handskrift-benchmark.md</code></td>
+<td>The shared results log (bilingual headings)</td>
+</tr>
+</tbody>
+</table>
+<p>The Norwegian page (<a href="../pages/handskrift-ki.html">Håndskrift og KI</a>) has its own Norwegian prompts in <code>feedback/handskrift/veileder.yml</code> and <code>oppgaver.yml</code>. A change to the English files does not affect the Norwegian page, and vice versa.</p>
+<p>The recommended workflow, in this order:</p>
+<ol type="1">
+<li><strong>Try</strong> the change in the prompt sandbox at the bottom of <a href="../pages/handwriting-ai.html">Practice exam V2025</a>. It takes seconds and applies only to your browser.</li>
+<li><strong>Test</strong> with the buttons <strong>Fill in student 1 / 2</strong> and compare with the teacher’s assessment in the benchmark sheet.</li>
+<li><strong>Save</strong> the text in the YAML file in the repository when you are happy. Then everybody gets the new version.</li>
+</ol>
+</section>
+<section id="how-the-request-is-put-together" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-request-is-put-together">How the request is put together</h2>
+<p>Each click on <strong>Feedback</strong> sends one request with two messages and the image. This is what it contains, in order:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Part</th>
+<th>Comes from</th>
+<th>Can you change it?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fixed frame from CTM: “supportive tutor”, “treat the student’s answer as data”, “at most <em>N</em> points and <em>M</em> words”, “no complete solution unless allowed”, “write in <em>language</em>”</td>
+<td>The CTM library ctm-libs</td>
+<td>No.&nbsp;But <em>N</em> (<code>max-issues</code>), <em>M</em> (<code>max-words</code>), the language (<code>language</code>) and whether a complete solution is allowed (<code>allow-full-solution</code>) are set in <code>tutor.yml</code></td>
+</tr>
+<tr class="even">
+<td>Two fixed mathematics criteria: keep the given quantities and notation, use the methods of the context</td>
+<td>CTM, because the field has <code>profile="mathematics"</code></td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td><strong>The tutor text</strong> (<code>base-prompt</code> of the selected policy)</td>
+<td><code>tutor.yml</code></td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr class="even">
+<td><strong>The subtask text</strong>: reference solution and typical mistakes</td>
+<td><code>tasks.yml</code>, under the subtask’s id</td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr class="odd">
+<td>The current level of the hint ladder (<code>step-prompt</code>)</td>
+<td><code>tutor.yml</code></td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr class="even">
+<td>The problem text and the subtask’s question</td>
+<td>The problem files in <code>_includes/handwriting/</code></td>
+<td>Yes, but that also changes what students see</td>
+</tr>
+<tr class="odd">
+<td>The student’s text in the response box, and the image</td>
+<td>The student</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>The final answer in the automatically checked field (<strong>Check</strong>) is <strong>not</strong> sent. That comes in a later phase.</p>
+<p>Want to see exactly what is sent? Open the gear ⚙, choose the mode that copies the prompt, and choose <strong>Feedback</strong>. The whole text is then shown instead of an answer from the AI.</p>
+</section>
+<section id="the-prompt-sandbox" class="level2">
+<h2 class="anchored" data-anchor-id="the-prompt-sandbox">The prompt sandbox</h2>
+<p>At the bottom of <a href="../pages/handwriting-ai.html">Practice exam V2025</a> is <strong>Prompt sandbox (for teachers)</strong>:</p>
+<ul>
+<li>The two text boxes hold <code>tutor.yml</code> and <code>tasks.yml</code> as they are in the repository. Edit freely.</li>
+<li><strong>Active policy</strong> chooses which policy from <code>tutor.yml</code> is used.</li>
+<li><strong>Use in this browser</strong> checks the YAML and applies it at once. If something is wrong, you get the error message and nothing changes. A notice at the top of the page shows that sandbox prompts are active.</li>
+<li><strong>What the AI is told about a subtask</strong> shows the instructions and the hint ladder exactly as they end up for the chosen subtask.</li>
+<li><strong>Copy tutor.yml / tasks.yml</strong> copies the text, ready to paste into the repository.</li>
+<li><strong>Reset to the repository version</strong> removes the sandbox changes.</li>
+</ul>
+<p>The sandbox is saved in your browser (localStorage), separately for the English and the Norwegian page. It does not go away by itself, so remember to reset when you are done. Nobody else ever sees your sandbox.</p>
+</section>
+<section id="feedback-language" class="level2">
+<h2 class="anchored" data-anchor-id="feedback-language">Feedback language</h2>
+<p>Next to each upload field is the menu <strong>Feedback language</strong> (English, Norwegian Bokmål, Swedish, Spanish, Russian, German). It changes the language the AI answers in for that subtask only, so you can compare the quality in different languages with the same answer. The prompts stay the same; only the language in “write in <em>language</em>” and <code>language</code> change. The choice is saved in your browser, and the hint ladder for that subtask starts again when you switch.</p>
+<p>The default language is <code>language</code> in <code>tutor.yml</code>. To give one subtask another language for everybody, set <code>language</code> on the subtask in <code>tasks.yml</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-ai-feedback-context="Feedback language
+Next to each upload field is the menu Feedback language (English, Norwegian Bokmål, Swedish, Spanish, Russian, German). It changes the language the AI answers in for that subtask only, so you can compare the quality in different languages with the same answer. The prompts stay the same; only the language in “write in language” and language change. The choice is saved in your browser, and the hint ladder for that subtask starts again when you switch.
+The default language is language in tutor.yml. To give one subtask another language for everybody, set language on the subtask in tasks.yml:"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">v25-4a</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">language</span><span class="kw">:</span><span class="at"> Swedish</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">        base-prompt</span><span class="kw">: </span><span class="ch">&gt;-</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>          ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="save-the-change-in-the-repository" class="level2">
+<h2 class="anchored" data-anchor-id="save-the-change-in-the-repository">Save the change in the repository</h2>
+<p>Without your own Quarto installation:</p>
+<ol type="1">
+<li>Open the file on GitHub, for example <a href="https://github.com/aacchhee/ctm-demo/blob/main/feedback/handwriting/tutor.yml"><code>tutor.yml</code></a>, and choose the pencil (<strong>Edit this file</strong>).</li>
+<li>Paste the text from the sandbox, or make the change directly.</li>
+<li>Choose <strong>Commit changes</strong>. Write briefly what you changed and why, for example “4a: warn about mg as the spring force”. Either save straight to <code>main</code>, or create a branch with a pull request if someone should review first.</li>
+<li>Once the change is in <code>main</code>, GitHub Actions rebuilds and publishes the site. That takes a few minutes. A pull request is built and checked, but not published until it is merged.</li>
+</ol>
+<p>The build stops if the YAML is invalid or has an unknown key. The error message is in the log under <strong>Actions</strong>. So always try in the sandbox first; it runs the same checks.</p>
+<p>With Quarto installed locally (see <a href="../pages/help.html">Help</a>): <code>quarto preview pages/handwriting-ai.qmd</code> shows the change as soon as you save the file.</p>
+</section>
+<section id="recipes" class="level2">
+<h2 class="anchored" data-anchor-id="recipes">Recipes</h2>
+<section id="switch-policy" class="level3">
+<h3 class="anchored" data-anchor-id="switch-policy">Switch policy</h3>
+<p>The page uses the policy selected in the front matter of <code>pages/handwriting-ai.qmd</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-ai-feedback-context="Switch policy
+The page uses the policy selected in the front matter of pages/handwriting-ai.qmd:"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ai-feedback</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">policy</span><span class="kw">:</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">default</span><span class="kw">:</span><span class="at"> handwriting</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>tutor.yml</code> has three ready-made policies:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Policy</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>handwriting</code></td>
+<td>Default. Four levels: assessment → explanation → method → worked solution</td>
+</tr>
+<tr class="even">
+<td><code>handwriting-with-transcript</code></td>
+<td>Like the default, but the AI first writes <strong>How I read your work</strong>. Useful to see whether bad answers come from misreading the handwriting</td>
+</tr>
+<tr class="odd">
+<td><code>handwriting-review</code></td>
+<td>One complete review on every click: good / mistakes and gaps / what to change</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="longer-or-shorter-answers" class="level3">
+<h3 class="anchored" data-anchor-id="longer-or-shorter-answers">Longer or shorter answers</h3>
+<p>Change <code>max-words</code> (20–2000) and <code>max-issues</code> (1–20) in the policy. A level can have its own <code>max-words</code>, as level 4 does:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-ai-feedback-context="Longer or shorter answers
+Change max-words (20–2000) and max-issues (1–20) in the policy. A level can have its own max-words, as level 4 does:"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">handwriting</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max-words</span><span class="kw">:</span><span class="at"> </span><span class="dv">250</span><span class="co">        # levels 1–3</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">        ...</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">        - </span><span class="fu">step-prompt</span><span class="kw">:</span><span class="at"> </span><span class="ch">&gt;-</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            Level 4, worked solution. ...</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">allow-full-solution</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">max-words</span><span class="kw">:</span><span class="at"> </span><span class="dv">450</span><span class="co">    # level 4 only</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="change-the-hint-ladder" class="level3">
+<h3 class="anchored" data-anchor-id="change-the-hint-ladder">Change the hint ladder</h3>
+<p><code>steps</code> is the list of levels. Each click on <strong>Feedback</strong> goes one level up, and the last level repeats. You can have 1–20 levels. <code>steps: []</code> gives no levels, just one review following the tutor text. If you replace the list in a policy that inherits (<code>extends</code>), the whole list is replaced; levels are not merged.</p>
+</section>
+<section id="create-a-new-variant" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-new-variant">Create a new variant</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-ai-feedback-context="Create a new variant"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">handwriting-strict</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">extends</span><span class="kw">:</span><span class="at"> handwriting</span><span class="co">  # inherits everything it does not set itself</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max-issues</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">      base-prompt</span><span class="kw">: </span><span class="ch">&gt;-</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        (the whole tutor text, with your changes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>base-prompt</code> and <code>steps</code> <strong>replace</strong> the parent’s text; they are not added to it. A variant with its own <code>base-prompt</code> must therefore hold the whole tutor text.</p>
+</section>
+<section id="change-what-the-ai-knows-about-one-subtask" class="level3">
+<h3 class="anchored" data-anchor-id="change-what-the-ai-knows-about-one-subtask">Change what the AI knows about one subtask</h3>
+<p>Edit the subtask in <code>tasks.yml</code>. The ids are <code>v25-</code> + problem and letter: <code>v25-1a</code>, <code>v25-4c</code>, <code>v25-9b</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-ai-feedback-context="Change what the AI knows about one subtask
+Edit the subtask in tasks.yml. The ids are v25- + problem and letter: v25-1a, v25-4c, v25-9b."><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ai-feedback</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">exercises</span><span class="kw">:</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">plain-text</span><span class="kw">:</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">v25-4a</span><span class="kw">:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">        base-prompt</span><span class="kw">: </span><span class="ch">&gt;-</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>          Reference: ... Typical mistakes: ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A subtask can also get its own settings, for example shorter answers:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-ai-feedback-context="Change what the AI knows about one subtask
+Edit the subtask in tasks.yml. The ids are v25- + problem and letter: v25-1a, v25-4c, v25-9b.
+A subtask can also get its own settings, for example shorter answers:"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">v25-6c</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">max-words</span><span class="kw">:</span><span class="at"> </span><span class="dv">150</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">        base-prompt</span><span class="kw">: </span><span class="ch">&gt;-</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>          ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Do not write anything in <code>tasks.yml</code> that students must not see: the file is published with the page.</p>
+</section>
+<section id="add-an-answer" class="level3">
+<h3 class="anchored" data-anchor-id="add-an-answer">Add an answer</h3>
+<p>Put a photo in <code>assets/handskrift/student1/</code> or <code>student2/</code> named after the subtask (<code>1b.png</code>). If one subtask has several photos, they are called <code>1b.png</code>, <code>1b-2.png</code> and <code>1b-3.png</code>. The fill-in button finds the photo automatically, on both pages. The final values filled into the answer fields are in the table <code>ANSWERS</code> at the top of <code>assets/handskrift/fyll-inn.js</code>. Write the teacher’s assessment in <code>docs/handwriting-benchmark.md</code>.</p>
+</section>
+</section>
+<section id="yaml-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="yaml-pitfalls">YAML pitfalls</h2>
+<ul>
+<li><code>&gt;-</code> after a key means “one running text over several lines”. All lines must have the <strong>same indentation</strong>, and more than the key.</li>
+<li>Use spaces, never tabs.</li>
+<li>Without <code>&gt;-</code>, text containing <code>:</code> or <code>#</code> must be in quotes.</li>
+<li>Unknown keys (for example <code>max-word</code>) give an error, both in the sandbox and in the build. That is on purpose.</li>
+<li>Keys that look like secrets (<code>api-key</code>, <code>token</code>, <code>key</code>) stop the build. API keys never belong in the repository.</li>
+</ul>
+</section>
+<section id="benchmark-routine" class="level2">
+<h2 class="anchored" data-anchor-id="benchmark-routine">Benchmark routine</h2>
+<p>For each answer in the benchmark sheet:</p>
+<ol type="1">
+<li>Choose the policy, language and any sandbox changes, and note the model you use.</li>
+<li><strong>Fill in student N</strong> → <strong>Feedback</strong> four times (every level).</li>
+<li>Compare with the teacher’s assessment. Did the AI read the image correctly? Did it find the mistake? Did it invent mistakes that are not there? Did it give the answer away too early? Was level 4 correct?</li>
+<li>Note the result in the log in <code>docs/handskrift-benchmark.md</code>.</li>
+</ol>
+</section>
+<section id="provider-and-model" class="level2">
+<h2 class="anchored" data-anchor-id="provider-and-model">Provider and model</h2>
+<p>Each user enters the address, key and model under the gear ⚙. The model <strong>must be able to read images</strong>, and the provider must allow calls straight from the browser. Without a key, you can use the mode that copies the prompt: the page then shows the prompt and the image, which you paste into an AI chat.</p>
+
+
+<!--ctm-layout-generated--><span id="ctm-layout-ready" hidden=""></span>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/aacchhee\.github\.io\/ctm-demo\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -158,7 +158,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Slå av eller på sidebarnavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/handskrift-ki.html">Håndskrift og KI</a></li><li class="breadcrumb-item"><a href="../pages/handskrift-ki-prompter.html">Spill med promptene</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/handwriting-ai.html">Handwriting and AI</a></li><li class="breadcrumb-item"><a href="../pages/handskrift-ki-prompter.html">Spill med promptene (bokmål)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Slå av eller på sidebarnavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Søk" onclick="window.quartoOpenSearch();">
@@ -245,7 +245,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Håndskrift og KI</span></a>
+ <span class="menu-text">Handwriting and AI</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Slå på delen">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -253,14 +253,26 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../pages/handwriting-ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice exam V2025</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/handwriting-ai-prompts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Playing with the prompts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../pages/handskrift-ki.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prøveeksamen V2025</span></a>
+ <span class="menu-text">Prøveeksamen V2025 (bokmål)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../pages/handskrift-ki-prompter.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Spill med promptene</span></a>
+ <span class="menu-text">Spill med promptene (bokmål)</span></a>
   </div>
 </li>
       </ul>
@@ -296,6 +308,7 @@ window.Quarto = {
   <li><a href="#kort-fortalt" id="toc-kort-fortalt" class="nav-link active" data-scroll-target="#kort-fortalt">Kort fortalt</a></li>
   <li><a href="#slik-settes-forespørselen-sammen" id="toc-slik-settes-forespørselen-sammen" class="nav-link" data-scroll-target="#slik-settes-forespørselen-sammen">Slik settes forespørselen sammen</a></li>
   <li><a href="#prompt-sandkassen" id="toc-prompt-sandkassen" class="nav-link" data-scroll-target="#prompt-sandkassen">Prompt-sandkassen</a></li>
+  <li><a href="#tilbakemeldingsspråk" id="toc-tilbakemeldingsspråk" class="nav-link" data-scroll-target="#tilbakemeldingsspråk">Tilbakemeldingsspråk</a></li>
   <li><a href="#lagre-endringen-i-repoet" id="toc-lagre-endringen-i-repoet" class="nav-link" data-scroll-target="#lagre-endringen-i-repoet">Lagre endringen i repoet</a></li>
   <li><a href="#oppskrifter" id="toc-oppskrifter" class="nav-link" data-scroll-target="#oppskrifter">Oppskrifter</a>
   <ul class="collapse">
@@ -318,7 +331,7 @@ window.Quarto = {
 <script>window.__aiFeedbackConfig = {"baseUrl":"","mode":"api","model":""};</script>
 <script>window.__mathExerciseConfig = {"lang":"nb","stopAfter":20};</script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/handskrift-ki.html">Håndskrift og KI</a></li><li class="breadcrumb-item"><a href="../pages/handskrift-ki-prompter.html">Spill med promptene</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/handwriting-ai.html">Handwriting and AI</a></li><li class="breadcrumb-item"><a href="../pages/handskrift-ki-prompter.html">Spill med promptene (bokmål)</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Spill med promptene</h1>
 <p class="subtitle lead">For lærere: slik endrer du KI-tilbakemeldingen på siden Håndskrift og KI</p>
@@ -338,6 +351,9 @@ window.Quarto = {
 </header>
 
 
+<div class="language-switch">
+<p>🌐 <a href="../pages/handwriting-ai-prompts.html">English</a> · <strong>Norsk bokmål</strong></p>
+</div>
 <section id="kort-fortalt" class="level2">
 <h2 class="anchored" data-anchor-id="kort-fortalt">Kort fortalt</h2>
 <p>All tekst KI-en får fra oss, ligger i to YAML-filer i repoet:</p>
@@ -389,6 +405,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+<p>Den engelske siden (<a href="../pages/handwriting-ai.html">Handwriting and AI</a>) har sine egne, engelske prompter i <code>feedback/handwriting/tutor.yml</code> og <code>tasks.yml</code>. En endring i de norske filene påvirker ikke den engelske siden, og omvendt.</p>
 <p>Arbeidsflyten anbefales i denne rekkefølgen:</p>
 <ol type="1">
 <li><strong>Prøv</strong> endringen i prompt-sandkassen nederst på <a href="../pages/handskrift-ki.html">Prøveeksamen V2025</a>. Det tar sekunder og gjelder bare din nettleser.</li>
@@ -466,6 +483,17 @@ window.Quarto = {
 </ul>
 <p>Sandkassen lagres i nettleseren din (localStorage). Den forsvinner ikke av seg selv, så husk å tilbakestille når du er ferdig. Andre ser aldri sandkassen din.</p>
 </section>
+<section id="tilbakemeldingsspråk" class="level2">
+<h2 class="anchored" data-anchor-id="tilbakemeldingsspråk">Tilbakemeldingsspråk</h2>
+<p>Ved hvert opplastingsfelt er menyen <strong>Språk for tilbakemeldingen</strong> (engelsk, norsk bokmål, svensk, spansk, russisk, tysk). Den bytter språket KI-en svarer på for akkurat den deloppgaven, så du kan sammenligne kvaliteten på ulike språk med samme besvarelse. Promptene er de samme; bare språket i «skriv på <em>språk</em>» og <code>language</code> endres. Valget lagres i nettleseren din, og hintstigen for den deloppgaven starter på nytt når du bytter.</p>
+<p>Standardspråket er <code>language</code> i <code>veileder.yml</code>. Skal én deloppgave alltid ha et annet språk for alle, setter du <code>language</code> på deloppgaven i <code>oppgaver.yml</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-ai-feedback-context="Tilbakemeldingsspråk
+Ved hvert opplastingsfelt er menyen Språk for tilbakemeldingen (engelsk, norsk bokmål, svensk, spansk, russisk, tysk). Den bytter språket KI-en svarer på for akkurat den deloppgaven, så du kan sammenligne kvaliteten på ulike språk med samme besvarelse. Promptene er de samme; bare språket i «skriv på språk» og language endres. Valget lagres i nettleseren din, og hintstigen for den deloppgaven starter på nytt når du bytter.
+Standardspråket er language i veileder.yml. Skal én deloppgave alltid ha et annet språk for alle, setter du language på deloppgaven i oppgaver.yml:"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">v25-4a</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">language</span><span class="kw">:</span><span class="at"> Swedish</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">        base-prompt</span><span class="kw">: </span><span class="ch">&gt;-</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>          ...</span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
 <section id="lagre-endringen-i-repoet" class="level2">
 <h2 class="anchored" data-anchor-id="lagre-endringen-i-repoet">Lagre endringen i repoet</h2>
 <p>Uten egen Quarto-installasjon:</p>
@@ -483,10 +511,10 @@ window.Quarto = {
 <section id="bytt-policy" class="level3">
 <h3 class="anchored" data-anchor-id="bytt-policy">Bytt policy</h3>
 <p>Siden bruker policyen som er valgt i front matter i <code>pages/handskrift-ki.qmd</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-ai-feedback-context="Bytt policy
-Siden bruker policyen som er valgt i front matter i pages/handskrift-ki.qmd:"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ai-feedback</span><span class="kw">:</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">policy</span><span class="kw">:</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">default</span><span class="kw">:</span><span class="at"> handskrift</span></span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-ai-feedback-context="Bytt policy
+Siden bruker policyen som er valgt i front matter i pages/handskrift-ki.qmd:"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ai-feedback</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">policy</span><span class="kw">:</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">default</span><span class="kw">:</span><span class="at"> handskrift</span></span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>veileder.yml</code> har tre ferdige policyer:</p>
 <table class="caption-top table">
 <colgroup>
@@ -518,15 +546,15 @@ Siden bruker policyen som er valgt i front matter i pages/handskrift-ki.qmd:"><p
 <section id="lengre-eller-kortere-svar" class="level3">
 <h3 class="anchored" data-anchor-id="lengre-eller-kortere-svar">Lengre eller kortere svar</h3>
 <p>Endre <code>max-words</code> (20–2000) og <code>max-issues</code> (1–20) i policyen. Et nivå kan ha sin egen <code>max-words</code>, slik nivå 4 har:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-ai-feedback-context="Lengre eller kortere svar
-Endre max-words (20–2000) og max-issues (1–20) i policyen. Et nivå kan ha sin egen max-words, slik nivå 4 har:"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">handskrift</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max-words</span><span class="kw">:</span><span class="at"> </span><span class="dv">250</span><span class="co">          # nivå 1–3</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">        ...</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">        - </span><span class="fu">step-prompt</span><span class="kw">:</span><span class="at"> </span><span class="ch">&gt;-</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            Nivå 4, løsningsforslag. ...</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">allow-full-solution</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">max-words</span><span class="kw">:</span><span class="at"> </span><span class="dv">450</span><span class="co">      # bare nivå 4</span></span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-ai-feedback-context="Lengre eller kortere svar
+Endre max-words (20–2000) og max-issues (1–20) i policyen. Et nivå kan ha sin egen max-words, slik nivå 4 har:"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">handskrift</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max-words</span><span class="kw">:</span><span class="at"> </span><span class="dv">250</span><span class="co">          # nivå 1–3</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">        ...</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">        - </span><span class="fu">step-prompt</span><span class="kw">:</span><span class="at"> </span><span class="ch">&gt;-</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            Nivå 4, løsningsforslag. ...</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">allow-full-solution</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">max-words</span><span class="kw">:</span><span class="at"> </span><span class="dv">450</span><span class="co">      # bare nivå 4</span></span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="endre-hintstigen" class="level3">
 <h3 class="anchored" data-anchor-id="endre-hintstigen">Endre hintstigen</h3>
@@ -534,30 +562,30 @@ Endre max-words (20–2000) og max-issues (1–20) i policyen. Et nivå kan ha s
 </section>
 <section id="lag-en-ny-variant" class="level3">
 <h3 class="anchored" data-anchor-id="lag-en-ny-variant">Lag en ny variant</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-ai-feedback-context="Lag en ny variant"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">handskrift-streng</span><span class="kw">:</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">extends</span><span class="kw">:</span><span class="at"> handskrift</span><span class="co">     # arver alt den ikke setter selv</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max-issues</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">      base-prompt</span><span class="kw">: </span><span class="ch">&gt;-</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        (hele veilederteksten, med dine endringer)</span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-ai-feedback-context="Lag en ny variant"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">handskrift-streng</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">extends</span><span class="kw">:</span><span class="at"> handskrift</span><span class="co">     # arver alt den ikke setter selv</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max-issues</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">      base-prompt</span><span class="kw">: </span><span class="ch">&gt;-</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        (hele veilederteksten, med dine endringer)</span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>base-prompt</code> og <code>steps</code> <strong>erstatter</strong> foreldrens tekst; de legges ikke til. En variant med egen <code>base-prompt</code> må derfor inneholde hele veilederteksten.</p>
 </section>
 <section id="endre-det-ki-en-vet-om-én-deloppgave" class="level3">
 <h3 class="anchored" data-anchor-id="endre-det-ki-en-vet-om-én-deloppgave">Endre det KI-en vet om én deloppgave</h3>
 <p>Rediger deloppgaven i <code>oppgaver.yml</code>. Id-ene er <code>v25-</code> + oppgave og bokstav: <code>v25-1a</code>, <code>v25-4c</code>, <code>v25-9b</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-ai-feedback-context="Endre det KI-en vet om én deloppgave
-Rediger deloppgaven i oppgaver.yml. Id-ene er v25- + oppgave og bokstav: v25-1a, v25-4c, v25-9b."><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ai-feedback</span><span class="kw">:</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">exercises</span><span class="kw">:</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">plain-text</span><span class="kw">:</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">v25-4a</span><span class="kw">:</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">        base-prompt</span><span class="kw">: </span><span class="ch">&gt;-</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>          Fasit: ... Typiske feil: ...</span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
-<p>En deloppgave kan også få egne innstillinger, for eksempel tillate fullstendig løsning fra nivå 1 eller kortere svar:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-ai-feedback-context="Endre det KI-en vet om én deloppgave
+Rediger deloppgaven i oppgaver.yml. Id-ene er v25- + oppgave og bokstav: v25-1a, v25-4c, v25-9b."><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ai-feedback</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">exercises</span><span class="kw">:</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">plain-text</span><span class="kw">:</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">v25-4a</span><span class="kw">:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">        base-prompt</span><span class="kw">: </span><span class="ch">&gt;-</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>          Fasit: ... Typiske feil: ...</span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
+<p>En deloppgave kan også få egne innstillinger, for eksempel tillate fullstendig løsning fra nivå 1 eller kortere svar:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-ai-feedback-context="Endre det KI-en vet om én deloppgave
 Rediger deloppgaven i oppgaver.yml. Id-ene er v25- + oppgave og bokstav: v25-1a, v25-4c, v25-9b.
-En deloppgave kan også få egne innstillinger, for eksempel tillate fullstendig løsning fra nivå 1 eller kortere svar:"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">v25-6c</span><span class="kw">:</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">max-words</span><span class="kw">:</span><span class="at"> </span><span class="dv">150</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">        base-prompt</span><span class="kw">: </span><span class="ch">&gt;-</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>          ...</span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
+En deloppgave kan også få egne innstillinger, for eksempel tillate fullstendig løsning fra nivå 1 eller kortere svar:"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">v25-6c</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">max-words</span><span class="kw">:</span><span class="at"> </span><span class="dv">150</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">        base-prompt</span><span class="kw">: </span><span class="ch">&gt;-</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>          ...</span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Skriv ikke noe i <code>oppgaver.yml</code> som studentene ikke får se: filen publiseres sammen med siden.</p>
 </section>
 <section id="legg-til-en-besvarelse" class="level3">
@@ -579,7 +607,7 @@ En deloppgave kan også få egne innstillinger, for eksempel tillate fullstendig
 <h2 class="anchored" data-anchor-id="benchmark-rutine">Benchmark-rutine</h2>
 <p>For hver besvarelse i benchmark-arket:</p>
 <ol type="1">
-<li>Velg policy og eventuelle sandkasse-endringer, og skriv ned modellen du bruker.</li>
+<li>Velg policy, språk og eventuelle sandkasse-endringer, og skriv ned modellen du bruker.</li>
 <li><strong>Fyll inn student N</strong> → <strong>Tilbakemelding</strong> fire ganger (alle nivåer).</li>
 <li>Sammenlign med lærerens vurdering. Leste KI-en bildet riktig? Fant den feilen? Fant den på feil som ikke finnes? Røpet den svaret for tidlig? Var nivå 4 riktig?</li>
 <li>Noter resultatet i loggen i <code>docs/handskrift-benchmark.md</code>.</li>
