@@ -543,9 +543,9 @@ How it matches what **this** learner finds hard is an open question.
 ## The point {#point .lund-part}
 
 ::: {.lund-takeaways}
-- **Define the course.** Model and prompt are settings; the course is the frame.
-- **Let the model read it.** RAG puts our pages in front of the model.
-- **Write data, not looks.** One plain source, many lecturers, many representations.
-- **Check, then help.** The check decides; the AI suggests, with the teacher's prompts.
-- **Trade with open eyes.** Generated practice is richer, and less controlled.
+- [0–1]{.lund-num} Model and prompt are settings. **The course** we have to define.
+- [2]{.lund-num} **Let the model read the course**: inside first, outside clearly labelled.
+- [3]{.lund-num} **The data lasts**; representations change.
+- [4]{.lund-num} **The check decides** what is correct; the AI helps with what comes next.
+- [5]{.lund-num} We **give away control** in exchange for a richer problem space.
 :::
