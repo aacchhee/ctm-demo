@@ -389,7 +389,14 @@ students put those skills together; AI or anything else allowed, but they explai
 
 ::: {.lund-big}
 Here we focus on the small chunks: the core, basic skills.
-For those we combine two kinds of assessment.
+:::
+
+::: {.lund-question}
+Online, this assessment is **formative**: it helps students through a constructive struggle.
+:::
+
+::: {.lund-big}
+For that we combine two kinds of assessment.
 :::
 
 ::: {.lund-cols}
