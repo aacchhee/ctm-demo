@@ -119,7 +119,18 @@
       if (/^on/i.test(a.name) || /^\s*javascript:/i.test(a.value)) n.removeAttribute(a.name);
     }));
   }
+  // Models sometimes indent plain lines by four spaces, which Markdown would show
+  // as code. Outside ``` fences, cut such indentation to three spaces.
+  function dedent(text) {
+    let fenced = false;
+    return String(text).split('\n').map(line => {
+      if (/^\s*(```|~~~)/.test(line)) { fenced = !fenced; return line; }
+      return fenced ? line : line.replace(/^(?: {4,}|\t+ *)(?=\S)/, '   ');
+    }).join('\n');
+  }
+
   async function showMarkdown(node, text) {
+    text = dedent(text);
     const math = [];
     const keep = (tex, display) => { math.push(display ? '\\[' + tex + '\\]' : '\\(' + tex + '\\)'); return 'LUNDMATH' + (math.length - 1) + 'X'; };
     const source = String(text)
