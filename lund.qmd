@@ -562,5 +562,14 @@ How it matches what **this** learner finds hard is an open question.
 :::
 
 ::: {.lund-big}
+Universities need to take ownership.
+:::
+
+::: {.lund-question}
+The real problem is not "get the best feedback". It is a constrained optimisation:
+**good enough feedback, with low electricity and hardware bills**.
+:::
+
+::: {.lund-big}
 The course, written down, is the frame for productive AI.
 :::
