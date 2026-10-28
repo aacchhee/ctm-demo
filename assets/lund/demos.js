@@ -6,7 +6,7 @@
 //
 //   #lund-connection   API base URL, key, "Fetch models"
 //   #lund-two-frames   1b: one problem, one model, two hidden system prompts
-//   #lund-two-models   1c: prompt A from 1b on a small and a large model
+//   #lund-two-models   1c: the rectangle or two lines in space, on a small and a large model
 //   #lund-html-monster 3a: the page's own HTML for the course exercise in part 5
 (function () {
   'use strict';
@@ -32,7 +32,7 @@
   // Answer length and waiting time per demo.
   const LIMITS = {
     frames: [{maxTokens: 4000, timeoutMs: 120000}, {maxTokens: 8000, timeoutMs: 180000}],
-    models: {maxTokens: 8000, timeoutMs: 180000}
+    models: {maxTokens: 12000, timeoutMs: 180000}
   };
 
   const CONNECTION_KEY = 'lund-connection-v1';
@@ -73,6 +73,29 @@
     }
   ];
 
+  // ------------------------------------------------------------ 1c prompts
+
+  // Directions in space: several steps and fractions, so models differ.
+  // Answer: distance 2, attained at (10/3, 14/3, 20/3) on L1 and (14/3, 10/3, 22/3) on L2.
+  const LINES = {
+    text: 'Two lines in space are $L_1:\\ (1,0,2)+t\\,(1,2,2)$ and $L_2:\\ (4,3,8)+s\\,(2,1,-2)$. ' +
+      'Find the shortest distance between them, and the point on each line where it is attained.',
+    ask: 'End your answer with one line: Final answer: <the shortest distance>',
+    answer: 2
+  };
+
+  const LINES_FRAME = [
+    'You are a teaching assistant in a first-year engineering mathematics course, linear algebra.',
+    'Answer using the methods in the course passages below, in at most twelve short lines.',
+    'Write mathematics in LaTeX between $ signs.',
+    '',
+    'Course passages:',
+    '[S1] Lines. A line is a point plus a parameter times a direction vector.',
+    '[S2] Common normal. The cross product $u\\times v$ is orthogonal to both directions $u$ and $v$.',
+    '[S3] Distance. Project the vector between a point on each line onto the common normal: $|w\\cdot n|/|n|$.',
+    '[S4] Closest points. The connecting vector of the closest points is orthogonal to both directions.'
+  ].join('\n');
+
   // --------------------------------------------------------------- helpers
 
   function el(tag, cls, text) {
@@ -108,6 +131,20 @@
     sanitize(node);
     try { if (window.MathJax?.typesetPromise) await window.MathJax.typesetPromise([node]); }
     catch (error) { console.warn('lund demos: keeping readable TeX.', error); }
+  }
+
+  // The value on the last "Final answer:" line: an integer, a decimal, a/b or \frac{a}{b}.
+  function finalValue(text) {
+    const line = [...String(text).matchAll(/final answer\s*[:：]\s*(.+)/gi)].pop();
+    if (!line) return null;
+    const s = line[1].replace(/[*$]/g, '').replace(/\\[dt]?frac\s*\{\s*([^{}]+?)\s*\}\s*\{\s*([^{}]+?)\s*\}/g, '$1/$2');
+    const m = s.match(/(-?\d+(?:\.\d+)?)(?:\s*\/\s*(\d+(?:\.\d+)?))?/);
+    if (!m) return null;
+    return {shown: m[0], value: m[2] ? Number(m[1]) / Number(m[2]) : Number(m[1])};
+  }
+  function isRight(text, answer) {
+    const read = finalValue(text);
+    return read ? {read, ok: Math.abs(read.value - answer) <= 0.005 * Math.abs(answer)} : null;
   }
 
   // ------------------------------------------------------------ connection
@@ -227,13 +264,16 @@
     const node = el('div', 'lund-card lund-tf-answer');
     const head = el('h3', '', title);
     const meta = el('p', 'lund-tf-meta');
+    const verdict = el('p', 'lund-tf-verdict');
     const body = el('div', 'lund-tf-body');
-    node.append(head, meta, body);
-    return {node, head, meta, body};
+    node.append(head, meta, verdict, body);
+    return {node, head, meta, verdict, body};
   }
 
   async function run(out, model, messages, opts) {
     out.body.replaceChildren();
+    out.verdict.textContent = '';
+    out.verdict.className = 'lund-tf-verdict';
     out.meta.textContent = label(model) + ' · thinking…';
     const start = performance.now();
     try {
@@ -241,6 +281,11 @@
       const seconds = ((performance.now() - start) / 1000).toFixed(0);
       const words = reply.text.split(/\s+/).filter(Boolean).length;
       out.meta.textContent = label(model) + ' · ' + words + ' words · ' + seconds + ' s' + (reply.truncated ? ' · cut off' : '');
+      if (opts.answer !== undefined) {
+        const check = isRight(reply.text, opts.answer);
+        out.verdict.textContent = check ? (check.ok ? '✓ ' : '✗ ') + 'Final answer: ' + check.read.shown : '? no final answer found';
+        out.verdict.classList.add(check ? (check.ok ? 'is-right' : 'is-wrong') : 'is-unknown');
+      }
       await showMarkdown(out.body, reply.text);
     } catch (error) {
       out.meta.textContent = label(model);
@@ -273,9 +318,10 @@
   const DERIVATIVE = /derivative|differentiat|d[A-Za-z]?\s*\/\s*d[a-z]|\\frac\s*\{\s*d|[A-Za-z]'\s*\(|[A-Za-z]\u2032|lagrange|\\nabla/i;
 
   // Runs every job N times (one round at a time, the jobs of a round in parallel)
-  // and tallies time, length and whether derivatives were used. For choosing
+  // and tallies time, length and one yes/no column. For choosing
   // models before the talk, not for showing live.
-  function testPanel(jobs) {
+  // column: {title, test(text) -> true/false} for the last column of the table.
+  function testPanel(jobs, column) {
     const box = el('div', 'lund-test');
     const count = el('input', 'form-control');
     count.type = 'number'; count.min = '1'; count.max = '50'; count.value = '10';
@@ -298,14 +344,14 @@
       stopped = false; start.disabled = true; stop.disabled = false;
       table.replaceChildren();
       const head = el('tr');
-      ['Run', 'Job', 'Model', 'Seconds', 'Words', 'Derivatives'].forEach(t => head.append(el('th', '', t)));
+      ['Run', 'Job', 'Model', 'Seconds', 'Words', column.title].forEach(t => head.append(el('th', '', t)));
       table.append(head);
       const median = xs => { const v = [...xs].sort((a, b) => a - b); return v.length ? v[Math.floor((v.length - 1) / 2)] : NaN; };
       function tally() {
         summary.replaceChildren(...list.map((job, j) => {
           const ok = results[j].filter(r => !r.error);
-          const without = ok.filter(r => !r.derivatives).length;
-          return el('p', '', job.name + ' (' + label(job.model) + '): ' + ok.length + ' answers, ' + without + ' without derivatives, median '
+          const hits = ok.filter(r => r.flag).length;
+          return el('p', '', job.name + ' (' + label(job.model) + '): ' + ok.length + ' answers, ' + hits + ' ' + column.summary + ', median '
             + median(ok.map(r => r.seconds)) + ' s and ' + median(ok.map(r => r.words)) + ' words'
             + (results[j].length > ok.length ? ', ' + (results[j].length - ok.length) + ' errors' : ''));
         }));
@@ -318,12 +364,12 @@
           try {
             const reply = await chat(job.model, job.messages, job.limits);
             row = {seconds: Math.round((performance.now() - t0) / 1000), words: reply.text.split(/\s+/).filter(Boolean).length,
-              derivatives: DERIVATIVE.test(reply.text)};
+              flag: column.test(reply.text)};
           } catch (error) { row = {error: error.message}; }
           results[j].push(row);
           const tr = el('tr');
           [String(round), job.name, label(job.model), row.error ? '–' : String(row.seconds), row.error ? '–' : String(row.words),
-           row.error ? row.error.slice(0, 60) : (row.derivatives ? 'yes' : 'no')].forEach(t => tr.append(el('td', '', t)));
+           row.error ? row.error.slice(0, 60) : (row.flag ? 'yes' : 'no')].forEach(t => tr.append(el('td', '', t)));
           table.append(tr);
         }));
         tally();
@@ -345,7 +391,8 @@
     const outs = FRAMES.map(frame => { const c = card(frame.title); cols.append(c.node); return c; });
     const scenes = behindTheScenes(FRAMES.map(f => [f.reveal, 'System: ' + f.system + '\n\nUser: ' + RECTANGLE]));
     scenes.append(testPanel(() => FRAMES.map((frame, i) => ({name: 'Prompt ' + 'AB'[i], model: model.value, limits: LIMITS.frames[i],
-      messages: [{role: 'system', content: frame.system}, {role: 'user', content: RECTANGLE}]}))));
+      messages: [{role: 'system', content: frame.system}, {role: 'user', content: RECTANGLE}]})),
+      {title: 'Derivatives', summary: 'with derivatives', test: text => DERIVATIVE.test(text)}));
     host.append(controlsRow(['Model', model]), el('p', 'lund-tf-problem', RECTANGLE), bar, cols, scenes);
 
     ask.onclick = async () => {
@@ -359,9 +406,22 @@
 
   // ------------------------------------------------------------------- 1c
 
-  // Prompt A from 1b (the course frame), unchanged, on a small and a large model.
+  // The same prompt on a small and a large model: the rectangle with prompt A
+  // from 1b, or a harder question about lines in space with its own passages.
+  const DERIVATIVES_COLUMN = {title: 'Derivatives', summary: 'with derivatives', test: text => DERIVATIVE.test(text)};
+  const CASES = [
+    {name: 'Rectangle (prompt A from 1b)', problem: RECTANGLE, system: FRAMES[0].system, user: RECTANGLE,
+     reveal: 'Both models get prompt A from 1b', column: DERIVATIVES_COLUMN},
+    {name: 'Two lines in space', problem: LINES.text, system: LINES_FRAME, user: LINES.text + '\n\n' + LINES.ask,
+     reveal: 'Course passages (system prompt)', answer: LINES.answer,
+     column: {title: 'Correct', summary: 'correct', test: text => isRight(text, LINES.answer)?.ok === true}}
+  ];
+
   function twoModels(host) {
-    const frame = FRAMES[0];
+    let current = CASES[0];
+    const messages = () => [{role: 'system', content: current.system}, {role: 'user', content: current.user}];
+    const caseSelect = el('select', 'form-select');
+    CASES.forEach((c, i) => caseSelect.append(new Option(c.name, String(i))));
     const ask = button('Ask both models', 'btn-primary btn-lg');
     const bar = el('div', 'lund-tf-bar');
     bar.append(ask);
@@ -370,19 +430,27 @@
     const selects = [0, 1].map(slot => modelSelect('models', slot, titles));
     const cols = el('div', 'lund-cols');
     outs.forEach(c => cols.append(c.node));
-    const scenes = behindTheScenes([['Both models get prompt A from 1b', 'System: ' + frame.system + '\n\nUser: ' + RECTANGLE]]);
-    scenes.append(testPanel(() => selects.map((select, i) => ({name: ['Small', 'Large'][i], model: select.value, limits: LIMITS.models,
-      messages: [{role: 'system', content: frame.system}, {role: 'user', content: RECTANGLE}]}))));
-    host.append(controlsRow(['Small model', selects[0]], ['Large model', selects[1]]),
-      el('p', 'lund-tf-problem', RECTANGLE), bar, cols, scenes);
+    const problem = el('div', 'lund-tf-problem');
+    const scenes = el('div');
+    host.append(controlsRow(['Problem', caseSelect], ['Small model', selects[0]], ['Large model', selects[1]]), problem, bar, cols, scenes);
+
+    function render() {
+      showMarkdown(problem, current.problem);
+      outs.forEach(c => { c.body.replaceChildren(); c.meta.textContent = ''; c.verdict.textContent = ''; });
+      const reveal = behindTheScenes([[current.reveal, 'System: ' + current.system + '\n\nUser: ' + current.user]]);
+      reveal.append(testPanel(() => selects.map((select, i) => ({name: ['Small', 'Large'][i], model: select.value, limits: LIMITS.models,
+        messages: messages()})), current.column));
+      scenes.replaceChildren(reveal);
+    }
+    caseSelect.onchange = () => { current = CASES[Number(caseSelect.value)]; render(); };
     modelListeners.push(titles);
     titles();
+    render();
 
     ask.onclick = async () => {
       if (!ready()) return;
       ask.disabled = true;
-      await Promise.all(selects.map((select, i) => run(outs[i], select.value,
-        [{role: 'system', content: frame.system}, {role: 'user', content: RECTANGLE}], LIMITS.models)));
+      await Promise.all(selects.map((select, i) => run(outs[i], select.value, messages(), {...LIMITS.models, answer: current.answer})));
       ask.disabled = false;
     };
   }

@@ -101,7 +101,7 @@ Same question, same model.
 
 ## Same prompt, two models {#two-models .lund-part .lund-sub data-part="1c"}
 
-Prompt A from above, sent to a small and a large model.
+The same prompt, sent to a small and a large model: the rectangle from above, or a harder one.
 
 ::: {#lund-two-models}
 :::
