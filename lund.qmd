@@ -5,6 +5,8 @@ lang: en
 sidebar: false
 toc: false
 css: assets/lund/lund.css
+resources:
+  - assets/lund/pumpkin.svg
 # Address of the live RAG service (rag_app).
 rag-url: "https://andreyac.math.ntnu.no/rag2/"
 math-exercise:
@@ -25,6 +27,10 @@ include-after-body:
       <script src="assets/lund/demos.js"></script>
       <script src="assets/handskrift/fyll-inn.js" data-feedback-dir="feedback/handwriting/" data-files="tutor.yml,tasks.yml" data-guide="pages/handwriting-ai-prompts.html" data-sandbox="false"></script>
 ---
+
+::: {.lund-byline}
+Andrey Chesnokov · Norwegian University of Science and Technology (NTNU) · [andrey.chesnokov@ntnu.no](mailto:andrey.chesnokov@ntnu.no)
+:::
 
 ## The frame {#frame .lund-part data-part="0"}
 
@@ -127,6 +133,13 @@ what is inside, what is outside
 The first two are settings. The third we have to **define**, somehow.
 :::
 
+::: {.lund-big}
+The model is a setting, but not a free one.
+:::
+
+The real problem is not "get the best feedback": it is a constrained optimisation,
+**good enough feedback, with low electricity and hardware bills**.
+
 ## Retrieval-Augmented Generation {#rag .lund-part data-part="2"}
 
 ::: {.lund-big}
@@ -191,6 +204,10 @@ NTNU's large computing cluster; nothing leaves NTNU
 **The student**\
 only a web browser
 :::
+:::
+
+::: {.lund-big}
+Universities need to take ownership: of the models, the servers and the course.
 :::
 
 ::: {.lund-question}
@@ -549,6 +566,7 @@ How it matches what **this** learner finds hard is an open question.
 ::: {.lund-takeaways}
 - [0–1]{.lund-num} Model and prompt are settings. **The course** we have to define.
 - [2]{.lund-num} **Let the model read the course**: inside first, outside clearly labelled.
+- [1–2]{.lund-num} **Universities own it**: good enough feedback, at a cost they can carry.
 - [3]{.lund-num} **Write it once, as plain text**: every view follows, many can work on it, no platform owns it.
 - [4]{.lund-num} Written work from home is no longer proof: **projects are explained**, to each other or to us.
 - [4]{.lund-num} **Core skills, formative**: a check where it can decide, AI for the way there; what teachers know must be **written down**.
