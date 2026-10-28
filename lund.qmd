@@ -387,9 +387,6 @@ The check decides whether the answer is right. The AI helps with the way there.
 
 ## Handwritten work {#handwriting}
 
-::: {#fyll-inn-verktoy}
-:::
-
 {{< include _includes/lund/ball-1a.md >}}
 
 :::
