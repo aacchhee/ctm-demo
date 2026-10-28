@@ -550,6 +550,7 @@ How it matches what **this** learner finds hard is an open question.
 - [0–1]{.lund-num} Model and prompt are settings. **The course** we have to define.
 - [2]{.lund-num} **Let the model read the course**: inside first, outside clearly labelled.
 - [3]{.lund-num} **Write it once, as plain text**: every view follows, many can work on it, no platform owns it.
+- [4]{.lund-num} Written work from home is no longer proof: **projects are explained**, to each other or to us.
 - [4]{.lund-num} **Core skills, formative**: a check where it can decide, AI for the way there; what teachers know must be **written down**.
 - [5]{.lund-num} We **give away control** in exchange for a richer problem space.
 :::
