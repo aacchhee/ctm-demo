@@ -495,12 +495,12 @@ Try **Similar problem** on this exercise:
 
 ::::: {.lund-steps}
 ::: {.lund-step}
-**What happens now**\
-the button sends the exercise and the teacher's words for "harder" and "easier" straight to the model
+**Direct**\
+the exercise and the teacher's words for "harder" and "easier" go to the model
 :::
-::: {.lund-step .lund-step-key}
+::: {.lund-step}
 **With RAG**\
-the course passages on the same topic go along, so new problems use our notation and methods
+the course passages on the same topic go along too, so new problems use our notation and methods
 :::
 :::::
 
