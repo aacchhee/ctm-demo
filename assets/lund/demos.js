@@ -629,12 +629,6 @@
 
   function init() {
     const byId = id => document.getElementById(id);
-    // Pumpkins (decoration only): one by the title, and as bullets in part 5.
-    const pumpkin = 'assets/lund/pumpkin.svg';
-    document.documentElement.style.setProperty('--lund-pumpkin', 'url("' + new URL(pumpkin, document.baseURI).href + '")');
-    const title = document.querySelector('#title-block-header h1.title');
-    if (title) { const img = el('img', 'lund-pumpkin'); img.src = pumpkin; img.alt = ''; title.append(img); }
-    document.querySelectorAll('#practice .lund-card ul').forEach(list => list.classList.add('lund-pumpkin-list'));
     if (byId('lund-html-monster')) htmlMonster(byId('lund-html-monster'));
     Object.entries(FILLS).forEach(([id, spec]) => { if (byId(id)) fillButtons(byId(id), spec); });
     // Card widths change with the window; fit the formulas again.
