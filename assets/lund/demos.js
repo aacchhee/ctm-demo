@@ -182,7 +182,11 @@
         method: 'POST', headers: headers(), signal: controller.signal,
         body: JSON.stringify({model, messages, max_tokens: maxTokens})
       });
-      if (!response.ok) throw new Error('API ' + response.status + ': ' + (await response.text().catch(() => '')).slice(0, 300));
+      if (!response.ok) {
+        const error = new Error('API ' + response.status + ': ' + (await response.text().catch(() => '')).slice(0, 300));
+        if (response.status === 429) error.retryAfter = Number(response.headers.get('Retry-After')) || 30;
+        throw error;
+      }
       const choice = (await response.json())?.choices?.[0];
       let text = choice?.message?.content;
       if (Array.isArray(text)) text = text.filter(p => p.type === 'text').map(p => p.text).join('');
@@ -325,6 +329,9 @@
     const box = el('div', 'lund-test');
     const count = el('input', 'form-control');
     count.type = 'number'; count.min = '1'; count.max = '50'; count.value = '10';
+    // A pause between rounds keeps within the API's rate limits (on Idun about 20 requests a minute).
+    const pause = el('input', 'form-control');
+    pause.type = 'number'; pause.min = '0'; pause.max = '600'; pause.value = '20';
     const start = button('Test', 'btn-outline-secondary btn-sm');
     const stop = button('Stop', 'btn-outline-secondary btn-sm');
     stop.disabled = true;
@@ -332,13 +339,21 @@
     const summary = el('div', 'lund-test-summary');
     const table = el('table', 'table table-sm lund-test-table');
     box.append(el('h4', '', 'Test runs (for the presenter)'),
-      controlsRow(['Runs', count], ['', start], ['', stop]), status, summary, table);
+      controlsRow(['Runs', count], ['Pause (s)', pause], ['', start], ['', stop]), status, summary, table);
     let stopped = false;
-    stop.onclick = () => { stopped = true; status.textContent = 'Stopping after this round…'; };
+    stop.onclick = () => { stopped = true; status.textContent = 'Stopping…'; };
+    // Waits, with a countdown in the status line; ends early when stopped.
+    async function wait(seconds, why) {
+      for (let left = Math.ceil(seconds); left > 0 && !stopped; left--) {
+        status.textContent = why + ': waiting ' + left + ' s…';
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      }
+    }
 
     start.onclick = async () => {
       if (!ready()) return;
       const n = Math.max(1, Math.min(50, Number(count.value) || 10));
+      const gap = Math.max(0, Math.min(600, Number(pause.value) || 0));
       const list = jobs();
       const results = list.map(() => []);
       stopped = false; start.disabled = true; stop.disabled = false;
@@ -357,15 +372,23 @@
         }));
       }
       for (let round = 1; round <= n && !stopped; round++) {
+        if (round > 1 && gap) await wait(gap, 'Pause before round ' + round);
+        if (stopped) break;
         status.textContent = 'Round ' + round + ' of ' + n + '…';
         await Promise.all(list.map(async (job, j) => {
-          const t0 = performance.now();
           let row;
-          try {
-            const reply = await chat(job.model, job.messages, job.limits);
-            row = {seconds: Math.round((performance.now() - t0) / 1000), words: reply.text.split(/\s+/).filter(Boolean).length,
-              flag: column.test(reply.text)};
-          } catch (error) { row = {error: error.message}; }
+          for (let attempt = 1; !row; attempt++) {
+            const t0 = performance.now();
+            try {
+              const reply = await chat(job.model, job.messages, job.limits);
+              row = {seconds: Math.round((performance.now() - t0) / 1000), words: reply.text.split(/\s+/).filter(Boolean).length,
+                flag: column.test(reply.text)};
+            } catch (error) {
+              // Rate limited: wait as the API asks, then try again (three times at most).
+              if (error.retryAfter && attempt < 4 && !stopped) await wait(error.retryAfter, 'Rate limit (' + label(job.model) + ')');
+              else row = {error: error.message};
+            }
+          }
           results[j].push(row);
           const tr = el('tr');
           [String(round), job.name, label(job.model), row.error ? '–' : String(row.seconds), row.error ? '–' : String(row.words),
