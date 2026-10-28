@@ -142,4 +142,3 @@ h2.lund-part.lund-sub, .lund-part.lund-sub > h2 { margin-top: 3rem; border-top: 
 /* Handwriting tab on the talk page: the photo is the answer, so no empty text box or file notes */
 #v25-1a label[for="v25-1a-response"], #v25-1a-response { display: none; }
 #v25-1a > .ai-feedback-notice { display: none; }
-#v25-1a .feedback-sprak { display: none; }
