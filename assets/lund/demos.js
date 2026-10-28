@@ -177,7 +177,6 @@
 
     function refresh() {
       summary.textContent = 'AI connection: ' + (base() ? new URL(base()).host + ' · ' + modelList.length + ' models' : 'not set');
-      if (!base()) panel.open = true;
     }
     function store() {
       connection.baseUrl = url.value.trim();

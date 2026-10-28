@@ -124,3 +124,16 @@ h2.lund-part.lund-sub, .lund-part.lund-sub > h2 { margin-top: 3rem; border-top: 
 .lund-test .form-control { width: 6rem; min-width: 0; }
 .lund-test-table { font-size: .85rem; }
 .lund-test-summary p { margin: .2rem 0; font-weight: 600; font-size: .95rem; }
+
+/* Title block: title and subtitle only; CTM's settings button small in the corner */
+#title-block-header { position: relative; }
+#title-block-header .ctm-settings-toolbar { position: absolute; top: 0; right: 0; margin: 0; }
+#title-block-header .ctm-save-summary { display: none; }
+/* CTM's Python status line: only while it offers Stop or Retry */
+.ctm-python-status:not(:has(button:not([hidden]))) { display: none; }
+
+/* Wide formulas in the AI answers scroll inside their card */
+.lund-tf-body mjx-container[display="true"], .lund-tf-body .MathJax_Display {
+  display: block; max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-bottom: .2rem;
+}
+.lund-tf-body mjx-container:not([display="true"]) { max-width: 100%; overflow-x: auto; overflow-y: hidden; vertical-align: middle; }

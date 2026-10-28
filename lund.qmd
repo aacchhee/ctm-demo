@@ -1,6 +1,6 @@
 ---
 title: "RAG as a possibility for productive AI usage"
-subtitle: "Retrieval-Augmented Generation in mathematics teaching"
+subtitle: "How can AI help with the mathematics students are actually studying?"
 lang: en
 sidebar: false
 toc: false
@@ -25,10 +25,6 @@ include-after-body:
       <script src="assets/lund/demos.js"></script>
       <script src="assets/handskrift/fyll-inn.js" data-feedback-dir="feedback/handwriting/" data-files="tutor.yml,tasks.yml" data-guide="pages/handwriting-ai-prompts.html" data-sandbox="false"></script>
 ---
-
-::: {.lund-lead}
-How can AI help with the mathematics students are **actually studying**?
-:::
 
 ## The frame {#frame .lund-part data-part="0"}
 
