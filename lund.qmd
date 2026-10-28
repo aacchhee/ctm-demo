@@ -385,32 +385,31 @@ The check decides whether the answer is right. The AI helps with the way there.
 
 {{< include _includes/lund/python-area.md >}}
 
-## Handwritten work {#handwriting}
+## Physics {#handwriting}
 
-{{< include _includes/lund/ball-1a.md >}}
+{{< include _includes/lund/ball-4b.md >}}
 
 :::
 
 ## Paper and typed {#paper .lund-part .lund-sub data-part="4b"}
 
-The ball problem from the tab above, twice:
+The physics problem from the tab above, twice:
 
 ::: {.lund-cols .lund-paper}
 ::: {.lund-card}
 #### On paper: how students think
 
-![](assets/handskrift/student1/1a.png){fig-alt="A student's handwritten solution: a ball thrown up from 1.5 m at 6.0 m/s. The student finds the extra height 1.83 m, the total height 3.3 m and the time 0.6 s, with units throughout."}
+![](assets/handskrift/student1/4b.png){fig-alt="A student's handwritten solution: horizontal speed 3.0 m/s, h = 1.4 m. From h = one half a t squared the student gets t = square root of 2h over a = 0.53 s, then x = 3 m/s times 0.53 s = 1.6 m, underlined."}
 :::
 
 ::: {.lund-card}
 #### Typed: what the machine checks
 
 ```text
-t = 0.61
-h = 3.3
+1.6
 ```
 
-No units, no formula, no steps: only the numbers.
+No unit, no formula, no steps: only the number.
 :::
 :::
 
@@ -452,12 +451,12 @@ and the solution comes last.
 #### What to know (this problem)
 
 ```yaml
-v25-1a:
+v25-4b:
   base-prompt: >-
-    Reference: at the top the velocity is zero. t = v0/g = 0.61 s.
-    The rise is v0²/(2g) = 1.83 m, so the height is 1.5 m + 1.83 m = 3.3 m.
-    Typical mistakes: forgets the initial height; mixes up the signs of
-    g and v0; answers only one of the questions; rounds too early.
+    Reference: vertically h = ½gt², so t = √(2h/g) = 0.534 s.
+    Horizontally x = v·t = 3.00 · 0.534 = 1.60 m.
+    Typical mistakes: wrong rearrangement of h = ½gt² (for example
+    t = √(h + ½g)); mixes up horizontal and vertical motion.
 ```
 :::
 :::
