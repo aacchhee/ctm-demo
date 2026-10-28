@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b6dc9e813fb09d2bbff48e8f9eb94b8d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f6725ec72a40a9c11b774886aa13be2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/ctm-coi-frame-startup-1/coi-frame-startup.js"></script>
 <script src="site_libs/quarto-contrib/ctm-assets-0.9.0/assets.js"></script>
 <link href="site_libs/quarto-contrib/ctm-ui-0.9.0/ctm-ui.css" rel="stylesheet">
@@ -185,7 +185,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">RAG as a possibility for productive AI usage</h1>
-<p class="subtitle lead">Retrieval-Augmented Generation in mathematics teaching</p>
+<p class="subtitle lead">How can AI help with the mathematics students are actually studying?</p>
 </div>
 
 
@@ -206,9 +206,6 @@ window.Quarto = {
 <button type="button" data-ctm-export="">Export my answers</button>
 <button type="button" data-ctm-clear-page="">Delete answers on this page</button>
 <button type="button" data-ctm-clear-course="">Delete all your answers in this course</button></div><span class="ctm-save-status" role="status" aria-live="polite"></span></div>
-<div class="lund-lead">
-<p>How can AI help with the mathematics students are <strong>actually studying</strong>?</p>
-</div>
 <section id="frame" class="level2 lund-part" data-part="0">
 <h2 class="lund-part anchored" data-part="0" data-anchor-id="frame">The frame</h2>
 <div class="lund-big">
@@ -270,7 +267,7 @@ window.Quarto = {
 </section>
 <section id="two-models" class="level2 lund-part lund-sub" data-part="1c">
 <h2 class="lund-part lund-sub anchored" data-part="1c" data-anchor-id="two-models">Same prompt, two models</h2>
-<p>Prompt A from above, sent to a small and a large model.</p>
+<p>The same prompt, sent to a small and a large model: the rectangle from above, or a harder one.</p>
 <div id="lund-two-models">
 
 </div>
@@ -514,19 +511,20 @@ between courses and between universities</p>
 <section id="assessment" class="level2 lund-part" data-part="4a">
 <h2 class="lund-part anchored" data-part="4a" data-anchor-id="assessment">Assessment: deterministic and stochastic</h2>
 <div class="lund-big">
-<p>Inside the course is also what is assessed. What students do has to be assessed.</p>
+<p>What students do has to be assessed.</p>
 </div>
 <div class="lund-question">
-<p>And any written product made at home is no longer authentic: a model may have written it.</p>
+<p>But any written product made at home is no longer authentic: a model may have written it. The text alone no longer shows who did the thinking.</p>
 </div>
+<p>So we split the work:</p>
 <div class="lund-steps">
 <div class="lund-step">
 <p><strong>Small chunks</strong><br>
-basic skills, assessed one by one</p>
+basic skills, practised one by one, with immediate feedback</p>
 </div>
 <div class="lund-step">
 <p><strong>Larger projects</strong><br>
-skills combined; any tool, AI included; explained to each other or to us</p>
+skills combined; any tool, AI included; but students explain their work, to each other or to us</p>
 </div>
 </div>
 <p>Here: the core skills. Online, this is <strong>formative</strong>: it helps students through a constructive struggle.</p>
@@ -541,38 +539,23 @@ skills combined; any tool, AI included; explained to each other or to us</p>
 </section>
 </div>
 <div class="lund-question">
-<p>The check decides whether the answer is right. The AI helps with the way there.</p>
+<p>The check decides what it can check. The AI helps with the way there.</p>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">A checked problem</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python with tests</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Handwritten work</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">A checked problem</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python with tests</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Physics</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div id="a-checked-problem" class="ctm-tab-target">
 
 </div>
-<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-1" data-label="lund-eigenvectors" data-mode="custom" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;def check(response, symbols):\n    values = response[\&quot;expressions\&quot;]\n    if len(values) != 6:\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Enter two eigenvalues and two coordinates for each eigenvector.\&quot;}\n    if any(z.free_symbols or z.is_real is not True or z.is_finite is not True for z in values):\n        return {\&quot;score\&quot;: 0, \&quot;feedback\&quot;: \&quot;Use specific, finite real numbers.\&quot;}\n    A = Matrix([[2, 1], [1, 2]])\n    checks = []\n    messages = []\n    for i, target in enumerate((3, 1)):\n        lam = values[3*i]\n        v = Matrix(values[3*i+1:3*i+3])\n        eigenvalue_ok = simplify(lam-target) == 0\n        nonzero = any(simplify(z) != 0 for z in v)\n        eigenvector_ok = nonzero and all(simplify(z) == 0 for z in A*v-lam*v)\n        checks.extend([eigenvalue_ok, eigenvalue_ok and eigenvector_ok])\n        if not eigenvalue_ok:\n            messages.append(f\&quot;Pair {i+1}: check the eigenvalue and decreasing order.\&quot;)\n        elif not nonzero:\n            messages.append(f\&quot;Pair {i+1}: the zero vector is not an eigenvector.\&quot;)\n        elif not eigenvector_ok:\n            messages.append(f\&quot;Pair {i+1}: check that Av = λv for your eigenvalue and vector.\&quot;)\n        else:\n            messages.append(f\&quot;Pair {i+1}: the eigenvalue and eigenvector are correct.\&quot;)\n    return {\&quot;score\&quot;: sum(checks)/4, \&quot;show_score\&quot;: False, \&quot;feedback\&quot;: \&quot; \&quot;.join(messages)}&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;larger eigenvalue λ₁&quot;,&quot;first coordinate of v₁&quot;,&quot;second coordinate of v₁&quot;,&quot;smaller eigenvalue λ₂&quot;,&quot;first coordinate of v₂&quot;,&quot;second coordinate of v₂&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;lund-eigenvectors&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="auto" data-context-refs="auto" data-context="&quot;A checked problem&quot;" data-context-text="&quot;&quot;" data-ctm-source="cc76587bc97a5697" data-ctm-save="true" data-ctm-runtime-id="ctm-block-2" data-ctm-id="lund-eigenvectors" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-1-f1&quot;,&quot;math-exercise-1-f2&quot;,&quot;math-exercise-1-f3&quot;,&quot;math-exercise-1-f4&quot;,&quot;math-exercise-1-f5&quot;,&quot;math-exercise-1-f6&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;v1&quot;,&quot;v2&quot;,&quot;&quot;,&quot;v1&quot;,&quot;v2&quot;]">
-<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="Two eigenvalues with corresponding eigenvectors" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>Two eigenvalues with corresponding eigenvectors</div>
+<div id="lund-fill-math">
+
+</div>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-1" data-label="lund-chain-rule" data-mode="equivalent" data-reject="" data-vars="x" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;lund-chain-rule&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="auto" data-context-refs="auto" data-context="&quot;A checked problem&quot;" data-context-text="&quot;&quot;" data-ctm-save="true" data-ctm-runtime-id="ctm-block-2" data-ctm-source="07062b7a68b0a51a" data-ctm-id="lund-chain-rule" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-1-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="A derivative" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>A derivative</div>
 
 <div class="math-exercise-body" aria-hidden="true">
-<div id="lund-eigenvectors-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="For \(A=\begin{bmatrix}2&amp;amp;1\\1&amp;amp;2\end{bmatrix}\), enter \(\lambda_1&amp;gt;\lambda_2\)<br>
-and nonzero vectors satisfying \(Av_i=\lambda_i v_i\).<br>
-<br>
-Larger eigenvalue: \(\lambda_1=\) <input type=&quot;text&quot; id=&quot;math-exercise-1-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;><br>
-<br>
-A corresponding eigenvector: \(v_1=\) <span class=&quot;math-vec&quot; style=&quot;--n:2&quot;><input type=&quot;text&quot; id=&quot;math-exercise-1-f2&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-1-f3&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;></span><br>
-<br>
-Smaller eigenvalue: \(\lambda_2=\) <input type=&quot;text&quot; id=&quot;math-exercise-1-f4&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;><br>
-<br>
-A corresponding eigenvector: \(v_2=\) <span class=&quot;math-vec&quot; style=&quot;--n:2&quot;><input type=&quot;text&quot; id=&quot;math-exercise-1-f5&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-1-f6&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;></span>">For \(A=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}\), enter \(\lambda_1&gt;\lambda_2\)<br>
-and nonzero vectors satisfying \(Av_i=\lambda_i v_i\).<br>
-<br>
-Larger eigenvalue: \(\lambda_1=\) <input type="text" id="math-exercise-1-f1" data-answer="3" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"><br>
-<br>
-A corresponding eigenvector: \(v_1=\) <span class="math-vec" style="--n:2"><input type="text" id="math-exercise-1-f2" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-1-f3" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"></span><br>
-<br>
-Smaller eigenvalue: \(\lambda_2=\) <input type="text" id="math-exercise-1-f4" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"><br>
-<br>
-A corresponding eigenvector: \(v_2=\) <span class="math-vec" style="--n:2"><input type="text" id="math-exercise-1-f5" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-1-f6" data-answer="-1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"></span></div>
+<div id="lund-chain-rule-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="Differentiate \(f(x)=\sin(x^2)\). \(f'(x)=\) <input type=&quot;text&quot; id=&quot;math-exercise-1-f1&quot; data-vars=&quot;x&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;>">Differentiate \(f(x)=\sin(x^2)\). \(f'(x)=\) <input type="text" id="math-exercise-1-f1" data-answer="2*x*cos(x^2)" data-vars="x" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"></div>
 
 <div class="math-exercise-controls">
   <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Check</button>
@@ -591,33 +574,38 @@ A corresponding eigenvector: \(v_2=\) <span class="math-vec" style="--n:2"><inpu
 <div id="python-with-tests" class="ctm-tab-target">
 
 </div>
-<div class="py-exercise-cell" id="py-exercise-1" data-ctm-component="py-exercise" data-ctm-id="lund-python-area" data-ctm-runtime-id="ctm-block-3" data-ctm-source="41e1d5d977643b93" data-ctm-save="true">
+<div id="lund-fill-python">
+
+</div>
+<p>Write <code>largest_area(p)</code>: the largest area of a rectangle with perimeter <code>p</code> (in cm). For example, <code>largest_area(20)</code> is <code>25</code>.</p>
+<div class="py-exercise-cell" id="py-exercise-1" data-ctm-component="py-exercise" data-ctm-id="lund-python-area" data-ctm-runtime-id="ctm-block-3" data-ctm-source="6f7317b39054d8c4" data-ctm-save="true">
   <noscript>
     Please enable JavaScript to load the interactive exercise.
   </noscript>
 </div>
 <script>
-(window.__pyExercises = window.__pyExercises || []).push({"caption":"Largest rectangle, in Python","feedbackLanguage":"en","forbiddenImports":[],"forbiddenKeywords":[],"id":1,"label":"lund-python-area","learnerLevel":"","save":true,"showTestHints":true,"source":"41e1d5d977643b93","starter":"def largest_area(p):\n    pass","storeId":"lund-python-area","task":"Complete largest_area(p) so that it returns the largest area of a rectangle with perimeter p.","tests":"assert largest_area(20) == 25, \"largest_area(20) should be 25.\"\nassert largest_area(4) == 1, \"largest_area(4) should be 1.\"\nassert abs(largest_area(10) - 6.25) \u003c 1e-9, \"largest_area(10) should be 6.25.\""});
+(window.__pyExercises = window.__pyExercises || []).push({"caption":"Largest rectangle, in Python","feedbackLanguage":"en","forbiddenImports":[],"forbiddenKeywords":[],"id":1,"label":"lund-python-area","learnerLevel":"","save":true,"showTestHints":true,"source":"6f7317b39054d8c4","starter":"def largest_area(p):\n    pass","storeId":"lund-python-area","task":"Write largest_area(p) to return the largest area of a rectangle with perimeter p.","tests":"assert largest_area(20) is not None, \"largest_area(20) returned None: does the function end with a return statement?\"\nassert isinstance(largest_area(20), (int, float)) and abs(largest_area(20) - 25) \u003c 1e-9, f\"largest_area(20) returned {largest_area(20)!r}, expected 25: the best rectangle is a 5 cm by 5 cm square.\"\nassert isinstance(largest_area(4), (int, float)) and abs(largest_area(4) - 1) \u003c 1e-9, f\"largest_area(4) returned {largest_area(4)!r}, expected 1: a 1 cm by 1 cm square.\"\nassert isinstance(largest_area(10), (int, float)) and abs(largest_area(10) - 6.25) \u003c 1e-9, f\"largest_area(10) returned {largest_area(10)!r}, expected 6.25: a 2.5 cm square. Integer division (//) would cut this off.\""});
 </script>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div id="handwriting" class="ctm-tab-target">
 
 </div>
-<div id="fyll-inn-verktoy">
-
+<div id="v25-oppg4" class="ai-context">
+<p>A ball lies on a table and is launched by a horizontal spring. The height of the table top above the ground is <span data-ai-feedback-tex="h=1.40\,\mathrm{m}" data-ai-feedback-display="false"><span class="math inline">\(h=1.40\,\mathrm{m}\)</span></span>. As the ball leaves the spring, its speed is <span data-ai-feedback-tex="3.00\,\mathrm{m/s}" data-ai-feedback-display="false"><span class="math inline">\(3.00\,\mathrm{m/s}\)</span></span>, and it rolls without change of speed to the edge of the table.</p>
 </div>
-<div id="v25-oppg1" class="ai-context">
-<p>A ball is thrown straight up from a height of <span data-ai-feedback-display="false" data-ai-feedback-tex="1.5\,\mathrm{m}"><span class="math inline">\(1.5\,\mathrm{m}\)</span></span> above the ground. The initial speed of the ball is <span data-ai-feedback-display="false" data-ai-feedback-tex="6.0\,\mathrm{m/s}"><span class="math inline">\(6.0\,\mathrm{m/s}\)</span></span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/handskrift/oppgave4.png" class="img-fluid figure-img" alt="A ball rests against a compressed horizontal spring at the far left of a table. The height of the table above the ground is marked h." width="260"></p>
+<figcaption>The ball rests against a compressed spring on a table of height h.</figcaption>
+</figure>
 </div>
-<section id="a-the-highest-point" class="level3">
-<h3 class="anchored" data-anchor-id="a-the-highest-point">a) The highest point</h3>
-<p>How long does it take until the ball is at its highest point? How high above the ground is it then?</p>
-<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-2" data-label="v25-1a-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Time in s&quot;,&quot;Height above the ground in m&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-1a-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="none" data-context="&quot;a) The highest point\nHow long does it take until the ball is at its highest point? How high above the ground is it then?&quot;" data-context-text="&quot;&quot;" data-ctm-source="1f0b9aefcb82182c" data-ctm-save="true" data-ctm-runtime-id="ctm-block-4" data-ctm-id="v25-1a-svar" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-2-f1&quot;,&quot;math-exercise-2-f2&quot;]" data-structural-field-labels="[&quot;&quot;,&quot;&quot;]">
-<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="a · Final answer" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>a · Final answer</div>
+<p>How far does the ball move horizontally from the edge of the table until it lands?</p>
+<div class="math-exercise-cell" data-similar="false" data-similar-guidance="[]" data-generation-policy="[]" id="math-exercise-2" data-label="v25-4b-svar" data-mode="numeric" data-reject="" data-vars="" data-tolerance="2%" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Horizontal distance in m&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;v25-4b-svar&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="none" data-context="&quot;Physics\nA ball lies on a table and is launched by a horizontal spring. The height of the table top above the ground is \\(h=1.40\\,\\mathrm{m}\\). As the ball leaves the spring, its speed is \\(3.00\\,\\mathrm{m/s}\\), and it rolls without change of speed to the edge of the table.\nThe ball rests against a compressed spring on a table of height h.The ball rests against a compressed spring on a table of height h.\nHow far does the ball move horizontally from the edge of the table until it lands?&quot;" data-context-text="&quot;&quot;" data-ctm-save="true" data-ctm-runtime-id="ctm-block-4" data-ctm-source="227edbff11f1a476" data-ctm-id="v25-4b-svar" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-2-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="Final answer" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>Final answer</div>
 
 <div class="math-exercise-body" aria-hidden="true">
-<div id="v25-1a-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(t=\) <input type=&quot;text&quot; id=&quot;math-exercise-2-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> s, \(h=\) <input type=&quot;text&quot; id=&quot;math-exercise-2-f2&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> m">\(t=\) <input type="text" id="math-exercise-2-f1" data-answer="6.0/9.81" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> s, \(h=\) <input type="text" id="math-exercise-2-f2" data-answer="1.5+36/(2*9.81)" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> m</div>
+<div id="v25-4b-svar-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="\(x=\) <input type=&quot;text&quot; id=&quot;math-exercise-2-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-medium&quot;> m">\(x=\) <input type="text" id="math-exercise-2-f1" data-answer="3*sqrt(2*1.4/9.81)" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-medium"> m</div>
 
 <div class="math-exercise-controls">
   <button type="button" class="btn btn-primary math-check-btn">✓&nbsp;Check</button>
@@ -631,29 +619,27 @@ A corresponding eigenvector: \(v_2=\) <span class="math-vec" style="--n:2"><inpu
 <div class="math-feedback-area"></div>
 </div>
 </div>
-<div id="v25-1a" class="ai-feedback-activity">
-<p><strong>Show your working for a).</strong> Upload a photo of what you wrote on paper.</p>
-<script type="application/json" class="ai-feedback-data">{"context":"a) The highest point\nHow long does it take until the ball is at its highest point? How high above the ground is it then?","contextMode":"explicit","contextRefs":"v25-oppg1","feedbackLanguage":"en","id":"v25-1a","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-1a","name":""},"profile":"mathematics","resetOnVariant":"v25-1a-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Show your working for a). Upload a photo of what you wrote on paper.","uiLanguage":"en"}</script>
+<div id="v25-4b" class="ai-feedback-activity">
+<p><strong>Show your working.</strong> Upload a photo of what you wrote on paper.</p>
+<script type="application/json" class="ai-feedback-data">{"context":"Physics\nThe ball rests against a compressed spring on a table of height h.The ball rests against a compressed spring on a table of height h.\nHow far does the ball move horizontally from the edge of the table until it lands?","contextMode":"explicit","contextRefs":"v25-oppg4","feedbackLanguage":"en","id":"v25-4b","imageRole":"response","imageUpload":true,"learnerLevel":"","materials":[],"policySelection":{"exercise":"v25-4b","name":""},"profile":"mathematics","resetOnVariant":"v25-4b-fyll","responseLanguage":"","sourceLanguage":"","starter":"","task":"Show your working. Upload a photo of what you wrote on paper.","uiLanguage":"en"}</script>
 <noscript>Enable JavaScript to use this feedback activity.</noscript>
 </div>
-</section>
 </div>
 </div>
 </div>
 </section>
 <section id="paper" class="level2 lund-part lund-sub" data-part="4b">
 <h2 class="lund-part lund-sub anchored" data-part="4b" data-anchor-id="paper">Paper and typed</h2>
-<p>The ball problem from the tab above, twice:</p>
+<p>The physics problem from the tab above, twice:</p>
 <div class="lund-cols lund-paper">
 <section id="on-paper-how-students-think" class="level4 lund-card">
 <h4 class="anchored" data-anchor-id="on-paper-how-students-think">On paper: how students think</h4>
-<p><img src="assets/handskrift/student1/1a.png" class="img-fluid" alt="A student's handwritten solution: a ball thrown up from 1.5 m at 6.0 m/s. The student finds the extra height 1.83 m, the total height 3.3 m and the time 0.6 s, with units throughout."></p>
+<p><img src="assets/handskrift/student1/4b.png" class="img-fluid" alt="A student's handwritten solution: horizontal speed 3.0 m/s, h = 1.4 m. From h = one half a t squared the student gets t = square root of 2h over a = 0.53 s, then x = 3 m/s times 0.53 s = 1.6 m, underlined."></p>
 </section>
 <section id="typed-what-the-machine-checks" class="level4 lund-card">
 <h4 class="anchored" data-anchor-id="typed-what-the-machine-checks">Typed: what the machine checks</h4>
-<pre class="text" data-ai-feedback-context="Typed: what the machine checks"><code>t = 0.61
-h = 3.3</code></pre>
-<p>No units, no formula, no steps: only the numbers.</p>
+<pre class="text" data-ai-feedback-context="Typed: what the machine checks"><code>1.6</code></pre>
+<p>No unit, no formula, no steps: only the number.</p>
 </section>
 </div>
 <div class="lund-big">
@@ -683,12 +669,12 @@ ex-jsxgraph-freehand-monotonicity. -->
 </section>
 <section id="what-to-know-this-problem" class="level4 lund-card">
 <h4 class="anchored" data-anchor-id="what-to-know-this-problem">What to know (this problem)</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-ai-feedback-context="What to know (this problem)"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">v25-1a</span><span class="kw">:</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-ai-feedback-context="What to know (this problem)"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">v25-4b</span><span class="kw">:</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">  base-prompt</span><span class="kw">: </span><span class="ch">&gt;-</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    Reference: at the top the velocity is zero. t = v0/g = 0.61 s.</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    The rise is v0²/(2g) = 1.83 m, so the height is 1.5 m + 1.83 m = 3.3 m.</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    Typical mistakes: forgets the initial height; mixes up the signs of</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    g and v0; answers only one of the questions; rounds too early.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    Reference: vertically h = ½gt², so t = √(2h/g) = 0.534 s.</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    Horizontally x = v·t = 3.00 · 0.534 = 1.60 m.</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    Typical mistakes: wrong rearrangement of h = ½gt² (for example</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    t = √(h + ½g)); mixes up horizontal and vertical motion.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </div>
 <p><span class="lund-small">Shortened from the prompt files of the physics exercises. Teachers can try their own changes in the prompt sandbox on the <a href="./pages/handwriting-ai.html">physics exercises page</a>.</span></p>
@@ -715,38 +701,8 @@ the teacher’s knowledge, written into the course</p>
 <div class="lund-big">
 <p>Easier, similar, harder: the model writes new problems.</p>
 </div>
-<div class="lund-nest lund-space">
-<div class="lund-box is-all">
-<p><strong>Everything a model can write</strong></p>
-<div class="lund-box is-near">
-<p><strong>Near the course</strong></p>
-<div class="lund-box is-ours">
-<p><strong>Written and checked by us</strong></p>
-</div>
-</div>
-</div>
-</div>
-<div class="lund-question">
-<p>Today the button asks the model directly; RAG can take its place and keep it near the course. Still, we <strong>give away control</strong> in exchange for a <strong>richer problem space</strong>.</p>
-</div>
-<div class="lund-cols">
-<section id="is-it-relevant" class="level3 lund-card">
-<h3 class="anchored" data-anchor-id="is-it-relevant">Is it relevant?</h3>
-<ul>
-<li>the teacher says what “harder” and “easier” mean</li>
-</ul>
-</section>
-<section id="is-it-solved-correctly" class="level3 lund-card">
-<h3 class="anchored" data-anchor-id="is-it-solved-correctly">Is it solved correctly?</h3>
-<ul>
-<li>computer algebra works out the answer where it can</li>
-<li>otherwise it is marked unverified</li>
-<li>it never counts toward grades</li>
-</ul>
-</section>
-</div>
 <p>Try <strong>Similar problem</strong> on this exercise:</p>
-<div class="math-exercise-cell" data-similar="true" data-similar-guidance="{&quot;easier&quot;:&quot;Use a single power of a linear expression.&quot;,&quot;harder&quot;:&quot;Combine the chain rule with a product or a quotient, keeping the function short.&quot;,&quot;same&quot;:&quot;&quot;}" data-generation-policy="{&quot;exercise&quot;:&quot;lund-derivative-course&quot;,&quot;name&quot;:&quot;&quot;}" id="math-exercise-3" data-label="lund-derivative-course" data-mode="equivalent" data-reject="" data-vars="x" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;lund-derivative-course&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="none" data-context="&quot;Is it solved correctly?\ncomputer algebra works out the answer where it can\notherwise it is marked unverified\nit never counts toward grades\nTry Similar problem on this exercise:&quot;" data-context-text="&quot;&quot;" data-ctm-source="dfe771c275c1ce01" data-ctm-save="true" data-ctm-runtime-id="ctm-block-8" data-ctm-id="lund-derivative-course" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-3-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-cell" data-similar="true" data-similar-guidance="{&quot;easier&quot;:&quot;Use a single power of a linear expression.&quot;,&quot;harder&quot;:&quot;Combine the chain rule with a product or a quotient, keeping the function short.&quot;,&quot;same&quot;:&quot;&quot;}" data-generation-policy="{&quot;exercise&quot;:&quot;lund-derivative-course&quot;,&quot;name&quot;:&quot;&quot;}" id="math-exercise-3" data-label="lund-derivative-course" data-mode="equivalent" data-reject="" data-vars="x" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;lund-derivative-course&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="none" data-context="&quot;More practice, on request\nEasier, similar, harder: the model writes new problems.\nTry Similar problem on this exercise:&quot;" data-context-text="&quot;&quot;" data-ctm-save="true" data-ctm-runtime-id="ctm-block-8" data-ctm-source="dfe771c275c1ce01" data-ctm-id="lund-derivative-course" data-ctm-component="math-exercise" data-fields="[&quot;math-exercise-3-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
 <div class="math-exercise-caption math-exercise-toggle" data-math-exercise-source="From the course (part 1)" role="button" tabindex="0" aria-expanded="false"><span class="math-chevron" aria-hidden="true"></span>From the course (part 1)</div>
 
 <div class="math-exercise-body" aria-hidden="true">
@@ -764,6 +720,47 @@ the teacher’s knowledge, written into the course</p>
 <div class="math-feedback-area"></div>
 </div>
 </div>
+<div class="lund-steps">
+<div class="lund-step">
+<p><strong>Direct</strong><br>
+the exercise and the teacher’s words for “harder” and “easier” go to the model</p>
+</div>
+<div class="lund-step">
+<p><strong>With RAG</strong><br>
+the course passages on the same topic go along too, so new problems use our notation and methods</p>
+</div>
+</div>
+<div class="lund-nest lund-space">
+<div class="lund-box is-all">
+<p><strong>Everything a model can write</strong></p>
+<div class="lund-box is-near">
+<p><strong>Near the course</strong>: what RAG keeps it to</p>
+<div class="lund-box is-ours">
+<p><strong>Written and checked by us</strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="lund-question">
+<p>Even near the course, we <strong>give away control</strong> in exchange for a <strong>richer problem space</strong>.</p>
+</div>
+<div class="lund-cols">
+<section id="is-it-relevant" class="level3 lund-card">
+<h3 class="anchored" data-anchor-id="is-it-relevant">Is it relevant?</h3>
+<ul>
+<li>the teacher says what “harder” and “easier” mean</li>
+<li>with RAG, the course sets the frame</li>
+</ul>
+</section>
+<section id="is-it-solved-correctly" class="level3 lund-card">
+<h3 class="anchored" data-anchor-id="is-it-solved-correctly">Is it solved correctly?</h3>
+<ul>
+<li>computer algebra works out the answer where it can</li>
+<li>otherwise it is marked unverified</li>
+<li>it never counts toward grades</li>
+</ul>
+</section>
+</div>
 <div class="lund-question">
 <p>“Harder” is the model’s reading of difficulty. How it matches what <strong>this</strong> learner finds hard is an open question.</p>
 </div>
@@ -775,7 +772,8 @@ the teacher’s knowledge, written into the course</p>
 <li><span class="lund-num">0–1</span> Model and prompt are settings. <strong>The course</strong> we have to define.</li>
 <li><span class="lund-num">2</span> <strong>Let the model read the course</strong>: inside first, outside clearly labelled.</li>
 <li><span class="lund-num">3</span> <strong>Write it once, as plain text</strong>: every view follows, many can work on it, no platform owns it.</li>
-<li><span class="lund-num">4</span> <strong>The check decides</strong> the answer, the AI helps; what teachers know must be <strong>written down</strong>.</li>
+<li><span class="lund-num">4</span> Written work from home is no longer proof: <strong>projects are explained</strong>, to each other or to us.</li>
+<li><span class="lund-num">4</span> <strong>Core skills, formative</strong>: a check where it can decide, AI for the way there; what teachers know must be <strong>written down</strong>.</li>
 <li><span class="lund-num">5</span> We <strong>give away control</strong> in exchange for a richer problem space.</li>
 </ul>
 </div>
@@ -784,7 +782,7 @@ the teacher’s knowledge, written into the course</p>
 </div>
 
 
-<!--ctm-save-generated--><script type="application/json" id="ctm-store-manifest">{"exercises":[{"component":"math-exercise","id":"lund-eigenvectors","order":2,"runtimeId":"ctm-block-2","save":true,"source":"cc76587bc97a5697"},{"component":"py-exercise","id":"lund-python-area","order":3,"runtimeId":"ctm-block-3","save":true,"source":"41e1d5d977643b93"},{"component":"math-exercise","id":"v25-1a-svar","order":4,"runtimeId":"ctm-block-4","save":true,"source":"1f0b9aefcb82182c"},{"component":"math-exercise","id":"lund-derivative-course","order":8,"runtimeId":"ctm-block-8","save":true,"source":"dfe771c275c1ce01"}],"export":true,"messages":{"answered":"Answered, not graded","answersStorage":"Answers \u0026 storage","clearFailed":"Browser storage could not be cleared or updated. Use your browser settings to remove this course data.","confirmClearCourse":"Delete all your saved answers in this course?","confirmClearPage":"Delete all saved answers on this page?","confirmNewVariant":"Replace your filled answers with a new variant?","confirmSaveOff":"This deletes all saved answers in this course and stops saving.","copyAll":"Copy all","correct":"✓ correct","downloadHTML":"Download .html","downloadMarkdown":"Download .md","exercise":"Exercise","exportClose":"Close","exportTitle":"Export my answers","lastResult":"Last result","locale":"en","notSaving":"Answers aren’t being saved","outdated":"Outdated","partial":"½ partly correct","progressTitle":"Page progress","recordTooLarge":"This answer is too large to save. Copy it before leaving the page.","saveOff":"Do not save on this device","saveOn":"Save again","savedLocal":"Saved in this browser","savingDisabled":"Saving is off for this page.","savingLocal":"Saving in this browser","savingNotice":"Your answers are saved only in this browser.","savingOffNotice":"Saving is off on this device for this course.","settings":"Settings","showSaved":"Show your saved answer","sourceChanged":"The exercise has changed since you answered.","statusCorrect":"correct","statusInvalid":"invalid","statusPartial":"partly correct","statusWrong":"wrong","storageUnavailable":"Saving is unavailable. Your answers are kept in memory for this page only.","total":"{score} of {count}","unattempted":"– not attempted","variantChanged":"This variant has changed.","variantWithdrawn":"This variant has been withdrawn.","wrong":"✗ wrong"},"progress":false,"quizzes":[],"save":true,"v":1}</script>
+<!--ctm-save-generated--><script type="application/json" id="ctm-store-manifest">{"exercises":[{"component":"math-exercise","id":"lund-chain-rule","order":2,"runtimeId":"ctm-block-2","save":true,"source":"07062b7a68b0a51a"},{"component":"py-exercise","id":"lund-python-area","order":3,"runtimeId":"ctm-block-3","save":true,"source":"6f7317b39054d8c4"},{"component":"math-exercise","id":"v25-4b-svar","order":4,"runtimeId":"ctm-block-4","save":true,"source":"227edbff11f1a476"},{"component":"math-exercise","id":"lund-derivative-course","order":8,"runtimeId":"ctm-block-8","save":true,"source":"dfe771c275c1ce01"}],"export":true,"messages":{"answered":"Answered, not graded","answersStorage":"Answers \u0026 storage","clearFailed":"Browser storage could not be cleared or updated. Use your browser settings to remove this course data.","confirmClearCourse":"Delete all your saved answers in this course?","confirmClearPage":"Delete all saved answers on this page?","confirmNewVariant":"Replace your filled answers with a new variant?","confirmSaveOff":"This deletes all saved answers in this course and stops saving.","copyAll":"Copy all","correct":"✓ correct","downloadHTML":"Download .html","downloadMarkdown":"Download .md","exercise":"Exercise","exportClose":"Close","exportTitle":"Export my answers","lastResult":"Last result","locale":"en","notSaving":"Answers aren’t being saved","outdated":"Outdated","partial":"½ partly correct","progressTitle":"Page progress","recordTooLarge":"This answer is too large to save. Copy it before leaving the page.","saveOff":"Do not save on this device","saveOn":"Save again","savedLocal":"Saved in this browser","savingDisabled":"Saving is off for this page.","savingLocal":"Saving in this browser","savingNotice":"Your answers are saved only in this browser.","savingOffNotice":"Saving is off on this device for this course.","settings":"Settings","showSaved":"Show your saved answer","sourceChanged":"The exercise has changed since you answered.","statusCorrect":"correct","statusInvalid":"invalid","statusPartial":"partly correct","statusWrong":"wrong","storageUnavailable":"Saving is unavailable. Your answers are kept in memory for this page only.","total":"{score} of {count}","unattempted":"– not attempted","variantChanged":"This variant has changed.","variantWithdrawn":"This variant has been withdrawn.","wrong":"✗ wrong"},"progress":false,"quizzes":[],"save":true,"v":1}</script>
 <!--ctm-layout-generated--><span id="ctm-layout-ready" hidden=""></span>
 </section>
 

@@ -6,8 +6,9 @@
 //
 //   #lund-connection   API base URL, key, "Fetch models"
 //   #lund-two-frames   1b: one problem, one model, two hidden system prompts
-//   #lund-two-models   1c: prompt A from 1b on a small and a large model
+//   #lund-two-models   1c: the rectangle or two lines in space, on a small and a large model
 //   #lund-html-monster 3a: the page's own HTML for the course exercise in part 5
+//   #lund-fill-*       4a: fill correct or incorrect answers into the examples
 (function () {
   'use strict';
 
@@ -32,7 +33,7 @@
   // Answer length and waiting time per demo.
   const LIMITS = {
     frames: [{maxTokens: 4000, timeoutMs: 120000}, {maxTokens: 8000, timeoutMs: 180000}],
-    models: {maxTokens: 8000, timeoutMs: 180000}
+    models: {maxTokens: 12000, timeoutMs: 180000}
   };
 
   const CONNECTION_KEY = 'lund-connection-v1';
@@ -73,6 +74,29 @@
     }
   ];
 
+  // ------------------------------------------------------------ 1c prompts
+
+  // Directions in space: several steps and fractions, so models differ.
+  // Answer: distance 2, attained at (10/3, 14/3, 20/3) on L1 and (14/3, 10/3, 22/3) on L2.
+  const LINES = {
+    text: 'Two lines in space are $L_1:\\ (1,0,2)+t\\,(1,2,2)$ and $L_2:\\ (4,3,8)+s\\,(2,1,-2)$. ' +
+      'Find the shortest distance between them, and the point on each line where it is attained.',
+    ask: 'End your answer with one line: Final answer: <the shortest distance>',
+    answer: 2
+  };
+
+  const LINES_FRAME = [
+    'You are a teaching assistant in a first-year engineering mathematics course, linear algebra.',
+    'Answer using the methods in the course passages below, in at most twelve short lines.',
+    'Write mathematics in LaTeX between $ signs.',
+    '',
+    'Course passages:',
+    '[S1] Lines. A line is a point plus a parameter times a direction vector.',
+    '[S2] Common normal. The cross product $u\\times v$ is orthogonal to both directions $u$ and $v$.',
+    '[S3] Distance. Project the vector between a point on each line onto the common normal: $|w\\cdot n|/|n|$.',
+    '[S4] Closest points. The connecting vector of the closest points is orthogonal to both directions.'
+  ].join('\n');
+
   // --------------------------------------------------------------- helpers
 
   function el(tag, cls, text) {
@@ -110,6 +134,20 @@
     catch (error) { console.warn('lund demos: keeping readable TeX.', error); }
   }
 
+  // The value on the last "Final answer:" line: an integer, a decimal, a/b or \frac{a}{b}.
+  function finalValue(text) {
+    const line = [...String(text).matchAll(/final answer\s*[:：]\s*(.+)/gi)].pop();
+    if (!line) return null;
+    const s = line[1].replace(/[*$]/g, '').replace(/\\[dt]?frac\s*\{\s*([^{}]+?)\s*\}\s*\{\s*([^{}]+?)\s*\}/g, '$1/$2');
+    const m = s.match(/(-?\d+(?:\.\d+)?)(?:\s*\/\s*(\d+(?:\.\d+)?))?/);
+    if (!m) return null;
+    return {shown: m[0], value: m[2] ? Number(m[1]) / Number(m[2]) : Number(m[1])};
+  }
+  function isRight(text, answer) {
+    const read = finalValue(text);
+    return read ? {read, ok: Math.abs(read.value - answer) <= 0.005 * Math.abs(answer)} : null;
+  }
+
   // ------------------------------------------------------------ connection
 
   const connection = Object.assign({baseUrl: '', apiKey: ''}, load(CONNECTION_KEY, {}));
@@ -145,7 +183,11 @@
         method: 'POST', headers: headers(), signal: controller.signal,
         body: JSON.stringify({model, messages, max_tokens: maxTokens})
       });
-      if (!response.ok) throw new Error('API ' + response.status + ': ' + (await response.text().catch(() => '')).slice(0, 300));
+      if (!response.ok) {
+        const error = new Error('API ' + response.status + ': ' + (await response.text().catch(() => '')).slice(0, 300));
+        if (response.status === 429) error.retryAfter = Number(response.headers.get('Retry-After')) || 30;
+        throw error;
+      }
       const choice = (await response.json())?.choices?.[0];
       let text = choice?.message?.content;
       if (Array.isArray(text)) text = text.filter(p => p.type === 'text').map(p => p.text).join('');
@@ -177,7 +219,6 @@
 
     function refresh() {
       summary.textContent = 'AI connection: ' + (base() ? new URL(base()).host + ' · ' + modelList.length + ' models' : 'not set');
-      if (!base()) panel.open = true;
     }
     function store() {
       connection.baseUrl = url.value.trim();
@@ -228,13 +269,16 @@
     const node = el('div', 'lund-card lund-tf-answer');
     const head = el('h3', '', title);
     const meta = el('p', 'lund-tf-meta');
+    const verdict = el('p', 'lund-tf-verdict');
     const body = el('div', 'lund-tf-body');
-    node.append(head, meta, body);
-    return {node, head, meta, body};
+    node.append(head, meta, verdict, body);
+    return {node, head, meta, verdict, body};
   }
 
   async function run(out, model, messages, opts) {
     out.body.replaceChildren();
+    out.verdict.textContent = '';
+    out.verdict.className = 'lund-tf-verdict';
     out.meta.textContent = label(model) + ' · thinking…';
     const start = performance.now();
     try {
@@ -242,6 +286,11 @@
       const seconds = ((performance.now() - start) / 1000).toFixed(0);
       const words = reply.text.split(/\s+/).filter(Boolean).length;
       out.meta.textContent = label(model) + ' · ' + words + ' words · ' + seconds + ' s' + (reply.truncated ? ' · cut off' : '');
+      if (opts.answer !== undefined) {
+        const check = isRight(reply.text, opts.answer);
+        out.verdict.textContent = check ? (check.ok ? '✓ ' : '✗ ') + 'Final answer: ' + check.read.shown : '? no final answer found';
+        out.verdict.classList.add(check ? (check.ok ? 'is-right' : 'is-wrong') : 'is-unknown');
+      }
       await showMarkdown(out.body, reply.text);
     } catch (error) {
       out.meta.textContent = label(model);
@@ -274,12 +323,16 @@
   const DERIVATIVE = /derivative|differentiat|d[A-Za-z]?\s*\/\s*d[a-z]|\\frac\s*\{\s*d|[A-Za-z]'\s*\(|[A-Za-z]\u2032|lagrange|\\nabla/i;
 
   // Runs every job N times (one round at a time, the jobs of a round in parallel)
-  // and tallies time, length and whether derivatives were used. For choosing
+  // and tallies time, length and one yes/no column. For choosing
   // models before the talk, not for showing live.
-  function testPanel(jobs) {
+  // column: {title, test(text) -> true/false} for the last column of the table.
+  function testPanel(jobs, column) {
     const box = el('div', 'lund-test');
     const count = el('input', 'form-control');
     count.type = 'number'; count.min = '1'; count.max = '50'; count.value = '10';
+    // A pause between rounds keeps within the API's rate limits (on Idun about 20 requests a minute).
+    const pause = el('input', 'form-control');
+    pause.type = 'number'; pause.min = '0'; pause.max = '600'; pause.value = '20';
     const start = button('Test', 'btn-outline-secondary btn-sm');
     const stop = button('Stop', 'btn-outline-secondary btn-sm');
     stop.disabled = true;
@@ -287,44 +340,60 @@
     const summary = el('div', 'lund-test-summary');
     const table = el('table', 'table table-sm lund-test-table');
     box.append(el('h4', '', 'Test runs (for the presenter)'),
-      controlsRow(['Runs', count], ['', start], ['', stop]), status, summary, table);
+      controlsRow(['Runs', count], ['Pause (s)', pause], ['', start], ['', stop]), status, summary, table);
     let stopped = false;
-    stop.onclick = () => { stopped = true; status.textContent = 'Stopping after this round…'; };
+    stop.onclick = () => { stopped = true; status.textContent = 'Stopping…'; };
+    // Waits, with a countdown in the status line; ends early when stopped.
+    async function wait(seconds, why) {
+      for (let left = Math.ceil(seconds); left > 0 && !stopped; left--) {
+        status.textContent = why + ': waiting ' + left + ' s…';
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      }
+    }
 
     start.onclick = async () => {
       if (!ready()) return;
       const n = Math.max(1, Math.min(50, Number(count.value) || 10));
+      const gap = Math.max(0, Math.min(600, Number(pause.value) || 0));
       const list = jobs();
       const results = list.map(() => []);
       stopped = false; start.disabled = true; stop.disabled = false;
       table.replaceChildren();
       const head = el('tr');
-      ['Run', 'Job', 'Model', 'Seconds', 'Words', 'Derivatives'].forEach(t => head.append(el('th', '', t)));
+      ['Run', 'Job', 'Model', 'Seconds', 'Words', column.title].forEach(t => head.append(el('th', '', t)));
       table.append(head);
       const median = xs => { const v = [...xs].sort((a, b) => a - b); return v.length ? v[Math.floor((v.length - 1) / 2)] : NaN; };
       function tally() {
         summary.replaceChildren(...list.map((job, j) => {
           const ok = results[j].filter(r => !r.error);
-          const without = ok.filter(r => !r.derivatives).length;
-          return el('p', '', job.name + ' (' + label(job.model) + '): ' + ok.length + ' answers, ' + without + ' without derivatives, median '
+          const hits = ok.filter(r => r.flag).length;
+          return el('p', '', job.name + ' (' + label(job.model) + '): ' + ok.length + ' answers, ' + hits + ' ' + column.summary + ', median '
             + median(ok.map(r => r.seconds)) + ' s and ' + median(ok.map(r => r.words)) + ' words'
             + (results[j].length > ok.length ? ', ' + (results[j].length - ok.length) + ' errors' : ''));
         }));
       }
       for (let round = 1; round <= n && !stopped; round++) {
+        if (round > 1 && gap) await wait(gap, 'Pause before round ' + round);
+        if (stopped) break;
         status.textContent = 'Round ' + round + ' of ' + n + '…';
         await Promise.all(list.map(async (job, j) => {
-          const t0 = performance.now();
           let row;
-          try {
-            const reply = await chat(job.model, job.messages, job.limits);
-            row = {seconds: Math.round((performance.now() - t0) / 1000), words: reply.text.split(/\s+/).filter(Boolean).length,
-              derivatives: DERIVATIVE.test(reply.text)};
-          } catch (error) { row = {error: error.message}; }
+          for (let attempt = 1; !row; attempt++) {
+            const t0 = performance.now();
+            try {
+              const reply = await chat(job.model, job.messages, job.limits);
+              row = {seconds: Math.round((performance.now() - t0) / 1000), words: reply.text.split(/\s+/).filter(Boolean).length,
+                flag: column.test(reply.text)};
+            } catch (error) {
+              // Rate limited: wait as the API asks, then try again (three times at most).
+              if (error.retryAfter && attempt < 4 && !stopped) await wait(error.retryAfter, 'Rate limit (' + label(job.model) + ')');
+              else row = {error: error.message};
+            }
+          }
           results[j].push(row);
           const tr = el('tr');
           [String(round), job.name, label(job.model), row.error ? '–' : String(row.seconds), row.error ? '–' : String(row.words),
-           row.error ? row.error.slice(0, 60) : (row.derivatives ? 'yes' : 'no')].forEach(t => tr.append(el('td', '', t)));
+           row.error ? row.error.slice(0, 60) : (row.flag ? 'yes' : 'no')].forEach(t => tr.append(el('td', '', t)));
           table.append(tr);
         }));
         tally();
@@ -346,7 +415,8 @@
     const outs = FRAMES.map(frame => { const c = card(frame.title); cols.append(c.node); return c; });
     const scenes = behindTheScenes(FRAMES.map(f => [f.reveal, 'System: ' + f.system + '\n\nUser: ' + RECTANGLE]));
     scenes.append(testPanel(() => FRAMES.map((frame, i) => ({name: 'Prompt ' + 'AB'[i], model: model.value, limits: LIMITS.frames[i],
-      messages: [{role: 'system', content: frame.system}, {role: 'user', content: RECTANGLE}]}))));
+      messages: [{role: 'system', content: frame.system}, {role: 'user', content: RECTANGLE}]})),
+      {title: 'Derivatives', summary: 'with derivatives', test: text => DERIVATIVE.test(text)}));
     host.append(controlsRow(['Model', model]), el('p', 'lund-tf-problem', RECTANGLE), bar, cols, scenes);
 
     ask.onclick = async () => {
@@ -360,9 +430,22 @@
 
   // ------------------------------------------------------------------- 1c
 
-  // Prompt A from 1b (the course frame), unchanged, on a small and a large model.
+  // The same prompt on a small and a large model: the rectangle with prompt A
+  // from 1b, or a harder question about lines in space with its own passages.
+  const DERIVATIVES_COLUMN = {title: 'Derivatives', summary: 'with derivatives', test: text => DERIVATIVE.test(text)};
+  const CASES = [
+    {name: 'Rectangle (prompt A from 1b)', problem: RECTANGLE, system: FRAMES[0].system, user: RECTANGLE,
+     reveal: 'Both models get prompt A from 1b', column: DERIVATIVES_COLUMN},
+    {name: 'Two lines in space', problem: LINES.text, system: LINES_FRAME, user: LINES.text + '\n\n' + LINES.ask,
+     reveal: 'Course passages (system prompt)', answer: LINES.answer,
+     column: {title: 'Correct', summary: 'correct', test: text => isRight(text, LINES.answer)?.ok === true}}
+  ];
+
   function twoModels(host) {
-    const frame = FRAMES[0];
+    let current = CASES[0];
+    const messages = () => [{role: 'system', content: current.system}, {role: 'user', content: current.user}];
+    const caseSelect = el('select', 'form-select');
+    CASES.forEach((c, i) => caseSelect.append(new Option(c.name, String(i))));
     const ask = button('Ask both models', 'btn-primary btn-lg');
     const bar = el('div', 'lund-tf-bar');
     bar.append(ask);
@@ -371,21 +454,87 @@
     const selects = [0, 1].map(slot => modelSelect('models', slot, titles));
     const cols = el('div', 'lund-cols');
     outs.forEach(c => cols.append(c.node));
-    const scenes = behindTheScenes([['Both models get prompt A from 1b', 'System: ' + frame.system + '\n\nUser: ' + RECTANGLE]]);
-    scenes.append(testPanel(() => selects.map((select, i) => ({name: ['Small', 'Large'][i], model: select.value, limits: LIMITS.models,
-      messages: [{role: 'system', content: frame.system}, {role: 'user', content: RECTANGLE}]}))));
-    host.append(controlsRow(['Small model', selects[0]], ['Large model', selects[1]]),
-      el('p', 'lund-tf-problem', RECTANGLE), bar, cols, scenes);
+    const problem = el('div', 'lund-tf-problem');
+    const scenes = el('div');
+    host.append(controlsRow(['Problem', caseSelect], ['Small model', selects[0]], ['Large model', selects[1]]), problem, bar, cols, scenes);
+
+    function render() {
+      showMarkdown(problem, current.problem);
+      outs.forEach(c => { c.body.replaceChildren(); c.meta.textContent = ''; c.verdict.textContent = ''; });
+      const reveal = behindTheScenes([[current.reveal, 'System: ' + current.system + '\n\nUser: ' + current.user]]);
+      reveal.append(testPanel(() => selects.map((select, i) => ({name: ['Small', 'Large'][i], model: select.value, limits: LIMITS.models,
+        messages: messages()})), current.column));
+      scenes.replaceChildren(reveal);
+    }
+    caseSelect.onchange = () => { current = CASES[Number(caseSelect.value)]; render(); };
     modelListeners.push(titles);
     titles();
+    render();
 
     ask.onclick = async () => {
       if (!ready()) return;
       ask.disabled = true;
-      await Promise.all(selects.map((select, i) => run(outs[i], select.value,
-        [{role: 'system', content: frame.system}, {role: 'user', content: RECTANGLE}], LIMITS.models)));
+      await Promise.all(selects.map((select, i) => run(outs[i], select.value, messages(), {...LIMITS.models, answer: current.answer})));
       ask.disabled = false;
     };
+  }
+
+  // ---------------------------------------------- 4a: fill answers (presenter)
+
+  // Answers that show the check and the AI feedback quickly. Each click on
+  // "Fill incorrect" takes the next typical mistake.
+  const FILLS = {
+    'lund-fill-math': {
+      kind: 'math', label: 'lund-chain-rule',
+      correct: ['2*x*cos(x^2)'],
+      wrong: [['cos(x^2)'], ['2*x*cos(x)'], ['cos(2*x)']]  // inner derivative missing; x^2 lost; derivative taken inside
+    },
+    'lund-fill-python': {
+      kind: 'python', label: 'lund-python-area',
+      correct: 'def largest_area(p):\n    return (p / 4) ** 2\n',
+      wrong: [
+        'def largest_area(p):\n    return (p / 2) ** 2\n',           // half the perimeter as the side
+        'def largest_area(p):\n    side = p / 4\n    print(side * side)\n',  // prints instead of returning
+        'def largest_area(p):\n    return (p // 4) ** 2\n'           // integer division
+      ]
+    }
+  };
+
+  function fillMath(label, values) {
+    const cell = document.querySelector('.math-exercise-cell[data-label="' + label + '"]');
+    if (!cell) return false;
+    const toggle = cell.querySelector('.math-exercise-toggle[aria-expanded="false"]');
+    if (toggle) toggle.click();
+    const inputs = [...cell.querySelectorAll('input.math-input')];
+    if (!inputs.length) return false;
+    inputs.forEach((input, i) => { input.value = values[i] || ''; input.dispatchEvent(new Event('input', {bubbles: true})); });
+    return true;
+  }
+
+  function fillPython(label, code) {
+    const host = document.querySelector('[data-ctm-id="' + label + '"]');
+    const editors = window.monaco?.editor?.getEditors?.() || [];
+    const editor = host && editors.find(e => host.contains(e.getContainerDomNode()));
+    if (!editor) return false;
+    editor.setValue(code);
+    return true;
+  }
+
+  function fillButtons(host, spec) {
+    const right = button('Fill correct answer', 'btn-outline-secondary btn-sm');
+    const wrong = button('Fill incorrect answer', 'btn-outline-secondary btn-sm');
+    const status = el('span', 'lund-tf-meta');
+    let next = 0;
+    const fill = value => (spec.kind === 'math' ? fillMath(spec.label, value) : fillPython(spec.label, value));
+    right.onclick = () => { status.textContent = fill(spec.correct) ? 'Correct answer filled in.' : 'The exercise is not ready yet.'; };
+    wrong.onclick = () => {
+      const i = next % spec.wrong.length;
+      status.textContent = fill(spec.wrong[i]) ? 'Incorrect answer ' + (i + 1) + ' of ' + spec.wrong.length + ' filled in.' : 'The exercise is not ready yet.';
+      next++;
+    };
+    const row = el('div', 'lund-fill');
+    row.append(right, wrong, status);
+    host.append(row);
   }
 
   // ----------------------------------------------- 3a: Markdown versus HTML
@@ -412,6 +561,7 @@
   function init() {
     const byId = id => document.getElementById(id);
     if (byId('lund-html-monster')) htmlMonster(byId('lund-html-monster'));
+    Object.entries(FILLS).forEach(([id, spec]) => { if (byId(id)) fillButtons(byId(id), spec); });
     if (byId('lund-connection')) connectionPanel(byId('lund-connection'));
     if (byId('lund-two-frames')) twoFrames(byId('lund-two-frames'));
     if (byId('lund-two-models')) twoModels(byId('lund-two-models'));
