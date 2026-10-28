@@ -132,18 +132,66 @@
   async function showMarkdown(node, text) {
     text = dedent(text);
     const math = [];
-    const keep = (tex, display) => { math.push(display ? '\\[' + tex + '\\]' : '\\(' + tex + '\\)'); return 'LUNDMATH' + (math.length - 1) + 'X'; };
+    const keep = (tex, display) => {
+      const lines = breakChain(tex);
+      math.push(lines ? {tex: lines, display: true} : {tex, display});
+      return 'LUNDMATH' + (math.length - 1) + 'X';
+    };
     const source = String(text)
       .replace(/\$\$([\s\S]+?)\$\$/g, (_, t) => keep(t, true))
       .replace(/\\\[([\s\S]+?)\\\]/g, (_, t) => keep(t, true))
       .replace(/\\\(([\s\S]+?)\\\)/g, (_, t) => keep(t, false))
       .replace(/\$([^$\n]+?)\$/g, (_, t) => keep(t, false));
     const html = window.marked ? window.marked.parse(source) : '<p>' + escapeHtml(source).replace(/\n/g, '<br>') + '</p>';
-    node.innerHTML = html.replace(/LUNDMATH(\d+)X/g, (_, i) => escapeHtml(math[Number(i)]));
+    // Each formula gets its own box, so a long one cannot spill into the next card.
+    node.innerHTML = html.replace(/LUNDMATH(\d+)X/g, (_, i) => {
+      const m = math[Number(i)];
+      return m.display
+        ? '<span class="lund-math lund-math-display">' + escapeHtml('\\[' + m.tex + '\\]') + '</span>'
+        : '<span class="lund-math lund-math-inline">' + escapeHtml('\\(' + m.tex + '\\)') + '</span>';
+    });
     sanitize(node);
     try { if (window.MathJax?.typesetPromise) await window.MathJax.typesetPromise([node]); }
     catch (error) { console.warn('lund demos: keeping readable TeX.', error); }
+    fitMath(node);
   }
+
+  // MathJax 3 cannot break formulas over lines. A long chain a = b = c = ... is
+  // set as aligned lines, one "=" per line; returns null when it does not apply.
+  function breakChain(tex) {
+    if (tex.length < 40) return null;
+    const parts = [];
+    let depth = 0, start = 0;
+    for (let i = 0; i < tex.length; i++) {
+      const c = tex[i];
+      if (c === '\\') {
+        const word = tex.slice(i).match(/^\\(begin|end|left|right)\b/);
+        if (word) depth += word[1] === 'begin' || word[1] === 'left' ? 1 : -1;
+        i++;
+        continue;
+      }
+      if (c === '{') depth++;
+      else if (c === '}') depth--;
+      else if (c === '=' && depth === 0 && tex[i - 1] !== '<' && tex[i - 1] !== '>' && tex[i - 1] !== '!') {
+        parts.push(tex.slice(start, i)); start = i + 1;
+      }
+    }
+    parts.push(tex.slice(start));
+    if (parts.length < 3 || parts.some(part => !part.trim())) return null;
+    return '\\begin{aligned}' + parts[0] + ' &= ' + parts.slice(1).join(' \\\\ &= ') + '\\end{aligned}';
+  }
+
+  // A formula still wider than its card is shrunk to fit, down to 75 %;
+  // beyond that its box scrolls sideways.
+  function fitMath(node) {
+    node.querySelectorAll('.lund-math').forEach(box => {
+      box.style.fontSize = '';
+      const room = box.parentElement.clientWidth;
+      const needed = box.scrollWidth;
+      if (room > 0 && needed > room) box.style.fontSize = Math.max(75, Math.floor(100 * room / needed)) + '%';
+    });
+  }
+
 
   // The value on the last "Final answer:" line: an integer, a decimal, a/b or \frac{a}{b}.
   function finalValue(text) {
@@ -573,6 +621,9 @@
     const byId = id => document.getElementById(id);
     if (byId('lund-html-monster')) htmlMonster(byId('lund-html-monster'));
     Object.entries(FILLS).forEach(([id, spec]) => { if (byId(id)) fillButtons(byId(id), spec); });
+    // Card widths change with the window; fit the formulas again.
+    let resizeTimer;
+    window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => document.querySelectorAll('.lund-tf-body').forEach(fitMath), 200); });
     if (byId('lund-connection')) connectionPanel(byId('lund-connection'));
     if (byId('lund-two-frames')) twoFrames(byId('lund-two-frames'));
     if (byId('lund-two-models')) twoModels(byId('lund-two-models'));
