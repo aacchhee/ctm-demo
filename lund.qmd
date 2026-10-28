@@ -327,21 +327,24 @@ between courses and between universities
 ## Assessment: deterministic and stochastic {#assessment .lund-part data-part="4a"}
 
 ::: {.lund-big}
-Inside the course is also what is assessed. What students do has to be assessed.
+What students do has to be assessed.
 :::
 
 ::: {.lund-question}
-And any written product made at home is no longer authentic: a model may have written it.
+But any written product made at home is no longer authentic: a model may have written it.
+The text alone no longer shows who did the thinking.
 :::
+
+So we split the work:
 
 ::::: {.lund-steps}
 ::: {.lund-step}
 **Small chunks**\
-basic skills, assessed one by one
+basic skills, practised one by one, with immediate feedback
 :::
 ::: {.lund-step}
 **Larger projects**\
-skills combined; any tool, AI included; explained to each other or to us
+skills combined; any tool, AI included; but students explain their work, to each other or to us
 :::
 :::::
 
