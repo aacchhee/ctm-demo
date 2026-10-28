@@ -560,7 +560,7 @@ the course passages on the same topic go along too, so new problems use our nota
 :::
 
 ::: {.lund-question}
-Even near the course, we **give away control** in exchange for a **richer problem space**.
+Even near the course, we ![](assets/lund/witch.svg){.lund-witch alt=""} **give away control** in exchange for a **richer problem space** [🕸️]{.lund-spooky aria-hidden="true"}.
 :::
 
 ::: {.lund-cols}
