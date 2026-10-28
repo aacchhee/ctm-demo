@@ -137,3 +137,4 @@ h2.lund-part.lund-sub, .lund-part.lund-sub > h2 { margin-top: 3rem; border-top: 
   display: block; max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-bottom: .2rem;
 }
 .lund-tf-body mjx-container:not([display="true"]) { max-width: 100%; overflow-x: auto; overflow-y: hidden; vertical-align: middle; }
+.lund-fill { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: .2rem 0 .8rem; }

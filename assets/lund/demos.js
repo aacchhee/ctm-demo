@@ -8,6 +8,7 @@
 //   #lund-two-frames   1b: one problem, one model, two hidden system prompts
 //   #lund-two-models   1c: the rectangle or two lines in space, on a small and a large model
 //   #lund-html-monster 3a: the page's own HTML for the course exercise in part 5
+//   #lund-fill-*       4a: fill correct or incorrect answers into the examples
 (function () {
   'use strict';
 
@@ -478,6 +479,64 @@
     };
   }
 
+  // ---------------------------------------------- 4a: fill answers (presenter)
+
+  // Answers that show the check and the AI feedback quickly. Each click on
+  // "Fill incorrect" takes the next typical mistake.
+  const FILLS = {
+    'lund-fill-math': {
+      kind: 'math', label: 'lund-chain-rule',
+      correct: ['2*x*cos(x^2)'],
+      wrong: [['cos(x^2)'], ['2*x*cos(x)'], ['cos(2*x)']]  // inner derivative missing; x^2 lost; derivative taken inside
+    },
+    'lund-fill-python': {
+      kind: 'python', label: 'lund-python-area',
+      correct: 'def largest_area(p):\n    return (p / 4) ** 2\n',
+      wrong: [
+        'def largest_area(p):\n    return (p / 2) ** 2\n',           // half the perimeter as the side
+        'def largest_area(p):\n    side = p / 4\n    print(side * side)\n',  // prints instead of returning
+        'def largest_area(p):\n    return (p // 4) ** 2\n'           // integer division
+      ]
+    }
+  };
+
+  function fillMath(label, values) {
+    const cell = document.querySelector('.math-exercise-cell[data-label="' + label + '"]');
+    if (!cell) return false;
+    const toggle = cell.querySelector('.math-exercise-toggle[aria-expanded="false"]');
+    if (toggle) toggle.click();
+    const inputs = [...cell.querySelectorAll('input.math-input')];
+    if (!inputs.length) return false;
+    inputs.forEach((input, i) => { input.value = values[i] || ''; input.dispatchEvent(new Event('input', {bubbles: true})); });
+    return true;
+  }
+
+  function fillPython(label, code) {
+    const host = document.querySelector('[data-ctm-id="' + label + '"]');
+    const editors = window.monaco?.editor?.getEditors?.() || [];
+    const editor = host && editors.find(e => host.contains(e.getContainerDomNode()));
+    if (!editor) return false;
+    editor.setValue(code);
+    return true;
+  }
+
+  function fillButtons(host, spec) {
+    const right = button('Fill correct answer', 'btn-outline-secondary btn-sm');
+    const wrong = button('Fill incorrect answer', 'btn-outline-secondary btn-sm');
+    const status = el('span', 'lund-tf-meta');
+    let next = 0;
+    const fill = value => (spec.kind === 'math' ? fillMath(spec.label, value) : fillPython(spec.label, value));
+    right.onclick = () => { status.textContent = fill(spec.correct) ? 'Correct answer filled in.' : 'The exercise is not ready yet.'; };
+    wrong.onclick = () => {
+      const i = next % spec.wrong.length;
+      status.textContent = fill(spec.wrong[i]) ? 'Incorrect answer ' + (i + 1) + ' of ' + spec.wrong.length + ' filled in.' : 'The exercise is not ready yet.';
+      next++;
+    };
+    const row = el('div', 'lund-fill');
+    row.append(right, wrong, status);
+    host.append(row);
+  }
+
   // ----------------------------------------------- 3a: Markdown versus HTML
 
   // Shows the HTML the browser holds for the course exercise (part 5), live from the page.
@@ -502,6 +561,7 @@
   function init() {
     const byId = id => document.getElementById(id);
     if (byId('lund-html-monster')) htmlMonster(byId('lund-html-monster'));
+    Object.entries(FILLS).forEach(([id, spec]) => { if (byId(id)) fillButtons(byId(id), spec); });
     if (byId('lund-connection')) connectionPanel(byId('lund-connection'));
     if (byId('lund-two-frames')) twoFrames(byId('lund-two-frames'));
     if (byId('lund-two-models')) twoModels(byId('lund-two-models'));

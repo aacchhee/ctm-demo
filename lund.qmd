@@ -373,9 +373,15 @@ The check decides whether the answer is right. The AI helps with the way there.
 
 ## A checked problem
 
-{{< include _includes/lund/coordinates.md >}}
+::: {#lund-fill-math}
+:::
+
+{{< include _includes/lund/chain-rule.md >}}
 
 ## Python with tests
+
+::: {#lund-fill-python}
+:::
 
 {{< include _includes/lund/python-area.md >}}
 
