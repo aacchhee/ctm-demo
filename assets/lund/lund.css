@@ -147,6 +147,7 @@ h2.lund-part.lund-sub, .lund-part.lund-sub > h2 { margin-top: 3rem; border-top: 
 .lund-byline a { color: inherit; }
 
 /* Pumpkins hide behind the scenes; witch and web mark the 4b trade-off */
+.lund-witch { height: 1.9em; vertical-align: -.45em; margin: 0 .1em; }
 .lund-spooky { display: inline-block; font-size: 1.3em; line-height: 1; vertical-align: -.1em; }
 .lund-tf-prompts { position: relative; }
 .lund-pumpkin-peek { position: absolute; width: 1.8rem; height: 1.8rem; pointer-events: none; opacity: .9; }

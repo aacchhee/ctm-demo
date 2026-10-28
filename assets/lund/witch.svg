@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 42">
+  <!-- A black witch on a broomstick, flying left, one orange eye -->
+  <g fill="#111">
+    <!-- broom handle and bristles -->
+    <path d="M2 37.5 L50 31 L50.4 33 L2.4 39.5 Z"/>
+    <path d="M48 30 L63 24 L60 31 L64 34 L58 36 L62 41 L49 35 Z"/>
+    <!-- cloak streaming back -->
+    <path d="M24 17 C30 19 36 22 40 27 C44 26 50 23 56 22 C52 27 47 30 43 33 L38 35 L22 37 C21 30 21 22 24 17 Z"/>
+    <!-- arm and hand on the broom -->
+    <path d="M23 23 C20 27 16 31 12 35 L15 36.5 C19 33 23 29 27 25 Z"/>
+    <!-- head, hooked nose, pointed chin -->
+    <path d="M26 9 C30 9 32 12 31 16 C30 19 27 21 24 21 L21 23 L22 19 C19.5 18.5 17 18 13.5 18.5 C16.5 16 19 14.5 20.5 13.5 C21 11 23 9 26 9 Z"/>
+    <!-- hat: wide brim and crooked cone -->
+    <path d="M13 11.5 C20 8 30 7 38 8.5 C31 10 22 11.5 13 11.5 Z"/>
+    <path d="M20 10 C22 6 25 3 31 2 C34 1.5 37 0.5 40 0 C37 2 34 3.5 32 5 C30.5 6.5 30 8 30 9 Z"/>
+  </g>
+  <ellipse cx="23" cy="13.6" rx="1.2" ry=".6" transform="rotate(-15 23 13.6)" fill="#ff7a00"/>
+</svg>
