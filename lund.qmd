@@ -365,6 +365,30 @@ skills combined; any tool, AI included; but students explain their work, to each
 :::
 :::::
 
+::: {.lund-tperson}
+```{=html}
+<svg viewBox="0 0 600 340" role="img" aria-labelledby="tperson-title" xmlns="http://www.w3.org/2000/svg">
+  <title id="tperson-title">The T shape: broad core skills across many topics, one project deep in one topic</title>
+  <defs><marker id="tperson-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#495057"/></marker></defs>
+  <rect x="110" y="50" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="154" y="50" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="198" y="50" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="242" y="50" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="286" y="50" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="330" y="50" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="374" y="50" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="418" y="50" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="462" y="50" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="506" y="50" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="110" y="100" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="154" y="100" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="198" y="100" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="242" y="100" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="286" y="100" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="330" y="100" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="374" y="100" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="418" y="100" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="462" y="100" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="506" y="100" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="110" y="150" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="154" y="150" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="198" y="150" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="242" y="150" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="286" y="150" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="330" y="150" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="374" y="150" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="418" y="150" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="462" y="150" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="506" y="150" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="110" y="200" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="154" y="200" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="198" y="200" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="242" y="200" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="286" y="200" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="330" y="200" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="374" y="200" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="418" y="200" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="462" y="200" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="506" y="200" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="110" y="250" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="154" y="250" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="198" y="250" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="242" y="250" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="286" y="250" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="330" y="250" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="374" y="250" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="418" y="250" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="462" y="250" width="44" height="50" fill="none" stroke="#d4dde5"/><rect x="506" y="250" width="44" height="50" fill="none" stroke="#d4dde5"/>
+  <line x1="110" y1="32" x2="560" y2="32" stroke="#495057" stroke-width="2" marker-end="url(#tperson-arrow)"/>
+  <text x="110" y="22" font-size="15" fill="#495057">topics</text>
+  <line x1="92" y1="50" x2="92" y2="305" stroke="#495057" stroke-width="2" marker-end="url(#tperson-arrow)"/>
+  <text x="80" y="180" font-size="15" fill="#495057" text-anchor="middle" transform="rotate(-90 80 180)">depth</text>
+  <rect x="154" y="52" width="308" height="46" rx="6" fill="#b9d5f5" stroke="#2780e3" stroke-width="2"/>
+  <text x="308" y="81" font-size="17" font-weight="700" fill="#1a5fa8" text-anchor="middle">core skills: broad</text>
+  <rect x="288" y="98" width="40" height="200" rx="6" fill="#f7c77a" stroke="#e8a33d" stroke-width="2"/>
+  <text x="340" y="205" font-size="17" font-weight="700" fill="#a0620f">project: deep</text>
+</svg>
+```
+
+[After the "T person" by Maria Henningson, Axis Communications, at the morning lecture in Lund.]{.lund-small}
+:::
+
+::: {.lund-big}
+The core skills go **broad**; a project goes **deep**.
+:::
+
 Here: the core skills. Online, this is **formative**: it helps students through a constructive struggle.
 
 ::: {.lund-cols}

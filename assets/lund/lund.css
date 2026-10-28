@@ -157,3 +157,5 @@ h2.lund-part.lund-sub, .lund-part.lund-sub > h2 { margin-top: 3rem; border-top: 
 .lund-tf-prompts { position: relative; }
 .lund-pumpkin-peek { position: absolute; width: 1.8rem; height: 1.8rem; pointer-events: none; opacity: .9; }
 .lund-tf-prompts:not([open]) .lund-pumpkin-peek { display: none; }
+.lund-tperson { max-width: 36rem; margin: 1rem auto; }
+.lund-tperson svg { width: 100%; height: auto; }
