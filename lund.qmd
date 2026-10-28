@@ -373,7 +373,7 @@ The check decides whether the answer is right. The AI helps with the way there.
 
 ## A checked problem
 
-{{< include _includes/lund/eigenvectors.md >}}
+{{< include _includes/lund/coordinates.md >}}
 
 ## Python with tests
 
