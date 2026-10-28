@@ -26,6 +26,10 @@ include-after-body:
       <script src="assets/handskrift/fyll-inn.js" data-feedback-dir="feedback/handwriting/" data-files="tutor.yml,tasks.yml" data-guide="pages/handwriting-ai-prompts.html" data-sandbox="false"></script>
 ---
 
+::: {.lund-byline}
+Andrey Chesnokov · Norwegian University of Science and Technology (NTNU) · [aacchhee@gmail.com](mailto:aacchhee@gmail.com)
+:::
+
 ## The frame {#frame .lund-part data-part="0"}
 
 ::: {.lund-big}
