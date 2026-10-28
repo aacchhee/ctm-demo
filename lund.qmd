@@ -489,12 +489,27 @@ the teacher's knowledge, written into the course
 Easier, similar, harder: the model writes new problems.
 :::
 
+Try **Similar problem** on this exercise:
+
+{{< include _includes/lund/derivative-course.md >}}
+
+::::: {.lund-steps}
+::: {.lund-step}
+**What happens now**\
+the button sends the exercise and the teacher's words for "harder" and "easier" straight to the model
+:::
+::: {.lund-step .lund-step-key}
+**With RAG**\
+the course passages on the same topic go along, so new problems use our notation and methods
+:::
+:::::
+
 ::: {.lund-nest .lund-space}
 ::: {.lund-box .is-all}
 **Everything a model can write**
 
 ::: {.lund-box .is-near}
-**Near the course**
+**Near the course**: what RAG keeps it to
 
 ::: {.lund-box .is-ours}
 **Written and checked by us**
@@ -504,8 +519,7 @@ Easier, similar, harder: the model writes new problems.
 :::
 
 ::: {.lund-question}
-Today the button asks the model directly; RAG can take its place and keep it near the course.
-Still, we **give away control** in exchange for a **richer problem space**.
+Even near the course, we **give away control** in exchange for a **richer problem space**.
 :::
 
 ::: {.lund-cols}
@@ -513,6 +527,7 @@ Still, we **give away control** in exchange for a **richer problem space**.
 ### Is it relevant?
 
 - the teacher says what "harder" and "easier" mean
+- with RAG, the course sets the frame
 :::
 
 ::: {.lund-card}
@@ -523,10 +538,6 @@ Still, we **give away control** in exchange for a **richer problem space**.
 - it never counts toward grades
 :::
 :::
-
-Try **Similar problem** on this exercise:
-
-{{< include _includes/lund/derivative-course.md >}}
 
 ::: {.lund-question}
 "Harder" is the model's reading of difficulty.
