@@ -5,6 +5,8 @@ lang: en
 sidebar: false
 toc: false
 css: assets/lund/lund.css
+resources:
+  - assets/lund/pumpkin.svg
 # Address of the live RAG service (rag_app).
 rag-url: "https://andreyac.math.ntnu.no/rag2/"
 math-exercise:
@@ -27,7 +29,7 @@ include-after-body:
 ---
 
 ::: {.lund-byline}
-Andrey Chesnokov · Norwegian University of Science and Technology (NTNU) · [aacchhee@gmail.com](mailto:aacchhee@gmail.com)
+Andrey Chesnokov · Norwegian University of Science and Technology (NTNU) · [andrey.chesnokov@ntnu.no](mailto:andrey.chesnokov@ntnu.no)
 :::
 
 ## The frame {#frame .lund-part data-part="0"}

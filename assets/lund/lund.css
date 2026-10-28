@@ -145,3 +145,15 @@ h2.lund-part.lund-sub, .lund-part.lund-sub > h2 { margin-top: 3rem; border-top: 
 #v25-4b > .ai-feedback-notice { display: none; }
 .lund-byline { margin: -.5rem 0 1rem; color: #6c757d; font-size: 1rem; }
 .lund-byline a { color: inherit; }
+
+/* Pumpkins (decoration only): one by the title, and as bullets in part 5 */
+.lund-pumpkin { width: 2rem; height: 2rem; margin-left: .5rem; vertical-align: -.25rem; transform: rotate(10deg); }
+.lund-pumpkin-list { list-style: none; padding-left: 1.6rem; }
+.lund-pumpkin-list li { position: relative; }
+.lund-pumpkin-list li::before {
+  content: ""; position: absolute; left: -1.6rem; top: .2em; width: 1.15rem; height: 1.15rem;
+  background: var(--lund-pumpkin) center / contain no-repeat;
+}
+.lund-tf-prompts { position: relative; }
+.lund-pumpkin-peek { position: absolute; width: 1.8rem; height: 1.8rem; pointer-events: none; opacity: .9; }
+.lund-tf-prompts:not([open]) .lund-pumpkin-peek { display: none; }
