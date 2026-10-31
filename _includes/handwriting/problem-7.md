@@ -19,7 +19,7 @@ Write for example `4.5*10^12`. $f=$ __[3.00e8/560e-9] Hz,
 $E=$ __[6.626e-34*3.00e8/560e-9] J
 ```
 
-::: {.ai-feedback #v25-7a profile="mathematics" image-upload="true" image-role="response" context="v25-oppg7" reset-on-variant="v25-7a-fyll"}
+::: {.ai-feedback #v25-7a profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg7" reset-on-variant="v25-7a-fyll"}
 **Show your working for a).** Upload a photo of what you wrote on paper.
 :::
 
@@ -39,6 +39,6 @@ $560\,\mathrm{nm}$. How many photons does the lamp emit per second?
 $N=$ __[60/(6.626e-34*3.00e8/560e-9)] per second
 ```
 
-::: {.ai-feedback #v25-7b profile="mathematics" image-upload="true" image-role="response" context="v25-oppg7" reset-on-variant="v25-7b-fyll"}
+::: {.ai-feedback #v25-7b profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg7" reset-on-variant="v25-7b-fyll"}
 **Show your working for b).** Upload a photo of what you wrote on paper.
 :::

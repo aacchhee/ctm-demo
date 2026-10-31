@@ -19,7 +19,7 @@ Hvor stor er resistansen $R_2$?
 $R_2=$ __[(230-150)/10] Ω
 ```
 
-::: {.ai-feedback #v25-6a profile="mathematics" image-upload="true" image-role="response" context="v25-oppg6a" reset-on-variant="v25-6a-fyll"}
+::: {.ai-feedback #v25-6a profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg6a" reset-on-variant="v25-6a-fyll"}
 **Vis utregningen din for a).** Last opp et bilde av det du har skrevet på
 papir.
 :::
@@ -46,7 +46,7 @@ noe varme til omgivelsene.
 $t=$ __[0.5*4180*56/1500] s
 ```
 
-::: {.ai-feedback #v25-6b profile="mathematics" image-upload="true" image-role="response" context="v25-oppg6b" reset-on-variant="v25-6b-fyll"}
+::: {.ai-feedback #v25-6b profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg6b" reset-on-variant="v25-6b-fyll"}
 **Vis utregningen din for b).** Last opp et bilde av det du har skrevet på
 papir.
 :::
@@ -61,7 +61,7 @@ I hvilken av motstandene er det størst effekt dersom de seriekoples til et
 batteri? I hvilken av motstandene er det størst effekt hvis de parallellkoples
 og koples til batteriet? Begrunn svarene dine.
 
-::: {.ai-feedback #v25-6c profile="mathematics" image-upload="true" image-role="response" context="v25-oppg6c" reset-on-variant="v25-6c-fyll"}
+::: {.ai-feedback #v25-6c profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg6c" reset-on-variant="v25-6c-fyll"}
 **Vis svaret og begrunnelsen din for c).** Last opp et bilde, eller skriv
 begrunnelsen i feltet.
 :::

@@ -18,7 +18,7 @@ At which wavelength is the spectral radiant exitance of the star largest?
 $\lambda_\mathrm{max}=$ __[2.898e-3/6373*1e9] nm
 ```
 
-::: {.ai-feedback #v25-2a profile="mathematics" image-upload="true" image-role="response" context="v25-oppg2" reset-on-variant="v25-2a-fyll"}
+::: {.ai-feedback #v25-2a profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg2" reset-on-variant="v25-2a-fyll"}
 **Show your working for a).** Upload a photo of what you wrote on paper.
 :::
 
@@ -37,6 +37,6 @@ Calculate the surface area of the star.
 Write for example `4.5*10^12`. $A=$ __[3.93e26/(5.67e-8*6373**4)] m²
 ```
 
-::: {.ai-feedback #v25-2b profile="mathematics" image-upload="true" image-role="response" context="v25-oppg2" reset-on-variant="v25-2b-fyll"}
+::: {.ai-feedback #v25-2b profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg2" reset-on-variant="v25-2b-fyll"}
 **Show your working for b).** Upload a photo of what you wrote on paper.
 :::

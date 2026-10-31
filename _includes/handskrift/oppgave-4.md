@@ -23,7 +23,7 @@ Hvor stor er fjæras fjærkonstant?
 $k=$ __[0.057*3**2/0.05**2] N/m
 ```
 
-::: {.ai-feedback #v25-4a profile="mathematics" image-upload="true" image-role="response" context="v25-oppg4" reset-on-variant="v25-4a-fyll"}
+::: {.ai-feedback #v25-4a profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg4" reset-on-variant="v25-4a-fyll"}
 **Vis utregningen din for a).** Last opp et bilde av det du har skrevet på
 papir.
 :::
@@ -45,7 +45,7 @@ fra bordkanten til den lander?
 $x=$ __[3*sqrt(2*1.4/9.81)] m
 ```
 
-::: {.ai-feedback #v25-4b profile="mathematics" image-upload="true" image-role="response" context="v25-oppg4" reset-on-variant="v25-4b-fyll"}
+::: {.ai-feedback #v25-4b profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg4" reset-on-variant="v25-4b-fyll"}
 **Vis utregningen din for b).** Last opp et bilde av det du har skrevet på
 papir.
 :::
@@ -66,7 +66,7 @@ $480\,\mathrm{mJ}$?
 $v_y=$ __[sqrt(2*0.48/0.057-9)] m/s
 ```
 
-::: {.ai-feedback #v25-4c profile="mathematics" image-upload="true" image-role="response" context="v25-oppg4" reset-on-variant="v25-4c-fyll"}
+::: {.ai-feedback #v25-4c profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg4" reset-on-variant="v25-4c-fyll"}
 **Vis utregningen din for c).** Last opp et bilde av det du har skrevet på
 papir.
 :::

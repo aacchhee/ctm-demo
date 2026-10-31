@@ -24,7 +24,7 @@ Regn ut snordraget.
 $S=$ __[5.15*(9.81+2.0)] N
 ```
 
-::: {.ai-feedback #v25-9a profile="mathematics" image-upload="true" image-role="response" context="v25-oppg9" reset-on-variant="v25-9a-fyll"}
+::: {.ai-feedback #v25-9a profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg9" reset-on-variant="v25-9a-fyll"}
 **Vis utregningen din for a).** Last opp et bilde av det du har skrevet på
 papir.
 :::
@@ -44,7 +44,7 @@ Beregn massen til den store klossen $M$.
 $M=$ __[5.15*(9.81+2.0)/(9.81*sin(pi/4)-0.135*9.81*cos(pi/4)-2.0)] kg
 ```
 
-::: {.ai-feedback #v25-9b profile="mathematics" image-upload="true" image-role="response" context="v25-oppg9" reset-on-variant="v25-9b-fyll"}
+::: {.ai-feedback #v25-9b profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg9" reset-on-variant="v25-9b-fyll"}
 **Vis utregningen din for b).** Last opp et bilde av det du har skrevet på
 papir.
 :::

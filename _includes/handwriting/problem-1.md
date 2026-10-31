@@ -19,7 +19,7 @@ the ground is it then?
 $t=$ __[6.0/9.81] s, $h=$ __[1.5+36/(2*9.81)] m
 ```
 
-::: {.ai-feedback #v25-1a profile="mathematics" image-upload="true" image-role="response" context="v25-oppg1" reset-on-variant="v25-1a-fyll"}
+::: {.ai-feedback #v25-1a profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg1" reset-on-variant="v25-1a-fyll"}
 **Show your working for a).** Upload a photo of what you wrote on paper.
 :::
 
@@ -28,7 +28,7 @@ $t=$ __[6.0/9.81] s, $h=$ __[1.5+36/(2*9.81)] m
 Draw the velocity graph of the ball from when it leaves the hand until it
 lands.
 
-::: {.ai-feedback #v25-1b profile="mathematics" image-upload="true" image-role="response" context="v25-oppg1" reset-on-variant="v25-1b-fyll"}
+::: {.ai-feedback #v25-1b profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg1" reset-on-variant="v25-1b-fyll"}
 **Show your graph for b).** Draw the graph on paper and upload a photo of it.
 :::
 
@@ -48,6 +48,6 @@ ball's potential energy during the first second?
 $\Delta E_p=$ __[0.450*9.81*(6.0-9.81/2)] J
 ```
 
-::: {.ai-feedback #v25-1c profile="mathematics" image-upload="true" image-role="response" context="v25-oppg1" reset-on-variant="v25-1c-fyll"}
+::: {.ai-feedback #v25-1c profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg1" reset-on-variant="v25-1c-fyll"}
 **Show your working for c).** Upload a photo of what you wrote on paper.
 :::

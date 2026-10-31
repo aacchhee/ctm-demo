@@ -22,7 +22,7 @@ $T=$ __[120e3*pi*0.12**2*0.2/(4.5e23*1.380649e-23)] K,
 $\rho=$ __[4.5e23*28*1.66054e-27/(pi*0.12**2*0.2)] kg/m³
 ```
 
-::: {.ai-feedback #v25-3a profile="mathematics" image-upload="true" image-role="response" context="v25-oppg3" reset-on-variant="v25-3a-fyll"}
+::: {.ai-feedback #v25-3a profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg3" reset-on-variant="v25-3a-fyll"}
 **Show your working for a).** Upload a photo of what you wrote on paper.
 :::
 
@@ -42,6 +42,6 @@ friction. What is the mass of the piston?
 $m=$ __[(120e3-101e3)*pi*0.12**2/9.81] kg
 ```
 
-::: {.ai-feedback #v25-3b profile="mathematics" image-upload="true" image-role="response" context="v25-oppg3" reset-on-variant="v25-3b-fyll"}
+::: {.ai-feedback #v25-3b profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg3" reset-on-variant="v25-3b-fyll"}
 **Show your working for b).** Upload a photo of what you wrote on paper.
 :::

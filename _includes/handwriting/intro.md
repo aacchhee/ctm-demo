@@ -15,6 +15,12 @@ is available too. For each subtask you can
    language the AI answers in (English, Norwegian, Swedish, Spanish, Russian
    or German) for that subtask only.
 
+If the AI misreads or misunderstands your uploaded work, choose **The AI
+misunderstood my work** below its feedback. Point to the line or detail it
+missed. You get one correction reply, and the hints restart at level 1.
+To have changed or additional work assessed, upload a new page. This correction
+feature is available with direct API feedback.
+
 The feedback comes from an AI model you choose yourself under the gear ⚙
 (direct API with your own key, or “copy prompt” to an AI chat). The model must
 be able to read images. The image and the problem text are sent to the provider
