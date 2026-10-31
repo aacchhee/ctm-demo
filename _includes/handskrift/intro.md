@@ -14,6 +14,12 @@ på papir. For hver deloppgave kan du
    språket KI-en svarer på (engelsk, norsk, svensk, spansk, russisk eller
    tysk) for akkurat den deloppgaven.
 
+Hvis KI-en leser eller forstår bildet feil, velg **KI-en misforsto besvarelsen
+min** under tilbakemeldingen. Vis til linjen eller detaljen den overså. Du får
+ett svar på presiseringen, og hintene starter på nytt på nivå 1. Last opp en ny
+side for å få vurdert endret eller nytt arbeid. Denne funksjonen er tilgjengelig
+med direkte API-tilbakemelding.
+
 Tilbakemeldingen kommer fra en KI-modell du velger selv under tannhjulet ⚙
 (direkte API med egen nøkkel, eller «kopier instruksjon» til en KI-chat).
 Modellen må kunne lese bilder. Bildet og oppgaveteksten sendes til

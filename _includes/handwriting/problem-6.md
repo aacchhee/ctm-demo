@@ -19,7 +19,7 @@ How large is the resistance $R_2$?
 $R_2=$ __[(230-150)/10] Ω
 ```
 
-::: {.ai-feedback #v25-6a profile="mathematics" image-upload="true" image-role="response" context="v25-oppg6a" reset-on-variant="v25-6a-fyll"}
+::: {.ai-feedback #v25-6a profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg6a" reset-on-variant="v25-6a-fyll"}
 **Show your working for a).** Upload a photo of what you wrote on paper.
 :::
 
@@ -45,7 +45,7 @@ the surroundings.
 $t=$ __[0.5*4180*56/1500] s
 ```
 
-::: {.ai-feedback #v25-6b profile="mathematics" image-upload="true" image-role="response" context="v25-oppg6b" reset-on-variant="v25-6b-fyll"}
+::: {.ai-feedback #v25-6b profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg6b" reset-on-variant="v25-6b-fyll"}
 **Show your working for b).** Upload a photo of what you wrote on paper.
 :::
 
@@ -59,7 +59,7 @@ In which of the resistors is the power largest if they are connected in series
 to a battery? In which of the resistors is the power largest if they are
 connected in parallel to the battery? Justify your answers.
 
-::: {.ai-feedback #v25-6c profile="mathematics" image-upload="true" image-role="response" context="v25-oppg6c" reset-on-variant="v25-6c-fyll"}
+::: {.ai-feedback #v25-6c profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg6c" reset-on-variant="v25-6c-fyll"}
 **Show your answer and justification for c).** Upload a photo, or write the
 justification in the box.
 :::

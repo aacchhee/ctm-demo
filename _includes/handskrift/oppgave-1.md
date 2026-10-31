@@ -19,7 +19,7 @@ bakken er den da?
 $t=$ __[6.0/9.81] s, $h=$ __[1.5+36/(2*9.81)] m
 ```
 
-::: {.ai-feedback #v25-1a profile="mathematics" image-upload="true" image-role="response" context="v25-oppg1" reset-on-variant="v25-1a-fyll"}
+::: {.ai-feedback #v25-1a profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg1" reset-on-variant="v25-1a-fyll"}
 **Vis utregningen din for a).** Last opp et bilde av det du har skrevet på
 papir.
 :::
@@ -28,7 +28,7 @@ papir.
 
 Tegn fartsgrafen til ballen fra den forlater hånden til den lander.
 
-::: {.ai-feedback #v25-1b profile="mathematics" image-upload="true" image-role="response" context="v25-oppg1" reset-on-variant="v25-1b-fyll"}
+::: {.ai-feedback #v25-1b profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg1" reset-on-variant="v25-1b-fyll"}
 **Vis grafen din for b).** Tegn grafen på papir og last opp et bilde av den.
 :::
 
@@ -48,7 +48,7 @@ potensielle energi i løpet av det første sekundet?
 $\Delta E_p=$ __[0.450*9.81*(6.0-9.81/2)] J
 ```
 
-::: {.ai-feedback #v25-1c profile="mathematics" image-upload="true" image-role="response" context="v25-oppg1" reset-on-variant="v25-1c-fyll"}
+::: {.ai-feedback #v25-1c profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg1" reset-on-variant="v25-1c-fyll"}
 **Vis utregningen din for c).** Last opp et bilde av det du har skrevet på
 papir.
 :::

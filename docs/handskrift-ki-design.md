@@ -2,6 +2,39 @@
 
 Status: **fase 1 implementert** på grenen `claude/inspiring-einstein-al3f3t`.
 
+## Avgrenset korrigeringssamtale (31. oktober 2026)
+
+Den norske og engelske fysikksiden prøver nå `corrections="true"` på
+bildefeltene. Etter direkte API-tilbakemelding kan studenten velge «KI-en
+misforsto besvarelsen min», vise til en linje eller detalj og få ett svar.
+Presiseringen sendes separat fra besvarelsen, sammen med originalbildet og
+forrige tilbakemelding. Modellen skal kontrollere påstanden mot bildet, beholde
+reelle feil og uttrykke usikkerhet når bildet er uklart. Ny utregning eller et
+endret svar skal henvises til en ny opplasting. Ingen bildevelger eller full
+transkripsjon kreves.
+
+En vellykket korrigering erstatter tilbakemeldingen og starter på hint 1.
+Senere hint beholder presiseringen, men åpner ikke en ny samtale. Feil og
+avbrudd beholder tidligere tilbakemelding og hintnivå, og studenten kan prøve
+igjen. En ny opplasting nullstiller hint og presiseringer. Svarteksten er låst
+etter tilbakemelding og tømmes ved ny opplasting. Presiseringer og bilder lagres
+ikke i nettleserlagringen. Kopieringsmodus har ingen korrigeringssamtale.
+
+Støtten ligger i ctm-libs og er av som standard. Prøven bruker lokal
+utviklingsinstallasjon; vanlige produksjonspins er ikke endret:
+
+```sh
+python ../ctm-assessment/scripts/install-project.py --project . --source ctm-libs=../ctm-libs
+quarto render pages/handwriting-ai.qmd
+quarto render pages/handskrift-ki.qmd
+```
+
+Før publisering må ctm-libs-endringen inn i den ordinære, pinnede
+ctm-assessment-pakken. Dette erstatter ikke den valgfrie OCR-grenen i fase 2b:
+originalbildet beholdes som grunnlag. Automatiske tester kan verifisere
+grensesnitt, forespørsler og hintnivå; modellens vurdering av presiseringer må
+fortsatt prøves med en bildemodell.
+
 ## 1. Mål
 
 Studentene løser *Prøveeksamen V2025* i fysikk på papir, fotograferer

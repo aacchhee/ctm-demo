@@ -19,7 +19,7 @@ Use these values to calculate the volume of the block.
 $V=$ __[0.450/(0.8*0.87)] dm³
 ```
 
-::: {.ai-feedback #v25-5a profile="mathematics" image-upload="true" image-role="response" context="v25-oppg5" reset-on-variant="v25-5a-fyll"}
+::: {.ai-feedback #v25-5a profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg5" reset-on-variant="v25-5a-fyll"}
 **Show your working for a).** Upload a photo of what you wrote on paper.
 :::
 
@@ -39,6 +39,6 @@ pressure ($101\,\mathrm{kPa}$) at the surface of the liquid?
 $h=$ __[101e3/(870*9.81)] m
 ```
 
-::: {.ai-feedback #v25-5b profile="mathematics" image-upload="true" image-role="response" context="v25-oppg5" reset-on-variant="v25-5b-fyll"}
+::: {.ai-feedback #v25-5b profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg5" reset-on-variant="v25-5b-fyll"}
 **Show your working for b).** Upload a photo of what you wrote on paper.
 :::

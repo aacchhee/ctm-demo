@@ -19,7 +19,7 @@ Bruk disse verdiene til å beregne klossens volum.
 $V=$ __[0.450/(0.8*0.87)] dm³
 ```
 
-::: {.ai-feedback #v25-5a profile="mathematics" image-upload="true" image-role="response" context="v25-oppg5" reset-on-variant="v25-5a-fyll"}
+::: {.ai-feedback #v25-5a profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg5" reset-on-variant="v25-5a-fyll"}
 **Vis utregningen din for a).** Last opp et bilde av det du har skrevet på
 papir.
 :::
@@ -40,7 +40,7 @@ lufttrykk ($101\,\mathrm{kPa}$) ved overflata av væska?
 $h=$ __[101e3/(870*9.81)] m
 ```
 
-::: {.ai-feedback #v25-5b profile="mathematics" image-upload="true" image-role="response" context="v25-oppg5" reset-on-variant="v25-5b-fyll"}
+::: {.ai-feedback #v25-5b profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg5" reset-on-variant="v25-5b-fyll"}
 **Vis utregningen din for b).** Last opp et bilde av det du har skrevet på
 papir.
 :::

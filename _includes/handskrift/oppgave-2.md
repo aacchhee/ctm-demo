@@ -18,7 +18,7 @@ Ved hvilken bølgelengde er utstrålingstettheten fra stjerna størst?
 $\lambda_\mathrm{maks}=$ __[2.898e-3/6373*1e9] nm
 ```
 
-::: {.ai-feedback #v25-2a profile="mathematics" image-upload="true" image-role="response" context="v25-oppg2" reset-on-variant="v25-2a-fyll"}
+::: {.ai-feedback #v25-2a profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg2" reset-on-variant="v25-2a-fyll"}
 **Vis utregningen din for a).** Last opp et bilde av det du har skrevet på
 papir.
 :::
@@ -38,7 +38,7 @@ Regn ut stjernas overflateareal.
 Skriv for eksempel `4.5*10^12`. $A=$ __[3.93e26/(5.67e-8*6373**4)] m²
 ```
 
-::: {.ai-feedback #v25-2b profile="mathematics" image-upload="true" image-role="response" context="v25-oppg2" reset-on-variant="v25-2b-fyll"}
+::: {.ai-feedback #v25-2b profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg2" reset-on-variant="v25-2b-fyll"}
 **Vis utregningen din for b).** Last opp et bilde av det du har skrevet på
 papir.
 :::

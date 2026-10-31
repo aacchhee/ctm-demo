@@ -24,7 +24,7 @@ Calculate the tension in the string.
 $S=$ __[5.15*(9.81+2.0)] N
 ```
 
-::: {.ai-feedback #v25-9a profile="mathematics" image-upload="true" image-role="response" context="v25-oppg9" reset-on-variant="v25-9a-fyll"}
+::: {.ai-feedback #v25-9a profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg9" reset-on-variant="v25-9a-fyll"}
 **Show your working for a).** Upload a photo of what you wrote on paper.
 :::
 
@@ -43,6 +43,6 @@ Calculate the mass of the large block $M$.
 $M=$ __[5.15*(9.81+2.0)/(9.81*sin(pi/4)-0.135*9.81*cos(pi/4)-2.0)] kg
 ```
 
-::: {.ai-feedback #v25-9b profile="mathematics" image-upload="true" image-role="response" context="v25-oppg9" reset-on-variant="v25-9b-fyll"}
+::: {.ai-feedback #v25-9b profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg9" reset-on-variant="v25-9b-fyll"}
 **Show your working for b).** Upload a photo of what you wrote on paper.
 :::

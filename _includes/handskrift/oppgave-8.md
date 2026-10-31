@@ -22,7 +22,7 @@ eller en fisjon? Begrunn svaret.
 $A=$ __[1], $B=$ __[0]
 ```
 
-::: {.ai-feedback #v25-8a profile="mathematics" image-upload="true" image-role="response" context="v25-oppg8" reset-on-variant="v25-8a-fyll"}
+::: {.ai-feedback #v25-8a profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg8" reset-on-variant="v25-8a-fyll"}
 **Vis svaret og begrunnelsen din for a).** Last opp et bilde, eller skriv
 begrunnelsen i feltet.
 :::
@@ -42,7 +42,7 @@ Hva blir den frigjorte energien fra én slik reaksjon?
 $E=$ __[(2*2.014102-3.016029-1.008665)*931.494] MeV
 ```
 
-::: {.ai-feedback #v25-8b profile="mathematics" image-upload="true" image-role="response" context="v25-oppg8" reset-on-variant="v25-8b-fyll"}
+::: {.ai-feedback #v25-8b profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg8" reset-on-variant="v25-8b-fyll"}
 **Vis utregningen din for b).** Last opp et bilde av det du har skrevet på
 papir.
 :::

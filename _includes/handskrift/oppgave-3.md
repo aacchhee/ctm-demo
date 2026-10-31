@@ -22,7 +22,7 @@ $T=$ __[120e3*pi*0.12**2*0.2/(4.5e23*1.380649e-23)] K,
 $\rho=$ __[4.5e23*28*1.66054e-27/(pi*0.12**2*0.2)] kg/m³
 ```
 
-::: {.ai-feedback #v25-3a profile="mathematics" image-upload="true" image-role="response" context="v25-oppg3" reset-on-variant="v25-3a-fyll"}
+::: {.ai-feedback #v25-3a profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg3" reset-on-variant="v25-3a-fyll"}
 **Vis utregningen din for a).** Last opp et bilde av det du har skrevet på
 papir.
 :::
@@ -43,7 +43,7 @@ stempelets masse?
 $m=$ __[(120e3-101e3)*pi*0.12**2/9.81] kg
 ```
 
-::: {.ai-feedback #v25-3b profile="mathematics" image-upload="true" image-role="response" context="v25-oppg3" reset-on-variant="v25-3b-fyll"}
+::: {.ai-feedback #v25-3b profile="mathematics" corrections="true" image-upload="true" image-role="response" context="v25-oppg3" reset-on-variant="v25-3b-fyll"}
 **Vis utregningen din for b).** Last opp et bilde av det du har skrevet på
 papir.
 :::
