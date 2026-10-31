@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Similar problems — practice testbox – CTM demo</title>
+<title>Similar problems — examples – Similar problems</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -40,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b6dc9e813fb09d2bbff48e8f9eb94b8d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f6725ec72a40a9c11b774886aa13be2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/ctm-coi-frame-startup-1/coi-frame-startup.js"></script>
 <script src="../site_libs/quarto-contrib/ctm-assets-0.9.0/assets.js"></script>
 <script src="../site_libs/quarto-contrib/ctm-locale-0.9.0/ctm-locale.js"></script>
@@ -54,7 +89,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-contrib/ai-feedback-0.9.0/ai-feedback.js"></script>
 <link href="../site_libs/quarto-contrib/ai-feedback-0.9.0/ai-feedback.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/ctm-runtime-0.9.0/pyodide-runtime.js"></script>
-<script src="../site_libs/quarto-contrib/ctm-checkers-0.12.0.dev0+21ac0fe7/ctm-checkers.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-worker-0.9.0/pyodide-worker.js"></script>
+<script src="../site_libs/quarto-contrib/ctm-checkers-0.12.0.dev0+dfad141a/ctm-checkers.js"></script>
 <script src="../site_libs/quarto-contrib/ctm-locale-math-exercise-0.9.0/math-exercise.js"></script>
 <link href="../site_libs/quarto-contrib/ctm-matrix-input-0.9.0/ctm-matrix-input.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/math-exercise-0.11.0/math-exercise.css" rel="stylesheet">
@@ -92,7 +128,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>globalThis.CTM_ASSETS={"bases":{"font-awesome":"https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/","jsxgraph":"https://cdn.jsdelivr.net/gh/aacchhee/jsxgraph-quarto@5a1847cbcdd22b1f167f5bb9a901d47cb43e3a23/","katex":"https://cdn.jsdelivr.net/npm/katex@0.16.47/","mathjax-newcm-font":"https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/","mathjax3":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/","mathjax4":"https://cdn.jsdelivr.net/npm/mathjax@4.1.3/","monaco-editor":"https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/","pyodide":"https://cdn.jsdelivr.net/pyodide/v0.28.3/full/","source-sans-pro":"https://cdn.jsdelivr.net/npm/@fontsource/source-sans-pro@5.3.0/"},"mode":"cdn","v":1};</script>
+<script>globalThis.CTM_ASSETS={"bases":{"font-awesome":"https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/","jsxgraph":"https://cdn.jsdelivr.net/npm/jsxgraph@1.14.2/","katex":"https://cdn.jsdelivr.net/npm/katex@0.16.47/","mathjax-newcm-font":"https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/","mathjax3":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/","mathjax4":"https://cdn.jsdelivr.net/npm/mathjax@4.1.3/","monaco-editor":"https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/","pyodide":"https://cdn.jsdelivr.net/pyodide/v0.28.3/full/","source-sans-pro":"https://cdn.jsdelivr.net/npm/@fontsource/source-sans-pro@5.3.0/"},"mode":"cdn","v":1};</script>
+<script src="../coi-serviceworker.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
@@ -126,7 +163,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar docked fullcontent quarto-light">
+<body class="nav-sidebar docked quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -135,7 +172,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/similar-problems.html">Similar problems testbox</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/similar-problems.html">Similar problems</a></li><li class="breadcrumb-item"><a href="../pages/similar-problems.html">Examples and code</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -150,7 +187,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">CTM demo</a> 
+      <a href="../">Similar problems</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -172,12 +209,35 @@ window.Quarto = {
  <span class="menu-text">Your experiments here</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Similar problems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../pages/similar-problems.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Similar problems testbox</span></a>
+ <span class="menu-text">Examples and code</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems-authoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Authoring guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workflow and phase 2</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../pages/gaussian-elimination.html" class="sidebar-item-text sidebar-link">
@@ -196,6 +256,41 @@ window.Quarto = {
  <span class="menu-text">Fysikk-forkurs</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Handwriting and AI</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/handwriting-ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice exam V2025</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/handwriting-ai-prompts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Playing with the prompts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/handskrift-ki.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prøveeksamen V2025 (bokmål)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/handskrift-ki-prompter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spill med promptene (bokmål)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../pages/bevegelse-ii.html" class="sidebar-item-text sidebar-link">
@@ -214,21 +309,50 @@ window.Quarto = {
  <span class="menu-text">Help</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Examples and code</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems-authoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Authoring guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/similar-problems-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workflow and phase 2</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#try-it" id="toc-try-it" class="nav-link active" data-scroll-target="#try-it">Try it</a></li>
+  <li><a href="#a-derivative" id="toc-a-derivative" class="nav-link" data-scroll-target="#a-derivative">1. A derivative</a></li>
+  <li><a href="#a-fixed-matrix-calculation" id="toc-a-fixed-matrix-calculation" class="nav-link" data-scroll-target="#a-fixed-matrix-calculation">2. A fixed matrix calculation</a></li>
+  <li><a href="#linear-independence-with-an-authored-check" id="toc-linear-independence-with-an-authored-check" class="nav-link" data-scroll-target="#linear-independence-with-an-authored-check">3. Linear independence with an authored check</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 <script>window.__aiFeedbackPolicies = {"layers":[{"policies":{"similar-practice":{"base-prompt":"Use the notation and methods in the original exercise. Keep problems self-contained and nontrivial. Use exact rational or integer givens. For vector problems keep the coordinate count at most five; change the number of vectors or their dependencies to change difficulty.","harder":"Increase the reasoning required by one natural step.","easier":"Reduce the number of steps or provide more guidance.","same":"Give a fresh problem requiring the same method and effort."}}}],"pageLayers":[],"projectPolicy":{"default":"similar-practice"},"generationPolicy":{"default":"similar-practice"}};</script>
 <script>window.__aiFeedbackConfig = {"baseUrl":"","mode":"api","model":"","similar":true};</script>
 <script>window.__mathExerciseConfig = {"lang":"en","stopAfter":20};</script>
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/similar-problems.html">Similar problems</a></li><li class="breadcrumb-item"><a href="../pages/similar-problems.html">Examples and code</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Similar problems — practice testbox</h1>
+<div class="quarto-title-block"><div><h1 class="title">Similar problems — examples</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -249,10 +373,22 @@ window.Quarto = {
 <button type="button" data-ctm-export="">Export my answers</button>
 <button type="button" data-ctm-clear-page="">Delete answers on this page</button>
 <button type="button" data-ctm-clear-course="">Delete all your answers in this course</button></div><span class="ctm-save-status" role="status" aria-live="polite"></span></div>
-<p>Use <strong>Feedback settings</strong> to choose Direct API and a reasoning model for generating problems. The three examples exercise symbolic keys, fixed matrix inputs and a trusted authored checker. Generated work is practice and does not count toward course scores. Reload to check saved answers; use <strong>More → I think the expected answer is wrong</strong> to test the local report and independent re-check.</p>
+<p><strong>Examples</strong> · <a href="../pages/similar-problems-authoring.html">Authoring guide</a> · <a href="../pages/similar-problems-workflow.html">Workflow</a></p>
+<p>Create extra practice from an authored exercise, with an easier, harder or same-difficulty version. These three examples cover symbolic differentiation, a matrix answer and an authored checker for linear independence.</p>
+<section id="try-it" class="level2">
+<h2 class="anchored" data-anchor-id="try-it">Try it</h2>
+<ol type="1">
+<li>Open the exercise’s <strong>Settings</strong> (gear), choose <strong>Direct API</strong>, and enter your provider’s API base URL and personal API key.</li>
+<li>Click <strong>Fetch models</strong>. Choose a fast model for feedback and independent solving, and a reasoning model under <strong>Model for generating problems</strong>. Save settings. The browser contacts that provider directly; its API usage may incur charges. Do not put API keys in the QMD or policy file.</li>
+<li>Open <strong>Similar problem</strong>, then choose <strong>Easier</strong>, <strong>Another one like this</strong> or <strong>Harder</strong>. Wait for the checked problem, or use <strong>Cancel</strong>.</li>
+<li>Enter an answer and use <strong>Check</strong> or <strong>Feedback</strong>. Every new problem starts from the original exercise; repeated Harder clicks create siblings, rather than an increasingly difficult chain.</li>
+</ol>
+<p>Generated practice does not count toward course scores. Reload to try restoring saved work. Use <strong>More → I think the expected answer is wrong</strong> to flag a problem and request its one independent re-check. Reports stay on this device and are included in copy/export. Agreement between models is not proof of correctness.</p>
+<p>Each example has its exact authoring code below it. The page’s <strong>Code</strong> menu also shows the complete QMD, including its settings.</p>
+</section>
 <section id="a-derivative" class="level2">
 <h2 class="anchored" data-anchor-id="a-derivative">1. A derivative</h2>
-<div class="math-exercise-cell" data-similar="true" data-similar-guidance="{&quot;easier&quot;:&quot;Use a single power function.&quot;,&quot;harder&quot;:&quot;Introduce a product or chain rule while keeping the function manageable.&quot;,&quot;same&quot;:&quot;&quot;}" data-generation-policy="{&quot;exercise&quot;:&quot;similar-derivative&quot;,&quot;name&quot;:&quot;&quot;}" id="math-exercise-1" data-label="similar-derivative" data-mode="equivalent" data-reject="" data-vars="x" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;similar-derivative&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="none" data-context="&quot;1. A derivative&quot;" data-context-text="&quot;&quot;" data-ctm-component="math-exercise" data-ctm-runtime-id="ctm-block-1" data-ctm-save="true" data-ctm-id="similar-derivative" data-ctm-source="37e99553f3736ce1" data-fields="[&quot;math-exercise-1-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
+<div class="math-exercise-cell" data-similar="true" data-similar-guidance="{&quot;easier&quot;:&quot;Use a single power function.&quot;,&quot;harder&quot;:&quot;Introduce a product or chain rule while keeping the function manageable.&quot;,&quot;same&quot;:&quot;&quot;}" data-generation-policy="{&quot;exercise&quot;:&quot;similar-derivative&quot;,&quot;name&quot;:&quot;&quot;}" data-similar-data="" id="math-exercise-1" data-label="similar-derivative" data-mode="equivalent" data-reject="" data-vars="x" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-givens="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;similar-derivative&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="none" data-context="&quot;1. A derivative&quot;" data-context-text="&quot;&quot;" data-ctm-component="math-exercise" data-ctm-save="true" data-ctm-id="similar-derivative" data-ctm-source="37e99553f3736ce1" data-ctm-runtime-id="ctm-block-1" data-fields="[&quot;math-exercise-1-f1&quot;]" data-structural-field-labels="[&quot;&quot;]">
 <div id="similar-derivative-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="Differentiate \(f(x)=x^2\). \(f'(x)=\) <input type=&quot;text&quot; id=&quot;math-exercise-1-f1&quot; data-vars=&quot;x&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-input-small&quot;>.">Differentiate \(f(x)=x^2\). \(f'(x)=\) <input type="text" id="math-exercise-1-f1" data-answer="2*x" data-vars="x" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-input-small">.</div>
 
 <div class="math-exercise-controls">
@@ -266,10 +402,34 @@ window.Quarto = {
 <div class="math-legend-panel" style="display:none;"></div>
 <div class="math-feedback-area"></div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Show authoring code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-ai-feedback-context="1. A derivative
+Show authoring code"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{math-exercise}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: similar-derivative</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| vars: x</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| context: none</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">#| harder: Introduce a product or chain rule while keeping the function manageable.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="in">#| simpler: Use a single power function.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="in">Differentiate $f(x)=x^2$. $f'(x)=$ _[2*x].</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 </section>
 <section id="a-fixed-matrix-calculation" class="level2">
 <h2 class="anchored" data-anchor-id="a-fixed-matrix-calculation">2. A fixed matrix calculation</h2>
-<div class="math-exercise-cell" data-similar="true" data-similar-guidance="{&quot;easier&quot;:&quot;Use a diagonal 2 by 2 matrix.&quot;,&quot;harder&quot;:&quot;Use a different invertible 2 by 2 matrix with small exact entries.&quot;,&quot;same&quot;:&quot;&quot;}" data-generation-policy="{&quot;exercise&quot;:&quot;similar-matrix&quot;,&quot;name&quot;:&quot;&quot;}" id="math-exercise-2" data-label="similar-matrix" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;similar-matrix&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="none" data-context="&quot;2. A fixed matrix calculation&quot;" data-context-text="&quot;&quot;" data-ctm-component="math-exercise" data-ctm-runtime-id="ctm-block-2" data-ctm-save="true" data-ctm-id="similar-matrix" data-ctm-source="8f8a782fb32af57c" data-fields="[&quot;math-exercise-2-f1&quot;,&quot;math-exercise-2-f2&quot;,&quot;math-exercise-2-f3&quot;,&quot;math-exercise-2-f4&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;]">
+<div class="math-exercise-cell" data-similar="true" data-similar-guidance="{&quot;easier&quot;:&quot;Use a diagonal 2 by 2 matrix.&quot;,&quot;harder&quot;:&quot;Use a different invertible 2 by 2 matrix with small exact entries.&quot;,&quot;same&quot;:&quot;&quot;}" data-generation-policy="{&quot;exercise&quot;:&quot;similar-matrix&quot;,&quot;name&quot;:&quot;&quot;}" data-similar-data="" id="math-exercise-2" data-label="similar-matrix" data-mode="equivalent" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;&quot;" data-givens="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;similar-matrix&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="none" data-context="&quot;2. A fixed matrix calculation&quot;" data-context-text="&quot;&quot;" data-ctm-component="math-exercise" data-ctm-save="true" data-ctm-id="similar-matrix" data-ctm-source="8f8a782fb32af57c" data-ctm-runtime-id="ctm-block-3" data-fields="[&quot;math-exercise-2-f1&quot;,&quot;math-exercise-2-f2&quot;,&quot;math-exercise-2-f3&quot;,&quot;math-exercise-2-f4&quot;]" data-structural-field-labels="[&quot;m1,1&quot;,&quot;m1,2&quot;,&quot;m2,1&quot;,&quot;m2,2&quot;]">
 <div id="similar-matrix-question" class="math-exercise-question ai-feedback-context" data-math-exercise-source="Find the inverse of \(A=\begin{pmatrix}1&amp;amp;2\\0&amp;amp;1\end{pmatrix}\).<br>
 \(A^{-1}=\) <span class=&quot;math-mat&quot; style=&quot;--cols:2&quot;><input type=&quot;text&quot; id=&quot;math-exercise-2-f1&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-2-f2&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-2-f3&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;><input type=&quot;text&quot; id=&quot;math-exercise-2-f4&quot; data-vars=&quot;&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; spellcheck=&quot;false&quot; class=&quot;math-input math-mat-cell&quot;></span>.">Find the inverse of \(A=\begin{pmatrix}1&amp;2\\0&amp;1\end{pmatrix}\).<br>
 \(A^{-1}=\) <span class="math-mat" style="--cols:2"><input type="text" id="math-exercise-2-f1" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-2-f2" data-answer="-2" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-2-f3" data-answer="0" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"><input type="text" id="math-exercise-2-f4" data-answer="1" data-vars="" autocomplete="off" autocorrect="off" spellcheck="false" class="math-input math-mat-cell"></span>.</div>
@@ -285,11 +445,35 @@ window.Quarto = {
 <div class="math-legend-panel" style="display:none;"></div>
 <div class="math-feedback-area"></div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Show authoring code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-ai-feedback-context="2. A fixed matrix calculation
+Show authoring code"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{math-exercise}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: similar-matrix</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| context: none</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| harder: Use a different invertible 2 by 2 matrix with small exact entries.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="in">#| simpler: Use a diagonal 2 by 2 matrix.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="in">Find the inverse of $A=\begin{pmatrix}1&amp;2\\0&amp;1\end{pmatrix}$.</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="in">$A^{-1}=$ mat[1,-2;0,1].</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 </section>
 <section id="linear-independence-with-an-authored-check" class="level2">
 <h2 class="anchored" data-anchor-id="linear-independence-with-an-authored-check">3. Linear independence with an authored check</h2>
 <p>The vectors are the columns of <span class="math inline">\(A\)</span>. Enter <strong>1</strong> for independent and <strong>0</strong> for dependent. This fixed scalar response permits different vector families without resizable answer inputs. The checker also rejects vectors longer than five coordinates, even if a candidate’s independence answer happens to be correct.</p>
-<div class="math-exercise-cell" data-similar="true" data-similar-guidance="{&quot;easier&quot;:&quot;Give fewer vectors with an obvious relation or clear independence.&quot;,&quot;harder&quot;:&quot;Give more vectors or less obvious dependencies. Never exceed five coordinates per vector.&quot;,&quot;same&quot;:&quot;&quot;}" data-generation-policy="{&quot;exercise&quot;:&quot;similar-independence&quot;,&quot;name&quot;:&quot;&quot;}" id="math-exercise-3" data-label="similar-independence" data-mode="custom" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;def check(response, symbols):\n    A = response['variables']['A']\n    if not 1 <= A.rows <= 5 or A.cols < 1:\n        return {'score': 0, 'feedback': 'Vector length must be between one and five.'}\n    answer = response['expressions'][0]\n    return {'correct': answer == Integer(A.rank() == A.cols)}&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Independent&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;similar-independence&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="none" data-context="&quot;3. Linear independence with an authored check\nThe vectors are the columns of \\(A\\). Enter 1 for independent and 0 for dependent. This fixed scalar response permits different vector families without resizable answer inputs. The checker also rejects vectors longer than five coordinates, even if a candidate’s independence answer happens to be correct.&quot;" data-context-text="&quot;&quot;" data-ctm-component="math-exercise" data-ctm-runtime-id="ctm-block-3" data-ctm-save="true" data-ctm-id="similar-independence" data-ctm-source="aa80d42b9539df76" data-variants="{&quot;approval&quot;:&quot;optional&quot;,&quot;native&quot;:true,&quot;options&quot;:{&quot;checker&quot;:&quot;def check(response, symbols):\n    A = response['variables']['A']\n    if not 1 <= A.rows <= 5 or A.cols < 1:\n        return {'score': 0, 'feedback': 'Vector length must be between one and five.'}\n    answer = response['expressions'][0]\n    return {'correct': answer == Integer(A.rank() == A.cols)}&quot;,&quot;context&quot;:&quot;none&quot;,&quot;field-labels&quot;:&quot;Independent&quot;,&quot;harder&quot;:&quot;Give more vectors or less obvious dependencies. Never exceed five coordinates per vector.&quot;,&quot;label&quot;:&quot;similar-independence&quot;,&quot;mode&quot;:&quot;custom&quot;,&quot;pool&quot;:&quot;true&quot;,&quot;simpler&quot;:&quot;Give fewer vectors with an obvious relation or clear independence.&quot;},&quot;renderMode&quot;:&quot;publish&quot;,&quot;unapproved&quot;:false,&quot;variants&quot;:[{&quot;checker&quot;:&quot;def check(response, symbols):\n    A = response['variables']['A']\n    if not 1 <= A.rows <= 5 or A.cols < 1:\n        return {'score': 0, 'feedback': 'Vector length must be between one and five.'}\n    answer = response['expressions'][0]\n    return {'correct': answer == Integer(A.rank() == A.cols)}&quot;,&quot;context&quot;:{&quot;fields&quot;:[&quot;Independent&quot;],&quot;teacher&quot;:{&quot;value&quot;:[&quot;dict&quot;,[[&quot;Independent&quot;,[&quot;integer&quot;,&quot;1&quot;]]]],&quot;version&quot;:1},&quot;variables&quot;:{&quot;value&quot;:[&quot;dict&quot;,[[&quot;A&quot;,[&quot;matrix&quot;,3,3,[[&quot;integer&quot;,&quot;1&quot;],[&quot;integer&quot;,&quot;0&quot;],[&quot;integer&quot;,&quot;1&quot;],[&quot;integer&quot;,&quot;0&quot;],[&quot;integer&quot;,&quot;1&quot;],[&quot;integer&quot;,&quot;1&quot;],[&quot;integer&quot;,&quot;0&quot;],[&quot;integer&quot;,&quot;0&quot;],[&quot;integer&quot;,&quot;1&quot;]]]]]],&quot;version&quot;:1},&quot;variant&quot;:{&quot;hash&quot;:&quot;20d3d64c880fdc18&quot;,&quot;id&quot;:&quot;{\&quot;value\&quot;:[\&quot;list\&quot;,[]],\&quot;version\&quot;:1}&quot;,&quot;n&quot;:1},&quot;version&quot;:1},&quot;fingerprint&quot;:&quot;20d3d64c880fdc18&quot;,&quot;hash&quot;:&quot;20d3d64c880fdc18&quot;,&quot;id&quot;:&quot;{\&quot;value\&quot;:[\&quot;list\&quot;,[]],\&quot;version\&quot;:1}&quot;,&quot;n&quot;:1,&quot;proposal&quot;:false,&quot;question&quot;:&quot;Are the columns of $A={\\left[\\begin{matrix}1 &amp; 0 &amp; 1\\\\0 &amp; 1 &amp; 1\\\\0 &amp; 0 &amp; 1\\end{matrix}\\right]}$ linearly independent? _[1]&quot;,&quot;solution&quot;:&quot;&quot;,&quot;state&quot;:&quot;current&quot;,&quot;status&quot;:&quot;approved&quot;,&quot;values&quot;:{},&quot;variant-context&quot;:&quot;&quot;}],&quot;version&quot;:1}" data-storage-variants="[{&quot;hash&quot;:&quot;20d3d64c880fdc18&quot;,&quot;id&quot;:&quot;{\&quot;value\&quot;:[\&quot;list\&quot;,[]],\&quot;version\&quot;:1}&quot;,&quot;n&quot;:1,&quot;proposal&quot;:false}]" data-fields="[]" data-structural-field-labels="[]">
+<div class="math-exercise-cell" data-similar="true" data-similar-guidance="{&quot;easier&quot;:&quot;Give fewer vectors with an obvious relation or clear independence.&quot;,&quot;harder&quot;:&quot;Give more vectors or less obvious dependencies. Never exceed five coordinates per vector.&quot;,&quot;same&quot;:&quot;&quot;}" data-generation-policy="{&quot;exercise&quot;:&quot;similar-independence&quot;,&quot;name&quot;:&quot;&quot;}" data-similar-data="" id="math-exercise-3" data-label="similar-independence" data-mode="custom" data-reject="" data-vars="" data-tolerance="" data-decplaces="" data-sigfigs="" data-form="" data-checker="&quot;def check(response, symbols):\n    A = response['variables']['A']\n    if not 1 <= A.rows <= 5 or A.cols < 1:\n        return {'score': 0, 'feedback': 'Vector length must be between one and five.'}\n    answer = response['expressions'][0]\n    return {'correct': answer == Integer(A.rank() == A.cols)}&quot;" data-givens="&quot;&quot;" data-packages="[]" data-response="" data-embed-response="false" data-partial-credit="false" data-form-credit="0.5" data-field-labels="[&quot;Independent&quot;]" data-vecdir="col" data-feedback-policy="{&quot;exercise&quot;:&quot;similar-independence&quot;,&quot;name&quot;:&quot;&quot;}" data-variant-boards="[]" data-variant-board-title="" data-context-mode="none" data-context-refs="none" data-context="&quot;3. Linear independence with an authored check\nThe vectors are the columns of \\(A\\). Enter 1 for independent and 0 for dependent. This fixed scalar response permits different vector families without resizable answer inputs. The checker also rejects vectors longer than five coordinates, even if a candidate’s independence answer happens to be correct.&quot;" data-context-text="&quot;&quot;" data-ctm-component="math-exercise" data-ctm-save="true" data-ctm-id="similar-independence" data-ctm-source="aa80d42b9539df76" data-ctm-runtime-id="ctm-block-5" data-variants="{&quot;approval&quot;:&quot;optional&quot;,&quot;native&quot;:true,&quot;options&quot;:{&quot;checker&quot;:&quot;def check(response, symbols):\n    A = response['variables']['A']\n    if not 1 <= A.rows <= 5 or A.cols < 1:\n        return {'score': 0, 'feedback': 'Vector length must be between one and five.'}\n    answer = response['expressions'][0]\n    return {'correct': answer == Integer(A.rank() == A.cols)}&quot;,&quot;context&quot;:&quot;none&quot;,&quot;field-labels&quot;:&quot;Independent&quot;,&quot;harder&quot;:&quot;Give more vectors or less obvious dependencies. Never exceed five coordinates per vector.&quot;,&quot;label&quot;:&quot;similar-independence&quot;,&quot;mode&quot;:&quot;custom&quot;,&quot;pool&quot;:&quot;true&quot;,&quot;simpler&quot;:&quot;Give fewer vectors with an obvious relation or clear independence.&quot;},&quot;renderMode&quot;:&quot;publish&quot;,&quot;unapproved&quot;:false,&quot;variants&quot;:[{&quot;checker&quot;:&quot;def check(response, symbols):\n    A = response['variables']['A']\n    if not 1 <= A.rows <= 5 or A.cols < 1:\n        return {'score': 0, 'feedback': 'Vector length must be between one and five.'}\n    answer = response['expressions'][0]\n    return {'correct': answer == Integer(A.rank() == A.cols)}&quot;,&quot;context&quot;:{&quot;fields&quot;:[&quot;Independent&quot;],&quot;teacher&quot;:{&quot;value&quot;:[&quot;dict&quot;,[[&quot;Independent&quot;,[&quot;integer&quot;,&quot;1&quot;]]]],&quot;version&quot;:1},&quot;variables&quot;:{&quot;value&quot;:[&quot;dict&quot;,[[&quot;A&quot;,[&quot;matrix&quot;,3,3,[[&quot;integer&quot;,&quot;1&quot;],[&quot;integer&quot;,&quot;0&quot;],[&quot;integer&quot;,&quot;1&quot;],[&quot;integer&quot;,&quot;0&quot;],[&quot;integer&quot;,&quot;1&quot;],[&quot;integer&quot;,&quot;1&quot;],[&quot;integer&quot;,&quot;0&quot;],[&quot;integer&quot;,&quot;0&quot;],[&quot;integer&quot;,&quot;1&quot;]]]]]],&quot;version&quot;:1},&quot;variant&quot;:{&quot;hash&quot;:&quot;20d3d64c880fdc18&quot;,&quot;id&quot;:&quot;{\&quot;value\&quot;:[\&quot;list\&quot;,[]],\&quot;version\&quot;:1}&quot;,&quot;n&quot;:1},&quot;version&quot;:1},&quot;fingerprint&quot;:&quot;20d3d64c880fdc18&quot;,&quot;hash&quot;:&quot;20d3d64c880fdc18&quot;,&quot;id&quot;:&quot;{\&quot;value\&quot;:[\&quot;list\&quot;,[]],\&quot;version\&quot;:1}&quot;,&quot;n&quot;:1,&quot;proposal&quot;:false,&quot;question&quot;:&quot;Are the columns of $A={\\left[\\begin{matrix}1 &amp; 0 &amp; 1\\\\0 &amp; 1 &amp; 1\\\\0 &amp; 0 &amp; 1\\end{matrix}\\right]}$ linearly independent? _[1]&quot;,&quot;solution&quot;:&quot;&quot;,&quot;state&quot;:&quot;current&quot;,&quot;status&quot;:&quot;approved&quot;,&quot;values&quot;:{},&quot;variant-context&quot;:&quot;&quot;}],&quot;version&quot;:1}" data-storage-variants="[{&quot;hash&quot;:&quot;20d3d64c880fdc18&quot;,&quot;id&quot;:&quot;{\&quot;value\&quot;:[\&quot;list\&quot;,[]],\&quot;version\&quot;:1}&quot;,&quot;n&quot;:1,&quot;proposal&quot;:false}]" data-fields="[]" data-structural-field-labels="[]">
 <button type="button" class="math-pool-reload" title="Load a new random task">↻</button>
 <div id="similar-independence-question" class="math-exercise-question ai-feedback-context"></div>
 
@@ -304,9 +488,53 @@ window.Quarto = {
 <div class="math-legend-panel" style="display:none;"></div>
 <div class="math-feedback-area"></div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Show authoring code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-ai-feedback-context="3. Linear independence with an authored check
+The vectors are the columns of \(A\). Enter 1 for independent and 0 for dependent. This fixed scalar response permits different vector families without resizable answer inputs. The checker also rejects vectors longer than five coordinates, even if a candidate’s independence answer happens to be correct.
+Show authoring code"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{math-exercise}</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: similar-independence</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| variables: |</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="in">#|   A = Matrix([[1, 0, 1], [0, 1, 1], [0, 0, 1]])</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="in">#| mode: custom</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="in">#| field-labels: Independent</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="in">#| context: none</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="in">#| harder: Give more vectors or less obvious dependencies. Never exceed five coordinates per vector.</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="in">#| simpler: Give fewer vectors with an obvious relation or clear independence.</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="in">#| checker: |</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="in">#|   def check(response, symbols):</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="in">#|       A = response['variables']['A']</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="in">#|       if not 1 &lt;= A.rows &lt;= 5 or A.cols &lt; 1:</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="in">#|           return {'score': 0, 'feedback': 'Vector length must be between one and five.'}</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="in">#|       answer = response['expressions'][0]</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="in">#|       return {'correct': answer == Integer(A.rank() == A.cols)}</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="in">#| tests:</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="in">#|   - name: independent columns</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="in">#|     answers: [1]</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="in">#|     expect: correct</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="in">#|   - name: incorrect dependence answer</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="in">#|     answers: [0]</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="in">#|     expect: wrong</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="in">Are the columns of $A={@A@}$ linearly independent? _[1]</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 
 
-<!--ctm-save-generated--><script type="application/json" id="ctm-store-manifest">{"exercises":[{"component":"math-exercise","id":"similar-derivative","order":1,"runtimeId":"ctm-block-1","save":true,"source":"37e99553f3736ce1"},{"component":"math-exercise","id":"similar-matrix","order":2,"runtimeId":"ctm-block-2","save":true,"source":"8f8a782fb32af57c"},{"component":"math-exercise","id":"similar-independence","order":3,"runtimeId":"ctm-block-3","save":true,"source":"aa80d42b9539df76"}],"export":true,"messages":{"answered":"Answered, not graded","answersStorage":"Answers \u0026 storage","clearFailed":"Browser storage could not be cleared or updated. Use your browser settings to remove this course data.","confirmClearCourse":"Delete all your saved answers in this course?","confirmClearPage":"Delete all saved answers on this page?","confirmNewVariant":"Replace your filled answers with a new variant?","confirmSaveOff":"This deletes all saved answers in this course and stops saving.","copyAll":"Copy all","correct":"✓ correct","downloadHTML":"Download .html","downloadMarkdown":"Download .md","exercise":"Exercise","exportClose":"Close","exportTitle":"Export my answers","lastResult":"Last result","locale":"en","notSaving":"Answers aren’t being saved","outdated":"Outdated","partial":"½ partly correct","progressTitle":"Page progress","recordTooLarge":"This answer is too large to save. Copy it before leaving the page.","saveOff":"Do not save on this device","saveOn":"Save again","savedLocal":"Saved in this browser","savingDisabled":"Saving is off for this page.","savingLocal":"Saving in this browser","savingNotice":"Your answers are saved only in this browser.","savingOffNotice":"Saving is off on this device for this course.","settings":"Settings","showSaved":"Show your saved answer","sourceChanged":"The exercise has changed since you answered.","statusCorrect":"correct","statusInvalid":"invalid","statusPartial":"partly correct","statusWrong":"wrong","storageUnavailable":"Saving is unavailable. Your answers are kept in memory for this page only.","total":"{score} of {count}","unattempted":"– not attempted","variantChanged":"This variant has changed.","variantWithdrawn":"This variant has been withdrawn.","wrong":"✗ wrong"},"progress":true,"quizzes":[],"save":true,"v":1}</script>
+<!-- -->
+
+<!--ctm-save-generated--><script type="application/json" id="ctm-store-manifest">{"exercises":[{"component":"math-exercise","id":"similar-derivative","order":1,"runtimeId":"ctm-block-1","save":true,"source":"37e99553f3736ce1"},{"component":"math-exercise","id":"similar-matrix","order":3,"runtimeId":"ctm-block-3","save":true,"source":"8f8a782fb32af57c"},{"component":"math-exercise","id":"similar-independence","order":5,"runtimeId":"ctm-block-5","save":true,"source":"aa80d42b9539df76"}],"export":true,"messages":{"answered":"Answered, not graded","answersStorage":"Answers \u0026 storage","clearFailed":"Browser storage could not be cleared or updated. Use your browser settings to remove this course data.","confirmClearCourse":"Delete all your saved answers in this course?","confirmClearPage":"Delete all saved answers on this page?","confirmNewVariant":"Replace your filled answers with a new variant?","confirmSaveOff":"This deletes all saved answers in this course and stops saving.","copyAll":"Copy all","correct":"✓ correct","downloadHTML":"Download .html","downloadMarkdown":"Download .md","exercise":"Exercise","exportClose":"Close","exportTitle":"Export my answers","lastResult":"Last result","locale":"en","notSaving":"Answers aren’t being saved","outdated":"Outdated","partial":"½ partly correct","progressTitle":"Page progress","recordTooLarge":"This answer is too large to save. Copy it before leaving the page.","saveOff":"Do not save on this device","saveOn":"Save again","savedLocal":"Saved in this browser","savingDisabled":"Saving is off for this page.","savingLocal":"Saving in this browser","savingNotice":"Your answers are saved only in this browser.","savingOffNotice":"Saving is off on this device for this course.","settings":"Settings","showSaved":"Show your saved answer","sourceChanged":"The exercise has changed since you answered.","statusCorrect":"correct","statusInvalid":"invalid","statusPartial":"partly correct","statusWrong":"wrong","storageUnavailable":"Saving is unavailable. Your answers are kept in memory for this page only.","total":"{score} of {count}","unattempted":"– not attempted","variantChanged":"This variant has changed.","variantWithdrawn":"This variant has been withdrawn.","wrong":"✗ wrong"},"progress":true,"quizzes":[],"save":true,"v":1}</script>
 <!--ctm-layout-generated--><span id="ctm-layout-ready" hidden=""></span>
 </section>
 
@@ -381,6 +609,57 @@ window.Quarto = {
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -710,7 +989,170 @@ window.Quarto = {
       }
     }
   });
-  </script>
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-shortcodes="false" data-ai-feedback-context="3. Linear independence with an authored check
+The vectors are the columns of \(A\). Enter 1 for independent and 0 for dependent. This fixed scalar response permits different vector families without resizable answer inputs. The checker also rejects vectors longer than five coordinates, even if a candidate’s independence answer happens to be correct."><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Similar problems — examples"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="an">ctm-assessment:</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">  progress: true</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">  variants:</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">    approval: optional</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="an">ai-feedback:</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">  similar: true</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">  policy-files: feedback/similar-problems.yml</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">  policy: {default: similar-practice}</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">  generation-policy: {default: similar-practice}</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>**Examples** · <span class="co">[</span><span class="ot">Authoring guide</span><span class="co">](similar-problems-authoring.qmd)</span> · <span class="co">[</span><span class="ot">Workflow</span><span class="co">](similar-problems-workflow.qmd)</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>Create extra practice from an authored exercise, with an easier, harder or</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>same-difficulty version. These three examples cover symbolic differentiation,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>a matrix answer and an authored checker for linear independence.</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Try it</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Open the exercise's **Settings** (gear), choose **Direct API**, and enter your</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>   provider's API base URL and personal API key.</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Click **Fetch models**. Choose a fast model for feedback and independent</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>   solving, and a reasoning model under **Model for generating problems**.</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>   Save settings. The browser contacts that provider directly; its API usage may</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>   incur charges. Do not put API keys in the QMD or policy file.</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Open **Similar problem**, then choose **Easier**, **Another one like this** or</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>   **Harder**. Wait for the checked problem, or use **Cancel**.</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Enter an answer and use **Check** or **Feedback**. Every new problem starts</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>   from the original exercise; repeated Harder clicks create siblings, rather</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>   than an increasingly difficult chain.</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>Generated practice does not count toward course scores. Reload to try restoring</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>saved work. Use **More → I think the expected answer is wrong** to flag a problem</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>and request its one independent re-check. Reports stay on this device and are</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>included in copy/export. Agreement between models is not proof of correctness.</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>Each example has its exact authoring code below it. The page's **Code** menu also</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>shows the complete QMD, including its settings.</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. A derivative</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="in">```{math-exercise}</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: similar-derivative</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="in">#| vars: x</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="in">#| context: none</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="in">#| harder: Introduce a product or chain rule while keeping the function manageable.</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="in">#| simpler: Use a single power function.</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="in">Differentiate $f(x)=x^2$. $f'(x)=$ _[2*x].</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## Show authoring code</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="in">````markdown</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{math-exercise}</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: similar-derivative</span></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="in">#| vars: x</span></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="in">#| context: none</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="in">#| harder: Introduce a product or chain rule while keeping the function manageable.</span></span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a><span class="in">#| simpler: Use a single power function.</span></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a><span class="in">Differentiate $f(x)=x^2$. $f'(x)=$ _[2*x].</span></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a><span class="in">````</span></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. A fixed matrix calculation</span></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a><span class="in">```{math-exercise}</span></span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: similar-matrix</span></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a><span class="in">#| context: none</span></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a><span class="in">#| harder: Use a different invertible 2 by 2 matrix with small exact entries.</span></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a><span class="in">#| simpler: Use a diagonal 2 by 2 matrix.</span></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a><span class="in">Find the inverse of $A=\begin{pmatrix}1&amp;2\\0&amp;1\end{pmatrix}$.</span></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a><span class="in">$A^{-1}=$ mat[1,-2;0,1].</span></span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a><span class="fu">## Show authoring code</span></span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a><span class="in">````markdown</span></span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a><span class="in">```{math-exercise}</span></span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: similar-matrix</span></span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a><span class="in">#| context: none</span></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a><span class="in">#| harder: Use a different invertible 2 by 2 matrix with small exact entries.</span></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a><span class="in">#| simpler: Use a diagonal 2 by 2 matrix.</span></span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a><span class="in">Find the inverse of $A=\begin{pmatrix}1&amp;2\\0&amp;1\end{pmatrix}$.</span></span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a><span class="in">$A^{-1}=$ mat[1,-2;0,1].</span></span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a><span class="in">````</span></span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Linear independence with an authored check</span></span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>The vectors are the columns of $A$. Enter **1** for independent and **0** for</span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>dependent. This fixed scalar response permits different vector families without</span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>resizable answer inputs. The checker also rejects vectors longer than five</span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>coordinates, even if a candidate's independence answer happens to be correct.</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a><span class="in">```{math-exercise}</span></span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: similar-independence</span></span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a><span class="in">#| variables: |</span></span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a><span class="in">#|   A = Matrix([[1, 0, 1], [0, 1, 1], [0, 0, 1]])</span></span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a><span class="in">#| mode: custom</span></span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a><span class="in">#| field-labels: Independent</span></span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a><span class="in">#| context: none</span></span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a><span class="in">#| harder: Give more vectors or less obvious dependencies. Never exceed five coordinates per vector.</span></span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a><span class="in">#| simpler: Give fewer vectors with an obvious relation or clear independence.</span></span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a><span class="in">#| checker: |</span></span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a><span class="in">#|   def check(response, symbols):</span></span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a><span class="in">#|       A = response['variables']['A']</span></span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a><span class="in">#|       if not 1 &lt;= A.rows &lt;= 5 or A.cols &lt; 1:</span></span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a><span class="in">#|           return {'score': 0, 'feedback': 'Vector length must be between one and five.'}</span></span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a><span class="in">#|       answer = response['expressions'][0]</span></span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a><span class="in">#|       return {'correct': answer == Integer(A.rank() == A.cols)}</span></span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a><span class="in">#| tests:</span></span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a><span class="in">#|   - name: independent columns</span></span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a><span class="in">#|     answers: [1]</span></span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a><span class="in">#|     expect: correct</span></span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a><span class="in">#|   - name: incorrect dependence answer</span></span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a><span class="in">#|     answers: [0]</span></span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a><span class="in">#|     expect: wrong</span></span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a><span class="in">Are the columns of $A={@A@}$ linearly independent? _[1]</span></span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a><span class="fu">## Show authoring code</span></span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a><span class="in">````markdown</span></span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{math-exercise}</span></span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: similar-independence</span></span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a><span class="in">#| variables: |</span></span>
+<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a><span class="in">#|   A = Matrix([[1, 0, 1], [0, 1, 1], [0, 0, 1]])</span></span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a><span class="in">#| mode: custom</span></span>
+<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a><span class="in">#| field-labels: Independent</span></span>
+<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a><span class="in">#| context: none</span></span>
+<span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a><span class="in">#| harder: Give more vectors or less obvious dependencies. Never exceed five coordinates per vector.</span></span>
+<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a><span class="in">#| simpler: Give fewer vectors with an obvious relation or clear independence.</span></span>
+<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a><span class="in">#| checker: |</span></span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a><span class="in">#|   def check(response, symbols):</span></span>
+<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a><span class="in">#|       A = response['variables']['A']</span></span>
+<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a><span class="in">#|       if not 1 &lt;= A.rows &lt;= 5 or A.cols &lt; 1:</span></span>
+<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a><span class="in">#|           return {'score': 0, 'feedback': 'Vector length must be between one and five.'}</span></span>
+<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a><span class="in">#|       answer = response['expressions'][0]</span></span>
+<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a><span class="in">#|       return {'correct': answer == Integer(A.rank() == A.cols)}</span></span>
+<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a><span class="in">#| tests:</span></span>
+<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a><span class="in">#|   - name: independent columns</span></span>
+<span id="cb4-153"><a href="#cb4-153" aria-hidden="true" tabindex="-1"></a><span class="in">#|     answers: [1]</span></span>
+<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a><span class="in">#|     expect: correct</span></span>
+<span id="cb4-155"><a href="#cb4-155" aria-hidden="true" tabindex="-1"></a><span class="in">#|   - name: incorrect dependence answer</span></span>
+<span id="cb4-156"><a href="#cb4-156" aria-hidden="true" tabindex="-1"></a><span class="in">#|     answers: [0]</span></span>
+<span id="cb4-157"><a href="#cb4-157" aria-hidden="true" tabindex="-1"></a><span class="in">#|     expect: wrong</span></span>
+<span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a><span class="in">Are the columns of $A={@A@}$ linearly independent? _[1]</span></span>
+<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a><span class="in">````</span></span>
+<span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

@@ -2,41 +2,199 @@
   {
     "objectID": "pages/similar-problems.html",
     "href": "pages/similar-problems.html",
-    "title": "Similar problems — practice testbox",
+    "title": "Similar problems — examples",
     "section": "",
-    "text": "Your answers are saved only in this browser.Do not save on this device\nExport my answers\nDelete answers on this page\nDelete all your answers in this course\nUse Feedback settings to choose Direct API and a reasoning model for generating problems. The three examples exercise symbolic keys, fixed matrix inputs and a trusted authored checker. Generated work is practice and does not count toward course scores. Reload to check saved answers; use More → I think the expected answer is wrong to test the local report and independent re-check.",
+    "text": "Your answers are saved only in this browser.Do not save on this device\nExport my answers\nDelete answers on this page\nDelete all your answers in this course\nExamples · Authoring guide · Workflow\nCreate extra practice from an authored exercise, with an easier, harder or same-difficulty version. These three examples cover symbolic differentiation, a matrix answer and an authored checker for linear independence.",
     "crumbs": [
-      "Similar problems testbox"
+      "Similar problems",
+      "Examples and code"
+    ]
+  },
+  {
+    "objectID": "pages/similar-problems.html#try-it",
+    "href": "pages/similar-problems.html#try-it",
+    "title": "Similar problems — examples",
+    "section": "Try it",
+    "text": "Try it\n\nOpen the exercise’s Settings (gear), choose Direct API, and enter your provider’s API base URL and personal API key.\nClick Fetch models. Choose a fast model for feedback and independent solving, and a reasoning model under Model for generating problems. Save settings. The browser contacts that provider directly; its API usage may incur charges. Do not put API keys in the QMD or policy file.\nOpen Similar problem, then choose Easier, Another one like this or Harder. Wait for the checked problem, or use Cancel.\nEnter an answer and use Check or Feedback. Every new problem starts from the original exercise; repeated Harder clicks create siblings, rather than an increasingly difficult chain.\n\nGenerated practice does not count toward course scores. Reload to try restoring saved work. Use More → I think the expected answer is wrong to flag a problem and request its one independent re-check. Reports stay on this device and are included in copy/export. Agreement between models is not proof of correctness.\nEach example has its exact authoring code below it. The page’s Code menu also shows the complete QMD, including its settings.",
+    "crumbs": [
+      "Similar problems",
+      "Examples and code"
     ]
   },
   {
     "objectID": "pages/similar-problems.html#a-derivative",
     "href": "pages/similar-problems.html#a-derivative",
-    "title": "Similar problems — practice testbox",
+    "title": "Similar problems — examples",
     "section": "1. A derivative",
-    "text": "1. A derivative\n\nDifferentiate \\(f(x)=x^2\\). \\(f'(x)=\\) .\n\n\n  ✓ Check\n  ⓘ Input help\n  \n    💬 Feedback\n    ⚙",
+    "text": "1. A derivative\n\nDifferentiate \\(f(x)=x^2\\). \\(f'(x)=\\) .\n\n\n  ✓ Check\n  ⓘ Input help\n  \n    💬 Feedback\n    ⚙\n  \n\n\n\n\n\n\n\n\n\n\nNoteShow authoring code\n\n\n\n\n\n```{math-exercise}\n#| label: similar-derivative\n#| vars: x\n#| context: none\n#| harder: Introduce a product or chain rule while keeping the function manageable.\n#| simpler: Use a single power function.\nDifferentiate $f(x)=x^2$. $f'(x)=$ _[2*x].\n```",
     "crumbs": [
-      "Similar problems testbox"
+      "Similar problems",
+      "Examples and code"
     ]
   },
   {
     "objectID": "pages/similar-problems.html#a-fixed-matrix-calculation",
     "href": "pages/similar-problems.html#a-fixed-matrix-calculation",
-    "title": "Similar problems — practice testbox",
+    "title": "Similar problems — examples",
     "section": "2. A fixed matrix calculation",
-    "text": "2. A fixed matrix calculation\n\nFind the inverse of \\(A=\\begin{pmatrix}1&2\\\\0&1\\end{pmatrix}\\).\n\\(A^{-1}=\\) .\n\n\n  ✓ Check\n  ⓘ Input help\n  \n    💬 Feedback\n    ⚙",
+    "text": "2. A fixed matrix calculation\n\nFind the inverse of \\(A=\\begin{pmatrix}1&2\\\\0&1\\end{pmatrix}\\).\n\\(A^{-1}=\\) .\n\n\n  ✓ Check\n  ⓘ Input help\n  \n    💬 Feedback\n    ⚙\n  \n\n\n\n\n\n\n\n\n\n\nNoteShow authoring code\n\n\n\n\n\n```{math-exercise}\n#| label: similar-matrix\n#| context: none\n#| harder: Use a different invertible 2 by 2 matrix with small exact entries.\n#| simpler: Use a diagonal 2 by 2 matrix.\nFind the inverse of $A=\\begin{pmatrix}1&2\\\\0&1\\end{pmatrix}$.\n$A^{-1}=$ mat[1,-2;0,1].\n```",
     "crumbs": [
-      "Similar problems testbox"
+      "Similar problems",
+      "Examples and code"
     ]
   },
   {
     "objectID": "pages/similar-problems.html#linear-independence-with-an-authored-check",
     "href": "pages/similar-problems.html#linear-independence-with-an-authored-check",
-    "title": "Similar problems — practice testbox",
+    "title": "Similar problems — examples",
     "section": "3. Linear independence with an authored check",
-    "text": "3. Linear independence with an authored check\nThe vectors are the columns of \\(A\\). Enter 1 for independent and 0 for dependent. This fixed scalar response permits different vector families without resizable answer inputs. The checker also rejects vectors longer than five coordinates, even if a candidate’s independence answer happens to be correct.\n\n↻\n\n\n\n  ✓ Check\n  ⓘ Input help\n  \n    💬 Feedback\n    ⚙",
+    "text": "3. Linear independence with an authored check\nThe vectors are the columns of \\(A\\). Enter 1 for independent and 0 for dependent. This fixed scalar response permits different vector families without resizable answer inputs. The checker also rejects vectors longer than five coordinates, even if a candidate’s independence answer happens to be correct.\n\n↻\n\n\n\n  ✓ Check\n  ⓘ Input help\n  \n    💬 Feedback\n    ⚙\n  \n\n\n\n\n\n\n\n\n\n\nNoteShow authoring code\n\n\n\n\n\n```{math-exercise}\n#| label: similar-independence\n#| variables: |\n#|   A = Matrix([[1, 0, 1], [0, 1, 1], [0, 0, 1]])\n#| mode: custom\n#| field-labels: Independent\n#| context: none\n#| harder: Give more vectors or less obvious dependencies. Never exceed five coordinates per vector.\n#| simpler: Give fewer vectors with an obvious relation or clear independence.\n#| checker: |\n#|   def check(response, symbols):\n#|       A = response['variables']['A']\n#|       if not 1 &lt;= A.rows &lt;= 5 or A.cols &lt; 1:\n#|           return {'score': 0, 'feedback': 'Vector length must be between one and five.'}\n#|       answer = response['expressions'][0]\n#|       return {'correct': answer == Integer(A.rank() == A.cols)}\n#| tests:\n#|   - name: independent columns\n#|     answers: [1]\n#|     expect: correct\n#|   - name: incorrect dependence answer\n#|     answers: [0]\n#|     expect: wrong\nAre the columns of $A={@A@}$ linearly independent? _[1]\n```",
     "crumbs": [
-      "Similar problems testbox"
+      "Similar problems",
+      "Examples and code"
+    ]
+  },
+  {
+    "objectID": "pages/similar-problems-authoring.html",
+    "href": "pages/similar-problems-authoring.html",
+    "title": "Similar problems — authoring guide",
+    "section": "",
+    "text": "Examples · Authoring guide · Workflow\nStart with a working math-exercise, enable generation, and describe what a useful variation should change. Shared YAML supplies the course guidance; a one-line exercise directive supplies the exception. No separate quiz configuration is needed.",
+    "crumbs": [
+      "Similar problems",
+      "Authoring guide"
+    ]
+  },
+  {
+    "objectID": "pages/similar-problems-authoring.html#enable-it-explicitly",
+    "href": "pages/similar-problems-authoring.html#enable-it-explicitly",
+    "title": "Similar problems — authoring guide",
+    "section": "Enable it explicitly",
+    "text": "Enable it explicitly\nSimilar problems is off by default. Enable it in _quarto.yml for a course, or in the front matter of one page:\nai-feedback:\n  similar: true\n  policy-files: feedback/similar-problems.yml\n  policy: {default: similar-practice}\n  generation-policy: {default: similar-practice}\nThis is the configuration used on the examples page. policy selects teaching feedback; generation-policy selects generation instructions. Here the same dictionary serves both purposes. They may also select different names. Loading a policy file alone neither selects it nor enables generation. An omitted generation-policy uses the shipped generation baseline; it does not automatically select the teaching policy.\nUse #| similar: true to enable one exercise, or #| similar: false to switch one off even when the course enables it. The exam profile and builds without AI keep generation off. Copy-prompt mode cannot generate a checked practice problem; the learner must use Direct API.",
+    "crumbs": [
+      "Similar problems",
+      "Authoring guide"
+    ]
+  },
+  {
+    "objectID": "pages/similar-problems-authoring.html#define-course-guidance-once",
+    "href": "pages/similar-problems-authoring.html#define-course-guidance-once",
+    "title": "Similar problems — authoring guide",
+    "section": "Define course guidance once",
+    "text": "Define course guidance once\nCreate feedback/similar-problems.yml, relative to the project root:\nai-feedback:\n  policies:\n    similar-practice:\n      base-prompt: &gt;-\n        Use the notation and methods in the original exercise. Keep problems\n        self-contained and nontrivial. Use exact rational or integer givens.\n        For vector problems keep the coordinate count at most five; change\n        the number of vectors or their dependencies to change difficulty.\n      harder: Increase the reasoning required by one natural step.\n      easier: Reduce the number of steps or provide more guidance.\n      same: Give a fresh problem requiring the same method and effort.\nPolicies use the same flat dictionary, parser and inheritance rules for teaching and generation. A policy may contain hint steps as well as direction guidance. Generation ignores the hint steps and does not advance the hint counter; teaching feedback ignores harder, easier and same.\nThe {default: ...} selection adds common instructions while retaining the shipped integration baseline. A scalar selection, such as generation-policy: similar-practice, replaces its integration base instructions. Use the map form above when you want to retain the shipped starting prompt.\npolicy-files accumulate from project to page, while the nearest policy selector wins. Named policies may use extends; omitted fields inherit and supplied strings replace inherited strings. Exercise-ID overrides and explicit exercise selections apply afterward. See the full policy reference for the complete rules.",
+    "crumbs": [
+      "Similar problems",
+      "Authoring guide"
+    ]
+  },
+  {
+    "objectID": "pages/similar-problems-authoring.html#refine-a-single-exercise",
+    "href": "pages/similar-problems-authoring.html#refine-a-single-exercise",
+    "title": "Similar problems — authoring guide",
+    "section": "Refine a single exercise",
+    "text": "Refine a single exercise\n```{math-exercise}\n#| label: derivative-practice\n#| vars: x\n#| harder: Introduce a product or chain rule, with small integer coefficients.\n#| simpler: Use a single power function.\n#| same: Change the power and coefficient; keep the power rule sufficient.\nDifferentiate $f(x)=x^2$. $f'(x)=$ _[2*x].\n```\nThe existing #| directive syntax is used throughout. In a policy the direction is easier; in an exercise #| simpler: supplies that direction’s addon. Only the chosen direction’s addon is appended to the resolved policy. These directives do not enable generation by themselves.\nSelect a different generation policy on one exercise with #| generation-policy: another-policy; use #| feedback-policy: for its teaching policy. Keep exercise labels stable so that overrides and saved work keep their intended identity.",
+    "crumbs": [
+      "Similar problems",
+      "Authoring guide"
+    ]
+  },
+  {
+    "objectID": "pages/similar-problems-authoring.html#choose-a-response-and-enforce-important-constraints",
+    "href": "pages/similar-problems-authoring.html#choose-a-response-and-enforce-important-constraints",
+    "title": "Similar problems — authoring guide",
+    "section": "Choose a response and enforce important constraints",
+    "text": "Choose a response and enforce important constraints\n\n\n\n\n\n\n\nResponse\nAuthoring approach\n\n\n\n\nSymbolic expression\nStart with ordinary _[answer] fields and the intended grading mode.\n\n\nFixed vector or matrix\nUse vec[...] or mat[...;...]. Generated matrix answers use the same fixed grid widget.\n\n\nA mathematical property\nReuse a trusted authored checker, as in the independence example. The model receives a compact contract, never permission to write checker code.\n\n\n\nGenerated practice follows the original grading rules, including form restrictions, precision/tolerance and partial credit. A new problem should exercise the same mathematical skill rather than escape those rules.\nPrompt guidance helps steer generation; it is not an enforced mathematical bound. For an important restriction, supply a checker that rejects violations. The independence example limits vectors to five coordinates in both the prompt and the trusted checker. Its admitted matrix A can vary, while its checker code remains fixed. Arbitrary new checker programs, JSXGraph responses and resizable matrices are outside phase 1.\nComputed answers are preferred. Where no supported recipe fits, an independent solve is required and the expected answer remains labelled unverified. Even a computed answer can match an inappropriate recipe: authors should test whether the resulting questions are clear, worthwhile and within the intended syllabus.",
+    "crumbs": [
+      "Similar problems",
+      "Authoring guide"
+    ]
+  },
+  {
+    "objectID": "pages/similar-problems-authoring.html#review-before-sharing",
+    "href": "pages/similar-problems-authoring.html#review-before-sharing",
+    "title": "Similar problems — authoring guide",
+    "section": "Review before sharing",
+    "text": "Review before sharing\nTry all three directions and several repetitions. Check the question, its expected answer, input widget and feedback, including a deliberately wrong answer. Reload to confirm saved work, and test the local report flow. Verify that an exercise with #| similar: false stays off.\nStudents generate their own practice at runtime. A Quarto build does not call an LLM or pre-generate the questions. Your colleagues need a configured provider to try generation; the ordinary authored questions can be checked without one.",
+    "crumbs": [
+      "Similar problems",
+      "Authoring guide"
+    ]
+  },
+  {
+    "objectID": "pages/similar-problems-workflow.html",
+    "href": "pages/similar-problems-workflow.html",
+    "title": "Similar problems — workflow and phase 2",
+    "section": "",
+    "text": "Examples · Authoring guide · Workflow\nPhase 1 is implemented: the browser assembles a generation request and calls the learner’s configured provider. Local checkers validate the expected answers before the problem appears. Phase 2 will add course retrieval and a server-side AI relay; it is a design, not an enabled feature of this demo.",
+    "crumbs": [
+      "Similar problems",
+      "Workflow and phase 2"
+    ]
+  },
+  {
+    "objectID": "pages/similar-problems-workflow.html#where-the-page-comes-from",
+    "href": "pages/similar-problems-workflow.html#where-the-page-comes-from",
+    "title": "Similar problems — workflow and phase 2",
+    "section": "Where the page comes from",
+    "text": "Where the page comes from\n\n\n\n\n\n\n\nSource\nResponsibility\n\n\n\n\nDemo _quarto.yml and page front matter\nEnable the feature, select policies, set language and context.\n\n\nfeedback/similar-problems.yml\nShared named policy dictionaries and difficulty guidance.\n\n\nExercise #| directives\nStable label, original grading rules, local guidance and optional trusted checker.\n\n\nDemo quarto-extensions.yml\nPin an exact reviewed CTM Assessment package commit.\n\n\nCTM Assessment integration/feedback/repos.json\nPin the component repositories installed by the normal setup script.\n\n\nctm-libs\nPolicy parsing/resolution, shipped prompts, settings, model catalogue, API client, shared UI and store.\n\n\nmath-exercise\nBuild-time exercise metadata; browser generation, admission flow, rendering, feedback and parent-owned practice storage.\n\n\nctm-checkers\nSymPy recipe computation, expression admission and mathematical checking inside Pyodide.\n\n\n\npython scripts/setup.py installs the package and its pinned components. Quarto’s Lua filters turn authored content and resolved configuration into HTML metadata and browser assets. Neither setup nor rendering sends a generation request. The build provenance records the exact installed commits and source revision for this published guide. Repository links below point to current source; consult that provenance when comparing a particular build.",
+    "crumbs": [
+      "Similar problems",
+      "Workflow and phase 2"
+    ]
+  },
+  {
+    "objectID": "pages/similar-problems-workflow.html#from-yaml-to-two-chat-messages",
+    "href": "pages/similar-problems-workflow.html#from-yaml-to-two-chat-messages",
+    "title": "Similar problems — workflow and phase 2",
+    "section": "From YAML to two chat messages",
+    "text": "From YAML to two chat messages\nmath-similar.js resolves the generation policy for integration math-exercise and the original authored label. The generation baseline, selected common and integration instructions, matching exercise overrides and explicit exercise policy use the shared policy resolver. It then appends the chosen direction’s guidance and the exercise’s harder, simpler or same addon. It ignores teaching steps.\nThe generator receives two messages:\n\n\n\n\n\n\n\nMessage\nContents\n\n\n\n\nsystem\nResolved author guidance plus the fixed JSON protocol, admitted maths/recipe operations, fixed-input requirements and prohibition on model-written code.\n\n\nuser\nJSON containing the original question without answer keys, resolved learning context, mode, symbols, field/input shape, direction, language, previous generated question/change, output-format examples and applicable trusted checker contracts.\n\n\n\nThe previous generated question discourages repetition. The reference exercise is always the original: Harder means harder than that original, not harder than the last generated child. The model cannot make the grading mode more lenient.",
+    "crumbs": [
+      "Similar problems",
+      "Workflow and phase 2"
+    ]
+  },
+  {
+    "objectID": "pages/similar-problems-workflow.html#after-the-learner-chooses-harder",
+    "href": "pages/similar-problems-workflow.html#after-the-learner-chooses-harder",
+    "title": "Similar problems — workflow and phase 2",
+    "section": "After the learner chooses Harder",
+    "text": "After the learner chooses Harder\n\n\n\n\n\nsequenceDiagram\n    participant Learner\n    participant JS as Browser JavaScript\n    participant API as Configured AI provider\n    participant PY as Pyodide / SymPy\n    Learner-&gt;&gt;JS: Similar problem → Harder\n    JS-&gt;&gt;JS: Resolve policy, guidance and original context\n    JS-&gt;&gt;API: POST /chat/completions (generation model)\n    API--&gt;&gt;JS: Candidate problem JSON\n    JS-&gt;&gt;JS: Validate schema, slots, input shape and restrictions\n    alt A supported recipe is present\n        JS-&gt;&gt;PY: math_exercise.compute_key\n        PY--&gt;&gt;JS: Computed answer, compared with model answer\n    else A field has no recipe\n        JS-&gt;&gt;API: POST /chat/completions (independent solve)\n        API--&gt;&gt;JS: Answers without seeing the proposed key\n        JS-&gt;&gt;PY: math_exercise.check comparison\n        PY--&gt;&gt;JS: Agreement or rejection\n    end\n    JS-&gt;&gt;PY: Admit answers and run applicable original checker\n    PY--&gt;&gt;JS: Candidate accepted or rejected\n    JS-&gt;&gt;JS: Save under original record and render escaped text\n    JS--&gt;&gt;Learner: Practice question, proper inputs and Check\n\n\n\n\n\n\nThe diagram shows one successful candidate. A mixed problem can need both recipe computation and an independent solve. A rejected candidate gets one further generation attempt with the rejection reason; two failed candidates end with a retry message. The shared client can also make one corrective response retry for malformed output, and can negotiate provider request compatibility. Therefore two candidate attempts do not imply at most two HTTP requests.\n\nRemote API calls\n\n\n\n\n\n\n\nCall\nWhen and what it carries\n\n\n\n\nGET &lt;base-url&gt;/models\nWhen the learner presses Fetch models in settings. The same catalogue fills the feedback and generation dropdowns.\n\n\nPOST &lt;base-url&gt;/chat/completions\nGeneration: the messages above, the chosen generation model and a larger output budget.\n\n\nPOST &lt;base-url&gt;/chat/completions\nIndependent solving, if needed: a fresh prompt with the generated question, mode, variables and number of answers, without the proposed key or learner answer. Uses the everyday feedback model.\n\n\nPOST &lt;base-url&gt;/chat/completions\nLater feedback: the generated task, learner response, checker evidence, resolved teaching policy and current hint step.\n\n\n\nThe base URL, API key and two model selections come from settings. The shared client sends OpenAI-compatible chat requests; it uses an authorization header when a key is configured. Generation has a 180-second per-call limit and a default 16,384-token output budget. Closed reasoning blocks are stripped before JSON validation. Feedback keeps its own defaults. Cancel aborts the active request and prevents a late result from being mounted.\nFor example, the generation HTTP body has this shape (angle-bracketed text is an explanatory placeholder):\n{\n  \"model\": \"&lt;selected generation model&gt;\",\n  \"messages\": [\n    {\"role\": \"system\", \"content\": \"&lt;resolved instructions and fixed protocol&gt;\"},\n    {\"role\": \"user\", \"content\": \"&lt;serialized original/context/format/direction JSON&gt;\"}\n  ],\n  \"max_tokens\": 16384\n}\nThe client can switch to max_completion_tokens if the provider requires it. A minimal candidate reply for a derivative is:\n{\n  \"question\": \"Differentiate $f(x)=x^3$. $f'(x)=$ _[1]\",\n  \"fields\": [{\n    \"answer\": \"3*x^2\",\n    \"recipe\": {\"op\": \"diff\", \"expr\": \"x^3\", \"var\": \"x\"}\n  }],\n  \"mode\": \"equivalent\",\n  \"vars\": \"x\",\n  \"solution\": \"Apply the power rule.\",\n  \"change\": \"A different power.\"\n}\nNo network call is needed just to press Check once the local Python runtime and its packages have loaded. Those initial assets may need downloading.\n\n\nLocal computation and admission\nmath_exercise.compute_key admits mathematical expressions and executes a fixed operation, such as diff, inv, solve or rank. It rejects attribute access, dunder names and non-admitted Python constructs. Model text never executes as Python. Recipe results must agree with the model’s proposed answers through the existing checker. A failed recipe cannot silently fall back to an unverified key.\nFor example, an inverse matrix uses inv plus a component selector [row, col] for each cell. The question uses numbered mat[...] slots and the browser mounts the normal fixed matrix editor. Complete row-major recipe coordinates can repair flattened slots into a grid; ambiguous new layouts are rejected for correction.\nAn independent solve that agrees produces an unverified expected answer. Two models can make the same mistake. Even a matching computed answer does not prove the recipe answers the question’s wording, so author constraints and useful test cases remain important.\nWhen an original has a supported trusted checker, the model may select its supplied contract and admitted data. It cannot supply new checker source. The independence example binds a rational matrix A and runs the original checker before display, including its five-coordinate bound.",
+    "crumbs": [
+      "Similar problems",
+      "Workflow and phase 2"
+    ]
+  },
+  {
+    "objectID": "pages/similar-problems-workflow.html#rendering-checking-and-saved-work",
+    "href": "pages/similar-problems-workflow.html#rendering-checking-and-saved-work",
+    "title": "Similar problems — workflow and phase 2",
+    "section": "Rendering, checking and saved work",
+    "text": "Rendering, checking and saved work\nAccepted text uses the escaped plain-text rendering path, with mathematical typesetting and the normal exercise input setup. Model HTML is never inserted as executable markup. Each generated child inherits the original grading rules and teaching/context settings, with its own practice state.\nThe child’s Check uses the existing mathematical checker in Pyodide. Feedback asks AI to explain using the checker evidence; AI does not replace the checker’s grading. Generated work is labelled unscored and emits no scored ctm:result for the original.\nmath-store.js stores children in inputs.generated inside the original exercise’s record, through the shared store. There are at most ten per original, within its 64 KB record limit. Reload restores text, input values and saved status without calling AI or Python. Auxiliary practice saves preserve the original’s score and answered marker. Copy/export includes generated work and local reports.\nI think the expected answer is wrong saves a stable versioned local report and triggers one independent re-check. Disagreement marks the expected answer disputed: mismatches read Can’t confirm against the generated key, and the learner can create another problem while retaining the report. Agreement is shown as a re-check, and the learner may keep the flag. Nothing is sent to a central report collector or created as a GitHub issue.",
+    "crumbs": [
+      "Similar problems",
+      "Workflow and phase 2"
+    ]
+  },
+  {
+    "objectID": "pages/similar-problems-workflow.html#phase-2-design-rag-and-a-course-relay",
+    "href": "pages/similar-problems-workflow.html#phase-2-design-rag-and-a-course-relay",
+    "title": "Similar problems — workflow and phase 2",
+    "section": "Phase 2 design: RAG and a course relay",
+    "text": "Phase 2 design: RAG and a course relay\nPhase 2 waits for explicit authorization. It keeps the same browser prompt assembly, JSON format, mathematical admission and checks. The proposed rag_app services add two capabilities:\n\nRetrieve course passages: /retrieve takes the course and a query based on the original task, returning relevant note passages and their sources. The browser adds these as another learning-context block. This is the RAG (retrieval-augmented generation) part; retrieved text supplies context, not instructions that override author policy.\nRelay AI requests: an OpenAI-compatible /chat/completions forwards to configured models using the server’s key. The existing client points at the relay, so learners need no personal key. Feedback may use it too. Generation and independent solving should use different models by default.\n\nR1 covers the rag_app retrieval/relay services and their hardening. Before student use this needs course-origin CORS rules, rate limits, model allowlists, output-token caps, generation-compatible timeouts and a review of request logging, especially because feedback can carry learner responses. R2 adds retrieval as a context provider in ctm-libs/math-exercise, its configuration and documentation. The direct-provider phase 1 route remains available to courses without RAG.\nA later rate-limited /report relay is intended to receive only the problem spec and course, with no learner answer or identity. The local report format stays stable for that future integration. Central collection is not active; GitHub issues are never the student-report route. The historical rag_app /problem and /calculate-answer prototypes are not the proposed phase 2 API.\nSee the binding design and R1/R2 scope. This guide documents phase 2 without implementing or enabling it.",
+    "crumbs": [
+      "Similar problems",
+      "Workflow and phase 2"
+    ]
+  },
+  {
+    "objectID": "pages/similar-problems-workflow.html#rebuilding-and-sharing-this-guide",
+    "href": "pages/similar-problems-workflow.html#rebuilding-and-sharing-this-guide",
+    "title": "Similar problems — workflow and phase 2",
+    "section": "Rebuilding and sharing this guide",
+    "text": "Rebuilding and sharing this guide\nEvery pull request in ctm-demo rebuilds all three pages, without path or branch filters. PR builds use read-only permissions and upload the rendered site as an Actions artifact. They do not publish automatically with a write token.\nAn upstream component PR does not silently change this guide’s dependencies. After review, update the exact package/component pins and the demo’s package pin; that demo PR rebuilds the guide with the newly selected sources.\nPushes to main rebuild and publish the guide under /similar-problems/. A maintainer can run Build Similar problems guide → Run workflow on a branch to publish /similar-problems-preview/ before merging. That preview address is shared between manual runs; the provenance file identifies the published revision. The regular full-site action also renders these pages at their normal course addresses. Publication jobs share the site’s concurrency group and preserve existing course pages. No workflow merges a PR or creates a tag.\nSource: demo pages and action, generation flow, policy/client implementation, checker implementation.",
+    "crumbs": [
+      "Similar problems",
+      "Workflow and phase 2"
     ]
   }
 ]
