@@ -32,5 +32,8 @@ https://aacchhee.github.io/ctm-demo/similar-problems-preview/pages/similar-probl
 
 The full-site action also renders these pages and records provenance. Both
 publishing jobs share the existing Pages concurrency group and preserve other
-course content. The historical `/similar-problems-pr-28/` publication is retained,
-but is no longer the maintained preview address. No workflow merges or tags.
+course content. The old `/similar-problems-pr-28/` address was refreshed by hand on
+31 October 2026 with the guide from main `92e9b8c`; no workflow updates it, so it
+can fall behind. Use `/similar-problems/` or `/similar-problems-preview/` instead.
+The original PR 28 snapshot remains in `gh-pages` history (`1e21e99`). No
+workflow merges or tags.
