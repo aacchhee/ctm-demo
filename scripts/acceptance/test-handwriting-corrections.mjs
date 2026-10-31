@@ -40,7 +40,7 @@ try {
       if (!url.endsWith('/mock/v1/chat/completions')) {await route.continue(); return;}
       const body = route.request().postDataJSON();
       requests.push(body);
-      const data = JSON.parse(body.messages[1].content[0].text);
+      const user = body.messages[1].content, data = JSON.parse(Array.isArray(user) ? user[0].text : user);
       if (data.correction?.previousFeedback && failCorrection) {
         failCorrection = false; await route.fulfill({status:503,body:'Try again later.'}); return;
       }
@@ -99,6 +99,40 @@ try {
       await page.waitForFunction(id => document.querySelector('#'+id+' .ai-feedback-hint')?.textContent.trim().endsWith('1'), 'v25-4b');
       assert.equal(JSON.parse(requests.at(-1).messages[1].content[0].text).correction, undefined);
       assert.equal(await activity.locator('.ai-feedback-correction form').count(), 1);
+
+      // A text-or-photo subtask: typed text survives an upload, a changed
+      // feedback language asks for fresh feedback without sending, and
+      // text-only feedback never locks the box.
+      await page.getByRole('tab',{name:'6',exact:true}).click();
+      const textOrPhoto = page.locator('#v25-6c'), box = textOrPhoto.locator(':scope > textarea');
+      const typed = lang === 'nb' ? 'I serie har R1 størst effekt fordi P = I^2 R.' : 'In series R1 has the largest power because P = I^2 R.';
+      await box.fill(typed);
+      await textOrPhoto.locator('input[type=file]').setInputFiles(path.join(root, 'assets/handskrift/student1/4b.png'));
+      assert.equal(await box.inputValue(), typed);
+      assert.equal(await box.getAttribute('readonly'), null);
+      const trigger6 = textOrPhoto.getByRole('button',{name:lang === 'nb'?'Tilbakemelding':'Feedback',exact:true});
+      await trigger6.click();
+      await page.waitForFunction(id => document.querySelector('#'+id+' .ai-feedback-output')?.getAttribute('aria-busy') === 'false', 'v25-6c');
+      assert.equal(await box.getAttribute('readonly'), '');
+      assert.equal(JSON.parse(requests.at(-1).messages[1].content[0].text).responses[0].value, typed);
+      await textOrPhoto.locator('select.form-select').selectOption('German');
+      await textOrPhoto.getByRole('button',{name:lang === 'nb'?'KI-en misforsto besvarelsen min':'The AI misunderstood my work',exact:true}).click();
+      const form6 = textOrPhoto.locator('.ai-feedback-correction form');
+      await form6.locator('textarea').fill(note);
+      const sentBefore = requests.length;
+      await form6.getByRole('button',{name:lang === 'nb'?'Oppdater tilbakemeldingen':'Update feedback',exact:true}).click();
+      await textOrPhoto.locator('.ai-feedback-correction').getByText(lang === 'nb' ? /Innstillingene for tilbakemelding er endret/ : /The feedback settings changed/).waitFor();
+      assert.equal(requests.length, sentBefore);
+      assert.equal(await textOrPhoto.locator('.ai-feedback-correction form').count(), 0);
+      assert.match(await textOrPhoto.locator('.ai-feedback-hint').innerText(), /1$/);
+      await textOrPhoto.getByRole('button',{name:lang === 'nb'?'Fjern bilder':'Remove images',exact:true}).click();
+      assert.equal(await box.getAttribute('readonly'), null);
+      assert.equal(await box.inputValue(), typed);
+      await box.fill(typed + ' (text only)');
+      await trigger6.click();
+      await page.waitForFunction(id => document.querySelector('#'+id+' .ai-feedback-output')?.getAttribute('aria-busy') === 'false', 'v25-6c');
+      assert.equal(await box.getAttribute('readonly'), null);
+      assert.equal(await textOrPhoto.locator('.ai-feedback-correction').count(), 0);
       assert.deepEqual(errors, []);
       results.push({lang,width,passed:true,provider:'local stub',realPhotographs:['student1/4b.png','student2/4b.png'],requests:requests.length});
     } catch (error) {

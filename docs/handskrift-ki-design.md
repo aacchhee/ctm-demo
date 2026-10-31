@@ -16,21 +16,25 @@ transkripsjon kreves.
 En vellykket korrigering erstatter tilbakemeldingen og starter på hint 1.
 Senere hint beholder presiseringen, men åpner ikke en ny samtale. Feil og
 avbrudd beholder tidligere tilbakemelding og hintnivå, og studenten kan prøve
-igjen. En ny opplasting nullstiller hint og presiseringer. Svarteksten er låst
-etter tilbakemelding og tømmes ved ny opplasting. Presiseringer og bilder lagres
-ikke i nettleserlagringen. Kopieringsmodus har ingen korrigeringssamtale.
+igjen. En ny opplasting nullstiller hint og presiseringer, men beholder
+svarteksten. Svarteksten låses bare når en korrigering faktisk tilbys etter
+tilbakemelding på et opplastet bilde; tekst uten bilde låses ikke. Endres
+policy, tilbakemeldingsspråk, API-modus, leverandør, modell eller nøkkel, ber
+skjemaet om ny tilbakemelding i stedet for å sende. Presiseringer og bilder
+lagres ikke i nettleserlagringen. Kopieringsmodus har ingen korrigeringssamtale.
 
-Støtten ligger i ctm-libs og er av som standard. Prøven bruker lokal
-utviklingsinstallasjon; vanlige produksjonspins er ikke endret:
+Støtten ligger i ctm-libs `972cae3` (ctm-libs#64) og er av som standard. Siden
+bruker den ordinære, pinnede ctm-assessment-pakken (`8a779d4`,
+ctm-assessment#94):
 
 ```sh
-python ../ctm-assessment/scripts/install-project.py --project . --source ctm-libs=../ctm-libs
+python scripts/setup.py
 quarto render pages/handwriting-ai.qmd
 quarto render pages/handskrift-ki.qmd
+node scripts/acceptance/test-handwriting-corrections.mjs _site
 ```
 
-Før publisering må ctm-libs-endringen inn i den ordinære, pinnede
-ctm-assessment-pakken. Dette erstatter ikke den valgfrie OCR-grenen i fase 2b:
+Dette erstatter ikke den valgfrie OCR-grenen i fase 2b:
 originalbildet beholdes som grunnlag. Automatiske tester kan verifisere
 grensesnitt, forespørsler og hintnivå; modellens vurdering av presiseringer må
 fortsatt prøves med en bildemodell.
