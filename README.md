@@ -1,10 +1,16 @@
 # CTM demo
 
-A minimal, independent English Quarto website demonstrating JSXGraph,
-browser-based Python, and automatically checked mathematics problems.
+A Quarto website that tries out CTM Assessment as a course would use it:
+JSXGraph boards, browser-based Python, automatically checked mathematics,
+variants, similar practice problems, saved answers and AI feedback, in
+English and several other languages. It installs only the `ctm-assessment`
+package and is one of its consumer tests.
 
 - **Interactive mathematics:** a vector applet, the power method through the
-  Rayleigh quotient, and two mathematics problems.
+  Rayleigh quotient, physics and Gaussian elimination problems, and STACK-style
+  questions with reviewed variants (`pages/stack-oppgaver.qmd`).
+- **Similar problems and handwriting:** AI-generated practice and photo
+  feedback pages.
 - **Your experiments here:** a clean page for new content.
 - **Help:** ingredients, a GitHub-adapter workflow diagram, VS Code setup,
   publishing, and troubleshooting.
@@ -41,7 +47,7 @@ in its `ref:`.
 that umbrella source, runs its builder, and installs the assembled distribution.
 The full suite is enabled through the `ctm-assessment` filter. Component sources
 are selected only by CTM Assessment's manifest, which pins every component,
-including the JSXGraph extension (a CTM fork of jsxgraph/jsxgraph-quarto), by commit. The demo has no separate
+including the JSXGraph extension, by commit. The demo has no separate
 component refs.
 Setup verifies installed files against the umbrella's hashes and copies its
 revision record to `.private-extensions/resolved-repos.json`.
@@ -75,51 +81,12 @@ authoring sources.
 
 ## Coordinated dependency reviews
 
-The trusted variants package is a native review tool, separately inventoried in
-`.github/variants-tooling/package.json`. Its `sources` always retain the seven
-frozen student-package commits. Version 1 contains that canonical package;
-version 2 may replace only `math-exercise/variants-review.py` for a reviewed
-native exporter correction. Version 3 retains that exporter correction and adds
-only `ctm-checkers/native-authoring/ctm_variants/github_bot.py` for the bot's
-post-commit head-readiness check, plus the mechanically derived `native.json`
-inventory entry for that file. `nativeReviewOverrides` records each immutable
-upstream commit, Git blob, source path, canonical base commit/digest and replacement
-digest. The bot override also records its canonical base byte length. The
-bootstrap reconstructs the original native inventory using the base length and
-digest, checks its hash against the canonical receipt, and verifies the complete
-native source closure before installation. The embedded resolved record
-describes the canonical **base**, with the
-explicit native overrides recorded separately; it does not describe a full
-component upgrade. Runtime files, wheels and ordinary site pins stay unchanged.
-
-Rebuilding version 2 requires `build-variants-tooling.py --package BASE_PACKAGE
---native-review-source MATH_GIT_CHECKOUT --native-review-commit FULL_REVIEWED_SHA`.
-Version 3 additionally requires `--native-bot-source CHECKERS_GIT_CHECKOUT
---native-bot-commit FULL_REVIEWED_SHA`. The builder verifies the complete base
-before reading the exact upstream commits; the bootstrap verifies the complete
-final inventory and exactly the allowlisted overrides before writing any file.
-Merge the reviewed course change before running the default-branch trusted
-producer. Do not load tooling from an authored PR, edit
-saved proposals/history, or treat generated review output as teaching approval.
-The trusted default-branch producer fingerprint is the security anchor: archive
-schema checks reject inconsistent metadata, rather than authenticating arbitrary
-replacement manifests supplied by an attacker.
-
-24 October: native tooling retains the exporter correction from
-[math-exercise PR35](https://github.com/Erasmus-CTM/math-exercise/pull/35), immutable
-commit `c2ad38ea9fd26e03dc21c57f9f56a1a9305b9466`, and adds the post-commit readiness
-correction from [ctm-checkers PR33](https://github.com/Erasmus-CTM/ctm-checkers/pull/33),
-immutable commit `efab7ad96bedb405ed3a71862018b0bc9cda628f`. The bot retries only a
-brief stale PR-head projection after its atomic commit, then requires the exact
-new branch ref before dispatching validation. Relative to the exporter-only
-package, exactly two of the 112 archived files change: the bot and its derived
-native inventory. The other 110 files,
-all seven base pins and saved course records remain unchanged. These native-tool
-corrections do not upgrade student package `503c868` or grant teaching approvals.
+The trusted variants review tool and its pinned package are described in
+[docs/variants-tooling.md](docs/variants-tooling.md).
 
 Normal builds use the component commits pinned in the manifest of
 `ctm-assessment` at `main`. A non-main review commit can declare exact dependency
-SHAs in a `CTM-Review-Refs: {"ai-feedback":"<40-character SHA>"}` commit trailer.
+SHAs in a `CTM-Review-Refs: {"ctm-libs":"<40-character SHA>"}` commit trailer.
 The visibly named workflow step prints those refs; the umbrella records them in
 `resolved-repos.json`. Main ignores review trailers. Merge upstream changes
 first, then rerun consumers with default dependencies before merging them.
