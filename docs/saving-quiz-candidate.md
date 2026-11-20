@@ -1,5 +1,7 @@
 # Saving and quiz integration candidate
 
+> **Retired (20 November 2026).** This records an October 2026 acceptance campaign. Its workflows, profile and scripts were removed on `claude/nice-dirac-uz5r4x`; they remain in the history at `f9a4a49`.
+
 Prepared from ctm-demo main `d65eea624e96bbfc7b65ebb78b7d3a43ebdb3458` on
 `consolidation/2026-10-saving-quiz-candidate`. This is the no-user demo testbox,
 not an ingmat3a rollout. The ordinary main/deployment configuration and the

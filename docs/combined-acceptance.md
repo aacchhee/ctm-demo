@@ -1,5 +1,7 @@
 # Combined demo acceptance — primary CI pending, course/static HOLD
 
+> **Retired (20 November 2026).** This records an October 2026 acceptance campaign. Its workflows, profile and scripts were removed on `claude/nice-dirac-uz5r4x`; they remain in the history at `f9a4a49`.
+
 The candidate combines saving, quiz progress, navigation and the reviewed component tuple in the demo testbox. It is **not ready for merge or deployment yet**. AC alone merges. Ingmat live/main stays stable; isolated preparation is allowed, and starting its migration requires AC after the coherent demo passes and its components are merged.
 
 ## Candidate and provenance
